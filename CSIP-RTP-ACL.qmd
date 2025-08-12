@@ -1,6 +1,222 @@
 ---
-title: "CSIP-RTP-ACL"
-format: html
+title: "Canadian Sport Institute Pacific - ACL Rehabilitation Guide"
+author: "Andrew Kates"
+format:
+  html:
+    theme: default
+    toc: true
+    toc-depth: 3
+    number-sections: false
+    embed-resources: true
+    code-tools: false
+execute: 
+  echo: false
+  warning: false
+  message: false
+bibliography: references.bib
 ---
 
-Protocol
+# Introduction {#introduction}
+
+The ACL rehabilitation protocol on this page is desgined as a comprehensive resource for CSI Pacific Staff, and any Integrated Service Team members, or sport partners who contribute to rehabilitation of Canadian high performance athletes.
+
+Some of the goals of this document are as follows:
+
+-   To gather the best available evidence on ACL rehabilitation and to organize that information in a way that is directly actionable for practitioners
+-   To facilitate seamless collaboration between any staff or IST members who are serving the rehabilitating athlete.
+-   To enable meticulous tracking of every aspect of an ACL rehab, so we can deliver the best rehab possible while also learning what we can improve for future cases
+-   
+
+::::: columns
+::: {.column width="50%"}
+The ACL rehabilitation protocol is a **criteria-driven** program designed for both clinicians and individuals post-ACL reconstruction. Progression is determined by meeting specific goals rather than by fixed timelines.
+
+**Key tips for progression:**\
+- Achieve full knee extension early\
+- Use swelling and pain as a guide\
+- Focus on correct biomechanics\
+- Build high-impact forces gradually\
+- Complete the full rehabilitation protocol
+:::
+
+::: {.column .phase-nav width="50%"}
+[Pre-Op: Injury recovery & readiness for surgery](#pre-op-phase-injury-recovery--readiness-for-surgery){.btn .phase-preop}
+
+[Phase 1: Recovery from surgery](#phase-1-recovery-from-surgery){.btn .phase-1}
+
+[Phase 2: Strength & neuromuscular control](#phase-2-strength--neuromuscular-control){.btn .phase-2}
+
+[Phase 3: Running, agility, and landings](#phase-3-running-agility-and-landings){.btn .phase-3}
+
+[Phase 4: Return to sport](#phase-4-return-to-sport){.btn .phase-4}
+
+[Phase 5: Prevention of re-injury](#phase-5-prevention-of-re-injury){.btn .phase-5}
+:::
+:::::
+
+------------------------------------------------------------------------
+
+# Pre-Op Phase: Injury Recovery & Readiness for Surgery {#pre-op-phase-injury-recovery--readiness-for-surgery}
+
+::: {.callout-important title="Most Important Goals — Pre-Op"}
+-   Eliminate swelling\
+-   Regain full range of motion\
+-   Regain 90% quadriceps and hamstring strength vs. other side\
+:::
+
+**Typical activities:**\
+- Icing, ROM exercises, cycling, progressive strengthening.\
+- Avoid aggressive change of direction.
+
+See [Outcome Measures for Pre-Op](#preop-outcomes).
+
+## Outcome Measures {#preop-outcomes}
+
+| Measure | Test Description | Goal |
+|----|----|----|
+| Passive Knee Extension | Supine with long arm goniometer | 0° |
+| Passive Knee Flexion | Supine with long arm goniometer | 125°+ |
+| Strength | Hand-held dynamometer (quads & hamstrings) | ≥ 90% symmetry |
+| Swelling/Effusion | Stroke Test | 0–1+ |
+| Single Hop Test | Average of two hops | ≥ 90% symmetry |
+
+[Back to Phase Description](#pre-op-phase-injury-recovery--readiness-for-surgery)\
+[Back to Top](#introduction){.btn .btn-outline-secondary}
+
+------------------------------------------------------------------------
+
+# Phase 1: Recovery from Surgery {#phase-1-recovery-from-surgery}
+
+::: {.callout-important title="Most Important Goals — Phase 1"}
+-   Get the knee straight\
+-   Settle the swelling\
+-   Get the quadriceps firing\
+:::
+
+**Activities:**\
+- Icing, compression, quad setting, gentle ROM.
+
+See [Outcome Measures for Phase 1](#phase1-outcomes).
+
+## Outcome Measures {#phase1-outcomes}
+
+| Measure                | Test Description    | Goal     |
+|------------------------|---------------------|----------|
+| Passive Knee Extension | Supine goniometer   | 0°       |
+| Passive Knee Flexion   | Supine goniometer   | 125°+    |
+| Strength               | Quadriceps lag test | 0–5° lag |
+| Swelling/Effusion      | Stroke Test         | 0–1+     |
+
+[Back to Phase Description](#phase-1-recovery-from-surgery)\
+[Back to Top](#introduction){.btn .btn-outline-secondary}
+
+------------------------------------------------------------------------
+
+# Phase 2: Strength & Neuromuscular Control {#phase-2-strength--neuromuscular-control}
+
+::: {.callout-important title="Most Important Goals — Phase 2"}
+-   Regain single-leg balance\
+-   Restore muscle strength\
+-   Single-leg squat with good control\
+:::
+
+**Activities:**\
+- Lunges, step-ups, squats, bridging, calf raises, balance drills, cycling.
+
+See [Outcome Measures for Phase 2](#phase2-outcomes).
+
+## Outcome Measures {#phase2-outcomes}
+
+| Measure | Test Description | Goal |
+|----|----|----|
+| Passive Knee Extension | Prone hang test | Equal to other side |
+| Passive Knee Flexion | Supine goniometer | 125°+ |
+| Functional Alignment | Single-leg squat quality (Crossley criteria) | Good |
+| Swelling/Effusion | Stroke Test | 0 |
+| Single Leg Bridges | Bridge test variation | ≥ 85% symmetry, hurdle \> 20 reps |
+| Calf Raises | Single-leg calf raise | ≥ 85% symmetry, hurdle \> 20 reps |
+| Side Bridge Endurance | Side plank | ≥ 85% symmetry, hurdle ≥ 30s |
+| Balance | Unipedal stance | Normative values |
+| Single Leg Squat (Chair) | Rise test | ≥ 85% symmetry, hurdle ≥ 10 reps |
+| Single Leg Press 1RM | 45° leg press | 1.5× bodyweight |
+| Squat 1RM | Any safe squat style | 1.5× bodyweight |
+
+[Back to Phase Description](#phase-2-strength--neuromuscular-control)\
+[Back to Top](#introduction){.btn .btn-outline-secondary}
+
+------------------------------------------------------------------------
+
+# Phase 3: Running, Agility, and Landings {#phase-3-running-agility-and-landings}
+
+::: {.callout-important title="Most Important Goals — Phase 3"}
+-   Excellent hopping performance\
+-   Complete agility program\
+-   Full strength & balance restored\
+:::
+
+**Activities:**\
+- Agility drills, hopping, box jumps, deceleration training.
+
+See [Outcome Measures for Phase 3](#phase3-outcomes).
+
+## Outcome Measures {#phase3-outcomes}
+
+| Measure | Test Description | Goal |
+|----|----|----|
+| Single Hop | Forward hop | ≥ 95% symmetry, ≥ pre-op |
+| Triple Hop | Forward triple hop | ≥ 95% symmetry |
+| Triple Crossover Hop | Across 15 cm line | ≥ 95% symmetry |
+| Side Hop | Side-to-side over 40 cm | ≥ 95% symmetry |
+| Single Leg Squat (Chair) | Rise test | Hurdle ≥ 22 reps both limbs |
+| Balance – Dynamic | Star Excursion (SEBT) | ≥ 95% symmetry |
+| Vestibular Balance | Head turns | Pass both limbs |
+| Single Leg Press 1RM | Leg press | 1.8× bodyweight |
+| Squat 1RM | Squat | 1.8× bodyweight |
+
+[Back to Phase Description](#phase-3-running-agility-and-landings)\
+[Back to Top](#introduction){.btn .btn-outline-secondary}
+
+------------------------------------------------------------------------
+
+# Phase 4: Return to Sport {#phase-4-return-to-sport}
+
+::: {.callout-important title="Most Important Goals — Phase 4"}
+-   Melbourne Return to Sport Score \> 95\
+-   Athlete confident & eager\
+-   ACL injury prevention program in place\
+:::
+
+**Components of MRSS2.0:**\
+1. Clinical Examination (10 pts)\
+2. IKDC + ACL-RSI (20 pts)\
+3. Tampa Scale of Kinesiophobia (hurdle)\
+4. Functional Testing (50 pts)\
+5. General Fitness (hurdle)\
+6. Functional Testing in Fatigued State (20 pts)
+
+[Back to Top](#introduction){.btn .btn-outline-secondary}
+
+------------------------------------------------------------------------
+
+# Phase 5: Prevention of Re-Injury {#phase-5-prevention-of-re-injury}
+
+::: {.callout-important title="Most Important Goals — Phase 5"}
+-   Ongoing neuromuscular training\
+-   Plyometrics, balance, strengthening\
+-   Maintain program indefinitely\
+:::
+
+**Example Programs:**\
+- Sportsmetrics\
+- FIFA 11+\
+- PEP Program\
+- Netball Australia KNEE Program\
+- AFL FootyFirst
+
+[Back to Top](#introduction){.btn .btn-outline-secondary}
+
+------------------------------------------------------------------------
+
+# References
+
+[@cooper2018]

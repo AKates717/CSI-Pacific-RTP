@@ -1,0 +1,47 @@
+.phase-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Base styling for phase nav buttons */
+.phase-nav .btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 0.6rem; /* spacing between buttons */
+  padding: 0.6rem 1rem;
+  font-weight: bold;
+  border: none;
+  color: white;
+}
+
+/* Phase-specific colors */
+.phase-nav .btn.phase-preop { background-color: #D71920; }
+.phase-nav .btn.phase-1     { background-color: #DA2D33; }
+.phase-nav .btn.phase-2     { background-color: #DD4047; }
+.phase-nav .btn.phase-3     { background-color: #E1535B; }
+.phase-nav .btn.phase-4     { background-color: #E4666F; }
+.phase-nav .btn.phase-5     { background-color: #E87984; }
+
+
+/* Icon styling */
+.phase-nav .btn i {
+  margin-right: 0.6rem;
+  background-color: rgba(255,255,255,0.25);
+  border-radius: 50%;
+  padding: 0.4rem;
+  width: 1.6rem;
+  text-align: center;
+}
+
+
+.page-footer {
+  background-color: black;
+  color: red;
+  font-size: 0.9em;
+  padding: 15px;
+  text-align: center;
+}
+
