@@ -1,0 +1,37 @@
+project:
+  type: website
+
+website:
+  title: "ACL Rehabilitation Hub"
+  favicon: images/csi-logo-medal-only.png
+  navbar:
+    logo: images/csi-pacific-logo-reverse-300x136.png
+    logo-alt: "Take me to the homepage"
+    left:
+      - text: "ACL Guide"
+        href: CSIP-RTP-ACL.qmd
+      - text: "Dashboards"
+        menu:
+          - text: "Force Plate Example"
+            href: dashboard1.qmd
+    right:
+      - icon: github
+        href: https://github.com/AKates717/CSI-Pacific-RTP
+      - icon: globe
+        href: https://csipacific.ca
+  page-footer: 
+    left: |
+       ![](images/csi-logo-medal-only.png){width="10%" style="position: relative; top: 15px;"}
+    center: "We gratefully and respectfully acknowledge that our workplaces exist on the traditional, ancestral and unceded Lands of the xwməθkwəy̓əm (Musqueam), Skwxwú7mesh (Squamish), L̓il̓wat7úl (Lil’wat), Esquimalt and Songhees Nations of the Coast Salish peoples."
+    right: This website is built with [{{< iconify fa6-brands:r-project >}}](https://www.r-project.org/about.html){target=_blank} and [Quarto](https://quarto.org/){target=_blank}
+    background: black
+
+format:
+  html:
+    theme: default
+    css: 
+      - styles.css
+      - css/all.min.css
+    toc: true
+    page-layout: full
+    link-external-newwindow: true
