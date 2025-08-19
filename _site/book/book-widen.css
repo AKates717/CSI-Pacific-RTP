@@ -1,0 +1,16 @@
+/* Book-only width override (R4DS-like) */
+.quarto-book {
+  --content-max-width: 75rem;  /* ~1200px; try 72rem–78rem to taste */
+}
+
+/* Optional: slightly narrower sidebar so more room goes to content */
+@media (min-width: 1200px) {
+  .quarto-book .sidebar,
+  .quarto-book .quarto-sidebar {
+    width: 260px;
+    flex: 0 0 260px;
+  }
+  .quarto-book .page-columns {
+    column-gap: 2rem;
+  }
+}

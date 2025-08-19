@@ -1,0 +1,15 @@
+# Phase 4: Return to Sport {#phase-4-return-to-sport}
+
+::: {.callout-important title="Most Important Goals — Phase 4"}
+-   Melbourne Return to Sport Score \> 95\
+-   Athlete confident & eager\
+-   ACL injury prevention program in place\
+:::
+
+**Components of MRSS2.0:**\
+1. Clinical Examination (10 pts)\
+2. IKDC + ACL-RSI (20 pts)\
+3. Tampa Scale of Kinesiophobia (hurdle)\
+4. Functional Testing (50 pts)\
+5. General Fitness (hurdle)\
+6. Functional Testing in Fatigued State (20 pts)

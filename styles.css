@@ -45,3 +45,16 @@
   text-align: center;
 }
 
+.book-embed { height: calc(100vh - 120px); } /* adjust if footer taller */
+.book-frame { width: 100%; height: 100%; border: 0; }
+
+/* Hide only on pages with `class: no-footer` */
+body.no-footer .footer {
+  display: none !important;
+}
+
+.card .card-body {
+  padding: 0 !important;
+}
+
+

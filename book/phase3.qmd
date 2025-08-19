@@ -1,0 +1,25 @@
+# Phase 3: Running, Agility, and Landings {#phase-3-running-agility-and-landings}
+
+::: {.callout-important title="Most Important Goals — Phase 3"}
+-   Excellent hopping performance\
+-   Complete agility program\
+-   Full strength & balance restored\
+:::
+
+**Activities:**\
+- Agility drills, hopping, box jumps, deceleration training.
+
+
+## Outcome Measures {#phase3-outcomes}
+
+| Measure | Test Description | Goal |
+|----|----|----|
+| Single Hop | Forward hop | ≥ 95% symmetry, ≥ pre-op |
+| Triple Hop | Forward triple hop | ≥ 95% symmetry |
+| Triple Crossover Hop | Across 15 cm line | ≥ 95% symmetry |
+| Side Hop | Side-to-side over 40 cm | ≥ 95% symmetry |
+| Single Leg Squat (Chair) | Rise test | Hurdle ≥ 22 reps both limbs |
+| Balance – Dynamic | Star Excursion (SEBT) | ≥ 95% symmetry |
+| Vestibular Balance | Head turns | Pass both limbs |
+| Single Leg Press 1RM | Leg press | 1.8× bodyweight |
+| Squat 1RM | Squat | 1.8× bodyweight |

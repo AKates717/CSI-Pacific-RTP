@@ -1,0 +1,27 @@
+# Phase 2: Strength & Neuromuscular Control {#phase-2-strength--neuromuscular-control}
+
+::: {.callout-important title="Most Important Goals — Phase 2"}
+-   Regain single-leg balance\
+-   Restore muscle strength\
+-   Single-leg squat with good control\
+:::
+
+**Activities:**\
+- Lunges, step-ups, squats, bridging, calf raises, balance drills, cycling.
+
+
+## Outcome Measures {#phase2-outcomes}
+
+| Measure | Test Description | Goal |
+|------------------------|------------------------|------------------------|
+| Passive Knee Extension | Prone hang test | Equal to other side |
+| Passive Knee Flexion | Supine goniometer | 125°+ |
+| Functional Alignment | Single-leg squat quality (Crossley criteria) | Good |
+| Swelling/Effusion | Stroke Test | 0 |
+| Single Leg Bridges | Bridge test variation | ≥ 85% symmetry, hurdle \> 20 reps |
+| Calf Raises | Single-leg calf raise | ≥ 85% symmetry, hurdle \> 20 reps |
+| Side Bridge Endurance | Side plank | ≥ 85% symmetry, hurdle ≥ 30s |
+| Balance | Unipedal stance | Normative values |
+| Single Leg Squat (Chair) | Rise test | ≥ 85% symmetry, hurdle ≥ 10 reps |
+| Single Leg Press 1RM | 45° leg press | 1.5× bodyweight |
+| Squat 1RM | Any safe squat style | 1.5× bodyweight |

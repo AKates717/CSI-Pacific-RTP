@@ -1,0 +1,22 @@
+# Pre-Op Phase: Injury Recovery & Readiness for Surgery {#pre-op-phase-injury-recovery--readiness-for-surgery}
+
+::: {.callout-important title="Most Important Goals — Pre-Op"}
+-   Eliminate swelling\
+-   Regain full range of motion\
+-   Regain 90% quadriceps and hamstring strength vs. other side\
+:::
+
+**Typical activities:**\
+- Icing, ROM exercises, cycling, progressive strengthening.\
+- Avoid aggressive change of direction.
+
+
+## Outcome Measures {#preop-outcomes}
+
+| Measure | Test Description | Goal |
+|------------------------|------------------------|------------------------|
+| Passive Knee Extension | Supine with long arm goniometer | 0° |
+| Passive Knee Flexion | Supine with long arm goniometer | 125°+ |
+| Strength | Hand-held dynamometer (quads & hamstrings) | ≥ 90% symmetry |
+| Swelling/Effusion | Stroke Test | 0–1+ |
+| Single Hop Test | Average of two hops | ≥ 90% symmetry |
