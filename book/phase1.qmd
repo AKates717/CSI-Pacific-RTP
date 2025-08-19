@@ -1,0 +1,19 @@
+# Phase 1: Recovery from Surgery {#phase-1-recovery-from-surgery}
+
+::: {.callout-important title="Most Important Goals — Phase 1"}
+-   Get the knee straight\
+-   Settle the swelling\
+-   Get the quadriceps firing\
+:::
+
+**Activities:**\
+- Icing, compression, quad setting, gentle ROM.
+
+## Outcome Measures {#phase1-outcomes}
+
+| Measure                | Test Description    | Goal     |
+|------------------------|---------------------|----------|
+| Passive Knee Extension | Supine goniometer   | 0°       |
+| Passive Knee Flexion   | Supine goniometer   | 125°+    |
+| Strength               | Quadriceps lag test | 0–5° lag |
+| Swelling/Effusion      | Stroke Test         | 0–1+     |

@@ -10,7 +10,7 @@ editor: visual
 execute: 
   echo: false
 params:
-  athlete: "Berkley Brown"
+  athlete: "Frank Reynolds"
 ---
 
 ## Readiness

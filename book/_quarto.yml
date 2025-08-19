@@ -1,0 +1,36 @@
+project:
+  type: book
+  output-dir: ../_site/book
+
+book:
+  title: "Canadian Sport Institute Pacific — ACL Rehabilitation Guide"
+  author: "Andrew Kates"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - preop.qmd
+    - phase1.qmd
+    - phase2.qmd
+    - phase3.qmd
+    - phase4.qmd
+    - phase5.qmd
+    - references.qmd
+
+format:
+  html:
+    theme:
+      - default
+      - brand.scss
+    css:
+      - ../../styles.css     # keep your existing shared styles
+      - book-widen.css       # <-- add this AFTER so it overrides widths
+    toc: true
+    number-sections: false
+    page-navigation: true
+
+
+
+execute:
+  echo: false
+  warning: false
+  message: false

@@ -1,0 +1,76 @@
+---
+title: "Welcome to the ACL Rehabilitation Hub"
+formal: html
+---
+
+This site contains resources, guides, and tools for ACL rehabilitation, including:
+
+-   The full CSI Pacific [ACL Guide](guide.qmd) — Complete rehab phases and outcome measures.
+-   Checklists tracking your precise status through the rehab journey
+-   Detailed dashboards summarizing every important detail about your rehab
+
+## Authors
+
+::::: columns
+::: {.column width="70%"}
+This site was created by [Andrew Kates](https://github.com/AKates717) . Andrew is the Return To Performance Technical Advisor and a Strength and Conditioning Coach at the Canadian Sport Institute Pacific. He is also currently a PhD candidate at the University of Victoria, studying Biomechanics.
+
+Andrew has led a number of successful ACL rehabilitations throughout his career, and has a strong interest in ACL injury management and prevention.
+:::
+
+::: {.column width="30%" fig-align="right"}
+![](images/M&J-76-1.jpg){width="232"}
+:::
+:::::
+
+## Home Page
+
+The landing page of this site provides a quick overview of the athlete's current status, as well as the overall status of the rehabilitation. Everyone involved can know exactly where everything stands on a daily basis, and can use that information to inform day-to-day decision making.
+
+## ACL Guide
+
+The [CSI Pacific ACL Guide](guide.qmd "ACL Guide") is an e-book which serves as the comprehensive guide to ACL rehab. This book contains everything you need to ensure best practice from the moment of injury, all the way to Return to Performance and beyond.
+
+## Dashboards
+
+Here you will find dashboards with more in depth information. While the home page provides a quick snapshot of your progress, each dashboard provides a deep dive into the specific aspects of the rehab.
+
+Dashboards will be most useful to practitioners who want to disect the progress of specific metrics or to check if training is affecting certain metrics as planned. This can be very helpful for making detailed tweaks to the training programs. These are different than progress reports, in that they provide very specific information about singular aspects of the rehab, whereas the progress reports track progress towards specific goals and summarize information more broadly.
+
+##### Current and planned dashboards are linked below:
+
+-   [Force Plates](dashboard1.qmd)
+
+-   Wellness Monitoring (coming soon)
+
+    -   Knee pain, swelling, well-being, mental readiness
+
+-   Strength tests (coming soon)
+
+-   Hop Tests (coming soon)
+
+## Progress Reports
+
+Any successful and lasting ACL rehabilitation must be criteria-based. By creating progress reports with a "checklist" format, every practitioner involved in a rehab can see exactly what the athlete has and hasn't accomplished, making it clear when athletes should advance to the next phase of rehab or be cleared for progression of activities. At the same time, these tools allow the athlete to clearly visualize their progress and to have a solid understanding of what they need to accomplish in order to progress through the rehab safely.
+
+Checklists can be used to track:
+
+a.  Progress through the phases of rehab
+
+    i.  [Phase 1](checklists/phase1_checklist.qmd)
+
+    ii. Phase 2
+
+    iii. Phase 3
+
+    iv. Phase 4
+
+    v.  Phase 5
+
+b.  Clearance for activities. Different activities require different physical capacities, and therefore require unique criteria to determine the optimal time for a safe return. Some examples include:
+
+    i.  [Return to Jumping](checklists/return_to_jump_checklist.qmd)
+
+    ii. [Return to Running](checklists/return_to_run_checklist.qmd)
+
+    iii. Return to Trampoline

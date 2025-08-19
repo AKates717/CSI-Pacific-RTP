@@ -1,0 +1,138 @@
+/* book/brand.scss
+   Theme for the BOOK only. Uses Quarto SCSS layer markers.
+*/
+
+/*-- scss:defaults --*/
+
+/* Palette (from brand.yml) */
+$white:    #FFFFFF;
+$black:    #000000;
+$lightgrey:#FCFCFC;
+$red:      #D71920;
+$grey:     #A7A9AC;
+
+$primary:   $red;
+$secondary: $grey;
+$success:  #4CAF50;
+$info:     #2196F3;
+$warning:  #FFC107;
+$danger:   #D32F2F;
+$light:    $white;
+$dark:     $black;
+
+/* Base page */
+$body-bg:    $lightgrey;
+$body-color: $black;
+
+/* Typography (from brand.yml) */
+$font-family-sans-serif: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$headings-font-family:   "Roboto Slab", $font-family-sans-serif;
+$font-size-base:         1rem;     /* 16px */
+$line-height-base:       1.5;
+$headings-font-weight:   600;
+
+/* Monospace */
+$font-family-monospace: "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+/* Links */
+$link-color:        $primary;
+$link-decoration:   underline;
+$link-hover-color:  shade-color($link-color, 15%);
+
+/* Expose brand primary as CSS var for components that read it */
+:root { --bs-primary: #{$primary}; }
+
+/*-- scss:rules --*/
+
+/* Load web fonts (emits CSS; keep in rules layer) */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto+Slab:wght@600;900&family=Fira+Code:wght@400&display=swap");
+
+/* Book sidebar links pick up brand color */
+.sidebar nav a.active,
+.sidebar nav a:hover { color: $primary; }
+
+/* Emphasize chapter numbers/chevrons */
+.sidebar .chapter-number,
+.sidebar .bi { color: $primary; }
+
+/* Headings use brand heading font */
+h1, h2, h3, h4, h5, h6 {
+  font-family: $headings-font-family;
+  font-weight: $headings-font-weight;
+  color: $black;
+}
+
+/* Inline code styling (monospace-inline idea) */
+p code, li code, td code, th code {
+  font-family: $font-family-monospace;
+  color: $primary;
+  background-color: rgba(215, 25, 32, 0.06);
+  padding: .05rem .25rem;
+  border-radius: .2rem;
+}
+
+/* Code blocks */
+pre code { font-family: $font-family-monospace; }
+
+/* Callouts: subtle brand accent */
+.callout-important { border-left: 4px solid $primary; }
+
+/* Buttons */
+.btn-primary {
+  background-color: $primary;
+  border-color: $primary;
+}
+.btn-primary:hover {
+  background-color: shade-color($primary, 10%);
+  border-color: shade-color($primary, 12%);
+}
+
+/* Tables: clearer zebra on light grey bg */
+.table > :not(caption) > * > * { background-color: transparent; }
+table.table-striped > tbody > tr:nth-of-type(odd) > * { background-color: rgba(0,0,0,.015); }
+
+
+/* ==== Make the book content width similar to r4ds.hadley.nz ==== */
+
+/* Base: give the content some breathing room */
+.quarto-book .page-columns .content {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+/* Desktop: narrower sidebar + wider content */
+@media (min-width: 1200px) {
+  /* Sidebar around 250–260px feels like R4DS */
+  .quarto-book .sidebar {
+    width: 260px !important;
+    flex: 0 0 260px !important;
+  }
+
+  /* Ensure the grid gives remaining space to content */
+  .quarto-book .page-columns {
+    grid-template-columns: 260px minmax(0, 1fr) !important;
+    column-gap: 2rem;
+  }
+
+  /* Main text width ~ R4DS feel */
+  .quarto-book .page-columns .content {
+    max-width: 980px;    /* try 960–1000 if you want a hair narrower/wider */
+    margin-left: 0;
+    margin-right: auto;
+  }
+}
+
+/* Very large screens: allow a touch more width */
+@media (min-width: 1600px) {
+  .quarto-book .page-columns .content {
+    max-width: 1100px;
+  }
+}
+
+/* Keep tables/figures comfortable at new width */
+.quarto-book .page-columns .content table,
+.quarto-book .page-columns .content figure,
+.quarto-book .page-columns .content .callout {
+  max-width: 100%;
+}
+
