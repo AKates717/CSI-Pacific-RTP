@@ -42,19 +42,55 @@ Jumps <- recent_five(params$athlete, "CMJ")
 
 ##### ACL Rehabilitation
 
-<i class="fa-solid fa-calendar-day"></i> **Day:** `{r} Days` <br> <i class="fa-solid fa-calendar-week"></i> **Week:** 6
+<i class="fa-solid fa-calendar-day"></i> **Day:** `{r} Days` <i class="fa-solid fa-calendar-week"></i> **Week:** 6
 
 <i class="fa-solid fa-bars-progress"></i> **Phase:** 2 <br> {{< fa solid dumbbell size=1x >}} *Strength & NM Control* <br> <i class="fa-solid fa-battery-three-quarters"></i> **Phase Progress:** 80%
 
-**Injury:** `{r} Rehab_Info$primary_injury` <br>
-**Limb:** `{r} Rehab_Info$limb` <br>
-**Date of Surgery:** `{r} Rehab_Info$date_of_surgery` <br>
-**Type of Surgery:** `{r} Rehab_Info$type_of_surgery`
+<i class="fa-solid fa-briefcase-medical"></i> **Injury:** `{r} Rehab_Info$primary_injury` <br> <i class="bi bi-person-arms-up"></i> **Limb:** `{r} Rehab_Info$limb` <br> <i class="fa-solid fa-calendar-day"></i> **Date of Surgery:** `{r} surgery_date` <br> <i class="fa-solid fa-file-medical"></i> **Type of Surgery:** `{r} Rehab_Info$type_of_surgery`
+
+```{r}
+
+# Fictional progress: Phase 1 complete; Phase 2 partial; others not started
+progress <- tibble::tibble(
+  Phase = 1:5,
+  done  = c(20, 8, 0, 0, 0),
+  total = c(20,20,20,20,20)
+) %>%
+  mutate(
+    Progress = paste0(done, "/", total),
+    Percent  = done / total
+  ) %>%
+  select(Phase, Progress, Percent)
+
+gt(progress) |>
+  tab_header(title = md("**Progress by Phase**")) |>
+  cols_label(
+    Phase   = "Phase",
+    Progress= "Completion",
+    Percent = "Percent"
+  ) |>
+  fmt_percent(columns = Percent, decimals = 0) |>
+  cols_align(align = "left", columns = Phase) |>
+  cols_align(align = "center", columns = c(Progress, Percent)) |>
+  # Color ONLY 100% cells in columns 2 and 3
+  tab_style(
+    style = list(cell_fill(color = "#e6f4ea"),
+                 cell_text(color = "#1e7e34", weight = "700")),
+    locations = cells_body(
+      columns = c(Phase, Progress, Percent),
+      rows = Percent == 1
+    )
+  ) |>
+  tab_options(
+    data_row.padding = px(6),
+    table_body.hlines.style = "solid",
+    table_body.hlines.width = px(1)
+  )
+```
 
 ## Column {width = "33%"}
 
 ::: {.card title="Today's Summary" fill="false"}
-
 ```{r}
 
 # ---- Fake "today" values + baseline for jump height ----
@@ -138,8 +174,6 @@ tab
 
 ```
 
-
-
 ```{r}
 #| label: summary
 
@@ -207,7 +241,6 @@ gt(table_df) |>
     data_row.padding = px(6)
   )
 ```
-
 :::
 
 ## Column {width = "33%"}

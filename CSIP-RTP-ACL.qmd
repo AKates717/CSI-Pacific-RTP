@@ -18,7 +18,7 @@ bibliography: references.bib
 
 # Introduction {#introduction}
 
-The ACL rehabilitation protocol on this page is desgined as a comprehensive resource for CSI Pacific Staff, and any Integrated Service Team members, or sport partners who contribute to rehabilitation of Canadian high performance athletes.
+The ACL rehabilitation protocol on this page is designed as a comprehensive resource for CSI Pacific Staff, and any Integrated Service Team members, or sport partners who contribute to rehabilitation of Canadian high performance athletes.
 
 Some of the goals of this document are as follows:
 

@@ -1,5 +1,27 @@
 # Pre-Op Phase: Injury Recovery & Readiness for Surgery {#pre-op-phase-injury-recovery--readiness-for-surgery}
 
+Template (For AK):
+
+-   Phase checklist for the athlete (maybe not in Phase 0). This should be very nicely formatted to show both the criteria and the athlete's progress through those criteria.
+
+-   Phase Description
+
+    -   Typical Activities? Description of ideal movements?
+
+-   Link to TeamBuildr Program
+
+-   Specific Tech / Procedures for this phase
+
+    -   BFR
+
+    -   E-Stim
+
+-   FAQ and Troubleshooting
+
+    -   Common issues/obstacles in this phase and some ideas to overcome
+
+-   References
+
 ::: {.callout-important title="Most Important Goals — Pre-Op"}
 -   Eliminate swelling\
 -   Regain full range of motion\
@@ -9,7 +31,6 @@
 **Typical activities:**\
 - Icing, ROM exercises, cycling, progressive strengthening.\
 - Avoid aggressive change of direction.
-
 
 ## Outcome Measures {#preop-outcomes}
 
