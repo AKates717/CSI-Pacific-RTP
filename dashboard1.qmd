@@ -68,17 +68,6 @@ source("plot_functions.R")
      arrange(desc(date_ddmmyear)) %>%
      filter(date_ddmmyear %in% unique(date_ddmmyear)[1:5])
  }
- 
-
-
-#Test Charts ----
-# Megan <- recent_five("Megan Oldham", "CMJ")
-# Megan2 <-num_test("Megan Oldham", "CMJ", 3)
-# Simon <- recent_five("Simon D'Artois", "CMJ")
-# Simon2 <-num_test("Simon D'Artois", "CMJ", 3)
-# Brynn <- recent_five("Brynn Johnston", "CMJ")
-# Brynn2 <-num_test("Brynn Johnston", "CMJ", 3)
-# Ath2 <-num_test("Brynn Johnston", "CMJ", 3)
 
 Ath <- recent_five(params$athlete, "CMJ")
 

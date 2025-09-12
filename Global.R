@@ -54,8 +54,9 @@ Rehab_Info <- read_excel(
 
 #Show the day number of the rehab, calculated as days since surgery
 Days <- as.numeric(difftime(today(), Rehab_Info$date_of_surgery, units = "days"))
-injury_date <- Rehab_Info$date_of_injury
-surgery_date <- wday(Rehab_Info$date_of_surgery, label = TRUE) %>% as.character()
+injury_date <- format(Rehab_Info$date_of_injury, "%b %d, %Y")
+surgery_date <- format(Rehab_Info$date_of_surgery, "%b %d, %Y")
+surgery_wday <- wday(Rehab_Info$date_of_surgery, label = TRUE) %>% as.character()
 
 
 

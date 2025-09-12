@@ -7,7 +7,6 @@ book:
   author: "Andrew Kates"
   chapters:
     - index.qmd
-    - intro.qmd
     - preop.qmd
     - phase1.qmd
     - phase2.qmd
