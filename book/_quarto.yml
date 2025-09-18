@@ -7,13 +7,21 @@ book:
   author: "Andrew Kates"
   chapters:
     - index.qmd
-    - preop.qmd
-    - phase1.qmd
-    - phase2.qmd
-    - phase3.qmd
-    - phase4.qmd
-    - phase5.qmd
-    - references.qmd
+    - part: "The Protocol"
+      chapters:
+        - preop.qmd
+        - phase1.qmd
+        - phase2.qmd
+        - phase3.qmd
+        - phase4.qmd
+        - phase5.qmd
+    - part: "Resources"
+      chapters:
+        - calculations.qmd
+        - references.qmd
+
+bibliography: references.bib
+csl: sports-medicine.csl
 
 format:
   html:
@@ -24,8 +32,9 @@ format:
       - ../../styles.css     # keep your existing shared styles
       - book-widen.css       # <-- add this AFTER so it overrides widths
     toc: true
-    number-sections: false
+    #number-sections: false
     page-navigation: true
+    link-external-newwindow: true
 
 
 
@@ -33,3 +42,4 @@ execute:
   echo: false
   warning: false
   message: false
+  working-directory: project

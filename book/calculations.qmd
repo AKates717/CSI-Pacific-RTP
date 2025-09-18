@@ -1,0 +1,7 @@
+---
+format: html
+---
+
+# Calculations {.unnumbered}
+
+A quick guide to the testing procedures and calculations used in this book.

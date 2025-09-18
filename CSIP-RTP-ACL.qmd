@@ -16,7 +16,7 @@ execute:
 bibliography: references.bib
 ---
 
-# Introduction {#introduction}
+# Welcome {#introduction}
 
 The ACL rehabilitation protocol on this page is designed as a comprehensive resource for CSI Pacific Staff, and any Integrated Service Team members, or sport partners who contribute to rehabilitation of Canadian high performance athletes.
 
@@ -73,7 +73,7 @@ See [Outcome Measures for Pre-Op](#preop-outcomes).
 ## Outcome Measures {#preop-outcomes}
 
 | Measure | Test Description | Goal |
-|------------------------|------------------------|------------------------|
+|----|----|----|
 | Passive Knee Extension | Supine with long arm goniometer | 0° |
 | Passive Knee Flexion | Supine with long arm goniometer | 125°+ |
 | Strength | Hand-held dynamometer (quads & hamstrings) | ≥ 90% symmetry |
@@ -128,7 +128,7 @@ See [Outcome Measures for Phase 2](#phase2-outcomes).
 ## Outcome Measures {#phase2-outcomes}
 
 | Measure | Test Description | Goal |
-|------------------------|------------------------|------------------------|
+|----|----|----|
 | Passive Knee Extension | Prone hang test | Equal to other side |
 | Passive Knee Flexion | Supine goniometer | 125°+ |
 | Functional Alignment | Single-leg squat quality (Crossley criteria) | Good |

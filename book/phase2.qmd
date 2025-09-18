@@ -1,4 +1,5 @@
-# Phase 2: Strength & Neuromuscular Control {#phase-2-strength--neuromuscular-control}
+# Phase 2: Strength and neuromuscular control {#phase-2-strength-and-neuromuscular-control}
+
 
 ::: {.callout-important title="Most Important Goals — Phase 2"}
 -   Regain single-leg balance\
@@ -8,7 +9,6 @@
 
 **Activities:**\
 - Lunges, step-ups, squats, bridging, calf raises, balance drills, cycling.
-
 
 ## Outcome Measures {#phase2-outcomes}
 
