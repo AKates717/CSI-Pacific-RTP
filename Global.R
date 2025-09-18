@@ -17,6 +17,8 @@ library(calendR)
 library(ggimage)
 library(keyring)
 library(digest)
+library(here)
+library(htmltools)
 
 
 ####
@@ -58,7 +60,7 @@ injury_date <- format(Rehab_Info$date_of_injury, "%b %d, %Y")
 surgery_date <- format(Rehab_Info$date_of_surgery, "%b %d, %Y")
 surgery_wday <- wday(Rehab_Info$date_of_surgery, label = TRUE) %>% as.character()
 
-
+prehab <- as.numeric(difftime(Rehab_Info$date_of_surgery, Rehab_Info$date_of_injury, units = "days"))
 
 
 

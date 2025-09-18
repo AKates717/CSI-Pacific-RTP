@@ -39,7 +39,7 @@
     "href": "about.html#authors",
     "title": "Welcome to the ACL Rehabilitation Hub",
     "section": "Authors",
-    "text": "Authors\n\n\nThis CSI Pacific ACL Rehabilitation Protocol was created by Andrew Kates . Andrew is the Return To Performance Technical Advisor and a Strength and Conditioning Coach at the Canadian Sport Institute Pacific. He is also currently a PhD candidate at the University of Victoria, studying Biomechanics.\nAndrew has led numerous successful ACL rehabilitations throughout his career, and has a strong interest in ACL injury management and prevention.\n\n\n\n\n\nEditors:\nThe following people made meaningful contributions to this project and provided invaluable expertise and experience:\n\n\n\n\n\n\n\n\n\nOne\n\n\n\n\n\n\n\nTwo\n\n\n\n\n\n\n\nThree\n\n\n\n\n\n\n\nFour"
+    "text": "Authors\n\nAndrew Kates\n\n\nAndrew is the Return To Performance Technical Advisor and a Strength and Conditioning Coach at the Canadian Sport Institute Pacific. He is also currently a PhD candidate at the University of Victoria, studying Biomechanics.\nAndrew has led numerous successful ACL rehabilitations throughout his career, and has a strong interest in ACL injury management and prevention.\n\n\n\n\n\nEditors\nThe following people made meaningful contributions to this project and provided invaluable expertise and experience:\n\n\n\n\n\n\n\n\n\nOne\n\n\n\n\n\n\n\nTwo\n\n\n\n\n\n\n\nThree\n\n\n\n\n\n\n\nFour"
   },
   {
     "objectID": "about.html#home",
@@ -159,5 +159,12 @@
     "title": "ACL Rehabilitation Hub",
     "section": "Column {width = “33%”}",
     "text": "Column {width = “33%”}\n\nRow - Tabsets of tables\n\n\nWarning: Unknown or uninitialised column: `x1`.\nUnknown or uninitialised column: `x1`.\n\n\n\n\n\n\n\n\nWarning: Unknown or uninitialised column: `x1`.\nUnknown or uninitialised column: `x1`.\n\n\n\n\n\n\n\n\nRow - Tabsets of tables\nSome Data"
+  },
+  {
+    "objectID": "checklists/return_to_jump_checklist.html",
+    "href": "checklists/return_to_jump_checklist.html",
+    "title": "Return to Jumping",
+    "section": "",
+    "text": "Return to Jumping"
   }
 ]

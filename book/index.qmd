@@ -1,22 +1,87 @@
 ---
-title: "Introduction"
+params:
+  athlete: "Frank Reynolds"
 ---
 
-# Introduction {#ch-intro}
+# Introduction {#ch-intro .unnumbered}
 
+::::: columns
+::: {.column width="70%"}
 This ACL rehabilitation protocol is designed as a comprehensive resource for every person involved in a rehab, starting with the athlete them-self. This document will allow the athlete to take ownership of the rehabilitation process and to know exactly how they are progressing throughout the journey. Although the athlete is at the centre of this process at all times, this document is technical and scientific, and will provide CSI Pacific staff, Integrated Service Team (IST) members, and other sport partner personnel with a thoroughly-researched, evidence-based plan to help the athlete return to performance.
+:::
 
-This process aligns closely with CSI Pacific's goals to Collaborate, Serve, Innovate and Perform.
+::: {.column width="30%" fig-align="right"}
+![](images/Cover1.png){fig-align="right" width="177"}
+:::
+:::::
 
-Collaborate: This tool facilitates seamless collaboration amongst every member of the athlete's support team. All information will be in one place and everybody will have the opportunity to be on the same page.
+This protocol embodies and aligns closely with CSI Pacific's Critical Success Factors:
 
-Serve: An athlete-centred approach, combined with a
+::: {=html}
+```{=html}
+<style>
+  .csf-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(220px, 1fr));
+    gap: 16px;
+    margin: 12px 0 8px;
+  }
+  @media (max-width: 1100px) { .csf-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px)  { .csf-grid { grid-template-columns: 1fr; } }
 
-Innovate: This ambitious protocol, centred on meticulous data management is unique in the field of injury rehabilitation. It allows us to continually provide best-practice service, and to learn and grow with every successful rehab.
+  .csf-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-top: 4px solid #D71920; /* brand red */
+    border-radius: 12px;
+    padding: 14px 16px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.06);
+  }
+  .csf-title   { font-weight: 800; letter-spacing: .2px; margin: 0 0 6px; }
+  .csf-subtitle{ font-size: .9rem; text-transform: uppercase; opacity: .7; margin: 0 0 10px; }
+  .csf-list    { margin: 0; padding-left: 1.1rem; }
+  .csf-list li { margin: .25rem 0; }
+</style>
+```
+:::
 
-Perform: This protocol is backed by the latest scientific research as well as the experience of expert-level practitioners who have led successful rehabilitations for some of Canada's top athletes. This protocol, combined with the dedication and hard work of CSI Pacific practitioners will give athletes the best possible chance of a successful return to performance.
+::::::::::: {.csf-grid .column-body-outset-right}
+:::: csf-card
+::: csf-title
+Collaborate
+:::
 
-Importantly, this protocol is **criteria-based**. Every athlete will move through the rehabilitation at their own pace, allowing the criteria to govern progression. Occasionally, rough time-lines will be cited in order to provide some temporal context for the rehabilitation, but it is important to remember that every ACL injury and rehab is different, and that allowing the criteria to dictate progression will keep the process on track and ultimately lead to the most successful return to performance.
+This tool facilitates seamless collaboration amongst every member of the athlete's support team. All information will be in one place and everybody will have the opportunity to be on the same page.
+::::
+
+:::: csf-card
+::: csf-title
+Serve
+:::
+
+An athlete-centred approach, backed by the dedication and hard work of CSI Pacific practitioners will give athletes the best possible chance of a successful return to performance.
+::::
+
+:::: csf-card
+::: csf-title
+Innovate
+:::
+
+This ambitious protocol, centred on meticulous data management is unique in the field of injury rehabilitation. It allows us to continually provide best-practice service, and to learn and grow with every successful rehab.
+::::
+
+:::: csf-card
+::: csf-title
+Perform
+:::
+
+This protocol is backed by the latest scientific research as well as the experience of expert-level practitioners who have led successful rehabilitations for some of Canada's top athletes.
+::::
+:::::::::::
+
+------------------------------------------------------------------------
+
+Importantly, this protocol is **criteria-based**. Every athlete will move through the rehabilitation at their own pace, allowing the criteria to govern progression. Occasionally, estimated time-lines will be cited in order to provide some temporal context for the rehabilitation, but it is important to remember that every ACL injury and rehab is different, and that allowing the criteria to dictate progression will keep the process on track and ultimately lead to the most successful return to performance.
 
 This protocol is different from previously published ACL Rehabilitation Protocols in that it is a living document, fully integrated with all of the athlete's data and unique information needed to tailor the process to the individual. Some advantages of this approach include:
 
@@ -40,7 +105,7 @@ With that said, much of the information in this book is targeted towards a multi
 :::
 
 ::: {.column width="50%"}
-![](images/placeholder.jpg){fig-align="center" width="189"}
+![](images/ath-centred.png){fig-align="center" width="279"}
 :::
 
 There is no expectation for you to read this e-book front-to-back, but all of the information is there for you to engage with as you wish, and of course, questions are always encouraged!
@@ -48,18 +113,30 @@ There is no expectation for you to read this e-book front-to-back, but all of th
 
 ## A Note To Practitioners
 
-While this document is meant as a comprehensive resource, based on the most up-to-date research and best practice, it is important to acknowledge that there will always be many different ways to approach any situation. Not all practitioners will agree on the optimal approach at all times, and that is okay. A primary goal of this document is to serve as a starting point for productive collaboration between all practitioners involved in the rehab process. It is designed as a resource to help an integrated service team to deliver the best possible rehab for the athlete. The protocol alone does not ensure a strong and successful return to performance; such an outcome will depend first and foremost on the dedicated and attentive delivery of the protocol by skilled practitioners.
-
-Some of the goals of this document are as follows:
-
--   To gather the best available evidence on ACL rehabilitation and to organize that information in a way that is directly actionable for practitioners
--   To facilitate seamless collaboration between IST members who are serving the rehabilitating athlete.
--   To
-
-this review clearly states the criteria that will need to be met in order to progress through the stages of the rehab, while also providing u
-
-By following along, you will obtain a clear picture of WHAT you need to accomplish, and also HOW to accomplish it.
+This protocol strives to gather the best available evidence on ACL rehabilitation and to organize that information in a way that is directly actionable. Practitioners and decision makers should be able to follow along and obtain a clear picture of WHAT needs to be accomplished and also HOW to accomplish it. While this document is meant as a comprehensive resource, it is important to acknowledge that there will always be many different ways to approach any situation. Not all practitioners will agree on the optimal approach at all times, and that is okay. A primary goal of this document is to serve as a starting point for productive collaboration between all practitioners involved in the rehab process. Used effectively, this resource should help an integrated service team deliver the best possible rehab for the athlete. The protocol alone does not ensure a strong and successful return to performance; such an outcome will depend first and foremost on the dedicated and attentive delivery of the protocol by skilled practitioners.
 
 ## The Six Phases of ACL Rehabilitation
 
-Can we do a nice visual here?
+::: phase-nav
+[Pre-Op: Injury recovery & readiness for surgery](#sec-pre-op-phase){.phase-nav .btn .phase-preop}
+:::
+
+::: phase-nav
+[Phase 1: Recovery from surgery](#phase-1-recovery-from-surgery){.phase-nav .btn .phase-1}
+:::
+
+::: phase-nav
+[Phase 2: Strength and neuromuscular control](#phase-2-strength-and-neuromuscular-control){.btn .phase-2}
+:::
+
+::: phase-nav
+[Phase 3: Running, agility, and landings](#phase-3-running-agility-and-landings){.btn .phase-3}
+:::
+
+::: phase-nav
+[Phase 4: Return to sport](#phase-4-return-to-sport){.btn .phase-4}
+:::
+
+::: phase-nav
+[Phase 5: Prevention of re-injury](#phase-5-prevention-of-re-injury){.btn .phase-5}
+:::

@@ -11,19 +11,21 @@ This site contains resources, guides, and tools for ACL rehabilitation, includin
 
 ## Authors
 
+### [Andrew Kates](https://github.com/AKates717)
+
 ::::: columns
 ::: {.column width="70%"}
-This CSI Pacific ACL Rehabilitation Protocol was created by [Andrew Kates](https://github.com/AKates717) . Andrew is the Return To Performance Technical Advisor and a Strength and Conditioning Coach at the Canadian Sport Institute Pacific. He is also currently a PhD candidate at the University of Victoria, studying Biomechanics.
+Andrew is the Return To Performance Technical Advisor and a Strength and Conditioning Coach at the Canadian Sport Institute Pacific. He is also currently a PhD candidate at the University of Victoria, studying Biomechanics.
 
 Andrew has led numerous successful ACL rehabilitations throughout his career, and has a strong interest in ACL injury management and prevention.
 :::
 
 ::: {.column width="30%" fig-align="right"}
-![](images/M&J-76-1.jpg){width="232"}
+![](images/Hayds.png){width="163"}
 :::
 :::::
 
-#### Editors:
+#### Editors
 
 The following people made meaningful contributions to this project and provided invaluable expertise and experience:
 
