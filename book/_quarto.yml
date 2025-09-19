@@ -5,6 +5,7 @@ project:
 book:
   title: "Canadian Sport Institute Pacific — ACL Rehabilitation Guide"
   author: "Andrew Kates"
+  bread-crumbs: false
   chapters:
     - index.qmd
     - part: "The Protocol"
