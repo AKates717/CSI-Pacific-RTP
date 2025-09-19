@@ -43,10 +43,12 @@ Regardless of the length of the prehab window, the research is clear that the le
 
 ```{r}
 
-phase0_criteria <- readxl::read_xlsx("sample_data/acl-protocol-criteria-2025.xlsx", sheet="Phase0")
+phase0_criteria <- readxl::read_xlsx("sample_data/acl-protocol-criteria-2025.xlsx", sheet="Phase0") %>%
+  clean_names()
+#phase0_criteria <- readxl::read_xlsx("acl-protocol-criteria-2025.xlsx", sheet="Phase0") %>%
+  #clean_names()
 
-
-# 2) Helpers for parsing numbers and percents
+# Helpers for parsing numbers and percents
 parse_num <- function(x) {
   if (is.numeric(x)) return(x)
   s <- as.character(x)
@@ -54,22 +56,22 @@ parse_num <- function(x) {
 }
 is_percent <- function(x) grepl("%", as.character(x))
 
-# 3) Prep data: normalize operators, parse numbers, and decide if goal is met
+# Prep data: normalize operators, parse numbers, and decide if goal is met
 phase0_prepped <- phase0_criteria %>%
   mutate(
     # Normalize operators like ≥ ≤ to R-friendly >= <=
-    op_clean = trimws(Operator),
+    op_clean = trimws(operator),
     op_clean = dplyr::recode(op_clean,
       "≥" = ">=", "≤" = "<=", "=" = "==", "=>" = ">=", "=<" = "<="
     ),
 
     # Raw values for potential string-equality comparisons
-    score_raw = Score,
-    goal_raw  = Goal,
+    score_raw = score,
+    goal_raw  = goal,
 
     # Numerics (pull first numeric token)
-    score_num = parse_num(Score),
-    goal_num  = parse_num(Goal),
+    score_num = parse_num(score),
+    goal_num  = parse_num(goal),
 
     # Percent handling: if Goal shows %, compare in 0–100 space
     score_num = dplyr::case_when(
@@ -95,36 +97,36 @@ phase0_prepped <- phase0_criteria %>%
     )
   )
 
-# 3a) Some nice percentage formatting
+# Some nice percentage formatting
 phase0_prepped <- phase0_prepped %>%
   mutate(
-    Goal  = ifelse(grepl("^0?\\.\\d+$", Goal),  paste0(as.numeric(Goal)  * 100, "%"), Goal),
-    Score = ifelse(grepl("^0?\\.\\d+$", Score), paste0(as.numeric(Score) * 100, "%"), Score)
+    goal  = ifelse(grepl("^0?\\.\\d+$", goal),  paste0(as.numeric(goal)  * 100, "%"), goal),
+    score = ifelse(grepl("^0?\\.\\d+$", score), paste0(as.numeric(score) * 100, "%"), score)
   )
 
 
-# 4) Build gt + Score coloring
+# Build gt + Score coloring
 tbl <- phase0_prepped %>%
   select(
-    `Outcome Measure`,
-    Operator, Goal, Score, meets_goal
+    outcome_measure,
+    operator, goal, score, meets_goal
   ) %>%
   gt() %>%
   cols_label(
-    `Outcome Measure` = "Outcome Measure",
+    outcome_measure = "Outcome Measure",
     #`Display Description` = "Display Description",
     #Info = "",
-    Goal = "Goal",
-    Operator = "",
-    Score = "Score"
+    goal = "Goal",
+    operator = "",
+    score = "Score"
   ) %>%
-  cols_align(align = "center", columns = c(Goal, Operator, Score)) %>%
+  cols_align(align = "center", columns = c(goal, operator, score)) %>%
   ak_gt_theme3() %>%
   cols_width(
-    `Outcome Measure` ~ px(260),
-    Goal ~ px(90),
-    Operator ~ px(60),
-    Score ~ px(100)
+    outcome_measure ~ px(260),
+    goal ~ px(90),
+    operator ~ px(60),
+    score ~ px(100)
   ) %>%
   #tab_options(table.font.size = px(14), data_row.padding = px(6)) %>%
   # Color Score cell by pass/fail/NA
@@ -133,21 +135,21 @@ tbl <- phase0_prepped %>%
       cell_fill(color = "#E8F5E9"),   # light green
       cell_text(color = "#1B5E20", weight = "600")
     ),
-    locations = cells_body(columns = Score, rows = meets_goal %in% TRUE)
+    locations = cells_body(columns = score, rows = meets_goal %in% TRUE)
   ) %>%
   tab_style(
     style = list(
       cell_fill(color = "#FFF9C4"),   # light yellow
       cell_text(color = "#7A6A00", weight = "600")
     ),
-    locations = cells_body(columns = Score, rows = meets_goal %in% FALSE)
+    locations = cells_body(columns = score, rows = meets_goal %in% FALSE)
   ) %>%
   tab_style(
     style = list(
       cell_fill(color = "#ECEFF1"),   # light grey for NA/uncomparable
       cell_text(color = "#455A64")
     ),
-    locations = cells_body(columns = Score, rows = is.na(meets_goal))
+    locations = cells_body(columns = score, rows = is.na(meets_goal))
   ) %>%
   # Hide helper column
   cols_hide(columns = meets_goal)
@@ -210,29 +212,49 @@ While it seems clear that ACLR prehab can be a potentially effective interventio
 
 ## Testing {#sec-phase0testing}
 
-#### Settle the Swelling
+Each card below contains a detailed description of the tests to be conducted during this phase of rehab.
 
-Stroke Test, Girth Measurement.. video?
+```{r, echo=FALSE, results='asis'}
 
-#### Passive Knee Extension
 
-asddsd
+tests <- phase0_criteria |>
+  dplyr::select(outcome_measure, display_description, additional_information, goal, repetitions, calculation)
 
-#### Passive Knee Flexion
+# for (i in seq_len(nrow(tests))) {
+#   cat('::: {.card .ak-card .has-stripe .accent-primary}\n')
+#   cat('### ', tests$outcome_measure[i], '\n\n', sep = '')
+#   cat(tests$display_description[i], '\n\n')
+#   cat(tests$additional_information[i], '\n\n')
+#   cat('**Criteria:** ', tests$goal[i], '\n\n', sep = '')
+#   cat(':::\n\n')
+# }
 
-asdasfdadsf
+# Helper: print a label/value line only if value is non-missing & non-empty
+emit_field <- function(label, value) {
+  if (length(value) == 0 || all(is.na(value))) return(invisible())
+  val <- value[[1]]
+  if (is.na(val)) return(invisible())
+  val_chr <- trimws(as.character(val))
+  if (!nzchar(val_chr)) return(invisible())
+  cat("**", label, ":** ", val_chr, "\n\n", sep = "")
+}
 
-#### Knee Extensor Strength
+for (i in seq_len(nrow(tests))) {
+  cat('::: {.card .ak-card .has-stripe .accent-primary}\n')       # your universal card class
+  cat('### ', tests$outcome_measure[i], '\n\n', sep = '')         # heading
+  if (!is.na(tests$display_description[i]) &&
+      nzchar(trimws(tests$display_description[i]))) {
+    cat(tests$display_description[i], '\n\n')
+  }
+  cat("*", tests$additional_information[i], '\n\n')
+  emit_field("Criteria",    tests$goal[i])                       # always optional-safe
+  emit_field("Repetitions", tests$repetitions[i])                # only prints if present
+  emit_field("Calculation", tests$calculation[i])
 
-sdfdfdfsfd
+  cat(':::\n\n')
+}
 
-#### Knee Flexor Strength
-
-sdsasffs
-
-#### Single Leg Hop Test
-
-sdfsdfdafdf
+```
 
 ## The Program
 
@@ -242,7 +264,7 @@ Below you will find links to your training programs.
 
 Exercises and activities during this phase typically include regular icing of the knee to reduce swelling, range of motion exercises, low impact aerobic exercise such as cycling, and a progressive strengthening regime. Strength exercises should progress in parallel with the clinical condition of the knee. As the pain & swelling settles, and the range of motion increases, strength exercise can progress to include weighted exercises in the gym and jump and land activities such as hopping drills. Aggressive change of direction activities should be avoided during this phase.
 
-## Helpful Resources
+## Additional Resources
 
 ### Blood Flow Restriction
 

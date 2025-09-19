@@ -79,9 +79,7 @@ ak_gt_theme2 <- function(gt_tbl){
 
 
 #ak_gt_theme3 ----
-#working with chat
-
-
+#This is the working gt theme right now, ignore the first 2, create others based off this
 ak_gt_theme3 <- function(
     gt_tbl,
     accent        = "#D71920",            # brand accent (primary red)
