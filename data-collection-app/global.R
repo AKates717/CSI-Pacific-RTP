@@ -5,7 +5,7 @@ library(openxlsx)
 library(DT)
 library(here)
 library(bslib)
-
+library(janitor)
 
 #========================
 # Themes & Formatting
@@ -90,7 +90,7 @@ read_current_data <- function(sheet_name) {
     #error = function(e) empty_df()
   #)
   #if (nrow(df) == 0) return(empty_df())
-  
+
   # make sure all expected columns exist and are ordered
   # missing <- setdiff(COLS, names(df))
   # if (length(missing)) df[missing] <- lapply(missing, function(x) rep(NA, nrow(df)))
@@ -163,6 +163,11 @@ load_measure_lookup <- function() {
 }
 
 MEASURES <- load_measure_lookup()
+
+
+
+
+
 
 measures_by_phase <- function(phase_label) {
   if (nrow(MEASURES) == 0) return(character())
