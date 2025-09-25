@@ -25,6 +25,8 @@ website:
         menu:
           - text: "Force Plates"
             href: dashboard1.qmd
+          - text: "Shiny App"
+            href: app-inline.qmd
       - text: "Progress Reports"
         menu:
           - text: "Phase 1"

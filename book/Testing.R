@@ -6,27 +6,26 @@ source("plot_functions.R")
 source("Themes.R")
 
 
-phase0_length <- tibble(
-  'Injury Date ' = injury_date,
-  'Surgery Date' = surgery_date,
-  'Prehab Window' = paste0(as.numeric(difftime(Rehab_Info$date_of_surgery, Rehab_Info$date_of_injury, units = "days")), " Days")
-) %>% gt() %>%
-  ak_gt_theme3()
-
-phase0_length
 
 
 
+phase0 <- readxl::read_xlsx("sample_data/acl-protocol-criteria-2025.xlsx", sheet="phase0_collect") %>%
+  clean_names() %>%
+  dplyr::filter(!is.na(date)) %>%
+  dplyr::mutate(date = ymd(date))
 
+min(phase0$date)  
+#rm(phase0)  
+  
 
-
-
-
-
-phase0_criteria <- readxl::read_xlsx("sample_data/acl-protocol-criteria-2025.xlsx", sheet="Phase0")
-
-
-
+phase1 <- read_xlsx("sample_data/outcome_data.xlsx", sheet = "Phase1_data")
+  
+  
+  
+  
+  
+  
+  
 
 # 2) Helpers for parsing numbers and percents
 parse_num <- function(x) {
