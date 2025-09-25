@@ -9,10 +9,10 @@ source("Themes.R")
 
 
 
-phase0 <- readxl::read_xlsx("sample_data/acl-protocol-criteria-2025.xlsx", sheet="phase0_collect") %>%
-  clean_names() %>%
-  dplyr::filter(!is.na(date)) %>%
-  dplyr::mutate(date = ymd(date))
+criteria <- readxl::read_xlsx("sample_data/acl-protocol-criteria-2025.xlsx", sheet="criteria_full") %>%
+  clean_names()
+  #dplyr::filter(!is.na(date)) %>%
+  #dplyr::mutate(date = ymd(date))
 
 min(phase0$date)  
 #rm(phase0)  

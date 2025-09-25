@@ -1,13 +1,56 @@
 function(input, output, session) {
   ensure_workbook()
   
+  criteria_simple <- readxl::read_excel(SOURCE_PATH, sheet = SOURCE_SHEET, .name_repair = "minimal") |>
+    dplyr::select(
+      `Outcome Measure`,
+      `Display Description`,
+      `Additional Information`
+    ) |>
+    dplyr::mutate(`Outcome Measure` = trimws(as.character(`Outcome Measure`)))
+  
   # Load current data for both phases
   data_p0 <- reactiveVal(read_current_data(SHEET_P0))
   data_p1 <- reactiveVal(read_current_data(SHEET_P1))
-  data_p2 <- reactiveVal(read_current_data(SHEET_P2))
   
   
   #Phase 0 ----
+  
+  output$description_p0 <- renderText({
+    req(input$measure_p0)
+    m <- trimws(input$measure_p0)
+    row <- criteria_simple |>
+      dplyr::filter(`Outcome Measure` == m) |>
+      dplyr::slice(1)
+    
+    if (nrow(row) == 0) return("No description available.")
+    val <- row$`Display Description`[[1]]
+    if (is.null(val) || is.na(val) || !nzchar(val)) "No description available."
+    else gsub("\r\n?", "\n", val)   # normalize CR/LF so CSS pre-wrap works
+  })
+  
+  output$info_p0 <- renderText({
+    req(input$measure_p0)
+    m <- trimws(input$measure_p0)
+    row <- criteria_simple |>
+      dplyr::filter(`Outcome Measure` == m) |>
+      dplyr::slice(1)
+    
+    if (nrow(row) == 0) return("No additional information.")
+    val <- row$`Additional Information`[[1]]
+    if (is.null(val) || is.na(val) || !nzchar(val)) "No additional information."
+    else gsub("\r\n?", "\n", val)
+  })
+  
+  
+  output$p0_card_title <- renderUI({
+    m <- input$measure_p0
+    if (is.null(m) || !nzchar(m)) {
+      tags$em("Select an outcome measure")
+    } else {
+      tags$div(class = "d-flex align-items-center gap-2", m)
+    }
+  })
   
   
   # Create Output Table
@@ -109,59 +152,6 @@ function(input, output, session) {
       output$status_p1 <- renderText(paste("Error:", e$message))
     })
   })
-  
-  #Phase 2 ----
-  
-  # Create Output Table
-  output$table_p2 <- renderDT({
-    datatable(data_p2(), options = list(pageLength = 5), rownames = FALSE)
-  })
-  
-  
-  
-  # Auto-fill Units when a known measure is selected/typed (Phase 2)
-  observeEvent(input$measure_p2, ignoreInit = TRUE, {
-    req(nzchar(input$measure_p2))
-    u <- units_for_measure(input$measure_p2)
-    if (!is.na(u)) updateTextInput(session, "units_p2", value = u)
-  })
-  
-  
-  
-  # Save Phase 1
-  observeEvent(input$save_p2, {
-    validate(
-      need(nzchar(input$measure_p2), "Choose or type an outcome measure."),
-      need(!is.null(input$date_p2), "Pick a date."),
-      need(!is.na(input$value_p2), "Enter a numeric value."),
-      need(nzchar(input$units_p2), "Units cannot be blank.")
-    )
-    
-    new_row <- data.frame(
-      "Outcome Measure" = input$measure_p2,
-      "Date"            = as.Date(input$date_p2),
-      "Side"            = input$side_p2,
-      "Value"           = as.numeric(input$value_p2),
-      "Units"           = input$units_p2,
-      "Notes"           = input$notes_p2,
-      check.names = FALSE
-    )
-    
-    tryCatch({
-      append_row(SHEET_P2, new_row)
-      data_p2(read_current_data(SHEET_P2))
-      output$status_p2 <- renderText(sprintf(
-        "Saved ✔  (%s | %s | %s = %s %s)",
-        new_row[["Outcome Measure"]], new_row[["Date"]], new_row[["Side"]],
-        new_row[["Value"]], new_row[["Units"]]
-      ))
-      updateNumericInput(session, "value_p2", value = NA)
-      updateTextInput(session, "notes_p2", value = "")
-    }, error = function(e) {
-      output$status_p2 <- renderText(paste("Error:", e$message))
-    })
-  })
-
   
 }
 
