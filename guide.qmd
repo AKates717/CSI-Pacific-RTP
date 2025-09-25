@@ -13,7 +13,7 @@ page-layout: full
 
 <!-- Full-bleed iframe; offset for navbar height -->
 <iframe
-  src="/book/_book/index.html"
+  src="book/index.html"
   style="
     display:block;
     width:100vw;
