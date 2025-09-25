@@ -19,6 +19,7 @@ library(keyring)
 library(digest)
 library(here)
 library(htmltools)
+library(rmarkdown)
 
 
 ####
@@ -55,16 +56,26 @@ Rehab_Info <- read_excel(
 ) %>% clean_names()
 
 #Show the day number of the rehab, calculated as days since surgery
-Days <- as.numeric(difftime(today(), Rehab_Info$date_of_surgery, units = "days"))
+days <- as.numeric(difftime(today(), Rehab_Info$date_of_surgery, units = "days"))
 injury_date <- format(Rehab_Info$date_of_injury, "%b %d, %Y")
 surgery_date <- format(Rehab_Info$date_of_surgery, "%b %d, %Y")
 surgery_wday <- wday(Rehab_Info$date_of_surgery, label = TRUE) %>% as.character()
+
+#find the week of rehab starting from first monday after surgery
+monday_on_or_after <- function(date) {
+  date <- as.Date(date)
+  wd <- as.integer(format(date, "%u"))
+  date + ((8 - wd) %% 7)
+}
+first_monday <- monday_on_or_after(Rehab_Info$date_of_surgery)
+week <- floor(as.numeric(difftime(Sys.Date(), as.Date(first_monday), units = "days"))/7)
+
 
 prehab <- as.numeric(difftime(Rehab_Info$date_of_surgery, Rehab_Info$date_of_injury, units = "days"))
 
 
 
-
+  
 
 
 
