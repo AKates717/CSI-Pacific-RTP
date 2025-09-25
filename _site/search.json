@@ -21,74 +21,11 @@
     "text": "Symmetry\nTrack Bilateral Asymmetry along with the performance metrics"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "Welcome to the ACL Rehabilitation Hub",
+    "objectID": "checklists/return_to_jump_checklist.html",
+    "href": "checklists/return_to_jump_checklist.html",
+    "title": "Return to Jumping",
     "section": "",
-    "text": "This site contains resources, guides, and tools for ACL rehabilitation, including:"
-  },
-  {
-    "objectID": "about.html#overview",
-    "href": "about.html#overview",
-    "title": "Welcome to the ACL Rehabilitation Hub",
-    "section": "",
-    "text": "This site contains resources, guides, and tools for ACL rehabilitation.\n\nThe full CSI Pacific ACL Guide — Complete rehab phases and outcome measures.\nChecklists tracking your precise status through the rehab journey\nDetailed dashboards summarizing every important detail about your rehab\n\nThis site was created by Andrew Kates. Andrew is the Return To Performance Technical Adviser and a Strength and Conditioning Coach at the Canadian Sport Institute Pacific. He is also currently a PhD candidate at the University of Victoria, studying Biomechanics.\nThe landing page of this site provides a quick overview of the athlete’s current status, as well as the overall status of the rehabilitation. Everyone involved can know exactly where everything stands on a daily basis, and can use that information to inform day-to-day decision making."
-  },
-  {
-    "objectID": "about.html#authors",
-    "href": "about.html#authors",
-    "title": "Welcome to the ACL Rehabilitation Hub",
-    "section": "Authors",
-    "text": "Authors\n\nAndrew Kates\n\n\nAndrew is the Return To Performance Technical Advisor and a Strength and Conditioning Coach at the Canadian Sport Institute Pacific. He is also currently a PhD candidate at the University of Victoria, studying Biomechanics.\nAndrew has led numerous successful ACL rehabilitations throughout his career, and has a strong interest in ACL injury management and prevention.\n\n\n\n\n\nEditors\nThe following people made meaningful contributions to this project and provided invaluable expertise and experience:\n\n\n\n\n\n\n\n\n\nOne\n\n\n\n\n\n\n\nTwo\n\n\n\n\n\n\n\nThree\n\n\n\n\n\n\n\nFour"
-  },
-  {
-    "objectID": "about.html#home",
-    "href": "about.html#home",
-    "title": "Welcome to the ACL Rehabilitation Hub",
-    "section": "Home",
-    "text": "Home\nThe landing page of this site provides a quick overview of the athlete’s current status, as well as the overall status of the rehabilitation. Everyone involved can know exactly where everything stands on a daily basis, and can use that information to inform day-to-day decision making."
-  },
-  {
-    "objectID": "about.html#acl-guide",
-    "href": "about.html#acl-guide",
-    "title": "Welcome to the ACL Rehabilitation Hub",
-    "section": "ACL Guide",
-    "text": "ACL Guide\nThe CSI Pacific ACL Guide is an e-book which serves as the comprehensive guide to ACL rehab. This book contains everything you need to ensure best practice from the moment of injury, all the way to Return to Performance and beyond."
-  },
-  {
-    "objectID": "about.html#dashboards",
-    "href": "about.html#dashboards",
-    "title": "Welcome to the ACL Rehabilitation Hub",
-    "section": "Dashboards",
-    "text": "Dashboards\nHere you will find dashboards with more in depth information. While the home page provides a quick snapshot of your progress, each dashboard provides a deep dive into the specific aspects of the rehab.\nDashboards will be most useful to practitioners who want to disect the progress of specific metrics or to check if training is affecting certain metrics as planned. This can be very helpful for making detailed tweaks to the training programs. These are different than progress reports, in that they provide very specific information about singular aspects of the rehab, whereas the progress reports track progress towards specific goals and summarize information more broadly.\n\nCurrent and planned dashboards are linked below:\n\nForce Plates\nWellness Monitoring (coming soon)\n\nKnee pain, swelling, well-being, mental readiness\n\nStrength tests (coming soon)\nHop Tests (coming soon)"
-  },
-  {
-    "objectID": "about.html#home-page",
-    "href": "about.html#home-page",
-    "title": "Welcome to the ACL Rehabilitation Hub",
-    "section": "Home Page",
-    "text": "Home Page\nThe landing page of this site provides a quick overview of the athlete’s current status, as well as the overall status of the rehabilitation. Everyone involved can know exactly where everything stands on a daily basis, and can use that information to inform day-to-day decision making."
-  },
-  {
-    "objectID": "about.html#checklists",
-    "href": "about.html#checklists",
-    "title": "Welcome to the ACL Rehabilitation Hub",
-    "section": "Checklists",
-    "text": "Checklists\nAny successful and lasting ACL rehabilitation must be criteria-based. By using checklists, every practitioner involved in a rehab can see exactly what the athlete has and hasn’t accomplished, making it clear when athletes should advance to the next phase of rehab or be cleared for progression of activities. At the same time, these tools allow the athlete to clearly visualize their progress and to have a solid understanding of what they need to accomplish in order to progress through the rehab safely.\nChecklists can be used to track:\n\nProgress through the phases of rehab\nClearance for activities. Different activities require different physical capacities, and therefore require unique criteria to determine the optimal time for a safe return. Some examples include:\n\nReturn to Jumping\nReturn to Running\nReturn to Trampoline"
-  },
-  {
-    "objectID": "checklists/phase1_checklist.html",
-    "href": "checklists/phase1_checklist.html",
-    "title": "Phase 1 Checklist",
-    "section": "",
-    "text": "Phase 1"
-  },
-  {
-    "objectID": "about.html#progress-reports",
-    "href": "about.html#progress-reports",
-    "title": "Welcome to the ACL Rehabilitation Hub",
-    "section": "Progress Reports",
-    "text": "Progress Reports\nAny successful and durable ACL rehabilitation must be criteria-based. By creating progress reports with a “checklist” format, every practitioner involved in a rehab can see exactly what the athlete has and hasn’t accomplished, making it clear when athletes should advance to the next phase of rehab or be cleared for progression of activities. At the same time, these tools allow the athlete to clearly visualize their progress and to have a solid understanding of what they need to accomplish in order to progress through the rehab safely.\nChecklists can be used to track:\n\nProgress through the phases of rehab\n\nPhase 1\nPhase 2\nPhase 3\nPhase 4\nPhase 5\n\nClearance for activities. Different activities require different physical capacities, and therefore require unique criteria to determine the optimal time for a safe return. Some examples include:\n\nReturn to Jumping\nReturn to Running\nReturn to Trampoline"
+    "text": "Return to Jumping"
   },
   {
     "objectID": "CSIP-RTP-ACL.html",
@@ -126,45 +63,59 @@
     "text": "Outcome Measures\n\n\n\nMeasure\nTest Description\nGoal\n\n\n\n\nSingle Hop\nForward hop\n≥ 95% symmetry, ≥ pre-op\n\n\nTriple Hop\nForward triple hop\n≥ 95% symmetry\n\n\nTriple Crossover Hop\nAcross 15 cm line\n≥ 95% symmetry\n\n\nSide Hop\nSide-to-side over 40 cm\n≥ 95% symmetry\n\n\nSingle Leg Squat (Chair)\nRise test\nHurdle ≥ 22 reps both limbs\n\n\nBalance – Dynamic\nStar Excursion (SEBT)\n≥ 95% symmetry\n\n\nVestibular Balance\nHead turns\nPass both limbs\n\n\nSingle Leg Press 1RM\nLeg press\n1.8× bodyweight\n\n\nSquat 1RM\nSquat\n1.8× bodyweight\n\n\n\nBack to Phase Description\nBack to Top"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "ACL Rehabilitation Hub",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Welcome to the ACL Rehabilitation Hub",
     "section": "",
-    "text": "Day: 63  Week: 6\n Phase: 2   Strength & NM Control   Phase Progress: 80%\n Injury: ACL   Limb: LEFT   Date of Surgery: Jul 10, 2025   Type of Surgery: Hamstring\n\n\n\n\n\n\n\n\nProgress by Phase\n\n\nPhase\nCompletion\nPercent\n\n\n\n\n1\n20/20\n100%\n\n\n2\n8/20\n40%\n\n\n3\n0/20\n0%\n\n\n4\n0/20\n0%\n\n\n5\n0/20\n0%"
+    "text": "This site contains resources, guides, and tools for ACL rehabilitation, including:"
   },
   {
-    "objectID": "index.html#sidebar",
-    "href": "index.html#sidebar",
-    "title": "ACL Rehabilitation Hub",
+    "objectID": "about.html#authors",
+    "href": "about.html#authors",
+    "title": "Welcome to the ACL Rehabilitation Hub",
+    "section": "Authors",
+    "text": "Authors\n\nAndrew Kates\n\n\nAndrew is the Return To Performance Technical Advisor and a Strength and Conditioning Coach at the Canadian Sport Institute Pacific. He is also currently a PhD candidate at the University of Victoria, studying Biomechanics.\nAndrew has led numerous successful ACL rehabilitations throughout his career, and has a strong interest in ACL injury management and prevention.\n\n\n\n\n\nEditors\nThe following people made meaningful contributions to this project and provided invaluable expertise and experience:\n\n\n\n\n\n\n\n\n\nOne\n\n\n\n\n\n\n\nTwo\n\n\n\n\n\n\n\nThree\n\n\n\n\n\n\n\nFour"
+  },
+  {
+    "objectID": "about.html#home-page",
+    "href": "about.html#home-page",
+    "title": "Welcome to the ACL Rehabilitation Hub",
+    "section": "Home Page",
+    "text": "Home Page\nThe landing page of this site provides a quick overview of the athlete’s current status, as well as the overall status of the rehabilitation. Everyone involved can know exactly where everything stands on a daily basis, and can use that information to inform day-to-day decision making."
+  },
+  {
+    "objectID": "about.html#acl-guide",
+    "href": "about.html#acl-guide",
+    "title": "Welcome to the ACL Rehabilitation Hub",
+    "section": "ACL Guide",
+    "text": "ACL Guide\nThe CSI Pacific ACL Guide is an e-book which serves as the comprehensive guide to ACL rehab. This book contains everything you need to ensure best practice from the moment of injury, all the way to Return to Performance and beyond."
+  },
+  {
+    "objectID": "about.html#dashboards",
+    "href": "about.html#dashboards",
+    "title": "Welcome to the ACL Rehabilitation Hub",
+    "section": "Dashboards",
+    "text": "Dashboards\nHere you will find dashboards with more in depth information. While the home page provides a quick snapshot of your progress, each dashboard provides a deep dive into the specific aspects of the rehab.\nDashboards will be most useful to practitioners who want to disect the progress of specific metrics or to check if training is affecting certain metrics as planned. This can be very helpful for making detailed tweaks to the training programs. These are different than progress reports, in that they provide very specific information about singular aspects of the rehab, whereas the progress reports track progress towards specific goals and summarize information more broadly.\n\nCurrent and planned dashboards are linked below:\n\nForce Plates\nWellness Monitoring (coming soon)\n\nKnee pain, swelling, well-being, mental readiness\n\nStrength tests (coming soon)\nHop Tests (coming soon)"
+  },
+  {
+    "objectID": "about.html#progress-reports",
+    "href": "about.html#progress-reports",
+    "title": "Welcome to the ACL Rehabilitation Hub",
+    "section": "Progress Reports",
+    "text": "Progress Reports\nAny successful and durable ACL rehabilitation must be criteria-based. By creating progress reports with a “checklist” format, every practitioner involved in a rehab can see exactly what the athlete has and hasn’t accomplished, making it clear when athletes should advance to the next phase of rehab or be cleared for progression of activities. At the same time, these tools allow the athlete to clearly visualize their progress and to have a solid understanding of what they need to accomplish in order to progress through the rehab safely.\nChecklists can be used to track:\n\nProgress through the phases of rehab\n\nPhase 1\nPhase 2\nPhase 3\nPhase 4\nPhase 5\n\nClearance for activities. Different activities require different physical capacities, and therefore require unique criteria to determine the optimal time for a safe return. Some examples include:\n\nReturn to Jumping\nReturn to Running\nReturn to Trampoline"
+  },
+  {
+    "objectID": "checklists/phase1_checklist.html",
+    "href": "checklists/phase1_checklist.html",
+    "title": "Phase 1 Checklist",
     "section": "",
-    "text": "Day: 63  Week: 6\n Phase: 2   Strength & NM Control   Phase Progress: 80%\n Injury: ACL   Limb: LEFT   Date of Surgery: Jul 10, 2025   Type of Surgery: Hamstring\n\n\n\n\n\n\n\n\nProgress by Phase\n\n\nPhase\nCompletion\nPercent\n\n\n\n\n1\n20/20\n100%\n\n\n2\n8/20\n40%\n\n\n3\n0/20\n0%\n\n\n4\n0/20\n0%\n\n\n5\n0/20\n0%"
+    "text": "Phase 1"
   },
   {
-    "objectID": "index.html#column-width-33",
-    "href": "index.html#column-width-33",
-    "title": "ACL Rehabilitation Hub",
-    "section": "Column {width = “33%”}",
-    "text": "Column {width = “33%”}\n\n\n\n\n\n\n\n\n\nDaily Monitoring — 2025-09-11\n\n\nVariable\nScore\nStatus\nΔ vs Baseline\n\n\n\n\nPain (0–10)\n2.0\nGood\n\n\n\nSwelling (0–3)\n1.0\nGood\n\n\n\nSleep Hours\n7.5\nCaution\n\n\n\nJump Height (cm)\n32.0\nGood\n+6.7%\n\n\n\n\n\n\n\n\n\nWarning: Since gt v0.9.0, the `colors` argument has been deprecated.\n• Please use the `fn` argument instead.\nThis warning is displayed once every 8 hours.\n\n\n\n\n\n\n\n\nPhase Criteria vs Latest Scores\n\n\nTest\nCriterion\nScore\npass\n\n\n\n\nQuad Strength LSI\n85%\n83%\nFALSE\n\n\nHam Strength LSI\n85%\n88%\nTRUE\n\n\nSingle Hop LSI\n90%\n92%\nTRUE\n\n\nTriple Hop LSI\n90%\n87%\nFALSE\n\n\nKnee Flexion (deg)\n125\n128\nTRUE\n\n\nExtension Deficit (deg)\n0\n1\nFALSE"
-  },
-  {
-    "objectID": "index.html#column-width-33-1",
-    "href": "index.html#column-width-33-1",
-    "title": "ACL Rehabilitation Hub",
-    "section": "Column {width = “33%”}",
-    "text": "Column {width = “33%”}\n\nRow - Tabsets of tables\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRow - Tabsets of tables\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n`geom_smooth()` using formula = 'y ~ x'"
-  },
-  {
-    "objectID": "index.html#column-width-33-2",
-    "href": "index.html#column-width-33-2",
-    "title": "ACL Rehabilitation Hub",
-    "section": "Column {width = “33%”}",
-    "text": "Column {width = “33%”}\n\nRow - Tabsets of tables\n\n\nWarning: Unknown or uninitialised column: `x1`.\nUnknown or uninitialised column: `x1`.\n\n\n\n\n\n\n\n\nWarning: Unknown or uninitialised column: `x1`.\nUnknown or uninitialised column: `x1`.\n\n\n\n\n\n\n\n\nRow - Tabsets of tables\nSome Data"
-  },
-  {
-    "objectID": "checklists/return_to_jump_checklist.html",
-    "href": "checklists/return_to_jump_checklist.html",
-    "title": "Return to Jumping",
+    "objectID": "checklists/return_to_run_checklist.html",
+    "href": "checklists/return_to_run_checklist.html",
+    "title": "Return to Running",
     "section": "",
-    "text": "Return to Jumping"
+    "text": "Return to running"
   }
 ]
