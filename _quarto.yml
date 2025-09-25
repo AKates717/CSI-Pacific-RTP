@@ -56,5 +56,5 @@ format:
     page-layout: full
     link-external-newwindow: true
     
-post-render:
-  - cp -r book/_book _site/book
+# post-render:
+#   - cp -r book/_book _site/book
