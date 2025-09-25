@@ -13,7 +13,7 @@ page-layout: full
 
 <!-- Full-bleed iframe; offset for navbar height -->
 <iframe
-  src="book/index.html"
+  src="https://01998346-5aeb-7a76-c849-9451f0064627.share.connect.posit.cloud/"
   style="
     display:block;
     width:100vw;
