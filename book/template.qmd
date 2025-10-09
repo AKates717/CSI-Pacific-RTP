@@ -20,8 +20,6 @@ Template (For AK):
 
     -   Common issues/obstacles in this phase and some ideas to overcome
 
--   References
-
 ::: {.callout-important title="Most Important Goals — Pre-Op"}
 -   Eliminate swelling\
 -   Regain full range of motion\

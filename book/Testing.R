@@ -6,9 +6,6 @@ source("plot_functions.R")
 source("Themes.R")
 
 
-
-
-
 criteria <- readxl::read_xlsx("sample_data/acl-protocol-criteria-2025.xlsx", sheet="criteria_full") %>%
   clean_names()
   #dplyr::filter(!is.na(date)) %>%
@@ -18,10 +15,27 @@ min(phase0$date)
 #rm(phase0)  
   
 
-phase1 <- read_xlsx("sample_data/outcome_data.xlsx", sheet = "Phase1_data")
+
+
+phase0 <- read_xlsx("sample_data/outcome_data.xlsx", sheet = "Phase0_data") %>%
+  clean_names()
   
-  
-  
+inj_side <- "Left"
+
+swelling <- phase0 %>%
+  filter(outcome_measure == "Swelling",
+         side == inj_side)
+ 
+p <- ggplot(swelling, aes(x = date, y = value)) +
+  geom_col(fill = "#E1535B", alpha = 0.7 ) +
+  geom_smooth(method = "lm", se = FALSE, color = "black", linewidth = 1.2) +
+  ak_plot_theme() +
+  labs(
+    x = NULL,
+    y = "Swelling (cm)"
+  )
+
+ggplotly(p) 
   
   
   

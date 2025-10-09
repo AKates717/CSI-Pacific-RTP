@@ -251,7 +251,7 @@ gt(table_df) |>
 
 ## Column {width = "33%"}
 
-### Row - Tabsets of tables {.tabset height="50%"}
+### Row - Force Plates {.tabset height="50%"}
 
 ```{r}
 #| label: cmj_Height
@@ -297,7 +297,7 @@ ba2 %>%
 
 ```
 
-### Row - Tabsets of tables {.tabset height="50%"}
+### Row - Knee Health {.tabset height="50%"}
 
 ```{r}
 #| label: acl_rsi
@@ -323,7 +323,11 @@ p <- ggplot(acl_rsi_score, aes(x = date, y = score)) +
 #| label: swelling
 #| title: Swelling
 
-p <- ggplot(wellness, aes(x = date, y = swelling)) +
+swelling <- phase0 %>%
+  filter(outcome_measure == "Swelling",
+         side == inj_side)
+ 
+p <- ggplot(swelling, aes(x = date, y = value)) +
   geom_col(fill = "#E1535B", alpha = 0.7 ) +
   geom_smooth(method = "lm", se = FALSE, color = "black", linewidth = 1.2) +
   ak_plot_theme() +
@@ -331,8 +335,8 @@ p <- ggplot(wellness, aes(x = date, y = swelling)) +
     x = NULL,
     y = "Swelling (cm)"
   )
-  
-  ggplotly(p)
+
+ggplotly(p)
 ```
 
 ```{r}
@@ -354,7 +358,7 @@ p <- ggplot(wellness, aes(x = date, y = pain)) +
 
 ## Column {width = "33%"}
 
-### Row - Tabsets of tables {.tabset height="50%"}
+### Row - Strength {.tabset height="50%"}
 
 ```{r}
 #| label: iso_quad

@@ -1,3 +1,6 @@
+#Where everything happens behind the scenes
+  #loading packages, reading data into R, re-useable functions
+
 library(tidyverse)
 library(readxl)
 library(janitor)
@@ -47,6 +50,10 @@ recent_five <- function(athlete1, activity1) {
 }
 
 
+
+
+
+
 ####
 #REHAB DETAILS ----
 ####
@@ -54,6 +61,8 @@ recent_five <- function(athlete1, activity1) {
 Rehab_Info <- read_excel(
   "sample_data/ACL-Intake-Form.xlsx"
 ) %>% clean_names()
+
+inj_side <- Rehab_Info$limb
 
 #Show the day number of the rehab, calculated as days since surgery
 days <- as.numeric(difftime(today(), Rehab_Info$date_of_surgery, units = "days"))
@@ -104,6 +113,10 @@ wellness <- read_excel(
 ) %>% clean_names() %>%
   mutate(date_ddmmyear = as.Date(date),
          date_ddmmyear2 =  (format(date_ddmmyear, "%b %d, %Y")))
+
+phase0 <- read_xlsx("sample_data/outcome_data.xlsx", sheet = "Phase0_data") %>%
+  clean_names() %>%
+  mutate(date_ddmmyear = (format(date, "%b %d, %Y")))
 
 
 
