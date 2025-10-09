@@ -36,6 +36,7 @@ Regardless of the length of the prehab window, the research is clear that the le
 ::: {.callout-important title="Most Important Goals — Pre-Op"}
 -   Reduce pain and swelling
 -   Regain range of motion
+-   Re-establish normal gait
 -   Regain quadriceps and hamstring strength
 :::
 
@@ -220,15 +221,6 @@ Each card below contains a detailed description of the tests to be conducted dur
 tests <- phase0_criteria |>
   dplyr::select(outcome_measure, display_description, additional_information, goal, repetitions, calculation)
 
-# for (i in seq_len(nrow(tests))) {
-#   cat('::: {.card .ak-card .has-stripe .accent-primary}\n')
-#   cat('### ', tests$outcome_measure[i], '\n\n', sep = '')
-#   cat(tests$display_description[i], '\n\n')
-#   cat(tests$additional_information[i], '\n\n')
-#   cat('**Criteria:** ', tests$goal[i], '\n\n', sep = '')
-#   cat(':::\n\n')
-# }
-
 # Helper: print a label/value line only if value is non-missing & non-empty
 emit_field <- function(label, value) {
   if (length(value) == 0 || all(is.na(value))) return(invisible())
@@ -260,16 +252,136 @@ for (i in seq_len(nrow(tests))) {
 
 Below you will find links to your training programs.
 
-[Pre-Op: Meso 1](https://www.teambuildr.com/)
+[Pre-Op: Program 1](https://www.teambuildr.com/)
+
+Peer-reviewed literature that was consulted in the making of pre-op programs is referenced here.
+
+When considering changes or further individualization of the program, see the lists below highlighting typically safe and unsafe exercises during this phase. To see how these exercises compare to other phases of the rehab, please see the E**xercise Phase Chart** in the book resources. All exercise programming should be done by a CSI Pacific S&C Coach or a physiotherapist.
 
 Exercises and activities during this phase typically include regular icing of the knee to reduce swelling, range of motion exercises, low impact aerobic exercise such as cycling, and a progressive strengthening regime. Strength exercises should progress in parallel with the clinical condition of the knee. As the pain & swelling settles, and the range of motion increases, strength exercise can progress to include weighted exercises in the gym and jump and land activities such as hopping drills. Aggressive change of direction activities should be avoided during this phase.
 
 ## Additional Resources
 
+### Rest, Ice and Elevate
+
+After injury, it is recommended to rest, ice and elevate the knee in order to help control swelling, inflammation and pain. More to come here, with some specific, evidence-informed instructions.
+
 ### Blood Flow Restriction
 
-dkjfhkjfdhf
+Although, blood flow restriction (BFR) training is an important piece of the CSI Pacific ACL protocol, research specifically investigating the use of BFR in the preoperative phase is still developing. Overall, reviews that have included studies of pre-operative BFR training, point to the lack of research, uncertainty about efficacy in comparison to traditional exercise programs, and a current lack of standardized protocols [@wengle2022; @hasegawa2023].
+
+When looking at individual studies, one comparing identical 2-week prehab programs with and without BFR found that both were equally effective at improving quadriceps peak force, suggesting that BFR was effective, but no more so than doing the same exercises without BFR @tramer2023. A follow up commentary on this study acknowledged the importance of the topic, but suggested that the measurement techniques (specifically the use of a handheld dynamometer) and the high SDs reported in the study were not sufficient to capture the small differences likely to exist between the two exercise protocols @cote2023. Although the efficacy of BFR during this phase remains unclear, this study did provide evidence that BFR can be used safely at this phase. Another study from the same research group utilized BFR for both 2 weeks pre surgery and 12 weeks post-surgery and found that the BFR group had improved strength and patient reported outcomes at 6 weeks post-surgery, but between group differences no longer existed at 3 and 6 month follow-up @okoroha2023
+
+Other research has shown improvements in quadriceps muscle endurance (but not peak torque) following 5 sessions of BFR leg extension prior to surgery @zargi2018. While further research from the same lab showed that 9 sessions over 3 weeks of isotonic knee extension and flexion, resulted in enhanced peak torque in the quadriceps and hamstrings as well as hypertrophy of the quadriceps (but not the hamstrings) @kacin2021.
+
+Below is a summary of the protocols used in each of these studies. This information can be used to design safe BFR exercise programs in the pre-op phase.
+
+::: {.card .ak-card .border-0 .shadow-none .headlined .panel-tabset}
+#### Tramer et al 2023
+
+<!-- Replace this with a short intro if you want -->
+
+**Exercises: [@tramer2023]**
+
+-   Quadriceps contractions in end-range extension
+-   Straight leg raises
+-   Long arc quads
+-   Double leg quarter squats
+
+**Limb Occlusion Pressure:** 80%
+
+**Repetitions:** 30-15-15-15
+
+**Intra-set Rest:** 30 seconds
+
+**Inter-set Rest:** 2 minutes
+
+**Sessions:** 5x/week for 2 weeks
+
+**Notes:** *Exercises were chosen to work on volitional quad activation and knee extension ROM simultaneously.*
+
+#### Okoroha et al 2023
+
+<!-- Replace this with a short intro if you want -->
+
+**Exercises [@okoroha2023]:**
+
+-   Quadriceps contractions in end-range extension
+-   Straight leg raises
+-   Long arc quads
+-   Double leg quarter squats
+
+**Limb Occlusion Pressure:** 80%
+
+**Repetitions:** 30-15-15-15
+
+**Intra-set Rest:** 30 seconds
+
+**Inter-set Rest:** 2 minutes
+
+**Sessions:** 5x/week for 2 weeks
+
+**Notes:** *Same as Tramer et al 2023 [@tramer2023]*
+
+#### Kacin et al 2021
+
+<!-- Replace this with a short intro if you want -->
+
+**Exercises [@kacin2021] :**
+
+-   Isotonic Leg Extension
+-   Isotonic Leg Flexion
+
+**Limb Occlusion Pressure:** 150mmHg
+
+**Repetitions:** 2 rounds of 2 sets to failure
+
+**Load:** 40RM
+
+**Intra-set Rest:** 45 seconds
+
+**Inter-set Rest:** 90 seconds
+
+**Sessions:** 3x/week for 3 weeks
+
+**Notes:** *Criteria for inclusion - active knee extension deficit ≤ 5° and active flexion ≥ 120°*
+
+#### Zargi et al 2018
+
+<!-- Replace this with a short intro if you want -->
+
+**Exercises [@zargi2018] :**
+
+-   Leg Extension
+
+**Limb Occlusion Pressure:** 150mmHg
+
+**Repetitions:** 3 rounds of 2 sets to failure
+
+**Load:** 40RM
+
+**Intra-set Rest:** 45 seconds
+
+**Inter-set Rest:** 90 seconds
+
+**Sessions:** 5 sessions over final 8 days pre-surgery
+
+**Notes:** *Criteria for inclusion - active knee extension deficit ≤ 5° and active flexion ≥ 120°*
+:::
+
+At this time, it appears that BFR in the pre-op phase is safe, although it's effectiveness is yet to be determined by clinical trials. A CSI Pacific S&C coach who is experienced with implementing BFR may choose to include it as an addition to training in the pre-surgery phase once the athlete displays adequate ROM of ≤ 5° knee extension and ≥ 120° flexion.
+
+------------------------------------------------------------------------
 
 ### Neuromuscular Electrical Stimulation
 
-sakjhdsjkhdkjashd
+At this time, there does not appear to be any scientific evidence supporting the use of NMES in the pre-op phase.
+
+## Notes and Considerations for Reviewers
+
+All feedback is welcome, however here are some considerations that should help inform the development of this tool.
+
+-   Please comment on the overall structure of the chapter. Would you be happy for each chapter to be structured like this?
+-   From the perspective of a practitioner: what is missing from this chapter? what questions are you left with? do you feel like this provides the resources and the information needed to implement the rehab?
+-   From the perspective of an athlete: Is the information here easy to understand? Does this provide value
+-   Please comment on the phase criteria. Is there anything you would add or remove? Ideally, any suggestions are backed by peer-reviewed research

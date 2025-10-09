@@ -7,9 +7,9 @@ library(here)
 library(bslib)
 library(janitor)
 
-#========================
+#
 # Themes & Formatting
-#========================
+#
 
 
 
@@ -24,9 +24,9 @@ custom_theme <- bslib::bs_theme(
 
 
 
-#========================
+#
 # Paths & constants
-#========================
+#
 SOURCE_PATH <- here("sample_data", "acl-protocol-criteria-2025.xlsx")  # your uploaded workbook
 SOURCE_SHEET <- "criteria_full"                     # sheet to read measures from
 
@@ -36,15 +36,17 @@ SHEET_P0     <- "Phase0_data"
 SHEET_P1     <- "Phase1_data"
 SHEET_P2     <- "Phase2_data"
 
-COLS <- c("Outcome Measure","Date","Side","Value","Units","Notes")
+COLS <- c("Phase","Outcome Measure","Date", "Timestamp","Side","Value","Units","Notes")
 
-#========================
+#
 # Helpers
-#========================
+#
 empty_df <- function() {
   data.frame(
+    "Phase"           = numeric(),
     "Outcome Measure" = character(),
     "Date"            = as.Date(character()),
+    "Timestamp"       = character(),
     "Side"            = character(),
     "Value"           = numeric(),
     "Units"           = character(),
@@ -172,7 +174,7 @@ MEASURES <- load_measure_lookup()
 measures_by_phase <- function(phase_label) {
   if (nrow(MEASURES) == 0) return(character())
   hits <- MEASURES$measure[is.na(MEASURES$phase) | MEASURES$phase == phase_label]
-  sort(unique(hits))
+  hits[!duplicated(hits)]
 }
 
 units_for_measure <- function(measure) {

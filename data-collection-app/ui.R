@@ -8,16 +8,9 @@ ui <- page_navbar(
   window_title = "ACL Rehab Data Collection",
   theme = custom_theme,
   # global card styles (once)
-  tags$head(tags$style(HTML("
-.ak-card { border: 1px solid var(--bs-border-color); border-left: 4px solid var(--bs-primary);
-  border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,.05); }
-.ak-card .card-header { background: var(--bs-gray-100); font-weight: 600; padding: .5rem .75rem; }
-.ak-card .card-body { padding: .75rem .9rem; }
-.ak-section-title { margin: 0; font-size: .95rem; font-weight: 600; }
-.desc-text, .info-text { white-space: pre-wrap; line-height: 1.3; margin: 0; }
-.ak-sep { border-top: 1px solid var(--bs-border-color); margin: .5rem 0; }
-")))
-  ,
+  header = tags$head(
+    tags$link(rel = "stylesheet", href = "app.css")
+  ),
   
   
   nav_panel(
@@ -36,7 +29,7 @@ ui <- page_navbar(
           )
         ),
         dateInput("date_p0", "Date"),
-        selectInput("side_p0", "Side", choices = c("involved","uninvolved")),
+        selectInput("side_p0", "Side", choices = c("Left","Right")),
         numericInput("value_p0", "Value", value = NA, step = 0.01),
         textInput("units_p0", "Units", value = ""),
         textAreaInput("notes_p0", "Notes", rows = 3, placeholder = "optional"),
@@ -47,17 +40,19 @@ ui <- page_navbar(
       
       
       card(
-        class = "ak-card",
-        card_header(uiOutput("p0_card_title"), class = "py-2 px-3"),
+        class = "ak-card has-stripe accent-primary tight",
         card_body(
-          class = "py-2 px-3",
-          tags$div(class = "d-flex flex-column gap-2",
-                   tags$div("Display Description", class = "ak-section-title"),
-                   div(class = "desc-text", textOutput("description_p0", container = span)),
-                   div(class = "ak-sep"),
-                   tags$div("Additional Information", class = "ak-section-title"),
-                   div(class = "info-text", textOutput("info_p0", container = span))
-          )
+          # Heading styled by your CSS (first child inside card-body)
+          h3(textOutput("p0_title", container = span)),
+          
+          # Main text blocks (keep your existing renderText)
+          p(class = "desc-text", textOutput("description_p0", container = span)),
+          p(class = "info-text",  textOutput("info_p0",        container = span))
+          
+          # # Optional fields (render nothing if empty)
+          # uiOutput("goal_row_p0"),
+          # uiOutput("reps_row_p0"),
+          # uiOutput("calc_row_p0")
         )
       ),
       card(DTOutput("table_p0"))
@@ -83,7 +78,7 @@ ui <- page_navbar(
           )
         ),
         dateInput("date_p1", "Date"),
-        selectInput("side_p1", "Side", choices = c("involved","uninvolved")),
+        selectInput("side_p1", "Side", choices = c("Left","Right")),
         numericInput("value_p1", "Value", value = NA, step = 0.01),
         textInput("units_p1", "Units", value = ""),
         textAreaInput("notes_p1", "Notes", rows = 3, placeholder = "optional"),
@@ -92,7 +87,22 @@ ui <- page_navbar(
         verbatimTextOutput("status_p1", placeholder = TRUE)
       ),
       
-      h4("Recently Collected Data"),
+      card(
+        class = "ak-card has-stripe accent-primary tight",
+        card_body(
+          # Heading styled by your CSS (first child inside card-body)
+          h3(textOutput("p1_title", container = span)),
+          
+          # Main text blocks (keep your existing renderText)
+          p(class = "desc-text", textOutput("description_p1", container = span)),
+          p(class = "info-text",  textOutput("info_p1",        container = span))
+          
+          # # Optional fields (render nothing if empty)
+          # uiOutput("goal_row_p0"),
+          # uiOutput("reps_row_p0"),
+          # uiOutput("calc_row_p0")
+        )
+      ),
       DTOutput("table_p1")
       
     )
