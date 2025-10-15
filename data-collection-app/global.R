@@ -8,7 +8,7 @@ library(bslib)
 library(janitor)
 
 #
-# Themes & Formatting
+# Themes & Formatting ----
 #
 
 
@@ -25,7 +25,7 @@ custom_theme <- bslib::bs_theme(
 
 
 #
-# Paths & constants
+# Paths & constants ----
 #
 SOURCE_PATH <- here("sample_data", "acl-protocol-criteria-2025.xlsx")  # your uploaded workbook
 SOURCE_SHEET <- "criteria_full"                     # sheet to read measures from
@@ -33,13 +33,11 @@ SOURCE_SHEET <- "criteria_full"                     # sheet to read measures fro
 TARGET_PATH  <-here("sample_data", "outcome_data.xlsx")
 
 SHEET_P0     <- "Phase0_data"
-SHEET_P1     <- "Phase1_data"
-SHEET_P2     <- "Phase2_data"
 
 COLS <- c("Phase","Outcome Measure","Date", "Timestamp","Side","Value","Units","Notes")
 
 #
-# Helpers
+# Helpers ----
 #
 empty_df <- function() {
   data.frame(
@@ -60,12 +58,8 @@ ensure_workbook <- function() {
   if (!file.exists(TARGET_PATH)) {
     wb <- createWorkbook()
     addWorksheet(wb, SHEET_P0)
-    addWorksheet(wb, SHEET_P1)
-    addWorksheet(wb, SHEET_P2)
     
     writeData(wb, SHEET_P0, empty_df(), colNames = TRUE)
-    writeData(wb, SHEET_P1, empty_df(), colNames = TRUE)
-    writeData(wb, SHEET_P2, empty_df(), colNames = TRUE)
     
     saveWorkbook(wb, TARGET_PATH, overwrite = TRUE)
   } else {
@@ -75,28 +69,12 @@ ensure_workbook <- function() {
     if (!(SHEET_P0 %in% existing_sheets)) {
       addWorksheet(wb, SHEET_P0); writeData(wb, SHEET_P0, empty_df(), colNames = TRUE)
     }
-    if (!(SHEET_P1 %in% existing_sheets)) {
-      addWorksheet(wb, SHEET_P1); writeData(wb, SHEET_P1, empty_df(), colNames = TRUE)
-    }
-    if (!(SHEET_P2 %in% existing_sheets)) {
-      addWorksheet(wb, SHEET_P2); writeData(wb, SHEET_P2, empty_df(), colNames = TRUE)
-    }
     saveWorkbook(wb, TARGET_PATH, overwrite = TRUE)
   }
 }
 
 read_current_data <- function(sheet_name) {
-  #if (!file.exists(TARGET_PATH)) return(empty_df())
-  #df <- tryCatch(
-    df <- openxlsx::read.xlsx(TARGET_PATH, sheet = sheet_name, check.names = FALSE) #,
-    #error = function(e) empty_df()
-  #)
-  #if (nrow(df) == 0) return(empty_df())
-
-  # make sure all expected columns exist and are ordered
-  # missing <- setdiff(COLS, names(df))
-  # if (length(missing)) df[missing] <- lapply(missing, function(x) rep(NA, nrow(df)))
-  # df <- df[, COLS, drop = FALSE]
+    df <- openxlsx::read.xlsx(TARGET_PATH, sheet = sheet_name, check.names = FALSE)
   df
 }
 
@@ -122,33 +100,35 @@ load_measure_lookup <- function() {
     return(data.frame(measure = character(), units = character(), phase = character(), stringsAsFactors = FALSE))
   }
   
-  # Normalize column names (lowercase, trim)
+  # Column picking (no renaming or sorting; keep sheet order)
   nm <- trimws(tolower(names(df)))
-  
-  # Try to detect relevant columns
-  col_phase   <- which(nm %in% c("phase","phase ", "phase_number","phase_no"))
+  col_phase   <- which(nm %in% c("phase","phase ","phase_number","phase_no"))
   col_measure <- which(nm %in% c("outcome measure","outcome_measure","measure","measure_name"))
   col_units   <- which(nm %in% c("units","unit","default units","default_units"))
   
-  # Fail-safe: if measure missing, return empty lookup
-  if (length(col_measure) == 0) {
+  if (!length(col_measure)) {
     warning("No 'Outcome Measure' column found in criteria_full.")
     return(data.frame(measure = character(), units = character(), phase = character(), stringsAsFactors = FALSE))
   }
   
-  # Pull columns (units/phase may be missing)
   m <- as.character(df[[col_measure[1]]])
   u <- if (length(col_units)) as.character(df[[col_units[1]]]) else rep("", length(m))
   p_raw <- if (length(col_phase)) df[[col_phase[1]]] else rep(NA, length(m))
   
-  # Normalize phase labels to "Phase 0" / "Phase 1" when possible
-  norm_phase <- function(x) {
-    x_chr <- trimws(tolower(as.character(x)))
-    ifelse(grepl("(^|\\D)0(\\D|$)", x_chr) | grepl("phase\\s*0", x_chr), "Phase 0",
-           ifelse(grepl("(^|\\D)1(\\D|$)", x_chr) | grepl("phase\\s*1", x_chr), "Phase 1", NA))
+  normalize_phase <- function(x) {
+    if (is.numeric(x)) return(paste0("Phase ", as.integer(x)))
+    x <- trimws(as.character(x))
+    if (!nzchar(x)) return(NA_character_)
+    # If any digits appear, use "Phase <first number>"
+    d <- regmatches(x, regexpr("\\d+", x))
+    if (length(d) && nzchar(d)) return(paste0("Phase ", d))
+    # Otherwise, keep a clean label (e.g., "All")
+    tolower_first <- tolower(x)
+    if (tolower_first %in% c("all", "any")) return(tools::toTitleCase(tolower_first))
+    tools::toTitleCase(x)
   }
   
-  p <- norm_phase(p_raw)
+  p <- vapply(p_raw, normalize_phase, character(1))
   
   out <- data.frame(
     measure = trimws(m),
@@ -157,12 +137,13 @@ load_measure_lookup <- function() {
     stringsAsFactors = FALSE
   )
   
-  # Drop empty measures, de-dupe
+  # Drop empties, de-dup while preserving first appearance (sheet order)
   out <- out[nzchar(out$measure), , drop = FALSE]
-  out <- unique(out)
+  out <- out[!duplicated(out[c("measure","phase")]), , drop = FALSE]
   
   out
 }
+
 
 MEASURES <- load_measure_lookup()
 
@@ -173,9 +154,13 @@ MEASURES <- load_measure_lookup()
 
 measures_by_phase <- function(phase_label) {
   if (nrow(MEASURES) == 0) return(character())
-  hits <- MEASURES$measure[is.na(MEASURES$phase) | MEASURES$phase == phase_label]
+  hits <- MEASURES$measure[
+    !is.na(MEASURES$phase) &
+      (MEASURES$phase == phase_label | tolower(MEASURES$phase) %in% c("all", "any"))
+  ]
   hits[!duplicated(hits)]
 }
+
 
 units_for_measure <- function(measure) {
   if (nrow(MEASURES) == 0) return(NA_character_)

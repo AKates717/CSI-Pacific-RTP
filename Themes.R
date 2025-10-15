@@ -1,6 +1,7 @@
 
 
-#ak_gt_theme1 ---- 
+#ak_gt_theme1 ----
+#from shiny app, original gt, probably won't use this one
 #with grand_summary_row
 ak_gt_theme1 <- function(gt_tbl){
   

@@ -46,17 +46,22 @@ Jumps <- recent_five(params$athlete, "CMJ")
 
 <i class="fa-solid fa-calendar-day"></i> **Day:** `{r} days` <i class="fa-solid fa-calendar-week"></i> **Week:** `{r} week`
 
-<i class="fa-solid fa-bars-progress"></i> **Phase:** 2 <br> {{< fa solid dumbbell size=1x >}} *Strength & NM Control* <br> <i class="fa-solid fa-battery-three-quarters"></i> **Phase Progress:** 80%
+<i class="fa-solid fa-bars-progress"></i> **Phase:** 2 <br> 
+{{< fa solid dumbbell size=1x >}} *Strength & NM Control* <br> 
+<i class="fa-solid fa-battery-three-quarters"></i> **Phase Progress:** 50%
 
-<i class="fa-solid fa-briefcase-medical"></i> **Injury:** `{r} Rehab_Info$primary_injury` <br> <i class="bi bi-person-arms-up"></i> **Limb:** `{r} Rehab_Info$limb` <br> <i class="fa-solid fa-calendar-day"></i> **Date of Surgery:** `{r} surgery_date` <br> <i class="fa-solid fa-file-medical"></i> **Type of Surgery:** `{r} Rehab_Info$type_of_surgery`
+<i class="fa-solid fa-briefcase-medical"></i> **Injury:** `{r} Rehab_Info$primary_injury` <br> 
+<i class="bi bi-person-arms-up"></i> **Limb:** `{r} Rehab_Info$limb` <br> 
+<i class="fa-solid fa-calendar-day"></i> **Date of Surgery:** `{r} surgery_date` <br> 
+<i class="fa-solid fa-file-medical"></i> **Type of Surgery:** `{r} Rehab_Info$type_of_surgery`
 
 ```{r}
 
 # Fictional progress: Phase 1 complete; Phase 2 partial; others not started
 progress <- tibble::tibble(
   Phase = 1:5,
-  done  = c(20, 8, 0, 0, 0),
-  total = c(20,20,20,20,20)
+  done  = c(6,3, 0, 0, 0),
+  total = c(6,6,8,10,12)
 ) %>%
   mutate(
     Progress = paste0(done, "/", total),
@@ -92,8 +97,11 @@ gt(progress) |>
 
 ## Column {width = "33%"}
 
+### Row - Daily Monitoring {height="50%"}
+
 ::: {.card .border-0 fill="false"}
 ```{r}
+#| label: daily_monitoring
 
 # ---- Fake "today" values + baseline for jump height ----
 today_vals <- tibble::tibble(
@@ -143,7 +151,7 @@ table_df <- today_vals |>
 
 # ---- Build gt table with conditional colors on Score ----
 tab <- gt(table_df) |>
-  tab_header(title = md(paste0("**Daily Monitoring — ", format(Sys.Date(), "%Y-%m-%d"), "**"))) |>
+  tab_header(title = md(paste0("**Daily Monitoring — ", format(Sys.Date(), "%b %d, %Y"), "**"))) |>
   cols_label(
     Variable = "Variable",
     Score    = "Score",
@@ -177,9 +185,13 @@ tab <- gt(table_df) |>
 tab
 
 ```
+:::
 
+### Row - Phase Criteria Summary {height="50%"}
+
+::: {.card .border-0 fill="false"}
 ```{r}
-#| label: summary
+#| label: phase_criteria_summary
 
 # --- Example criteria for current phase ---
 # op is the comparator to use for pass/fail
@@ -240,6 +252,7 @@ gt(table_df) |>
   fmt_markdown(columns = everything()) |>
   # cols_align(align = "left", columns = everything()) |>
   ak_gt_theme3() |>
+  cols_align(align = "center", columns = c(Criterion, Score)) |>
   tab_options(
     table_body.hlines.style = "solid",
     table_body.hlines.width = px(1),

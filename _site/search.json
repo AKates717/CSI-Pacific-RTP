@@ -159,5 +159,61 @@
     "title": "Introduction",
     "section": "",
     "text": "Pre-Op: Injury recovery & readiness for surgery\n\n\nPhase 1: Recovery from surgery\n\n\nPhase 2: Strength and neuromuscular control\n\n\nPhase 3: Running, agility, and landings\n\n\nPhase 4: Return to sport\n\n\nPhase 5: Prevention of re-injury"
+  },
+  {
+    "objectID": "dashboards/dashboard1.html",
+    "href": "dashboards/dashboard1.html",
+    "title": "CMJ Dashboard",
+    "section": "",
+    "text": "This report is a sample of the full dashboard which can be found here."
+  },
+  {
+    "objectID": "dashboards/dashboard1.html#readiness",
+    "href": "dashboards/dashboard1.html#readiness",
+    "title": "CMJ Dashboard",
+    "section": "",
+    "text": "This report is a sample of the full dashboard which can be found here."
+  },
+  {
+    "objectID": "dashboards/dashboard1.html#symmetry",
+    "href": "dashboards/dashboard1.html#symmetry",
+    "title": "CMJ Dashboard",
+    "section": "Symmetry",
+    "text": "Symmetry\nTrack Bilateral Asymmetry along with the performance metrics"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "ACL Rehabilitation Hub",
+    "section": "",
+    "text": "Day: 96  Week: 13\n Phase: 2   Strength & NM Control   Phase Progress: 50%\n Injury: ACL   Limb: Left   Date of Surgery: Jul 10, 2025   Type of Surgery: Hamstring\n\n\n\n\n\n\n\n\nProgress by Phase\n\n\nPhase\nCompletion\nPercent\n\n\n\n\n1\n6/6\n100%\n\n\n2\n3/6\n50%\n\n\n3\n0/8\n0%\n\n\n4\n0/10\n0%\n\n\n5\n0/12\n0%"
+  },
+  {
+    "objectID": "index.html#sidebar",
+    "href": "index.html#sidebar",
+    "title": "ACL Rehabilitation Hub",
+    "section": "",
+    "text": "Day: 96  Week: 13\n Phase: 2   Strength & NM Control   Phase Progress: 50%\n Injury: ACL   Limb: Left   Date of Surgery: Jul 10, 2025   Type of Surgery: Hamstring\n\n\n\n\n\n\n\n\nProgress by Phase\n\n\nPhase\nCompletion\nPercent\n\n\n\n\n1\n6/6\n100%\n\n\n2\n3/6\n50%\n\n\n3\n0/8\n0%\n\n\n4\n0/10\n0%\n\n\n5\n0/12\n0%"
+  },
+  {
+    "objectID": "index.html#column-width-33",
+    "href": "index.html#column-width-33",
+    "title": "ACL Rehabilitation Hub",
+    "section": "Column {width = “33%”}",
+    "text": "Column {width = “33%”}\n\nRow - Daily Monitoring\n\n\n\n\n\n\n\n\n\nDaily Monitoring — Oct 14, 2025\n\n\nVariable\nScore\nΔ vs Baseline\n\n\n\n\nPain (0–10)\n2.0\n\n\n\nSwelling (0–3)\n1.0\n\n\n\nSleep Hours\n7.5\n\n\n\nJump Height (cm)\n32.0\n+6.7%\n\n\n\n\n\n\n\n\n\n\nRow - Phase Criteria Summary\n\n\n\n\n\n\n\n\n\nPhase Criteria vs Latest Scores\n\n\nTest\nCriterion\nScore\n\n\n\n\nQuad Strength LSI\n85%\n83%\n\n\nHam Strength LSI\n85%\n88%\n\n\nSingle Hop LSI\n90%\n92%\n\n\nTriple Hop LSI\n90%\n87%\n\n\nKnee Flexion (deg)\n125\n128\n\n\nExtension Deficit (deg)\n0\n1"
+  },
+  {
+    "objectID": "index.html#column-width-33-1",
+    "href": "index.html#column-width-33-1",
+    "title": "ACL Rehabilitation Hub",
+    "section": "Column {width = “33%”}",
+    "text": "Column {width = “33%”}\n\nRow - Force Plates\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRow - Knee Health"
+  },
+  {
+    "objectID": "index.html#column-width-33-2",
+    "href": "index.html#column-width-33-2",
+    "title": "ACL Rehabilitation Hub",
+    "section": "Column {width = “33%”}",
+    "text": "Column {width = “33%”}\n\nRow - Strength\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRow - Tabsets of tables\nSome Data"
   }
 ]

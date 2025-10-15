@@ -1,0 +1,97 @@
+---
+title: "CMJ Dashboard"
+subtitle: "`r params$athlete`"
+format: 
+  html:
+    toc: true
+    title-block-banner: true
+    embed-resources: true
+editor: visual
+execute: 
+  echo: false
+params:
+  athlete: "Frank Reynolds"
+---
+
+## Readiness
+
+This report is a sample of the full dashboard which can be found [here.](https://andrewkates.shinyapps.io/FPDash_MultipleFile/ "Andrew's FP Dashboard"){target="_blank"}
+
+```{r}
+#| label: Readiness
+#| echo: false
+#| message: false
+
+library(tidyverse)
+library(shiny)
+library(DBI)
+library(duckdb)
+library(shinydashboard)
+library(readxl)
+library(janitor)
+library(bslib)
+library(ggthemes)
+library(lubridate)
+library(thematic)
+library(plotly)
+library(patchwork)
+library(scales)
+library(DT)
+library(gt)
+library(gtExtras)
+library(withr)
+library(ggpp)
+library(calendR)
+library(ggimage)
+library(shinymanager)
+library(keyring)
+library(digest)
+
+source("../plot_functions.R")
+
+ FPDatabase_full <- read_excel("../sample_data/FP-Database.xlsx",
+                               sheet = "Database",
+                               range = cell_cols("A:BQ"),
+                               na = c("","N/A","NaN")
+ ) %>%
+   clean_names() %>%
+   mutate(date_ddmmyear = as.Date(date_ddmmyear),
+          date_ddmmyear2 =  (format(date_ddmmyear, "%b %d, %Y")))
+ 
+ 
+
+#Recent Five ----
+#Select athlete name and jump type to create a dataframe of their last five test dates
+ recent_five <- function(athlete1, activity1) {
+   FPDatabase_full %>%
+     filter(athlete == athlete1, activity == activity1) %>%
+     arrange(desc(date_ddmmyear)) %>%
+     filter(date_ddmmyear %in% unique(date_ddmmyear)[1:5])
+ }
+
+Ath <- recent_five(params$athlete, "CMJ")
+
+p1 <- stat_summary_plot(Ath, flight_height_tov, "#D19A2B", Ath$flight_height_tov, "Flight Height - TOV")
+p2 <- stat_summary_plot(Ath, rs_imod, "dodgerblue4", Ath$rs_imod, "RSI mod")
+
+subplot(p1,p2, margin = 0.05) %>%
+  layout(title = NA)
+
+```
+
+## Symmetry
+
+Track **Bilateral Asymmetry** along with the performance metrics
+
+```{r}
+#| echo: false
+#| message: false
+
+ba1 <- BA_plot_percent(Ath, balng, basht, "orange", "dodgerblue3")
+ba2 <- BA_plot_magnitude(Ath, sht_left, sht_right, "red", "black", Ath$sht_left, Ath$sht_right)
+
+subplot(ba1, ba2, margin = 0.05) %>%
+  layout(title = NA)
+
+
+```
