@@ -29,7 +29,7 @@ website:
             href: app-inline.qmd
       - text: "Progress Reports"
         menu:
-          - text: "Phase 1"
+          - text: "Phase 0"
             href: checklists/phase1_checklist.qmd
           - text: "Return to Jumping"
             href: checklists/return_to_jump_checklist.qmd            

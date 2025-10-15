@@ -1,6 +1,174 @@
 ---
-title: "Phase 1 Checklist"
-format: html
+title: "Pre-Op Phase Checklist"
+params:
+  athlete: "Frank Reynolds"
 ---
 
-Phase 1
+```{r setup-root, include=FALSE}
+knitr::opts_knit$set(root.dir = normalizePath(".."))
+```
+
+```{r}
+source("Global.R")
+source("plot_functions.R")
+source("Themes.R")
+```
+
+**`r params$athlete`'s** progress towards these goals will be assessed via the criteria seen below.
+
+```{r}
+
+phase0_criteria <- readxl::read_xlsx("sample_data/acl-protocol-criteria-2025.xlsx", sheet="Phase0") %>%
+  clean_names()
+#phase0_criteria <- readxl::read_xlsx("acl-protocol-criteria-2025.xlsx", sheet="Phase0") %>%
+  #clean_names()
+
+# Helpers for parsing numbers and percents
+parse_num <- function(x) {
+  if (is.numeric(x)) return(x)
+  s <- as.character(x)
+  suppressWarnings(as.numeric(str_extract(s, "-?\\d+\\.?\\d*")))
+}
+is_percent <- function(x) grepl("%", as.character(x))
+
+# Prep data: normalize operators, parse numbers, and decide if goal is met
+phase0_prepped <- phase0_criteria %>%
+  mutate(
+    # Normalize operators like ≥ ≤ to R-friendly >= <=
+    op_clean = trimws(operator),
+    op_clean = dplyr::recode(op_clean,
+      "≥" = ">=", "≤" = "<=", "=" = "==", "=>" = ">=", "=<" = "<="
+    ),
+
+    # Raw values for potential string-equality comparisons
+    score_raw = score,
+    goal_raw  = goal,
+
+    # Numerics (pull first numeric token)
+    score_num = parse_num(score),
+    goal_num  = parse_num(goal),
+
+    # Percent handling: if Goal shows %, compare in 0–100 space
+    score_num = dplyr::case_when(
+      is_percent(goal_raw) & !is.na(score_num) & score_num <= 1 ~ score_num * 100,
+      TRUE ~ score_num
+    ),
+
+    # For text equality goals (e.g., "Pass"), allow == to compare strings
+    meets_string = dplyr::case_when(
+      op_clean == "==" ~ tolower(trimws(as.character(score_raw))) ==
+                          tolower(trimws(as.character(goal_raw))),
+      TRUE ~ NA
+    ),
+
+    # Final meets_goal logic (numeric first; fall back to string equality)
+    meets_goal = dplyr::case_when(
+      !is.na(score_num) & !is.na(goal_num) & op_clean == ">=" ~ score_num >= goal_num,
+      !is.na(score_num) & !is.na(goal_num) & op_clean == ">"  ~ score_num >  goal_num,
+      !is.na(score_num) & !is.na(goal_num) & op_clean == "<=" ~ score_num <= goal_num,
+      !is.na(score_num) & !is.na(goal_num) & op_clean == "<"  ~ score_num <  goal_num,
+      !is.na(meets_string) ~ meets_string,
+      TRUE ~ NA
+    )
+  )
+
+# Some nice percentage formatting
+phase0_prepped <- phase0_prepped %>%
+  mutate(
+    goal  = ifelse(grepl("^0?\\.\\d+$", goal),  paste0(as.numeric(goal)  * 100, "%"), goal),
+    score = ifelse(grepl("^0?\\.\\d+$", score), paste0(as.numeric(score) * 100, "%"), score)
+  )
+
+
+# Build gt + Score coloring
+tbl <- phase0_prepped %>%
+  select(
+    outcome_measure,
+    operator, goal, score, meets_goal
+  ) %>%
+  gt() %>%
+  cols_label(
+    outcome_measure = "Outcome Measure",
+    #`Display Description` = "Display Description",
+    #Info = "",
+    goal = "Goal",
+    operator = "",
+    score = "Score"
+  ) %>%
+  cols_align(align = "center", columns = c(goal, operator, score)) %>%
+  ak_gt_theme3() %>%
+  cols_width(
+    outcome_measure ~ px(260),
+    goal ~ px(90),
+    operator ~ px(60),
+    score ~ px(100)
+  ) %>%
+  #tab_options(table.font.size = px(14), data_row.padding = px(6)) %>%
+  # Color Score cell by pass/fail/NA
+  tab_style(
+    style = list(
+      cell_fill(color = "#E8F5E9"),   # light green
+      cell_text(color = "#1B5E20", weight = "600")
+    ),
+    locations = cells_body(columns = score, rows = meets_goal %in% TRUE)
+  ) %>%
+  tab_style(
+    style = list(
+      cell_fill(color = "#FFF9C4"),   # light yellow
+      cell_text(color = "#7A6A00", weight = "600")
+    ),
+    locations = cells_body(columns = score, rows = meets_goal %in% FALSE)
+  ) %>%
+  tab_style(
+    style = list(
+      cell_fill(color = "#ECEFF1"),   # light grey for NA/uncomparable
+      cell_text(color = "#455A64")
+    ),
+    locations = cells_body(columns = score, rows = is.na(meets_goal))
+  ) %>%
+  # Hide helper column
+  cols_hide(columns = meets_goal)
+
+
+
+tbl
+
+```
+
+```{r}
+
+goals_progress_bar <- function(met, total, label = "Goals met", width = "100%") {
+  pct <- if (total > 0) round(100 * met / total) else 0
+  tagList(
+    # minimal CSS (injected once)
+    tags$style(HTML("
+      .ak-pb-wrap { margin-top:10px; }
+      .ak-pb-meta { display:flex; justify-content:space-between; font-size:0.9rem; margin-bottom:6px; }
+      .ak-pb { background:#f0f2f5; border:1px solid #dadde1; border-radius:10px; height:14px; overflow:hidden; }
+      .ak-pb__fill { height:100%; background:linear-gradient(90deg,#4CAF50,#2E7D32); }
+    ")),
+    div(class = "ak-pb-wrap",
+      div(class = "ak-pb-meta",
+          span(sprintf("%s: %d/%d", label, met, total)),
+          span(sprintf("%d%%", pct))
+      ),
+      div(
+        class = "ak-pb",
+        role = "progressbar",
+        `aria-valuemin` = "0",
+        `aria-valuemax` = "100",
+        `aria-valuenow` = pct,
+        style = sprintf("width:%s;", width),
+        div(class = "ak-pb__fill", style = sprintf("width:%d%%;", pct))
+      )
+    )
+  )
+}
+
+met_n   <- sum(phase0_prepped$meets_goal %in% TRUE, na.rm = TRUE)
+total_n <- nrow(phase0_prepped)
+
+goals_progress_bar(met_n, total_n)
+
+
+```
