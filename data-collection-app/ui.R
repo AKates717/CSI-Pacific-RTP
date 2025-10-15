@@ -106,5 +106,63 @@ ui <- page_navbar(
       DTOutput("table_p1")
       
     )
+  ),
+  
+  
+  
+  
+  
+  nav_panel(
+    "Phase 2",
+    layout_sidebar(
+      sidebar = sidebar(
+        width = "35%",
+        selectizeInput(
+          "measure_p2", "Outcome Measure (Phase 2)",
+          choices  = measures_by_phase("Phase 2"),
+          selected = character(0),
+          options  = list(
+            placeholder = "Select or type…",
+            create = TRUE,
+            onInitialize = I('function() { this.clear(true); }')  # <- force no preselect
+          )
+        ),
+        dateInput("date_p2", "Date"),
+        selectInput("side_p2", "Side", choices = c("Left","Right")),
+        numericInput("value_p2", "Value", value = NA, step = 0.01),
+        textInput("units_p2", "Units", value = ""),
+        textAreaInput("notes_p2", "Notes", rows = 3, placeholder = "optional"),
+        actionButton("save_p2", "Save to Excel (Phase 2)", class = "btn-primary"),
+        tags$hr(),
+        verbatimTextOutput("status_p2", placeholder = TRUE)
+      ),
+      
+      card(
+        class = "ak-card has-stripe accent-primary tight",
+        card_body(
+          # Heading styled by your CSS (first child inside card-body)
+          h3(textOutput("p2_title", container = span)),
+          
+          # Main text blocks (keep your existing renderText)
+          p(class = "desc-text", textOutput("description_p2", container = span)),
+          p(class = "info-text",  textOutput("info_p2",        container = span))
+          
+          # # Optional fields (render nothing if empty)
+          # uiOutput("goal_row_p0"),
+          # uiOutput("reps_row_p0"),
+          # uiOutput("calc_row_p0")
+        )
+      ),
+      DTOutput("table_p2")
+      
+    )
   )
+  
+  
+  
+  
+  
+  
+  
+  
 )

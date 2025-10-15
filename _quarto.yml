@@ -24,7 +24,7 @@ website:
       - text: "Dashboards"
         menu:
           - text: "Force Plates"
-            href: dashboard1.qmd
+            href: dashboards/dashboard1.qmd
           - text: "Shiny App"
             href: app-inline.qmd
       - text: "Progress Reports"
@@ -55,6 +55,11 @@ format:
     toc: true
     page-layout: full
     link-external-newwindow: true
+    
+execute:
+  echo: false
+  warning: false
+  message: false
     
 # post-render:
 #   - cp -r book/_book _site/book
