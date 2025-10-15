@@ -55,7 +55,7 @@ Dashboards will be most useful to practitioners who want to disect the progress 
 
 ##### Current and planned dashboards are linked below:
 
--   [Force Plates](dashboard1.qmd)
+-   Force Plates
 
 -   Wellness Monitoring (coming soon)
 

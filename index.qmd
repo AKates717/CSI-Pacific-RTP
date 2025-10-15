@@ -338,7 +338,9 @@ p <- ggplot(acl_rsi_score, aes(x = date, y = score)) +
 
 swelling <- phase0 %>%
   filter(outcome_measure == "Swelling",
-         side == inj_side)
+         side == inj_side) %>%
+  dplyr::group_by(date) %>%
+  dplyr::summarise(value = max(value))
  
 p <- ggplot(swelling, aes(x = date, y = value)) +
   geom_col(fill = "#E1535B", alpha = 0.7 ) +
