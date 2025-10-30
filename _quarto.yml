@@ -1,7 +1,7 @@
 project:
   type: website
-  pre-render:
-    - quarto render book        # build the book first
+  # pre-render:
+  #   - quarto render book        # build the book first
   render:
     - "*.qmd"
     - "dashboards/*.qmd"
@@ -30,7 +30,7 @@ website:
       - text: "Progress Reports"
         menu:
           - text: "Phase 0"
-            href: checklists/phase1_checklist.qmd
+            href: checklists/phase0_checklist.qmd
           - text: "Return to Jumping"
             href: checklists/return_to_jump_checklist.qmd            
           - text: "Return to Running"
@@ -60,6 +60,9 @@ execute:
   echo: false
   warning: false
   message: false
+  #cache: true
+  #freeze: auto
+  
     
 # post-render:
 #   - cp -r book/_book _site/book

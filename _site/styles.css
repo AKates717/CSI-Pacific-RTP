@@ -58,3 +58,93 @@ body.no-footer .footer {
 }
 
 
+
+
+
+
+
+
+/* ====== Brand tokens ====== */
+:root {
+  --ak-accent:   #D71920; /* red */
+  --ak-border:   #A7A9AC; /* grey */
+  --ak-headerbg: #FCFCFC; /* light grey */
+}
+
+/* ====== Reusable card theme (apply-on-demand) ====== */
+.quarto-dashboard .card.ak-card,
+.quarto-dashboard .card:has(.ak-card-mark) {
+  border: 1px solid var(--ak-border);
+  border-top: 3px solid var(--ak-accent);
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.04);
+  overflow: hidden;
+  background: #fff;
+}
+
+/* Header (bigger title + grey underline) */
+.quarto-dashboard .card.ak-card .card-header,
+.quarto-dashboard .card:has(.ak-card-mark) .card-header {
+  background: var(--ak-headerbg);
+  border-bottom: 2px solid var(--ak-border); /* changed from accent to grey */
+  padding: .6rem .9rem;
+  font-family: "Roboto Slab", ui-serif, Georgia, serif;
+  font-weight: 700;
+  color: var(--ak-accent);
+}
+
+/* Slightly larger title text inside the header */
+.quarto-dashboard .card.ak-card .card-header .card-title,
+.quarto-dashboard .card.ak-card .card-header h1,
+.quarto-dashboard .card.ak-card .card-header h2,
+.quarto-dashboard .card.ak-card .card-header h3,
+.quarto-dashboard .card.ak-card .card-header h4,
+.quarto-dashboard .card:has(.ak-card-mark) .card-header .card-title,
+.quarto-dashboard .card:has(.ak-card-mark) .card-header h1,
+.quarto-dashboard .card:has(.ak-card-mark) .card-header h2,
+.quarto-dashboard .card:has(.ak-card-mark) .card-header h3,
+.quarto-dashboard .card:has(.ak-card-mark) .card-header h4 {
+  font-size: 1.2rem; /* slightly larger */
+  margin: 0;
+}
+
+/* Body */
+.quarto-dashboard .card.ak-card .card-body,
+.quarto-dashboard .card:has(.ak-card-mark) .card-body {
+  padding: .75rem .9rem .9rem;
+}
+
+/* Small text */
+.quarto-dashboard .card.ak-card .figure-caption,
+.quarto-dashboard .card.ak-card .card-subtitle,
+.quarto-dashboard .card:has(.ak-card-mark) .figure-caption,
+.quarto-dashboard .card:has(.ak-card-mark) .card-subtitle {
+  font-size: .9rem;
+  color: #222;
+}
+
+/* Footer */
+.quarto-dashboard .card.ak-card .card-footer,
+.quarto-dashboard .card:has(.ak-card-mark) .card-footer {
+  border-top: 1px solid var(--ak-border);
+  background: #fff;
+}
+
+/* Optional color variants */
+.quarto-dashboard .card.ak-card.ak-accent-green { --ak-accent: #2E7D32; }
+.quarto-dashboard .card.ak-card.ak-accent-blue  { --ak-accent: #0E7C86; }
+
+
+/* Center the "no data" message inside a card */
+.ak-no-data {
+  display: flex;
+  align-items: center;     /* vertical centering */
+  justify-content: center; /* horizontal centering */
+  text-align: center;
+  min-height: 320px;       /* tweak to your card height */
+  color: #A7A9AC;
+  font-weight: 600;
+  font-family: "Open Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+

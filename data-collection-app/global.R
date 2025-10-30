@@ -6,6 +6,8 @@ library(DT)
 library(here)
 library(bslib)
 library(janitor)
+library(shinyWidgets)
+library(shinytoastr)
 
 #
 # Themes & Formatting ----
@@ -31,8 +33,7 @@ SOURCE_PATH <- here("sample_data", "acl-protocol-criteria-2025.xlsx")  # your up
 SOURCE_SHEET <- "criteria_full"                     # sheet to read measures from
 
 TARGET_PATH  <-here("sample_data", "outcome_data.xlsx")
-
-SHEET_P0     <- "Phase0_data"
+TARGET_SHEET     <- "Phase_data"
 
 COLS <- c("Phase","Outcome Measure","Date", "Timestamp","Side","Value","Units","Notes")
 
@@ -57,17 +58,17 @@ ensure_workbook <- function() {
   # Create the target workbook with both phase sheets if missing
   if (!file.exists(TARGET_PATH)) {
     wb <- createWorkbook()
-    addWorksheet(wb, SHEET_P0)
+    addWorksheet(wb, TARGET_SHEET)
     
-    writeData(wb, SHEET_P0, empty_df(), colNames = TRUE)
+    writeData(wb, TARGET_SHEET, empty_df(), colNames = TRUE)
     
     saveWorkbook(wb, TARGET_PATH, overwrite = TRUE)
   } else {
     # If exists, ensure both sheets exist with headers
     wb <- loadWorkbook(TARGET_PATH)
     existing_sheets <- names(wb)
-    if (!(SHEET_P0 %in% existing_sheets)) {
-      addWorksheet(wb, SHEET_P0); writeData(wb, SHEET_P0, empty_df(), colNames = TRUE)
+    if (!(TARGET_SHEET %in% existing_sheets)) {
+      addWorksheet(wb, TARGET_SHEET); writeData(wb, TARGET_SHEET, empty_df(), colNames = TRUE)
     }
     saveWorkbook(wb, TARGET_PATH, overwrite = TRUE)
   }

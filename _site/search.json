@@ -109,7 +109,7 @@
     "href": "checklists/phase1_checklist.html",
     "title": "Pre-Op Phase Checklist",
     "section": "",
-    "text": "Frank Reynolds’s progress towards these goals will be assessed via the criteria seen below.\n\n\n\n\n\n\n\n\nOutcome Measure\n\nGoal\nScore\n\n\n\n\nPassive Knee Extension\n≤\n0°\n0\n\n\nPassive Knee Flexion\n≥\n125°\n120\n\n\nSwelling\n≤\n1\n1\n\n\nQuad Strength\n&gt;\n90%\n80%\n\n\nHamstring Strength\n&gt;\n90%\n92%\n\n\nSingle Leg Hop Test\n≥\n90%\n75%\n\n\n\n\n\n\n\n\n\n\n\n\nGoals met: 3/6\n50%"
+    "text": "Frank Reynolds’s progress towards these goals will be assessed via the criteria seen below.\n\n\n\n\n\n\n\n\nPhase 0 Criteria\n\n\nOutcome Measure\n\nGoal\nScore\n\n\n\n\nPassive Knee Extension\n≤\n0°\n2\n\n\nPassive Knee Flexion\n≥\n125°\n118\n\n\nSwelling\n≤\n1\n2\n\n\nQuad Strength\n&gt;\n90%\n\n\n\n\nHamstring Strength\n&gt;\n90%\n80%\n\n\n\n\n\n\n\n\n\n\n\n\nGoals met: 0/5\n0%"
   },
   {
     "objectID": "checklists/return_to_run_checklist.html",
@@ -215,5 +215,12 @@
     "title": "ACL Rehabilitation Hub",
     "section": "Column {width = “33%”}",
     "text": "Column {width = “33%”}\n\nRow - Strength\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRow - Tabsets of tables\nSome Data"
+  },
+  {
+    "objectID": "checklists/phase0_checklist.html",
+    "href": "checklists/phase0_checklist.html",
+    "title": "Pre-Op Phase Checklist",
+    "section": "",
+    "text": "Frank Reynolds’s progress towards these goals will be assessed via the criteria seen below.\n\n\n\n\n\n\n\n\nPhase 0 Criteria\n\n\nOutcome Measure\n\nGoal\nScore\n\n\n\n\nPassive Knee Extension\n≤\n0°\n1.0\n\n\nPassive Knee Flexion\n≥\n125°\n121.0\n\n\nSwelling\n≤\n1\n0.0\n\n\nQuad Strength\n&gt;\n90%\n67.4\n\n\nHamstring Strength\n&gt;\n90%\n81%\n\n\n\n\n\n\n\n\n\n\n\n\nGoals met: 1/5\n20%"
   }
 ]

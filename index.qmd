@@ -44,16 +44,11 @@ Jumps <- recent_five(params$athlete, "CMJ")
 
 ##### ACL Rehabilitation
 
-<i class="fa-solid fa-calendar-day"></i> **Day:** `{r} days` <i class="fa-solid fa-calendar-week"></i> **Week:** `{r} week`
+<i class="fa-solid fa-calendar-day"></i> **Day:** `{r} rehab_day_num` <i class="fa-solid fa-calendar-week"></i> **Week:** `{r} week`
 
-<i class="fa-solid fa-bars-progress"></i> **Phase:** 2 <br> 
-{{< fa solid dumbbell size=1x >}} *Strength & NM Control* <br> 
-<i class="fa-solid fa-battery-three-quarters"></i> **Phase Progress:** 50%
+<i class="fa-solid fa-bars-progress"></i> **Phase:** 2 <br> {{< fa solid dumbbell size=1x >}} *Strength & NM Control* <br> <i class="fa-solid fa-battery-three-quarters"></i> **Phase Progress:** 50%
 
-<i class="fa-solid fa-briefcase-medical"></i> **Injury:** `{r} Rehab_Info$primary_injury` <br> 
-<i class="bi bi-person-arms-up"></i> **Limb:** `{r} Rehab_Info$limb` <br> 
-<i class="fa-solid fa-calendar-day"></i> **Date of Surgery:** `{r} surgery_date` <br> 
-<i class="fa-solid fa-file-medical"></i> **Type of Surgery:** `{r} Rehab_Info$type_of_surgery`
+<i class="fa-solid fa-briefcase-medical"></i> **Injury:** `{r} Rehab_Info$primary_injury` <br> <i class="bi bi-person-arms-up"></i> **Limb:** `{r} Rehab_Info$limb` <br> <i class="fa-solid fa-calendar-day"></i> **Date of Surgery:** `{r} surgery_date` <br> <i class="fa-solid fa-file-medical"></i> **Type of Surgery:** `{r} Rehab_Info$type_of_surgery`
 
 ```{r}
 
@@ -97,168 +92,199 @@ gt(progress) |>
 
 ## Column {width = "33%"}
 
-### Row - Daily Monitoring {height="50%"}
+### Row - Daily Monitoring {height="40%"}
 
-::: {.card .border-0 fill="false"}
 ```{r}
 #| label: daily_monitoring
 
-# ---- Fake "today" values + baseline for jump height ----
-today_vals <- tibble::tibble(
-  Variable = c("Pain (0–10)", "Swelling (0–3)", "Sleep Hours", "Jump Height (cm)"),
-  Score    = c(2, 1, 7.5, 32)
-)
 
-baseline_jump_cm <- 30  # <-- set your athlete's jump baseline here
+cat("title=", "Daily Monitoring - ", format(Sys.Date(), "%b %d, %Y"))
 
-# ---- Threshold logic (row-wise) ----
-table_df <- today_vals |>
-  rowwise() |>
-  mutate(
-    Status = case_when(
-      Variable == "Pain (0–10)" ~ case_when(
-        Score <= 2            ~ "Good",
-        Score <  6            ~ "Caution",
-        TRUE                  ~ "Alert"
-      ),
-      Variable == "Swelling (0–3)" ~ case_when(
-        Score <= 1            ~ "Good",
-        Score == 2            ~ "Caution",
-        TRUE                  ~ "Alert"
-      ),
-      Variable == "Sleep Hours" ~ case_when(
-        Score >= 8            ~ "Good",
-        Score >= 6            ~ "Caution",
-        TRUE                  ~ "Alert"
-      ),
-      Variable == "Jump Height (cm)" ~ {
-        change <- (Score - baseline_jump_cm) / baseline_jump_cm
-        if (change >= 0)        "Good"
-        else if (change >= -0.05) "Caution"
-        else                      "Alert"
-      },
-      TRUE ~ NA_character_
+htmltools::tags$div(class = "ak-card-mark")
+
+# Read all daily monitoring data
+daily_mon_raw <- read_xlsx("sample_data/outcome_data.xlsx", sheet = "daily") %>%
+  clean_names()
+
+daily_mon_most_recent <- lubridate::as_date(max(daily_mon_raw$date))
+
+daily_mon_past <- daily_mon_raw %>%
+  filter(date > daily_mon_most_recent-28 & date < daily_mon_most_recent)
+
+#Descriptive stats for all past results
+wellness_summary <- daily_mon_past %>%
+  summarise(across(
+    where(is.numeric),
+    list(
+      mean = ~ mean(.x, na.rm = TRUE),
+      sd   = ~ sd(.x, na.rm = TRUE),
+      cv   = ~ ifelse(mean(.x, na.rm = TRUE) == 0, NA_real_,
+                      sd(.x, na.rm = TRUE) / mean(.x, na.rm = TRUE))
     ),
-    Detail = case_when(
-      Variable == "Jump Height (cm)" ~ {
-        pct <- (Score - baseline_jump_cm) / baseline_jump_cm
-        paste0(ifelse(pct >= 0, "+", ""), percent(pct, accuracy = 0.1))
-      },
-      TRUE ~ ""
-    )
-  ) |>
-  ungroup()
+    .names = "{.col}__{.fn}"
+  )) %>%
+  pivot_longer(everything(), names_to = c("variable", "stat"), names_sep = "__") %>%
+  pivot_wider(names_from = stat, values_from = value)
 
-# ---- Build gt table with conditional colors on Score ----
-tab <- gt(table_df) |>
-  tab_header(title = md(paste0("**Daily Monitoring — ", format(Sys.Date(), "%b %d, %Y"), "**"))) |>
-  cols_label(
-    Variable = "Variable",
-    Score    = "Score",
-    Status   = "Status",
-    Detail   = "Δ vs Baseline"
-  ) |>
-  fmt_number(columns = "Score", decimals = 1) |>
-  ak_gt_theme3() |>
-  cols_align(align = "left", columns = c(Variable)) |>
-  cols_align(align = "center", columns = c(Score, Status, Detail)) |>
-  # Colors for Score cell based on Status
-  tab_style(
-    style = list(cell_fill(color = "#e6f4ea"), cell_text(color = "#1e7e34", weight = "700")),
-    locations = cells_body(columns = "Score", rows = Status == "Good")
-  ) |>
-  tab_style(
-    style = list(cell_fill(color = "#fff7e6"), cell_text(color = "#a46900", weight = "700")),
-    locations = cells_body(columns = "Score", rows = Status == "Caution")
-  ) |>
-  tab_style(
-    style = list(cell_fill(color = "#fde8e8"), cell_text(color = "#a61b1b", weight = "700")),
-    locations = cells_body(columns = "Score", rows = Status == "Alert")
-  ) |>
-  tab_options(
-    data_row.padding = px(6),
-    table_body.hlines.style = "solid",
-    table_body.hlines.width = px(1)
-  ) |>
-  cols_hide(Status)
+wellness_summary <- wellness_summary %>%
+  mutate(upper = mean + (mean * cv),
+         lower = mean - (mean * cv))
 
-tab
+
+today <- daily_mon_raw %>%
+  filter(as.Date(date) == lubridate::today(tzone = "America/Toronto")) %>%
+  select(-timestamp) %>%
+  pivot_longer(-date, names_to = "variable", values_to = "value")
+
+today2 <- left_join(today, wellness_summary, by = "variable")
+
+today_wellness <- today2 %>%
+  filter(variable != "hours_of_sleep") %>%
+  mutate(var_label = pretty_var(variable)) %>%
+  mutate(var_label = var_label %>% fct_relevel(c("Fatigue", "Stress", "Muscle Soreness", "Knee Soreness")) %>% fct_rev()) %>%
+  mutate(Flag = case_when(
+    value < lower ~ "Decrease",
+    value > upper ~ "Increase",
+    TRUE ~ "Normal"
+  )) %>%
+  mutate(Colour = case_when(
+    Flag == "Normal" ~ "gray40",
+    Flag == "Decrease" ~ "#009E73",
+    Flag == "Increase" ~ "#D55E00"
+  ))
+
+today_sleep <- today2 %>%
+  filter(variable == "hours_of_sleep") %>%
+  mutate(var_label = pretty_var(variable)) %>%
+  mutate(Flag = case_when(
+    value < lower ~ "Decrease",
+    value > upper ~ "Increase",
+    TRUE ~ "Normal"
+  )) %>%
+  mutate(Colour = case_when(
+    Flag == "Normal" ~ "gray40",
+    Flag == "Decrease" ~ "#D55E00",
+    Flag == "Increase" ~ "#009E73"
+  ))
+
+
+
+#Two plots
+#1) The rows are outcome measures instead of athlete names
+#1a) Wellness
+p_well <- ggplot(today_wellness) +
+  geom_bar(aes(x = var_label, y = value, fill = Flag), stat = "identity", width = 0.5, fill = today_wellness$Colour) +
+  geom_errorbar(aes(x = var_label, ymin = lower, ymax = upper), linewidth = 1, width = 0.5) +
+  geom_point(aes(x = var_label, y = mean), size = 2, shape = 23, fill = "#0072B2", stroke = 1.5) +
+  geom_text(aes(x = var_label, y = value, label = value), position = position_stack(vjust = .5), fontface = "bold", color = "white", size = 8) +
+  scale_y_continuous(
+    limits = c(0, 5),
+    breaks = 0:5,
+    expand = expansion(mult = c(0, 0.05)),
+    oob = scales::oob_squish
+  ) +
+  ak_plot_theme() +
+  theme(axis.title = element_blank(),
+        axis.text.y = element_text(size = 16, face = "bold", margin = margin(r = 6)),
+        axis.text.x = element_text(size = 14),
+        panel.grid.major.y = element_blank(),
+        legend.position = "none",
+        plot.title = element_text(face = "bold", vjust = 0, hjust = 0.5),
+        plot.subtitle = element_text(size = 9)) +
+  # labs(title = "Daily Monitoring",
+  #      subtitle = paste0(format(Sys.Date(), "%b %d, %Y"))) +
+  coord_flip()
+
+#1b) Sleep
+p_sleep <- ggplot(today_sleep) +
+  geom_bar(aes(x = var_label, y = value, fill = Flag), stat = "identity", width = 0.5, fill = today_sleep$Colour) +
+  geom_errorbar(aes(x = var_label, ymin = lower, ymax = upper), linewidth = 1, width = 0.5) +
+  geom_point(aes(x = var_label, y = mean), size = 2, shape = 23, fill = "#0072B2", stroke = 1.5) +
+  geom_text(aes(x = var_label, y = value, label = value), position = position_stack(vjust = .5), fontface = "bold", color = "white", size = 8) +
+  scale_y_continuous(
+    limits = c(0, 12),
+    breaks = 0:12,
+    expand = expansion(mult = c(0, 0.05)),
+    oob = scales::oob_squish
+  ) +
+  ak_plot_theme() +
+  theme(axis.title = element_blank(),
+        axis.text.y = element_text(size = 16, face = "bold", margin = margin(r = 6)),
+        axis.text.x = element_text(size = 14),
+        panel.grid.major.y = element_blank(),
+        legend.position = "none",
+        plot.title = element_text(face = "bold", vjust = 0, hjust = 0.5, size = 26),
+        plot.subtitle = element_text(size = 9)) +
+  #labs(title = paste0(format(Sys.Date(), "%b %d, %Y"))) +
+  coord_flip()
+
+# p_sleep/p_well +
+#   plot_layout(heights = c(1,4))
+
+has_today <- nrow(today2) > 0 && any(is.finite(today2$value))
+
+if (!has_today) {
+  # Show a simple message instead of the plots
+  htmltools::div(
+  style = "display:flex;align-items:center;justify-content:center;width:100%;height:100%;min-height:220px;",
+  class = "ak-no-data",
+  paste("No Data Yet for", format(Sys.Date(), "%b %d, %Y"))
+)
+} else {
+  # Show the two-panel plot as usual
+  p_sleep / p_well + plot_layout(heights = c(1, 4))
+}
+
 
 ```
-:::
 
-### Row - Phase Criteria Summary {height="50%"}
+### Row - Phase Criteria Summary {height="60%"}
 
 ::: {.card .border-0 fill="false"}
 ```{r}
-#| label: phase_criteria_summary
+#| label: phase 0
 
-# --- Example criteria for current phase ---
-# op is the comparator to use for pass/fail
-criteria <- tribble(
-  ~test,                   ~criterion, ~op,
-  "Quad Strength LSI",          0.85,  ">=",
-  "Ham Strength LSI",           0.85,  ">=",
-  "Single Hop LSI",             0.90,  ">=",
-  "Triple Hop LSI",             0.90,  ">=",
-  "Knee Flexion (deg)",          125,  ">=",
-  "Extension Deficit (deg)",       0,  "<="    # 0 or less deficit passes
-)
-
-# --- Most recent athlete results (replace with your latest row) ---
-latest <- tibble(
-  test  = c("Quad Strength LSI","Ham Strength LSI","Single Hop LSI","Triple Hop LSI",
-            "Knee Flexion (deg)","Extension Deficit (deg)"),
-  value = c(0.83, 0.88, 0.92, 0.87, 128, 1)  # LSI as proportions; degrees as numbers
-)
-
-# --- Evaluate pass/fail using the operator from `criteria` ---
-compare <- function(x, op, y) {
-  dplyr::case_when(
-    op == ">=" ~ x >= y,
-    op == ">"  ~ x >  y,
-    op == "<=" ~ x <= y,
-    op == "<"  ~ x <  y,
-    op == "==" ~ x == y,
-    TRUE ~ NA
-  )
-}
-
-table_df <- criteria %>%
-  left_join(latest, by = "test") %>%
-  mutate(pass = compare(value, op, criterion)) %>%
-  # nice display columns
-  mutate(
-    Criterion = ifelse(grepl("LSI", test), percent(criterion, accuracy = 1), as.character(criterion)),
-    Score     = ifelse(grepl("LSI", test), percent(value,     accuracy = 1), as.character(value)),
-    Test      = test
+#Create the table
+tbl_phase0 <- criteria_phase0 %>%
+  transmute(
+    `Outcome Measure` = outcome_measure,
+    `Op` = operator_pretty,
+    Goal              = goal_pretty,   # nice display string from your sheet
+    Score             = score,
+    meets
   ) %>%
-  select(Test, Criterion, Score, pass)
-
-# --- Build gt table with conditional coloring on Score ---
-gt(table_df) |>
-  tab_header(title = md("**Phase Criteria vs Latest Scores**")) |>
-  data_color(
-    columns = "Score",
-    colors = function(x) {
-      # color by pass flag, not by numeric gradient
-      ifelse(table_df$pass, "#e6f4ea", "#fde8e8")  # green-ish / red-ish backgrounds
-    }
-  ) |>
+  gt() %>%
+  tab_header(title = md("**Phase 0 Criteria**")) %>%
+  fmt_number(
+    columns = Score,
+    rows = `Outcome Measure` %in% c("Hamstring Strength", "Quadriceps Strength"),
+    decimals = 0,
+    pattern = "{x}%"
+  ) %>%
+  sub_missing(columns = Score, missing_text = "") %>%
+  cols_label(Op = "") %>%
+  cols_width(`Outcome Measure` ~ px(360)) %>%
+  cols_align(align = "center", columns = c(Goal, Score)) %>%
+  cols_align(align = "right",  columns = Op) %>%
   tab_style(
-    style = cell_text(color = ifelse(table_df$pass, "#1e7e34", "#a61b1b"), weight = "700"),
-    locations = cells_body(columns = "Score")
-  ) |>
-  fmt_markdown(columns = everything()) |>
-  # cols_align(align = "left", columns = everything()) |>
-  ak_gt_theme3() |>
-  cols_align(align = "center", columns = c(Criterion, Score)) |>
+    style = list(cell_fill(color = "#E8F5E9"),
+                 cell_text(color = "#1B5E20", weight = "600")),
+    locations = cells_body(columns = Score, rows = meets %in% TRUE)
+  ) %>%
+  tab_style(
+    style = list(cell_fill(color = "#FFF9C4"),
+                 cell_text(color = "#7A6A00", weight = "600")),
+    locations = cells_body(columns = Score, rows = meets %in% FALSE)
+  )  %>%
+  cols_hide(meets) %>%
+  ak_gt_theme3() %>%
   tab_options(
     table_body.hlines.style = "solid",
     table_body.hlines.width = px(1),
     data_row.padding = px(6)
-  )|>
-  cols_hide(pass)
+  )
+
+tbl_phase0
 ```
 :::
 
@@ -313,63 +339,209 @@ ba2 %>%
 ### Row - Knee Health {.tabset height="50%"}
 
 ```{r}
-#| label: acl_rsi
-#| title: ACL_RSI
+#| label: fatigue
+#| title: Fatigue
 
-p <- ggplot(acl_rsi_score, aes(x = date, y = score)) +
-  geom_col(fill = "#D71920", alpha = 0.7 ) +
-  geom_smooth(method = "lm", se = FALSE, color = "black", linewidth = 1.2) +
+v1 <- daily_mon_raw %>%
+  select(date, timestamp, fatigue) %>%
+  mutate(avg = lag(cummean(fatigue)))
+
+n <- seq_along(v1$fatigue) #just creating a sequence, essentially a row number
+m <- cumsum(v1$fatigue) /n #this one plus the one above just does a cummean I guess
+m2 <- cumsum(v1$fatigue * v1$fatigue) / n #
+v <- (m2 - m * m) * (n / (n - 1)) #
+s <- sqrt(v) #st dev
+CoV <- s/m #Cov
+
+v1$CoV <- CoV
+
+v1 <- v1 %>%
+  mutate(Upper = round(avg + (avg * CoV),2),
+         Lower = round(avg - (avg * CoV),2)) %>%
+  mutate(Flag = case_when(
+    fatigue < Lower ~ "Decrease",
+    fatigue > Upper ~ "Increase",
+    TRUE ~ "Normal"
+  )) %>%
+  mutate(Colour = case_when(
+    Flag == "Normal" ~ "gray40",
+    Flag == "Decrease" ~ "#009E73",
+    Flag == "Increase" ~ "#D55E00"
+  ))
+
+p_fatigue <- v1 %>%
+  mutate(date = as.Date(date)) %>%          # or as.Date(timestamp)
+  ggplot(aes(x = date, y = fatigue)) +
+  geom_col(fill = v1$Colour, alpha = 0.9, width = 0.8) +
+  geom_errorbar(aes(ymin = Lower, ymax = Upper), size = 1, width = 0.5) +
+  geom_point(aes(y = avg), size = 2, shape = 23, fill = "#0072B2", stroke = .5) +
+  geom_text(aes(label = fatigue), position = position_stack(vjust = .5), angle = 90, fontface = "bold", color = "white", size = 3) +
+  scale_x_date(breaks = "1 month", labels = label_date("%b")) + 
+  scale_y_continuous(limits = c(0, 5), oob = oob_squish) +
   ak_plot_theme() +
-  labs(
-    x = NULL,
-    y = "Score (%)"
-  ) +
-  ylim(0,100)
-  
-  
-  ggplotly(p)
-
-
-```
-
-```{r}
-#| label: swelling
-#| title: Swelling
-
-swelling <- phase0 %>%
-  filter(outcome_measure == "Swelling",
-         side == inj_side) %>%
-  dplyr::group_by(date) %>%
-  dplyr::summarise(value = max(value))
- 
-p <- ggplot(swelling, aes(x = date, y = value)) +
-  geom_col(fill = "#E1535B", alpha = 0.7 ) +
-  geom_smooth(method = "lm", se = FALSE, color = "black", linewidth = 1.2) +
-  ak_plot_theme() +
-  labs(
-    x = NULL,
-    y = "Swelling (cm)"
+  theme(axis.title.x = element_blank(),
+        axis.title.y = element_blank()
   )
 
-ggplotly(p)
+ggplotly(p_fatigue)
+
 ```
 
 ```{r}
-#| label: pain
+#| label: stress
+#| title: Stress
+
+v1 <- daily_mon_raw %>%
+  select(date, timestamp, stress) %>%
+  mutate(avg = lag(cummean(stress)))
+
+n <- seq_along(v1$stress) #just creating a sequence, essentially a row number
+m <- cumsum(v1$stress) /n #this one plus the one above just does a cummean I guess
+m2 <- cumsum(v1$stress * v1$stress) / n #
+v <- (m2 - m * m) * (n / (n - 1)) #
+s <- sqrt(v) #st dev
+CoV <- s/m #Cov
+
+v1$CoV <- CoV
+
+v1 <- v1 %>%
+  mutate(Upper = round(avg + (avg * CoV),2),
+         Lower = round(avg - (avg * CoV),2)) %>%
+  mutate(Flag = case_when(
+    stress < Lower ~ "Decrease",
+    stress > Upper ~ "Increase",
+    TRUE ~ "Normal"
+  )) %>%
+  mutate(Colour = case_when(
+    Flag == "Normal" ~ "gray40",
+    Flag == "Decrease" ~ "#009E73",
+    Flag == "Increase" ~ "#D55E00"
+  ))
+
+p_stress <- v1 %>%
+  mutate(date = as.Date(date)) %>%          # or as.Date(timestamp)
+  ggplot(aes(x = date, y = stress)) +
+  geom_col(fill = v1$Colour, alpha = 0.9, width = 0.8) +
+  geom_errorbar(aes(ymin = Lower, ymax = Upper), size = 1, width = 0.5) +
+  geom_point(aes(y = avg), size = 2, shape = 23, fill = "#0072B2", stroke = .5) +
+  geom_text(aes(label = stress), position = position_stack(vjust = .5), angle = 90, fontface = "bold", color = "white", size = 3) +
+  scale_x_date(breaks = "1 month", labels = label_date("%b")) + 
+  scale_y_continuous(limits = c(0, 5), oob = oob_squish) +
+  ak_plot_theme() +
+  theme(axis.title.x = element_blank(),
+        axis.title.y = element_blank()
+  )
+
+ggplotly(p_stress)
+
+
+```
+
+```{r}
+#| label: muscle_soreness
+#| title: Soreness
+
+v1 <- daily_mon_raw %>%
+  select(date, timestamp, muscle_soreness) %>%
+  mutate(avg = lag(cummean(muscle_soreness)))
+
+n <- seq_along(v1$muscle_soreness) #just creating a sequence, essentially a row number
+m <- cumsum(v1$muscle_soreness) /n #this one plus the one above just does a cummean I guess
+m2 <- cumsum(v1$muscle_soreness * v1$muscle_soreness) / n #
+v <- (m2 - m * m) * (n / (n - 1)) #
+s <- sqrt(v) #st dev
+CoV <- s/m #Cov
+
+v1$CoV <- CoV
+
+v1 <- v1 %>%
+  mutate(Upper = round(avg + (avg * CoV),2),
+         Lower = round(avg - (avg * CoV),2)) %>%
+  mutate(Flag = case_when(
+    muscle_soreness < Lower ~ "Decrease",
+    muscle_soreness > Upper ~ "Increase",
+    TRUE ~ "Normal"
+  )) %>%
+  mutate(Colour = case_when(
+    Flag == "Normal" ~ "gray40",
+    Flag == "Decrease" ~ "#009E73",
+    Flag == "Increase" ~ "#D55E00"
+  ))
+
+p_muscle_soreness <- v1 %>%
+  mutate(date = as.Date(date)) %>%          # or as.Date(timestamp)
+  ggplot(aes(x = date, y = muscle_soreness)) +
+  geom_col(fill = v1$Colour, alpha = 0.9, width = 0.8) +
+  geom_errorbar(aes(ymin = Lower, ymax = Upper), size = 1, width = 0.5) +
+  geom_point(aes(y = avg), size = 2, shape = 23, fill = "#0072B2", stroke = .5) +
+  geom_text(aes(label = muscle_soreness), position = position_stack(vjust = .5), angle = 90, fontface = "bold", color = "white", size = 3) +
+  scale_x_date(breaks = "1 month", labels = label_date("%b")) + 
+  scale_y_continuous(limits = c(0, 5), oob = oob_squish) +
+  ak_plot_theme() +
+  theme(axis.title.x = element_blank(),
+        axis.title.y = element_blank()
+        #plot.title.position = "plot",
+        #plot.title = element_text(size = 16, face = "bold", vjust = -2, hjust = 0)
+  ) +
+  labs(title = "Muscle Soreness")
+
+ggplotly(p_muscle_soreness)
+
+
+```
+
+```{r}
+#| label: knee_soreness
 #| title: Pain
 
-p <- ggplot(wellness, aes(x = date, y = pain)) +
-  geom_col(fill = "#E1535B", alpha = 0.7 ) +
-  geom_smooth(method = "lm", se = FALSE, color = "black", linewidth = 1.2) +
+v1 <- daily_mon_raw %>%
+  select(date, timestamp, knee_soreness) %>%
+  mutate(avg = lag(cummean(knee_soreness)))
+
+n <- seq_along(v1$knee_soreness) #just creating a sequence, essentially a row number
+m <- cumsum(v1$knee_soreness) /n #this one plus the one above just does a cummean I guess
+m2 <- cumsum(v1$knee_soreness * v1$knee_soreness) / n #
+v <- (m2 - m * m) * (n / (n - 1)) #
+s <- sqrt(v) #st dev
+CoV <- s/m #Cov
+
+v1$CoV <- CoV
+
+v1 <- v1 %>%
+  mutate(Upper = round(avg + (avg * CoV),2),
+         Lower = round(avg - (avg * CoV),2)) %>%
+  mutate(Flag = case_when(
+    knee_soreness < Lower ~ "Decrease",
+    knee_soreness > Upper ~ "Increase",
+    TRUE ~ "Normal"
+  )) %>%
+  mutate(Colour = case_when(
+    Flag == "Normal" ~ "gray40",
+    Flag == "Decrease" ~ "#009E73",
+    Flag == "Increase" ~ "#D55E00"
+  ))
+
+p_knee_soreness <- v1 %>%
+  mutate(date = as.Date(date)) %>%          # or as.Date(timestamp)
+  ggplot(aes(x = date, y = knee_soreness)) +
+  geom_col(fill = v1$Colour, alpha = 0.9, width = 0.8) +
+  geom_errorbar(aes(ymin = Lower, ymax = Upper), size = 1, width = 0.5) +
+  geom_point(aes(y = avg), size = 2, shape = 23, fill = "#0072B2", stroke = .5) +
+  geom_text(aes(label = knee_soreness), position = position_stack(vjust = .5), angle = 90, fontface = "bold", color = "white", size = 3) +
+  scale_x_date(breaks = "1 month", labels = label_date("%b")) +
+  scale_y_continuous(limits = c(0, 5), oob = oob_squish) +
   ak_plot_theme() +
-  labs(
-    x = NULL,
-    y = "Pain"
+  theme(axis.title.x = element_blank(),
+        axis.title.y = element_blank()
   ) +
-  ylim(0,10)
-  
-  ggplotly(p)
+  labs(title = "Knee Pain")
+
+ggplotly(p_knee_soreness)
 ```
+
+
+
+
 
 ## Column {width = "33%"}
 
@@ -397,4 +569,9 @@ ba2 %>%
 
 ### Row - Tabsets of tables {.tabset height="50%"}
 
-Some Data
+```{r}
+#| label: phase 1
+#| title: "1"
+
+1+0
+```

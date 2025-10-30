@@ -11,6 +11,145 @@ ui <- page_navbar(
   header = tags$head(
     tags$link(rel = "stylesheet", href = "app.css")
   ),
+
+  
+  nav_panel(
+    title = "Daily Wellness",
+    
+    useToastr(),
+    
+    tags$style(HTML("
+    .wellness-container {
+      display:flex; justify-content:center; align-items:flex-start;
+      padding:0.6rem 0.5rem 1rem 0.5rem;
+    }
+    .wellness-card {
+      width:100%; max-width:480px;
+      background:#fff; border-radius:10px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.05);
+      padding:1rem 1rem 0.6rem 1rem;
+    }
+    .card-header h4 {
+      font-weight:600; color:#333;
+      margin-bottom:0.5rem; font-size:1.1rem;
+    }
+
+    /* field blocks tighter */
+    .wellness-field {
+      background:#fafbfe;
+      border:1px solid #e5e7eb;
+      border-radius:8px;
+      padding:6px 10px;
+      margin-bottom:6px;
+    }
+    .wellness-field .shiny-input-container label {
+      display:block;
+      font-weight:600;
+      font-size:0.9rem;
+      color:#333;
+      margin-bottom:2px;
+    }
+    .shiny-input-container { margin-bottom:0; }
+
+    /* numeric/date inputs */
+    .wellness-field input.form-control {
+      border:1px solid #cbd5e1;
+      border-radius:6px;
+      padding:4px 6px;
+      height:auto;
+      font-size:0.9rem;
+      box-shadow:none;
+    }
+    .wellness-field input.form-control:focus {
+      border-color:#447099;
+      outline:1px solid rgba(68,112,153,.25);
+      outline-offset:1px;
+    }
+    #sleep_hours { width:90px; }
+
+    /* compact radio pills */
+    .wellness-field .radio-inline {
+      display:inline-flex !important;
+      align-items:center;
+      justify-content:center;
+      white-space:nowrap;
+      gap:3px;
+      margin:2px 5px 2px 0;
+      padding:4px 8px;
+      border:1px solid #cbd5e1;
+      border-radius:9999px;
+      background:#f8fafc;
+      color:#1f2937;
+      cursor:pointer;
+      font-weight:600;
+      font-size:0.9rem;
+      transition:background .12s,border-color .12s,color .12s;
+    }
+    .wellness-field .radio-inline:hover {
+      background:#eef2f7;
+      border-color:#94a3b8;
+    }
+    .wellness-field .radio-inline input[type='radio'] {
+      width:1px;height:1px;opacity:0;position:absolute;pointer-events:none;
+    }
+    .wellness-field .radio-inline:has(input[type='radio']:checked) {
+      background:#447099;
+      border-color:#447099;
+      color:#fff;
+    }
+
+    /* tighter button */
+    #submit {
+      width:100%; font-weight:600; font-size:0.95rem;
+      padding:.4rem; border-radius:6px;
+      background:#447099 !important; border:none;
+      margin-top:4px;
+    }
+    #submit:hover { background:#365b7a !important; }
+
+    @media (max-width:600px){
+      .wellness-card { padding:0.8rem; }
+      .wellness-field { padding:5px 8px; margin-bottom:5px; }
+      .wellness-field .radio-inline { padding:5px 8px; }
+    }
+  ")),
+    
+    div(
+      class = "wellness-container",
+      card(
+        class = "wellness-card",
+        card_header(h4("Daily Wellness Questionnaire")),
+        card_body(
+          div(class = "wellness-field",
+              dateInput("date", "Date", value = Sys.Date())
+          ),
+          div(class = "wellness-field",
+              numericInput("sleep_hours", "Hours of Sleep", value = 8, min = 0, max = 24, step = 0.5)
+          ),
+          div(class = "wellness-field",
+              radioButtons("fatigue", "Fatigue", choices = 1:5, selected = character(0), inline = TRUE)
+          ),
+          div(class = "wellness-field",
+              radioButtons("muscle_soreness", "Muscle Soreness", choices = 1:5, selected = character(0), inline = TRUE)
+          ),
+          div(class = "wellness-field",
+              radioButtons("stress", "Stress", choices = 1:5, selected = character(0), inline = TRUE)
+          ),
+          div(class = "wellness-field",
+              radioButtons("knee_soreness", "Knee Soreness", choices = 1:5, selected = character(0), inline = TRUE)
+          ),
+          div(style = "margin-top:6px; text-align:center;",
+              actionButton("submit", "Submit"))
+        )
+      )
+    )
+  ),
+  
+  
+  
+  
+  
+  
   
   
   nav_panel(
@@ -157,6 +296,8 @@ ui <- page_navbar(
       
     )
   )
+  
+
   
   
   
