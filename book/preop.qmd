@@ -17,18 +17,19 @@ source("plot_functions.R")
 source("Themes.R")
 ```
 
-This chapter will focus exclusively on the time period between ACL injury and ACL Repair surgery (ACLR) and the objectives associated with the best outcomes throughout the rehabilitation. It is not always possible to choose the exact date of surgery, and the selection of the optimal pre-ACLR window is beyond the scope of this protocol, rather the goal here is to provide the information and tools to optimize this phase of the rehab. As seen below, **`r params$athlete`** has **`r prehab` days** to prepare for surgery.
+This chapter will focus exclusively on the time period between ACL injury and ACL Repair surgery (ACLR) and the objectives associated with the best outcomes throughout the rehabilitation. It is not always possible to choose the exact date of surgery, and the selection of the optimal pre-ACLR window is beyond the scope of this protocol, rather the goal here is to provide the information and tools to optimize this phase of the rehab. As seen below, **`r params$athlete`** has **`r phase0_length` days** to prepare for surgery.
 
 ```{r}
-phase0_length <- tibble(
+phase0_length_tbl <- tibble(
   'Injury Date ' = injury_date,
   'Surgery Date' = surgery_date,
-  'Prehab Window' = paste0(as.numeric(difftime(Rehab_Info$date_of_surgery, Rehab_Info$date_of_injury, units = "days")), " Days")
+  'Prehab Window' = phase0_length,
+    #paste0(as.numeric(difftime(Rehab_Info$date_of_surgery, Rehab_Info$date_of_injury, units = "days")), " Days")
   ) %>% gt() %>%
   ak_gt_theme3() %>%
   cols_align(align = "center")
 
-phase0_length
+phase0_length_tbl
 ```
 
 Regardless of the length of the prehab window, the research is clear that the length of time between injury and surgery is far less important than the quality of pre-ACLR care provided @young2023. Current research has found the following most important areas of focus at this stage:
@@ -43,159 +44,95 @@ Regardless of the length of the prehab window, the research is clear that the le
 **`r params$athlete`'s** progress towards these goals will be assessed via the criteria seen below. Detailed description of each criteria and the associated testing methodology can be found in the @sec-phase0testing section.
 
 ```{r}
-
-phase0_criteria <- readxl::read_xlsx("sample_data/acl-protocol-criteria-2025.xlsx", sheet="Phase0") %>%
-  clean_names()
-#phase0_criteria <- readxl::read_xlsx("acl-protocol-criteria-2025.xlsx", sheet="Phase0") %>%
-  #clean_names()
-
-# Helpers for parsing numbers and percents
-parse_num <- function(x) {
-  if (is.numeric(x)) return(x)
-  s <- as.character(x)
-  suppressWarnings(as.numeric(str_extract(s, "-?\\d+\\.?\\d*")))
-}
-is_percent <- function(x) grepl("%", as.character(x))
-
-# Prep data: normalize operators, parse numbers, and decide if goal is met
-phase0_prepped <- phase0_criteria %>%
-  mutate(
-    # Normalize operators like ≥ ≤ to R-friendly >= <=
-    op_clean = trimws(operator),
-    op_clean = dplyr::recode(op_clean,
-      "≥" = ">=", "≤" = "<=", "=" = "==", "=>" = ">=", "=<" = "<="
-    ),
-
-    # Raw values for potential string-equality comparisons
-    score_raw = score,
-    goal_raw  = goal,
-
-    # Numerics (pull first numeric token)
-    score_num = parse_num(score),
-    goal_num  = parse_num(goal),
-
-    # Percent handling: if Goal shows %, compare in 0–100 space
-    score_num = dplyr::case_when(
-      is_percent(goal_raw) & !is.na(score_num) & score_num <= 1 ~ score_num * 100,
-      TRUE ~ score_num
-    ),
-
-    # For text equality goals (e.g., "Pass"), allow == to compare strings
-    meets_string = dplyr::case_when(
-      op_clean == "==" ~ tolower(trimws(as.character(score_raw))) ==
-                          tolower(trimws(as.character(goal_raw))),
-      TRUE ~ NA
-    ),
-
-    # Final meets_goal logic (numeric first; fall back to string equality)
-    meets_goal = dplyr::case_when(
-      !is.na(score_num) & !is.na(goal_num) & op_clean == ">=" ~ score_num >= goal_num,
-      !is.na(score_num) & !is.na(goal_num) & op_clean == ">"  ~ score_num >  goal_num,
-      !is.na(score_num) & !is.na(goal_num) & op_clean == "<=" ~ score_num <= goal_num,
-      !is.na(score_num) & !is.na(goal_num) & op_clean == "<"  ~ score_num <  goal_num,
-      !is.na(meets_string) ~ meets_string,
-      TRUE ~ NA
-    )
-  )
-
-# Some nice percentage formatting
-phase0_prepped <- phase0_prepped %>%
-  mutate(
-    goal  = ifelse(grepl("^0?\\.\\d+$", goal),  paste0(as.numeric(goal)  * 100, "%"), goal),
-    score = ifelse(grepl("^0?\\.\\d+$", score), paste0(as.numeric(score) * 100, "%"), score)
-  )
-
-
-# Build gt + Score coloring
-tbl <- phase0_prepped %>%
-  select(
-    outcome_measure,
-    operator, goal, score, meets_goal
+#Create the table
+tbl_phase0 <- criteria_phase0 %>%
+  transmute(
+    `Outcome Measure` = outcome_measure,
+    `Op` = operator_pretty,
+    Goal              = goal_pretty,   # nice display string from your sheet
+    Score             = score,
+    meets
   ) %>%
   gt() %>%
-  cols_label(
-    outcome_measure = "Outcome Measure",
-    #`Display Description` = "Display Description",
-    #Info = "",
-    goal = "Goal",
-    operator = "",
-    score = "Score"
+  tab_header(title = md("**Phase 0 Criteria**")) %>%
+  fmt_number(
+    columns = Score,
+    rows = `Outcome Measure` %in% c("Hamstring Strength", "Quadriceps Strength"),
+    decimals = 0,
+    pattern = "{x}%"
   ) %>%
-  cols_align(align = "center", columns = c(goal, operator, score)) %>%
+  sub_missing(columns = Score, missing_text = "") %>%
+  cols_label(Op = "") %>%
+  cols_width(`Outcome Measure` ~ px(360)) %>%
+  cols_align(align = "center", columns = c(Goal, Score)) %>%
+  cols_align(align = "right",  columns = Op) %>%
+  tab_style(
+    style = list(cell_fill(color = "#E8F5E9"),
+                 cell_text(color = "#1B5E20", weight = "600")),
+    locations = cells_body(columns = Score, rows = meets %in% TRUE)
+  ) %>%
+  tab_style(
+    style = list(cell_fill(color = "#FFF9C4"),
+                 cell_text(color = "#7A6A00", weight = "600")),
+    locations = cells_body(columns = Score, rows = meets %in% FALSE)
+  )  %>%
+  cols_hide(meets) %>%
   ak_gt_theme3() %>%
-  cols_width(
-    outcome_measure ~ px(260),
-    goal ~ px(90),
-    operator ~ px(60),
-    score ~ px(100)
-  ) %>%
-  #tab_options(table.font.size = px(14), data_row.padding = px(6)) %>%
-  # Color Score cell by pass/fail/NA
-  tab_style(
-    style = list(
-      cell_fill(color = "#E8F5E9"),   # light green
-      cell_text(color = "#1B5E20", weight = "600")
-    ),
-    locations = cells_body(columns = score, rows = meets_goal %in% TRUE)
-  ) %>%
-  tab_style(
-    style = list(
-      cell_fill(color = "#FFF9C4"),   # light yellow
-      cell_text(color = "#7A6A00", weight = "600")
-    ),
-    locations = cells_body(columns = score, rows = meets_goal %in% FALSE)
-  ) %>%
-  tab_style(
-    style = list(
-      cell_fill(color = "#ECEFF1"),   # light grey for NA/uncomparable
-      cell_text(color = "#455A64")
-    ),
-    locations = cells_body(columns = score, rows = is.na(meets_goal))
-  ) %>%
-  # Hide helper column
-  cols_hide(columns = meets_goal)
+  tab_options(
+    table_body.hlines.style = "solid",
+    table_body.hlines.width = px(1),
+    data_row.padding = px(6)
+  )
 
-
-
-tbl
-
+tbl_phase0
 ```
 
 ```{r}
 
-goals_progress_bar <- function(met, total, label = "Goals met", width = "100%") {
+goals_progress_bar <- function(
+    met, total,
+    label = "Goals met",
+    width = "100%",
+    accent = "#D71920",   # table accent (red)
+    border = "#A7A9AC",   # table border grey
+    track_bg = "#FCFCFC", # header/stripe light bg
+    fill_from = "#2E7D32",# green gradient start
+    fill_to   = "#4CAF50" # green gradient end
+) {
   pct <- if (total > 0) round(100 * met / total) else 0
+  
   tagList(
-    # minimal CSS (injected once)
-    tags$style(HTML("
-      .ak-pb-wrap { margin-top:10px; }
-      .ak-pb-meta { display:flex; justify-content:space-between; font-size:0.9rem; margin-bottom:6px; }
-      .ak-pb { background:#f0f2f5; border:1px solid #dadde1; border-radius:10px; height:14px; overflow:hidden; }
-      .ak-pb__fill { height:100%; background:linear-gradient(90deg,#4CAF50,#2E7D32); }
-    ")),
+    tags$style(HTML(sprintf("
+      .ak-pb-wrap   { margin-top:12px; font-family:'Open Sans',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; }
+      .ak-pb-meta   { display:flex; justify-content:space-between; font-size:0.95rem; margin-bottom:6px; color:#222; }
+      .ak-pb-meta strong{ color:%s; font-weight:700; } /* accent like table title */
+      .ak-pb       { background:%s; border:1px solid %s; border-radius:10px; height:14px; overflow:hidden; }
+      .ak-pb__fill { height:100%%; background:linear-gradient(90deg,%s,%s); transition:width .3s ease; }
+    ", accent, track_bg, border, fill_from, fill_to))),
     div(class = "ak-pb-wrap",
-      div(class = "ak-pb-meta",
-          span(sprintf("%s: %d/%d", label, met, total)),
-          span(sprintf("%d%%", pct))
-      ),
-      div(
-        class = "ak-pb",
-        role = "progressbar",
-        `aria-valuemin` = "0",
-        `aria-valuemax` = "100",
-        `aria-valuenow` = pct,
-        style = sprintf("width:%s;", width),
-        div(class = "ak-pb__fill", style = sprintf("width:%d%%;", pct))
-      )
+        div(class = "ak-pb-meta",
+            tags$strong(sprintf("%s: %d/%d", label, met, total)),
+            span(sprintf("%d%%", pct))
+        ),
+        div(
+          class = "ak-pb",
+          role = "progressbar",
+          `aria-valuemin` = "0",
+          `aria-valuemax` = "100",
+          `aria-valuenow` = pct,
+          style = sprintf("width:%s;", width),
+          div(class = "ak-pb__fill", style = sprintf("width:%d%%;", pct))
+        )
     )
   )
 }
 
-met_n   <- sum(phase0_prepped$meets_goal %in% TRUE, na.rm = TRUE)
-total_n <- nrow(phase0_prepped)
 
-goals_progress_bar(met_n, total_n)
+# By default: denominator = all criteria (matches your table showing blank scores)
+met_n_all   <- sum(criteria_phase0$meets %in% TRUE, na.rm = TRUE)
+total_n_all <- nrow(criteria_phase0)
 
+goals_progress_bar(met_n_all, total_n_all)
 
 ```
 
@@ -218,8 +155,8 @@ Each card below contains a detailed description of the tests to be conducted dur
 ```{r, echo=FALSE, results='asis'}
 
 
-tests <- phase0_criteria |>
-  dplyr::select(outcome_measure, display_description, additional_information, goal, repetitions, calculation)
+tests <- criteria_phase0 |>
+  dplyr::select(outcome_measure, display_description, additional_information, goal_pretty, repetitions, calculation)
 
 # Helper: print a label/value line only if value is non-missing & non-empty
 emit_field <- function(label, value) {
