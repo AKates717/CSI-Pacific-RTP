@@ -73,15 +73,17 @@ Checklists can be used to track:
 
 a.  Progress through the phases of rehab
 
-    i.  [Phase 1](checklists/phase1_checklist.qmd)
+    i.  [Pre-Op Phase](checklists/phase0_checklist.qmd)
 
-    ii. Phase 2
+    ii. Phase 1
 
-    iii. Phase 3
+    iii. Phase 2
 
-    iv. Phase 4
+    iv. Phase 3
 
-    v.  Phase 5
+    v.  Phase 4
+
+    vi. Phase 5
 
 b.  Clearance for activities. Different activities require different physical capacities, and therefore require unique criteria to determine the optimal time for a safe return. Some examples include:
 

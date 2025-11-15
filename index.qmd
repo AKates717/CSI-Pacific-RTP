@@ -46,25 +46,25 @@ Jumps <- recent_five(params$athlete, "CMJ")
 
 <i class="fa-solid fa-calendar-day"></i> **Day:** `{r} rehab_day_num` <i class="fa-solid fa-calendar-week"></i> **Week:** `{r} week`
 
-<i class="fa-solid fa-bars-progress"></i> **Phase:** 2 <br> {{< fa solid dumbbell size=1x >}} *Strength & NM Control* <br> <i class="fa-solid fa-battery-three-quarters"></i> **Phase Progress:** 50%
+<!-- <i class="fa-solid fa-bars-progress"></i> **Phase:** 2 <br> {{< fa solid dumbbell size=1x >}} *Strength & NM Control* <br> <i class="fa-solid fa-battery-three-quarters"></i> **Phase Progress:** 50% -->
 
 <i class="fa-solid fa-briefcase-medical"></i> **Injury:** `{r} Rehab_Info$primary_injury` <br> <i class="bi bi-person-arms-up"></i> **Limb:** `{r} Rehab_Info$limb` <br> <i class="fa-solid fa-calendar-day"></i> **Date of Surgery:** `{r} surgery_date` <br> <i class="fa-solid fa-file-medical"></i> **Type of Surgery:** `{r} Rehab_Info$type_of_surgery`
 
 ```{r}
 
 # Fictional progress: Phase 1 complete; Phase 2 partial; others not started
-progress <- tibble::tibble(
-  Phase = 1:5,
-  done  = c(6,3, 0, 0, 0),
-  total = c(6,6,8,10,12)
-) %>%
-  mutate(
-    Progress = paste0(done, "/", total),
-    Percent  = done / total
-  ) %>%
-  select(Phase, Progress, Percent)
+# progress <- tibble::tibble(
+#   Phase = 1:5,
+#   done  = c(6,3, 0, 0, 0),
+#   total = c(6,6,8,10,12)
+# ) %>%
+#   mutate(
+#     Progress = paste0(done, "/", total),
+#     Percent  = done / total
+#   ) %>%
+#   select(Phase, Progress, Percent)
 
-gt(progress) |>
+gt(progress_p0) |>
   tab_header(title = md("**Progress by Phase**")) |>
   cols_label(
     Phase   = "Phase",
@@ -257,7 +257,11 @@ tbl_phase0 <- criteria_phase0 %>%
   tab_header(title = md("**Phase 0 Criteria**")) %>%
   fmt_number(
     columns = Score,
-    rows = `Outcome Measure` %in% c("Hamstring Strength", "Quadriceps Strength"),
+    decimals = 0
+  ) %>%
+  fmt_number(
+    columns = Score,
+    rows = `Outcome Measure` %in% c("Hamstring Strength", "Quad Strength"),
     decimals = 0,
     pattern = "{x}%"
   ) %>%
@@ -290,53 +294,7 @@ tbl_phase0
 
 ## Column {width = "33%"}
 
-### Row - Force Plates {.tabset height="50%"}
-
-```{r}
-#| label: cmj_Height
-#| title: Height
-
-p1 <- stat_summary_plot(Jumps, flight_height_tov, "#DA2D33", Jumps$flight_height_tov, "Flight Height - TOV")
-
-p1 %>%
-  layout(title = NA)
-
-```
-
-```{r}
-#| label: RSImod
-#| title: RSImod
-
-p2 <- stat_summary_plot(Jumps, rs_imod, "dodgerblue4", Jumps$rs_imod, "RSI mod")
-
-p2 %>%
-  layout(title = NA)
-
-```
-
-```{r}
-#| label: BA1
-#| title: BA%
-
-ba1 <- BA_plot_percent(Jumps, balng, basht, "orange", "dodgerblue3")
-
-ba1 %>%
-  layout(title = NA)
-
-```
-
-```{r}
-#| label: BA2
-#| title: BA-mag
-
-ba2 <- BA_plot_magnitude(Jumps, sht_left, sht_right, "red", "black", Jumps$sht_left, Jumps$sht_right)
-
-ba2 %>%
-  layout(title = NA)
-
-```
-
-### Row - Knee Health {.tabset height="50%"}
+### Row - Health and Wellness {.tabset height="50%"}
 
 ```{r}
 #| label: fatigue
@@ -539,9 +497,51 @@ p_knee_soreness <- v1 %>%
 ggplotly(p_knee_soreness)
 ```
 
+### Row - Force Plates {.tabset height="50%"}
 
+```{r}
+#| label: cmj_Height
+#| title: Height
 
+p1 <- stat_summary_plot(Jumps, flight_height_tov, "#DA2D33", Jumps$flight_height_tov, "Flight Height - TOV")
 
+p1 %>%
+  layout(title = NA)
+
+```
+
+```{r}
+#| label: RSImod
+#| title: RSImod
+
+p2 <- stat_summary_plot(Jumps, rs_imod, "dodgerblue4", Jumps$rs_imod, "RSI mod")
+
+p2 %>%
+  layout(title = NA)
+
+```
+
+```{r}
+#| label: BA1
+#| title: BA%
+
+ba1 <- BA_plot_percent(Jumps, balng, basht, "orange", "dodgerblue3")
+
+ba1 %>%
+  layout(title = NA)
+
+```
+
+```{r}
+#| label: BA2
+#| title: BA-mag
+
+ba2 <- BA_plot_magnitude(Jumps, sht_left, sht_right, "red", "black", Jumps$sht_left, Jumps$sht_right)
+
+ba2 %>%
+  layout(title = NA)
+
+```
 
 ## Column {width = "33%"}
 

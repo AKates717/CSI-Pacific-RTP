@@ -168,7 +168,14 @@ ui <- page_navbar(
           )
         ),
         dateInput("date_p0", "Date"),
-        selectInput("side_p0", "Side", choices = c("Left","Right")),
+        shinyWidgets::radioGroupButtons(
+          inputId  = "side_p0",
+          label    = "Side",
+          choices  = c("Left", "Right"),
+          justified = TRUE,          # buttons fill width evenly
+          checkIcon = list(yes = icon("check")),   # checkmark on selected
+          selected = character(0)
+        ),
         numericInput("value_p0", "Value", value = NA, step = 0.01),
         textInput("units_p0", "Units", value = ""),
         textAreaInput("notes_p0", "Notes", rows = 3, placeholder = "optional"),
@@ -217,7 +224,14 @@ ui <- page_navbar(
           )
         ),
         dateInput("date_p1", "Date"),
-        selectInput("side_p1", "Side", choices = c("Left","Right")),
+        shinyWidgets::radioGroupButtons(
+          inputId  = "side_p1",
+          label    = "Side",
+          choices  = c("Left", "Right"),
+          justified = TRUE,          # buttons fill width evenly
+          selected = character(0),
+          checkIcon = list(yes = icon("check"))   # checkmark on selected
+        ),
         numericInput("value_p1", "Value", value = NA, step = 0.01),
         textInput("units_p1", "Units", value = ""),
         textAreaInput("notes_p1", "Notes", rows = 3, placeholder = "optional"),

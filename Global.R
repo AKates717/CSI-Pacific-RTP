@@ -175,6 +175,14 @@ iso_joint <- read_excel(
 #CRITERIA ----
 ####
 
+#Load Criteria
+criteria_all <- read_xlsx("sample_data/acl-protocol-criteria-2025.xlsx", sheet = "criteria_full") %>%
+  clean_names()
+
+#Load Outcomes
+outcomes_raw_all <- read_xlsx("sample_data/outcome_data.xlsx", sheet = "Phase_data") %>%
+  clean_names()
+
 #Helpers
 
 # --- Evaluate pass/fail using the operator from `criteria` ---
@@ -190,7 +198,7 @@ compare <- function(x, op, y) {
 }
 
 
-#maybe out in global
+#Kind of a reverese of janitor::clean_names()
 pretty_var <- function(x) {
   x %>%
     str_replace_all("_", " ") %>%     # underscores -> spaces
@@ -212,9 +220,7 @@ pretty_var <- function(x) {
 ####
 
 # 1 Prepare empty dataframe with all p0 criteria
-# 1a) Read Phase 0 criteria
-criteria_phase0 <- read_xlsx("sample_data/acl-protocol-criteria-2025.xlsx", sheet = "criteria_full") %>%
-  clean_names() %>%
+criteria_phase0 <- criteria_all %>%
   filter(phase == 0) %>%
   filter(outcome_measure != "Single Leg Hop Test") %>% # Leaving this out for now
   #select(outcome_measure, operator_pretty, operator_code, goal, goal_pretty) %>%
@@ -222,8 +228,7 @@ criteria_phase0 <- read_xlsx("sample_data/acl-protocol-criteria-2025.xlsx", shee
 
 # 2) Criteria Data
 # Read all phase 0 criteria data
-outcomes_raw_phase0 <- read_xlsx("sample_data/outcome_data.xlsx", sheet = "Phase_data") %>%
-  clean_names() %>%
+outcomes_raw_phase0 <- outcomes_raw_all %>%
   filter(phase == 0)
 
 #Individual Criteria
@@ -284,7 +289,7 @@ p0_hams <- outcomes_raw_phase0 %>%
 p0_hams_best <- p0_hams %>%
   slice_max(lsi, n = 1, with_ties = FALSE)
 
-# 3 Build Phase 0 Crieria Table
+# 3 Build Phase 0 Criteria Table
 
 #Add current best scores into the table
 swelling_val <- suppressWarnings(as.numeric(if (exists("p0_swelling_best") && nrow(p0_swelling_best) > 0) p0_swelling_best$value[1] else NA_real_))
@@ -306,24 +311,145 @@ criteria_phase0 <- criteria_phase0 %>%
     )
   )
 
-
+#Use compare helper function (x, op, y)
 criteria_phase0 <- criteria_phase0 %>%
   mutate(meets = compare(score, operator_code, goal))
 
 
+#Build 1 Row summary
+#Phase, met/total, percent
+progress_p0 <- tibble(
+  Phase = 0,
+  done = sum(criteria_phase0$meets %in% TRUE, na.rm = TRUE),
+  total = nrow(criteria_phase0)
+  )  %>%
+  mutate(
+    Progress = paste0(done, "/", total),
+    Percent  = done / total
+    ) %>%
+  select(Phase, Progress, Percent)
+#Will do this for each phase and bind them together for a kind of primary summary table
 
 
 
-# #Add column for conditional formatting
-# criteria_phase0 <- criteria_phase0 %>%
+
+####
+#PHASE 1 CRITERIA ----
+####
+
+# 1 Prepare empty dataframe with all p1 criteria
+# 1a) Read Phase 1 criteria
+criteria_phase1 <- criteria_all %>%
+  filter(phase == 1) %>%
+  mutate(score = NA)
+
+# 2) Criteria Data
+# Read all phase 1 criteria data
+outcomes_raw_phase1 <- outcomes_raw_all %>%
+  filter(phase == 1)
+
+#Individual Criteria
+# 2a) Swelling
+p1_swelling <- outcomes_raw_phase1 %>%
+  filter(outcome_measure == "Swelling") %>%
+  filter(side == "Left")
+p1_swelling_best <- p1_swelling %>%
+  slice_min(value, n = 1, with_ties = FALSE)
+
+# 2b) Passive Knee Extension
+p1_extension <- outcomes_raw_phase1 %>%
+  filter(outcome_measure == "Passive Knee Extension") %>%
+  filter(side == "Left")
+p1_extension_best <- p1_extension %>%
+  slice_min(value, n = 1, with_ties = FALSE)
+
+# 2c) Passive Knee Flexion
+p1_flexion <- outcomes_raw_phase1 %>%
+  filter(outcome_measure == "Passive Knee Flexion") %>%
+  filter(side == "Left")
+p1_flexion_best <- p1_flexion %>%
+  slice_max(value, n = 1, with_ties = FALSE)
+
+# # 2d) Quad Strength
+# p0_quads <- outcomes_raw_phase0 %>%
+#   filter(outcome_measure == "Quad Strength") %>%
+#   group_by(date) %>%
+#   summarise(
+#     L = if (any(side == "Left",  na.rm = TRUE))  max(value[side == "Left"],  na.rm = TRUE) else NA_real_,
+#     R = if (any(side == "Right", na.rm = TRUE))  max(value[side == "Right"], na.rm = TRUE) else NA_real_,
+#     .groups = "drop"
+#   ) %>%
 #   mutate(
-#     meets = case_when(
-#       operator_code == ">=" ~ score >= goal,
-#       operator_code == ">"  ~ score >  goal,
-#       operator_code == "<=" ~ score <= goal,
-#       operator_code == "<"  ~ score <  goal,
-#       operator_code == "==" ~ score == goal,
-#       TRUE ~ NA
-#     )
-#   )
+#     lsi = if_else(!is.na(L) & !is.na(R) & R != 0, 100 * L / R, NA_real_),
+#     lsi = round(lsi, 1)
+#   ) %>%
+#   arrange(date)
+# 
+# p0_quads_best <- p0_quads %>%
+#   slice_max(lsi, n = 1, with_ties = FALSE)
+# 
+# # 2e) Hamstring Strength
+# p0_hams <- outcomes_raw_phase0 %>%
+#   filter(outcome_measure == "Hamstring Strength") %>%
+#   group_by(date) %>%
+#   summarise(
+#     L = if (any(side == "Left",  na.rm = TRUE))  max(value[side == "Left"],  na.rm = TRUE) else NA_real_,
+#     R = if (any(side == "Right", na.rm = TRUE))  max(value[side == "Right"], na.rm = TRUE) else NA_real_,
+#     .groups = "drop"
+#   ) %>%
+#   mutate(
+#     lsi = if_else(!is.na(L) & !is.na(R) & R != 0, 100 * L / R, NA_real_),
+#     lsi = round(lsi, 1)
+#   ) %>%
+#   arrange(date)
+# 
+# p0_hams_best <- p0_hams %>%
+#   slice_max(lsi, n = 1, with_ties = FALSE)
+
+# 3 Build Phase 0 Criteria Table
+
+#Add current best scores into the table
+swelling_val_p1 <- suppressWarnings(as.numeric(if (exists("p1_swelling_best") && nrow(p1_swelling_best) > 0) p1_swelling_best$value[1] else NA_real_))
+extension_val_p1 <- suppressWarnings(as.numeric(if (exists("p1_extension_best") && nrow(p1_extension_best) > 0) p1_extension_best$value[1] else NA_real_))
+flexion_val_p1  <- suppressWarnings(as.numeric(if (exists("p1_flexion_best")   && nrow(p1_flexion_best)   > 0) p1_flexion_best$value[1]  else NA_real_))
+# hams_val     <- suppressWarnings(as.numeric(if (exists("p0_hams_best")     && nrow(p0_hams_best)     > 0) p0_hams_best$lsi[1]     else NA_real_))
+# quads_val    <- suppressWarnings(as.numeric(if (exists("p0_quads_best")    && nrow(p0_quads_best)    > 0) p0_quads_best$lsi[1]    else NA_real_))
+
+# Populate: only fills when a value exists; stays NA (empty) otherwise
+criteria_phase1 <- criteria_phase1 %>%
+  mutate(
+    score = case_when(
+      outcome_measure == "Swelling"            ~ swelling_val_p1,
+      outcome_measure == "Passive Knee Extension" ~ extension_val_p1,
+      outcome_measure == "Passive Knee Flexion"   ~ flexion_val_p1,
+      # outcome_measure == "Hamstring Strength"  ~ hams_val,
+      # outcome_measure == "Quad Strength"       ~ quads_val,
+      TRUE                                     ~ score
+    )
+  )
+
+#Use compare helper function (x, op, y)
+criteria_phase1 <- criteria_phase1 %>%
+  mutate(meets = compare(score, operator_code, goal))
+
+
+#Build 1 Row summary
+#Phase, met/total, percent
+progress_p1 <- tibble(
+  Phase = 1,
+  done = sum(criteria_phase1$meets %in% TRUE, na.rm = TRUE),
+  total = nrow(criteria_phase1)
+)  %>%
+  mutate(
+    Progress = paste0(done, "/", total),
+    Percent  = done / total
+  ) %>%
+  select(Phase, Progress, Percent)
+#Will do this for each phase and bind them together for a kind of primary summary table
+
+
+
+
+
+
 

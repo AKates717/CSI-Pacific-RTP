@@ -102,7 +102,7 @@
     "href": "about.html#progress-reports",
     "title": "Welcome to the ACL Rehabilitation Hub",
     "section": "Progress Reports",
-    "text": "Progress Reports\nAny successful and durable ACL rehabilitation must be criteria-based. By creating progress reports with a “checklist” format, every practitioner involved in a rehab can see exactly what the athlete has and hasn’t accomplished, making it clear when athletes should advance to the next phase of rehab or be cleared for progression of activities. At the same time, these tools allow the athlete to clearly visualize their progress and to have a solid understanding of what they need to accomplish in order to progress through the rehab safely.\nChecklists can be used to track:\n\nProgress through the phases of rehab\n\nPhase 1\nPhase 2\nPhase 3\nPhase 4\nPhase 5\n\nClearance for activities. Different activities require different physical capacities, and therefore require unique criteria to determine the optimal time for a safe return. Some examples include:\n\nReturn to Jumping\nReturn to Running\nReturn to Trampoline"
+    "text": "Progress Reports\nAny successful and durable ACL rehabilitation must be criteria-based. By creating progress reports with a “checklist” format, every practitioner involved in a rehab can see exactly what the athlete has and hasn’t accomplished, making it clear when athletes should advance to the next phase of rehab or be cleared for progression of activities. At the same time, these tools allow the athlete to clearly visualize their progress and to have a solid understanding of what they need to accomplish in order to progress through the rehab safely.\nChecklists can be used to track:\n\nProgress through the phases of rehab\n\nPre-Op Phase\nPhase 1\nPhase 2\nPhase 3\nPhase 4\nPhase 5\n\nClearance for activities. Different activities require different physical capacities, and therefore require unique criteria to determine the optimal time for a safe return. Some examples include:\n\nReturn to Jumping\nReturn to Running\nReturn to Trampoline"
   },
   {
     "objectID": "checklists/phase1_checklist.html",
@@ -222,5 +222,12 @@
     "title": "Pre-Op Phase Checklist",
     "section": "",
     "text": "Frank Reynolds’s progress towards these goals will be assessed via the criteria seen below.\n\n\n\n\n\n\n\n\nPhase 0 Criteria\n\n\nOutcome Measure\n\nGoal\nScore\n\n\n\n\nPassive Knee Extension\n≤\n0°\n1.0\n\n\nPassive Knee Flexion\n≥\n125°\n121.0\n\n\nSwelling\n≤\n1\n0.0\n\n\nQuad Strength\n&gt;\n90%\n67.4\n\n\nHamstring Strength\n&gt;\n90%\n81%\n\n\n\n\n\n\n\n\n\n\n\n\nGoals met: 1/5\n20%"
+  },
+  {
+    "objectID": "dashboards/wellness_dashboard.html",
+    "href": "dashboards/wellness_dashboard.html",
+    "title": "Health and Wellness",
+    "section": "",
+    "text": "Wellness plots"
   }
 ]
