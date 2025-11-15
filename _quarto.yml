@@ -23,6 +23,8 @@ website:
         href: guide.qmd
       - text: "Dashboards"
         menu:
+          - text: "Health and Wellness"
+            href: dashboards/wellness_dashboard.qmd
           - text: "Force Plates"
             href: dashboards/dashboard1.qmd
           - text: "Shiny App"

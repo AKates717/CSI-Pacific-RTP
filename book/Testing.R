@@ -197,86 +197,6 @@ ggplotly(p_knee_soreness)
 
 
 
-# ---- Fake "today" values + baseline for jump height ----
-today_vals <- tibble::tibble(
-  Variable = c("Pain (0–10)", "Swelling (0–3)", "Sleep Hours", "Jump Height (cm)"),
-  Score    = c(2, 1, 7.5, 32)
-)
-
-baseline_jump_cm <- 30  # <-- set your athlete's jump baseline here
-
-# ---- Threshold logic (row-wise) ----
-table_df <- today_vals |>
-  rowwise() |>
-  mutate(
-    Status = case_when(
-      Variable == "Pain (0–10)" ~ case_when(
-        Score <= 2            ~ "Good",
-        Score <  6            ~ "Caution",
-        TRUE                  ~ "Alert"
-      ),
-      Variable == "Swelling (0–3)" ~ case_when(
-        Score <= 1            ~ "Good",
-        Score == 2            ~ "Caution",
-        TRUE                  ~ "Alert"
-      ),
-      Variable == "Sleep Hours" ~ case_when(
-        Score >= 8            ~ "Good",
-        Score >= 6            ~ "Caution",
-        TRUE                  ~ "Alert"
-      ),
-      Variable == "Jump Height (cm)" ~ {
-        change <- (Score - baseline_jump_cm) / baseline_jump_cm
-        if (change >= 0)        "Good"
-        else if (change >= -0.05) "Caution"
-        else                      "Alert"
-      },
-      TRUE ~ NA_character_
-    ),
-    Detail = case_when(
-      Variable == "Jump Height (cm)" ~ {
-        pct <- (Score - baseline_jump_cm) / baseline_jump_cm
-        paste0(ifelse(pct >= 0, "+", ""), percent(pct, accuracy = 0.1))
-      },
-      TRUE ~ ""
-    )
-  ) |>
-  ungroup()
-
-# ---- Build gt table with conditional colors on Score ----
-tab <- gt(table_df) |>
-  tab_header(title = md(paste0("**Daily Monitoring — ", format(Sys.Date(), "%b %d, %Y"), "**"))) |>
-  cols_label(
-    Variable = "Variable",
-    Score    = "Score",
-    Status   = "Status",
-    Detail   = "Δ vs Baseline"
-  ) |>
-  fmt_number(columns = "Score", decimals = 1) |>
-  ak_gt_theme3() |>
-  cols_align(align = "left", columns = c(Variable)) |>
-  cols_align(align = "center", columns = c(Score, Status, Detail)) |>
-  # Colors for Score cell based on Status
-  tab_style(
-    style = list(cell_fill(color = "#e6f4ea"), cell_text(color = "#1e7e34", weight = "700")),
-    locations = cells_body(columns = "Score", rows = Status == "Good")
-  ) |>
-  tab_style(
-    style = list(cell_fill(color = "#fff7e6"), cell_text(color = "#a46900", weight = "700")),
-    locations = cells_body(columns = "Score", rows = Status == "Caution")
-  ) |>
-  tab_style(
-    style = list(cell_fill(color = "#fde8e8"), cell_text(color = "#a61b1b", weight = "700")),
-    locations = cells_body(columns = "Score", rows = Status == "Alert")
-  ) |>
-  tab_options(
-    data_row.padding = px(6),
-    table_body.hlines.style = "solid",
-    table_body.hlines.width = px(1)
-  ) |>
-  cols_hide(Status)
-
-tab
 
 
 
@@ -296,78 +216,54 @@ tab
 
 
 
+#PHASE 0 CRITERIA (complete) ----
 
+# 1 Prepare empty dataframe with all p0 criteria
+# 1a) Read Phase 0 criteria
+criteria_phase0_names <- read_xlsx("sample_data/acl-protocol-criteria-2025.xlsx", sheet = "criteria_full") %>%
+  clean_names() %>%
+  filter(phase == 0) %>%
+  filter(outcome_measure != "Single Leg Hop Test") %>% # Leaving this out for now
+  select(outcome_measure, operator_pretty, operator_code, goal, goal_pretty) %>%
+  mutate(score = NA)
 
-
-
-
-
-
-# # --- Evaluate pass/fail using the operator from `criteria` ---
-# compare <- function(x, op, y) {
-#   dplyr::case_when(
-#     op == ">=" ~ x >= y,
-#     op == ">"  ~ x >  y,
-#     op == "<=" ~ x <= y,
-#     op == "<"  ~ x <  y,
-#     op == "==" ~ x == y,
-#     TRUE ~ NA
-#   )
-# }
-# 
-# 
-# # 1 Prepare empty dataframe with all p0 criteria
-# # 1a) Read Phase 0 criteria
-# criteria_phase0_names <- read_xlsx("sample_data/acl-protocol-criteria-2025.xlsx", sheet = "criteria_full") %>%
-#   clean_names() %>%
-#   filter(phase == 0) %>%
-#   filter(outcome_measure != "Single Leg Hop Test") %>% # Leaving this out for now
-#   select(outcome_measure, operator_pretty, operator_code, goal, goal_pretty) %>%
-#   mutate(score = NA)
-#     
-# 
-# 
-# 
-# 
-# 
-# 
 # # 2) Criteria Data
 # # Read all phase 0 criteria data
-# outcomes_raw_phase0 <- read_xlsx("sample_data/outcome_data.xlsx") %>%
-#   clean_names() %>%
-#   filter(phase == 0)
-# 
-# #Individual Criteria
-# # 2a) Swelling
-# p0_swelling <- outcomes_raw_phase0 %>%
-#   filter(outcome_measure == "Swelling") %>%
-#   filter(side == "Left")
-# 
-# p0_swelling_best <- p0_swelling %>%
-#   slice_min(value, n = 1, with_ties = FALSE)
-# 
-# 
-# 
+outcomes_raw_phase0 <- read_xlsx("sample_data/outcome_data.xlsx") %>%
+  clean_names() %>%
+  filter(phase == 0)
+
+#Individual Criteria
+# 2a) Swelling
+p0_swelling <- outcomes_raw_phase0 %>%
+  filter(outcome_measure == "Swelling") %>%
+  filter(side == "Left")
+
+p0_swelling_best <- p0_swelling %>%
+  slice_min(value, n = 1, with_ties = FALSE)
+
+
+
 # # 2b) Passive Knee Extension
 # p0_extension <- outcomes_raw_phase0 %>%
 #   filter(outcome_measure == "Passive Knee Extension") %>%
 #   filter(side == "Left")
-# 
+#
 # p0_extension_best <- p0_extension %>%
 #   slice_min(value, n = 1, with_ties = FALSE)
-# 
-# 
-# 
+#
+#
+#
 # # 2c) Passive Knee Flexion
 # p0_flexion <- outcomes_raw_phase0 %>%
 #   filter(outcome_measure == "Passive Knee Flexion") %>%
 #   filter(side == "Left")
-# 
+#
 # p0_flexion_best <- p0_flexion %>%
 #   slice_max(value, n = 1, with_ties = FALSE)
-# 
-# 
-# 
+#
+#
+#
 # # 2d) Quad Strength
 # p0_quads <- outcomes_raw_phase0 %>%
 #   filter(outcome_measure == "Quad Strength") %>%
@@ -382,12 +278,12 @@ tab
 #     lsi = round(lsi, 1)
 #   ) %>%
 #   arrange(date)
-# 
+#
 # p0_quads_best <- p0_quads %>%
 #   slice_max(lsi, n = 1, with_ties = FALSE)
-# 
-# 
-# 
+#
+#
+#
 # # 2e) Hamstring Strength
 # p0_hams <- outcomes_raw_phase0 %>%
 #   filter(outcome_measure == "Hamstring Strength") %>%
@@ -402,26 +298,26 @@ tab
 #     lsi = round(lsi, 1)
 #   ) %>%
 #   arrange(date)
-# 
+#
 # p0_hams_best <- p0_hams %>%
 #   slice_max(lsi, n = 1, with_ties = FALSE)
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
+#
+#
+#
+#
+#
+#
+#
+#
 # # 3 Build Phase 0 Crieria Table
-# 
+#
 # #Add current best scores into the table
 # swelling_val <- suppressWarnings(as.numeric(if (exists("p0_swelling_best") && nrow(p0_swelling_best) > 0) p0_swelling_best$value[1] else NA_real_))
 # extension_val<- suppressWarnings(as.numeric(if (exists("p0_extension_best") && nrow(p0_extension_best) > 0) p0_extension_best$value[1] else NA_real_))
 # flexion_val  <- suppressWarnings(as.numeric(if (exists("p0_flexion_best")   && nrow(p0_flexion_best)   > 0) p0_flexion_best$value[1]  else NA_real_))
 # hams_val     <- suppressWarnings(as.numeric(if (exists("p0_hams_best")     && nrow(p0_hams_best)     > 0) p0_hams_best$lsi[1]     else NA_real_))
 # quads_val    <- suppressWarnings(as.numeric(if (exists("p0_quads_best")    && nrow(p0_quads_best)    > 0) p0_quads_best$lsi[1]    else NA_real_))
-# 
+#
 # # Populate: only fills when a value exists; stays NA (empty) otherwise
 # criteria_phase0_names <- criteria_phase0_names %>%
 #   mutate(
@@ -434,13 +330,13 @@ tab
 #       TRUE                                     ~ score
 #     )
 #   )
-# 
-# 
+#
+#
 # criteria_phase0_names <- criteria_phase0_names %>%
 #   mutate(meets = compare(score, operator_code, goal))
-# 
-# 
-# 
+#
+#
+#
 # # #Add column for conditional formatting
 # # criteria_phase0_names <- criteria_phase0_names %>%
 # #   mutate(
@@ -453,7 +349,7 @@ tab
 # #       TRUE ~ NA
 # #     )
 # #   )
-# 
+#
 # #Create the table
 # tbl_phase0_min <- criteria_phase0_names %>%
 #   transmute(
@@ -487,13 +383,13 @@ tab
 #   cols_hide(meets) %>%
 #   opt_css("td[data-col='Outcome Measure'] { white-space: nowrap; }") %>%
 #   ak_gt_theme3()
-# 
+#
 # tbl_phase0_min
-# 
-# 
-# 
-# 
-# 
+#
+#
+#
+#
+#
 
 
 
@@ -702,77 +598,4 @@ tab
 # 
 # 
 # tbl
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# # ---- Fake "today" values + baseline for jump height ----
-# outcome1 <- tibble::tibble(
-#   Variable = "Passive Knee Extension",
-#   Description = "Supine with a long arm goniometer (Norkin & White, 1995).  Bony landmarks: greater trochanter, the lateral femoral condyle, and the lateral mallelous.",
-#   Goal = "0º",
-#   Score    = 2
-# )
-# 
-# outcome2 <- tibble::tibble(
-#   Variable = "Passive Knee Flexion",
-#   Description = "Supine with a long arm goniometer (Norkin & White, 1995).  Bony landmarks: greater trochanter, the lateral femoral condyle, and the lateral mallelous.",
-#   Goal = "125+",
-#   Score    = 100
-# )
-# 
-# phase0_outcomes <- bind_rows(outcome1, outcome2)
-# 
-# 
-# phase0_criteria <- readxl::read_xlsx("sample_data/acl-protocol-criteria-2025.xlsx", sheet="Phase0")
-# 
-# 
-# # Build a hover-tooltip table (HTML output)
-# phase0_criteria %>%
-#   select(`Outcome Measure`, `Display Description`, `Additional Information`) %>%
-#   mutate(
-#     Info = paste0(
-#       "<span title='", htmltools::htmlEscape(`Additional Information`), "'>&#9432;</span>"
-#     )
-#   ) %>%
-#   select(`Outcome Measure`, `Display Description`, Info) %>%
-#   gt() %>%
-#   fmt_markdown(columns = Info) %>%     # render the HTML icon
-#   cols_label(
-#     `Outcome Measure` = "Outcome Measure",
-#     `Display Description` = "Display Description",
-#     Info = "Details"
-#   ) %>%
-#   cols_width(
-#     `Outcome Measure` ~ px(260),
-#     `Display Description` ~ px(500),
-#     Info ~ px(80)
-#   ) %>%
-#   opt_row_striping() %>%
-#   tab_options(
-#     table.font.size = px(14),
-#     data_row.padding = px(6)
-#   )
-# 
-# 
-# 
-# 
-# 
 # 

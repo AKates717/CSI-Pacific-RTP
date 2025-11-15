@@ -23,7 +23,7 @@ This chapter will focus exclusively on the time period between ACL injury and AC
 phase0_length_tbl <- tibble(
   'Injury Date ' = injury_date,
   'Surgery Date' = surgery_date,
-  'Prehab Window' = phase0_length,
+  'Prehab Window' = paste(phase0_length, "Days"),
     #paste0(as.numeric(difftime(Rehab_Info$date_of_surgery, Rehab_Info$date_of_injury, units = "days")), " Days")
   ) %>% gt() %>%
   ak_gt_theme3() %>%
@@ -57,7 +57,11 @@ tbl_phase0 <- criteria_phase0 %>%
   tab_header(title = md("**Phase 0 Criteria**")) %>%
   fmt_number(
     columns = Score,
-    rows = `Outcome Measure` %in% c("Hamstring Strength", "Quadriceps Strength"),
+    decimals = 0
+  ) %>%
+    fmt_number(
+    columns = Score,
+    rows = `Outcome Measure` %in% c("Hamstring Strength", "Quad Strength"),
     decimals = 0,
     pattern = "{x}%"
   ) %>%
@@ -156,7 +160,8 @@ Each card below contains a detailed description of the tests to be conducted dur
 
 
 tests <- criteria_phase0 |>
-  dplyr::select(outcome_measure, display_description, additional_information, goal_pretty, repetitions, calculation)
+  dplyr::select(outcome_measure, display_description, additional_information, operator_pretty, goal_pretty, repetitions, calculation) %>%
+  mutate(op_goal = paste(operator_pretty, goal_pretty))
 
 # Helper: print a label/value line only if value is non-missing & non-empty
 emit_field <- function(label, value) {
@@ -169,14 +174,14 @@ emit_field <- function(label, value) {
 }
 
 for (i in seq_len(nrow(tests))) {
-  cat('::: {.card .ak-card .has-stripe .accent-primary}\n')       # your universal card class
+  cat('::: {.card .ak-card .has-stripe .accent-primary}\n')       # universal card class
   cat('### ', tests$outcome_measure[i], '\n\n', sep = '')         # heading
   if (!is.na(tests$display_description[i]) &&
       nzchar(trimws(tests$display_description[i]))) {
     cat(tests$display_description[i], '\n\n')
   }
   cat("*", tests$additional_information[i], '\n\n')
-  emit_field("Criteria",    tests$goal[i])                       # always optional-safe
+  emit_field("Criteria", tests$op_goal[i])                  # always optional-safe
   emit_field("Repetitions", tests$repetitions[i])                # only prints if present
   emit_field("Calculation", tests$calculation[i])
 
@@ -191,17 +196,19 @@ Below you will find links to your training programs.
 
 [Pre-Op: Program 1](https://www.teambuildr.com/)
 
+When considering changes or further individualization of the program, see the lists below highlighting typically safe and unsafe exercises during this phase. To see how these exercises compare to other phases of the rehab, please see the **Exercise Phase Chart** in the book resources. All exercise programming should be done by a CSI Pacific S&C Coach or a physiotherapist.
+
+Exercises and activities during this phase typically include range of motion exercises, low impact aerobic exercise such as cycling, and a progressive strengthening regime. Strength exercises are programmed to progress in parallel with the expected clinical condition of the knee, but this will vary between cases. As the pain & swelling settles, and the range of motion increases, strength exercise can progress to include weighted exercises in the gym. Jumping and landing exercises are not included in the CSI Pacific Pre-Op Phase template program; these exercises may be included at the discretion of the lead S&C Coach or Physiotherapist. Aggressive change of direction activities should be avoided during this phase.
+
 Peer-reviewed literature that was consulted in the making of pre-op programs is referenced here.
 
-When considering changes or further individualization of the program, see the lists below highlighting typically safe and unsafe exercises during this phase. To see how these exercises compare to other phases of the rehab, please see the E**xercise Phase Chart** in the book resources. All exercise programming should be done by a CSI Pacific S&C Coach or a physiotherapist.
-
-Exercises and activities during this phase typically include regular icing of the knee to reduce swelling, range of motion exercises, low impact aerobic exercise such as cycling, and a progressive strengthening regime. Strength exercises should progress in parallel with the clinical condition of the knee. As the pain & swelling settles, and the range of motion increases, strength exercise can progress to include weighted exercises in the gym and jump and land activities such as hopping drills. Aggressive change of direction activities should be avoided during this phase.
+------------------------------------------------------------------------
 
 ## Additional Resources
 
 ### Rest, Ice and Elevate
 
-After injury, it is recommended to rest, ice and elevate the knee in order to help control swelling, inflammation and pain. More to come here, with some specific, evidence-informed instructions.
+After injury, it is recommended to rest, ice and elevate the knee in order to help control swelling, inflammation and pain. This should be continued for at least the first 24 hours post-injury or until sever inflammation is controlled.
 
 ### Blood Flow Restriction
 

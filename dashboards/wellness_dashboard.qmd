@@ -1,0 +1,17 @@
+---
+title: "Health and Wellness"
+params:
+  athlete: "Frank Reynolds"
+---
+
+```{r setup-root, include=FALSE}
+knitr::opts_knit$set(root.dir = normalizePath(".."))
+```
+
+```{r}
+source("Global.R")
+source("plot_functions.R")
+source("Themes.R")
+```
+
+Wellness plots

@@ -31,7 +31,11 @@ tbl_phase0 <- criteria_phase0 %>%
   tab_header(title = md("**Phase 0 Criteria**")) %>%
   fmt_number(
     columns = Score,
-    rows = `Outcome Measure` %in% c("Hamstring Strength", "Quadriceps Strength"),
+    decimals = 0
+  ) %>%
+  fmt_number(
+    columns = Score,
+    rows = `Outcome Measure` %in% c("Hamstring Strength", "Quad Strength"),
     decimals = 0,
     pattern = "{x}%"
   ) %>%
