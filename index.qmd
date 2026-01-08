@@ -52,19 +52,7 @@ Jumps <- recent_five(params$athlete, "CMJ")
 
 ```{r}
 
-# Fictional progress: Phase 1 complete; Phase 2 partial; others not started
-# progress <- tibble::tibble(
-#   Phase = 1:5,
-#   done  = c(6,3, 0, 0, 0),
-#   total = c(6,6,8,10,12)
-# ) %>%
-#   mutate(
-#     Progress = paste0(done, "/", total),
-#     Percent  = done / total
-#   ) %>%
-#   select(Phase, Progress, Percent)
-
-gt(progress_p0) |>
+gt(progress_overall) |>
   tab_header(title = md("**Progress by Phase**")) |>
   cols_label(
     Phase   = "Phase",
