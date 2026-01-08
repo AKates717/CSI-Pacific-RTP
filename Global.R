@@ -370,6 +370,15 @@ p1_flexion <- outcomes_raw_phase1 %>%
 p1_flexion_best <- p1_flexion %>%
   slice_max(value, n = 1, with_ties = FALSE)
 
+# 2d) Quads Lag Test
+p1_lag <- outcomes_raw_phase1 %>%
+  filter(outcome_measure == "Quads Lag Test") %>%
+  filter(side == "Left")
+p1_lag_best <- p1_lag %>%
+  slice_max(value, n = 1, with_ties = FALSE)
+
+
+
 # # 2d) Quad Strength
 # p0_quads <- outcomes_raw_phase0 %>%
 #   filter(outcome_measure == "Quad Strength") %>%
@@ -412,6 +421,7 @@ p1_flexion_best <- p1_flexion %>%
 swelling_val_p1 <- suppressWarnings(as.numeric(if (exists("p1_swelling_best") && nrow(p1_swelling_best) > 0) p1_swelling_best$value[1] else NA_real_))
 extension_val_p1 <- suppressWarnings(as.numeric(if (exists("p1_extension_best") && nrow(p1_extension_best) > 0) p1_extension_best$value[1] else NA_real_))
 flexion_val_p1  <- suppressWarnings(as.numeric(if (exists("p1_flexion_best")   && nrow(p1_flexion_best)   > 0) p1_flexion_best$value[1]  else NA_real_))
+lag_val_p1  <- suppressWarnings(as.numeric(if (exists("p1_lag_best")   && nrow(p1_lag_best)   > 0) p1_lag_best$value[1]  else NA_real_))
 # hams_val     <- suppressWarnings(as.numeric(if (exists("p0_hams_best")     && nrow(p0_hams_best)     > 0) p0_hams_best$lsi[1]     else NA_real_))
 # quads_val    <- suppressWarnings(as.numeric(if (exists("p0_quads_best")    && nrow(p0_quads_best)    > 0) p0_quads_best$lsi[1]    else NA_real_))
 
@@ -422,6 +432,7 @@ criteria_phase1 <- criteria_phase1 %>%
       outcome_measure == "Swelling"            ~ swelling_val_p1,
       outcome_measure == "Passive Knee Extension" ~ extension_val_p1,
       outcome_measure == "Passive Knee Flexion"   ~ flexion_val_p1,
+      outcome_measure == "Quads Lag Test"            ~ lag_val_p1,
       # outcome_measure == "Hamstring Strength"  ~ hams_val,
       # outcome_measure == "Quad Strength"       ~ quads_val,
       TRUE                                     ~ score
@@ -447,7 +458,7 @@ progress_p1 <- tibble(
   select(Phase, Progress, Percent)
 #Will do this for each phase and bind them together for a kind of primary summary table
 
-
+progress_overall <- bind_rows(progress_p0, progress_p1)
 
 
 
