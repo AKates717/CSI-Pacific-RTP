@@ -233,7 +233,7 @@ if (!has_today) {
 #| label: phase 0
 
 #Create the table
-tbl_phase0 <- criteria_phase0 %>%
+tbl_phase0 <- criteria_phase2 %>%
   transmute(
     `Outcome Measure` = outcome_measure,
     `Op` = operator_pretty,
@@ -242,7 +242,7 @@ tbl_phase0 <- criteria_phase0 %>%
     meets
   ) %>%
   gt() %>%
-  tab_header(title = md("**Phase 0 Criteria**")) %>%
+  tab_header(title = md("**Phase 2 Criteria**")) %>%
   fmt_number(
     columns = Score,
     decimals = 0

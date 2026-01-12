@@ -281,7 +281,14 @@ ui <- page_navbar(
           )
         ),
         dateInput("date_p2", "Date"),
-        selectInput("side_p2", "Side", choices = c("Left","Right")),
+        shinyWidgets::radioGroupButtons(
+          inputId  = "side_p2",
+          label    = "Side",
+          choices  = c("Left", "Right"),
+          justified = TRUE,          # buttons fill width evenly
+          selected = character(0),
+          checkIcon = list(yes = icon("check"))   # checkmark on selected
+        ),
         numericInput("value_p2", "Value", value = NA, step = 0.01),
         textInput("units_p2", "Units", value = ""),
         textAreaInput("notes_p2", "Notes", rows = 3, placeholder = "optional"),

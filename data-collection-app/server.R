@@ -528,7 +528,7 @@ function(input, output, session) {
   
   
   
-  # Save Phase 1
+  # Save Phase 2
   observeEvent(input$save_p2, {
     validate(
       need(nzchar(input$measure_p2), "Choose or type an outcome measure."),

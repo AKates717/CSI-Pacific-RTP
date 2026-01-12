@@ -35,6 +35,10 @@ Rehab_Info <- read_excel(
 
 #Injured Limb
 inj_side <- Rehab_Info$limb
+#Non Injured Limb
+non_inj_side <- if_else(Rehab_Info$limb == "Left",
+                        "Right",
+                        "Left")
 #Date of Injury (nice format)
 injury_date <- format(Rehab_Info$date_of_injury, "%b %d, %Y")
 #Date of surgery if scheduled (nice format)
@@ -73,7 +77,7 @@ first_monday <- ifelse(
 week <-  ifelse(
   is.na(Rehab_Info$date_of_surgery),
   "TBD",
-  floor(as.numeric(difftime(Sys.Date(), as.Date(first_monday), units = "days"))/7)
+  ceiling(as.numeric(difftime(as.character(Sys.Date()), as.Date(first_monday), units = "days"))/7)
 )
 
 phase0_length <- ifelse(
@@ -81,7 +85,6 @@ phase0_length <- ifelse(
   "TBD",
   as.numeric(difftime(Rehab_Info$date_of_surgery, Rehab_Info$date_of_injury, units = "days"))
 )
-
 
 
 
@@ -235,21 +238,21 @@ outcomes_raw_phase0 <- outcomes_raw_all %>%
 # 2a) Swelling
 p0_swelling <- outcomes_raw_phase0 %>%
   filter(outcome_measure == "Swelling") %>%
-  filter(side == "Left")
+  filter(side == inj_side)
 p0_swelling_best <- p0_swelling %>%
   slice_min(value, n = 1, with_ties = FALSE)
 
 # 2b) Passive Knee Extension
 p0_extension <- outcomes_raw_phase0 %>%
   filter(outcome_measure == "Passive Knee Extension") %>%
-  filter(side == "Left")
+  filter(side == inj_side)
 p0_extension_best <- p0_extension %>%
   slice_min(value, n = 1, with_ties = FALSE)
 
 # 2c) Passive Knee Flexion
 p0_flexion <- outcomes_raw_phase0 %>%
   filter(outcome_measure == "Passive Knee Flexion") %>%
-  filter(side == "Left")
+  filter(side == inj_side)
 p0_flexion_best <- p0_flexion %>%
   slice_max(value, n = 1, with_ties = FALSE)
 
@@ -258,12 +261,12 @@ p0_quads <- outcomes_raw_phase0 %>%
   filter(outcome_measure == "Quad Strength") %>%
   group_by(date) %>%
   summarise(
-    L = if (any(side == "Left",  na.rm = TRUE))  max(value[side == "Left"],  na.rm = TRUE) else NA_real_,
-    R = if (any(side == "Right", na.rm = TRUE))  max(value[side == "Right"], na.rm = TRUE) else NA_real_,
+    inj = if (any(side == inj_side,  na.rm = TRUE))  max(value[side == inj_side],  na.rm = TRUE) else NA_real_,
+    non_inj = if (any(side == non_inj_side, na.rm = TRUE))  max(value[side == non_inj_side], na.rm = TRUE) else NA_real_,
     .groups = "drop"
   ) %>%
   mutate(
-    lsi = if_else(!is.na(L) & !is.na(R) & R != 0, 100 * L / R, NA_real_),
+    lsi = if_else(!is.na(inj) & !is.na(non_inj) & non_inj != 0, 100 * inj / non_inj, NA_real_),
     lsi = round(lsi, 1)
   ) %>%
   arrange(date)
@@ -276,12 +279,12 @@ p0_hams <- outcomes_raw_phase0 %>%
   filter(outcome_measure == "Hamstring Strength") %>%
   group_by(date) %>%
   summarise(
-    L = if (any(side == "Left",  na.rm = TRUE))  max(value[side == "Left"],  na.rm = TRUE) else NA_real_,
-    R = if (any(side == "Right", na.rm = TRUE))  max(value[side == "Right"], na.rm = TRUE) else NA_real_,
+    inj = if (any(side == inj_side,  na.rm = TRUE))  max(value[side == inj_side],  na.rm = TRUE) else NA_real_,
+    non_inj = if (any(side == non_inj_side, na.rm = TRUE))  max(value[side == non_inj_side], na.rm = TRUE) else NA_real_,
     .groups = "drop"
   ) %>%
   mutate(
-    lsi = if_else(!is.na(L) & !is.na(R) & R != 0, 100 * L / R, NA_real_),
+    lsi = if_else(!is.na(inj) & !is.na(non_inj) & non_inj != 0, 100 * inj / non_inj, NA_real_),
     lsi = round(lsi, 1)
   ) %>%
   arrange(date)
@@ -333,6 +336,8 @@ progress_p0 <- tibble(
 
 
 
+
+
 ####
 #PHASE 1 CRITERIA ----
 ####
@@ -352,28 +357,28 @@ outcomes_raw_phase1 <- outcomes_raw_all %>%
 # 2a) Swelling
 p1_swelling <- outcomes_raw_phase1 %>%
   filter(outcome_measure == "Swelling") %>%
-  filter(side == "Left")
+  filter(side == inj_side)
 p1_swelling_best <- p1_swelling %>%
   slice_min(value, n = 1, with_ties = FALSE)
 
 # 2b) Passive Knee Extension
 p1_extension <- outcomes_raw_phase1 %>%
   filter(outcome_measure == "Passive Knee Extension") %>%
-  filter(side == "Left")
+  filter(side == inj_side)
 p1_extension_best <- p1_extension %>%
   slice_min(value, n = 1, with_ties = FALSE)
 
 # 2c) Passive Knee Flexion
 p1_flexion <- outcomes_raw_phase1 %>%
   filter(outcome_measure == "Passive Knee Flexion") %>%
-  filter(side == "Left")
+  filter(side == inj_side)
 p1_flexion_best <- p1_flexion %>%
   slice_max(value, n = 1, with_ties = FALSE)
 
 # 2d) Quads Lag Test
 p1_lag <- outcomes_raw_phase1 %>%
   filter(outcome_measure == "Quads Lag Test") %>%
-  filter(side == "Left")
+  filter(side == inj_side)
 p1_lag_best <- p1_lag %>%
   slice_max(value, n = 1, with_ties = FALSE)
 
@@ -415,7 +420,7 @@ p1_lag_best <- p1_lag %>%
 # p0_hams_best <- p0_hams %>%
 #   slice_max(lsi, n = 1, with_ties = FALSE)
 
-# 3 Build Phase 0 Criteria Table
+# 3 Build Phase 1 Criteria Table
 
 #Add current best scores into the table
 swelling_val_p1 <- suppressWarnings(as.numeric(if (exists("p1_swelling_best") && nrow(p1_swelling_best) > 0) p1_swelling_best$value[1] else NA_real_))
@@ -458,7 +463,149 @@ progress_p1 <- tibble(
   select(Phase, Progress, Percent)
 #Will do this for each phase and bind them together for a kind of primary summary table
 
-progress_overall <- bind_rows(progress_p0, progress_p1)
+
+
+
+
+
+
+
+####
+#PHASE 2 CRITERIA ----
+####
+
+# 1 Prepare empty dataframe with all p2 criteria
+# 1a) Read Phase 2 criteria
+criteria_phase2 <- criteria_all %>%
+  filter(phase == 2) %>%
+  mutate(score = NA)
+
+# 2) Criteria Data
+# Read all phase 1 criteria data
+outcomes_raw_phase2 <- outcomes_raw_all %>%
+  filter(phase == 2)
+
+#Individual Criteria
+# 2a) Swelling
+p2_swelling <- outcomes_raw_phase2 %>%
+  filter(outcome_measure == "Swelling") %>%
+  filter(side == inj_side)
+p2_swelling_best <- p2_swelling %>%
+  slice_min(value, n = 1, with_ties = FALSE)
+
+# 2b) Passive Knee Extension
+p2_extension <- outcomes_raw_phase2 %>%
+  filter(outcome_measure == "Passive Knee Extension") %>%
+  filter(side == inj_side)
+p2_extension_best <- p2_extension %>%
+  slice_min(value, n = 1, with_ties = FALSE)
+
+# 2c) Passive Knee Flexion
+p2_flexion <- outcomes_raw_phase2 %>%
+  filter(outcome_measure == "Passive Knee Flexion") %>%
+  filter(side == inj_side)
+p2_flexion_best <- p2_flexion %>%
+  slice_max(value, n = 1, with_ties = FALSE)
+
+# 2d) Single Leg Bridge
+p2_slbridge <- outcomes_raw_phase2 %>%
+  filter(outcome_measure == "Single Leg Bridge") %>%
+  filter(side == inj_side)
+p2_slbridge_best <- p2_slbridge %>%
+  slice_max(value, n = 1, with_ties = FALSE)
+  
+# 2e) Single Leg Calf Raise
+p2_slcalfraise <- outcomes_raw_phase2 %>%
+  filter(outcome_measure == "Single Leg Calf Raises") %>%
+  filter(side == inj_side)
+p2_slcalfraise_best <- p2_slcalfraise %>%
+  slice_max(value, n = 1, with_ties = FALSE)
+
+# 2f) Side Bridge
+p2_sidebridge <- outcomes_raw_phase2 %>%
+  filter(outcome_measure == "Side Bridge") %>%
+  filter(side == inj_side)
+p2_sidebridge_best <- p2_sidebridge %>%
+  slice_max(value, n = 1, with_ties = FALSE)
+
+# 2g) Side Bridge
+p2_sidebridge <- outcomes_raw_phase2 %>%
+  filter(outcome_measure == "Side Bridge") %>%
+  filter(side == inj_side)
+p2_sidebridge_best <- p2_sidebridge %>%
+  slice_max(value, n = 1, with_ties = FALSE)
+
+# 2h) Single Leg Rise
+p2_slrise <- outcomes_raw_phase2 %>%
+  filter(outcome_measure == "Single Leg Rise") %>%
+  filter(side == inj_side)
+p2_slrise_best <- p2_slrise %>%
+  slice_max(value, n = 1, with_ties = FALSE)
+
+
+
+
+# 3 Build Phase 2 Criteria Table
+
+#Add current best scores into the table
+swelling_val_p2 <- suppressWarnings(as.numeric(if (exists("p2_swelling_best") && nrow(p2_swelling_best) > 0) p2_swelling_best$value[1] else NA_real_))
+extension_val_p2 <- suppressWarnings(as.numeric(if (exists("p2_extension_best") && nrow(p2_extension_best) > 0) p2_extension_best$value[1] else NA_real_))
+flexion_val_p2  <- suppressWarnings(as.numeric(if (exists("p2_flexion_best")   && nrow(p2_flexion_best)   > 0) p2_flexion_best$value[1]  else NA_real_))
+slbridge_val_p2  <- suppressWarnings(as.numeric(if (exists("p2_slbridge_best")   && nrow(p2_slbridge_best)   > 0) p2_slbridge_best$value[1]  else NA_real_))
+slcalfraise_val_p2  <- suppressWarnings(as.numeric(if (exists("p2_slcalfraise_best")   && nrow(p2_slcalfraise_best)   > 0) p2_slcalfraise_best$value[1]  else NA_real_))
+sidebridge_val_p2  <- suppressWarnings(as.numeric(if (exists("p2_sidebridge_best")   && nrow(p2_sidebridge_best)   > 0) p2_sidebridge_best$value[1]  else NA_real_))
+slrise_val_p2  <- suppressWarnings(as.numeric(if (exists("p2_slrise_best")   && nrow(p2_slrise_best)   > 0) p2_slrise_best$value[1]  else NA_real_))
+
+
+#lag_val_p1  <- suppressWarnings(as.numeric(if (exists("p1_lag_best")   && nrow(p1_lag_best)   > 0) p1_lag_best$value[1]  else NA_real_))
+# hams_val     <- suppressWarnings(as.numeric(if (exists("p0_hams_best")     && nrow(p0_hams_best)     > 0) p0_hams_best$lsi[1]     else NA_real_))
+# quads_val    <- suppressWarnings(as.numeric(if (exists("p0_quads_best")    && nrow(p0_quads_best)    > 0) p0_quads_best$lsi[1]    else NA_real_))
+
+# Populate: only fills when a value exists; stays NA (empty) otherwise
+criteria_phase2 <- criteria_phase2 %>%
+  mutate(
+    score = case_when(
+      outcome_measure == "Swelling"            ~ swelling_val_p2,
+      outcome_measure == "Passive Knee Extension" ~ extension_val_p2,
+      outcome_measure == "Passive Knee Flexion"   ~ flexion_val_p2,
+      outcome_measure == "Single Leg Bridge"   ~ slbridge_val_p2,
+      outcome_measure == "Single Leg Calf Raises"   ~ slcalfraise_val_p2,
+      outcome_measure == "Side Bridge"   ~ sidebridge_val_p2,
+      outcome_measure == "Single Leg Rise"   ~ slrise_val_p2,
+      
+      #outcome_measure == "Quads Lag Test"            ~ lag_val_p1,
+      # outcome_measure == "Hamstring Strength"  ~ hams_val,
+      # outcome_measure == "Quad Strength"       ~ quads_val,
+      TRUE                                     ~ score
+    )
+  )
+
+#Use compare helper function (x, op, y)
+criteria_phase2 <- criteria_phase2 %>%
+  mutate(meets = compare(score, operator_code, goal))
+
+
+#Build 1 Row summary
+#Phase, met/total, percent
+progress_p2 <- tibble(
+  Phase = 2,
+  done = sum(criteria_phase2$meets %in% TRUE, na.rm = TRUE),
+  total = nrow(criteria_phase2)
+)  %>%
+  mutate(
+    Progress = paste0(done, "/", total),
+    Percent  = done / total
+  ) %>%
+  select(Phase, Progress, Percent)
+#Will do this for each phase and bind them together for a kind of primary summary table
+
+
+
+
+
+
+
+progress_overall <- bind_rows(progress_p0, progress_p1, progress_p2)
 
 
 
