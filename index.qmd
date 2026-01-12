@@ -222,8 +222,6 @@ if (!has_today) {
   # Show the two-panel plot as usual
   p_sleep / p_well + plot_layout(heights = c(1, 4))
 }
-
-
 ```
 
 ### Row - Phase Criteria Summary {height="60%"}
