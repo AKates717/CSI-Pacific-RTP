@@ -1,0 +1,115 @@
+---
+title: "Phase 1 Checklist"
+params:
+  athlete: "Frank Reynolds"
+---
+
+```{r setup-root, include=FALSE}
+knitr::opts_knit$set(root.dir = normalizePath(".."))
+```
+
+```{r}
+source("Global.R")
+source("plot_functions.R")
+source("Themes.R")
+```
+
+**`r params$athlete`'s** progress towards these goals will be assessed via the criteria seen below.
+
+```{r}
+
+#Create the table
+tbl_phase0 <- criteria_phase1 %>%
+  transmute(
+    `Outcome Measure` = outcome_measure,
+    `Op` = operator_pretty,
+    Goal              = goal_pretty,   # nice display string from your sheet
+    Score             = score,
+    meets
+  ) %>%
+  gt() %>%
+  tab_header(title = md("**Phase 1 Criteria**")) %>%
+  fmt_number(
+    columns = Score,
+    decimals = 0
+  ) %>%
+  fmt_number(
+    columns = Score,
+    rows = `Outcome Measure` %in% c("Hamstring Strength", "Quad Strength"),
+    decimals = 0,
+    pattern = "{x}%"
+  ) %>%
+  sub_missing(columns = Score, missing_text = "") %>%
+  cols_label(Op = "") %>%
+  cols_width(`Outcome Measure` ~ px(360)) %>%
+  cols_align(align = "center", columns = c(Goal, Score)) %>%
+  cols_align(align = "right",  columns = Op) %>%
+  tab_style(
+    style = list(cell_fill(color = "#E8F5E9"),
+                 cell_text(color = "#1B5E20", weight = "600")),
+    locations = cells_body(columns = Score, rows = meets %in% TRUE)
+  ) %>%
+  tab_style(
+    style = list(cell_fill(color = "#FFF9C4"),
+                 cell_text(color = "#7A6A00", weight = "600")),
+    locations = cells_body(columns = Score, rows = meets %in% FALSE)
+  )  %>%
+  cols_hide(meets) %>%
+  ak_gt_theme3() %>%
+  tab_options(
+    table_body.hlines.style = "solid",
+    table_body.hlines.width = px(1),
+    data_row.padding = px(6)
+  )
+
+tbl_phase0
+
+```
+
+```{r}
+
+goals_progress_bar <- function(
+    met, total,
+    label = "Goals met",
+    width = "100%",
+    accent = "#D71920",   # table accent (red)
+    border = "#A7A9AC",   # table border grey
+    track_bg = "#FCFCFC", # header/stripe light bg
+    fill_from = "#2E7D32",# green gradient start
+    fill_to   = "#4CAF50" # green gradient end
+) {
+  pct <- if (total > 0) round(100 * met / total) else 0
+  
+  tagList(
+    tags$style(HTML(sprintf("
+      .ak-pb-wrap   { margin-top:12px; font-family:'Open Sans',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; }
+      .ak-pb-meta   { display:flex; justify-content:space-between; font-size:0.95rem; margin-bottom:6px; color:#222; }
+      .ak-pb-meta strong{ color:%s; font-weight:700; } /* accent like table title */
+      .ak-pb       { background:%s; border:1px solid %s; border-radius:10px; height:14px; overflow:hidden; }
+      .ak-pb__fill { height:100%%; background:linear-gradient(90deg,%s,%s); transition:width .3s ease; }
+    ", accent, track_bg, border, fill_from, fill_to))),
+    div(class = "ak-pb-wrap",
+        div(class = "ak-pb-meta",
+            tags$strong(sprintf("%s: %d/%d", label, met, total)),
+            span(sprintf("%d%%", pct))
+        ),
+        div(
+          class = "ak-pb",
+          role = "progressbar",
+          `aria-valuemin` = "0",
+          `aria-valuemax` = "100",
+          `aria-valuenow` = pct,
+          style = sprintf("width:%s;", width),
+          div(class = "ak-pb__fill", style = sprintf("width:%d%%;", pct))
+        )
+    )
+  )
+}
+
+
+# By default: denominator = all criteria (matches your table showing blank scores)
+met_n_all   <- sum(criteria_phase1$meets %in% TRUE, na.rm = TRUE)
+total_n_all <- nrow(criteria_phase1)
+
+goals_progress_bar(met_n_all, total_n_all)
+```

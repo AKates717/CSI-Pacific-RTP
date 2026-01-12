@@ -217,7 +217,7 @@ function(input, output, session) {
                 ),
               options = list(pageLength = 5), rownames = FALSE)
   })
-
+  
   
   # Auto-fill Units when a known measure is selected/typed (Phase 0)
   observeEvent(input$measure_p0, ignoreInit = TRUE, {
@@ -225,7 +225,7 @@ function(input, output, session) {
     u <- units_for_measure(input$measure_p0)
     if (!is.na(u)) updateTextInput(session, "units_p0", value = u)
   })
-
+  
   
   # Save Phase 0
   observeEvent(input$save_p0, {
@@ -542,7 +542,11 @@ function(input, output, session) {
       "Outcome Measure" = input$measure_p2,
       "Date"            = as.Date(input$date_p2),
       "Timestamp"       = Sys.time(),
-      "Side"            = input$side_p2,
+      "Side"            =   if (is.null(input$side_p2) || input$side_p2 == "") {
+        "DL"
+      } else {
+        input$side_p2
+      },
       "Value"           = as.numeric(input$value_p2),
       "Units"           = input$units_p2,
       "Notes"           = input$notes_p2,

@@ -24,6 +24,8 @@ library(here)
 library(htmltools)
 library(rmarkdown)
 
+source("plot_functions.R")
+
 ####
 #1. REHAB DETAILS ----
 ####
@@ -115,7 +117,12 @@ recent_five <- function(athlete1, activity1) {
 }
 
 
-
+#For filtering 
+athlete <- "Frank Reynolds"
+#If we need info from this database throughout the site (i.e. body mass)
+recent_five_cmj <- recent_five(athlete, "CMJ")
+#Most Recent Body Mass (kg)
+body_mass <- as.numeric(recent_five_cmj[1,6])
 
 
 
@@ -480,8 +487,17 @@ criteria_phase2 <- criteria_all %>%
   filter(phase == 2) %>%
   mutate(score = NA)
 
+# 1b) Phase specific mutations
+#Body Mass Multiplier for TBDL ----
+criteria_phase2 <- criteria_phase2 %>%
+  mutate(goal_pretty = case_when(
+    outcome_measure == "TrapBar Deadlift" ~ paste0(round(1.5*body_mass,0), " kg"),
+    TRUE                           ~ as.character(goal_pretty)
+  )) %>%
+  mutate(goal = if_else(outcome_measure == "TrapBar Deadlift", round(1.5*body_mass,0), goal))
+
 # 2) Criteria Data
-# Read all phase 1 criteria data
+# Read all phase 2 criteria data
 outcomes_raw_phase2 <- outcomes_raw_all %>%
   filter(phase == 2)
 
@@ -542,7 +558,89 @@ p2_slrise <- outcomes_raw_phase2 %>%
 p2_slrise_best <- p2_slrise %>%
   slice_max(value, n = 1, with_ties = FALSE)
 
+# 2i) Single Leg Balance Eyes Open
+p2_slbalanceopen <- outcomes_raw_phase2 %>%
+  filter(outcome_measure == "Single Leg Balance (Eyes Open)") %>%
+  filter(side == inj_side)
+p2_slbalanceopen_best <- p2_slrise %>%
+  slice_max(value, n = 1, with_ties = FALSE)
 
+# 2j) Single Leg Balance Eyes Closed
+p2_slbalanceclosed <- outcomes_raw_phase2 %>%
+  filter(outcome_measure == "Single Leg Balance (Eyes Closed)") %>%
+  filter(side == inj_side)
+p2_slbalanceclosed_best <- p2_slrise %>%
+  slice_max(value, n = 1, with_ties = FALSE)
+
+# 2k) TrapBar Deadlift
+p2_trapbar <- outcomes_raw_phase2 %>%
+  filter(outcome_measure == "TrapBar Deadlift")
+p2_trapbar_best <- p2_trapbar %>%
+  slice_max(value, n = 1, with_ties = FALSE)
+
+# 2l) Quad Strength
+p2_quads <- outcomes_raw_phase2 %>%
+  filter(outcome_measure == "Quad Strength") %>%
+  group_by(date) %>%
+  summarise(
+    inj = if (any(side == inj_side,  na.rm = TRUE))  max(value[side == inj_side],  na.rm = TRUE) else NA_real_,
+    non_inj = if (any(side == non_inj_side, na.rm = TRUE))  max(value[side == non_inj_side], na.rm = TRUE) else NA_real_,
+    .groups = "drop"
+  ) %>%
+  mutate(
+    lsi = if_else(!is.na(inj) & !is.na(non_inj) & non_inj != 0, 100 * inj / non_inj, NA_real_),
+    lsi = round(lsi, 1)
+  ) %>%
+  arrange(date)
+
+p2_quads_best <- p2_quads %>%
+  slice_max(lsi, n = 1, with_ties = FALSE)
+
+# 2m) Hamstring Strength
+p2_hams <- outcomes_raw_phase2 %>%
+  filter(outcome_measure == "Hamstring Strength") %>%
+  group_by(date) %>%
+  summarise(
+    inj = if (any(side == inj_side,  na.rm = TRUE))  max(value[side == inj_side],  na.rm = TRUE) else NA_real_,
+    non_inj = if (any(side == non_inj_side, na.rm = TRUE))  max(value[side == non_inj_side], na.rm = TRUE) else NA_real_,
+    .groups = "drop"
+  ) %>%
+  mutate(
+    lsi = if_else(!is.na(inj) & !is.na(non_inj) & non_inj != 0, 100 * inj / non_inj, NA_real_),
+    lsi = round(lsi, 1)
+  ) %>%
+  arrange(date)
+
+p2_hams_best <- p2_hams %>%
+  slice_max(lsi, n = 1, with_ties = FALSE)
+
+# 2m) Ankle Dorsiflexion
+p2_dorsi <- outcomes_raw_phase2 %>%
+  filter(outcome_measure == "Ankle Dorsiflexion") %>%
+  filter(side == inj_side)
+p2_dorsi_best <- p2_dorsi %>%
+  slice_max(value, n = 1, with_ties = FALSE)
+
+# 2n) Y-Balance (Anterior)
+p2_yBalAnt <- outcomes_raw_phase2 %>%
+  filter(outcome_measure == "Y-Balance (Anterior)") %>%
+  filter(side == inj_side)
+p2_yBalAnt_best <- p2_yBalAnt %>%
+  slice_max(value, n = 1, with_ties = FALSE)
+
+# 2o) Y-Balance (Anterior)
+p2_yBalPM <- outcomes_raw_phase2 %>%
+  filter(outcome_measure == "Y-Balance (Postero-Medial)") %>%
+  filter(side == inj_side)
+p2_yBalPM_best <- p2_yBalPM %>%
+  slice_max(value, n = 1, with_ties = FALSE)
+
+# 2p) Y-Balance (Anterior)
+p2_yBalPL <- outcomes_raw_phase2 %>%
+  filter(outcome_measure == "Y-Balance (Postero-Lateral)") %>%
+  filter(side == inj_side)
+p2_yBalPL_best <- p2_yBalPL %>%
+  slice_max(value, n = 1, with_ties = FALSE)
 
 
 # 3 Build Phase 2 Criteria Table
@@ -555,11 +653,17 @@ slbridge_val_p2  <- suppressWarnings(as.numeric(if (exists("p2_slbridge_best")  
 slcalfraise_val_p2  <- suppressWarnings(as.numeric(if (exists("p2_slcalfraise_best")   && nrow(p2_slcalfraise_best)   > 0) p2_slcalfraise_best$value[1]  else NA_real_))
 sidebridge_val_p2  <- suppressWarnings(as.numeric(if (exists("p2_sidebridge_best")   && nrow(p2_sidebridge_best)   > 0) p2_sidebridge_best$value[1]  else NA_real_))
 slrise_val_p2  <- suppressWarnings(as.numeric(if (exists("p2_slrise_best")   && nrow(p2_slrise_best)   > 0) p2_slrise_best$value[1]  else NA_real_))
+slbalanceopen_val_p2  <- suppressWarnings(as.numeric(if (exists("p2_slbalanceopen_best")   && nrow(p2_slbalanceopen_best)   > 0) p2_slbalanceopen_best$value[1]  else NA_real_))
+slbalanceclosed_val_p2  <- suppressWarnings(as.numeric(if (exists("p2_slbalanceclosed_best")   && nrow(p2_slbalanceclosed_best)   > 0) p2_slbalanceclosed_best$value[1]  else NA_real_))
+trapbar_val_p2  <- suppressWarnings(as.numeric(if (exists("p2_trapbar_best")   && nrow(p2_trapbar_best)   > 0) p2_trapbar_best$value[1]  else NA_real_))
+quads_val_p2    <- suppressWarnings(as.numeric(if (exists("p2_quads_best")    && nrow(p2_quads_best)    > 0) p2_quads_best$lsi[1]    else NA_real_))
+hams_val_p2     <- suppressWarnings(as.numeric(if (exists("p2_hams_best")     && nrow(p2_hams_best)     > 0) p2_hams_best$lsi[1]     else NA_real_))
+dorsi_val_p2     <- suppressWarnings(as.numeric(if (exists("p2_dorsi_best")     && nrow(p2_dorsi_best)     > 0) p2_dorsi_best$value[1]     else NA_real_))
+yBalAnt_val_p2     <- suppressWarnings(as.numeric(if (exists("p2_yBalAnt_best")     && nrow(p2_yBalAnt_best)     > 0) p2_yBalAnt_best$value[1]     else NA_real_))
+yBalPM_val_p2     <- suppressWarnings(as.numeric(if (exists("p2_yBalPM_best")     && nrow(p2_yBalPM_best)     > 0) p2_yBalPM_best$value[1]     else NA_real_))
+yBalPL_val_p2     <- suppressWarnings(as.numeric(if (exists("p2_yBalPL_best")     && nrow(p2_yBalPL_best)     > 0) p2_yBalPL_best$value[1]     else NA_real_))
 
 
-#lag_val_p1  <- suppressWarnings(as.numeric(if (exists("p1_lag_best")   && nrow(p1_lag_best)   > 0) p1_lag_best$value[1]  else NA_real_))
-# hams_val     <- suppressWarnings(as.numeric(if (exists("p0_hams_best")     && nrow(p0_hams_best)     > 0) p0_hams_best$lsi[1]     else NA_real_))
-# quads_val    <- suppressWarnings(as.numeric(if (exists("p0_quads_best")    && nrow(p0_quads_best)    > 0) p0_quads_best$lsi[1]    else NA_real_))
 
 # Populate: only fills when a value exists; stays NA (empty) otherwise
 criteria_phase2 <- criteria_phase2 %>%
@@ -572,10 +676,15 @@ criteria_phase2 <- criteria_phase2 %>%
       outcome_measure == "Single Leg Calf Raises"   ~ slcalfraise_val_p2,
       outcome_measure == "Side Bridge"   ~ sidebridge_val_p2,
       outcome_measure == "Single Leg Rise"   ~ slrise_val_p2,
-      
-      #outcome_measure == "Quads Lag Test"            ~ lag_val_p1,
-      # outcome_measure == "Hamstring Strength"  ~ hams_val,
-      # outcome_measure == "Quad Strength"       ~ quads_val,
+      outcome_measure == "Single Leg Balance (Eyes Open)"   ~ slbalanceopen_val_p2,
+      outcome_measure == "Single Leg Balance (Eyes Closed)"   ~ slbalanceclosed_val_p2,
+      outcome_measure == "TrapBar Deadlift"   ~ trapbar_val_p2,
+      outcome_measure == "Quad Strength"       ~ quads_val_p2,
+      outcome_measure == "Hamstring Strength"  ~ hams_val_p2,
+      outcome_measure == "Ankle Dorsiflexion"  ~ dorsi_val_p2,
+      outcome_measure == "Y-Balance (Anterior)"  ~ yBalAnt_val_p2,
+      outcome_measure == "Y-Balance (Postero-Medial)"  ~ yBalPM_val_p2,
+      outcome_measure == "Y-Balance (Postero-Lateral)"  ~ yBalPL_val_p2,
       TRUE                                     ~ score
     )
   )
