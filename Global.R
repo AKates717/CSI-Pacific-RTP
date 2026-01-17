@@ -23,6 +23,8 @@ library(digest)
 library(here)
 library(htmltools)
 library(rmarkdown)
+library(shiny)
+library(shinylive)
 
 source("plot_functions.R")
 
@@ -191,7 +193,9 @@ criteria_all <- read_xlsx("sample_data/acl-protocol-criteria-2025.xlsx", sheet =
 
 #Load Outcomes
 outcomes_raw_all <- read_xlsx("sample_data/outcome_data.xlsx", sheet = "Phase_data") %>%
-  clean_names()
+  clean_names() %>%
+  mutate(date_ddmmyear2 =  (format(date, "%b %d, %Y")))
+  
 
 #Helpers
 
