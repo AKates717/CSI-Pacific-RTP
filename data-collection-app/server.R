@@ -514,7 +514,7 @@ function(input, output, session) {
                   Date = as.Date(Date, origin = "1899-12-30"),
                   Date = format(Date, "%b %d, %Y")
                 ),
-              options = list(pageLength = 5), rownames = FALSE)
+              options = list(pageLength = 10), rownames = FALSE)
   })
   
   
