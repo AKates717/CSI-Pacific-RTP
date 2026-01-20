@@ -27,6 +27,8 @@ library(shiny)
 
 source("plot_functions.R")
 
+options(bslib.bs_version = 5)
+
 ####
 #1. REHAB DETAILS ----
 ####
@@ -178,6 +180,12 @@ iso_joint <- read_excel(
          date_ddmmyear2 =  (format(date_ddmmyear, "%b %d, %Y")))
 
 
+iso_joint2 <- read_csv(
+  "sample_data/tindeq_results.csv"
+) %>% clean_names() %>%
+  #mutate(date = as.Date(timestamp)) %>%
+  mutate(date_ddmmyear = as.Date(timestamp),
+         date_ddmmyear2 =  (format(date_ddmmyear, "%b %d, %Y")))
 
 
 
@@ -565,14 +573,14 @@ p2_slrise_best <- p2_slrise %>%
 p2_slbalanceopen <- outcomes_raw_phase2 %>%
   filter(outcome_measure == "Single Leg Balance (Eyes Open)") %>%
   filter(side == inj_side)
-p2_slbalanceopen_best <- p2_slrise %>%
+p2_slbalanceopen_best <- p2_slbalanceopen %>%
   slice_max(value, n = 1, with_ties = FALSE)
 
 # 2j) Single Leg Balance Eyes Closed
 p2_slbalanceclosed <- outcomes_raw_phase2 %>%
   filter(outcome_measure == "Single Leg Balance (Eyes Closed)") %>%
   filter(side == inj_side)
-p2_slbalanceclosed_best <- p2_slrise %>%
+p2_slbalanceclosed_best <- p2_slbalanceclosed %>%
   slice_max(value, n = 1, with_ties = FALSE)
 
 # 2k) TrapBar Deadlift
@@ -627,9 +635,20 @@ p2_dorsi_best <- p2_dorsi %>%
 # 2n) Y-Balance (Anterior)
 p2_yBalAnt <- outcomes_raw_phase2 %>%
   filter(outcome_measure == "Y-Balance (Anterior)") %>%
-  filter(side == inj_side)
+  group_by(date) %>%
+  summarise(
+    inj = if (any(side == inj_side,  na.rm = TRUE))  max(value[side == inj_side],  na.rm = TRUE) else NA_real_,
+    non_inj = if (any(side == non_inj_side, na.rm = TRUE))  max(value[side == non_inj_side], na.rm = TRUE) else NA_real_,
+    .groups = "drop"
+  ) %>%
+  mutate(
+    lsi = if_else(!is.na(inj) & !is.na(non_inj) & non_inj != 0, 100 * inj / non_inj, NA_real_),
+    lsi = round(lsi, 1)
+  ) %>%
+  arrange(date)
+  
 p2_yBalAnt_best <- p2_yBalAnt %>%
-  slice_max(value, n = 1, with_ties = FALSE)
+  slice_max(lsi, n = 1, with_ties = FALSE)
 
 # 2o) Y-Balance (Anterior)
 p2_yBalPM <- outcomes_raw_phase2 %>%
@@ -662,7 +681,7 @@ trapbar_val_p2  <- suppressWarnings(as.numeric(if (exists("p2_trapbar_best")   &
 quads_val_p2    <- suppressWarnings(as.numeric(if (exists("p2_quads_best")    && nrow(p2_quads_best)    > 0) p2_quads_best$lsi[1]    else NA_real_))
 hams_val_p2     <- suppressWarnings(as.numeric(if (exists("p2_hams_best")     && nrow(p2_hams_best)     > 0) p2_hams_best$lsi[1]     else NA_real_))
 dorsi_val_p2     <- suppressWarnings(as.numeric(if (exists("p2_dorsi_best")     && nrow(p2_dorsi_best)     > 0) p2_dorsi_best$value[1]     else NA_real_))
-yBalAnt_val_p2     <- suppressWarnings(as.numeric(if (exists("p2_yBalAnt_best")     && nrow(p2_yBalAnt_best)     > 0) p2_yBalAnt_best$value[1]     else NA_real_))
+yBalAnt_val_p2     <- suppressWarnings(as.numeric(if (exists("p2_yBalAnt_best")     && nrow(p2_yBalAnt_best)     > 0) p2_yBalAnt_best$lsi[1]     else NA_real_))
 yBalPM_val_p2     <- suppressWarnings(as.numeric(if (exists("p2_yBalPM_best")     && nrow(p2_yBalPM_best)     > 0) p2_yBalPM_best$value[1]     else NA_real_))
 yBalPL_val_p2     <- suppressWarnings(as.numeric(if (exists("p2_yBalPL_best")     && nrow(p2_yBalPL_best)     > 0) p2_yBalPL_best$value[1]     else NA_real_))
 

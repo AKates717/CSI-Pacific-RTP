@@ -495,3 +495,56 @@ plot_card5 <- function(output){ #plotly card, no header, no border
   )
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#4. 
+
+plot_iso_magnitude <- function(outcome){
+  
+  
+  df <- iso_joint2 %>%
+    dplyr::filter(test == outcome)
+  
+  p <-  df %>%
+    ggplot(aes(x = as.factor(date_ddmmyear), fill = limb, group = limb, text = date_ddmmyear2)) +
+    stat_summary(aes(y = peak_force_kg), fun = "max", geom = "bar", just = 1, width = 0.4, alpha = 0.8, position = position_dodge(width = 0.4)) +
+    geom_point(aes(y = peak_force_kg), shape = 21, size = 2, alpha = 0.5, position = position_dodge(width = 0.4)) +
+    ak_plot_theme() +
+    scale_x_discrete(labels = function(x) format(as.Date(x), "%b %e, %Y")) +
+    labs(y = "Peak Force (kg)", x = NULL) +
+    scale_fill_manual(
+      values = c(
+        Left  = if (inj_side == "Left") "red"   else "black",
+        Right = if (inj_side == "Right") "red"  else "black"
+      ),
+      guide = "none")
+  
+  ggplotly(p)
+  
+  ggplotly(p, tooltip = c("text")) %>%
+    layout(legend = list(orientation = "h", x = 0.3, y = -0.2)) %>%
+    plotly::layout(
+      paper_bgcolor = "rgba(0,0,0,0)",
+      plot_bgcolor  = "rgba(0,0,0,0)"
+    ) %>%
+    style(hovertemplate = paste("<b>%{text}</b> <br><i>Score:</i>  %{y}<extra></extra>"),traces = c(1,2,3,4)) %>%
+    config(displaylogo = FALSE) %>%
+    config(modeBarButtonsToRemove = c("hoverCompare", "hoverclosest", "zoomIn2d", "zoomOut2d"))
+  
+}
+
+

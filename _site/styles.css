@@ -148,3 +148,81 @@ body.no-footer .footer {
 }
 
 
+
+
+
+
+/* Active tab styling */
+.nav-tabs .nav-link.active {
+  background-color: #f8f9fa;
+  border-bottom: 3px solid #D71920;
+}
+
+
+
+
+/* --- Base tab container --- */
+.nav.nav-tabs.card-header-tabs {
+  border-bottom: 1px solid #dee2e6;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+/* --- All tab links --- */
+.nav.nav-tabs.card-header-tabs > li > a {
+  font-size: 0.85rem;
+  padding: 0.5rem 0.9rem;
+  margin-right: 0.5rem;
+
+  color: #212529;           /* normal text color */
+  text-decoration: none;
+  background: transparent;
+
+  border: none;
+  border-bottom: 3px solid transparent;
+
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* --- Hover state --- */
+.nav.nav-tabs.card-header-tabs > li > a:hover {
+  color: #000;
+  border-bottom-color: #adb5bd;
+}
+
+/* --- ACTIVE TAB (use <a> state, not <li class="active">) --- */
+.nav.nav-tabs.card-header-tabs > li > a.active,
+.nav.nav-tabs.card-header-tabs > li > a[aria-selected="true"] {
+  color: #c00000;
+  font-weight: 600;
+  border-bottom: 3px solid #c00000;
+  background: transparent;
+}
+
+/* Optional: ensure <li class="active"> doesn't force styling */
+.nav.nav-tabs.card-header-tabs > li.active > a {
+  color: inherit;
+  font-weight: inherit;
+  border-bottom-color: transparent;
+}
+
+
+
+
+/* Keep the card border, only remove inner separator lines */
+.phase0-navset .bslib-card .card-body {
+  border: 0 !important;           /* card-body shouldn't have a border anyway */
+}
+
+/* Remove only horizontal separators inside the card content */
+.phase0-navset .bslib-card .tab-content,
+.phase0-navset .bslib-card .tab-pane,
+.phase0-navset .bslib-card .html-fill-container {
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
+
+
+

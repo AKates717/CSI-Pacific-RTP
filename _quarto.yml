@@ -61,6 +61,7 @@ format:
     toc: true
     page-layout: full
     link-external-newwindow: true
+    include-in-header: fix-bslib-tabs.html
     
 execute:
   echo: false

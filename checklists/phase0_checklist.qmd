@@ -148,7 +148,7 @@ plot_ind_phase_outcomes <- function(phase, outcome){
   # )
   
   ggplotly(p, tooltip = c("text", "label")) %>%
-    layout(legend = list(orientation = "h", x = 0.3, y = -0.1)) %>%
+    layout(legend = list(orientation = "h", x = 0.4, y = -0.2)) %>%
     style(hovertemplate = paste("<b>%{text}</b> <br><i>Score:</i>  %{y}<extra></extra>"),traces = 1) %>%
     style(hovertemplate = paste("<b>%{label}</b> <br><i>Score:</i>  %{y}<extra></extra>"),traces = 2) %>%
     config(displaylogo = FALSE) %>%
@@ -157,44 +157,36 @@ plot_ind_phase_outcomes <- function(phase, outcome){
 
 ```
 
-::: panel-tabset
-## Swelling
-
 ```{r}
-
-plot_ind_phase_outcomes(outcomes_raw_phase0, "Swelling")
-
+htmltools::div(
+  class = "phase0-navset",
+  navset_card_tab(
+    full_screen = TRUE,
+    title = "Phase 0 Outcomes",
+    nav_panel(
+      "Swelling",
+      plot_ind_phase_outcomes(outcomes_raw_phase0, "Swelling")
+    ),
+    nav_panel(
+      "Knee Extension",
+      plot_ind_phase_outcomes(outcomes_raw_phase0, "Passive Knee Extension")
+    ),
+    nav_panel(
+      "Knee Flexion",
+      plot_ind_phase_outcomes(outcomes_raw_phase0, "Passive Knee Flexion")
+    ),
+    nav_panel(
+      "Quad Strength",
+      plot_iso_magnitude("Quads")
+    ),
+    nav_panel(
+      "Hamstring Strength",
+      plot_iso_magnitude("Hamstrings")
+    )
+  )
+)
 ```
 
-## Knee Extension
+Some Writing
 
-```{r}
-
-plot_ind_phase_outcomes(outcomes_raw_phase0, "Passive Knee Extension")
-
-```
-
-## Knee Flexion
-
-```{r}
-
-plot_ind_phase_outcomes(outcomes_raw_phase0, "Passive Knee Flexion")
-
-```
-
-## Quad Strength
-
-```{r}
-
-plot_ind_phase_outcomes(outcomes_raw_phase0, "Quad Strength")
-
-```
-
-## Hamstring Strength
-
-```{r}
-
-plot_ind_phase_outcomes(outcomes_raw_phase0, "Hamstring Strength")
-
-```
-:::
+Some More Writing
