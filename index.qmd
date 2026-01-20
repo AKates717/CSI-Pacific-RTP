@@ -6,6 +6,7 @@ format:
     #scrolling: true
     theme: default
     css: styles.css
+    include-in-header: fix-bslib-tabs.html
 class: no-footer
 editor: visual
 execute: 
@@ -226,57 +227,72 @@ if (!has_today) {
 
 ### Row - Phase Criteria Summary {height="60%"}
 
-::: {.card .border-0 fill="false"}
 ```{r}
-#| label: phase 0
 
 #Create the table
-tbl_phase0 <- criteria_phase2 %>%
-  transmute(
-    `Outcome Measure` = outcome_measure,
-    `Op` = operator_pretty,
-    Goal              = goal_pretty,   # nice display string from your sheet
-    Score             = score,
-    meets
-  ) %>%
-  gt() %>%
-  tab_header(title = md("**Phase 2 Criteria**")) %>%
-  fmt_number(
-    columns = Score,
-    decimals = 0
-  ) %>%
-  fmt_number(
-    columns = Score,
-    rows = `Outcome Measure` %in% c("Hamstring Strength", "Quad Strength"),
-    decimals = 0,
-    pattern = "{x}%"
-  ) %>%
-  sub_missing(columns = Score, missing_text = "") %>%
-  cols_label(Op = "") %>%
-  cols_width(`Outcome Measure` ~ px(360)) %>%
-  cols_align(align = "center", columns = c(Goal, Score)) %>%
-  cols_align(align = "right",  columns = Op) %>%
-  tab_style(
-    style = list(cell_fill(color = "#E8F5E9"),
-                 cell_text(color = "#1B5E20", weight = "600")),
-    locations = cells_body(columns = Score, rows = meets %in% TRUE)
-  ) %>%
-  tab_style(
-    style = list(cell_fill(color = "#FFF9C4"),
-                 cell_text(color = "#7A6A00", weight = "600")),
-    locations = cells_body(columns = Score, rows = meets %in% FALSE)
-  )  %>%
-  cols_hide(meets) %>%
-  ak_gt_theme3() %>%
-  tab_options(
-    table_body.hlines.style = "solid",
-    table_body.hlines.width = px(1),
-    data_row.padding = px(6)
-  )
+criteria_gt <- function(phase){
+  tbl_phase0 <- phase %>%
+    transmute(
+      `Outcome Measure` = outcome_measure,
+      `Op` = operator_pretty,
+      Goal              = goal_pretty,   # nice display string from your sheet
+      Score             = score,
+      meets
+    ) %>%
+    gt() %>%
+    #tab_header(title = md("**Phase 2 Criteria**")) %>%
+    fmt_number(
+      columns = Score,
+      decimals = 0
+    ) %>%
+    fmt_number(
+      columns = Score,
+      rows = `Outcome Measure` %in% c("Hamstring Strength", "Quad Strength"),
+      decimals = 0,
+      pattern = "{x}%"
+    ) %>%
+    sub_missing(columns = Score, missing_text = "") %>%
+    cols_label(Op = "") %>%
+    cols_width(`Outcome Measure` ~ px(360)) %>%
+    cols_align(align = "center", columns = c(Goal, Score)) %>%
+    cols_align(align = "right",  columns = Op) %>%
+    tab_style(
+      style = list(cell_fill(color = "#E8F5E9"),
+                   cell_text(color = "#1B5E20", weight = "600")),
+      locations = cells_body(columns = Score, rows = meets %in% TRUE)
+    ) %>%
+    tab_style(
+      style = list(cell_fill(color = "#FFF9C4"),
+                   cell_text(color = "#7A6A00", weight = "600")),
+      locations = cells_body(columns = Score, rows = meets %in% FALSE)
+    )  %>%
+    cols_hide(meets) %>%
+    ak_gt_theme3() %>%
+    tab_options(
+      table_body.hlines.style = "solid",
+      table_body.hlines.width = px(1),
+      data_row.padding = px(6)
+    )
+}
 
-tbl_phase0
+htmltools::div(
+  class = "phase0-navset",
+  navset_card_tab(
+    full_screen = TRUE,
+    title = "Phase",
+    selected = "2",
+    nav_panel(
+      "0",
+      criteria_gt(criteria_phase0)),
+    nav_panel(
+      "1",
+      criteria_gt(criteria_phase1)),
+    nav_panel(
+      "2",
+      criteria_gt(criteria_phase2))
+  )
+)
 ```
-:::
 
 ## Column {width = "33%"}
 

@@ -68,7 +68,56 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<link href="../site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Fix bslib navset_card_tab markup so Quarto doesn't rewrite tab hrefs
+  document.querySelectorAll('ul.nav.nav-tabs.card-header-tabs[data-tabsetid]').forEach(ul => {
+
+    // Make <li> look like Bootstrap 5 nav items
+    ul.querySelectorAll('li').forEach(li => li.classList.add('nav-item'));
+
+    // Make <a> look like Bootstrap 5 nav links AND force fragment-only href
+    ul.querySelectorAll('a[role="tab"], a[data-bs-toggle="tab"]').forEach(a => {
+      a.classList.add('nav-link');
+
+      // Force href to be fragment-only (#tab-xxxx-y)
+      const href = a.getAttribute('href') || '';
+      if (href.includes('#')) {
+        a.setAttribute('href', '#' + href.split('#').pop());
+      }
+    });
+
+    // Normalize "active" state: Bootstrap 5 wants active on <a>, not <li>
+    const activeFromA = ul.querySelector('a.active,[aria-selected="true"]');
+    const activeFromLi = ul.querySelector('li.active > a');
+    const activeA = activeFromA || activeFromLi;
+
+    ul.querySelectorAll('li.active').forEach(li => li.classList.remove('active'));
+
+    if (activeA) {
+      ul.querySelectorAll('a').forEach(a => {
+        const on = (a === activeA);
+        a.classList.toggle('active', on);
+        a.setAttribute('aria-selected', on ? 'true' : 'false');
+        if (!on) a.setAttribute('tabindex', '-1'); else a.removeAttribute('tabindex');
+      });
+
+      // Ensure only the matching pane is active/show
+      const tabsetId = ul.getAttribute('data-tabsetid');
+      const container = document.querySelector('.tab-content[data-tabsetid="' + tabsetId + '"]');
+      if (container) {
+        const target = activeA.getAttribute('href'); // now guaranteed "#tab-..."
+        container.querySelectorAll('.tab-pane').forEach(pane => {
+          const on = ('#' + pane.id) === target;
+          pane.classList.toggle('active', on);
+          pane.classList.toggle('show', on);
+        });
+      }
+    }
+  });
+});
+</script>
+<link href="../site_libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
 <script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <script src="../site_libs/plotly-binding-4.11.0/plotly.js"></script>
 <script src="../site_libs/typedarray-0.1/typedarray.min.js"></script>
@@ -77,6 +126,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
 <link href="../site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
 <script src="../site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+<script src="../site_libs/bslib-component-js-0.9.0/components.min.js"></script>
+<script src="../site_libs/bslib-component-js-0.9.0/web-components.min.js" type="module"></script>
+<link href="../site_libs/bslib-component-css-0.9.0/components.css" rel="stylesheet">
+<script src="../site_libs/bslib-tag-require-0.9.0/tag-require.js"></script>
 
 
 <link rel="stylesheet" href="../styles.css">
@@ -217,25 +270,25 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Frank Reynolds’s</strong> progress towards these goals will be assessed via the criteria seen below.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="uikdjllflf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="jdftvnqwfk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#uikdjllflf table {
+#jdftvnqwfk table {
   font-family: 'Open Sans', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#uikdjllflf thead, #uikdjllflf tbody, #uikdjllflf tfoot, #uikdjllflf tr, #uikdjllflf td, #uikdjllflf th {
+#jdftvnqwfk thead, #jdftvnqwfk tbody, #jdftvnqwfk tfoot, #jdftvnqwfk tr, #jdftvnqwfk td, #jdftvnqwfk th {
   border-style: none;
 }
 
-#uikdjllflf p {
+#jdftvnqwfk p {
   margin: 0;
   padding: 0;
 }
 
-#uikdjllflf .gt_table {
+#jdftvnqwfk .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -261,12 +314,12 @@ ul.task-list li input[type="checkbox"] {
   border-left-color: #D3D3D3;
 }
 
-#uikdjllflf .gt_caption {
+#jdftvnqwfk .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#uikdjllflf .gt_title {
+#jdftvnqwfk .gt_title {
   color: #333333;
   font-size: 22px;
   font-weight: initial;
@@ -278,7 +331,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-width: 0;
 }
 
-#uikdjllflf .gt_subtitle {
+#jdftvnqwfk .gt_subtitle {
   color: #333333;
   font-size: 13px;
   font-weight: initial;
@@ -290,7 +343,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-width: 0;
 }
 
-#uikdjllflf .gt_heading {
+#jdftvnqwfk .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -302,13 +355,13 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#uikdjllflf .gt_bottom_border {
+#jdftvnqwfk .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#uikdjllflf .gt_col_headings {
+#jdftvnqwfk .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -323,7 +376,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#uikdjllflf .gt_col_heading {
+#jdftvnqwfk .gt_col_heading {
   color: #333333;
   background-color: #FCFCFC;
   font-size: 100%;
@@ -343,7 +396,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#uikdjllflf .gt_column_spanner_outer {
+#jdftvnqwfk .gt_column_spanner_outer {
   color: #333333;
   background-color: #FCFCFC;
   font-size: 100%;
@@ -355,15 +408,15 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 4px;
 }
 
-#uikdjllflf .gt_column_spanner_outer:first-child {
+#jdftvnqwfk .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#uikdjllflf .gt_column_spanner_outer:last-child {
+#jdftvnqwfk .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#uikdjllflf .gt_column_spanner {
+#jdftvnqwfk .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 1px;
   border-bottom-color: #A7A9AC;
@@ -375,11 +428,11 @@ ul.task-list li input[type="checkbox"] {
   width: 100%;
 }
 
-#uikdjllflf .gt_spanner_row {
+#jdftvnqwfk .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#uikdjllflf .gt_group_heading {
+#jdftvnqwfk .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -405,7 +458,7 @@ ul.task-list li input[type="checkbox"] {
   text-align: left;
 }
 
-#uikdjllflf .gt_empty_group_heading {
+#jdftvnqwfk .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -420,15 +473,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 
-#uikdjllflf .gt_from_md > :first-child {
+#jdftvnqwfk .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#uikdjllflf .gt_from_md > :last-child {
+#jdftvnqwfk .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#uikdjllflf .gt_row {
+#jdftvnqwfk .gt_row {
   padding-top: 6px;
   padding-bottom: 6px;
   padding-left: 5px;
@@ -447,7 +500,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#uikdjllflf .gt_stub {
+#jdftvnqwfk .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -460,7 +513,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#uikdjllflf .gt_stub_row_group {
+#jdftvnqwfk .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -474,15 +527,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: top;
 }
 
-#uikdjllflf .gt_row_group_first td {
+#jdftvnqwfk .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#uikdjllflf .gt_row_group_first th {
+#jdftvnqwfk .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#uikdjllflf .gt_summary_row {
+#jdftvnqwfk .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -492,16 +545,16 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#uikdjllflf .gt_first_summary_row {
+#jdftvnqwfk .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#uikdjllflf .gt_first_summary_row.thick {
+#jdftvnqwfk .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#uikdjllflf .gt_last_summary_row {
+#jdftvnqwfk .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -511,7 +564,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#uikdjllflf .gt_grand_summary_row {
+#jdftvnqwfk .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -521,7 +574,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#uikdjllflf .gt_first_grand_summary_row {
+#jdftvnqwfk .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -531,7 +584,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-color: #D3D3D3;
 }
 
-#uikdjllflf .gt_last_grand_summary_row_top {
+#jdftvnqwfk .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -541,11 +594,11 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#uikdjllflf .gt_striped {
+#jdftvnqwfk .gt_striped {
   background-color: #FFFFFF;
 }
 
-#uikdjllflf .gt_table_body {
+#jdftvnqwfk .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -554,7 +607,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#uikdjllflf .gt_footnotes {
+#jdftvnqwfk .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -568,7 +621,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#uikdjllflf .gt_footnote {
+#jdftvnqwfk .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -577,7 +630,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#uikdjllflf .gt_sourcenotes {
+#jdftvnqwfk .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -591,7 +644,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#uikdjllflf .gt_sourcenote {
+#jdftvnqwfk .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -599,72 +652,72 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#uikdjllflf .gt_left {
+#jdftvnqwfk .gt_left {
   text-align: left;
 }
 
-#uikdjllflf .gt_center {
+#jdftvnqwfk .gt_center {
   text-align: center;
 }
 
-#uikdjllflf .gt_right {
+#jdftvnqwfk .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#uikdjllflf .gt_font_normal {
+#jdftvnqwfk .gt_font_normal {
   font-weight: normal;
 }
 
-#uikdjllflf .gt_font_bold {
+#jdftvnqwfk .gt_font_bold {
   font-weight: bold;
 }
 
-#uikdjllflf .gt_font_italic {
+#jdftvnqwfk .gt_font_italic {
   font-style: italic;
 }
 
-#uikdjllflf .gt_super {
+#jdftvnqwfk .gt_super {
   font-size: 65%;
 }
 
-#uikdjllflf .gt_footnote_marks {
+#jdftvnqwfk .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#uikdjllflf .gt_asterisk {
+#jdftvnqwfk .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#uikdjllflf .gt_indent_1 {
+#jdftvnqwfk .gt_indent_1 {
   text-indent: 5px;
 }
 
-#uikdjllflf .gt_indent_2 {
+#jdftvnqwfk .gt_indent_2 {
   text-indent: 10px;
 }
 
-#uikdjllflf .gt_indent_3 {
+#jdftvnqwfk .gt_indent_3 {
   text-indent: 15px;
 }
 
-#uikdjllflf .gt_indent_4 {
+#jdftvnqwfk .gt_indent_4 {
   text-indent: 20px;
 }
 
-#uikdjllflf .gt_indent_5 {
+#jdftvnqwfk .gt_indent_5 {
   text-indent: 25px;
 }
 
-#uikdjllflf .katex-display {
+#jdftvnqwfk .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#uikdjllflf div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#jdftvnqwfk div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 
@@ -757,51 +810,73 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 <section id="outcomes" class="level1">
 <h1>Outcomes</h1>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Swelling</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Knee Extension</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Knee Flexion</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Quad Strength</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false">Hamstring Strength</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-614142c67f55984c1c0f" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-614142c67f55984c1c0f">{"x":{"data":[{"orientation":"v","width":[0.44999999999708962,0.44999999999708962,0.44999999999708962,0.44999999999708962,0.44999999999708962,0.44999999999708962],"base":[0,0,0,0,0,0],"x":[20377.775000000001,20378.775000000001,20380.775000000001,20388.775000000001,20389.775000000001,20395.775000000001],"y":[3,2,2,1,0,1],"text":["Oct 17, 2025","Oct 18, 2025","Oct 20, 2025","Oct 28, 2025","Oct 29, 2025","Nov 04, 2025"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.5)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Left","legendgroup":"Left","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"orientation":"v","width":[0.44999999999708962,0.44999999999708962,0.44999999999708962],"base":[0,0,0],"x":[20378.224999999999,20379.224999999999,20381.224999999999],"y":[0,0,0],"text":["Oct 17, 2025","Oct 18, 2025","Oct 20, 2025"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.5)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Right","legendgroup":"Right","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{label}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"x":[20390.099999999999],"y":[0.029999999999999999],"text":"Oct 29, 2025<br />value: 0","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(255,0,0,1)","opacity":1,"size":5.6692913385826778,"symbol":"square","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","name":"Left","legendgroup":"Left","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[20378.099999999999,20379.099999999999,20381.099999999999],"y":[0.029999999999999999,0.029999999999999999,0.029999999999999999],"text":["Oct 17, 2025<br />value: 0","Oct 18, 2025<br />value: 0","Oct 20, 2025<br />value: 0"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,0,0,1)","opacity":1,"size":5.6692913385826778,"symbol":"square","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","name":"Right","legendgroup":"Right","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":26.228310502283108,"r":7.3059360730593621,"b":52.79443279877971,"l":33.275217932752184},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[20376.627500000002,20396.922500000001],"tickmode":"array","ticktext":["Oct 16","Oct 17","Oct 18","Oct 19","Oct 20","Oct 21","Oct 22","Oct 23","Oct 24","Oct 25","Oct 26","Oct 27","Oct 28","Oct 29","Oct 30","Oct 31","Nov 01","Nov 02","Nov 03","Nov 04"],"tickvals":[20377,20378,20379,20380,20381,20382,20383,20384,20385,20386,20387,20388,20389,20390,20391,20392,20393,20394,20395,20396],"categoryorder":"array","categoryarray":["Oct 16","Oct 17","Oct 18","Oct 19","Oct 20","Oct 21","Oct 22","Oct 23","Oct 24","Oct 25","Oct 26","Oct 27","Oct 28","Oct 29","Oct 30","Oct 31","Nov 01","Nov 02","Nov 03","Nov 04"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.15000000000000002,3.1499999999999999],"tickmode":"array","ticktext":["0","1","2","3"],"tickvals":[0,0.99999999999999989,2,3],"categoryorder":"array","categoryarray":["0","1","2","3"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Swelling <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"orientation":"h","x":0.29999999999999999,"y":-0.10000000000000001},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"e4622df173d4":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"},"e46246eb7adc":{"x":{},"y":{},"fill":{},"text":{},"label":{}}},"cur_data":"e4622df173d4","visdat":{"e4622df173d4":["function (y) ","x"],"e46246eb7adc":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="phase0-navset">
+<div class="card bslib-card bslib-mb-spacing html-fill-item html-fill-container" data-bslib-card-init="" data-full-screen="false" data-require-bs-caller="card()" data-require-bs-version="5" id="bslib-card-6665">
+<div class="card-header bslib-navs-card-title">
+<span>Phase 0 Outcomes</span>
+<ul class="nav nav-tabs card-header-tabs" data-tabsetid="8387">
+<li class="active">
+<a href="#tab-8387-1" data-toggle="tab" data-bs-toggle="tab" data-value="Swelling">Swelling</a>
+</li>
+<li>
+<a href="#tab-8387-2" data-toggle="tab" data-bs-toggle="tab" data-value="Knee Extension">Knee Extension</a>
+</li>
+<li>
+<a href="#tab-8387-3" data-toggle="tab" data-bs-toggle="tab" data-value="Knee Flexion">Knee Flexion</a>
+</li>
+<li>
+<a href="#tab-8387-4" data-toggle="tab" data-bs-toggle="tab" data-value="Quad Strength">Quad Strength</a>
+</li>
+<li>
+<a href="#tab-8387-5" data-toggle="tab" data-bs-toggle="tab" data-value="Hamstring Strength">Hamstring Strength</a>
+</li>
+</ul>
+</div>
+<div class="tab-content html-fill-item html-fill-container" data-tabsetid="8387">
+<div class="tab-pane active html-fill-item html-fill-container bslib-gap-spacing" data-value="Swelling" id="tab-8387-1" style="gap:0;padding:0;">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-8837c95dcb2f3a36d9cd" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-8837c95dcb2f3a36d9cd">{"x":{"data":[{"orientation":"v","width":[0.44999999999708962,0.44999999999708962,0.44999999999708962,0.44999999999708962,0.44999999999708962,0.44999999999708962],"base":[0,0,0,0,0,0],"x":[20377.775000000001,20378.775000000001,20380.775000000001,20388.775000000001,20389.775000000001,20395.775000000001],"y":[3,2,2,1,0,1],"text":["Oct 17, 2025","Oct 18, 2025","Oct 20, 2025","Oct 28, 2025","Oct 29, 2025","Nov 04, 2025"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.5)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Left","legendgroup":"Left","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"orientation":"v","width":[0.44999999999708962,0.44999999999708962,0.44999999999708962],"base":[0,0,0],"x":[20378.224999999999,20379.224999999999,20381.224999999999],"y":[0,0,0],"text":["Oct 17, 2025","Oct 18, 2025","Oct 20, 2025"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.5)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Right","legendgroup":"Right","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{label}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"x":[20390.099999999999],"y":[0.029999999999999999],"text":"Oct 29, 2025<br />value: 0","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(255,0,0,1)","opacity":1,"size":5.6692913385826778,"symbol":"square","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","name":"Left","legendgroup":"Left","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[20378.099999999999,20379.099999999999,20381.099999999999],"y":[0.029999999999999999,0.029999999999999999,0.029999999999999999],"text":["Oct 17, 2025<br />value: 0","Oct 18, 2025<br />value: 0","Oct 20, 2025<br />value: 0"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,0,0,1)","opacity":1,"size":5.6692913385826778,"symbol":"square","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","name":"Right","legendgroup":"Right","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":26.228310502283108,"r":7.3059360730593621,"b":52.79443279877971,"l":33.275217932752184},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[20376.627500000002,20396.922500000001],"tickmode":"array","ticktext":["Oct 16","Oct 17","Oct 18","Oct 19","Oct 20","Oct 21","Oct 22","Oct 23","Oct 24","Oct 25","Oct 26","Oct 27","Oct 28","Oct 29","Oct 30","Oct 31","Nov 01","Nov 02","Nov 03","Nov 04"],"tickvals":[20377,20378,20379,20380,20381,20382,20383,20384,20385,20386,20387,20388,20389,20390,20391,20392,20393,20394,20395,20396],"categoryorder":"array","categoryarray":["Oct 16","Oct 17","Oct 18","Oct 19","Oct 20","Oct 21","Oct 22","Oct 23","Oct 24","Oct 25","Oct 26","Oct 27","Oct 28","Oct 29","Oct 30","Oct 31","Nov 01","Nov 02","Nov 03","Nov 04"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.15000000000000002,3.1499999999999999],"tickmode":"array","ticktext":["0","1","2","3"],"tickvals":[0,0.99999999999999989,2,3],"categoryorder":"array","categoryarray":["0","1","2","3"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Swelling <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"orientation":"h","x":0.40000000000000002,"y":-0.20000000000000001},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"16cbf591ead":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"},"16cbf5aecf008":{"x":{},"y":{},"fill":{},"text":{},"label":{}}},"cur_data":"16cbf591ead","visdat":{"16cbf591ead":["function (y) ","x"],"16cbf5aecf008":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="tab-pane html-fill-item html-fill-container bslib-gap-spacing" data-value="Knee Extension" id="tab-8387-2" style="gap:0;padding:0;">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-04e1aba29ed82fc97020" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-04e1aba29ed82fc97020">{"x":{"data":[{"orientation":"v","width":[0.44999999999708962,0.44999999999708962,0.44999999999708962,0.44999999999708962,0.44999999999708962,0.44999999999708962],"base":[0,0,0,0,0,0],"x":[20377.775000000001,20378.775000000001,20380.775000000001,20388.775000000001,20389.775000000001,20390.775000000001],"y":[3,2,2,1,1,0],"text":["Oct 17, 2025","Oct 18, 2025","Oct 20, 2025","Oct 28, 2025","Oct 29, 2025","Oct 30, 2025"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.5)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Left","legendgroup":"Left","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"orientation":"v","width":[0.44999999999708962,0.44999999999708962,0.44999999999708962],"base":[0,0,0],"x":[20378.224999999999,20379.224999999999,20389.224999999999],"y":[0,0,0],"text":["Oct 17, 2025","Oct 18, 2025","Oct 28, 2025"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.5)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Right","legendgroup":"Right","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{label}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"x":[20391.099999999999],"y":[0.029999999999999999],"text":"Oct 30, 2025<br />value: 0","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(255,0,0,1)","opacity":1,"size":5.6692913385826778,"symbol":"square","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","name":"Left","legendgroup":"Left","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[20378.099999999999,20379.099999999999,20389.099999999999],"y":[0.029999999999999999,0.029999999999999999,0.029999999999999999],"text":["Oct 17, 2025<br />value: 0","Oct 18, 2025<br />value: 0","Oct 28, 2025<br />value: 0"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,0,0,1)","opacity":1,"size":5.6692913385826778,"symbol":"square","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","name":"Right","legendgroup":"Right","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":26.228310502283108,"r":7.3059360730593621,"b":52.79443279877971,"l":33.275217932752184},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[20376.872500000005,20391.777499999997],"tickmode":"array","ticktext":["Oct 16","Oct 17","Oct 18","Oct 19","Oct 20","Oct 21","Oct 22","Oct 23","Oct 24","Oct 25","Oct 26","Oct 27","Oct 28","Oct 29","Oct 30"],"tickvals":[20377,20378,20379,20380,20381,20382,20383,20384,20385,20386,20387,20388,20389,20390,20391],"categoryorder":"array","categoryarray":["Oct 16","Oct 17","Oct 18","Oct 19","Oct 20","Oct 21","Oct 22","Oct 23","Oct 24","Oct 25","Oct 26","Oct 27","Oct 28","Oct 29","Oct 30"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.15000000000000002,3.1499999999999999],"tickmode":"array","ticktext":["0","1","2","3"],"tickvals":[0,0.99999999999999989,2,3],"categoryorder":"array","categoryarray":["0","1","2","3"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Passive Knee Extension <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"orientation":"h","x":0.40000000000000002,"y":-0.20000000000000001},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"16cbf357bb9c3":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"},"16cbf4de0cca3":{"x":{},"y":{},"fill":{},"text":{},"label":{}}},"cur_data":"16cbf357bb9c3","visdat":{"16cbf357bb9c3":["function (y) ","x"],"16cbf4de0cca3":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="tab-pane html-fill-item html-fill-container bslib-gap-spacing" data-value="Knee Flexion" id="tab-8387-3" style="gap:0;padding:0;">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-f72c7377c67e39d25954" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-f72c7377c67e39d25954">{"x":{"data":[{"orientation":"v","width":[0.44999999999708962,0.44999999999708962,0.44999999999708962,0.44999999999708962,0.44999999999708962],"base":[0,0,0,0,0],"x":[20377.775000000001,20378.775000000001,20380.775000000001,20388.775000000001,20390.775000000001],"y":[100,105,118,121,125],"text":["Oct 17, 2025","Oct 18, 2025","Oct 20, 2025","Oct 28, 2025","Oct 30, 2025"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.5)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Left","legendgroup":"Left","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"orientation":"v","width":[0.44999999999708962,0.44999999999708962,0.44999999999708962,0.44999999999708962],"base":[0,0,0,0],"x":[20378.224999999999,20379.224999999999,20389.224999999999,20391.224999999999],"y":[130,128,130,128],"text":["Oct 17, 2025","Oct 18, 2025","Oct 28, 2025","Oct 30, 2025"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.5)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Right","legendgroup":"Right","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{label}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"visible":false,"showlegend":false,"xaxis":null,"yaxis":null,"hoverinfo":"text","frame":null}],"layout":{"margin":{"t":26.228310502283108,"r":7.3059360730593621,"b":52.79443279877971,"l":46.027397260273986},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[20376.855000000003,20392.144999999997],"tickmode":"array","ticktext":["Oct 16","Oct 17","Oct 18","Oct 19","Oct 20","Oct 21","Oct 22","Oct 23","Oct 24","Oct 25","Oct 26","Oct 27","Oct 28","Oct 29","Oct 30","Oct 31"],"tickvals":[20377,20378,20379,20380,20381,20382,20383,20384,20385,20386,20387,20388,20389,20390,20391,20392],"categoryorder":"array","categoryarray":["Oct 16","Oct 17","Oct 18","Oct 19","Oct 20","Oct 21","Oct 22","Oct 23","Oct 24","Oct 25","Oct 26","Oct 27","Oct 28","Oct 29","Oct 30","Oct 31"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-6.5,136.5],"tickmode":"array","ticktext":["0","50","100"],"tickvals":[0,50,100],"categoryorder":"array","categoryarray":["0","50","100"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Passive Knee Flexion <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"orientation":"h","x":0.40000000000000002,"y":-0.20000000000000001},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"16cbf11703ac0":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"},"16cbf5f211c31":{"x":{},"y":{},"fill":{},"text":{},"label":{}}},"cur_data":"16cbf11703ac0","visdat":{"16cbf11703ac0":["function (y) ","x"],"16cbf5f211c31":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="tab-pane html-fill-item html-fill-container bslib-gap-spacing" data-value="Quad Strength" id="tab-8387-4" style="gap:0;padding:0;">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-dc30114ba7664bc56986" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-dc30114ba7664bc56986">{"x":{"data":[{"orientation":"v","width":[0.19999999999999996,0.20000000000000018],"base":[0,0],"x":[0.90000000000000002,1.8999999999999999],"y":[6.3300000000000001,70.180000000000007],"text":["Jan 14, 2026","Jan 19, 2026"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.8)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Left","legendgroup":"Left","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"orientation":"v","width":[0.20000000000000018,0.20000000000000018],"base":[0,0],"x":[1.1000000000000001,2.1000000000000001],"y":[7.4699999999999998,66.719999999999999],"text":["Jan 14, 2026","Jan 19, 2026"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.8)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Right","legendgroup":"Right","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"x":[0.90000000000000002,0.90000000000000002,1.8999999999999999,1.8999999999999999],"y":[4.5,6.3300000000000001,56.640000000000001,70.180000000000007],"text":["Jan 14, 2026","Jan 14, 2026","Jan 19, 2026","Jan 19, 2026"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(255,0,0,1)","opacity":0.5,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","name":"Left","legendgroup":"Left","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"x":[1.1000000000000001,1.1000000000000001,2.1000000000000001,2.1000000000000001],"y":[5.3300000000000001,7.4699999999999998,55.020000000000003,66.719999999999999],"text":["Jan 14, 2026","Jan 14, 2026","Jan 19, 2026","Jan 19, 2026"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,0,0,1)","opacity":0.5,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","name":"Right","legendgroup":"Right","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"}],"layout":{"margin":{"t":26.228310502283108,"r":7.3059360730593621,"b":88.7322252629654,"l":39.651307596513085},"plot_bgcolor":"rgba(0,0,0,0)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,2.6000000000000001],"tickmode":"array","ticktext":["Jan 14, 2026","Jan 19, 2026"],"tickvals":[1,2],"categoryorder":"array","categoryarray":["Jan 14, 2026","Jan 19, 2026"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-3.5090000000000003,73.689000000000007],"tickmode":"array","ticktext":["0","20","40","60"],"tickvals":[0,20,40,60],"categoryorder":"array","categoryarray":["0","20","40","60"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Peak Force (kg) <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"orientation":"h","x":0.29999999999999999,"y":-0.20000000000000001},"hovermode":"closest","barmode":"relative","paper_bgcolor":"rgba(0,0,0,0)"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"16cbf72f95abf":{"x":{},"fill":{},"text":{},"y":{},"type":"bar"},"16cbf50b4ec91":{"x":{},"fill":{},"text":{},"y":{}}},"cur_data":"16cbf72f95abf","visdat":{"16cbf72f95abf":["function (y) ","x"],"16cbf50b4ec91":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="tab-pane html-fill-item html-fill-container bslib-gap-spacing" data-value="Hamstring Strength" id="tab-8387-5" style="gap:0;padding:0;">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-6c2bf9e6817eeb3bdfe4" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-6c2bf9e6817eeb3bdfe4">{"x":{"data":[{"orientation":"v","width":[0.19999999999999996,0.20000000000000018],"base":[0,0],"x":[0.90000000000000002,1.8999999999999999],"y":[5.75,11.25],"text":["Jan 15, 2026","Jan 19, 2026"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.8)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Left","legendgroup":"Left","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"orientation":"v","width":[0.20000000000000018,0.20000000000000018],"base":[0,0],"x":[1.1000000000000001,2.1000000000000001],"y":[5.2800000000000002,11.199999999999999],"text":["Jan 15, 2026","Jan 19, 2026"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.8)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Right","legendgroup":"Right","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"x":[0.90000000000000002,1.8999999999999999,1.8999999999999999],"y":[5.75,9.25,11.25],"text":["Jan 15, 2026","Jan 19, 2026","Jan 19, 2026"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(255,0,0,1)","opacity":0.5,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","name":"Left","legendgroup":"Left","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"x":[1.1000000000000001,2.1000000000000001,2.1000000000000001],"y":[5.2800000000000002,9.8100000000000005,11.199999999999999],"text":["Jan 15, 2026","Jan 19, 2026","Jan 19, 2026"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,0,0,1)","opacity":0.5,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","name":"Right","legendgroup":"Right","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"}],"layout":{"margin":{"t":26.228310502283108,"r":7.3059360730593621,"b":88.7322252629654,"l":33.275217932752184},"plot_bgcolor":"rgba(0,0,0,0)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,2.6000000000000001],"tickmode":"array","ticktext":["Jan 15, 2026","Jan 19, 2026"],"tickvals":[1,2],"categoryorder":"array","categoryarray":["Jan 15, 2026","Jan 19, 2026"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.5625,11.8125],"tickmode":"array","ticktext":["0","3","6","9"],"tickvals":[0,3.0000000000000004,6,9],"categoryorder":"array","categoryarray":["0","3","6","9"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Peak Force (kg) <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"orientation":"h","x":0.29999999999999999,"y":-0.20000000000000001},"hovermode":"closest","barmode":"relative","paper_bgcolor":"rgba(0,0,0,0)"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"16cbf513e6d2a":{"x":{},"fill":{},"text":{},"y":{},"type":"bar"},"16cbf59710a11":{"x":{},"fill":{},"text":{},"y":{}}},"cur_data":"16cbf513e6d2a","visdat":{"16cbf513e6d2a":["function (y) ","x"],"16cbf59710a11":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div class="cell">
-<div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-063dc1dcb28c4f43673b" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-063dc1dcb28c4f43673b">{"x":{"data":[{"orientation":"v","width":[0.44999999999708962,0.44999999999708962,0.44999999999708962,0.44999999999708962,0.44999999999708962,0.44999999999708962],"base":[0,0,0,0,0,0],"x":[20377.775000000001,20378.775000000001,20380.775000000001,20388.775000000001,20389.775000000001,20390.775000000001],"y":[3,2,2,1,1,0],"text":["Oct 17, 2025","Oct 18, 2025","Oct 20, 2025","Oct 28, 2025","Oct 29, 2025","Oct 30, 2025"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.5)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Left","legendgroup":"Left","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"orientation":"v","width":[0.44999999999708962,0.44999999999708962,0.44999999999708962],"base":[0,0,0],"x":[20378.224999999999,20379.224999999999,20389.224999999999],"y":[0,0,0],"text":["Oct 17, 2025","Oct 18, 2025","Oct 28, 2025"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.5)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Right","legendgroup":"Right","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{label}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"x":[20391.099999999999],"y":[0.029999999999999999],"text":"Oct 30, 2025<br />value: 0","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(255,0,0,1)","opacity":1,"size":5.6692913385826778,"symbol":"square","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","name":"Left","legendgroup":"Left","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[20378.099999999999,20379.099999999999,20389.099999999999],"y":[0.029999999999999999,0.029999999999999999,0.029999999999999999],"text":["Oct 17, 2025<br />value: 0","Oct 18, 2025<br />value: 0","Oct 28, 2025<br />value: 0"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,0,0,1)","opacity":1,"size":5.6692913385826778,"symbol":"square","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","name":"Right","legendgroup":"Right","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":26.228310502283108,"r":7.3059360730593621,"b":52.79443279877971,"l":33.275217932752184},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[20376.872500000005,20391.777499999997],"tickmode":"array","ticktext":["Oct 16","Oct 17","Oct 18","Oct 19","Oct 20","Oct 21","Oct 22","Oct 23","Oct 24","Oct 25","Oct 26","Oct 27","Oct 28","Oct 29","Oct 30"],"tickvals":[20377,20378,20379,20380,20381,20382,20383,20384,20385,20386,20387,20388,20389,20390,20391],"categoryorder":"array","categoryarray":["Oct 16","Oct 17","Oct 18","Oct 19","Oct 20","Oct 21","Oct 22","Oct 23","Oct 24","Oct 25","Oct 26","Oct 27","Oct 28","Oct 29","Oct 30"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.15000000000000002,3.1499999999999999],"tickmode":"array","ticktext":["0","1","2","3"],"tickvals":[0,0.99999999999999989,2,3],"categoryorder":"array","categoryarray":["0","1","2","3"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Passive Knee Extension <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"orientation":"h","x":0.29999999999999999,"y":-0.10000000000000001},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"e4626f46a301":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"},"e462677cfba":{"x":{},"y":{},"fill":{},"text":{},"label":{}}},"cur_data":"e4626f46a301","visdat":{"e4626f46a301":["function (y) ","x"],"e462677cfba":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
-</div>
-</div>
-</div>
-<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-<div class="cell">
-<div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-38868beba3ee73c52d12" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-38868beba3ee73c52d12">{"x":{"data":[{"orientation":"v","width":[0.44999999999708962,0.44999999999708962,0.44999999999708962,0.44999999999708962,0.44999999999708962],"base":[0,0,0,0,0],"x":[20377.775000000001,20378.775000000001,20380.775000000001,20388.775000000001,20390.775000000001],"y":[100,105,118,121,125],"text":["Oct 17, 2025","Oct 18, 2025","Oct 20, 2025","Oct 28, 2025","Oct 30, 2025"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.5)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Left","legendgroup":"Left","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"orientation":"v","width":[0.44999999999708962,0.44999999999708962,0.44999999999708962,0.44999999999708962],"base":[0,0,0,0],"x":[20378.224999999999,20379.224999999999,20389.224999999999,20391.224999999999],"y":[130,128,130,128],"text":["Oct 17, 2025","Oct 18, 2025","Oct 28, 2025","Oct 30, 2025"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.5)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Right","legendgroup":"Right","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{label}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"visible":false,"showlegend":false,"xaxis":null,"yaxis":null,"hoverinfo":"text","frame":null}],"layout":{"margin":{"t":26.228310502283108,"r":7.3059360730593621,"b":52.79443279877971,"l":46.027397260273986},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[20376.855000000003,20392.144999999997],"tickmode":"array","ticktext":["Oct 16","Oct 17","Oct 18","Oct 19","Oct 20","Oct 21","Oct 22","Oct 23","Oct 24","Oct 25","Oct 26","Oct 27","Oct 28","Oct 29","Oct 30","Oct 31"],"tickvals":[20377,20378,20379,20380,20381,20382,20383,20384,20385,20386,20387,20388,20389,20390,20391,20392],"categoryorder":"array","categoryarray":["Oct 16","Oct 17","Oct 18","Oct 19","Oct 20","Oct 21","Oct 22","Oct 23","Oct 24","Oct 25","Oct 26","Oct 27","Oct 28","Oct 29","Oct 30","Oct 31"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-6.5,136.5],"tickmode":"array","ticktext":["0","50","100"],"tickvals":[0,50,100],"categoryorder":"array","categoryarray":["0","50","100"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Passive Knee Flexion <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"orientation":"h","x":0.29999999999999999,"y":-0.10000000000000001},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"e4624c453b6c":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"},"e46255405692":{"x":{},"y":{},"fill":{},"text":{},"label":{}}},"cur_data":"e4624c453b6c","visdat":{"e4624c453b6c":["function (y) ","x"],"e46255405692":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
-</div>
-</div>
-</div>
-<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
-<div class="cell">
-<div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-d01a8bf3ab5024bf456b" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-d01a8bf3ab5024bf456b">{"x":{"data":[{"orientation":"v","width":[0.44999999999708962,0.44999999999708962,0.44999999999708962,0.44999999999708962,0.44999999999708962,0.44999999999708962],"base":[0,0,0,0,0,0],"x":[20388.324999999997,20388.324999999997,20390.324999999997,20390.324999999997,20395.324999999997,20395.324999999997],"y":[64,62,72,74,80,82],"text":["Oct 28, 2025","Oct 28, 2025","Oct 30, 2025","Oct 30, 2025","Nov 04, 2025","Nov 04, 2025"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.5)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Left","legendgroup":"Left","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"orientation":"v","width":[0.44999999999708962,0.44999999999708962,0.44999999999708962,0.44999999999708962,0.44999999999708962,0.44999999999708962],"base":[0,0,0,0,0,0],"x":[20388.775000000001,20388.775000000001,20390.775000000001,20390.775000000001,20395.775000000001,20395.775000000001],"y":[95,93,92,90,87,89],"text":["Oct 28, 2025","Oct 28, 2025","Oct 30, 2025","Oct 30, 2025","Nov 04, 2025","Nov 04, 2025"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.5)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Right","legendgroup":"Right","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{label}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"visible":false,"showlegend":false,"xaxis":null,"yaxis":null,"hoverinfo":"text","frame":null}],"layout":{"margin":{"t":26.228310502283108,"r":7.3059360730593621,"b":52.79443279877971,"l":39.651307596513085},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[20387.704999999998,20396.395],"tickmode":"array","ticktext":["Oct 27","Oct 28","Oct 29","Oct 30","Oct 31","Nov 01","Nov 02","Nov 03","Nov 04"],"tickvals":[20388,20389,20390,20391,20392,20393,20394,20395,20396],"categoryorder":"array","categoryarray":["Oct 27","Oct 28","Oct 29","Oct 30","Oct 31","Nov 01","Nov 02","Nov 03","Nov 04"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-4.75,99.75],"tickmode":"array","ticktext":["0","25","50","75"],"tickvals":[0,25,50,75],"categoryorder":"array","categoryarray":["0","25","50","75"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Quad Strength <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"orientation":"h","x":0.29999999999999999,"y":-0.10000000000000001},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"e462761299ba":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"},"e4623f2abee5":{"x":{},"y":{},"fill":{},"text":{},"label":{}}},"cur_data":"e462761299ba","visdat":{"e462761299ba":["function (y) ","x"],"e4623f2abee5":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
-</div>
-</div>
-</div>
-<div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
-<div class="cell">
-<div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-c90cb894938cb987c7a8" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-c90cb894938cb987c7a8">{"x":{"data":[{"orientation":"v","width":[0.44999999999708962,0.44999999999708962,0.44999999999708962,0.44999999999708962,0.44999999999708962],"base":[0,0,0,0,0],"x":[20378.324999999997,20380.324999999997,20388.324999999997,20395.324999999997,20395.324999999997],"y":[45,47,48,50,52],"text":["Oct 18, 2025","Oct 20, 2025","Oct 28, 2025","Nov 04, 2025","Nov 04, 2025"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.5)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Left","legendgroup":"Left","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"orientation":"v","width":[0.44999999999708962,0.44999999999708962,0.44999999999708962,0.44999999999708962,0.44999999999708962],"base":[0,0,0,0,0],"x":[20378.775000000001,20380.775000000001,20388.775000000001,20395.775000000001,20395.775000000001],"y":[60,59,59,54,56],"text":["Oct 18, 2025","Oct 20, 2025","Oct 28, 2025","Nov 04, 2025","Nov 04, 2025"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.5)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Right","legendgroup":"Right","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{label}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"visible":false,"showlegend":false,"xaxis":null,"yaxis":null,"hoverinfo":"text","frame":null}],"layout":{"margin":{"t":26.228310502283108,"r":7.3059360730593621,"b":52.79443279877971,"l":39.651307596513085},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[20377.204999999998,20396.895],"tickmode":"array","ticktext":["Oct 17","Oct 18","Oct 19","Oct 20","Oct 21","Oct 22","Oct 23","Oct 24","Oct 25","Oct 26","Oct 27","Oct 28","Oct 29","Oct 30","Oct 31","Nov 01","Nov 02","Nov 03","Nov 04"],"tickvals":[20378,20379,20380,20381,20382,20383,20384,20385,20386,20387,20388,20389,20390,20391,20392,20393,20394,20395,20396],"categoryorder":"array","categoryarray":["Oct 17","Oct 18","Oct 19","Oct 20","Oct 21","Oct 22","Oct 23","Oct 24","Oct 25","Oct 26","Oct 27","Oct 28","Oct 29","Oct 30","Oct 31","Nov 01","Nov 02","Nov 03","Nov 04"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-3,63],"tickmode":"array","ticktext":["0","20","40","60"],"tickvals":[0,20,40,60],"categoryorder":"array","categoryarray":["0","20","40","60"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Hamstring Strength <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"orientation":"h","x":0.29999999999999999,"y":-0.10000000000000001},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"e4625326e0a2":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"},"e4621d65d654":{"x":{},"y":{},"fill":{},"text":{},"label":{}}},"cur_data":"e4625326e0a2","visdat":{"e4625326e0a2":["function (y) ","x"],"e4621d65d654":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+<template>Expand</template>
+<button aria-expanded="false" aria-label="Expand card" class="bslib-full-screen-enter badge rounded-pill"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;fill:currentColor;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg></button>
+</bslib-tooltip>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script>
 </div>
 </div>
 </div>
 </div>
-</div>
+<p>Some Writing</p>
+<p>Some More Writing</p>
 
 
 </section>
