@@ -1,5 +1,5 @@
 ---
-subtitle: "Injury Recovery & Readiness for Surgery"
+#subtitle: "Injury Recovery & Readiness for Surgery"
 params:
   athlete: "Frank Reynolds"
 bibliography: references.bib

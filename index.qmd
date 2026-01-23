@@ -229,8 +229,10 @@ if (!has_today) {
 
 ```{r}
 
+htmltools::tags$div(class = "ak-card-mark")
+
 #Create the table
-criteria_gt <- function(phase){
+criteria_gt <- function(phase, title){
   tbl_phase0 <- phase %>%
     transmute(
       `Outcome Measure` = outcome_measure,
@@ -240,7 +242,7 @@ criteria_gt <- function(phase){
       meets
     ) %>%
     gt() %>%
-    #tab_header(title = md("**Phase 2 Criteria**")) %>%
+    tab_header(title = title) %>%
     fmt_number(
       columns = Score,
       decimals = 0
@@ -283,13 +285,16 @@ htmltools::div(
     selected = "2",
     nav_panel(
       "0",
-      criteria_gt(criteria_phase0)),
+      criteria_gt(criteria_phase0, NULL)),
     nav_panel(
       "1",
-      criteria_gt(criteria_phase1)),
+      criteria_gt(criteria_phase1, NULL)),
     nav_panel(
       "2",
-      criteria_gt(criteria_phase2))
+      criteria_gt(criteria_phase2, NULL)),
+        nav_panel(
+      "3",
+      criteria_gt(criteria_phase3, NULL)),
   )
 )
 ```
@@ -553,20 +558,23 @@ ba2 %>%
 #| label: iso_quad
 #| title: Quads
 
-ba2 <- BA_plot_magnitude(iso_joint, l_quad_torque_90, r_quad_torque_90, "red", "black", iso_joint$l_quad_torque_90, iso_joint$r_quad_torque_90)
+# ba2 <- BA_plot_magnitude(iso_joint, l_quad_torque_90, r_quad_torque_90, "red", "black", iso_joint$l_quad_torque_90, iso_joint$r_quad_torque_90)
+# 
+# ba2 %>%
+#   layout(title = NA)
 
-ba2 %>%
-  layout(title = NA)
+plot_iso_magnitude("Quads")
 ```
 
 ```{r}
 #| label: iso_ham
 #| title: Hams
 
-ba2 <- BA_plot_magnitude(iso_joint, l_ham_torque_90, r_ham_torque_90, "red", "black", iso_joint$l_ham_torque_90, iso_joint$r_ham_torque_90)
-
-ba2 %>%
-  layout(title = NA)
+# ba2 <- BA_plot_magnitude(iso_joint, l_ham_torque_90, r_ham_torque_90, "red", "black", iso_joint$l_ham_torque_90, iso_joint$r_ham_torque_90)
+# 
+# ba2 %>%
+#   layout(title = NA)
+plot_iso_magnitude("Hamstrings")
 ```
 
 ### Row - Tabsets of tables {.tabset height="50%"}

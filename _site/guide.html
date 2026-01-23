@@ -68,6 +68,55 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Fix bslib navset_card_tab markup so Quarto doesn't rewrite tab hrefs
+  document.querySelectorAll('ul.nav.nav-tabs.card-header-tabs[data-tabsetid]').forEach(ul => {
+
+    // Make <li> look like Bootstrap 5 nav items
+    ul.querySelectorAll('li').forEach(li => li.classList.add('nav-item'));
+
+    // Make <a> look like Bootstrap 5 nav links AND force fragment-only href
+    ul.querySelectorAll('a[role="tab"], a[data-bs-toggle="tab"]').forEach(a => {
+      a.classList.add('nav-link');
+
+      // Force href to be fragment-only (#tab-xxxx-y)
+      const href = a.getAttribute('href') || '';
+      if (href.includes('#')) {
+        a.setAttribute('href', '#' + href.split('#').pop());
+      }
+    });
+
+    // Normalize "active" state: Bootstrap 5 wants active on <a>, not <li>
+    const activeFromA = ul.querySelector('a.active,[aria-selected="true"]');
+    const activeFromLi = ul.querySelector('li.active > a');
+    const activeA = activeFromA || activeFromLi;
+
+    ul.querySelectorAll('li.active').forEach(li => li.classList.remove('active'));
+
+    if (activeA) {
+      ul.querySelectorAll('a').forEach(a => {
+        const on = (a === activeA);
+        a.classList.toggle('active', on);
+        a.setAttribute('aria-selected', on ? 'true' : 'false');
+        if (!on) a.setAttribute('tabindex', '-1'); else a.removeAttribute('tabindex');
+      });
+
+      // Ensure only the matching pane is active/show
+      const tabsetId = ul.getAttribute('data-tabsetid');
+      const container = document.querySelector('.tab-content[data-tabsetid="' + tabsetId + '"]');
+      if (container) {
+        const target = activeA.getAttribute('href'); // now guaranteed "#tab-..."
+        container.querySelectorAll('.tab-pane').forEach(pane => {
+          const on = ('#' + pane.id) === target;
+          pane.classList.toggle('active', on);
+          pane.classList.toggle('show', on);
+        });
+      }
+    }
+  });
+});
+</script>
 
 
 <link rel="stylesheet" href="styles.css">
