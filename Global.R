@@ -650,19 +650,41 @@ p2_yBalAnt <- outcomes_raw_phase2 %>%
 p2_yBalAnt_best <- p2_yBalAnt %>%
   slice_max(lsi, n = 1, with_ties = FALSE)
 
-# 2o) Y-Balance (Anterior)
+# 2o) Y-Balance (PM)
 p2_yBalPM <- outcomes_raw_phase2 %>%
   filter(outcome_measure == "Y-Balance (Postero-Medial)") %>%
-  filter(side == inj_side)
+  group_by(date) %>%
+  summarise(
+    inj = if (any(side == inj_side,  na.rm = TRUE))  max(value[side == inj_side],  na.rm = TRUE) else NA_real_,
+    non_inj = if (any(side == non_inj_side, na.rm = TRUE))  max(value[side == non_inj_side], na.rm = TRUE) else NA_real_,
+    .groups = "drop"
+  ) %>%
+  mutate(
+    lsi = if_else(!is.na(inj) & !is.na(non_inj) & non_inj != 0, 100 * inj / non_inj, NA_real_),
+    lsi = round(lsi, 1)
+  ) %>%
+  arrange(date)
+
 p2_yBalPM_best <- p2_yBalPM %>%
-  slice_max(value, n = 1, with_ties = FALSE)
+  slice_max(lsi, n = 1, with_ties = FALSE)
 
 # 2p) Y-Balance (Anterior)
 p2_yBalPL <- outcomes_raw_phase2 %>%
   filter(outcome_measure == "Y-Balance (Postero-Lateral)") %>%
-  filter(side == inj_side)
+  group_by(date) %>%
+  summarise(
+    inj = if (any(side == inj_side,  na.rm = TRUE))  max(value[side == inj_side],  na.rm = TRUE) else NA_real_,
+    non_inj = if (any(side == non_inj_side, na.rm = TRUE))  max(value[side == non_inj_side], na.rm = TRUE) else NA_real_,
+    .groups = "drop"
+  ) %>%
+  mutate(
+    lsi = if_else(!is.na(inj) & !is.na(non_inj) & non_inj != 0, 100 * inj / non_inj, NA_real_),
+    lsi = round(lsi, 1)
+  ) %>%
+  arrange(date)
+
 p2_yBalPL_best <- p2_yBalPL %>%
-  slice_max(value, n = 1, with_ties = FALSE)
+  slice_max(lsi, n = 1, with_ties = FALSE)
 
 
 # 3 Build Phase 2 Criteria Table
@@ -682,8 +704,8 @@ quads_val_p2    <- suppressWarnings(as.numeric(if (exists("p2_quads_best")    &&
 hams_val_p2     <- suppressWarnings(as.numeric(if (exists("p2_hams_best")     && nrow(p2_hams_best)     > 0) p2_hams_best$lsi[1]     else NA_real_))
 dorsi_val_p2     <- suppressWarnings(as.numeric(if (exists("p2_dorsi_best")     && nrow(p2_dorsi_best)     > 0) p2_dorsi_best$value[1]     else NA_real_))
 yBalAnt_val_p2     <- suppressWarnings(as.numeric(if (exists("p2_yBalAnt_best")     && nrow(p2_yBalAnt_best)     > 0) p2_yBalAnt_best$lsi[1]     else NA_real_))
-yBalPM_val_p2     <- suppressWarnings(as.numeric(if (exists("p2_yBalPM_best")     && nrow(p2_yBalPM_best)     > 0) p2_yBalPM_best$value[1]     else NA_real_))
-yBalPL_val_p2     <- suppressWarnings(as.numeric(if (exists("p2_yBalPL_best")     && nrow(p2_yBalPL_best)     > 0) p2_yBalPL_best$value[1]     else NA_real_))
+yBalPM_val_p2     <- suppressWarnings(as.numeric(if (exists("p2_yBalPM_best")     && nrow(p2_yBalPM_best)     > 0) p2_yBalPM_best$lsi[1]     else NA_real_))
+yBalPL_val_p2     <- suppressWarnings(as.numeric(if (exists("p2_yBalPL_best")     && nrow(p2_yBalPL_best)     > 0) p2_yBalPL_best$lsi[1]     else NA_real_))
 
 
 
@@ -736,7 +758,97 @@ progress_p2 <- tibble(
 
 
 
-progress_overall <- bind_rows(progress_p0, progress_p1, progress_p2)
+####
+#PHASE 3 CRITERIA ----
+####
+
+# 1 Prepare empty dataframe with all p3 criteria
+# 1a) Read Phase 3 criteria
+criteria_phase3 <- criteria_all %>%
+  filter(phase == 3) %>%
+  mutate(score = NA)
+
+# 1b) Phase specific mutations
+#Body Mass Multiplier for TBDL ----
+criteria_phase3 <- criteria_phase3 %>%
+  mutate(goal_pretty = case_when(
+    outcome_measure %in% c("TrapBar Deadlift", "Single Leg Press") ~
+      paste0(round(1.8 * body_mass, 0), " kg"),
+    TRUE ~ as.character(goal_pretty)
+  )) %>%
+  mutate(goal = if_else(
+    outcome_measure %in% c("TrapBar Deadlift", "Single Leg Press"),
+    round(1.8 * body_mass, 0),
+    goal
+  ))
+
+
+# 2) Criteria Data
+# Read all phase 3 criteria data
+outcomes_raw_phase3 <- outcomes_raw_all %>%
+  filter(phase == 3)
+
+#Individual Criteria
+# 2a) Swelling
+p3_slhop <- outcomes_raw_phase3 %>%
+  filter(outcome_measure == "Single Leg Hop Test") %>%
+  filter(side == inj_side)
+p3_slhop_best <- p3_slhop %>%
+  slice_max(value, n = 1, with_ties = FALSE)
+
+# 2b)
+
+
+
+
+
+
+# 3 Build Phase 3 Criteria Table
+
+#Add current best scores into the table
+slhop_val_p3 <- suppressWarnings(as.numeric(if (exists("p3_slhop_best") && nrow(p3_slhop_best) > 0) p3_slhop_best$value[1] else NA_real_))
+
+
+
+
+# Populate: only fills when a value exists; stays NA (empty) otherwise
+criteria_phase3 <- criteria_phase3 %>%
+  mutate(
+    score = case_when(
+      outcome_measure == "Single Leg Hop Test"            ~ slhop_val_p3,
+      TRUE                                     ~ score
+    )
+  )
+
+
+#Use compare helper function (x, op, y)
+criteria_phase3 <- criteria_phase3 %>%
+  mutate(meets = compare(score, operator_code, goal))
+
+
+#Build 1 Row summary
+#Phase, met/total, percent
+progress_p3 <- tibble(
+  Phase = 3,
+  done = sum(criteria_phase3$meets %in% TRUE, na.rm = TRUE),
+  total = nrow(criteria_phase3)
+)  %>%
+  mutate(
+    Progress = paste0(done, "/", total),
+    Percent  = done / total
+  ) %>%
+  select(Phase, Progress, Percent)
+#Will do this for each phase and bind them together for a kind of primary summary table
+
+
+
+
+
+
+
+
+
+progress_overall <- bind_rows(progress_p0, progress_p1, progress_p2, progress_p3)
 
 
 

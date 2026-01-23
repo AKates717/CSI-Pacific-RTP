@@ -513,6 +513,38 @@ plot_card5 <- function(output){ #plotly card, no header, no border
 
 #4. 
 
+#Bar plot for when data is collected once
+#Includes measures that might have a meaningful outcome score of 0 (i.e passive knee extension)
+plot_ind_phase_outcomes <- function(phase, outcome){
+  
+  df <- phase %>%
+    dplyr::filter(outcome_measure == outcome)
+  
+  p <- df %>%
+    ggplot(aes(x = as.Date(date), y = value, fill = side, text = date_ddmmyear2)) +
+    geom_col(position = position_dodge(preserve = 'single'), alpha = 0.7) +
+    geom_point(data = subset(df, value == 0), aes(fill = side), shape = 15, position = position_nudge(x = 0.1, y = 0.03), alpha = 0.8) +
+    ak_plot_theme() +
+    scale_x_date(breaks = "1 day", date_labels = "%b %d") +
+    labs(y = outcome, x = NULL) +
+    scale_fill_manual(
+      values = c(
+        Left  = if (inj_side == "Left") "red"   else "black",
+        Right = if (inj_side == "Right") "red"  else "black"
+      ),
+      guide = "none")
+  
+  ggplotly(p, tooltip = c("text")) %>%
+    layout(legend = list(orientation = "h", x = 0.3, y = -0.2)) %>%
+    style(hovertemplate = paste("<b>%{text}</b> <br><i>Score:</i>  %{y}<extra></extra>"),traces = c(1,2)) %>%
+    style(hovertemplate = paste("<b>%{text}</b> <br><i>Score:</i>  0<extra></extra>"),traces = c(3,4)) %>%
+    config(displaylogo = FALSE) %>%
+    config(modeBarButtonsToRemove = c("hoverCompare", "hoverclosest", "zoomIn2d", "zoomOut2d"))
+}
+
+
+
+#Bar plot for magnitude outcomes of max score + geom_point for all outcome scores
 plot_iso_magnitude <- function(outcome){
   
   
@@ -521,8 +553,8 @@ plot_iso_magnitude <- function(outcome){
   
   p <-  df %>%
     ggplot(aes(x = as.factor(date_ddmmyear), fill = limb, group = limb, text = date_ddmmyear2)) +
-    stat_summary(aes(y = peak_force_kg), fun = "max", geom = "bar", just = 1, width = 0.4, alpha = 0.8, position = position_dodge(width = 0.4)) +
-    geom_point(aes(y = peak_force_kg), shape = 21, size = 2, alpha = 0.5, position = position_dodge(width = 0.4)) +
+    stat_summary(aes(y = peak_force_kg), fun = "max", geom = "bar", just = 1, width = 0.4, alpha = 0.7, position = position_dodge(width = 0.4)) +
+    geom_point(aes(y = peak_force_kg), shape = 21, size = 2, alpha = 0.5, color = "black", position = position_dodge(width = 0.4)) +
     ak_plot_theme() +
     scale_x_discrete(labels = function(x) format(as.Date(x), "%b %e, %Y")) +
     labs(y = "Peak Force (kg)", x = NULL) +
@@ -537,11 +569,8 @@ plot_iso_magnitude <- function(outcome){
   
   ggplotly(p, tooltip = c("text")) %>%
     layout(legend = list(orientation = "h", x = 0.3, y = -0.2)) %>%
-    plotly::layout(
-      paper_bgcolor = "rgba(0,0,0,0)",
-      plot_bgcolor  = "rgba(0,0,0,0)"
-    ) %>%
-    style(hovertemplate = paste("<b>%{text}</b> <br><i>Score:</i>  %{y}<extra></extra>"),traces = c(1,2,3,4)) %>%
+    style(hovertemplate = paste("<b>%{text}</b> <br><i>Max:</i>  %{y}<extra></extra>"),traces = c(1,2)) %>%
+    style(hovertemplate = paste("<b>%{text}</b> <br><i>Score:</i>  %{y}<extra></extra>"),traces = c(3,4)) %>%
     config(displaylogo = FALSE) %>%
     config(modeBarButtonsToRemove = c("hoverCompare", "hoverclosest", "zoomIn2d", "zoomOut2d"))
   

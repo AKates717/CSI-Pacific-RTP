@@ -1,27 +1,134 @@
-# Phase 2: Strength and neuromuscular control {#phase-2-strength-and-neuromuscular-control}
+---
+#subtitle: "Injury Recovery & Readiness for Surgery"
+params:
+  athlete: "Frank Reynolds"
+bibliography: references.bib
+---
 
+# Phase 2: Strength & Neuromuscular Control {#phase-1-recovery-from-surgery}
 
-::: {.callout-important title="Most Important Goals — Phase 2"}
--   Regain single-leg balance\
--   Restore muscle strength\
--   Single-leg squat with good control\
+```{r setup-root, include=FALSE}
+knitr::opts_knit$set(root.dir = normalizePath(".."))
+```
+
+```{r}
+source("Global.R")
+source("plot_functions.R")
+source("Themes.R")
+```
+
+Once all criteria from Phase 1 have been satisfied, the focus of rehab can shift towards building strength and neuromuscular control.
+
+::: {.callout-important title="Most Important Goals — Phase 1"}
+-   One
+-   Two
+-   Three
+-   Four
 :::
 
-**Activities:**\
-- Lunges, step-ups, squats, bridging, calf raises, balance drills, cycling.
+**`r params$athlete`'s** progress
 
-## Outcome Measures {#phase2-outcomes}
+tion.
 
-| Measure | Test Description | Goal |
-|------------------------|------------------------|------------------------|
-| Passive Knee Extension | Prone hang test | Equal to other side |
-| Passive Knee Flexion | Supine goniometer | 125°+ |
-| Functional Alignment | Single-leg squat quality (Crossley criteria) | Good |
-| Swelling/Effusion | Stroke Test | 0 |
-| Single Leg Bridges | Bridge test variation | ≥ 85% symmetry, hurdle \> 20 reps |
-| Calf Raises | Single-leg calf raise | ≥ 85% symmetry, hurdle \> 20 reps |
-| Side Bridge Endurance | Side plank | ≥ 85% symmetry, hurdle ≥ 30s |
-| Balance | Unipedal stance | Normative values |
-| Single Leg Squat (Chair) | Rise test | ≥ 85% symmetry, hurdle ≥ 10 reps |
-| Single Leg Press 1RM | 45° leg press | 1.5× bodyweight |
-| Squat 1RM | Any safe squat style | 1.5× bodyweight |
+```{r}
+#Create the table
+tbl_phase2 <- criteria_phase2 %>%
+  transmute(
+    `Outcome Measure` = outcome_measure,
+    `Op` = operator_pretty,
+    Goal              = goal_pretty,   # nice display string from your sheet
+    Score             = score,
+    meets
+  ) %>%
+  gt() %>%
+  tab_header(title = md("**Phase 2 Criteria**")) %>%
+  fmt_number(
+    columns = Score,
+    decimals = 0
+  ) %>%
+  #   fmt_number(
+  #   columns = Score,
+  #   rows = `Outcome Measure` %in% c("Hamstring Strength", "Quad Strength"),
+  #   decimals = 0,
+  #   pattern = "{x}%"
+  # ) %>%
+  sub_missing(columns = Score, missing_text = "") %>%
+  cols_label(Op = "") %>%
+  cols_width(`Outcome Measure` ~ px(360)) %>%
+  cols_align(align = "center", columns = c(Goal, Score)) %>%
+  cols_align(align = "right",  columns = Op) %>%
+  tab_style(
+    style = list(cell_fill(color = "#E8F5E9"),
+                 cell_text(color = "#1B5E20", weight = "600")),
+    locations = cells_body(columns = Score, rows = meets %in% TRUE)
+  ) %>%
+  tab_style(
+    style = list(cell_fill(color = "#FFF9C4"),
+                 cell_text(color = "#7A6A00", weight = "600")),
+    locations = cells_body(columns = Score, rows = meets %in% FALSE)
+  )  %>%
+  cols_hide(meets) %>%
+  ak_gt_theme3() %>%
+  tab_options(
+    table_body.hlines.style = "solid",
+    table_body.hlines.width = px(1),
+    data_row.padding = px(6)
+  )
+
+tbl_phase2
+```
+
+```{r}
+
+goals_progress_bar <- function(
+    met, total,
+    label = "Goals met",
+    width = "100%",
+    accent = "#D71920",   # table accent (red)
+    border = "#A7A9AC",   # table border grey
+    track_bg = "#FCFCFC", # header/stripe light bg
+    fill_from = "#2E7D32",# green gradient start
+    fill_to   = "#4CAF50" # green gradient end
+) {
+  pct <- if (total > 0) round(100 * met / total) else 0
+  
+  tagList(
+    tags$style(HTML(sprintf("
+      .ak-pb-wrap   { margin-top:12px; font-family:'Open Sans',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; }
+      .ak-pb-meta   { display:flex; justify-content:space-between; font-size:0.95rem; margin-bottom:6px; color:#222; }
+      .ak-pb-meta strong{ color:%s; font-weight:700; } /* accent like table title */
+      .ak-pb       { background:%s; border:1px solid %s; border-radius:10px; height:14px; overflow:hidden; }
+      .ak-pb__fill { height:100%%; background:linear-gradient(90deg,%s,%s); transition:width .3s ease; }
+    ", accent, track_bg, border, fill_from, fill_to))),
+    div(class = "ak-pb-wrap",
+        div(class = "ak-pb-meta",
+            tags$strong(sprintf("%s: %d/%d", label, met, total)),
+            span(sprintf("%d%%", pct))
+        ),
+        div(
+          class = "ak-pb",
+          role = "progressbar",
+          `aria-valuemin` = "0",
+          `aria-valuemax` = "100",
+          `aria-valuenow` = pct,
+          style = sprintf("width:%s;", width),
+          div(class = "ak-pb__fill", style = sprintf("width:%d%%;", pct))
+        )
+    )
+  )
+}
+
+
+# By default: denominator = all criteria (matches your table showing blank scores)
+met_n_all   <- sum(criteria_phase2$meets %in% TRUE, na.rm = TRUE)
+total_n_all <- nrow(criteria_phase2)
+
+goals_progress_bar(met_n_all, total_n_all)
+
+```
+
+------------------------------------------------------------------------
+
+## What does the research say? {#preop-outcomes}
+
+Recent systematic reviews
