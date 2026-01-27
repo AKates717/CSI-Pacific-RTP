@@ -117,6 +117,19 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
+<link href="../site_libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+<script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="../site_libs/plotly-binding-4.11.0/plotly.js"></script>
+<script src="../site_libs/typedarray-0.1/typedarray.min.js"></script>
+<script src="../site_libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="../site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="../site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+<link href="../site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="../site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+<script src="../site_libs/bslib-component-js-0.9.0/components.min.js"></script>
+<script src="../site_libs/bslib-component-js-0.9.0/web-components.min.js" type="module"></script>
+<link href="../site_libs/bslib-component-css-0.9.0/components.css" rel="stylesheet">
+<script src="../site_libs/bslib-tag-require-0.9.0/tag-require.js"></script>
 
 
 <link rel="stylesheet" href="../styles.css">
@@ -223,11 +236,17 @@ document.addEventListener("DOMContentLoaded", () => {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#outcomes" id="toc-outcomes" class="nav-link active" data-scroll-target="#outcomes">Outcomes</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -236,7 +255,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-<div class="quarto-title-meta column-page">
+<div class="quarto-title-meta column-page-left">
 
     
   
@@ -251,25 +270,25 @@ document.addEventListener("DOMContentLoaded", () => {
 <p><strong>Frank Reynolds’s</strong> progress towards these goals will be assessed via the criteria seen below.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="tzdtzhqnqw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="kgulzjdtcp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#tzdtzhqnqw table {
+#kgulzjdtcp table {
   font-family: 'Open Sans', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#tzdtzhqnqw thead, #tzdtzhqnqw tbody, #tzdtzhqnqw tfoot, #tzdtzhqnqw tr, #tzdtzhqnqw td, #tzdtzhqnqw th {
+#kgulzjdtcp thead, #kgulzjdtcp tbody, #kgulzjdtcp tfoot, #kgulzjdtcp tr, #kgulzjdtcp td, #kgulzjdtcp th {
   border-style: none;
 }
 
-#tzdtzhqnqw p {
+#kgulzjdtcp p {
   margin: 0;
   padding: 0;
 }
 
-#tzdtzhqnqw .gt_table {
+#kgulzjdtcp .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -295,12 +314,12 @@ document.addEventListener("DOMContentLoaded", () => {
   border-left-color: #D3D3D3;
 }
 
-#tzdtzhqnqw .gt_caption {
+#kgulzjdtcp .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#tzdtzhqnqw .gt_title {
+#kgulzjdtcp .gt_title {
   color: #333333;
   font-size: 22px;
   font-weight: initial;
@@ -312,7 +331,7 @@ document.addEventListener("DOMContentLoaded", () => {
   border-bottom-width: 0;
 }
 
-#tzdtzhqnqw .gt_subtitle {
+#kgulzjdtcp .gt_subtitle {
   color: #333333;
   font-size: 13px;
   font-weight: initial;
@@ -324,7 +343,7 @@ document.addEventListener("DOMContentLoaded", () => {
   border-top-width: 0;
 }
 
-#tzdtzhqnqw .gt_heading {
+#kgulzjdtcp .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -336,13 +355,13 @@ document.addEventListener("DOMContentLoaded", () => {
   border-right-color: #D3D3D3;
 }
 
-#tzdtzhqnqw .gt_bottom_border {
+#kgulzjdtcp .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#tzdtzhqnqw .gt_col_headings {
+#kgulzjdtcp .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -357,7 +376,7 @@ document.addEventListener("DOMContentLoaded", () => {
   border-right-color: #D3D3D3;
 }
 
-#tzdtzhqnqw .gt_col_heading {
+#kgulzjdtcp .gt_col_heading {
   color: #333333;
   background-color: #FCFCFC;
   font-size: 100%;
@@ -377,7 +396,7 @@ document.addEventListener("DOMContentLoaded", () => {
   overflow-x: hidden;
 }
 
-#tzdtzhqnqw .gt_column_spanner_outer {
+#kgulzjdtcp .gt_column_spanner_outer {
   color: #333333;
   background-color: #FCFCFC;
   font-size: 100%;
@@ -389,15 +408,15 @@ document.addEventListener("DOMContentLoaded", () => {
   padding-right: 4px;
 }
 
-#tzdtzhqnqw .gt_column_spanner_outer:first-child {
+#kgulzjdtcp .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#tzdtzhqnqw .gt_column_spanner_outer:last-child {
+#kgulzjdtcp .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#tzdtzhqnqw .gt_column_spanner {
+#kgulzjdtcp .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 1px;
   border-bottom-color: #A7A9AC;
@@ -409,11 +428,11 @@ document.addEventListener("DOMContentLoaded", () => {
   width: 100%;
 }
 
-#tzdtzhqnqw .gt_spanner_row {
+#kgulzjdtcp .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#tzdtzhqnqw .gt_group_heading {
+#kgulzjdtcp .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -439,7 +458,7 @@ document.addEventListener("DOMContentLoaded", () => {
   text-align: left;
 }
 
-#tzdtzhqnqw .gt_empty_group_heading {
+#kgulzjdtcp .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -454,15 +473,15 @@ document.addEventListener("DOMContentLoaded", () => {
   vertical-align: middle;
 }
 
-#tzdtzhqnqw .gt_from_md > :first-child {
+#kgulzjdtcp .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#tzdtzhqnqw .gt_from_md > :last-child {
+#kgulzjdtcp .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#tzdtzhqnqw .gt_row {
+#kgulzjdtcp .gt_row {
   padding-top: 6px;
   padding-bottom: 6px;
   padding-left: 5px;
@@ -481,7 +500,7 @@ document.addEventListener("DOMContentLoaded", () => {
   overflow-x: hidden;
 }
 
-#tzdtzhqnqw .gt_stub {
+#kgulzjdtcp .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -494,7 +513,7 @@ document.addEventListener("DOMContentLoaded", () => {
   padding-right: 5px;
 }
 
-#tzdtzhqnqw .gt_stub_row_group {
+#kgulzjdtcp .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -508,15 +527,15 @@ document.addEventListener("DOMContentLoaded", () => {
   vertical-align: top;
 }
 
-#tzdtzhqnqw .gt_row_group_first td {
+#kgulzjdtcp .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#tzdtzhqnqw .gt_row_group_first th {
+#kgulzjdtcp .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#tzdtzhqnqw .gt_summary_row {
+#kgulzjdtcp .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -526,16 +545,16 @@ document.addEventListener("DOMContentLoaded", () => {
   padding-right: 5px;
 }
 
-#tzdtzhqnqw .gt_first_summary_row {
+#kgulzjdtcp .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#tzdtzhqnqw .gt_first_summary_row.thick {
+#kgulzjdtcp .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#tzdtzhqnqw .gt_last_summary_row {
+#kgulzjdtcp .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -545,7 +564,7 @@ document.addEventListener("DOMContentLoaded", () => {
   border-bottom-color: #D3D3D3;
 }
 
-#tzdtzhqnqw .gt_grand_summary_row {
+#kgulzjdtcp .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -555,7 +574,7 @@ document.addEventListener("DOMContentLoaded", () => {
   padding-right: 5px;
 }
 
-#tzdtzhqnqw .gt_first_grand_summary_row {
+#kgulzjdtcp .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -565,7 +584,7 @@ document.addEventListener("DOMContentLoaded", () => {
   border-top-color: #D3D3D3;
 }
 
-#tzdtzhqnqw .gt_last_grand_summary_row_top {
+#kgulzjdtcp .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -575,11 +594,11 @@ document.addEventListener("DOMContentLoaded", () => {
   border-bottom-color: #D3D3D3;
 }
 
-#tzdtzhqnqw .gt_striped {
+#kgulzjdtcp .gt_striped {
   background-color: #FFFFFF;
 }
 
-#tzdtzhqnqw .gt_table_body {
+#kgulzjdtcp .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -588,7 +607,7 @@ document.addEventListener("DOMContentLoaded", () => {
   border-bottom-color: #D3D3D3;
 }
 
-#tzdtzhqnqw .gt_footnotes {
+#kgulzjdtcp .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -602,7 +621,7 @@ document.addEventListener("DOMContentLoaded", () => {
   border-right-color: #D3D3D3;
 }
 
-#tzdtzhqnqw .gt_footnote {
+#kgulzjdtcp .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -611,7 +630,7 @@ document.addEventListener("DOMContentLoaded", () => {
   padding-right: 5px;
 }
 
-#tzdtzhqnqw .gt_sourcenotes {
+#kgulzjdtcp .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -625,7 +644,7 @@ document.addEventListener("DOMContentLoaded", () => {
   border-right-color: #D3D3D3;
 }
 
-#tzdtzhqnqw .gt_sourcenote {
+#kgulzjdtcp .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -633,72 +652,72 @@ document.addEventListener("DOMContentLoaded", () => {
   padding-right: 5px;
 }
 
-#tzdtzhqnqw .gt_left {
+#kgulzjdtcp .gt_left {
   text-align: left;
 }
 
-#tzdtzhqnqw .gt_center {
+#kgulzjdtcp .gt_center {
   text-align: center;
 }
 
-#tzdtzhqnqw .gt_right {
+#kgulzjdtcp .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#tzdtzhqnqw .gt_font_normal {
+#kgulzjdtcp .gt_font_normal {
   font-weight: normal;
 }
 
-#tzdtzhqnqw .gt_font_bold {
+#kgulzjdtcp .gt_font_bold {
   font-weight: bold;
 }
 
-#tzdtzhqnqw .gt_font_italic {
+#kgulzjdtcp .gt_font_italic {
   font-style: italic;
 }
 
-#tzdtzhqnqw .gt_super {
+#kgulzjdtcp .gt_super {
   font-size: 65%;
 }
 
-#tzdtzhqnqw .gt_footnote_marks {
+#kgulzjdtcp .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#tzdtzhqnqw .gt_asterisk {
+#kgulzjdtcp .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#tzdtzhqnqw .gt_indent_1 {
+#kgulzjdtcp .gt_indent_1 {
   text-indent: 5px;
 }
 
-#tzdtzhqnqw .gt_indent_2 {
+#kgulzjdtcp .gt_indent_2 {
   text-indent: 10px;
 }
 
-#tzdtzhqnqw .gt_indent_3 {
+#kgulzjdtcp .gt_indent_3 {
   text-indent: 15px;
 }
 
-#tzdtzhqnqw .gt_indent_4 {
+#kgulzjdtcp .gt_indent_4 {
   text-indent: 20px;
 }
 
-#tzdtzhqnqw .gt_indent_5 {
+#kgulzjdtcp .gt_indent_5 {
   text-indent: 25px;
 }
 
-#tzdtzhqnqw .katex-display {
+#kgulzjdtcp .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#tzdtzhqnqw div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#kgulzjdtcp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 
@@ -754,13 +773,13 @@ document.addEventListener("DOMContentLoaded", () => {
 <td class="gt_row gt_left gt_striped" headers="Outcome Measure" style="color: #222222">Single Leg Bridge</td>
 <td class="gt_row gt_right gt_striped" headers="Op" style="color: #222222">≥</td>
 <td class="gt_row gt_center gt_striped" headers="Goal" style="color: #222222">20 Reps</td>
-<td class="gt_row gt_center gt_striped" headers="Score" style="background-color: #FFF9C4; color: #222222; font-weight: 600">9</td>
+<td class="gt_row gt_center gt_striped" headers="Score" style="background-color: #FFF9C4; color: #222222; font-weight: 600">12</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Outcome Measure" style="color: #222222">Single Leg Calf Raises</td>
 <td class="gt_row gt_right" headers="Op" style="color: #222222">≥</td>
 <td class="gt_row gt_center" headers="Goal" style="color: #222222">20</td>
-<td class="gt_row gt_center" headers="Score" style="background-color: #FFF9C4; color: #222222; font-weight: 600">7</td>
+<td class="gt_row gt_center" headers="Score" style="background-color: #FFF9C4; color: #222222; font-weight: 600">10</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left gt_striped" headers="Outcome Measure" style="color: #222222">Side Bridge</td>
@@ -772,8 +791,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <td class="gt_row gt_left" headers="Outcome Measure" style="color: #222222">Single Leg Rise</td>
 <td class="gt_row gt_right" headers="Op" style="color: #222222">≥</td>
 <td class="gt_row gt_center" headers="Goal" style="color: #222222">10</td>
-<td class="gt_row gt_center" headers="Score" style="color: #222222"><br>
-</td>
+<td class="gt_row gt_center" headers="Score" style="background-color: #FFF9C4; color: #222222; font-weight: 600">2</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left gt_striped" headers="Outcome Measure" style="color: #222222">Single Leg Balance (Eyes Open)</td>
@@ -785,8 +803,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <td class="gt_row gt_left" headers="Outcome Measure" style="color: #222222">Single Leg Balance (Eyes Closed)</td>
 <td class="gt_row gt_right" headers="Op" style="color: #222222">≥</td>
 <td class="gt_row gt_center" headers="Goal" style="color: #222222">9</td>
-<td class="gt_row gt_center" headers="Score" style="color: #222222"><br>
-</td>
+<td class="gt_row gt_center" headers="Score" style="background-color: #FFF9C4; color: #222222; font-weight: 600">3</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left gt_striped" headers="Outcome Measure" style="color: #222222">TrapBar Deadlift</td>
@@ -812,25 +829,25 @@ document.addEventListener("DOMContentLoaded", () => {
 <td class="gt_row gt_left" headers="Outcome Measure" style="color: #222222">Ankle Dorsiflexion</td>
 <td class="gt_row gt_right" headers="Op" style="color: #222222">≥</td>
 <td class="gt_row gt_center" headers="Goal" style="color: #222222">10cm</td>
-<td class="gt_row gt_center" headers="Score" style="background-color: #FFF9C4; color: #222222; font-weight: 600">8</td>
+<td class="gt_row gt_center" headers="Score" style="background-color: #E8F5E9; color: #222222; font-weight: 600">10</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left gt_striped" headers="Outcome Measure" style="color: #222222">Y-Balance (Anterior)</td>
 <td class="gt_row gt_right gt_striped" headers="Op" style="color: #222222">&gt;</td>
 <td class="gt_row gt_center gt_striped" headers="Goal" style="color: #222222">75%</td>
-<td class="gt_row gt_center gt_striped" headers="Score" style="background-color: #E8F5E9; color: #222222; font-weight: 600">83</td>
+<td class="gt_row gt_center gt_striped" headers="Score" style="background-color: #FFF9C4; color: #222222; font-weight: 600">62</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="Outcome Measure" style="color: #222222">Y-Balance (Postero-Medial)</td>
 <td class="gt_row gt_right" headers="Op" style="color: #222222">&gt;</td>
 <td class="gt_row gt_center" headers="Goal" style="color: #222222">75%</td>
-<td class="gt_row gt_center" headers="Score" style="background-color: #E8F5E9; color: #222222; font-weight: 600">93</td>
+<td class="gt_row gt_center" headers="Score" style="background-color: #E8F5E9; color: #222222; font-weight: 600">81</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left gt_striped" headers="Outcome Measure" style="color: #222222">Y-Balance (Postero-Lateral)</td>
 <td class="gt_row gt_right gt_striped" headers="Op" style="color: #222222">&gt;</td>
 <td class="gt_row gt_center gt_striped" headers="Goal" style="color: #222222">75%</td>
-<td class="gt_row gt_center gt_striped" headers="Score" style="background-color: #E8F5E9; color: #222222; font-weight: 600">82</td>
+<td class="gt_row gt_center gt_striped" headers="Score" style="background-color: #FFF9C4; color: #222222; font-weight: 600">74</td>
 </tr>
 </tbody>
 </table>
@@ -849,17 +866,169 @@ document.addEventListener("DOMContentLoaded", () => {
     </style>
 <div class="ak-pb-wrap">
 <div class="ak-pb-meta">
-<strong>Goals met: 7/16</strong>
-<span>44%</span>
+<strong>Goals met: 6/16</strong>
+<span>38%</span>
 </div>
-<div class="ak-pb" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="44" style="width:100%;">
-<div class="ak-pb__fill" style="width:44%;"></div>
-</div>
-</div>
+<div class="ak-pb" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="38" style="width:100%;">
+<div class="ak-pb__fill" style="width:38%;"></div>
 </div>
 </div>
+</div>
+</div>
+<hr>
+<section id="outcomes" class="level1">
+<h1>Outcomes</h1>
+<div class="cell">
+<div class="cell-output-display">
+<div class="phase0-navset">
+<div class="card bslib-card bslib-mb-spacing html-fill-item html-fill-container" data-bslib-card-init="" data-full-screen="false" data-require-bs-caller="card()" data-require-bs-version="5" id="bslib-card-4796">
+<div class="card-header bslib-navs-card-title">
+<span>Mobility</span>
+<ul class="nav nav-tabs card-header-tabs" data-tabsetid="7089">
+<li class="active">
+<a href="#tab-7089-1" data-toggle="tab" data-bs-toggle="tab" data-value="Swelling">Swelling</a>
+</li>
+<li>
+<a href="#tab-7089-2" data-toggle="tab" data-bs-toggle="tab" data-value="Knee Extension">Knee Extension</a>
+</li>
+<li>
+<a href="#tab-7089-3" data-toggle="tab" data-bs-toggle="tab" data-value="Knee Flexion">Knee Flexion</a>
+</li>
+<li>
+<a href="#tab-7089-4" data-toggle="tab" data-bs-toggle="tab" data-value="Ankle">Ankle</a>
+</li>
+</ul>
+</div>
+<div class="tab-content html-fill-item html-fill-container" data-tabsetid="7089">
+<div class="tab-pane active html-fill-item html-fill-container bslib-gap-spacing" data-value="Swelling" id="tab-7089-1" style="gap:0;padding:0;">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-ac1668f627f3e59fbecb" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-ac1668f627f3e59fbecb">{"x":{"data":[{"orientation":"v","width":0.89999999999999991,"base":0,"x":[1],"y":[0],"text":"Jan 12, 2026","type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Left","legendgroup":"Left","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"x":[1.1000000000000001],"y":[0.029999999999999999],"text":"Jan 12, 2026","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(255,0,0,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"square","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","name":"Left","legendgroup":"Left","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>","xaxis":"x","yaxis":"y","frame":null},{"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>","xaxis":"x","yaxis":"y","frame":null},{"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>","xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":27.68949771689498,"r":7.3059360730593621,"b":90.193412477577269,"l":52.403486924034887},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,1.6000000000000001],"tickmode":"array","ticktext":["Jan 12, 2026"],"tickvals":[1],"categoryorder":"array","categoryarray":["Jan 12, 2026"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.0015,0.0315],"tickmode":"array","ticktext":["0.00","0.01","0.02","0.03"],"tickvals":[0,0.01,0.02,0.029999999999999999],"categoryorder":"array","categoryarray":["0.00","0.01","0.02","0.03"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Swelling <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"orientation":"h","x":0.29999999999999999,"y":-0.25},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"6d5223d24e8e":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"},"6d5244235f01":{"x":{},"y":{},"fill":{},"text":{}}},"cur_data":"6d5223d24e8e","visdat":{"6d5223d24e8e":["function (y) ","x"],"6d5244235f01":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="tab-pane html-fill-item html-fill-container bslib-gap-spacing" data-value="Knee Extension" id="tab-7089-2" style="gap:0;padding:0;">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-88584c9e1cac8b77fce3" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-88584c9e1cac8b77fce3">{"x":{"data":[{"orientation":"v","width":0.44999999999999996,"base":0,"x":[0.77500000000000002],"y":[0],"text":"Jan 12, 2026","type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Left","legendgroup":"Left","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"orientation":"v","width":0.45000000000000018,"base":0,"x":[1.2250000000000001],"y":[0],"text":"Jan 12, 2026","type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Right","legendgroup":"Right","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"x":[1.1000000000000001],"y":[0.029999999999999999],"text":"Jan 12, 2026","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(255,0,0,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"square","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","name":"Left","legendgroup":"Left","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>"},{"x":[1.1000000000000001],"y":[0.029999999999999999],"text":"Jan 12, 2026","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,0,0,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"square","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","name":"Right","legendgroup":"Right","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>"},{"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>","xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":27.68949771689498,"r":7.3059360730593621,"b":90.193412477577269,"l":52.403486924034887},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,1.6000000000000001],"tickmode":"array","ticktext":["Jan 12, 2026"],"tickvals":[1],"categoryorder":"array","categoryarray":["Jan 12, 2026"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.0015,0.0315],"tickmode":"array","ticktext":["0.00","0.01","0.02","0.03"],"tickvals":[0,0.01,0.02,0.029999999999999999],"categoryorder":"array","categoryarray":["0.00","0.01","0.02","0.03"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Passive Knee Extension <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"orientation":"h","x":0.29999999999999999,"y":-0.25},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"6d525b3709b4":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"},"6d527a5e3734":{"x":{},"y":{},"fill":{},"text":{}}},"cur_data":"6d525b3709b4","visdat":{"6d525b3709b4":["function (y) ","x"],"6d527a5e3734":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="tab-pane html-fill-item html-fill-container bslib-gap-spacing" data-value="Knee Flexion" id="tab-7089-3" style="gap:0;padding:0;">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-83f48ca73fde3004b138" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-83f48ca73fde3004b138">{"x":{"data":[{"orientation":"v","width":0.44999999999999996,"base":0,"x":[0.77500000000000002],"y":[126],"text":"Jan 12, 2026","type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Left","legendgroup":"Left","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"orientation":"v","width":0.45000000000000018,"base":0,"x":[1.2250000000000001],"y":[126],"text":"Jan 12, 2026","type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Right","legendgroup":"Right","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"visible":false,"showlegend":false,"xaxis":null,"yaxis":null,"hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>"},{"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>","xaxis":"x","yaxis":"y","frame":null},{"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>","xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":27.68949771689498,"r":7.3059360730593621,"b":90.193412477577269,"l":46.027397260273986},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,1.6000000000000001],"tickmode":"array","ticktext":["Jan 12, 2026"],"tickvals":[1],"categoryorder":"array","categoryarray":["Jan 12, 2026"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-6.3000000000000007,132.30000000000001],"tickmode":"array","ticktext":["0","50","100"],"tickvals":[-8.8817841970012523e-16,50,100],"categoryorder":"array","categoryarray":["0","50","100"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Passive Knee Flexion <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"orientation":"h","x":0.29999999999999999,"y":-0.25},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"6d525ef4467":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"},"6d521f73c93c":{"x":{},"y":{},"fill":{},"text":{}}},"cur_data":"6d525ef4467","visdat":{"6d525ef4467":["function (y) ","x"],"6d521f73c93c":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="tab-pane html-fill-item html-fill-container bslib-gap-spacing" data-value="Ankle" id="tab-7089-4" style="gap:0;padding:0;">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-eff58d0d828e43c28fc2" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-eff58d0d828e43c28fc2">{"x":{"data":[{"orientation":"v","width":[0.44999999999999996,0.45000000000000018,0.45000000000000018],"base":[0,0,0],"x":[0.77500000000000002,1.7749999999999999,2.7749999999999999],"y":[6,8,10],"text":["Jan 12, 2026","Jan 16, 2026","Jan 23, 2026"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Left","legendgroup":"Left","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"orientation":"v","width":[0.45000000000000018,0.45000000000000018,0.45000000000000018],"base":[0,0,0],"x":[1.2250000000000001,2.2250000000000001,3.2250000000000001],"y":[15,15,15],"text":["Jan 12, 2026","Jan 16, 2026","Jan 23, 2026"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Right","legendgroup":"Right","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"visible":false,"showlegend":false,"xaxis":null,"yaxis":null,"hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>"},{"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>","xaxis":"x","yaxis":"y","frame":null},{"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>","xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":27.68949771689498,"r":7.3059360730593621,"b":90.193412477577269,"l":39.651307596513085},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,3.6000000000000001],"tickmode":"array","ticktext":["Jan 12, 2026","Jan 16, 2026","Jan 23, 2026"],"tickvals":[1,2,3],"categoryorder":"array","categoryarray":["Jan 12, 2026","Jan 16, 2026","Jan 23, 2026"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.75,15.75],"tickmode":"array","ticktext":["0","5","10","15"],"tickvals":[0,5,10,15],"categoryorder":"array","categoryarray":["0","5","10","15"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Ankle Dorsiflexion <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"orientation":"h","x":0.29999999999999999,"y":-0.25},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"6d52446c7bf":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"},"6d5242e3ceca":{"x":{},"y":{},"fill":{},"text":{}}},"cur_data":"6d52446c7bf","visdat":{"6d52446c7bf":["function (y) ","x"],"6d5242e3ceca":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+<template>Expand</template>
+<button aria-expanded="false" aria-label="Expand card" class="bslib-full-screen-enter badge rounded-pill"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;fill:currentColor;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg></button>
+</bslib-tooltip>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script>
+</div>
+</div>
+</div>
+</div>
+<p>Some Writing</p>
+<p>Some More Writing</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="phase0-navset">
+<div class="card bslib-card bslib-mb-spacing html-fill-item html-fill-container" data-bslib-card-init="" data-full-screen="false" data-require-bs-caller="card()" data-require-bs-version="5" id="bslib-card-2268">
+<div class="card-header bslib-navs-card-title">
+<span>Strength</span>
+<ul class="nav nav-tabs card-header-tabs" data-tabsetid="1134">
+<li class="active">
+<a href="#tab-1134-1" data-toggle="tab" data-bs-toggle="tab" data-value="SL Bridge">SL Bridge</a>
+</li>
+<li>
+<a href="#tab-1134-2" data-toggle="tab" data-bs-toggle="tab" data-value="SL Calf Raise">SL Calf Raise</a>
+</li>
+<li>
+<a href="#tab-1134-3" data-toggle="tab" data-bs-toggle="tab" data-value="Side Bridge">Side Bridge</a>
+</li>
+</ul>
+</div>
+<div class="tab-content html-fill-item html-fill-container" data-tabsetid="1134">
+<div class="tab-pane active html-fill-item html-fill-container bslib-gap-spacing" data-value="SL Bridge" id="tab-1134-1" style="gap:0;padding:0;">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-8540527650ecfff57979" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-8540527650ecfff57979">{"x":{"data":[{"orientation":"v","width":[0.44999999999999996,0.45000000000000018,0.45000000000000018],"base":[0,0,0],"x":[0.77500000000000002,1.7749999999999999,2.7749999999999999],"y":[7,9,12],"text":["Jan 12, 2026","Jan 16, 2026","Jan 23, 2026"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Left","legendgroup":"Left","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"orientation":"v","width":[0.45000000000000018,0.45000000000000018,0.45000000000000018],"base":[0,0,0],"x":[1.2250000000000001,2.2250000000000001,3.2250000000000001],"y":[15,17,19],"text":["Jan 12, 2026","Jan 16, 2026","Jan 23, 2026"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Right","legendgroup":"Right","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"visible":false,"showlegend":false,"xaxis":null,"yaxis":null,"hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>"},{"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>","xaxis":"x","yaxis":"y","frame":null},{"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>","xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":27.68949771689498,"r":7.3059360730593621,"b":90.193412477577269,"l":39.651307596513085},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,3.6000000000000001],"tickmode":"array","ticktext":["Jan 12, 2026","Jan 16, 2026","Jan 23, 2026"],"tickvals":[1,2,3],"categoryorder":"array","categoryarray":["Jan 12, 2026","Jan 16, 2026","Jan 23, 2026"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.95000000000000007,19.949999999999999],"tickmode":"array","ticktext":["0","5","10","15"],"tickvals":[0,5,10,15],"categoryorder":"array","categoryarray":["0","5","10","15"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Single Leg Bridge <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"orientation":"h","x":0.29999999999999999,"y":-0.25},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"6d523f72fc0e":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"},"6d5216021bad":{"x":{},"y":{},"fill":{},"text":{}}},"cur_data":"6d523f72fc0e","visdat":{"6d523f72fc0e":["function (y) ","x"],"6d5216021bad":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="tab-pane html-fill-item html-fill-container bslib-gap-spacing" data-value="SL Calf Raise" id="tab-1134-2" style="gap:0;padding:0;">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-9e3fb39692063b104198" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-9e3fb39692063b104198">{"x":{"data":[{"orientation":"v","width":[0.44999999999999996,0.45000000000000018,0.45000000000000018],"base":[0,0,0],"x":[0.77500000000000002,1.7749999999999999,2.7749999999999999],"y":[5,7,10],"text":["Jan 12, 2026","Jan 16, 2026","Jan 23, 2026"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Left","legendgroup":"Left","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"orientation":"v","width":[0.45000000000000018,0.45000000000000018,0.45000000000000018],"base":[0,0,0],"x":[1.2250000000000001,2.2250000000000001,3.2250000000000001],"y":[13,14,15],"text":["Jan 12, 2026","Jan 16, 2026","Jan 23, 2026"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Right","legendgroup":"Right","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"visible":false,"showlegend":false,"xaxis":null,"yaxis":null,"hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>"},{"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>","xaxis":"x","yaxis":"y","frame":null},{"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>","xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":27.68949771689498,"r":7.3059360730593621,"b":90.193412477577269,"l":39.651307596513085},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,3.6000000000000001],"tickmode":"array","ticktext":["Jan 12, 2026","Jan 16, 2026","Jan 23, 2026"],"tickvals":[1,2,3],"categoryorder":"array","categoryarray":["Jan 12, 2026","Jan 16, 2026","Jan 23, 2026"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.75,15.75],"tickmode":"array","ticktext":["0","5","10","15"],"tickvals":[0,5,10,15],"categoryorder":"array","categoryarray":["0","5","10","15"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Single Leg Calf Raises <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"orientation":"h","x":0.29999999999999999,"y":-0.25},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"6d5230dbbff":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"},"6d527ab163e9":{"x":{},"y":{},"fill":{},"text":{}}},"cur_data":"6d5230dbbff","visdat":{"6d5230dbbff":["function (y) ","x"],"6d527ab163e9":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="tab-pane html-fill-item html-fill-container bslib-gap-spacing" data-value="Side Bridge" id="tab-1134-3" style="gap:0;padding:0;">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-5d8eda97719c0e9c170a" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-5d8eda97719c0e9c170a">{"x":{"data":[{"orientation":"v","width":[0.44999999999999996,0.45000000000000018],"base":[0,0],"x":[0.77500000000000002,1.7749999999999999],"y":[30,30],"text":["Jan 16, 2026","Jan 25, 2026"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Left","legendgroup":"Left","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"orientation":"v","width":[0.45000000000000018,0.45000000000000018],"base":[0,0],"x":[1.2250000000000001,2.2250000000000001],"y":[30,30],"text":["Jan 16, 2026","Jan 25, 2026"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Right","legendgroup":"Right","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"visible":false,"showlegend":false,"xaxis":null,"yaxis":null,"hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>"},{"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>","xaxis":"x","yaxis":"y","frame":null},{"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>","xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":27.68949771689498,"r":7.3059360730593621,"b":90.193412477577269,"l":39.651307596513085},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,2.6000000000000001],"tickmode":"array","ticktext":["Jan 16, 2026","Jan 25, 2026"],"tickvals":[1,2],"categoryorder":"array","categoryarray":["Jan 16, 2026","Jan 25, 2026"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-1.5,31.5],"tickmode":"array","ticktext":["0","10","20","30"],"tickvals":[0,10,20,30],"categoryorder":"array","categoryarray":["0","10","20","30"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Side Bridge <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"orientation":"h","x":0.29999999999999999,"y":-0.25},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"6d5217cc3c00":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"},"6d5261773034":{"x":{},"y":{},"fill":{},"text":{}}},"cur_data":"6d5217cc3c00","visdat":{"6d5217cc3c00":["function (y) ","x"],"6d5261773034":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+<template>Expand</template>
+<button aria-expanded="false" aria-label="Expand card" class="bslib-full-screen-enter badge rounded-pill"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;fill:currentColor;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg></button>
+</bslib-tooltip>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script>
+</div>
+</div>
+</div>
+</div>
+<p>some</p>
+<p>some</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="phase0-navset">
+<div class="card bslib-card bslib-mb-spacing html-fill-item html-fill-container" data-bslib-card-init="" data-full-screen="false" data-require-bs-caller="card()" data-require-bs-version="5" id="bslib-card-5873">
+<div class="card-header bslib-navs-card-title">
+<span>Control</span>
+<ul class="nav nav-tabs card-header-tabs" data-tabsetid="4812">
+<li class="active">
+<a href="#tab-4812-1" data-toggle="tab" data-bs-toggle="tab" data-value="SL Balance">SL Balance</a>
+</li>
+<li>
+<a href="#tab-4812-2" data-toggle="tab" data-bs-toggle="tab" data-value="Y Balance">Y Balance</a>
+</li>
+</ul>
+</div>
+<div class="tab-content html-fill-item html-fill-container" data-tabsetid="4812">
+<div class="tab-pane active html-fill-item html-fill-container bslib-gap-spacing" data-value="SL Balance" id="tab-4812-1" style="gap:0;padding:0;">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-dee5c7f69dd43e68c6e1" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-dee5c7f69dd43e68c6e1">{"x":{"data":[{"orientation":"v","width":0.44999999999999996,"base":0,"x":[0.77500000000000002],"y":[30],"text":"Jan 20, 2026","type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Left","legendgroup":"Left","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"orientation":"v","width":0.45000000000000018,"base":0,"x":[1.2250000000000001],"y":[45],"text":"Jan 20, 2026","type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Right","legendgroup":"Right","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"visible":false,"showlegend":false,"xaxis":null,"yaxis":null,"hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>"},{"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>","xaxis":"x","yaxis":"y","frame":null},{"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>","xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":27.68949771689498,"r":7.3059360730593621,"b":90.193412477577269,"l":39.651307596513085},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,1.6000000000000001],"tickmode":"array","ticktext":["Jan 20, 2026"],"tickvals":[1],"categoryorder":"array","categoryarray":["Jan 20, 2026"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-2.25,47.25],"tickmode":"array","ticktext":["0","10","20","30","40"],"tickvals":[0,10,20,30,40],"categoryorder":"array","categoryarray":["0","10","20","30","40"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Single Leg Balance (Eyes Open) <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"orientation":"h","x":0.29999999999999999,"y":-0.25},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"6d52ab93b59":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"},"6d526e7558f":{"x":{},"y":{},"fill":{},"text":{}}},"cur_data":"6d52ab93b59","visdat":{"6d52ab93b59":["function (y) ","x"],"6d526e7558f":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="tab-pane html-fill-item html-fill-container bslib-gap-spacing" data-value="Y Balance" id="tab-4812-2" style="gap:0;padding:0;">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-ce929ff517be0f5609a0" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-ce929ff517be0f5609a0">{"x":{"data":[{"orientation":"v","width":0.19999999999999996,"base":0,"x":[0.90000000000000002],"y":[40],"text":"Jan 20, 2026","type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Left","legendgroup":"Left","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Max:<\/i>  %{y}<extra><\/extra>"},{"orientation":"v","width":0.20000000000000018,"base":0,"x":[1.1000000000000001],"y":[64],"text":"Jan 20, 2026","type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Right","legendgroup":"Right","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Max:<\/i>  %{y}<extra><\/extra>"},{"x":[0.90000000000000002,0.90000000000000002,0.90000000000000002],"y":[40,38,38],"text":"Jan 20, 2026","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(255,0,0,1)","opacity":0.5,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","name":"Left","legendgroup":"Left","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"x":[1.1000000000000001,1.1000000000000001,1.1000000000000001],"y":[60,61,64],"text":"Jan 20, 2026","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,0,0,1)","opacity":0.5,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","name":"Right","legendgroup":"Right","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"}],"layout":{"margin":{"t":27.68949771689498,"r":7.3059360730593621,"b":90.193412477577269,"l":39.651307596513085},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,1.6000000000000001],"tickmode":"array","ticktext":["Jan 20, 2026"],"tickvals":[1],"categoryorder":"array","categoryarray":["Jan 20, 2026"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-3.2000000000000002,67.200000000000003],"tickmode":"array","ticktext":["0","20","40","60"],"tickvals":[0,20,40,60],"categoryorder":"array","categoryarray":["0","20","40","60"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Y-Balance (Anterior) <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"orientation":"h","x":0.29999999999999999,"y":-0.25},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"6d52cae30a2":{"x":{},"fill":{},"text":{},"y":{},"type":"bar"},"6d527ffae22e":{"x":{},"fill":{},"text":{},"y":{}}},"cur_data":"6d52cae30a2","visdat":{"6d52cae30a2":["function (y) ","x"],"6d527ffae22e":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-8f701e01b5bcce0f3b5d" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-8f701e01b5bcce0f3b5d">{"x":{"data":[{"orientation":"v","width":0.19999999999999996,"base":0,"x":[0.90000000000000002],"y":[81.5],"text":"Jan 20, 2026","type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Left","legendgroup":"Left","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Max:<\/i>  %{y}<extra><\/extra>"},{"orientation":"v","width":0.20000000000000018,"base":0,"x":[1.1000000000000001],"y":[101],"text":"Jan 20, 2026","type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Right","legendgroup":"Right","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Max:<\/i>  %{y}<extra><\/extra>"},{"x":[0.90000000000000002,0.90000000000000002,0.90000000000000002],"y":[80,78.5,81.5],"text":"Jan 20, 2026","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(255,0,0,1)","opacity":0.5,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","name":"Left","legendgroup":"Left","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"x":[1.1000000000000001,1.1000000000000001,1.1000000000000001],"y":[99.5,100.5,101],"text":"Jan 20, 2026","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,0,0,1)","opacity":0.5,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","name":"Right","legendgroup":"Right","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"}],"layout":{"margin":{"t":27.68949771689498,"r":7.3059360730593621,"b":90.193412477577269,"l":46.027397260273986},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,1.6000000000000001],"tickmode":"array","ticktext":["Jan 20, 2026"],"tickvals":[1],"categoryorder":"array","categoryarray":["Jan 20, 2026"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-5.0500000000000007,106.05],"tickmode":"array","ticktext":["0","25","50","75","100"],"tickvals":[0,25,50,75,100],"categoryorder":"array","categoryarray":["0","25","50","75","100"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Y-Balance (Postero-Medial) <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"orientation":"h","x":0.29999999999999999,"y":-0.25},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"6d52ac9598c":{"x":{},"fill":{},"text":{},"y":{},"type":"bar"},"6d522915fbdc":{"x":{},"fill":{},"text":{},"y":{}}},"cur_data":"6d52ac9598c","visdat":{"6d52ac9598c":["function (y) ","x"],"6d522915fbdc":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+<template>Expand</template>
+<button aria-expanded="false" aria-label="Expand card" class="bslib-full-screen-enter badge rounded-pill"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;fill:currentColor;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg></button>
+</bslib-tooltip>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script>
+</div>
+</div>
+</div>
+</div>
+<p>writing</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

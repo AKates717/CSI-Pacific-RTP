@@ -264,7 +264,7 @@ ui <- page_navbar(
   
   
   
-  
+  #Phase 2 ----
   nav_panel(
     "Phase 2",
     layout_sidebar(
@@ -316,9 +316,80 @@ ui <- page_navbar(
       DTOutput("table_p2")
       
     )
-  )
+  ),
   
 
+  
+  
+  
+  
+  
+  #Phase 3 ----
+  nav_panel(
+    "Phase 3",
+    layout_sidebar(
+      sidebar = sidebar(
+        width = "35%",
+        selectizeInput(
+          "measure_p3", "Outcome Measure (Phase 3)",
+          choices  = measures_by_phase("Phase 3"),
+          selected = character(0),
+          options  = list(
+            placeholder = "Select or type…",
+            create = TRUE,
+            onInitialize = I('function() { this.clear(true); }')  # <- force no preselect
+          )
+        ),
+        dateInput("date_p3", "Date"),
+        shinyWidgets::radioGroupButtons(
+          inputId  = "side_p3",
+          label    = "Side",
+          choices  = c("Left", "Right"),
+          justified = TRUE,          # buttons fill width evenly
+          selected = character(0),
+          checkIcon = list(yes = icon("check"))   # checkmark on selected
+        ),
+        numericInput("value_p3", "Value", value = NA, step = 0.01),
+        textInput("units_p3", "Units", value = ""),
+        textAreaInput("notes_p3", "Notes", rows = 3, placeholder = "optional"),
+        actionButton("save_p3", "Save to Excel (Phase 3)", class = "btn-primary"),
+        tags$hr(),
+        verbatimTextOutput("status_p3", placeholder = TRUE)
+      ),
+      
+      card(
+        class = "ak-card has-stripe accent-primary tight",
+        card_body(
+          # Heading styled by your CSS (first child inside card-body)
+          h3(textOutput("p3_title", container = span)),
+          
+          # Main text blocks (keep your existing renderText)
+          p(class = "desc-text", textOutput("description_p3", container = span)),
+          p(class = "info-text",  textOutput("info_p3",        container = span))
+          
+          # # Optional fields (render nothing if empty)
+          # uiOutput("goal_row_p3"),
+          # uiOutput("reps_row_p3"),
+          # uiOutput("calc_row_p3")
+        )
+      ),
+      DTOutput("table_p3")
+      
+    )
+  )
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   

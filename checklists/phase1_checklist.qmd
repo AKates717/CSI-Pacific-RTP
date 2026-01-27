@@ -19,7 +19,7 @@ source("Themes.R")
 ```{r}
 
 #Create the table
-tbl_phase0 <- criteria_phase1 %>%
+tbl_phase1 <- criteria_phase1 %>%
   transmute(
     `Outcome Measure` = outcome_measure,
     `Op` = operator_pretty,
@@ -62,7 +62,7 @@ tbl_phase0 <- criteria_phase1 %>%
     data_row.padding = px(6)
   )
 
-tbl_phase0
+tbl_phase1
 
 ```
 
@@ -113,3 +113,37 @@ total_n_all <- nrow(criteria_phase1)
 
 goals_progress_bar(met_n_all, total_n_all)
 ```
+
+------------------------------------------------------------------------
+
+# Outcomes
+
+```{r}
+htmltools::div(
+  class = "phase0-navset",
+  navset_card_tab(
+    full_screen = TRUE,
+    title = "Phase 1 Outcomes",
+    nav_panel(
+      "Swelling",
+      plot_ind_phase_outcomes(outcomes_raw_phase1, "Swelling")
+    ),
+    nav_panel(
+      "Knee Extension",
+      plot_ind_phase_outcomes(outcomes_raw_phase1, "Passive Knee Extension")
+    ),
+    nav_panel(
+      "Knee Flexion",
+      plot_ind_phase_outcomes(outcomes_raw_phase1, "Passive Knee Flexion")
+    ),
+    nav_panel(
+      "Quads",
+      plot_ind_phase_outcomes(outcomes_raw_phase1, "Quads Lag Test")
+    )
+  )
+)
+```
+
+Some Writing
+
+Some More Writing
