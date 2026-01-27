@@ -114,4 +114,84 @@ total_n_all <- nrow(criteria_phase2)
 goals_progress_bar(met_n_all, total_n_all)
 ```
 
+------------------------------------------------------------------------
 
+# Outcomes
+
+```{r}
+htmltools::div(
+  class = "phase0-navset",
+  navset_card_tab(
+    full_screen = TRUE,
+    title = "Mobility",
+    nav_panel(
+      "Swelling",
+      plot_ind_phase_outcomes(outcomes_raw_phase2, "Swelling")
+    ),
+    nav_panel(
+      "Knee Extension",
+      plot_ind_phase_outcomes(outcomes_raw_phase2, "Passive Knee Extension")
+    ),
+    nav_panel(
+      "Knee Flexion",
+      plot_ind_phase_outcomes(outcomes_raw_phase2, "Passive Knee Flexion")
+    ),
+    nav_panel(
+      "Ankle",
+      plot_ind_phase_outcomes(outcomes_raw_phase2, "Ankle Dorsiflexion")
+    )
+  )
+)
+```
+
+Some Writing
+
+Some More Writing
+
+```{r}
+
+htmltools::div(
+  class = "phase0-navset",
+  navset_card_tab(
+    full_screen = TRUE,
+    title = "Strength",
+    nav_panel(
+      "SL Bridge",
+      plot_ind_phase_outcomes(outcomes_raw_phase2, "Single Leg Bridge")
+    ),
+    nav_panel(
+      "SL Calf Raise",
+      plot_ind_phase_outcomes(outcomes_raw_phase2, "Single Leg Calf Raises")
+    ),
+    nav_panel(
+      "Side Bridge",
+      plot_ind_phase_outcomes(outcomes_raw_phase2, "Side Bridge")
+    )
+  )
+)
+```
+
+some
+
+some
+
+```{r}
+htmltools::div(
+  class = "phase0-navset",
+  navset_card_tab(
+    full_screen = TRUE,
+    title = "Control",
+    nav_panel(
+      "SL Balance",
+      plot_ind_phase_outcomes(outcomes_raw_phase2, "Single Leg Balance (Eyes Open)")
+    ),
+    nav_panel(
+      "Y Balance",
+      plot_iso_magnitude2(outcomes_raw_phase2, "Y-Balance (Anterior)"),
+      plot_iso_magnitude2(outcomes_raw_phase2, "Y-Balance (Postero-Medial)")
+    )
+  )
+)
+```
+
+writing
