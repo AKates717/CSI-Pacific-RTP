@@ -1,6 +1,5 @@
 ---
 title: "Our first r-shinylive Quarto document!"
-draft: true
 filters:
   - shinylive
 ---
