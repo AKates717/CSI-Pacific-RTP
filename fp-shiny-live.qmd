@@ -9,6 +9,7 @@ filters:
 #| viewerHeight: 600
 library(shiny)
 library(bslib)
+library(shinylive)
 
 # Define UI for app that draws a histogram ----
 ui <- page_sidebar(
