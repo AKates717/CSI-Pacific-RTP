@@ -5,13 +5,16 @@
   "metadata": {
     "appmode": "quarto-static",
     "primary_rmd": "index.qmd",
-    "primary_html": null,
-    "content_category": null,
+    "primary_html": {},
+    "content_category": "site",
     "has_parameters": false
   },
   "quarto": {
     "version": "1.6.39",
-    "engines": ["markdown", "knitr"]
+    "engines": [
+      "markdown",
+      "knitr"
+    ]
   },
   "packages": {
     "DBI": {
@@ -661,7 +664,12 @@
         "Maintainer": "Carson Sievert <carson@posit.co>",
         "Repository": "CRAN",
         "Date/Publication": "2025-01-30 23:20:02 UTC",
-        "Built": "R 4.4.1; ; 2025-01-31 00:35:34 UTC; unix"
+        "Built": "R 4.4.1; ; 2025-01-31 00:35:34 UTC; unix",
+        "RemoteType": "standard",
+        "RemotePkgRef": "bslib",
+        "RemoteRef": "bslib",
+        "RemoteRepos": "https://cran.rstudio.com",
+        "RemoteSha": "0.9.0"
       }
     },
     "cachem": {
@@ -1998,7 +2006,7 @@
         "Type": "Package",
         "Package": "htmltools",
         "Title": "Tools for HTML",
-        "Version": "0.5.8.1",
+        "Version": "0.5.9",
         "Authors@R": "c(\n    person(\"Joe\", \"Cheng\", , \"joe@posit.co\", role = \"aut\"),\n    person(\"Carson\", \"Sievert\", , \"carson@posit.co\", role = c(\"aut\", \"cre\"),\n           comment = c(ORCID = \"0000-0002-4958-2844\")),\n    person(\"Barret\", \"Schloerke\", , \"barret@posit.co\", role = \"aut\",\n           comment = c(ORCID = \"0000-0001-9986-114X\")),\n    person(\"Winston\", \"Chang\", , \"winston@posit.co\", role = \"aut\",\n           comment = c(ORCID = \"0000-0002-1576-2126\")),\n    person(\"Yihui\", \"Xie\", , \"yihui@posit.co\", role = \"aut\"),\n    person(\"Jeff\", \"Allen\", role = \"aut\"),\n    person(\"Posit Software, PBC\", role = c(\"cph\", \"fnd\"))\n  )",
         "Description": "Tools for HTML generation and output.",
         "License": "GPL (>= 2)",
@@ -2011,16 +2019,21 @@
         "Config/Needs/check": "knitr",
         "Config/Needs/website": "rstudio/quillt, bench",
         "Encoding": "UTF-8",
-        "RoxygenNote": "7.3.1",
+        "RoxygenNote": "7.3.3",
         "Collate": "'colors.R' 'fill.R' 'html_dependency.R' 'html_escape.R'\n'html_print.R' 'htmltools-package.R' 'images.R' 'known_tags.R'\n'selector.R' 'staticimports.R' 'tag_query.R' 'utils.R' 'tags.R'\n'template.R'",
         "NeedsCompilation": "yes",
-        "Packaged": "2024-04-02 14:26:15 UTC; cpsievert",
-        "Author": "Joe Cheng [aut],\n  Carson Sievert [aut, cre] (<https://orcid.org/0000-0002-4958-2844>),\n  Barret Schloerke [aut] (<https://orcid.org/0000-0001-9986-114X>),\n  Winston Chang [aut] (<https://orcid.org/0000-0002-1576-2126>),\n  Yihui Xie [aut],\n  Jeff Allen [aut],\n  Posit Software, PBC [cph, fnd]",
+        "Packaged": "2025-12-02 23:32:55 UTC; cpsievert",
+        "Author": "Joe Cheng [aut],\n  Carson Sievert [aut, cre] (ORCID:\n    <https://orcid.org/0000-0002-4958-2844>),\n  Barret Schloerke [aut] (ORCID: <https://orcid.org/0000-0001-9986-114X>),\n  Winston Chang [aut] (ORCID: <https://orcid.org/0000-0002-1576-2126>),\n  Yihui Xie [aut],\n  Jeff Allen [aut],\n  Posit Software, PBC [cph, fnd]",
         "Maintainer": "Carson Sievert <carson@posit.co>",
         "Repository": "CRAN",
-        "Date/Publication": "2024-04-04 05:03:00 UTC",
-        "Built": "R 4.4.0; aarch64-apple-darwin20; 2024-04-05 22:31:51 UTC; unix",
-        "Archs": "htmltools.so.dSYM"
+        "Date/Publication": "2025-12-04 11:50:09 UTC",
+        "Built": "R 4.4.3; aarch64-apple-darwin20; 2025-12-04 12:04:17 UTC; unix",
+        "Archs": "htmltools.so.dSYM",
+        "RemoteType": "standard",
+        "RemotePkgRef": "htmltools",
+        "RemoteRef": "htmltools",
+        "RemoteRepos": "https://cran.rstudio.com",
+        "RemoteSha": "0.5.9"
       }
     },
     "htmlwidgets": {
@@ -3516,7 +3529,7 @@
         "Type": "Package",
         "Package": "rmarkdown",
         "Title": "Dynamic Documents for R",
-        "Version": "2.29",
+        "Version": "2.30",
         "Authors@R": "c(\n    person(\"JJ\", \"Allaire\", , \"jj@posit.co\", role = \"aut\"),\n    person(\"Yihui\", \"Xie\", , \"xie@yihui.name\", role = c(\"aut\", \"cre\"), comment = c(ORCID = \"0000-0003-0645-5666\")),\n    person(\"Christophe\", \"Dervieux\", , \"cderv@posit.co\", role = \"aut\", comment = c(ORCID = \"0000-0003-4474-2498\")),\n    person(\"Jonathan\", \"McPherson\", , \"jonathan@posit.co\", role = \"aut\"),\n    person(\"Javier\", \"Luraschi\", role = \"aut\"),\n    person(\"Kevin\", \"Ushey\", , \"kevin@posit.co\", role = \"aut\"),\n    person(\"Aron\", \"Atkins\", , \"aron@posit.co\", role = \"aut\"),\n    person(\"Hadley\", \"Wickham\", , \"hadley@posit.co\", role = \"aut\"),\n    person(\"Joe\", \"Cheng\", , \"joe@posit.co\", role = \"aut\"),\n    person(\"Winston\", \"Chang\", , \"winston@posit.co\", role = \"aut\"),\n    person(\"Richard\", \"Iannone\", , \"rich@posit.co\", role = \"aut\", comment = c(ORCID = \"0000-0003-3925-190X\")),\n    person(\"Andrew\", \"Dunning\", role = \"ctb\", comment = c(ORCID = \"0000-0003-0464-5036\")),\n    person(\"Atsushi\", \"Yasumoto\", role = c(\"ctb\", \"cph\"), comment = c(ORCID = \"0000-0002-8335-495X\", cph = \"Number sections Lua filter\")),\n    person(\"Barret\", \"Schloerke\", role = \"ctb\"),\n    person(\"Carson\", \"Sievert\", role = \"ctb\", comment = c(ORCID = \"0000-0002-4958-2844\")), \n    person(\"Devon\", \"Ryan\", , \"dpryan79@gmail.com\", role = \"ctb\", comment = c(ORCID = \"0000-0002-8549-0971\")),\n    person(\"Frederik\", \"Aust\", , \"frederik.aust@uni-koeln.de\", role = \"ctb\", comment = c(ORCID = \"0000-0003-4900-788X\")),\n    person(\"Jeff\", \"Allen\", , \"jeff@posit.co\", role = \"ctb\"), \n    person(\"JooYoung\", \"Seo\", role = \"ctb\", comment = c(ORCID = \"0000-0002-4064-6012\")),\n    person(\"Malcolm\", \"Barrett\", role = \"ctb\"),\n    person(\"Rob\", \"Hyndman\", , \"Rob.Hyndman@monash.edu\", role = \"ctb\"),\n    person(\"Romain\", \"Lesur\", role = \"ctb\"),\n    person(\"Roy\", \"Storey\", role = \"ctb\"),\n    person(\"Ruben\", \"Arslan\", , \"ruben.arslan@uni-goettingen.de\", role = \"ctb\"),\n    person(\"Sergio\", \"Oller\", role = \"ctb\"),\n    person(given = \"Posit Software, PBC\", role = c(\"cph\", \"fnd\")),\n    person(, \"jQuery UI contributors\", role = c(\"ctb\", \"cph\"), comment = \"jQuery UI library; authors listed in inst/rmd/h/jqueryui/AUTHORS.txt\"),\n    person(\"Mark\", \"Otto\", role = \"ctb\", comment = \"Bootstrap library\"),\n    person(\"Jacob\", \"Thornton\", role = \"ctb\", comment = \"Bootstrap library\"),\n    person(, \"Bootstrap contributors\", role = \"ctb\", comment = \"Bootstrap library\"),\n    person(, \"Twitter, Inc\", role = \"cph\", comment = \"Bootstrap library\"),\n    person(\"Alexander\", \"Farkas\", role = c(\"ctb\", \"cph\"), comment = \"html5shiv library\"),\n    person(\"Scott\", \"Jehl\", role = c(\"ctb\", \"cph\"), comment = \"Respond.js library\"),\n    person(\"Ivan\", \"Sagalaev\", role = c(\"ctb\", \"cph\"), comment = \"highlight.js library\"),\n    person(\"Greg\", \"Franko\", role = c(\"ctb\", \"cph\"), comment = \"tocify library\"),\n    person(\"John\", \"MacFarlane\", role = c(\"ctb\", \"cph\"), comment = \"Pandoc templates\"),\n    person(, \"Google, Inc.\", role = c(\"ctb\", \"cph\"), comment = \"ioslides library\"),\n    person(\"Dave\", \"Raggett\", role = \"ctb\", comment = \"slidy library\"),\n    person(, \"W3C\", role = \"cph\", comment = \"slidy library\"),\n    person(\"Dave\", \"Gandy\", role = c(\"ctb\", \"cph\"), comment = \"Font-Awesome\"),\n    person(\"Ben\", \"Sperry\", role = \"ctb\", comment = \"Ionicons\"),\n    person(, \"Drifty\", role = \"cph\", comment = \"Ionicons\"),\n    person(\"Aidan\", \"Lister\", role = c(\"ctb\", \"cph\"), comment = \"jQuery StickyTabs\"),\n    person(\"Benct Philip\", \"Jonsson\", role = c(\"ctb\", \"cph\"), comment = \"pagebreak Lua filter\"),\n    person(\"Albert\", \"Krewinkel\", role = c(\"ctb\", \"cph\"), comment = \"pagebreak Lua filter\")\n  )",
         "Description": "Convert R Markdown documents into a variety of formats.",
         "License": "GPL-3",
@@ -3532,12 +3545,17 @@
         "RoxygenNote": "7.3.2",
         "SystemRequirements": "pandoc (>= 1.14) - http://pandoc.org",
         "NeedsCompilation": "no",
-        "Packaged": "2024-11-01 19:32:48 UTC; runner",
-        "Author": "JJ Allaire [aut],\n  Yihui Xie [aut, cre] (<https://orcid.org/0000-0003-0645-5666>),\n  Christophe Dervieux [aut] (<https://orcid.org/0000-0003-4474-2498>),\n  Jonathan McPherson [aut],\n  Javier Luraschi [aut],\n  Kevin Ushey [aut],\n  Aron Atkins [aut],\n  Hadley Wickham [aut],\n  Joe Cheng [aut],\n  Winston Chang [aut],\n  Richard Iannone [aut] (<https://orcid.org/0000-0003-3925-190X>),\n  Andrew Dunning [ctb] (<https://orcid.org/0000-0003-0464-5036>),\n  Atsushi Yasumoto [ctb, cph] (<https://orcid.org/0000-0002-8335-495X>,\n    Number sections Lua filter),\n  Barret Schloerke [ctb],\n  Carson Sievert [ctb] (<https://orcid.org/0000-0002-4958-2844>),\n  Devon Ryan [ctb] (<https://orcid.org/0000-0002-8549-0971>),\n  Frederik Aust [ctb] (<https://orcid.org/0000-0003-4900-788X>),\n  Jeff Allen [ctb],\n  JooYoung Seo [ctb] (<https://orcid.org/0000-0002-4064-6012>),\n  Malcolm Barrett [ctb],\n  Rob Hyndman [ctb],\n  Romain Lesur [ctb],\n  Roy Storey [ctb],\n  Ruben Arslan [ctb],\n  Sergio Oller [ctb],\n  Posit Software, PBC [cph, fnd],\n  jQuery UI contributors [ctb, cph] (jQuery UI library; authors listed in\n    inst/rmd/h/jqueryui/AUTHORS.txt),\n  Mark Otto [ctb] (Bootstrap library),\n  Jacob Thornton [ctb] (Bootstrap library),\n  Bootstrap contributors [ctb] (Bootstrap library),\n  Twitter, Inc [cph] (Bootstrap library),\n  Alexander Farkas [ctb, cph] (html5shiv library),\n  Scott Jehl [ctb, cph] (Respond.js library),\n  Ivan Sagalaev [ctb, cph] (highlight.js library),\n  Greg Franko [ctb, cph] (tocify library),\n  John MacFarlane [ctb, cph] (Pandoc templates),\n  Google, Inc. [ctb, cph] (ioslides library),\n  Dave Raggett [ctb] (slidy library),\n  W3C [cph] (slidy library),\n  Dave Gandy [ctb, cph] (Font-Awesome),\n  Ben Sperry [ctb] (Ionicons),\n  Drifty [cph] (Ionicons),\n  Aidan Lister [ctb, cph] (jQuery StickyTabs),\n  Benct Philip Jonsson [ctb, cph] (pagebreak Lua filter),\n  Albert Krewinkel [ctb, cph] (pagebreak Lua filter)",
+        "Packaged": "2025-09-25 03:25:30 UTC; yihui",
+        "Author": "JJ Allaire [aut],\n  Yihui Xie [aut, cre] (ORCID: <https://orcid.org/0000-0003-0645-5666>),\n  Christophe Dervieux [aut] (ORCID:\n    <https://orcid.org/0000-0003-4474-2498>),\n  Jonathan McPherson [aut],\n  Javier Luraschi [aut],\n  Kevin Ushey [aut],\n  Aron Atkins [aut],\n  Hadley Wickham [aut],\n  Joe Cheng [aut],\n  Winston Chang [aut],\n  Richard Iannone [aut] (ORCID: <https://orcid.org/0000-0003-3925-190X>),\n  Andrew Dunning [ctb] (ORCID: <https://orcid.org/0000-0003-0464-5036>),\n  Atsushi Yasumoto [ctb, cph] (ORCID:\n    <https://orcid.org/0000-0002-8335-495X>, cph: Number sections Lua\n    filter),\n  Barret Schloerke [ctb],\n  Carson Sievert [ctb] (ORCID: <https://orcid.org/0000-0002-4958-2844>),\n  Devon Ryan [ctb] (ORCID: <https://orcid.org/0000-0002-8549-0971>),\n  Frederik Aust [ctb] (ORCID: <https://orcid.org/0000-0003-4900-788X>),\n  Jeff Allen [ctb],\n  JooYoung Seo [ctb] (ORCID: <https://orcid.org/0000-0002-4064-6012>),\n  Malcolm Barrett [ctb],\n  Rob Hyndman [ctb],\n  Romain Lesur [ctb],\n  Roy Storey [ctb],\n  Ruben Arslan [ctb],\n  Sergio Oller [ctb],\n  Posit Software, PBC [cph, fnd],\n  jQuery UI contributors [ctb, cph] (jQuery UI library; authors listed in\n    inst/rmd/h/jqueryui/AUTHORS.txt),\n  Mark Otto [ctb] (Bootstrap library),\n  Jacob Thornton [ctb] (Bootstrap library),\n  Bootstrap contributors [ctb] (Bootstrap library),\n  Twitter, Inc [cph] (Bootstrap library),\n  Alexander Farkas [ctb, cph] (html5shiv library),\n  Scott Jehl [ctb, cph] (Respond.js library),\n  Ivan Sagalaev [ctb, cph] (highlight.js library),\n  Greg Franko [ctb, cph] (tocify library),\n  John MacFarlane [ctb, cph] (Pandoc templates),\n  Google, Inc. [ctb, cph] (ioslides library),\n  Dave Raggett [ctb] (slidy library),\n  W3C [cph] (slidy library),\n  Dave Gandy [ctb, cph] (Font-Awesome),\n  Ben Sperry [ctb] (Ionicons),\n  Drifty [cph] (Ionicons),\n  Aidan Lister [ctb, cph] (jQuery StickyTabs),\n  Benct Philip Jonsson [ctb, cph] (pagebreak Lua filter),\n  Albert Krewinkel [ctb, cph] (pagebreak Lua filter)",
         "Maintainer": "Yihui Xie <xie@yihui.name>",
         "Repository": "CRAN",
-        "Date/Publication": "2024-11-04 12:30:09 UTC",
-        "Built": "R 4.4.1; ; 2024-11-04 13:07:16 UTC; unix"
+        "Date/Publication": "2025-09-28 11:30:02 UTC",
+        "Built": "R 4.4.1; ; 2025-10-07 13:39:59 UTC; unix",
+        "RemoteType": "standard",
+        "RemotePkgRef": "rmarkdown",
+        "RemoteRef": "rmarkdown",
+        "RemoteRepos": "https://cran.rstudio.com",
+        "RemoteSha": "2.30"
       }
     },
     "rprojroot": {
@@ -3768,6 +3786,38 @@
         "Built": "R 4.4.1; ; 2025-07-04 06:16:02 UTC; unix"
       }
     },
+    "shinyWidgets": {
+      "Source": "CRAN",
+      "Repository": "https://cran.rstudio.com",
+      "description": {
+        "Package": "shinyWidgets",
+        "Title": "Custom Inputs Widgets for Shiny",
+        "Version": "0.9.0",
+        "Authors@R": "c(\n  person(\"Victor\", \"Perrier\", email = \"victor.perrier@dreamrs.fr\", role = c(\"aut\", \"cre\", \"cph\")),\n  person(\"Fanny\", \"Meyer\", role = \"aut\"),\n  person(\"David\", \"Granjon\", role = \"aut\"),\n  person(\"Ian\", \"Fellows\", role = \"ctb\", comment = \"Methods for mutating vertical tabs & updateMultiInput\"),\n  person(\"Wil\", \"Davis\", role = \"ctb\", comment = \"numericRangeInput function\"),\n  person(\"Spencer\", \"Matthews\", role = \"ctb\", comment = \"autoNumeric methods\"),\n  person(family = \"JavaScript and CSS libraries authors\", role = c(\"ctb\", \"cph\"), comment = \"All authors are listed in LICENSE.md\")\n  )",
+        "Description": "Collection of custom input controls and user interface components for 'Shiny' applications. \n  Give your applications a unique and colorful style !",
+        "URL": "https://github.com/dreamRs/shinyWidgets,\nhttps://dreamrs.github.io/shinyWidgets/",
+        "BugReports": "https://github.com/dreamRs/shinyWidgets/issues",
+        "License": "GPL-3",
+        "Encoding": "UTF-8",
+        "LazyData": "true",
+        "RoxygenNote": "7.3.2",
+        "Depends": "R (>= 3.1.0)",
+        "Imports": "bslib, sass, shiny (>= 1.6.0), htmltools (>= 0.5.1), jsonlite,\ngrDevices, rlang",
+        "Suggests": "testthat, covr, ggplot2, DT, scales, shinydashboard,\nshinydashboardPlus",
+        "NeedsCompilation": "no",
+        "Packaged": "2025-02-21 09:09:48 UTC; perri",
+        "Author": "Victor Perrier [aut, cre, cph],\n  Fanny Meyer [aut],\n  David Granjon [aut],\n  Ian Fellows [ctb] (Methods for mutating vertical tabs &\n    updateMultiInput),\n  Wil Davis [ctb] (numericRangeInput function),\n  Spencer Matthews [ctb] (autoNumeric methods),\n  JavaScript and CSS libraries authors [ctb, cph] (All authors are listed\n    in LICENSE.md)",
+        "Maintainer": "Victor Perrier <victor.perrier@dreamrs.fr>",
+        "Repository": "CRAN",
+        "Date/Publication": "2025-02-21 12:30:02 UTC",
+        "Built": "R 4.4.1; ; 2025-02-21 14:14:55 UTC; unix",
+        "RemoteType": "standard",
+        "RemotePkgRef": "shinyWidgets",
+        "RemoteRef": "shinyWidgets",
+        "RemoteRepos": "https://cran.rstudio.com",
+        "RemoteSha": "0.9.0"
+      }
+    },
     "shinydashboard": {
       "Source": "CRAN",
       "Repository": "https://cran.rstudio.com",
@@ -3816,6 +3866,34 @@
         "Repository": "CRAN",
         "Date/Publication": "2022-09-27 07:00:02 UTC",
         "Built": "R 4.4.0; ; 2024-04-06 16:09:28 UTC; unix"
+      }
+    },
+    "shinytoastr": {
+      "Source": "CRAN",
+      "Repository": "https://cran.rstudio.com",
+      "description": {
+        "Package": "shinytoastr",
+        "Title": "Notifications from 'Shiny'",
+        "Version": "2.2.0",
+        "Author": "John Papa, Tim Ferrell, Hans Fjällemark, Gábor Csárdi",
+        "Maintainer": "Gábor Csárdi <csardi.gabor@gmail.com>",
+        "Description": "Browser notifications in 'Shiny' apps, using\n    'toastr': <https://github.com/CodeSeven/toastr#readme>.",
+        "License": "MIT + file LICENSE",
+        "URL": "https://github.com/gaborcsardi/shinytoastr",
+        "BugReports": "https://github.com/gaborcsardi/shinytoastr/issues",
+        "Imports": "shiny",
+        "RoxygenNote": "5.0.1",
+        "Encoding": "UTF-8",
+        "NeedsCompilation": "no",
+        "Packaged": "2023-08-30 18:03:59 UTC; gaborcsardi",
+        "Repository": "CRAN",
+        "Date/Publication": "2023-08-30 22:30:02 UTC",
+        "Built": "R 4.4.0; ; 2024-04-06 10:08:30 UTC; unix",
+        "RemoteType": "standard",
+        "RemotePkgRef": "shinytoastr",
+        "RemoteRef": "shinytoastr",
+        "RemoteRepos": "https://cran.rstudio.com",
+        "RemoteSha": "2.2.0"
       }
     },
     "snakecase": {
@@ -3988,7 +4066,7 @@
         "Type": "Package",
         "Package": "systemfonts",
         "Title": "System Native Font Finding",
-        "Version": "1.2.3",
+        "Version": "1.3.1",
         "Authors@R": "c(\n    person(\"Thomas Lin\", \"Pedersen\", , \"thomas.pedersen@posit.co\", role = c(\"aut\", \"cre\"),\n           comment = c(ORCID = \"0000-0002-5147-4711\")),\n    person(\"Jeroen\", \"Ooms\", , \"jeroen@berkeley.edu\", role = \"aut\",\n           comment = c(ORCID = \"0000-0002-4035-0289\")),\n    person(\"Devon\", \"Govett\", role = \"aut\",\n           comment = \"Author of font-manager\"),\n    person(\"Posit Software, PBC\", role = c(\"cph\", \"fnd\"),\n           comment = c(ROR = \"03wc8by49\"))\n  )",
         "Description": "Provides system native access to the font catalogue. As font\n    handling varies between systems it is difficult to correctly locate\n    installed fonts across different operating systems. The 'systemfonts'\n    package provides bindings to the native libraries on Windows, macOS\n    and Linux for finding font files that can then be used further by e.g.\n    graphic devices. The main use is intended to be from compiled code but\n    'systemfonts' also provides access from R.",
         "License": "MIT + file LICENSE",
@@ -3996,7 +4074,7 @@
         "BugReports": "https://github.com/r-lib/systemfonts/issues",
         "Depends": "R (>= 3.2.0)",
         "Imports": "base64enc, grid, jsonlite, lifecycle, tools, utils",
-        "Suggests": "covr, farver, graphics, knitr, rmarkdown, testthat (>= 2.1.0)",
+        "Suggests": "covr, farver, ggplot2, graphics, knitr, ragg, rmarkdown,\nsvglite, testthat (>= 2.1.0)",
         "LinkingTo": "cpp11 (>= 0.2.1)",
         "VignetteBuilder": "knitr",
         "Config/build/compilation-database": "true",
@@ -4006,13 +4084,18 @@
         "RoxygenNote": "7.3.2",
         "SystemRequirements": "fontconfig, freetype2",
         "NeedsCompilation": "yes",
-        "Packaged": "2025-04-30 17:13:44 UTC; thomas",
+        "Packaged": "2025-10-01 11:58:08 UTC; thomas",
         "Author": "Thomas Lin Pedersen [aut, cre] (ORCID:\n    <https://orcid.org/0000-0002-5147-4711>),\n  Jeroen Ooms [aut] (ORCID: <https://orcid.org/0000-0002-4035-0289>),\n  Devon Govett [aut] (Author of font-manager),\n  Posit Software, PBC [cph, fnd] (ROR: <https://ror.org/03wc8by49>)",
         "Maintainer": "Thomas Lin Pedersen <thomas.pedersen@posit.co>",
         "Repository": "CRAN",
-        "Date/Publication": "2025-04-30 17:50:02 UTC",
-        "Built": "R 4.4.1; aarch64-apple-darwin20; 2025-04-30 19:03:17 UTC; unix",
-        "Archs": "systemfonts.so.dSYM"
+        "Date/Publication": "2025-10-01 14:00:02 UTC",
+        "Built": "R 4.4.1; aarch64-apple-darwin20; 2025-10-07 19:23:11 UTC; unix",
+        "Archs": "systemfonts.so.dSYM",
+        "RemoteType": "standard",
+        "RemotePkgRef": "systemfonts",
+        "RemoteRef": "systemfonts",
+        "RemoteRepos": "https://cran.rstudio.com",
+        "RemoteSha": "1.3.1"
       }
     },
     "textshaping": {
@@ -4679,6 +4762,39 @@
         "Built": "R 4.4.1; aarch64-apple-darwin20; 2025-04-10 07:04:30 UTC; unix",
         "Archs": "zoo.so.dSYM"
       }
+    },
+    "shinylive": {
+      "Source": "CRAN",
+      "Repository": "https://cran.rstudio.com",
+      "description": {
+        "Package": "shinylive",
+        "Title": "Run 'shiny' Applications in the Browser",
+        "Version": "0.3.0",
+        "Authors@R": "c(\n    person(\"Barret\", \"Schloerke\", , \"barret@posit.co\", role = c(\"aut\", \"cre\"),\n           comment = c(ORCID = \"0000-0001-9986-114X\")),\n    person(\"Winston\", \"Chang\", , \"winston@posit.co\", role = \"aut\",\n           comment = c(ORCID = \"0000-0002-1576-2126\")),\n    person(\"George\", \"Stagg\", , \"george.stagg@posit.co\", role = \"aut\"),\n    person(\"Garrick\", \"Aden-Buie\", , \"garrick@posit.co\", role = \"aut\",\n           comment = c(ORCID = \"0000-0002-7111-0077\")),\n    person(\"Posit Software, PBC\", role = c(\"cph\", \"fnd\"))\n  )",
+        "Description": "Exporting 'shiny' applications with 'shinylive' allows you to\n    run them entirely in a web browser, without the need for a separate R\n    server. The traditional way of deploying 'shiny' applications involves\n    in a separate server and client: the server runs R and 'shiny', and\n    clients connect via the web browser. When an application is deployed\n    with 'shinylive', R and 'shiny' run in the web browser (via 'webR'):\n    the browser is effectively both the client and server for the\n    application. This allows for your 'shiny' application exported by\n    'shinylive' to be hosted by a static web server.",
+        "License": "MIT + file LICENSE",
+        "URL": "https://posit-dev.github.io/r-shinylive/,\nhttps://github.com/posit-dev/r-shinylive",
+        "BugReports": "https://github.com/posit-dev/r-shinylive/issues",
+        "Imports": "archive, brio, cli, fs, gh, glue, httr2 (>= 1.0.0), jsonlite,\npkgdepends, progress, rappdirs, renv, rlang, tools, whisker,\nwithr",
+        "Suggests": "httpuv (>= 1.6.12), pkgcache, spelling, testthat (>= 3.0.0)",
+        "Config/Needs/website": "tidyverse/tidytemplate",
+        "Config/testthat/edition": "3",
+        "Encoding": "UTF-8",
+        "Language": "en-US",
+        "RoxygenNote": "7.3.2",
+        "NeedsCompilation": "no",
+        "Packaged": "2024-11-12 21:58:26 UTC; garrick",
+        "Author": "Barret Schloerke [aut, cre] (<https://orcid.org/0000-0001-9986-114X>),\n  Winston Chang [aut] (<https://orcid.org/0000-0002-1576-2126>),\n  George Stagg [aut],\n  Garrick Aden-Buie [aut] (<https://orcid.org/0000-0002-7111-0077>),\n  Posit Software, PBC [cph, fnd]",
+        "Maintainer": "Barret Schloerke <barret@posit.co>",
+        "Repository": "CRAN",
+        "Date/Publication": "2024-11-12 23:10:02 UTC",
+        "Built": "R 4.4.1; ; 2024-11-18 04:36:40 UTC; unix",
+        "RemoteType": "standard",
+        "RemotePkgRef": "shinylive",
+        "RemoteRef": "shinylive",
+        "RemoteRepos": "https://cran.rstudio.com",
+        "RemoteSha": "0.3.0"
+      }
     }
   },
   "files": {
@@ -4736,6 +4852,18 @@
     "_extensions/quarto-ext/fontawesome/fontawesome.lua": {
       "checksum": "b96b9f0f722dbc75b8df3b29fd99b5e7"
     },
+    "_extensions/quarto-ext/shinylive/_extension.yml": {
+      "checksum": "9f2cddbc045da84e2f8ba82bcd02709d"
+    },
+    "_extensions/quarto-ext/shinylive/README.md": {
+      "checksum": "9de808d1d0cc8d978456d410d31cd405"
+    },
+    "_extensions/quarto-ext/shinylive/resources/css/shinylive-quarto.css": {
+      "checksum": "a66352fc1966c083966991ad27ed5800"
+    },
+    "_extensions/quarto-ext/shinylive/shinylive.lua": {
+      "checksum": "4b9a1639f5b03b582c80f7272fedca1b"
+    },
     "_extensions/shafayetShafee/line-highlight/_extension.yml": {
       "checksum": "c188888ddb0edaaaf3429a0f65dd148d"
     },
@@ -4749,19 +4877,19 @@
       "checksum": "fef279c8670d5bc267013bcceb77fea3"
     },
     "_quarto.yml": {
-      "checksum": "9ad373c217783f5053f35f8c7a775f82"
+      "checksum": "7e6de64830ea29ea99908ba8d6cabd7b"
     },
     "_site/about.html": {
-      "checksum": "2b31698c7733aa876930a3b0ca52328b"
+      "checksum": "0002867151768a1104167e8ec9db3a66"
     },
     "_site/app-inline.html": {
-      "checksum": "92e6c1408668018d51542ea684cdf1d7"
+      "checksum": "ff22e4d5ef3781897006b4a24c8c387a"
     },
     "_site/book/book-widen.css": {
       "checksum": "6258b0fb43a87b969477b8ecbf5a1e6a"
     },
     "_site/book/calculations.html": {
-      "checksum": "f98abfadc05833cbe0294c6c85115128"
+      "checksum": "ac11a252c47380cf8b06d1ebbb923412"
     },
     "_site/book/images/ath-centred.png": {
       "checksum": "52203abda0ceba57c8efe0501a58304c"
@@ -4769,41 +4897,38 @@
     "_site/book/images/Cover1.png": {
       "checksum": "1263d0193de1fd11f82ed2663d6f53dc"
     },
-    "_site/book/images/placeholder.jpg": {
-      "checksum": "20baa24a594ed04eb3718d5b8f69b0db"
+    "_site/book/images/csi-logo-medal-only.png": {
+      "checksum": "5647710afd75248b652d7246aef79a84"
     },
     "_site/book/index.html": {
-      "checksum": "f4c9a1ed48892cd38186ff711ebe308d"
-    },
-    "_site/book/intro.html": {
-      "checksum": "38e977629b794e76168eb970ed580098"
+      "checksum": "1f1d00c550d647b4935d0be08ac86e86"
     },
     "_site/book/phase1.html": {
-      "checksum": "4a4a845fd6bfc8ce0f6ce06cc5c405df"
+      "checksum": "48685411eac1e57faad8d75750bc416d"
     },
     "_site/book/phase2.html": {
-      "checksum": "8632df42dfa46909c7de152dbbc2f057"
+      "checksum": "2b13f9062f2e9bfe7aee1b7734891410"
     },
     "_site/book/phase3.html": {
-      "checksum": "769c87124c0606384129f068a94a3b34"
+      "checksum": "4c6862c18e007369497fb427393a15d4"
     },
     "_site/book/phase4.html": {
-      "checksum": "217b4e32f9361b4f0b79d31197b20d06"
+      "checksum": "cd2425344d3102f42a0dd66707a467ee"
     },
     "_site/book/phase5.html": {
-      "checksum": "194c15ad85c6f6837b2b290050e2af56"
+      "checksum": "afe45a1da80f67231cf0fe50a7af2f23"
     },
     "_site/book/preop.html": {
-      "checksum": "c4f5874c139bef5d6237ed897d1cd371"
+      "checksum": "07d5c3034223c0b4aac015f8ec0be73e"
     },
     "_site/book/references.html": {
-      "checksum": "0394b09d29f3a40391b2b8f8300c7c0a"
+      "checksum": "9ade921fbe69f991458373d0e84dd185"
     },
     "_site/book/search.json": {
-      "checksum": "aa16a4fdcf5bb8bd8e7ad59948f3099e"
+      "checksum": "06e21bfde7f0211eddcf8f0bca101fa0"
     },
-    "_site/book/site_libs/bootstrap/bootstrap-36b25867fad7fff0eda6d47947a56c7b.min.css": {
-      "checksum": "36b25867fad7fff0eda6d47947a56c7b"
+    "_site/book/site_libs/bootstrap/bootstrap-aa76d803896518748326841bcddc66e0.min.css": {
+      "checksum": "aa76d803896518748326841bcddc66e0"
     },
     "_site/book/site_libs/bootstrap/bootstrap-icons.css": {
       "checksum": "2318f137d201fbf51601fa0faba6bef7"
@@ -4850,23 +4975,47 @@
     "_site/book/site_libs/quarto-search/quarto-search.js": {
       "checksum": "bb16b7e73be13eba97c99d25b2a476b3"
     },
+    "_site/book/template.html": {
+      "checksum": "63d647a868e0132d77356059aec693b6"
+    },
+    "_site/checklists/phase0_checklist.html": {
+      "checksum": "786175c51cdc767b4c6b181acbed38fc"
+    },
     "_site/checklists/phase1_checklist.html": {
-      "checksum": "8b50696f0b44d6085dd16f58398ac865"
+      "checksum": "02129372c91535849f4fc200aa479ed8"
+    },
+    "_site/checklists/phase2_checklist.html": {
+      "checksum": "c0c288b56de04b4102e5143284bf0e42"
     },
     "_site/checklists/return_to_jump_checklist.html": {
-      "checksum": "fc4259741f3f354f8765be3266b209eb"
+      "checksum": "b7e26137ef066f748c86f15842f579c5"
     },
     "_site/checklists/return_to_run_checklist.html": {
-      "checksum": "3dbb86d3f2bd74cd6342b5916716c9fd"
+      "checksum": "76953513f13d264e4403cc1f69a1438c"
     },
     "_site/CSIP-RTP-ACL.html": {
-      "checksum": "b93c48dc0d61083fdb39a7d2e78a63f1"
+      "checksum": "41080dd82c1bf95509ccdb166f164726"
     },
     "_site/dashboard1.html": {
-      "checksum": "6d9c9fb945aec8abdd3f7f4903d1e71b"
+      "checksum": "538a916851c999034376da5832d3a6b2"
+    },
+    "_site/dashboards/dashboard1.html": {
+      "checksum": "a6a7e75fe5886ef3f7f4149a9d1b75e1"
+    },
+    "_site/dashboards/wellness_dashboard_files/figure-html/daily_monitoring-1.png": {
+      "checksum": "15c7a5105e3f35567fa01c04892aa2c4"
+    },
+    "_site/dashboards/wellness_dashboard.html": {
+      "checksum": "a7d3695b8760492b808c75b9f4a4353e"
+    },
+    "_site/fp-shiny-live.html": {
+      "checksum": "5de81ea930ab0cf488a0eb21250bdffc"
     },
     "_site/guide.html": {
-      "checksum": "a364cf66208e9bd0aeff206691dfa673"
+      "checksum": "e27ff2f3ef51805b7a3dc724b550bda1"
+    },
+    "_site/images/ak-hk.JPG": {
+      "checksum": "f0b09d14974bb4fee5122528b6d766f6"
     },
     "_site/images/csi-logo-medal-only.png": {
       "checksum": "5647710afd75248b652d7246aef79a84"
@@ -4880,26 +5029,26 @@
     "_site/images/Hayds.png": {
       "checksum": "8dffbe604cdd6945b9378be8ebfab306"
     },
-    "_site/images/M&J-76-1.jpg": {
-      "checksum": "0a9c3a4019c13ef586903923e9b2ac33"
-    },
     "_site/images/placeholder.jpg": {
       "checksum": "20baa24a594ed04eb3718d5b8f69b0db"
     },
+    "_site/index_files/figure-html/daily_monitoring-1.png": {
+      "checksum": "53f04ee5e8f307f6e293bb84284c2cee"
+    },
     "_site/index.html": {
-      "checksum": "9d8abcf195dd9e2d1c5cf34456965866"
+      "checksum": "e07112758a6bd2576ebdcee1aa06a00a"
     },
     "_site/search.json": {
-      "checksum": "83dd29e40649193cdb8640e8d01a35de"
+      "checksum": "1f2333d106fafad67e4b02a82abf9005"
+    },
+    "_site/shinylive-sw.js": {
+      "checksum": "91385ac0faf01c29c38fab73bba9d083"
     },
     "_site/site_libs/bootstrap/bootstrap-3686a456e2eb9a9bf3167159d06e54e4.min.css": {
       "checksum": "3686a456e2eb9a9bf3167159d06e54e4"
     },
     "_site/site_libs/bootstrap/bootstrap-746058c2d6c6adf83b0028beb0565e54.min.css": {
       "checksum": "746058c2d6c6adf83b0028beb0565e54"
-    },
-    "_site/site_libs/bootstrap/bootstrap-7821ad06326ef49adbc922f434a3d5ef.min.css": {
-      "checksum": "7821ad06326ef49adbc922f434a3d5ef"
     },
     "_site/site_libs/bootstrap/bootstrap-icons.css": {
       "checksum": "2318f137d201fbf51601fa0faba6bef7"
@@ -4909,6 +5058,129 @@
     },
     "_site/site_libs/bootstrap/bootstrap.min.js": {
       "checksum": "e2b09c06f0e714b6144a6788a28e3950"
+    },
+    "_site/site_libs/bslib-component-css-0.9.0/components.css": {
+      "checksum": "230ea6ca809f531f36d5180678843ba6"
+    },
+    "_site/site_libs/bslib-component-css-0.9.0/components.js": {
+      "checksum": "f7e87dc0e578c34c3ccb1009ffc51cd5"
+    },
+    "_site/site_libs/bslib-component-css-0.9.0/components.js.map": {
+      "checksum": "e26ab86e57b02dacbcae07c6717cc6b7"
+    },
+    "_site/site_libs/bslib-component-css-0.9.0/components.min.js": {
+      "checksum": "1c88d7c42b325cce3438904dc86b9e87"
+    },
+    "_site/site_libs/bslib-component-css-0.9.0/components.min.js.map": {
+      "checksum": "ea9c8ad4e9fd7d06d66443e8f933bc47"
+    },
+    "_site/site_libs/bslib-component-css-0.9.0/web-components.js": {
+      "checksum": "d74ae74ecaaf2b95ec1c5452a9bce79e"
+    },
+    "_site/site_libs/bslib-component-css-0.9.0/web-components.js.map": {
+      "checksum": "32b54dc84884507e0c27610e8bb62b8c"
+    },
+    "_site/site_libs/bslib-component-css-0.9.0/web-components.min.js": {
+      "checksum": "046b51265af7ded65acbda9926dcdf85"
+    },
+    "_site/site_libs/bslib-component-css-0.9.0/web-components.min.js.map": {
+      "checksum": "8a37d599a4405a93ef466f19109b46eb"
+    },
+    "_site/site_libs/bslib-component-css-0.9.0/webComponents/webComponents.min.js": {
+      "checksum": "e85f1edc605316b1bc4e8b862942f902"
+    },
+    "_site/site_libs/bslib-component-js-0.9.0/components.css": {
+      "checksum": "230ea6ca809f531f36d5180678843ba6"
+    },
+    "_site/site_libs/bslib-component-js-0.9.0/components.js": {
+      "checksum": "f7e87dc0e578c34c3ccb1009ffc51cd5"
+    },
+    "_site/site_libs/bslib-component-js-0.9.0/components.js.map": {
+      "checksum": "e26ab86e57b02dacbcae07c6717cc6b7"
+    },
+    "_site/site_libs/bslib-component-js-0.9.0/components.min.js": {
+      "checksum": "1c88d7c42b325cce3438904dc86b9e87"
+    },
+    "_site/site_libs/bslib-component-js-0.9.0/components.min.js.map": {
+      "checksum": "ea9c8ad4e9fd7d06d66443e8f933bc47"
+    },
+    "_site/site_libs/bslib-component-js-0.9.0/web-components.js": {
+      "checksum": "d74ae74ecaaf2b95ec1c5452a9bce79e"
+    },
+    "_site/site_libs/bslib-component-js-0.9.0/web-components.js.map": {
+      "checksum": "32b54dc84884507e0c27610e8bb62b8c"
+    },
+    "_site/site_libs/bslib-component-js-0.9.0/web-components.min.js": {
+      "checksum": "046b51265af7ded65acbda9926dcdf85"
+    },
+    "_site/site_libs/bslib-component-js-0.9.0/web-components.min.js.map": {
+      "checksum": "8a37d599a4405a93ef466f19109b46eb"
+    },
+    "_site/site_libs/bslib-component-js-0.9.0/webComponents/webComponents.min.js": {
+      "checksum": "e85f1edc605316b1bc4e8b862942f902"
+    },
+    "_site/site_libs/bslib-tag-require-0.9.0/dist/components.css": {
+      "checksum": "230ea6ca809f531f36d5180678843ba6"
+    },
+    "_site/site_libs/bslib-tag-require-0.9.0/dist/components.js": {
+      "checksum": "f7e87dc0e578c34c3ccb1009ffc51cd5"
+    },
+    "_site/site_libs/bslib-tag-require-0.9.0/dist/components.js.map": {
+      "checksum": "e26ab86e57b02dacbcae07c6717cc6b7"
+    },
+    "_site/site_libs/bslib-tag-require-0.9.0/dist/components.min.js": {
+      "checksum": "1c88d7c42b325cce3438904dc86b9e87"
+    },
+    "_site/site_libs/bslib-tag-require-0.9.0/dist/components.min.js.map": {
+      "checksum": "ea9c8ad4e9fd7d06d66443e8f933bc47"
+    },
+    "_site/site_libs/bslib-tag-require-0.9.0/dist/web-components.js": {
+      "checksum": "d74ae74ecaaf2b95ec1c5452a9bce79e"
+    },
+    "_site/site_libs/bslib-tag-require-0.9.0/dist/web-components.js.map": {
+      "checksum": "32b54dc84884507e0c27610e8bb62b8c"
+    },
+    "_site/site_libs/bslib-tag-require-0.9.0/dist/web-components.min.js": {
+      "checksum": "046b51265af7ded65acbda9926dcdf85"
+    },
+    "_site/site_libs/bslib-tag-require-0.9.0/dist/web-components.min.js.map": {
+      "checksum": "8a37d599a4405a93ef466f19109b46eb"
+    },
+    "_site/site_libs/bslib-tag-require-0.9.0/dist/webComponents/webComponents.min.js": {
+      "checksum": "e85f1edc605316b1bc4e8b862942f902"
+    },
+    "_site/site_libs/bslib-tag-require-0.9.0/scss/accordion.scss": {
+      "checksum": "c36c8dd15af675fdc1922c6867f49dd9"
+    },
+    "_site/site_libs/bslib-tag-require-0.9.0/scss/card.scss": {
+      "checksum": "51a0a2a1e2ba67a1b81891e45c75512a"
+    },
+    "_site/site_libs/bslib-tag-require-0.9.0/scss/grid.scss": {
+      "checksum": "5931900535aff07f26029226c5860456"
+    },
+    "_site/site_libs/bslib-tag-require-0.9.0/scss/mixins/_mixins.scss": {
+      "checksum": "fa3179d6224ec29b2a6682e1b965ca7f"
+    },
+    "_site/site_libs/bslib-tag-require-0.9.0/scss/nav_spacer.scss": {
+      "checksum": "efb5c329dfd6d8b84b0c15f3c482865d"
+    },
+    "_site/site_libs/bslib-tag-require-0.9.0/scss/page_fillable.scss": {
+      "checksum": "5c2f9982d9e54c6fbe5ca93b1a294341"
+    },
+    "_site/site_libs/bslib-tag-require-0.9.0/scss/page_navbar.scss": {
+      "checksum": "fa7b480a000d24299fde710ff17490ad"
+    },
+    "_site/site_libs/bslib-tag-require-0.9.0/scss/page_sidebar.scss": {
+      "checksum": "6d2baf3ceacb7d61acafea99a8644e3f"
+    },
+    "_site/site_libs/bslib-tag-require-0.9.0/scss/sidebar.scss": {
+      "checksum": "b9ad1bece44dcab337d7cbaa0682037d"
+    },
+    "_site/site_libs/bslib-tag-require-0.9.0/scss/value_box.scss": {
+      "checksum": "da6401de4c00d4cf498c605f99f7d9ed"
+    },
+    "_site/site_libs/bslib-tag-require-0.9.0/tag-require.js": {
+      "checksum": "b73cab5df5e3e56f7aad1f23cf0f4674"
     },
     "_site/site_libs/clipboard/clipboard.min.js": {
       "checksum": "15f52a1ee547f2bdd46e56747332ca2d"
@@ -4932,6 +5204,9 @@
       "checksum": "e5410240dcb4f51691eab5f9a62720d7"
     },
     "_site/site_libs/htmltools-fill-0.5.8.1/fill.css": {
+      "checksum": "0c307b2ce7a3fa7f260a0451457c809f"
+    },
+    "_site/site_libs/htmltools-fill-0.5.9/fill.css": {
       "checksum": "0c307b2ce7a3fa7f260a0451457c809f"
     },
     "_site/site_libs/htmlwidgets-1.6.4/htmlwidgets.js": {
@@ -5030,6 +5305,870 @@
     "_site/site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js": {
       "checksum": "7325cffc324d9cc6b9346d56bca388fd"
     },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive-sw.js": {
+      "checksum": "91385ac0faf01c29c38fab73bba9d083"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/browser-OYYBATHK.js": {
+      "checksum": "bd01b2dc4d81e19efd12916e62666395"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/browser-YJT5PK6V.js": {
+      "checksum": "28ee6a9b82141a566083aaa2fb3ceea6"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/chunk-O5P2LFOG.js": {
+      "checksum": "9e5a9602e7526ff41074958eeb0afe13"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/chunk-PHWSSKUM.js": {
+      "checksum": "9e2c04e3ce832f1bef86bdf82cc5f563"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/Editor.css": {
+      "checksum": "ac1198334af86cb000fe073c550bd74a"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/Editor.js": {
+      "checksum": "c8b2465c79ef2a63b7ccd5002c51934b"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/load-shinylive-sw.js": {
+      "checksum": "ef2a90c98a9716e0988b1a31bbfad2e9"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/lzstring-worker.js": {
+      "checksum": "5c9d533a54fae07d12252ec314fd0bc4"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/pyodide-worker.js": {
+      "checksum": "32ed2f512a3484fbe4ed801c5c9a9518"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/run-python-blocks.js": {
+      "checksum": "284bce30428215fc78b40e87d87751c9"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/shinylive.css": {
+      "checksum": "2191f7bef7b5af50ba71a7e7c8b099e6"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/shinylive.js": {
+      "checksum": "111617451cf5fa791943e2fd8be3523b"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/SourceSansPro-Regular.otf-PVQ5ZP77.woff2": {
+      "checksum": "0448fda3606e6dc571f763223e78861a"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/style-resets.css": {
+      "checksum": "326179a3af08325314a9f92ef53b7b20"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/esbuild.d.ts": {
+      "checksum": "e2ebd7ddedcadeeadbf819c35985c768"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/library.data.gz": {
+      "checksum": "3fd7111f335906871c37a3deaca4ddf0"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/library.js.metadata": {
+      "checksum": "22c3351a15690195ae61d17e0a1b851f"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/libRblas.so": {
+      "checksum": "95d021b4cd5f74a6abbee092a2de30bc"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/libRlapack.so": {
+      "checksum": "2061ea193621976d961a0421ef431f56"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/askpass/askpass_1.2.1.tgz": {
+      "checksum": "4bb29b1c801ac5af1fbe13c4d533b2ec"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/backports/backports_1.5.0.tgz": {
+      "checksum": "1c29aa70186f77c152738bf214225c72"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/bit/bit_4.6.0.tgz": {
+      "checksum": "09a194d817ee654c8d0ae5113234e9ee"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/bit64/bit64_4.6.0-1.tgz": {
+      "checksum": "3b80c9c8d2f78fb2567110a3c814aabe"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/blob/blob_1.2.4.tgz": {
+      "checksum": "a2a3b6e8c2737726f16280e9a8581bde"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/broom/broom_1.0.8.tgz": {
+      "checksum": "c73447a3b74b0fbd476ed29fef09011d"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/callr/callr_3.7.6.tgz": {
+      "checksum": "fd07c6218f41c5f5a4bfce69e374171b"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/cellranger/cellranger_1.1.0.tgz": {
+      "checksum": "10bcb497e699efd8732dde9fc655bcb4"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/clipr/clipr_0.8.0.tgz": {
+      "checksum": "4856b6281055c6c098007fad141c2eed"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/conflicted/conflicted_1.2.0.tgz": {
+      "checksum": "db769169f276600547cc55c4000c90ae"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/crayon/crayon_1.5.3.tgz": {
+      "checksum": "59a2c586d4dc6c2c1dc40b5a5029aca7"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/crosstalk/crosstalk_1.2.1.tgz": {
+      "checksum": "693f7638cd7e833cab5fe1158c6c6180"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/data.table/data.table_1.17.0.tgz": {
+      "checksum": "fe1ae4104e85a263300df75585f9458d"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/DBI/DBI_1.2.3.tgz": {
+      "checksum": "a9e067751b0d2aa61efdf78deea03443"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/dbplyr/dbplyr_2.5.0.tgz": {
+      "checksum": "5b3e3b83b2b96ead584c776d637df20e"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/dplyr/dplyr_1.1.4.tgz": {
+      "checksum": "234970f116f17152c1ee859863f20770"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/dtplyr/dtplyr_1.3.1.tgz": {
+      "checksum": "826b3850b47b08d5a2aa24a419bb1316"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/evaluate/evaluate_1.0.3.tgz": {
+      "checksum": "978e4450cf81041a071af20d3ab80421"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/farver/farver_2.1.2.tgz": {
+      "checksum": "15206caf29b29518bf058972c157eb3c"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/forcats/forcats_1.0.0.tgz": {
+      "checksum": "a259fadb6c25331c82579e91d43151e2"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/gargle/gargle_1.5.2.tgz": {
+      "checksum": "8d82f3d6d059bceead73d80b65f80fed"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/generics/generics_0.1.3.tgz": {
+      "checksum": "7ea35b0a5c08bf06fe9d3a45add2be8f"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/ggplot2/ggplot2_3.5.2.tgz": {
+      "checksum": "53dbe17f9feb7396e1e5f3ac6bd333d6"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/googledrive/googledrive_2.1.1.tgz": {
+      "checksum": "d17a053a0197312e87a69aa06ecbd66c"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/googlesheets4/googlesheets4_1.1.1.tgz": {
+      "checksum": "65908b3a0bb7849d0c5e9514e4e86ec6"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/gtable/gtable_0.3.6.tgz": {
+      "checksum": "99438dff298deaf9055ae5b0aba66a17"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/haven/haven_2.5.4.tgz": {
+      "checksum": "ed71cca4c6aba60b69dd02ff6c4c5d97"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/highr/highr_0.11.tgz": {
+      "checksum": "1686e200d41415cac82328d42f1dd839"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/hms/hms_1.1.3.tgz": {
+      "checksum": "09cd5b1a155d451190ec799525f11741"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/htmlwidgets/htmlwidgets_1.6.4.tgz": {
+      "checksum": "7d1da06e144b8be3911b837b29a58337"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/httr/httr_1.4.7.tgz": {
+      "checksum": "fe3b062b40a2e426d5eb6896ac0bbf89"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/ids/ids_1.0.1.tgz": {
+      "checksum": "1e53618f1a8a9766aefa927caafe9d8a"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/isoband/isoband_0.2.7.tgz": {
+      "checksum": "33c42644bdacd6c047cc096a6fc3534f"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/janitor/janitor_2.2.1.tgz": {
+      "checksum": "52808949921ce6102233023704ec31e8"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/knitr/knitr_1.50.tgz": {
+      "checksum": "dd42c547475f975d4ca8a86dcec93832"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/labeling/labeling_0.4.3.tgz": {
+      "checksum": "c6b7cb041c84b93abf349cae31dbe731"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/lattice/lattice_0.22-7.tgz": {
+      "checksum": "8ec1110875c9197ed66dab57d3a53e00"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/lazyeval/lazyeval_0.2.2.tgz": {
+      "checksum": "c699c93ef2d75f7903a8c414073da852"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/lubridate/lubridate_1.9.4.tgz": {
+      "checksum": "a129b1bda587a92e23bbaa6f5099f16f"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/MASS/MASS_7.3-65.tgz": {
+      "checksum": "80f14900e972d3dd1905f20e32a9df8c"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/Matrix/Matrix_1.7-3.tgz": {
+      "checksum": "f7b214f3659975853b0f0c2174ec30a0"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/metadata.rds": {
+      "checksum": "6642c27bf1f2a21406a7233638c7a134"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/mgcv/mgcv_1.9-3.tgz": {
+      "checksum": "10dac5a6057f6ce89cf9d094e14a4f26"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/modelr/modelr_0.1.11.tgz": {
+      "checksum": "a6c9c1ec23fd488f74ec15bdf6bd3074"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/nlme/nlme_3.1-168.tgz": {
+      "checksum": "43ccbf62e9fdda04829543b6ae84cbde"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/openssl/openssl_2.3.2.tgz": {
+      "checksum": "dcec0a49e4594e1850c8d6eab9662db1"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/pillar/pillar_1.10.2.tgz": {
+      "checksum": "8b3adf1d1681252ef78cd8ec905f74a1"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/pkgconfig/pkgconfig_2.0.3.tgz": {
+      "checksum": "8ced9ddc8205b9302be9494462f2aaa2"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/plotly/plotly_4.10.4.tgz": {
+      "checksum": "cc5edb31b0fbbaee6c6d740710f8883b"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/processx/processx_3.8.6.tgz": {
+      "checksum": "fc0fb78e882068cd0980e9837d4e9aaa"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/ps/ps_1.9.1.tgz": {
+      "checksum": "83d0b7f194e791ecb178da43b78141f9"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/purrr/purrr_1.0.4.tgz": {
+      "checksum": "4a3c5c06f9ef0e678725b681fa8353c6"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/ragg/ragg_1.4.0.tgz": {
+      "checksum": "4c1594c0f10b4ace6efe2906621099fc"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/RColorBrewer/RColorBrewer_1.1-3.tgz": {
+      "checksum": "07afe0eae5baabe6983d0b0a6d1b3327"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/readr/readr_2.1.5.tgz": {
+      "checksum": "9fc4b37ad8ed142ae8c0cb5db24ec19a"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/readxl/readxl_1.4.5.tgz": {
+      "checksum": "033ab671608a6b6eaef725637c78551d"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/rematch/rematch_2.0.0.tgz": {
+      "checksum": "2de253f5c4b7499804cf20c66ae542de"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/rematch2/rematch2_2.1.2.tgz": {
+      "checksum": "a1ee193b4f2b0a1bbd0690b239ee5a9a"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/reprex/reprex_2.1.1.tgz": {
+      "checksum": "e210fffcfa75e822fb9f9502190ef232"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/rmarkdown/rmarkdown_2.29.tgz": {
+      "checksum": "e187089761a8c486cbaa5a60ca5b76dc"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/rstudioapi/rstudioapi_0.17.1.tgz": {
+      "checksum": "e412f043e0a1ce036b15a4580e590c01"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/rvest/rvest_1.0.4.tgz": {
+      "checksum": "d1e7afb5ec0f216e888b63e32f18b417"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/S7/S7_0.2.0.tgz": {
+      "checksum": "6f32170db124ce322cc761a67eb8f2bb"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/scales/scales_1.3.0.tgz": {
+      "checksum": "484b04a0818c3df99a6b096687e9c564"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/selectr/selectr_0.4-2.tgz": {
+      "checksum": "37111316d441d9b680c1f1c4072d672c"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/snakecase/snakecase_0.11.1.tgz": {
+      "checksum": "402a4a50aea916bc42755a60ca72dfea"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/stringi/stringi_1.8.7.tgz": {
+      "checksum": "6358733c3e8cf26b2af7a7e79c06f52c"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/stringr/stringr_1.5.1.tgz": {
+      "checksum": "cdc7e8f63d604e78d8fda5728ad7bc48"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/sys/sys_3.4.3.tgz": {
+      "checksum": "695d4e5503fb0b48fdb23b3d05a08daa"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/systemfonts/systemfonts_1.2.2.tgz": {
+      "checksum": "87a7aaf3ccd7dab62c3f374d16a638f4"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/textshaping/textshaping_0.4.0.tgz": {
+      "checksum": "db57c13dea052a9686310c322acc5a06"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/tibble/tibble_3.2.1.tgz": {
+      "checksum": "f260889ac236343961aa5824c1d3b9ee"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/tidyr/tidyr_1.3.1.tgz": {
+      "checksum": "2f47b130b934853b59fa5602e195ca40"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/tidyselect/tidyselect_1.2.1.tgz": {
+      "checksum": "005e0028782975e3432424bc448f3bf6"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/tidyverse/tidyverse_2.0.0.tgz": {
+      "checksum": "cac95f8b03443a909e8c513dbeb2a077"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/timechange/timechange_0.3.0.tgz": {
+      "checksum": "2680cf2a04f8d05134c6ae4962766a24"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/tinytex/tinytex_0.57.tgz": {
+      "checksum": "f0d6f0e848620cf096fd5fbb2c292988"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/tzdb/tzdb_0.5.0.tgz": {
+      "checksum": "c97efddfb3a53a0b72b7dd98d30c842f"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/utf8/utf8_1.2.4.tgz": {
+      "checksum": "6eb30bbf4142440deaa6d676f150f03e"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/uuid/uuid_1.2-1.tgz": {
+      "checksum": "941f93b708930e680ea1e03718ab6cc0"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/vctrs/vctrs_0.6.5.tgz": {
+      "checksum": "7b6dc0410742c8ee27832b49bc5a3892"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/viridisLite/viridisLite_0.4.2.tgz": {
+      "checksum": "d76da663236e1e334625a4a75e797e1a"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/vroom/vroom_1.6.5.9000.tgz": {
+      "checksum": "e5c1dd1ea2b6012f9a7931c46ffcedae"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/xfun/xfun_0.52.tgz": {
+      "checksum": "a3918333bb0d419f0562be077719ba7a"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/xml2/xml2_1.3.6.tgz": {
+      "checksum": "2f180ae8cf4847108a50324032c5f6f4"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/packages/yaml/yaml_2.3.10.tgz": {
+      "checksum": "ac57ec9431c0df88a1acdbe8a8a8fa3b"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/R.bin.js": {
+      "checksum": "3f848b680dabe7729891d8e31fde39df"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/R.bin.js.bak": {
+      "checksum": "fb9b34092c91cbf78da454c851abd4ab"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/R.bin.wasm": {
+      "checksum": "65c0bb88e8bb52d4abd72d65d08c350a"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/repl/App.d.ts": {
+      "checksum": "6f52674a713dc1a91ec7ceb6661ae83f"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/repl/components/Editor.d.ts": {
+      "checksum": "1600d80cccab2f3d43742373e9e605f3"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/repl/components/Files.d.ts": {
+      "checksum": "85184877fbba6a5cf7cdeac40f2698b1"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/repl/components/Plot.d.ts": {
+      "checksum": "132d88e78dac188518bfc3e9805e635d"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/repl/components/Terminal.d.ts": {
+      "checksum": "1848af6209f7312499f43197fdaf5ac7"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/repl/components/utils.d.ts": {
+      "checksum": "b9f9171cc64739ca15d789bbf6529271"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/tests/packages/webr.test.d.ts": {
+      "checksum": "e2ebd7ddedcadeeadbf819c35985c768"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/tests/webR/chan/channel-postmessage.test.d.ts": {
+      "checksum": "e2ebd7ddedcadeeadbf819c35985c768"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/tests/webR/console.test.d.ts": {
+      "checksum": "e2ebd7ddedcadeeadbf819c35985c768"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/tests/webR/error.test.d.ts": {
+      "checksum": "e2ebd7ddedcadeeadbf819c35985c768"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/tests/webR/mount.test.d.ts": {
+      "checksum": "e2ebd7ddedcadeeadbf819c35985c768"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/tests/webR/proxy.test.d.ts": {
+      "checksum": "e2ebd7ddedcadeeadbf819c35985c768"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/tests/webR/robj.test.d.ts": {
+      "checksum": "e2ebd7ddedcadeeadbf819c35985c768"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/tests/webR/utils.test.d.ts": {
+      "checksum": "e2ebd7ddedcadeeadbf819c35985c768"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/tests/webR/webr-main.test.d.ts": {
+      "checksum": "e2ebd7ddedcadeeadbf819c35985c768"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/tests/webR/webr-r.test.d.ts": {
+      "checksum": "e2ebd7ddedcadeeadbf819c35985c768"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/tests/webR/webr-worker.test.d.ts": {
+      "checksum": "e2ebd7ddedcadeeadbf819c35985c768"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/etc/fonts/fonts.conf": {
+      "checksum": "6300427804c4677462c2b187d9e2d3d3"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/doc.data.gz": {
+      "checksum": "189bf90daf482045c04d29c78fc3efa1"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/doc.js.metadata": {
+      "checksum": "a747595f2c53bcba0c57a0c1534499a3"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/base/demo.data.gz": {
+      "checksum": "079e9d73453dcd1ea1f860226498a417"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/base/demo.js.metadata": {
+      "checksum": "bf73c10ef38977281a0a823054ff08ab"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/base/help.data.gz": {
+      "checksum": "1e948c99be12b0befdc5715f6834a16f"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/base/help.js.metadata": {
+      "checksum": "7821f4c7805e6a2fe5e91cb51dc090c4"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/base/html.data.gz": {
+      "checksum": "f425bcccc2d94280957d57180f9b2a59"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/base/html.js.metadata": {
+      "checksum": "7ba454753f5b85cac74f2b66b97c8247"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/compiler/help.data.gz": {
+      "checksum": "892f3f5a74e34a7b5005bea4ffa9893d"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/compiler/help.js.metadata": {
+      "checksum": "03fadda87f6131bf311bd0f99b3d2636"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/compiler/html.data.gz": {
+      "checksum": "bb156e5e7524e9ca72bc5aa0c7d30bc2"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/compiler/html.js.metadata": {
+      "checksum": "1af0681672853159028ccdbaecd4433d"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/compiler/tests.data.gz": {
+      "checksum": "51f97dcedd30c0e72f37adabedcf79d8"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/compiler/tests.js.metadata": {
+      "checksum": "1868ff2023f0a715f586b0b997323536"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/datasets/help.data.gz": {
+      "checksum": "6aac044f9f08247f662e0ed2d869196f"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/datasets/help.js.metadata": {
+      "checksum": "216cc330dc992bbdbafe6d0fcfb71eec"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/datasets/html.data.gz": {
+      "checksum": "d2423df8ff4acc40625aa656441f9d22"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/datasets/html.js.metadata": {
+      "checksum": "710992e6c0e35f1fa2cb427caa7ddc33"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/graphics/demo.data.gz": {
+      "checksum": "a77fea69b2a3ac26c42a4bc5e53e4158"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/graphics/demo.js.metadata": {
+      "checksum": "641dd3b6e318c9bd7cd044a7a96735c9"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/graphics/help.data.gz": {
+      "checksum": "a0b8a84e305c9c6431f85b0d5d6423bb"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/graphics/help.js.metadata": {
+      "checksum": "fd3d6c396163ddef881566c315b0b91f"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/graphics/html.data.gz": {
+      "checksum": "892c9f0de89ebacf39417aec1721c5a5"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/graphics/html.js.metadata": {
+      "checksum": "eaa7381c21f495d1e2a0d0b2a2a19a02"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/grDevices/afm.data.gz": {
+      "checksum": "df161062d0d89fe9c8750b95603eb414"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/grDevices/afm.js.metadata": {
+      "checksum": "9cba9a4535baef593b96eed0003bc03d"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/grDevices/demo.data.gz": {
+      "checksum": "9dc9ce1b8e0be41a01d0c47665420b90"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/grDevices/demo.js.metadata": {
+      "checksum": "8883d9a5770c131cd37e491a66d5f2d9"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/grDevices/enc.data.gz": {
+      "checksum": "a6d8fe92dffe9e6b562e731189119253"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/grDevices/enc.js.metadata": {
+      "checksum": "516864001be8080cb4e938bcfeb1366f"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/grDevices/fonts.data.gz": {
+      "checksum": "daa6e78e427d8ffceb3fb6852b7756b0"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/grDevices/fonts.js.metadata": {
+      "checksum": "7b3727b93d155fd5770e87539d88fa45"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/grDevices/help.data.gz": {
+      "checksum": "5fe1c4e943cca31575fb8d58558f672f"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/grDevices/help.js.metadata": {
+      "checksum": "c84d442aacf0391a80bf932f2cea4b17"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/grDevices/html.data.gz": {
+      "checksum": "7b1d130c5132c7e6b694ba530113f749"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/grDevices/html.js.metadata": {
+      "checksum": "a00fc1598449bf5fed1b8d1144911544"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/grDevices/libs.data.gz": {
+      "checksum": "b6bee4ccc1199b69c68d861caeb4f0d3"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/grDevices/libs.js.metadata": {
+      "checksum": "e441f909946d13ea1a9a290af577c64b"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/grDevices/tests.data.gz": {
+      "checksum": "5291b3572f9586c9f4f19d3bb0886c32"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/grDevices/tests.js.metadata": {
+      "checksum": "4f7ebfcae6fdfbf210bacfb13bf11ca6"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/grid/doc.data.gz": {
+      "checksum": "2bd0664745ef82a32fec3a48443f51f8"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/grid/doc.js.metadata": {
+      "checksum": "6b2e9947c2bdf1fab22b0d8c6fae1503"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/grid/help.data.gz": {
+      "checksum": "3feb6f1df71b8c5a5ba4ae91ce380d67"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/grid/help.js.metadata": {
+      "checksum": "734d1214108f1d703da68c5ee060d623"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/grid/html.data.gz": {
+      "checksum": "f1e5c78d950f42b934035adf28ec04a1"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/grid/html.js.metadata": {
+      "checksum": "b67fe52dc201a1bb07292047aba4fd77"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/grid/tests.data.gz": {
+      "checksum": "df15969c564c2b8345c1c70847f47801"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/grid/tests.js.metadata": {
+      "checksum": "08fe5a2551197285584345a51d8c2acf"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/methods/help.data.gz": {
+      "checksum": "e65076512220527f7711ffa2981eba2e"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/methods/help.js.metadata": {
+      "checksum": "2240c33147f18682592c6868194635f8"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/methods/html.data.gz": {
+      "checksum": "e39b1c6e8a0a1f50815046f4e2fc916e"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/methods/html.js.metadata": {
+      "checksum": "8f39d45134f44a72b97a909ad582543c"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/methods/tests.data.gz": {
+      "checksum": "9285d6323510ab932c29a50768d5c921"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/methods/tests.js.metadata": {
+      "checksum": "e8b3513f6be14ab96d6f1ae38d2edf15"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/parallel.data.gz": {
+      "checksum": "c9a5c9c835fb279ccacb099d4e99b291"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/parallel.js.metadata": {
+      "checksum": "18f67a0b32d58e57fb0fb3ca4269d5eb"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/splines/help.data.gz": {
+      "checksum": "aa11e5368abe19cf238b8c2bfc31e3df"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/splines/help.js.metadata": {
+      "checksum": "1785274cf08329875a1874aac92f7cf8"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/splines/html.data.gz": {
+      "checksum": "609ff8b7f011f13778022d94fa6c2ff1"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/splines/html.js.metadata": {
+      "checksum": "23de4b5bbae29ac86d2109caefa041da"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/splines/tests.data.gz": {
+      "checksum": "ab09685305595a2e40acf3079b90750b"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/splines/tests.js.metadata": {
+      "checksum": "a0c414570cc4738b41a96d5dfd654c25"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/stats/demo.data.gz": {
+      "checksum": "c2583264c4a28cb8177917fe0cd49d7e"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/stats/demo.js.metadata": {
+      "checksum": "84af5ae1632e5e6b4a99991e670c8664"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/stats/help.data.gz": {
+      "checksum": "77fdf8728cdcc04d9d0158dbe812de34"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/stats/help.js.metadata": {
+      "checksum": "396344b6b9eb2f33df4f306bb67e16e0"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/stats/html.data.gz": {
+      "checksum": "d93193a37fac766915c5043690bc7c5a"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/stats/html.js.metadata": {
+      "checksum": "c6d3e1209d8bb2346e4ccbaee02bb1f7"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/stats/tests.data.gz": {
+      "checksum": "f4989f477b7fa6cfcfc9de9e11448a91"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/stats/tests.js.metadata": {
+      "checksum": "9c2e24ce4bfddc081e54a338e201a9f5"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/stats4/help.data.gz": {
+      "checksum": "07575676825ac21e03a81110e0a0b1ea"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/stats4/help.js.metadata": {
+      "checksum": "0d6776e8af33b5c341739cfd73ae1f1d"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/stats4/html.data.gz": {
+      "checksum": "71b6b1202a6dec656914d0d258b48c3e"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/stats4/html.js.metadata": {
+      "checksum": "70df2ee502fe990362b1fba5174c96fd"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/stats4/tests.data.gz": {
+      "checksum": "c7f001b4ef53b5c7e67379dc0f0c659a"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/stats4/tests.js.metadata": {
+      "checksum": "73be0b9593e90df45b9c9a2aaf482944"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/tcltk.data.gz": {
+      "checksum": "332db24b1aeae594172e76c773e8f7c8"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/tcltk.js.metadata": {
+      "checksum": "4938018ba3b0408125c981b463559687"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/tools/help.data.gz": {
+      "checksum": "07008792bfd607da56dc1e999b1f2ef4"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/tools/help.js.metadata": {
+      "checksum": "662db5c182af2f5ec73a9ce034b630dd"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/tools/html.data.gz": {
+      "checksum": "d48125a763a53c776c80ce9dc52fd07e"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/tools/html.js.metadata": {
+      "checksum": "cb1fcd61384800f6946a8a4906147029"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/tools/tests.data.gz": {
+      "checksum": "d777249e7345568df27e21c8725d495f"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/tools/tests.js.metadata": {
+      "checksum": "e4af7723e1ac91fd4806cb79170f5b29"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/translations.data.gz": {
+      "checksum": "965786e65d3832ede577a60cd62db45f"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/translations.js.metadata": {
+      "checksum": "6129faae22842c1e952292bc648c969c"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/translations/DESCRIPTION": {
+      "checksum": "8c74fc51c182b93b45d7c801202cb889"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/utils/doc.data.gz": {
+      "checksum": "f5b7b9b59b10d25ab6c4e50e54c62c43"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/utils/doc.js.metadata": {
+      "checksum": "f6447a41d69b94c4f927b3679a37f083"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/utils/help.data.gz": {
+      "checksum": "e7fd6f7b1dcac046ecd5e4ddaa6a806b"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/utils/help.js.metadata": {
+      "checksum": "3f8de1d5bc5e73e5a473c299fd6bb0f1"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/utils/html.data.gz": {
+      "checksum": "3f98a63d008ffe03e0d86b12b302103d"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/utils/html.js.metadata": {
+      "checksum": "64c759721282356f80bb4d9207345d83"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/utils/misc.data.gz": {
+      "checksum": "ef83c5b22ee9c1ca2f7005fd8ecf3573"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/utils/misc.js.metadata": {
+      "checksum": "231cffe9bf0512b4d9c176905a34b29a"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/utils/tests.data.gz": {
+      "checksum": "841f327e5a68871acee4808794558805"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/utils/tests.js.metadata": {
+      "checksum": "a7ad4b7ae6304dafa090f47ceca16654"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/webr/help.data.gz": {
+      "checksum": "e80faaaa1ff33aa0dc04c8d4382a8497"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/webr/help.js.metadata": {
+      "checksum": "4dce600d60577106591348a2bef788a3"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/webr/html.data.gz": {
+      "checksum": "2764ca8b9fd90daca2676fc3c5cce64c"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/library/webr/html.js.metadata": {
+      "checksum": "c0caed8b8a6aba675811429c0377791b"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/share.data.gz": {
+      "checksum": "dcf0d1622c26f86c04d467cf60850b74"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/share.js.metadata": {
+      "checksum": "880528e2b90aa47ff60af9b5eea3e3d7"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/tests.data.gz": {
+      "checksum": "d99a8113a290a49f3c47096fb0baf095"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/lib/R/tests.js.metadata": {
+      "checksum": "24cd1ba3bb93e0aa2e56659ca4868c86"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/share/fonts/NotoSans-Bold.ttf": {
+      "checksum": "5959e861b45905afb3f5659b66e5a43b"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/share/fonts/NotoSans-BoldItalic.ttf": {
+      "checksum": "258746b7854392bcfd5531c3110674a1"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/share/fonts/NotoSans-Italic.ttf": {
+      "checksum": "b650143d06ff517e7482b6cbecb057b7"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/share/fonts/NotoSans-Regular.ttf": {
+      "checksum": "556ad26a9ff8afce0ea47896b298f4bf"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/share/fonts/NotoSansMono-Bold.ttf": {
+      "checksum": "e03f7c60925be06f6037ab22ceef6534"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/share/fonts/NotoSansMono-Regular.ttf": {
+      "checksum": "76bc9dee5de9d62cf1fff05a85b6d463"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/share/fonts/NotoSerif-Bold.ttf": {
+      "checksum": "ffdf273d3e86678a428bfe16de5793e5"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/share/fonts/NotoSerif-BoldItalic.ttf": {
+      "checksum": "0036797788d93b0f0cae86eec0040b1b"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/share/fonts/NotoSerif-Italic.ttf": {
+      "checksum": "4c488bfae3b56f7f85ddd8af6829accc"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/share/fonts/NotoSerif-Regular.ttf": {
+      "checksum": "788141e28255aec7da6d1f5444ddad4c"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/share/gdal.data.gz": {
+      "checksum": "27c43c9d7827dd67c6f388c8e830038c"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/share/gdal.js.metadata": {
+      "checksum": "40b6850183b35a195464ad6080f62917"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/share/proj.data.gz": {
+      "checksum": "834c143058be217e670c48ce1e77e206"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/share/proj.js.metadata": {
+      "checksum": "2e9339010891c4cb0323d7e6f667ff6b"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/share/udunits.data.gz": {
+      "checksum": "f8f64c29a93a151378929b6c882a7238"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/usr/share/udunits.js.metadata": {
+      "checksum": "6ee5406e67a645a811abd58df92bd11f"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/var/cache/fontconfig/3830d5c3ddfd5cd38a049b759396e72e-le32d8.cache-7": {
+      "checksum": "51aeeb054a5fd6fe2fe2a8d7a932210b"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/vfs/var/cache/fontconfig/CACHEDIR.TAG": {
+      "checksum": "edad2301cde055e29b0d30b8d2f4b724"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/webr-serviceworker.js": {
+      "checksum": "6876da0f1da4919269b12939fbf31674"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/webr-serviceworker.js.map": {
+      "checksum": "a55aef60b46af74b1411d95d8ad4d6d6"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/webr-serviceworker.mjs": {
+      "checksum": "6353b631c6f6b280eca93a4f41bd4d80"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/webr-serviceworker.mjs.map": {
+      "checksum": "8ecb29b11c5f163ab392598321386c28"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/webr-worker.js": {
+      "checksum": "240bb8f5a8f471bcb001321a70f1b689"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/webr-worker.js.map": {
+      "checksum": "bd2f258304702c1299c294db28d6ebb1"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/webr.cjs": {
+      "checksum": "0e48a22131473014da8d8f908c5239cf"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/webr.cjs.map": {
+      "checksum": "5f127717f06f47da540986cf752ce4dc"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/webr.mjs": {
+      "checksum": "f300831240837ff242f2e8ddfd691a40"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/webr.mjs.map": {
+      "checksum": "e27293bf312150fc231ca6c7fd649591"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/webR/chan/channel-common.d.ts": {
+      "checksum": "fec049491a432f1ccbf3ce024bba3baa"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/webR/chan/channel-postmessage.d.ts": {
+      "checksum": "c6a8f78fab628134b7180ff5e59a4f64"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/webR/chan/channel-service.d.ts": {
+      "checksum": "6b35591f5de7e812bf9227d55a8b35e4"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/webR/chan/channel-shared.d.ts": {
+      "checksum": "e56a605f994592473e1c84ec5f58800c"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/webR/chan/channel.d.ts": {
+      "checksum": "ae565b837db4ae87ba2152b9d961eb22"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/webR/chan/message.d.ts": {
+      "checksum": "7705b5d065fc7c9ec24c5906bcb3e1e9"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/webR/chan/queue.d.ts": {
+      "checksum": "88820d2b2237896b22d15da0bb8246ea"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/webR/chan/serviceworker.d.ts": {
+      "checksum": "6d929e5cd8ad392cfa10734d88c25d67"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/webR/chan/task-common.d.ts": {
+      "checksum": "5bec41a29d2b750b509fcc4f8a1ed1e0"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/webR/chan/task-main.d.ts": {
+      "checksum": "f6f605da203f29469a5b4d38b2c0bcce"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/webR/chan/task-worker.d.ts": {
+      "checksum": "cf6b12ffd3797cb9303bbd190351eb4b"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/webR/compat.d.ts": {
+      "checksum": "33eda8bd4455ab1b10c7e580db558f45"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/webR/config.d.ts": {
+      "checksum": "1b90f65c821aed4f4b94346b627b8f61"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/webR/console.d.ts": {
+      "checksum": "591c23a125e11dcf3dd2e959cfdc06b9"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/webR/emscripten.d.ts": {
+      "checksum": "53e2792c2840ac195fcddc418a1e92cf"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/webR/error.d.ts": {
+      "checksum": "f6ab6e58de6eb63a7d7b16aaa48be714"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/webR/mount.d.ts": {
+      "checksum": "38d8db9f3e2f2af9e5826efbfa1e7762"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/webR/payload.d.ts": {
+      "checksum": "eb9cd4d5c9df6f2a1a9b20e70e06aa35"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/webR/proxy.d.ts": {
+      "checksum": "60050c04a4a7bef595d0b8fe6477ca36"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/webR/robj-main.d.ts": {
+      "checksum": "d01b9ab014e5b5d44f1b52bf6ab177e0"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/webR/robj-worker.d.ts": {
+      "checksum": "6df4a4fa57fa272f661e797033c6f458"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/webR/robj.d.ts": {
+      "checksum": "36b1c032d91beb66132e8e21fc21865c"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/webR/utils-r.d.ts": {
+      "checksum": "8dd57576c21644349c45e562ce9f1f4a"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/webR/utils.d.ts": {
+      "checksum": "261bb1e9718c734a460306deb79329b9"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/webR/webr-chan.d.ts": {
+      "checksum": "683480399ea03890693829db6ee60495"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/webR/webr-main.d.ts": {
+      "checksum": "625d6530fe95580137a5814132436ec2"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-0.9.1/shinylive/webr/webR/webr-worker.d.ts": {
+      "checksum": "e2ebd7ddedcadeeadbf819c35985c768"
+    },
+    "_site/site_libs/quarto-contrib/shinylive-quarto-css/shinylive-quarto.css": {
+      "checksum": "a66352fc1966c083966991ad27ed5800"
+    },
     "_site/site_libs/quarto-dashboard/components.js": {
       "checksum": "ac49ebff39666f27f4631a3914841683"
     },
@@ -5087,6 +6226,54 @@
     "_site/site_libs/quarto-search/quarto-search.js": {
       "checksum": "bb16b7e73be13eba97c99d25b2a476b3"
     },
+    "_site/site_libs/selectize-0.15.2/accessibility/js/selectize-plugin-a11y.js": {
+      "checksum": "23f8e6b343db2bfafc0879e557c233e0"
+    },
+    "_site/site_libs/selectize-0.15.2/accessibility/js/selectize-plugin-a11y.min.js": {
+      "checksum": "d9074cd11d34901f4d36336875b1dc7f"
+    },
+    "_site/site_libs/selectize-0.15.2/css/selectize.bootstrap3.css": {
+      "checksum": "1e4927e21c8fbe502e4a8e0af3687335"
+    },
+    "_site/site_libs/selectize-0.15.2/js/selectize.js": {
+      "checksum": "de76b82b0a8c0a41b2de780894c77f6f"
+    },
+    "_site/site_libs/selectize-0.15.2/js/selectize.min.js": {
+      "checksum": "841bf039b1428b7f157d3b5ffb7ab54f"
+    },
+    "_site/site_libs/selectize-0.15.2/scss/plugins/auto_position.scss": {
+      "checksum": "24bc21544d8ed080569a8d232cabcfdd"
+    },
+    "_site/site_libs/selectize-0.15.2/scss/plugins/clear_button.scss": {
+      "checksum": "33ffd443eb4b43a997f53e52de69a5cb"
+    },
+    "_site/site_libs/selectize-0.15.2/scss/plugins/drag_drop.scss": {
+      "checksum": "e91eff89dacb8133e364c08bbe94473f"
+    },
+    "_site/site_libs/selectize-0.15.2/scss/plugins/dropdown_header.scss": {
+      "checksum": "6760319599c605d8a4facea40f86650e"
+    },
+    "_site/site_libs/selectize-0.15.2/scss/plugins/optgroup_columns.scss": {
+      "checksum": "9c9fa1380e3c6e976c19e99b438b4729"
+    },
+    "_site/site_libs/selectize-0.15.2/scss/plugins/remove_button.scss": {
+      "checksum": "aa98529e99aafdd7d41a9719eca1f3ad"
+    },
+    "_site/site_libs/selectize-0.15.2/scss/selectize.bootstrap3.scss": {
+      "checksum": "4e90880432f1122a6c4206ddfd3382fc"
+    },
+    "_site/site_libs/selectize-0.15.2/scss/selectize.bootstrap4.scss": {
+      "checksum": "184afc969e37336892a848f03f38e815"
+    },
+    "_site/site_libs/selectize-0.15.2/scss/selectize.bootstrap5.scss": {
+      "checksum": "1ef58775fe8985bc0b211ffb242cfbff"
+    },
+    "_site/site_libs/selectize-0.15.2/scss/selectize.default.scss": {
+      "checksum": "e6ea8f222779de308176c27443a0487f"
+    },
+    "_site/site_libs/selectize-0.15.2/scss/selectize.scss": {
+      "checksum": "3e4231b3721f8eb39678fab2ee238e87"
+    },
     "_site/site_libs/strftime-0.9.2/strftime-min.js": {
       "checksum": "4feedff422885d51bf57601f8a987d70"
     },
@@ -5094,49 +6281,58 @@
       "checksum": "4db25a9ed5c5fcf2dd1746f27be2ef39"
     },
     "_site/styles.css": {
-      "checksum": "fa00a45dde1037af48efae6bdb5f0302"
+      "checksum": "03fc82cbc89967a3a3416dbfdfed5012"
     },
     ".RData": {
-      "checksum": "466e85a4d7032266bd337ec1871de8f2"
+      "checksum": "05d4ad39495e55e99000a67db6544601"
     },
     "about.qmd": {
-      "checksum": "7d210902243039cfe84f66799b353cbb"
+      "checksum": "e7e86581957712e1f7d4ca2e5224d202"
     },
     "app-inline.qmd": {
       "checksum": "a6216bba681d6c42a55442847332ec4d"
     },
-    "book/_book/index.html": {
-      "checksum": "9d75f003d2b71bd6b32bc20a0fdbda9d"
+    "book/_book/book-widen.css": {
+      "checksum": "6258b0fb43a87b969477b8ecbf5a1e6a"
     },
-    "book/_book/intro.html": {
-      "checksum": "ab6de8c952a9d829f10629746498c99c"
+    "book/_book/calculations.html": {
+      "checksum": "f98abfadc05833cbe0294c6c85115128"
+    },
+    "book/_book/images/ath-centred.png": {
+      "checksum": "52203abda0ceba57c8efe0501a58304c"
+    },
+    "book/_book/images/Cover1.png": {
+      "checksum": "1263d0193de1fd11f82ed2663d6f53dc"
+    },
+    "book/_book/index.html": {
+      "checksum": "f4c9a1ed48892cd38186ff711ebe308d"
     },
     "book/_book/phase1.html": {
-      "checksum": "f194178e417ebcc7523476de03e76a88"
+      "checksum": "4a4a845fd6bfc8ce0f6ce06cc5c405df"
     },
     "book/_book/phase2.html": {
-      "checksum": "44293fa683ddf6dde2e98b7a145fdedf"
+      "checksum": "8632df42dfa46909c7de152dbbc2f057"
     },
     "book/_book/phase3.html": {
-      "checksum": "51076f4df119164a1fe93c4fc95e7a80"
+      "checksum": "769c87124c0606384129f068a94a3b34"
     },
     "book/_book/phase4.html": {
-      "checksum": "5b09dfd3d89d75054a23782b32fb24e1"
+      "checksum": "217b4e32f9361b4f0b79d31197b20d06"
     },
     "book/_book/phase5.html": {
-      "checksum": "c7486672581ecd61385080c55b81497b"
+      "checksum": "194c15ad85c6f6837b2b290050e2af56"
     },
     "book/_book/preop.html": {
-      "checksum": "2e99e2595c3abd8d51e118749ed804ab"
+      "checksum": "bd42ad8819b5e68ac64f6e173c864112"
     },
     "book/_book/references.html": {
-      "checksum": "22f287ac9bb972b74916fb63c0620db5"
+      "checksum": "0394b09d29f3a40391b2b8f8300c7c0a"
     },
     "book/_book/search.json": {
-      "checksum": "706f5a287a1b241f34721d7b622c3255"
+      "checksum": "aa16a4fdcf5bb8bd8e7ad59948f3099e"
     },
-    "book/_book/site_libs/bootstrap/bootstrap-5e2915e4d4df5928b2b0a61215b328b6.min.css": {
-      "checksum": "5e2915e4d4df5928b2b0a61215b328b6"
+    "book/_book/site_libs/bootstrap/bootstrap-36b25867fad7fff0eda6d47947a56c7b.min.css": {
+      "checksum": "36b25867fad7fff0eda6d47947a56c7b"
     },
     "book/_book/site_libs/bootstrap/bootstrap-icons.css": {
       "checksum": "2318f137d201fbf51601fa0faba6bef7"
@@ -5155,9 +6351,6 @@
     },
     "book/_book/site_libs/quarto-html/popper.min.js": {
       "checksum": "3a4a291ccf3f1ea0f82b641542fd3827"
-    },
-    "book/_book/site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css": {
-      "checksum": "e26003cea8cd680ca0c55a263523d882"
     },
     "book/_book/site_libs/quarto-html/quarto.js": {
       "checksum": "b2cce65711e74956eb7b7aa2f4d3943f"
@@ -5193,7 +6386,7 @@
       "checksum": "6258b0fb43a87b969477b8ecbf5a1e6a"
     },
     "book/brand.scss": {
-      "checksum": "d68a49929927f347c15f943473ad363d"
+      "checksum": "9f40f47f6a82daba446062ede149ba86"
     },
     "book/calculations.qmd": {
       "checksum": "f6ddaabcf7858cc82b8a88488c941295"
@@ -5235,25 +6428,25 @@
       "checksum": "c33aed73fbb05b8c34972189eaf97aeb"
     },
     "book/phase1.qmd": {
-      "checksum": "aca5861c08269ff9f3fd500a80832881"
+      "checksum": "93e4f09b841989f75e00431855d9e34a"
     },
     "book/phase2.qmd": {
-      "checksum": "c75a6ecaefcab091b85a3a5cfc5f8e6f"
+      "checksum": "8d5d2527b44a07ad3b067672bd78017e"
     },
     "book/phase3.qmd": {
-      "checksum": "7e2f1ae217997368d280f19117e9013e"
+      "checksum": "5e1e703da6efef242db920ba8331aacb"
     },
     "book/phase4.qmd": {
       "checksum": "c3935d922f485ea4c5a8c78bc75d0e03"
     },
     "book/phase5.qmd": {
-      "checksum": "968b6774f39fe872a12602fd57bb39ac"
+      "checksum": "6ffb97680e8d9c6be711e22e473bc2c9"
     },
     "book/preop.qmd": {
-      "checksum": "74abfd58a6147a8f740dab0dd64be164"
+      "checksum": "f149805ed0c9d78be1cc1f0c26afdb7d"
     },
     "book/references.bib": {
-      "checksum": "86f9dc89a15262d9abfbe276e519629d"
+      "checksum": "e5386dab7b2a683a98502b88bea45d69"
     },
     "book/references.qmd": {
       "checksum": "fd758cda019081cb378df6516fc7bc5f"
@@ -5262,13 +6455,19 @@
       "checksum": "d70beab1f85f6219f59ac1a1eb110cdc"
     },
     "book/template.qmd": {
-      "checksum": "22afd9824c0fb4731b21e716bb018880"
+      "checksum": "ea6012e7b819fd04cce71fca288b7397"
     },
     "book/Testing.R": {
-      "checksum": "f789428723b63929fde7ec983dcace87"
+      "checksum": "94ebf77bf81db98d5be8af832830bd71"
+    },
+    "checklists/phase0_checklist.qmd": {
+      "checksum": "4b423fce4bdea623f41f902ca9a2bf6c"
     },
     "checklists/phase1_checklist.qmd": {
-      "checksum": "4576a4e95b7bf3cd57702155c96cb09f"
+      "checksum": "556ff6fa3847a7e79821ab3d4a5cc325"
+    },
+    "checklists/phase2_checklist.qmd": {
+      "checksum": "04f6c490f58edd63785ce29a0b55b578"
     },
     "checklists/return_to_jump_checklist.qmd": {
       "checksum": "2e087c6ca2f8d7b3510455111d4065d2"
@@ -5279,20 +6478,23 @@
     "CSIP-RTP-ACL.qmd": {
       "checksum": "dc906a78bc00412ed2f2c34aa724fcf1"
     },
-    "dashboard1.qmd": {
-      "checksum": "6a24db04cf96d024b4cf33e39445e015"
+    "dashboards/dashboard1.qmd": {
+      "checksum": "3fc52ef4e443123791c1c87a2cdf9d6f"
+    },
+    "dashboards/wellness_dashboard.qmd": {
+      "checksum": "b5457acd95d23c650097a489d01d3ce6"
     },
     "data-collection-app/global.R": {
-      "checksum": "ce4390c4e11da81dae0232eb02093d7c"
-    },
-    "data-collection-app/outcome_data.xlsx": {
-      "checksum": "e04428b7c1e857eea5fadc4eded566e0"
+      "checksum": "31b7387b9b549d27e998016a03faa19b"
     },
     "data-collection-app/server.R": {
-      "checksum": "0bd970e13653d3cc1ce500cdb9d5816a"
+      "checksum": "e293f61b397f175c2fb8fbe90ed73d5b"
     },
     "data-collection-app/ui.R": {
-      "checksum": "4ff21c295b6ccb174ef92936aafd019f"
+      "checksum": "9611f454098083011399e0230cb44b2e"
+    },
+    "data-collection-app/www/app.css": {
+      "checksum": "f78ae83f88fee635847957bbe243e508"
     },
     "data-collection-app/www/csi_white.png": {
       "checksum": "53b33b334bd3f6f40c05fcdf7ffb6307"
@@ -5303,17 +6505,20 @@
     "data-collection-app/www/csi.png": {
       "checksum": "2d7beb01f2bed341cd2eeb0cb27d4eed"
     },
-    "data-collection/app.R": {
-      "checksum": "c404012b9dd2d4631c39b89613a7b357"
+    "fix-bslib-tabs.html": {
+      "checksum": "07b203973d85fb2b671a88ca154e9be6"
     },
-    "data-collection/outcome_data.xlsx": {
-      "checksum": "be93a4d106c312c2c295b1dc4b20c629"
+    "fp-shiny-live.qmd": {
+      "checksum": "6646ec8393f2adee296aca99ace9041b"
     },
     "Global.R": {
-      "checksum": "e95e81d07784347f3c984c9aa5e19d03"
+      "checksum": "3f1d249a55ad956d04ba7e62561db641"
     },
     "guide.qmd": {
-      "checksum": "044691fd6665effbea8f586d544c3a9f"
+      "checksum": "f210dfda51ebd18597ab4039d4c1e089"
+    },
+    "images/ak-hk.JPG": {
+      "checksum": "f0b09d14974bb4fee5122528b6d766f6"
     },
     "images/csi_white.png": {
       "checksum": "53b33b334bd3f6f40c05fcdf7ffb6307"
@@ -5342,11 +6547,146 @@
     "images/placeholder.jpg": {
       "checksum": "20baa24a594ed04eb3718d5b8f69b0db"
     },
+    "index_cache/html/__packages": {
+      "checksum": "3eaeac4b0db004c3932beec953e48114"
+    },
+    "index_cache/html/acl_rsi_a5266d092d6218b19330d319828632d8.RData": {
+      "checksum": "ef988760f532a9180f4888266444463e"
+    },
+    "index_cache/html/acl_rsi_a5266d092d6218b19330d319828632d8.rdb": {
+      "checksum": "9405575bc05a6e79fe54b5f839e2bfdc"
+    },
+    "index_cache/html/acl_rsi_a5266d092d6218b19330d319828632d8.rdx": {
+      "checksum": "58aae56be40e1531059b75c54e14463d"
+    },
+    "index_cache/html/BA1_cda710dd3993776ad036f4f55615ed02.RData": {
+      "checksum": "4c48655a4a30e14e315c68e5d9df6b14"
+    },
+    "index_cache/html/BA1_cda710dd3993776ad036f4f55615ed02.rdb": {
+      "checksum": "814fa9dca3e184d2692f4519f6a3b8f1"
+    },
+    "index_cache/html/BA1_cda710dd3993776ad036f4f55615ed02.rdx": {
+      "checksum": "4d0571a39fbc8fa36af425bfcf938bfc"
+    },
+    "index_cache/html/BA2_78ade1035b9630ad0f1828af428f34e4.RData": {
+      "checksum": "92196cc761240aa19fd5336625f0d279"
+    },
+    "index_cache/html/BA2_78ade1035b9630ad0f1828af428f34e4.rdb": {
+      "checksum": "3be0318f4ea1ee2028db0ced2268f901"
+    },
+    "index_cache/html/BA2_78ade1035b9630ad0f1828af428f34e4.rdx": {
+      "checksum": "c0e89c613edd57baf82f08158d33d91b"
+    },
+    "index_cache/html/cmj_Height_65771cd8ccdcb871c02bad96ffd93512.RData": {
+      "checksum": "3b4318acb5987bbabca197690c5179d9"
+    },
+    "index_cache/html/cmj_Height_65771cd8ccdcb871c02bad96ffd93512.rdb": {
+      "checksum": "bbd8f1a1c189ee304904ecef53f7b520"
+    },
+    "index_cache/html/cmj_Height_65771cd8ccdcb871c02bad96ffd93512.rdx": {
+      "checksum": "eb8afe8d14a5a2992f6630254a028f2f"
+    },
+    "index_cache/html/daily_monitoring_146ddc3725b6c4ef016bdbeeaf52d9aa.RData": {
+      "checksum": "be369f60f73c564b060ea7fc2177f8cc"
+    },
+    "index_cache/html/daily_monitoring_146ddc3725b6c4ef016bdbeeaf52d9aa.rdb": {
+      "checksum": "2ce8aa2669bdeb1fd566ccd7db3eb838"
+    },
+    "index_cache/html/daily_monitoring_146ddc3725b6c4ef016bdbeeaf52d9aa.rdx": {
+      "checksum": "a78b846cf9c047796bf22ca8b26ab5e7"
+    },
+    "index_cache/html/iso_ham_08fb046190badf56221026da1c6e4a19.RData": {
+      "checksum": "1d27e7b781a5138ebf7883f31a891fe9"
+    },
+    "index_cache/html/iso_ham_08fb046190badf56221026da1c6e4a19.rdb": {
+      "checksum": "ad69c41783f6d5dbcd30b9c36120d02b"
+    },
+    "index_cache/html/iso_ham_08fb046190badf56221026da1c6e4a19.rdx": {
+      "checksum": "187d6e43128d3199421982a8dbea5f49"
+    },
+    "index_cache/html/iso_quad_7c842c6a67b627cd1a9ccb24e24e0725.RData": {
+      "checksum": "0f75b1524812d79ba0f155cb240e3c55"
+    },
+    "index_cache/html/iso_quad_7c842c6a67b627cd1a9ccb24e24e0725.rdb": {
+      "checksum": "5ad1a0bd5a10d0c44d30282945a3e728"
+    },
+    "index_cache/html/iso_quad_7c842c6a67b627cd1a9ccb24e24e0725.rdx": {
+      "checksum": "7b81d1bbeddd2f8f5bfcce0e03b19c4b"
+    },
+    "index_cache/html/pain_8d0834e1637b3ae84b246f5541f7005a.RData": {
+      "checksum": "f01f1d97b7b319119f6f85dbd817713a"
+    },
+    "index_cache/html/pain_8d0834e1637b3ae84b246f5541f7005a.rdb": {
+      "checksum": "928dfcf93a4f2a66a027012e92f59147"
+    },
+    "index_cache/html/pain_8d0834e1637b3ae84b246f5541f7005a.rdx": {
+      "checksum": "9e5e47b10fa32bf40865cbd5aea0e2fe"
+    },
+    "index_cache/html/phase_criteria_summary_54c29f1c5ef1547b62855c693294d464.RData": {
+      "checksum": "5ca6f40d70455359ebb948dffa4d2f59"
+    },
+    "index_cache/html/phase_criteria_summary_54c29f1c5ef1547b62855c693294d464.rdb": {
+      "checksum": "903239b37700e05a62697e3e115ea170"
+    },
+    "index_cache/html/phase_criteria_summary_54c29f1c5ef1547b62855c693294d464.rdx": {
+      "checksum": "be1b9d8471767b16772d121f6c8f92a0"
+    },
+    "index_cache/html/RSImod_5f42ca926c0a571eb9cfa430a0e47f69.RData": {
+      "checksum": "439839240a706cab4e7d26495b0907e3"
+    },
+    "index_cache/html/RSImod_5f42ca926c0a571eb9cfa430a0e47f69.rdb": {
+      "checksum": "a187568f1a99a5f8aa7d548b6dc4b609"
+    },
+    "index_cache/html/RSImod_5f42ca926c0a571eb9cfa430a0e47f69.rdx": {
+      "checksum": "3a4d2cdeb91b63c943e3dfd9c4208105"
+    },
+    "index_cache/html/setup_eac7f65a0d977e7246a117efbc59a864.RData": {
+      "checksum": "4a98df6b23a99728eac56b975df7c5e6"
+    },
+    "index_cache/html/setup_eac7f65a0d977e7246a117efbc59a864.rdb": {
+      "checksum": "5775c0e021807cdcdff8f18eab4d29c7"
+    },
+    "index_cache/html/setup_eac7f65a0d977e7246a117efbc59a864.rdx": {
+      "checksum": "c364ba41489e27012a91da9db58a741e"
+    },
+    "index_cache/html/swelling_c743de40a4bfb128af6e9a27a4d2ffb9.RData": {
+      "checksum": "c0ab76e121053ba9e4ac2ec98f0e6c60"
+    },
+    "index_cache/html/swelling_c743de40a4bfb128af6e9a27a4d2ffb9.rdb": {
+      "checksum": "50f7f6d7df9b675a44d23829e02f35fa"
+    },
+    "index_cache/html/swelling_c743de40a4bfb128af6e9a27a4d2ffb9.rdx": {
+      "checksum": "5379a3f12302b6657fa750307019d833"
+    },
+    "index_cache/html/unnamed-chunk-1_515300d69f47d38096fe22644a424c9d.RData": {
+      "checksum": "5d957160995506012180988493d1a1d2"
+    },
+    "index_cache/html/unnamed-chunk-1_515300d69f47d38096fe22644a424c9d.rdb": {
+      "checksum": "bc7c403f186d5c6937aa8baeca1dbd47"
+    },
+    "index_cache/html/unnamed-chunk-1_515300d69f47d38096fe22644a424c9d.rdx": {
+      "checksum": "245149dc296dd74d63c81390cbc67b7d"
+    },
+    "index_files/figure-html/daily_monitoring-1.png": {
+      "checksum": "53f04ee5e8f307f6e293bb84284c2cee"
+    },
     "index.qmd": {
-      "checksum": "cc2c225e90e7664fa6aea6abdaeeaa64"
+      "checksum": "1974e36c941f2648ac702d8d9f5291ee"
+    },
+    "physical_training_programs/ACL-YTP.xlsx": {
+      "checksum": "1da6781bc73d855f9a8732d964c9861e"
+    },
+    "physical_training_programs/Berk.xlsx": {
+      "checksum": "e6df2e77ac235b2672f1c145939f86d2"
+    },
+    "physical_training_programs/BrynnJohnston2023.xlsx": {
+      "checksum": "ee8e0fe5afda18d7946fccaa37bb37b8"
+    },
+    "physical_training_programs/CassieSharpe2021.xlsx": {
+      "checksum": "dc12866c22928a8a086f375b4112167a"
     },
     "plot_functions.R": {
-      "checksum": "b6cf171d33068eae5cb054b40580acf9"
+      "checksum": "58217ca9c61393811c415de37b4172ed"
     },
     "README.md": {
       "checksum": "a54711e99facea031925de79e0a7382a"
@@ -5361,16 +6701,16 @@
       "checksum": "112269d4c8eb1e466f6a7a9a15df302c"
     },
     "RTP Resources/RTP_Project_Pitch.pptx": {
-      "checksum": "2cc8f97d1d025c04a5523b2856f97115"
+      "checksum": "f89b86ba4fb06dbe031dcaa8cc622bed"
     },
     "sample_data/ACL-Intake-Form.xlsx": {
-      "checksum": "ba602329eb0dec6f8e684008fde8c527"
+      "checksum": "e7a635bf2879aeba61c9444f9d52640c"
     },
     "sample_data/acl-protocol-criteria-2025.xlsx": {
-      "checksum": "f3d304d10e989623c3b84294d6129c47"
+      "checksum": "14a95a983ba5d17ee5d0ba7c78e85879"
     },
     "sample_data/ACL-Protocols-Summary.xlsx": {
-      "checksum": "fd461a51d15639d43b195bbf6c549116"
+      "checksum": "3b75d21567867862072cfda0d8878dec"
     },
     "sample_data/FP-Database.xlsx": {
       "checksum": "6fc31ff9570d5e0716da7cf6dd9d7350"
@@ -5379,14 +6719,20 @@
       "checksum": "201202064bd9a385f813ee75d568fcec"
     },
     "sample_data/outcome_data.xlsx": {
-      "checksum": "8f2d85270377c4288eb733071c9b38da"
+      "checksum": "4f91cb0399086892e18cc4df554c68b4"
+    },
+    "sample_data/tindeq_results.csv": {
+      "checksum": "c4e6ead1560ffaba1acc57261045ef3a"
     },
     "styles.css": {
-      "checksum": "fa00a45dde1037af48efae6bdb5f0302"
+      "checksum": "03fc82cbc89967a3a3416dbfdfed5012"
+    },
+    "testing.R": {
+      "checksum": "2cb4b780fd771f928e1d37185392a432"
     },
     "Themes.R": {
-      "checksum": "61165f6221d9788e529f8897a4608a2d"
+      "checksum": "21425e393e267cbe976f2eae2d136f98"
     }
   },
-  "users": null
+  "users": {}
 }
