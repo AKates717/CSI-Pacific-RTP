@@ -4722,6 +4722,55 @@ vertical-align: -.125em;
     "search-label": "Search"
   }
 }</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Fix bslib navset_card_tab markup so Quarto doesn't rewrite tab hrefs
+  document.querySelectorAll('ul.nav.nav-tabs.card-header-tabs[data-tabsetid]').forEach(ul => {
+
+    // Make <li> look like Bootstrap 5 nav items
+    ul.querySelectorAll('li').forEach(li => li.classList.add('nav-item'));
+
+    // Make <a> look like Bootstrap 5 nav links AND force fragment-only href
+    ul.querySelectorAll('a[role="tab"], a[data-bs-toggle="tab"]').forEach(a => {
+      a.classList.add('nav-link');
+
+      // Force href to be fragment-only (#tab-xxxx-y)
+      const href = a.getAttribute('href') || '';
+      if (href.includes('#')) {
+        a.setAttribute('href', '#' + href.split('#').pop());
+      }
+    });
+
+    // Normalize "active" state: Bootstrap 5 wants active on <a>, not <li>
+    const activeFromA = ul.querySelector('a.active,[aria-selected="true"]');
+    const activeFromLi = ul.querySelector('li.active > a');
+    const activeA = activeFromA || activeFromLi;
+
+    ul.querySelectorAll('li.active').forEach(li => li.classList.remove('active'));
+
+    if (activeA) {
+      ul.querySelectorAll('a').forEach(a => {
+        const on = (a === activeA);
+        a.classList.toggle('active', on);
+        a.setAttribute('aria-selected', on ? 'true' : 'false');
+        if (!on) a.setAttribute('tabindex', '-1'); else a.removeAttribute('tabindex');
+      });
+
+      // Ensure only the matching pane is active/show
+      const tabsetId = ul.getAttribute('data-tabsetid');
+      const container = document.querySelector('.tab-content[data-tabsetid="' + tabsetId + '"]');
+      if (container) {
+        const target = activeA.getAttribute('href'); // now guaranteed "#tab-..."
+        container.querySelectorAll('.tab-pane').forEach(pane => {
+          const on = ('#' + pane.id) === target;
+          pane.classList.toggle('active', on);
+          pane.classList.toggle('show', on);
+        });
+      }
+    }
+  });
+});
+</script>
 <style type="text/css">@layer htmltools {
 .html-fill-container {
 display: flex;
@@ -6792,6 +6841,61 @@ color: #A7A9AC;
 font-weight: 600;
 font-family: "Open Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
+
+.nav-tabs .nav-link.active {
+background-color: #f8f9fa;
+border-bottom: 3px solid #D71920;
+}
+
+.nav.nav-tabs.card-header-tabs {
+border-bottom: 1px solid #dee2e6;
+flex-wrap: nowrap;
+overflow-x: auto;
+}
+
+.nav.nav-tabs.card-header-tabs > li > a {
+font-size: 0.85rem;
+padding: 0.5rem 0.9rem;
+margin-right: 0.5rem;
+color: #212529; 
+text-decoration: none;
+background: transparent;
+border: none;
+border-bottom: 3px solid transparent;
+display: inline-block;
+white-space: nowrap;
+}
+
+.nav.nav-tabs.card-header-tabs > li > a:hover {
+color: #000;
+border-bottom-color: #adb5bd;
+}
+
+.nav.nav-tabs.card-header-tabs > li > a.active,
+.nav.nav-tabs.card-header-tabs > li > a[aria-selected="true"] {
+color: #c00000;
+font-weight: 600;
+border-bottom: 3px solid #c00000;
+background: transparent;
+}
+
+.nav.nav-tabs.card-header-tabs > li.active > a {
+color: inherit;
+font-weight: inherit;
+border-bottom-color: transparent;
+}
+
+.phase0-navset .bslib-card .card-body {
+border: 0 !important; 
+}
+
+.phase0-navset .bslib-card .tab-content,
+.phase0-navset .bslib-card .tab-pane,
+.phase0-navset .bslib-card .html-fill-container {
+border-top: 0 !important;
+border-bottom: 0 !important;
+box-shadow: none !important;
+}
 </style>
 </head>
 
@@ -6854,6 +6958,14 @@ font-family: "Open Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, san
         <li>
     <a class="dropdown-item" href="../checklists/phase0_checklist.html">
  <span class="dropdown-text">Phase 0</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../checklists/phase1_checklist.html">
+ <span class="dropdown-text">Phase 1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../checklists/phase2_checklist.html">
+ <span class="dropdown-text">Phase 2</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../checklists/return_to_jump_checklist.html">

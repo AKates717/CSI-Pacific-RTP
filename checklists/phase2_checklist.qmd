@@ -124,6 +124,7 @@ htmltools::div(
   navset_card_tab(
     full_screen = TRUE,
     title = "Mobility",
+    selected = "Ankle",
     nav_panel(
       "Swelling",
       plot_ind_phase_outcomes(outcomes_raw_phase2, "Swelling")
@@ -182,8 +183,12 @@ htmltools::div(
     full_screen = TRUE,
     title = "Control",
     nav_panel(
-      "SL Balance",
+      "SL Balance (Open)",
       plot_ind_phase_outcomes(outcomes_raw_phase2, "Single Leg Balance (Eyes Open)")
+    ),
+        nav_panel(
+      "SL Balance (Closed)",
+      plot_ind_phase_outcomes(outcomes_raw_phase2, "Single Leg Balance (Eyes Closed)")
     ),
     nav_panel(
       "Y Balance",
