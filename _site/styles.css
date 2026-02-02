@@ -152,6 +152,13 @@ body.no-footer .footer {
 
 
 
+
+
+
+
+
+
+
 /* Active tab styling */
 .nav-tabs .nav-link.active {
   background-color: #f8f9fa;
@@ -222,18 +229,6 @@ body.no-footer .footer {
   border-top: 0 !important;
   border-bottom: 0 !important;
   box-shadow: none !important;
-}
-
-/* Bold navset_card_tab title ("Phase") — robust selectors */
-.phase0-navset .bslib-card .card-header .card-title,
-.phase0-navset .bslib-card .card-header .bslib-card-title,
-.phase0-navset .bslib-card .card-header h1,
-.phase0-navset .bslib-card .card-header h2,
-.phase0-navset .bslib-card .card-header h3,
-.phase0-navset .bslib-card .card-header h4 {
-  font-weight: 700 !important;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
 }
 
 
