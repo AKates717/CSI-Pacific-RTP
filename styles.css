@@ -224,5 +224,19 @@ body.no-footer .footer {
   box-shadow: none !important;
 }
 
+/* Bold navset_card_tab title ("Phase") — robust selectors */
+.phase0-navset .bslib-card .card-header .card-title,
+.phase0-navset .bslib-card .card-header .bslib-card-title,
+.phase0-navset .bslib-card .card-header h1,
+.phase0-navset .bslib-card .card-header h2,
+.phase0-navset .bslib-card .card-header h3,
+.phase0-navset .bslib-card .card-header h4 {
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+
+
 
 

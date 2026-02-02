@@ -172,7 +172,7 @@ htmltools::div(
 )
 ```
 
-some
+some 
 
 some
 

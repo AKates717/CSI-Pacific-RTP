@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -31,15 +31,21 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../images/csi-logo-medal-only.png" rel="icon" type="image/png">
-<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ac4d638824e2c5328f4ab76f3dcaa411.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-8caf6eaa0938078aad3b4e3e78d03e50.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-391dc9eaa9d5ee7385b50e8209b8eefe.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-8caf6eaa0938078aad3b4e3e78d03e50.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-746058c2d6c6adf83b0028beb0565e54.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-1af7edf4625277843c9c0b36e9a4c93a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-1af7edf4625277843c9c0b36e9a4c93a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-1af7edf4625277843c9c0b36e9a4c93a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -119,23 +125,23 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 <link href="../site_libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
 <script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-<script src="../site_libs/plotly-binding-4.11.0/plotly.js"></script>
+<script src="../site_libs/plotly-binding-4.12.0/plotly.js"></script>
 <script src="../site_libs/typedarray-0.1/typedarray.min.js"></script>
 <script src="../site_libs/jquery-3.5.1/jquery.min.js"></script>
-<link href="../site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
-<script src="../site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
-<link href="../site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
-<script src="../site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
-<script src="../site_libs/bslib-component-js-0.9.0/components.min.js"></script>
-<script src="../site_libs/bslib-component-js-0.9.0/web-components.min.js" type="module"></script>
-<link href="../site_libs/bslib-component-css-0.9.0/components.css" rel="stylesheet">
-<script src="../site_libs/bslib-tag-require-0.9.0/tag-require.js"></script>
+<link href="../site_libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+<script src="../site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+<link href="../site_libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="../site_libs/plotly-main-2.25.2/plotly-latest.min.js"></script>
+<script src="../site_libs/bslib-component-js-0.10.0/components.min.js"></script>
+<script src="../site_libs/bslib-component-js-0.10.0/web-components.min.js" type="module"></script>
+<link href="../site_libs/bslib-component-css-0.10.0/components.css" rel="stylesheet">
+<script src="../site_libs/bslib-tag-require-0.10.0/tag-require.js"></script>
 
 
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -143,7 +149,8 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../images/csi-pacific-logo-reverse-300x136.png" alt="Take me to the homepage" class="navbar-logo">
+    <img src="../images/csi-pacific-logo-reverse-300x136.png" alt="Take me to the homepage" class="navbar-logo light-content">
+    <img src="../images/csi-pacific-logo-reverse-300x136.png" alt="Take me to the homepage" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">ACL Rehabilitation Hub</span>
@@ -270,25 +277,25 @@ document.addEventListener("DOMContentLoaded", () => {
 <p><strong>Frank Reynolds’s</strong> progress towards these goals will be assessed via the criteria seen below.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="jpdbhufxis" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="anbxxrawgg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#jpdbhufxis table {
+#anbxxrawgg table {
   font-family: 'Open Sans', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#jpdbhufxis thead, #jpdbhufxis tbody, #jpdbhufxis tfoot, #jpdbhufxis tr, #jpdbhufxis td, #jpdbhufxis th {
+#anbxxrawgg thead, #anbxxrawgg tbody, #anbxxrawgg tfoot, #anbxxrawgg tr, #anbxxrawgg td, #anbxxrawgg th {
   border-style: none;
 }
 
-#jpdbhufxis p {
+#anbxxrawgg p {
   margin: 0;
   padding: 0;
 }
 
-#jpdbhufxis .gt_table {
+#anbxxrawgg .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -314,12 +321,12 @@ document.addEventListener("DOMContentLoaded", () => {
   border-left-color: #D3D3D3;
 }
 
-#jpdbhufxis .gt_caption {
+#anbxxrawgg .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#jpdbhufxis .gt_title {
+#anbxxrawgg .gt_title {
   color: #333333;
   font-size: 22px;
   font-weight: initial;
@@ -331,7 +338,7 @@ document.addEventListener("DOMContentLoaded", () => {
   border-bottom-width: 0;
 }
 
-#jpdbhufxis .gt_subtitle {
+#anbxxrawgg .gt_subtitle {
   color: #333333;
   font-size: 13px;
   font-weight: initial;
@@ -343,7 +350,7 @@ document.addEventListener("DOMContentLoaded", () => {
   border-top-width: 0;
 }
 
-#jpdbhufxis .gt_heading {
+#anbxxrawgg .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -355,13 +362,13 @@ document.addEventListener("DOMContentLoaded", () => {
   border-right-color: #D3D3D3;
 }
 
-#jpdbhufxis .gt_bottom_border {
+#anbxxrawgg .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#jpdbhufxis .gt_col_headings {
+#anbxxrawgg .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -376,7 +383,7 @@ document.addEventListener("DOMContentLoaded", () => {
   border-right-color: #D3D3D3;
 }
 
-#jpdbhufxis .gt_col_heading {
+#anbxxrawgg .gt_col_heading {
   color: #333333;
   background-color: #FCFCFC;
   font-size: 100%;
@@ -396,7 +403,7 @@ document.addEventListener("DOMContentLoaded", () => {
   overflow-x: hidden;
 }
 
-#jpdbhufxis .gt_column_spanner_outer {
+#anbxxrawgg .gt_column_spanner_outer {
   color: #333333;
   background-color: #FCFCFC;
   font-size: 100%;
@@ -408,15 +415,15 @@ document.addEventListener("DOMContentLoaded", () => {
   padding-right: 4px;
 }
 
-#jpdbhufxis .gt_column_spanner_outer:first-child {
+#anbxxrawgg .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#jpdbhufxis .gt_column_spanner_outer:last-child {
+#anbxxrawgg .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#jpdbhufxis .gt_column_spanner {
+#anbxxrawgg .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 1px;
   border-bottom-color: #A7A9AC;
@@ -428,11 +435,11 @@ document.addEventListener("DOMContentLoaded", () => {
   width: 100%;
 }
 
-#jpdbhufxis .gt_spanner_row {
+#anbxxrawgg .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#jpdbhufxis .gt_group_heading {
+#anbxxrawgg .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -458,7 +465,7 @@ document.addEventListener("DOMContentLoaded", () => {
   text-align: left;
 }
 
-#jpdbhufxis .gt_empty_group_heading {
+#anbxxrawgg .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -473,15 +480,15 @@ document.addEventListener("DOMContentLoaded", () => {
   vertical-align: middle;
 }
 
-#jpdbhufxis .gt_from_md > :first-child {
+#anbxxrawgg .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#jpdbhufxis .gt_from_md > :last-child {
+#anbxxrawgg .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#jpdbhufxis .gt_row {
+#anbxxrawgg .gt_row {
   padding-top: 6px;
   padding-bottom: 6px;
   padding-left: 5px;
@@ -500,7 +507,7 @@ document.addEventListener("DOMContentLoaded", () => {
   overflow-x: hidden;
 }
 
-#jpdbhufxis .gt_stub {
+#anbxxrawgg .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -513,7 +520,7 @@ document.addEventListener("DOMContentLoaded", () => {
   padding-right: 5px;
 }
 
-#jpdbhufxis .gt_stub_row_group {
+#anbxxrawgg .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -527,15 +534,15 @@ document.addEventListener("DOMContentLoaded", () => {
   vertical-align: top;
 }
 
-#jpdbhufxis .gt_row_group_first td {
+#anbxxrawgg .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#jpdbhufxis .gt_row_group_first th {
+#anbxxrawgg .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#jpdbhufxis .gt_summary_row {
+#anbxxrawgg .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -545,16 +552,16 @@ document.addEventListener("DOMContentLoaded", () => {
   padding-right: 5px;
 }
 
-#jpdbhufxis .gt_first_summary_row {
+#anbxxrawgg .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#jpdbhufxis .gt_first_summary_row.thick {
+#anbxxrawgg .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#jpdbhufxis .gt_last_summary_row {
+#anbxxrawgg .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -564,7 +571,7 @@ document.addEventListener("DOMContentLoaded", () => {
   border-bottom-color: #D3D3D3;
 }
 
-#jpdbhufxis .gt_grand_summary_row {
+#anbxxrawgg .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -574,7 +581,7 @@ document.addEventListener("DOMContentLoaded", () => {
   padding-right: 5px;
 }
 
-#jpdbhufxis .gt_first_grand_summary_row {
+#anbxxrawgg .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -584,7 +591,7 @@ document.addEventListener("DOMContentLoaded", () => {
   border-top-color: #D3D3D3;
 }
 
-#jpdbhufxis .gt_last_grand_summary_row_top {
+#anbxxrawgg .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -594,11 +601,11 @@ document.addEventListener("DOMContentLoaded", () => {
   border-bottom-color: #D3D3D3;
 }
 
-#jpdbhufxis .gt_striped {
+#anbxxrawgg .gt_striped {
   background-color: #FFFFFF;
 }
 
-#jpdbhufxis .gt_table_body {
+#anbxxrawgg .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -607,7 +614,7 @@ document.addEventListener("DOMContentLoaded", () => {
   border-bottom-color: #D3D3D3;
 }
 
-#jpdbhufxis .gt_footnotes {
+#anbxxrawgg .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -621,7 +628,7 @@ document.addEventListener("DOMContentLoaded", () => {
   border-right-color: #D3D3D3;
 }
 
-#jpdbhufxis .gt_footnote {
+#anbxxrawgg .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -630,7 +637,7 @@ document.addEventListener("DOMContentLoaded", () => {
   padding-right: 5px;
 }
 
-#jpdbhufxis .gt_sourcenotes {
+#anbxxrawgg .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -644,7 +651,7 @@ document.addEventListener("DOMContentLoaded", () => {
   border-right-color: #D3D3D3;
 }
 
-#jpdbhufxis .gt_sourcenote {
+#anbxxrawgg .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -652,72 +659,72 @@ document.addEventListener("DOMContentLoaded", () => {
   padding-right: 5px;
 }
 
-#jpdbhufxis .gt_left {
+#anbxxrawgg .gt_left {
   text-align: left;
 }
 
-#jpdbhufxis .gt_center {
+#anbxxrawgg .gt_center {
   text-align: center;
 }
 
-#jpdbhufxis .gt_right {
+#anbxxrawgg .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#jpdbhufxis .gt_font_normal {
+#anbxxrawgg .gt_font_normal {
   font-weight: normal;
 }
 
-#jpdbhufxis .gt_font_bold {
+#anbxxrawgg .gt_font_bold {
   font-weight: bold;
 }
 
-#jpdbhufxis .gt_font_italic {
+#anbxxrawgg .gt_font_italic {
   font-style: italic;
 }
 
-#jpdbhufxis .gt_super {
+#anbxxrawgg .gt_super {
   font-size: 65%;
 }
 
-#jpdbhufxis .gt_footnote_marks {
+#anbxxrawgg .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#jpdbhufxis .gt_asterisk {
+#anbxxrawgg .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#jpdbhufxis .gt_indent_1 {
+#anbxxrawgg .gt_indent_1 {
   text-indent: 5px;
 }
 
-#jpdbhufxis .gt_indent_2 {
+#anbxxrawgg .gt_indent_2 {
   text-indent: 10px;
 }
 
-#jpdbhufxis .gt_indent_3 {
+#anbxxrawgg .gt_indent_3 {
   text-indent: 15px;
 }
 
-#jpdbhufxis .gt_indent_4 {
+#anbxxrawgg .gt_indent_4 {
   text-indent: 20px;
 }
 
-#jpdbhufxis .gt_indent_5 {
+#anbxxrawgg .gt_indent_5 {
   text-indent: 25px;
 }
 
-#jpdbhufxis .katex-display {
+#anbxxrawgg .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#jpdbhufxis div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#anbxxrawgg div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 
@@ -738,10 +745,10 @@ document.addEventListener("DOMContentLoaded", () => {
 }
 </style>
 
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_heading header">
-<th colspan="4" class="gt_heading gt_title gt_font_normal gt_bottom_border" style="color: #D71920; font-family: 'Roboto Slab'; font-weight: 700"><strong>Phase 0 Criteria</strong></th>
+<td colspan="4" class="gt_heading gt_title gt_font_normal gt_bottom_border" style="color: #D71920; font-family: 'Roboto Slab'; font-weight: 700"><strong>Phase 0 Criteria</strong></td>
 </tr>
 <tr class="gt_col_headings even">
 <th id="Outcome-Measure" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="color: #111827; font-weight: 600" scope="col">Outcome Measure</th>
@@ -813,56 +820,56 @@ document.addEventListener("DOMContentLoaded", () => {
 <div class="cell">
 <div class="cell-output-display">
 <div class="phase0-navset">
-<div class="card bslib-card bslib-mb-spacing html-fill-item html-fill-container" data-bslib-card-init="" data-full-screen="false" data-require-bs-caller="card()" data-require-bs-version="5" id="bslib-card-3236">
-<div class="card-header bslib-navs-card-title">
+<div class="card bslib-card bslib-mb-spacing html-fill-item html-fill-container" data-bslib-card-init="" data-full-screen="false" data-require-bs-caller="card()" data-require-bs-version="5" id="bslib-card-3788">
+<div class="card-header bslib-gap-spacing bslib-navs-card-title">
 <span>Phase 0 Outcomes</span>
-<ul class="nav nav-tabs card-header-tabs" data-tabsetid="5886">
+<ul class="nav nav-tabs card-header-tabs" data-tabsetid="6576">
 <li class="active">
-<a href="#tab-5886-1" data-toggle="tab" data-bs-toggle="tab" data-value="Swelling">Swelling</a>
+<a href="#tab-6576-1" data-toggle="tab" data-bs-toggle="tab" data-value="Swelling">Swelling</a>
 </li>
 <li>
-<a href="#tab-5886-2" data-toggle="tab" data-bs-toggle="tab" data-value="Knee Extension">Knee Extension</a>
+<a href="#tab-6576-2" data-toggle="tab" data-bs-toggle="tab" data-value="Knee Extension">Knee Extension</a>
 </li>
 <li>
-<a href="#tab-5886-3" data-toggle="tab" data-bs-toggle="tab" data-value="Knee Flexion">Knee Flexion</a>
+<a href="#tab-6576-3" data-toggle="tab" data-bs-toggle="tab" data-value="Knee Flexion">Knee Flexion</a>
 </li>
 <li>
-<a href="#tab-5886-4" data-toggle="tab" data-bs-toggle="tab" data-value="Quad Strength">Quad Strength</a>
+<a href="#tab-6576-4" data-toggle="tab" data-bs-toggle="tab" data-value="Quad Strength">Quad Strength</a>
 </li>
 <li>
-<a href="#tab-5886-5" data-toggle="tab" data-bs-toggle="tab" data-value="Hamstring Strength">Hamstring Strength</a>
+<a href="#tab-6576-5" data-toggle="tab" data-bs-toggle="tab" data-value="Hamstring Strength">Hamstring Strength</a>
 </li>
 </ul>
 </div>
-<div class="tab-content html-fill-item html-fill-container" data-tabsetid="5886">
-<div class="tab-pane active html-fill-item html-fill-container bslib-gap-spacing" data-value="Swelling" id="tab-5886-1" style="gap:0;padding:0;">
+<div class="tab-content html-fill-item html-fill-container" data-tabsetid="6576">
+<div class="tab-pane active html-fill-item html-fill-container bslib-gap-spacing" data-value="Swelling" id="tab-6576-1" style="gap:0;padding:0;">
 <div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-d5745549fdf3b3c665ce" style="width:100%;height:400px;"></div>
-<script type="application/json" data-for="htmlwidget-d5745549fdf3b3c665ce">{"x":{"data":[{"orientation":"v","width":[0.44999999999999996,0.45000000000000018,0.45000000000000018,0.45000000000000018,0.44999999999999929,0.44999999999999929],"base":[0,0,0,0,0,0],"x":[0.77500000000000002,1.7749999999999999,2.7749999999999999,3.7749999999999999,4.7750000000000004,5.7750000000000004],"y":[3,2,2,1,0,1],"text":["Oct 17, 2025","Oct 18, 2025","Oct 20, 2025","Oct 28, 2025","Oct 29, 2025","Nov 04, 2025"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Left","legendgroup":"Left","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"orientation":"v","width":[0.45000000000000018,0.45000000000000018,0.45000000000000018],"base":[0,0,0],"x":[1.2250000000000001,2.2250000000000001,3.2250000000000001],"y":[0,0,0],"text":["Oct 17, 2025","Oct 18, 2025","Oct 20, 2025"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Right","legendgroup":"Right","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"x":[5.0999999999999996],"y":[0.029999999999999999],"text":"Oct 29, 2025","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(255,0,0,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"square","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","name":"Left","legendgroup":"Left","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>"},{"x":[1.1000000000000001,2.1000000000000001,3.1000000000000001],"y":[0.029999999999999999,0.029999999999999999,0.029999999999999999],"text":["Oct 17, 2025","Oct 18, 2025","Oct 20, 2025"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,0,0,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"square","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","name":"Right","legendgroup":"Right","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>"},{"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>","xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":26.228310502283108,"r":7.3059360730593621,"b":88.7322252629654,"l":33.275217932752184},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,6.5999999999999996],"tickmode":"array","ticktext":["Oct 17, 2025","Oct 18, 2025","Oct 20, 2025","Oct 28, 2025","Oct 29, 2025","Nov  4, 2025"],"tickvals":[1,2,3,3.9999999999999996,5,6],"categoryorder":"array","categoryarray":["Oct 17, 2025","Oct 18, 2025","Oct 20, 2025","Oct 28, 2025","Oct 29, 2025","Nov  4, 2025"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.15000000000000002,3.1499999999999999],"tickmode":"array","ticktext":["0","1","2","3"],"tickvals":[0,0.99999999999999989,2,3],"categoryorder":"array","categoryarray":["0","1","2","3"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Swelling <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"orientation":"h","x":0.29999999999999999,"y":-0.25},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"693e5913441c":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"},"693e7fdcb7f3":{"x":{},"y":{},"fill":{},"text":{}}},"cur_data":"693e5913441c","visdat":{"693e5913441c":["function (y) ","x"],"693e7fdcb7f3":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-1a74d9fa5c047566bd5f" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-1a74d9fa5c047566bd5f">{"x":{"data":[{"orientation":"v","width":[0.44999999999999996,0.45000000000000018,0.45000000000000018,0.45000000000000018,0.44999999999999929,0.44999999999999929],"base":[0,0,0,0,0,0],"x":[0.77500000000000002,1.7749999999999999,2.7749999999999999,3.7749999999999999,4.7750000000000004,5.7750000000000004],"y":[3,2,2,1,0,1],"text":["Oct 17, 2025","Oct 18, 2025","Oct 20, 2025","Oct 28, 2025","Oct 29, 2025","Nov 04, 2025"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"orientation":"v","width":[0.45000000000000018,0.45000000000000018,0.45000000000000018],"base":[0,0,0],"x":[1.2250000000000001,2.2250000000000001,3.2250000000000001],"y":[0,0,0],"text":["Oct 17, 2025","Oct 18, 2025","Oct 20, 2025"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"x":[1.1000000000000001,2.1000000000000001,3.1000000000000001,5.0999999999999996],"y":[0.029999999999999999,0.029999999999999999,0.029999999999999999,0.029999999999999999],"text":["Oct 17, 2025","Oct 18, 2025","Oct 20, 2025","Oct 29, 2025"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":["rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(255,0,0,1)"],"opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"square","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>"},{"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>","xaxis":"x","yaxis":"y","frame":null},{"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>","xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":85.809850833741649,"l":33.275217932752184},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,6.5999999999999996],"tickmode":"array","ticktext":["Oct 17, 2025","Oct 18, 2025","Oct 20, 2025","Oct 28, 2025","Oct 29, 2025","Nov  4, 2025"],"tickvals":[1,2,3,3.9999999999999996,5,6],"categoryorder":"array","categoryarray":["Oct 17, 2025","Oct 18, 2025","Oct 20, 2025","Oct 28, 2025","Oct 29, 2025","Nov  4, 2025"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.15000000000000002,3.1499999999999999],"tickmode":"array","ticktext":["0","1","2","3"],"tickvals":[0,0.99999999999999989,2,3],"categoryorder":"array","categoryarray":["0","1","2","3"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Swelling <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"orientation":"h","x":0.29999999999999999,"y":-0.25},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"12faa18c7eaf9":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"},"12faa6d138e24":{"x":{},"y":{},"fill":{},"text":{}}},"cur_data":"12faa18c7eaf9","visdat":{"12faa18c7eaf9":["function (y) ","x"],"12faa6d138e24":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
-<div class="tab-pane html-fill-item html-fill-container bslib-gap-spacing" data-value="Knee Extension" id="tab-5886-2" style="gap:0;padding:0;">
+<div class="tab-pane html-fill-item html-fill-container bslib-gap-spacing" data-value="Knee Extension" id="tab-6576-2" style="gap:0;padding:0;">
 <div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-13eb98c43af809b597ac" style="width:100%;height:400px;"></div>
-<script type="application/json" data-for="htmlwidget-13eb98c43af809b597ac">{"x":{"data":[{"orientation":"v","width":[0.44999999999999996,0.45000000000000018,0.45000000000000018,0.45000000000000018,0.44999999999999929,0.44999999999999929],"base":[0,0,0,0,0,0],"x":[0.77500000000000002,1.7749999999999999,2.7749999999999999,3.7749999999999999,4.7750000000000004,5.7750000000000004],"y":[3,2,2,1,1,0],"text":["Oct 17, 2025","Oct 18, 2025","Oct 20, 2025","Oct 28, 2025","Oct 29, 2025","Oct 30, 2025"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Left","legendgroup":"Left","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"orientation":"v","width":[0.45000000000000018,0.45000000000000018,0.44999999999999973],"base":[0,0,0],"x":[1.2250000000000001,2.2250000000000001,4.2249999999999996],"y":[0,0,0],"text":["Oct 17, 2025","Oct 18, 2025","Oct 28, 2025"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Right","legendgroup":"Right","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"x":[6.0999999999999996],"y":[0.029999999999999999],"text":"Oct 30, 2025","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(255,0,0,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"square","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","name":"Left","legendgroup":"Left","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>"},{"x":[1.1000000000000001,2.1000000000000001,4.0999999999999996],"y":[0.029999999999999999,0.029999999999999999,0.029999999999999999],"text":["Oct 17, 2025","Oct 18, 2025","Oct 28, 2025"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,0,0,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"square","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","name":"Right","legendgroup":"Right","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>"},{"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>","xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":26.228310502283108,"r":7.3059360730593621,"b":88.7322252629654,"l":33.275217932752184},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,6.5999999999999996],"tickmode":"array","ticktext":["Oct 17, 2025","Oct 18, 2025","Oct 20, 2025","Oct 28, 2025","Oct 29, 2025","Oct 30, 2025"],"tickvals":[1,2,3,3.9999999999999996,5,6],"categoryorder":"array","categoryarray":["Oct 17, 2025","Oct 18, 2025","Oct 20, 2025","Oct 28, 2025","Oct 29, 2025","Oct 30, 2025"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.15000000000000002,3.1499999999999999],"tickmode":"array","ticktext":["0","1","2","3"],"tickvals":[0,0.99999999999999989,2,3],"categoryorder":"array","categoryarray":["0","1","2","3"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Passive Knee Extension <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"orientation":"h","x":0.29999999999999999,"y":-0.25},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"693e2a496f7b":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"},"693e3b3609ed":{"x":{},"y":{},"fill":{},"text":{}}},"cur_data":"693e2a496f7b","visdat":{"693e2a496f7b":["function (y) ","x"],"693e3b3609ed":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-acb2eaf3dec361863e8e" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-acb2eaf3dec361863e8e">{"x":{"data":[{"orientation":"v","width":[0.44999999999999996,0.45000000000000018,0.45000000000000018,0.45000000000000018,0.44999999999999929,0.44999999999999929],"base":[0,0,0,0,0,0],"x":[0.77500000000000002,1.7749999999999999,2.7749999999999999,3.7749999999999999,4.7750000000000004,5.7750000000000004],"y":[3,2,2,1,1,0],"text":["Oct 17, 2025","Oct 18, 2025","Oct 20, 2025","Oct 28, 2025","Oct 29, 2025","Oct 30, 2025"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"orientation":"v","width":[0.45000000000000018,0.45000000000000018,0.44999999999999973],"base":[0,0,0],"x":[1.2250000000000001,2.2250000000000001,4.2249999999999996],"y":[0,0,0],"text":["Oct 17, 2025","Oct 18, 2025","Oct 28, 2025"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"x":[1.1000000000000001,2.1000000000000001,4.0999999999999996,6.0999999999999996],"y":[0.029999999999999999,0.029999999999999999,0.029999999999999999,0.029999999999999999],"text":["Oct 17, 2025","Oct 18, 2025","Oct 28, 2025","Oct 30, 2025"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":["rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(255,0,0,1)"],"opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"square","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>"},{"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>","xaxis":"x","yaxis":"y","frame":null},{"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>","xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":85.809850833741649,"l":33.275217932752184},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,6.5999999999999996],"tickmode":"array","ticktext":["Oct 17, 2025","Oct 18, 2025","Oct 20, 2025","Oct 28, 2025","Oct 29, 2025","Oct 30, 2025"],"tickvals":[1,2,3,3.9999999999999996,5,6],"categoryorder":"array","categoryarray":["Oct 17, 2025","Oct 18, 2025","Oct 20, 2025","Oct 28, 2025","Oct 29, 2025","Oct 30, 2025"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.15000000000000002,3.1499999999999999],"tickmode":"array","ticktext":["0","1","2","3"],"tickvals":[0,0.99999999999999989,2,3],"categoryorder":"array","categoryarray":["0","1","2","3"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Passive Knee Extension <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"orientation":"h","x":0.29999999999999999,"y":-0.25},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"12faa295a2655":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"},"12faa5d8aaba8":{"x":{},"y":{},"fill":{},"text":{}}},"cur_data":"12faa295a2655","visdat":{"12faa295a2655":["function (y) ","x"],"12faa5d8aaba8":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
-<div class="tab-pane html-fill-item html-fill-container bslib-gap-spacing" data-value="Knee Flexion" id="tab-5886-3" style="gap:0;padding:0;">
+<div class="tab-pane html-fill-item html-fill-container bslib-gap-spacing" data-value="Knee Flexion" id="tab-6576-3" style="gap:0;padding:0;">
 <div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-c8e4e0390cc9f4e2d57f" style="width:100%;height:400px;"></div>
-<script type="application/json" data-for="htmlwidget-c8e4e0390cc9f4e2d57f">{"x":{"data":[{"orientation":"v","width":[0.44999999999999996,0.45000000000000018,0.45000000000000018,0.45000000000000018,0.44999999999999929],"base":[0,0,0,0,0],"x":[0.77500000000000002,1.7749999999999999,2.7749999999999999,3.7749999999999999,4.7750000000000004],"y":[100,105,118,121,125],"text":["Oct 17, 2025","Oct 18, 2025","Oct 20, 2025","Oct 28, 2025","Oct 30, 2025"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Left","legendgroup":"Left","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"orientation":"v","width":[0.45000000000000018,0.45000000000000018,0.44999999999999973,0.44999999999999929],"base":[0,0,0,0],"x":[1.2250000000000001,2.2250000000000001,4.2249999999999996,5.2249999999999996],"y":[130,128,130,128],"text":["Oct 17, 2025","Oct 18, 2025","Oct 28, 2025","Oct 30, 2025"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Right","legendgroup":"Right","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"visible":false,"showlegend":false,"xaxis":null,"yaxis":null,"hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>"},{"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>","xaxis":"x","yaxis":"y","frame":null},{"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>","xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":26.228310502283108,"r":7.3059360730593621,"b":88.7322252629654,"l":46.027397260273986},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,5.5999999999999996],"tickmode":"array","ticktext":["Oct 17, 2025","Oct 18, 2025","Oct 20, 2025","Oct 28, 2025","Oct 30, 2025"],"tickvals":[1,2,3,4,5],"categoryorder":"array","categoryarray":["Oct 17, 2025","Oct 18, 2025","Oct 20, 2025","Oct 28, 2025","Oct 30, 2025"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-6.5,136.5],"tickmode":"array","ticktext":["0","50","100"],"tickvals":[0,50,100],"categoryorder":"array","categoryarray":["0","50","100"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Passive Knee Flexion <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"orientation":"h","x":0.29999999999999999,"y":-0.25},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"693e110df96c":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"},"693e2c722a33":{"x":{},"y":{},"fill":{},"text":{}}},"cur_data":"693e110df96c","visdat":{"693e110df96c":["function (y) ","x"],"693e2c722a33":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-a3251a9eeee2ab820cb2" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-a3251a9eeee2ab820cb2">{"x":{"data":[{"orientation":"v","width":[0.44999999999999996,0.45000000000000018,0.45000000000000018,0.45000000000000018,0.44999999999999929],"base":[0,0,0,0,0],"x":[0.77500000000000002,1.7749999999999999,2.7749999999999999,3.7749999999999999,4.7750000000000004],"y":[100,105,118,121,125],"text":["Oct 17, 2025","Oct 18, 2025","Oct 20, 2025","Oct 28, 2025","Oct 30, 2025"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"orientation":"v","width":[0.45000000000000018,0.45000000000000018,0.44999999999999973,0.44999999999999929],"base":[0,0,0,0],"x":[1.2250000000000001,2.2250000000000001,4.2249999999999996,5.2249999999999996],"y":[130,128,130,128],"text":["Oct 17, 2025","Oct 18, 2025","Oct 28, 2025","Oct 30, 2025"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"visible":false,"showlegend":false,"xaxis":null,"yaxis":null,"hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>"},{"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>","xaxis":"x","yaxis":"y","frame":null},{"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  0<extra><\/extra>","xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":85.809850833741649,"l":46.027397260273986},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,5.5999999999999996],"tickmode":"array","ticktext":["Oct 17, 2025","Oct 18, 2025","Oct 20, 2025","Oct 28, 2025","Oct 30, 2025"],"tickvals":[1,2,3,4,5],"categoryorder":"array","categoryarray":["Oct 17, 2025","Oct 18, 2025","Oct 20, 2025","Oct 28, 2025","Oct 30, 2025"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-6.5,136.5],"tickmode":"array","ticktext":["0","50","100"],"tickvals":[0,50,100],"categoryorder":"array","categoryarray":["0","50","100"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Passive Knee Flexion <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"orientation":"h","x":0.29999999999999999,"y":-0.25},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"12faa717b2e52":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"},"12faa4e1e43b2":{"x":{},"y":{},"fill":{},"text":{}}},"cur_data":"12faa717b2e52","visdat":{"12faa717b2e52":["function (y) ","x"],"12faa4e1e43b2":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
-<div class="tab-pane html-fill-item html-fill-container bslib-gap-spacing" data-value="Quad Strength" id="tab-5886-4" style="gap:0;padding:0;">
+<div class="tab-pane html-fill-item html-fill-container bslib-gap-spacing" data-value="Quad Strength" id="tab-6576-4" style="gap:0;padding:0;">
 <div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-6e9bae0369794c1ba44e" style="width:100%;height:400px;"></div>
-<script type="application/json" data-for="htmlwidget-6e9bae0369794c1ba44e">{"x":{"data":[{"orientation":"v","width":[0.19999999999999996,0.20000000000000018],"base":[0,0],"x":[0.90000000000000002,1.8999999999999999],"y":[6.3300000000000001,70.180000000000007],"text":["Jan 14, 2026","Jan 19, 2026"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Left","legendgroup":"Left","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Max:<\/i>  %{y}<extra><\/extra>"},{"orientation":"v","width":[0.20000000000000018,0.20000000000000018],"base":[0,0],"x":[1.1000000000000001,2.1000000000000001],"y":[7.4699999999999998,66.719999999999999],"text":["Jan 14, 2026","Jan 19, 2026"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Right","legendgroup":"Right","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Max:<\/i>  %{y}<extra><\/extra>"},{"x":[0.90000000000000002,0.90000000000000002,1.8999999999999999,1.8999999999999999],"y":[4.5,6.3300000000000001,56.640000000000001,70.180000000000007],"text":["Jan 14, 2026","Jan 14, 2026","Jan 19, 2026","Jan 19, 2026"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(255,0,0,1)","opacity":0.5,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","name":"Left","legendgroup":"Left","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"x":[1.1000000000000001,1.1000000000000001,2.1000000000000001,2.1000000000000001],"y":[5.3300000000000001,7.4699999999999998,55.020000000000003,66.719999999999999],"text":["Jan 14, 2026","Jan 14, 2026","Jan 19, 2026","Jan 19, 2026"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,0,0,1)","opacity":0.5,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","name":"Right","legendgroup":"Right","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"}],"layout":{"margin":{"t":26.228310502283108,"r":7.3059360730593621,"b":88.7322252629654,"l":39.651307596513085},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,2.6000000000000001],"tickmode":"array","ticktext":["Jan 14, 2026","Jan 19, 2026"],"tickvals":[1,2],"categoryorder":"array","categoryarray":["Jan 14, 2026","Jan 19, 2026"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-3.5090000000000003,73.689000000000007],"tickmode":"array","ticktext":["0","20","40","60"],"tickvals":[0,20,40,60],"categoryorder":"array","categoryarray":["0","20","40","60"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Peak Force (kg) <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"orientation":"h","x":0.29999999999999999,"y":-0.25},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"693e663a8dd8":{"x":{},"fill":{},"text":{},"y":{},"type":"bar"},"693ee369457":{"x":{},"fill":{},"text":{},"y":{}}},"cur_data":"693e663a8dd8","visdat":{"693e663a8dd8":["function (y) ","x"],"693ee369457":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-3faa4265d930dba383ba" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-3faa4265d930dba383ba">{"x":{"data":[{"orientation":"v","width":[0.19999999999999996,0.20000000000000018],"base":[0,0],"x":[0.90000000000000002,1.8999999999999999],"y":[6.3300000000000001,70.180000000000007],"text":["Jan 14, 2026","Jan 19, 2026"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Max:<\/i>  %{y}<extra><\/extra>"},{"orientation":"v","width":[0.20000000000000018,0.20000000000000018],"base":[0,0],"x":[1.1000000000000001,2.1000000000000001],"y":[7.4699999999999998,66.719999999999999],"text":["Jan 14, 2026","Jan 19, 2026"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Max:<\/i>  %{y}<extra><\/extra>"},{"x":[0.90000000000000002,0.90000000000000002,1.1000000000000001,1.1000000000000001,2.1000000000000001,2.1000000000000001,1.8999999999999999,1.8999999999999999],"y":[4.5,6.3300000000000001,5.3300000000000001,7.4699999999999998,55.020000000000003,66.719999999999999,56.640000000000001,70.180000000000007],"text":["Jan 14, 2026","Jan 14, 2026","Jan 14, 2026","Jan 14, 2026","Jan 19, 2026","Jan 19, 2026","Jan 19, 2026","Jan 19, 2026"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":["rgba(255,0,0,1)","rgba(255,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(255,0,0,1)","rgba(255,0,0,1)"],"opacity":0.5,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>","xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":49.872058369555965,"l":39.651307596513085},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,2.6000000000000001],"tickmode":"array","ticktext":["Jan 14","Jan 19"],"tickvals":[1,2],"categoryorder":"array","categoryarray":["Jan 14","Jan 19"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-3.5090000000000003,73.689000000000007],"tickmode":"array","ticktext":["0","20","40","60"],"tickvals":[0,20,40,60],"categoryorder":"array","categoryarray":["0","20","40","60"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Peak Force (kg) <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"orientation":"h","x":0.29999999999999999,"y":-0.20000000000000001},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"12faa4360255e":{"x":{},"fill":{},"text":{},"y":{},"type":"bar"},"12faa5d3560e0":{"x":{},"fill":{},"text":{},"y":{}}},"cur_data":"12faa4360255e","visdat":{"12faa4360255e":["function (y) ","x"],"12faa5d3560e0":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
-<div class="tab-pane html-fill-item html-fill-container bslib-gap-spacing" data-value="Hamstring Strength" id="tab-5886-5" style="gap:0;padding:0;">
+<div class="tab-pane html-fill-item html-fill-container bslib-gap-spacing" data-value="Hamstring Strength" id="tab-6576-5" style="gap:0;padding:0;">
 <div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-173e32da8effcb248415" style="width:100%;height:400px;"></div>
-<script type="application/json" data-for="htmlwidget-173e32da8effcb248415">{"x":{"data":[{"orientation":"v","width":[0.19999999999999996,0.20000000000000018],"base":[0,0],"x":[0.90000000000000002,1.8999999999999999],"y":[5.75,11.25],"text":["Jan 15, 2026","Jan 19, 2026"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Left","legendgroup":"Left","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Max:<\/i>  %{y}<extra><\/extra>"},{"orientation":"v","width":[0.20000000000000018,0.20000000000000018],"base":[0,0],"x":[1.1000000000000001,2.1000000000000001],"y":[5.2800000000000002,11.199999999999999],"text":["Jan 15, 2026","Jan 19, 2026"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Right","legendgroup":"Right","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Max:<\/i>  %{y}<extra><\/extra>"},{"x":[0.90000000000000002,1.8999999999999999,1.8999999999999999],"y":[5.75,9.25,11.25],"text":["Jan 15, 2026","Jan 19, 2026","Jan 19, 2026"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(255,0,0,1)","opacity":0.5,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","name":"Left","legendgroup":"Left","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"x":[1.1000000000000001,2.1000000000000001,2.1000000000000001],"y":[5.2800000000000002,9.8100000000000005,11.199999999999999],"text":["Jan 15, 2026","Jan 19, 2026","Jan 19, 2026"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,0,0,1)","opacity":0.5,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","name":"Right","legendgroup":"Right","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"}],"layout":{"margin":{"t":26.228310502283108,"r":7.3059360730593621,"b":88.7322252629654,"l":33.275217932752184},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,2.6000000000000001],"tickmode":"array","ticktext":["Jan 15, 2026","Jan 19, 2026"],"tickvals":[1,2],"categoryorder":"array","categoryarray":["Jan 15, 2026","Jan 19, 2026"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.5625,11.8125],"tickmode":"array","ticktext":["0","3","6","9"],"tickvals":[0,3.0000000000000004,6,9],"categoryorder":"array","categoryarray":["0","3","6","9"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Peak Force (kg) <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"orientation":"h","x":0.29999999999999999,"y":-0.25},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"693e4fc1784c":{"x":{},"fill":{},"text":{},"y":{},"type":"bar"},"693e26c0ee7c":{"x":{},"fill":{},"text":{},"y":{}}},"cur_data":"693e4fc1784c","visdat":{"693e4fc1784c":["function (y) ","x"],"693e26c0ee7c":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-f0d8aab4535e9146dedf" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-f0d8aab4535e9146dedf">{"x":{"data":[{"orientation":"v","width":[0.19999999999999996,0.20000000000000018],"base":[0,0],"x":[0.90000000000000002,1.8999999999999999],"y":[5.75,11.25],"text":["Jan 15, 2026","Jan 19, 2026"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Max:<\/i>  %{y}<extra><\/extra>"},{"orientation":"v","width":[0.20000000000000018,0.20000000000000018],"base":[0,0],"x":[1.1000000000000001,2.1000000000000001],"y":[5.2800000000000002,11.199999999999999],"text":["Jan 15, 2026","Jan 19, 2026"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Max:<\/i>  %{y}<extra><\/extra>"},{"x":[0.90000000000000002,1.1000000000000001,1.8999999999999999,1.8999999999999999,2.1000000000000001,2.1000000000000001],"y":[5.75,5.2800000000000002,9.25,11.25,9.8100000000000005,11.199999999999999],"text":["Jan 15, 2026","Jan 15, 2026","Jan 19, 2026","Jan 19, 2026","Jan 19, 2026","Jan 19, 2026"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":["rgba(255,0,0,1)","rgba(0,0,0,1)","rgba(255,0,0,1)","rgba(255,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)"],"opacity":0.5,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>","xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":49.872058369555965,"l":33.275217932752184},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,2.6000000000000001],"tickmode":"array","ticktext":["Jan 15","Jan 19"],"tickvals":[1,2],"categoryorder":"array","categoryarray":["Jan 15","Jan 19"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.5625,11.8125],"tickmode":"array","ticktext":["0","3","6","9"],"tickvals":[0,3.0000000000000004,6,9],"categoryorder":"array","categoryarray":["0","3","6","9"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Peak Force (kg) <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"orientation":"h","x":0.29999999999999999,"y":-0.20000000000000001},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"12faa25b26d77":{"x":{},"fill":{},"text":{},"y":{},"type":"bar"},"12faa6530b2f6":{"x":{},"fill":{},"text":{},"y":{}}},"cur_data":"12faa25b26d77","visdat":{"12faa25b26d77":["function (y) ","x"],"12faa6530b2f6":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -883,241 +890,248 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
       }
+      return false;
     }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
       }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
         }
       }
       return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-          // target, if specified
-          link.setAttribute("target", "_blank");
-          if (link.getAttribute("rel") === null) {
-            link.setAttribute("rel", "noopener");
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
           }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
-    };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
     }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
         }
-        return container.innerHTML
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1125,185 +1139,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
