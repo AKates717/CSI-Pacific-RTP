@@ -1,21 +1,21 @@
 [
   {
-    "objectID": "dashboard1.html",
-    "href": "dashboard1.html",
+    "objectID": "dashboards/dashboard1.html",
+    "href": "dashboards/dashboard1.html",
     "title": "CMJ Dashboard",
     "section": "",
     "text": "This report is a sample of the full dashboard which can be found here."
   },
   {
-    "objectID": "dashboard1.html#readiness",
-    "href": "dashboard1.html#readiness",
+    "objectID": "dashboards/dashboard1.html#readiness",
+    "href": "dashboards/dashboard1.html#readiness",
     "title": "CMJ Dashboard",
     "section": "",
     "text": "This report is a sample of the full dashboard which can be found here."
   },
   {
-    "objectID": "dashboard1.html#symmetry",
-    "href": "dashboard1.html#symmetry",
+    "objectID": "dashboards/dashboard1.html#symmetry",
+    "href": "dashboards/dashboard1.html#symmetry",
     "title": "CMJ Dashboard",
     "section": "Symmetry",
     "text": "Symmetry\nTrack Bilateral Asymmetry along with the performance metrics"
@@ -26,6 +26,13 @@
     "title": "Return to Jumping",
     "section": "",
     "text": "Return to Jumping"
+  },
+  {
+    "objectID": "checklists/phase1_checklist.html",
+    "href": "checklists/phase1_checklist.html",
+    "title": "Phase 1 Checklist",
+    "section": "",
+    "text": "Frank Reynolds’s progress towards these goals will be assessed via the criteria seen below.\n\n\n\n\n\n\n\n\nPhase 1 Criteria\n\n\nOutcome Measure\n\nGoal\nScore\n\n\n\n\nPassive Knee Extension\n≤\n0°\n0\n\n\nPassive Knee Flexion\n≥\n125°\n125\n\n\nSwelling\n≤\n1\n0\n\n\nQuads Lag Test\n&lt;\n5\n2\n\n\n\n\n\n\n\n\n\n\n\n\nGoals met: 4/4\n100%\n\n\n\n\n\n\n\n\n\nOutcomes\n\n\n\n\n\nPhase 1 Outcomes\n\n\nSwelling\n\n\nKnee Extension\n\n\nKnee Flexion\n\n\nQuads\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSome Writing\nSome More Writing"
   },
   {
     "objectID": "CSIP-RTP-ACL.html",
@@ -105,130 +112,11 @@
     "text": "Progress Reports\nAny successful and durable ACL rehabilitation must be criteria-based. By creating progress reports with a “checklist” format, every practitioner involved in a rehab can see exactly what the athlete has and hasn’t accomplished, making it clear when athletes should advance to the next phase of rehab or be cleared for progression of activities. At the same time, these tools allow the athlete to clearly visualize their progress and to have a solid understanding of what they need to accomplish in order to progress through the rehab safely.\nChecklists can be used to track:\n\nProgress through the phases of rehab\n\nPre-Op Phase\nPhase 1\nPhase 2\nPhase 3\nPhase 4\nPhase 5\n\nClearance for activities. Different activities require different physical capacities, and therefore require unique criteria to determine the optimal time for a safe return. Some examples include:\n\nReturn to Jumping\nReturn to Running\nReturn to Trampoline"
   },
   {
-    "objectID": "checklists/phase1_checklist.html",
-    "href": "checklists/phase1_checklist.html",
-    "title": "Phase 1 Checklist",
-    "section": "",
-    "text": "Frank Reynolds’s progress towards these goals will be assessed via the criteria seen below.\n\n\n\n\n\n\n\n\nPhase 1 Criteria\n\n\nOutcome Measure\n\nGoal\nScore\n\n\n\n\nPassive Knee Extension\n≤\n0°\n0\n\n\nPassive Knee Flexion\n≥\n125°\n125\n\n\nSwelling\n≤\n1\n0\n\n\nQuads Lag Test\n&lt;\n5\n2\n\n\n\n\n\n\n\n\n\n\n\n\nGoals met: 4/4\n100%\n\n\n\n\n\n\n\n\n\nOutcomes\n\n\n\n\n\nPhase 1 Outcomes\n\n\nSwelling\n\n\nKnee Extension\n\n\nKnee Flexion\n\n\nQuads\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSome Writing\nSome More Writing"
-  },
-  {
-    "objectID": "checklists/return_to_run_checklist.html",
-    "href": "checklists/return_to_run_checklist.html",
-    "title": "Return to Running",
-    "section": "",
-    "text": "Return to running"
-  },
-  {
-    "objectID": "book/template.html",
-    "href": "book/template.html",
-    "title": "Pre-Op Phase: Injury Recovery & Readiness for Surgery",
-    "section": "",
-    "text": "Template (For AK):\n\nPhase checklist for the athlete (maybe not in Phase 0). This should be very nicely formatted to show both the criteria and the athlete’s progress through those criteria.\nPhase Description\n\nTypical Activities? Description of ideal movements?\n\nLink to TeamBuildr Program\nSpecific Tech / Procedures for this phase\n\nBFR\nE-Stim\n\nFAQ and Troubleshooting\n\nCommon issues/obstacles in this phase and some ideas to overcome\n\nReferences\n\n\n\n\n\n\n\nMost Important Goals — Pre-Op\n\n\n\n\nEliminate swelling\n\nRegain full range of motion\n\nRegain 90% quadriceps and hamstring strength vs. other side\n\n\n\n\nTypical activities:\n- Icing, ROM exercises, cycling, progressive strengthening.\n- Avoid aggressive change of direction.\n\n\n\n\n\n\n\n\n\n\nMeasure\nTest Description\nGoal\n\n\n\n\nPassive Knee Extension\nSupine with long arm goniometer\n0°\n\n\nPassive Knee Flexion\nSupine with long arm goniometer\n125°+\n\n\nStrength\nHand-held dynamometer (quads & hamstrings)\n≥ 90% symmetry\n\n\nSwelling/Effusion\nStroke Test\n0–1+\n\n\nSingle Hop Test\nAverage of two hops\n≥ 90% symmetry"
-  },
-  {
-    "objectID": "book/template.html#preop-outcomes",
-    "href": "book/template.html#preop-outcomes",
-    "title": "Pre-Op Phase: Injury Recovery & Readiness for Surgery",
-    "section": "",
-    "text": "Measure\nTest Description\nGoal\n\n\n\n\nPassive Knee Extension\nSupine with long arm goniometer\n0°\n\n\nPassive Knee Flexion\nSupine with long arm goniometer\n125°+\n\n\nStrength\nHand-held dynamometer (quads & hamstrings)\n≥ 90% symmetry\n\n\nSwelling/Effusion\nStroke Test\n0–1+\n\n\nSingle Hop Test\nAverage of two hops\n≥ 90% symmetry"
-  },
-  {
-    "objectID": "book/index.html",
-    "href": "book/index.html",
-    "title": "Introduction",
-    "section": "",
-    "text": "This ACL rehabilitation protocol is designed as a comprehensive resource for every person involved in a rehab, starting with the athlete them-self. This document will allow the athlete to take ownership of the rehabilitation process and to know exactly how they are progressing throughout the journey. Although the athlete is at the centre of this process at all times, this document is technical and scientific, and will provide CSI Pacific staff, Integrated Service Team (IST) members, and other sport partner personnel with a thoroughly-researched, evidence-based plan to help the athlete return to performance.\n\n\n\n\n\n\n\n\nThis protocol embodies and aligns closely with CSI Pacific’s Critical Success Factors:\n\n\n\n\n\n\nCollaborate\n\nThis tool facilitates seamless collaboration amongst every member of the athlete’s support team. All information will be in one place and everybody will have the opportunity to be on the same page.\n\n\n\nServe\n\nAn athlete-centred approach, backed by the dedication and hard work of CSI Pacific practitioners will give athletes the best possible chance of a successful return to performance.\n\n\n\nInnovate\n\nThis ambitious protocol, centred on meticulous data management is unique in the field of injury rehabilitation. It allows us to continually provide best-practice service, and to learn and grow with every successful rehab.\n\n\n\nPerform\n\nThis protocol is backed by the latest scientific research as well as the experience of expert-level practitioners who have led successful rehabilitations for some of Canada’s top athletes.\n\n\n\nImportantly, this protocol is criteria-based. Every athlete will move through the rehabilitation at their own pace, allowing the criteria to govern progression. Occasionally, estimated time-lines will be cited in order to provide some temporal context for the rehabilitation, but it is important to remember that every ACL injury and rehab is different, and that allowing the criteria to dictate progression will keep the process on track and ultimately lead to the most successful return to performance.\nThis protocol is different from previously published ACL Rehabilitation Protocols in that it is a living document, fully integrated with all of the athlete’s data and unique information needed to tailor the process to the individual. Some advantages of this approach include:\n\nAll information is in one place. There is no need to email documents back and forth, or to print PDFs, or to rely on pencil and paper data collection. Every person involved in the rehab will have consistent access to all information, allowing seamless collaboration amongst everyone involved.\nDirect integration with CSI Pacific’s Athlete Management System (AMS). This enable meticulous tracking of every aspect of an ACL rehab, so we can deliver the best rehab possible while also learning what we can improve for future cases.\nAutomated tailoring of the process to the individual based on certain aspects of the injury. For example, the rehabilitation will differ based on the type of surgery that is performed. Important information like this will be baked into the back end of this document, ensuring that the correct procedures are in place.\nOne common tool for all users. Once an athlete or practitioner becomes familiar with the document, they will be able to easily find the information that is important to them. For example, the athlete may only be interested in a brief overview of their current status, while the S&C coach may want to deep dive into the academic references. In short, each user can decide how they interact with this tool.\nContinuous Innovation. As new evidence and tools become available, the document can easily be updated to reflect current best-practice.\n\n\n\n\nA foundational objective of this protocol is to be as open as possible, and to facilitate sharing of information. We aim to provide you the resources needed to understand the process and take ownership over your rehab.\nWith that said, much of the information in this book is targeted towards a multidisciplinary team of practitioners with advanced education in human movement and experience guiding injury rehabilitation. This protocol should provide a framework for each of these professionals to participate in an athlete-centred approach.\n\n\n\n\n\n\nThere is no expectation for you to read this e-book front-to-back, but all of the information is there for you to engage with as you wish, and of course, questions are always encouraged!\n\n\n\n\nThis protocol strives to gather the best available evidence on ACL rehabilitation and to organize that information in a way that is directly actionable. Practitioners and decision makers should be able to follow along and obtain a clear picture of WHAT needs to be accomplished and also HOW to accomplish it. While this document is meant as a comprehensive resource, it is important to acknowledge that there will always be many different ways to approach any situation. Not all practitioners will agree on the optimal approach at all times, and that is okay. A primary goal of this document is to serve as a starting point for productive collaboration between all practitioners involved in the rehab process. Used effectively, this resource should help an integrated service team deliver the best possible rehab for the athlete. The protocol alone does not ensure a strong and successful return to performance; such an outcome will depend first and foremost on the dedicated and attentive delivery of the protocol by skilled practitioners.\n\n\n\n\nPre-Op: Injury recovery & readiness for surgery\n\n\nPhase 1: Recovery from surgery\n\n\nPhase 2: Strength and neuromuscular control\n\n\nPhase 3: Running, agility, and landings\n\n\nPhase 4: Return to sport\n\n\nPhase 5: Prevention of re-injury"
-  },
-  {
-    "objectID": "book/index.html#a-note-to-the-athlete",
-    "href": "book/index.html#a-note-to-the-athlete",
-    "title": "Introduction",
-    "section": "",
-    "text": "A foundational objective of this protocol is to be as open as possible, and to facilitate sharing of information. We aim to provide you the resources needed to understand the process and take ownership over your rehab.\nWith that said, much of the information in this book is targeted towards a multidisciplinary team of practitioners with advanced education in human movement and experience guiding injury rehabilitation. This protocol should provide a framework for each of these professionals to participate in an athlete-centred approach.\n\n\n\n\n\n\nThere is no expectation for you to read this e-book front-to-back, but all of the information is there for you to engage with as you wish, and of course, questions are always encouraged!"
-  },
-  {
-    "objectID": "book/index.html#a-note-to-practitioners",
-    "href": "book/index.html#a-note-to-practitioners",
-    "title": "Introduction",
-    "section": "",
-    "text": "This protocol strives to gather the best available evidence on ACL rehabilitation and to organize that information in a way that is directly actionable. Practitioners and decision makers should be able to follow along and obtain a clear picture of WHAT needs to be accomplished and also HOW to accomplish it. While this document is meant as a comprehensive resource, it is important to acknowledge that there will always be many different ways to approach any situation. Not all practitioners will agree on the optimal approach at all times, and that is okay. A primary goal of this document is to serve as a starting point for productive collaboration between all practitioners involved in the rehab process. Used effectively, this resource should help an integrated service team deliver the best possible rehab for the athlete. The protocol alone does not ensure a strong and successful return to performance; such an outcome will depend first and foremost on the dedicated and attentive delivery of the protocol by skilled practitioners."
-  },
-  {
-    "objectID": "book/index.html#the-six-phases-of-acl-rehabilitation",
-    "href": "book/index.html#the-six-phases-of-acl-rehabilitation",
-    "title": "Introduction",
-    "section": "",
-    "text": "Pre-Op: Injury recovery & readiness for surgery\n\n\nPhase 1: Recovery from surgery\n\n\nPhase 2: Strength and neuromuscular control\n\n\nPhase 3: Running, agility, and landings\n\n\nPhase 4: Return to sport\n\n\nPhase 5: Prevention of re-injury"
-  },
-  {
-    "objectID": "dashboards/dashboard1.html",
-    "href": "dashboards/dashboard1.html",
-    "title": "CMJ Dashboard",
-    "section": "",
-    "text": "This report is a sample of the full dashboard which can be found here."
-  },
-  {
-    "objectID": "dashboards/dashboard1.html#readiness",
-    "href": "dashboards/dashboard1.html#readiness",
-    "title": "CMJ Dashboard",
-    "section": "",
-    "text": "This report is a sample of the full dashboard which can be found here."
-  },
-  {
-    "objectID": "dashboards/dashboard1.html#symmetry",
-    "href": "dashboards/dashboard1.html#symmetry",
-    "title": "CMJ Dashboard",
-    "section": "Symmetry",
-    "text": "Symmetry\nTrack Bilateral Asymmetry along with the performance metrics"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "ACL Rehabilitation Hub",
-    "section": "",
-    "text": "Day: 64  Week: 9\n\n Injury: ACL   Limb: Left   Date of Surgery: Nov 12, 2025   Type of Surgery: Hamstring\n\n\n\n\n\n\n\n\nProgress by Phase\n\n\nPhase\nCompletion\nPercent\n\n\n\n\n0\n5/5\n100%\n\n\n1\n4/4\n100%\n\n\n2\n3/16\n19%"
-  },
-  {
-    "objectID": "index.html#sidebar",
-    "href": "index.html#sidebar",
-    "title": "ACL Rehabilitation Hub",
-    "section": "",
-    "text": "Day: 64  Week: 9\n\n Injury: ACL   Limb: Left   Date of Surgery: Nov 12, 2025   Type of Surgery: Hamstring\n\n\n\n\n\n\n\n\nProgress by Phase\n\n\nPhase\nCompletion\nPercent\n\n\n\n\n0\n5/5\n100%\n\n\n1\n4/4\n100%\n\n\n2\n3/16\n19%"
-  },
-  {
-    "objectID": "index.html#column-width-33",
-    "href": "index.html#column-width-33",
-    "title": "ACL Rehabilitation Hub",
-    "section": "Column {width = “33%”}",
-    "text": "Column {width = “33%”}\n\nRow - Daily Monitoring\n\n\ntitle= Daily Monitoring -  Jan 15, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRow - Phase Criteria Summary\n\n\n\n\n\n\n\n\n\nPhase 2 Criteria\n\n\nOutcome Measure\n\nGoal\nScore\n\n\n\n\nPassive Knee Extension\n≤\n0°\n0\n\n\nPassive Knee Flexion\n≥\n125°\n126\n\n\nSwelling\n≤\n0\n0\n\n\nSingle Leg Bridge\n≥\n20 Reps\n7\n\n\nSingle Leg Calf Raises\n≥\n20\n5\n\n\nSide Bridge\n≥\n30s\n\n\n\n\nSingle Leg Rise\n≥\n10\n\n\n\n\nSingle Leg Balance (Eyes Open)\n≥\n45s\n\n\n\n\nSingle Leg Balance (Eyes Closed)\n≥\n9\n\n\n\n\nTrapBar Deadlift\n≥\n110 kg\n40\n\n\nQuad Strength\n&gt;\n75%\n\n\n\n\nHamstring Strength\n&gt;\n75%\n\n\n\n\nAnkle Dorsiflexion\n≥\n10cm\n6\n\n\nY-Balance (Anterior)\n&gt;\n75%\n\n\n\n\nY-Balance (Postero-Medial)\n&gt;\n75%\n\n\n\n\nY-Balance (Postero-Lateral)\n&gt;\n75%"
-  },
-  {
-    "objectID": "index.html#column-width-33-1",
-    "href": "index.html#column-width-33-1",
-    "title": "ACL Rehabilitation Hub",
-    "section": "Column {width = “33%”}",
-    "text": "Column {width = “33%”}\n\nRow - Health and Wellness\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRow - Force Plates"
-  },
-  {
-    "objectID": "index.html#column-width-33-2",
-    "href": "index.html#column-width-33-2",
-    "title": "ACL Rehabilitation Hub",
-    "section": "Column {width = “33%”}",
-    "text": "Column {width = “33%”}\n\nRow - Strength\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRow - Tabsets of tables\n\n\n[1] 1"
-  },
-  {
     "objectID": "checklists/phase0_checklist.html",
     "href": "checklists/phase0_checklist.html",
     "title": "Pre-Op Phase Checklist",
     "section": "",
     "text": "Frank Reynolds’s progress towards these goals will be assessed via the criteria seen below.\n\n\n\n\n\n\n\n\nPhase 0 Criteria\n\n\nOutcome Measure\n\nGoal\nScore\n\n\n\n\nPassive Knee Extension\n≤\n0°\n0\n\n\nPassive Knee Flexion\n≥\n125°\n125\n\n\nSwelling\n≤\n1\n0\n\n\nQuad Strength\n&gt;\n90%\n92%\n\n\nHamstring Strength\n&gt;\n90%\n93%\n\n\n\n\n\n\n\n\n\n\n\n\nGoals met: 5/5\n100%\n\n\n\n\n\n\n\n\n\nOutcomes\n\n\n\n\n\nPhase 0 Outcomes\n\n\nSwelling\n\n\nKnee Extension\n\n\nKnee Flexion\n\n\nQuad Strength\n\n\nHamstring Strength\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSome Writing\nSome More Writing"
-  },
-  {
-    "objectID": "dashboards/wellness_dashboard.html",
-    "href": "dashboards/wellness_dashboard.html",
-    "title": "Health and Wellness",
-    "section": "",
-    "text": "Row - Health and Wellness"
   },
   {
     "objectID": "checklists/phase2_checklist.html",
@@ -238,31 +126,10 @@
     "text": "Frank Reynolds’s progress towards these goals will be assessed via the criteria seen below.\n\n\n\n\n\n\n\n\nPhase 2 Criteria\n\n\nOutcome Measure\n\nGoal\nScore\n\n\n\n\nPassive Knee Extension\n≤\n0°\n0\n\n\nPassive Knee Flexion\n≥\n125°\n127\n\n\nSwelling\n≤\n0\n0\n\n\nSingle Leg Bridge\n≥\n20 Reps\n14\n\n\nSingle Leg Calf Raises\n≥\n20\n12\n\n\nSide Bridge\n≥\n30s\n30\n\n\nSingle Leg Rise\n≥\n10\n4\n\n\nSingle Leg Balance (Eyes Open)\n≥\n45s\n45\n\n\nSingle Leg Balance (Eyes Closed)\n≥\n9\n9\n\n\nTrapBar Deadlift\n≥\n110 kg\n60\n\n\nQuad Strength\n&gt;\n75%\n\n\n\n\nHamstring Strength\n&gt;\n75%\n\n\n\n\nAnkle Dorsiflexion\n≥\n10cm\n11\n\n\nY-Balance (Anterior)\n&gt;\n75%\n68\n\n\nY-Balance (Postero-Medial)\n&gt;\n75%\n81\n\n\nY-Balance (Postero-Lateral)\n&gt;\n75%\n74\n\n\n\n\n\n\n\n\n\n\n\n\nGoals met: 8/16\n50%\n\n\n\n\n\n\n\n\n\nOutcomes\n\n\n\n\n\nMobility\n\n\nSwelling\n\n\nKnee Extension\n\n\nKnee Flexion\n\n\nAnkle\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSome Writing\nSome More Writing\n\n\n\n\n\nStrength\n\n\nSL Bridge\n\n\nSL Calf Raise\n\n\nSide Bridge\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nsome\nsome\n\n\n\n\n\nControl\n\n\nSL Balance (Open)\n\n\nSL Balance (Closed)\n\n\nY Balance\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nwriting"
   },
   {
-    "objectID": "checklists/phase0_checklist.html#knee-extension",
-    "href": "checklists/phase0_checklist.html#knee-extension",
-    "title": "Pre-Op Phase Checklist",
-    "section": "Knee Extension",
-    "text": "Knee Extension"
-  },
-  {
-    "objectID": "checklists/phase0_checklist.html#knee-flexion",
-    "href": "checklists/phase0_checklist.html#knee-flexion",
-    "title": "Pre-Op Phase Checklist",
-    "section": "Knee Flexion",
-    "text": "Knee Flexion"
-  },
-  {
-    "objectID": "checklists/phase0_checklist.html#quad-strength",
-    "href": "checklists/phase0_checklist.html#quad-strength",
-    "title": "Pre-Op Phase Checklist",
-    "section": "Quad Strength",
-    "text": "Quad Strength"
-  },
-  {
-    "objectID": "checklists/phase0_checklist.html#hamstring-strength",
-    "href": "checklists/phase0_checklist.html#hamstring-strength",
-    "title": "Pre-Op Phase Checklist",
-    "section": "Hamstring Strength",
-    "text": "Hamstring Strength\n\n\n\n\n\n\n::: ::: ::::"
+    "objectID": "checklists/return_to_run_checklist.html",
+    "href": "checklists/return_to_run_checklist.html",
+    "title": "Return to Running",
+    "section": "",
+    "text": "Return to running"
   }
 ]
