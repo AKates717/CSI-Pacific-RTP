@@ -303,17 +303,25 @@ htmltools::div(
 
 ### Row - Health and Wellness {height="50%"}
 
-
-
-
-
 ```{r}
 
 htmltools::div(
   class = "phase0-navset",
   navset_card_tab(
-    full_screen = TRUE,
-    title = "Wellness",
+    #full_screen = TRUE,
+    title = htmltools::tags$span(style = "font-weight:700; font-size:1.2rem;", "Wellness"),
+    footer = htmltools::tags$div(
+      style = "margin-top:-0.3rem; padding:0.35rem 0.75rem; font-size:0.75rem; color:#666; border-top:1px solid #dee2e6; background    :#fff; box-sizing:border-box; width:100%;",
+  "*Past 28 Days"
+    ),
+    nav_panel(
+      "Sleep",
+      plot_sleep("hours_of_sleep")
+    ),
+    nav_panel(
+      "Fatigue",
+      plot_wellness("fatigue")
+    ),
     nav_panel(
       "Stress",
       plot_wellness("stress")
@@ -330,8 +338,6 @@ htmltools::div(
 )
 
 ```
-
-
 
 ### Row - Force Plates {.tabset height="50%"}
 
@@ -381,6 +387,23 @@ ba2 %>%
 
 ## Column {width = "33%"}
 
+### Row - Tabsets of tables {height="50%"}
+
+```{r}
+
+htmltools::div(
+  class = "phase0-navset",
+  navset_card_tab(
+    #full_screen = TRUE,
+    title = htmltools::tags$span(style = "font-weight:700; font-size:1.2rem;", "Mobility"),
+    nav_panel(
+      "Sleep",
+      plot_sleep("hours_of_sleep")
+    )
+  )
+)
+```
+
 ### Row - Strength {.tabset height="50%"}
 
 ```{r}
@@ -404,13 +427,4 @@ plot_iso_magnitude("Quads")
 # ba2 %>%
 #   layout(title = NA)
 plot_iso_magnitude("Hamstrings")
-```
-
-### Row - Tabsets of tables {.tabset height="50%"}
-
-```{r}
-#| label: phase 1
-#| title: "1"
-
-1+0
 ```
