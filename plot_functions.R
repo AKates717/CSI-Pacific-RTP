@@ -610,3 +610,67 @@ plot_iso_magnitude2 <- function(data, outcome){
     config(modeBarButtonsToRemove = c("hoverCompare", "hoverclosest", "zoomIn2d", "zoomOut2d"))
   
 }
+
+
+
+
+
+
+
+
+
+#Wellness Plots
+
+plot_wellness <- function (outcome){
+  
+  #outcome <- "fatigue"
+  
+  v1 <- daily_mon_raw %>%
+    arrange(date, timestamp) %>%
+    select(date, timestamp, value = all_of(outcome)) %>%
+    mutate(avg = lag(cummean(value)))
+  
+  n <- seq_along(v1$value) #just creating a sequence, essentially a row number
+  m <- cumsum(v1$value) /n #this one plus the one above just does a cummean I guess
+  m2 <- cumsum(v1$value * v1$value) / n #
+  v <- (m2 - m * m) * (n / (n - 1)) #
+  s <- sqrt(v) #st dev
+  CoV <- s/m #Cov
+  
+  v1$CoV <- CoV
+  
+  v1 <- v1 %>%
+    mutate(Upper = round(avg + (avg * CoV),2),
+           Lower = round(avg - (avg * CoV),2)) %>%
+    mutate(Flag = case_when(
+      value < Lower ~ "Decrease",
+      value > Upper ~ "Increase",
+      TRUE ~ "Normal"
+    )) %>%
+    mutate(Colour = case_when(
+      Flag == "Normal" ~ "gray40",
+      Flag == "Decrease" ~ "#009E73",
+      Flag == "Increase" ~ "#D55E00"
+    ))
+  
+  p_value <- v1 %>%
+    mutate(date = as.Date(date)) %>%          # or as.Date(timestamp)
+    ggplot(aes(x = date, y = value)) +
+    geom_col(fill = v1$Colour, alpha = 0.9, width = 0.8) +
+    geom_errorbar(aes(ymin = Lower, ymax = Upper), size = 1, width = 0.5) +
+    geom_point(aes(y = avg), size = 2, shape = 23, fill = "#0072B2", stroke = .5) +
+    geom_text(aes(label = value), position = position_stack(vjust = .5), angle = 90, fontface = "bold", color = "white", size = 3) +
+    scale_x_date(breaks = "1 month", labels = label_date("%b")) + 
+    scale_y_continuous(limits = c(0, 5), oob = oob_squish) +
+    ak_plot_theme() +
+    theme(axis.title.x = element_blank(),
+          axis.title.y = element_blank()
+    )
+  
+  ggplotly(p_value)
+  
+}
+
+
+
+
