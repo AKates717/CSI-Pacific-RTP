@@ -71,6 +71,7 @@ stat_summary_plot <- function (nm_data, y, colour1, tt_helper, title) { #clunky 
     geom_jitter(aes(y = {{y}}), shape = 1, size = 2, alpha = 0.3, width = 0.2) +
     geom_text(data = TEM_df, aes(x = factor(date_ddmmyear, ordered = T), y = mean, label = real), inherit.aes = FALSE, size = 5, vjust = -0.5, nudge_x = 0.1) +
     ak_plot_theme() +
+    scale_x_discrete(labels = function(x) format(as.Date(x), "%b %e, %Y")) +
     #theme(axis.text.x = element_text(angle = 40, hjust =0.6, vjust = 0.8)) +
     #axis.text.y = element_text(size = 6)) +
     # annotate(geom = "text",
@@ -82,7 +83,7 @@ stat_summary_plot <- function (nm_data, y, colour1, tt_helper, title) { #clunky 
     labs(
       x = NULL,
       y = NULL,
-      title = title)
+      title = NULL)
   
   with_options(list(digits = 4), ggplotly(p, tooltip = c("text"))) %>%
     style(hovertemplate = "<b>%{text}</b> <br><i>Mean:</i>  %{y}<extra></extra>",traces = 3) %>%
@@ -259,6 +260,7 @@ BA_plot_percent <- function (BA_data, y1, y2, colour1, colour2) {
     stat_summary(aes(y = {{y2}}, group = 5), fun = "mean", geom = "line", linewidth = 1, position = position_nudge(x = 0.05), color= colour2, alpha = 0.3) +
     geom_point(aes(y = {{y1}}, color = {{y1}}), shape = 1, size = 2, alpha = 0.5, color = colour1, position = position_jitternudge(nudge.from = "jittered", width = 0.05,  x = -0.15)) +
     geom_jitter(aes(y = {{y2}}, color = {{y2}}), shape = 1, size = 2, alpha = 0.5, color = colour2, position = position_jitternudge(nudge.from = "jittered", width = 0.05,  x = 0.15)) +
+    scale_x_discrete(labels = function(x) format(as.Date(x), "%b %e, %Y")) +
     scale_y_continuous(limits = c(-30,30), breaks = seq(-30,30,5), oob = scales::squish) +
     #ylim((0-max(abs(c(BA_data$balng, BA_data$basht)))),(0+max(abs(c(BA_data$balng, BA_data$basht))))) +
     ak_plot_theme() +
@@ -357,6 +359,7 @@ BA_plot_magnitude <- function (BA_data, y1, y2, color1, color2, tthelper1, tthel
     geom_point(aes(y = {{y1}}, color = {{y1}}), shape = 21, size = 2, alpha = 0.5, color = "black", fill = color1, position = position_jitternudge(nudge.from = "jittered", width = 0.15,  x = -0.25)) +
     geom_point(aes(y = {{y2}}, color = {{y2}}), shape = 21, size = 2, alpha = 0.5, color = "black", fill = color2, position = position_jitternudge(nudge.from = "jittered", width = 0.15,  x = 0.25)) +
     ak_plot_theme() +
+    scale_x_discrete(labels = function(x) format(as.Date(x), "%b %e, %Y")) +
     theme(#axis.text.x = element_text(angle = 40, hjust =0.6, vjust = 0.8),
           title = element_text(size = 16, face = "bold")) +
     labs(
@@ -526,7 +529,7 @@ plot_ind_phase_outcomes <- function(phase, outcome){
     geom_point(data = subset(df, value == 0), aes(fill = side), shape = 15, position = position_nudge(x = 0.1, y = 0.03), alpha = 0.8) +
     ak_plot_theme() +
     #scale_x_date(breaks = "1 day", date_labels = "%b %d") +
-    scale_x_discrete(labels = function(x) format(as.Date(x), "%b %e, %Y")) +
+    scale_x_discrete(labels = function(x) format(as.Date(x), "%b %e")) +
     labs(y = outcome, x = NULL) +
     scale_fill_manual(
       values = c(

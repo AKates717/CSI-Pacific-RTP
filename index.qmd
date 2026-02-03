@@ -339,55 +339,60 @@ htmltools::div(
 
 ```
 
-### Row - Force Plates {.tabset height="50%"}
+### Row - Strength {height="50%"}
 
 ```{r}
-#| label: cmj_Height
-#| title: Height
-
-p1 <- stat_summary_plot(Jumps, flight_height_tov, "#DA2D33", Jumps$flight_height_tov, "Flight Height - TOV")
-
-p1 %>%
-  layout(title = NA)
-
-```
-
-```{r}
-#| label: RSImod
-#| title: RSImod
-
-p2 <- stat_summary_plot(Jumps, rs_imod, "dodgerblue4", Jumps$rs_imod, "RSI mod")
-
-p2 %>%
-  layout(title = NA)
-
-```
-
-```{r}
-#| label: BA1
-#| title: BA%
-
-ba1 <- BA_plot_percent(Jumps, balng, basht, "orange", "dodgerblue3")
-
-ba1 %>%
-  layout(title = NA)
-
-```
-
-```{r}
-#| label: BA2
-#| title: BA-mag
-
-ba2 <- BA_plot_magnitude(Jumps, sht_left, sht_right, "red", "black", Jumps$sht_left, Jumps$sht_right)
-
-ba2 %>%
-  layout(title = NA)
+htmltools::div(
+  class = "phase0-navset",
+  navset_card_tab(
+    #full_screen = TRUE,
+    title = htmltools::tags$span(style = "font-weight:700; font-size:1.2rem;", "Strength"),
+    nav_panel(
+      "Quads",
+      plot_iso_magnitude("Quads")
+    ),
+    nav_panel(
+      "Hams",
+      plot_iso_magnitude("Hamstrings")
+    ),
+  )
+)
 
 ```
 
 ## Column {width = "33%"}
 
-### Row - Tabsets of tables {height="50%"}
+### Row - Mobility {height="50%"}
+
+```{r}
+
+htmltools::div(
+  class = "phase0-navset",
+  navset_card_tab(
+    full_screen = TRUE,
+    title = htmltools::tags$span(style = "font-weight:700; font-size:1.2rem;", "Mobility"),
+    selected = "Ankle",
+    nav_panel(
+      "Swelling",
+      plot_ind_phase_outcomes(outcomes_raw_all, "Swelling")
+    ),
+    nav_panel(
+      "Knee Extension",
+      plot_ind_phase_outcomes(outcomes_raw_all, "Passive Knee Extension")
+    ),
+    nav_panel(
+      "Knee Flexion",
+      plot_ind_phase_outcomes(outcomes_raw_all, "Passive Knee Flexion")
+    ),
+    nav_panel(
+      "Ankle",
+      plot_ind_phase_outcomes(outcomes_raw_all, "Ankle Dorsiflexion")
+    )
+  )
+)
+```
+
+### Row - Force Plates {height="50%"}
 
 ```{r}
 
@@ -395,36 +400,24 @@ htmltools::div(
   class = "phase0-navset",
   navset_card_tab(
     #full_screen = TRUE,
-    title = htmltools::tags$span(style = "font-weight:700; font-size:1.2rem;", "Mobility"),
+    title = htmltools::tags$span(style = "font-weight:700; font-size:1.2rem;", "CMJ"),
     nav_panel(
-      "Sleep",
-      plot_sleep("hours_of_sleep")
-    )
+      "Height",
+      stat_summary_plot(Jumps, flight_height_tov, "#DA2D33", Jumps$flight_height_tov, "Flight Height - TOV")
+    ),
+    nav_panel(
+      "RSImod",
+      stat_summary_plot(Jumps, rs_imod, "dodgerblue4", Jumps$rs_imod, "RSI mod")
+    ),
+    nav_panel(
+      "BA%",
+      BA_plot_percent(Jumps, balng, basht, "orange", "dodgerblue3")
+    ),
+    nav_panel(
+      "BA-mag",
+      BA_plot_magnitude(Jumps, sht_left, sht_right, "red", "black", Jumps$sht_left, Jumps$sht_right)
+    ),
   )
 )
-```
 
-### Row - Strength {.tabset height="50%"}
-
-```{r}
-#| label: iso_quad
-#| title: Quads
-
-# ba2 <- BA_plot_magnitude(iso_joint, l_quad_torque_90, r_quad_torque_90, "red", "black", iso_joint$l_quad_torque_90, iso_joint$r_quad_torque_90)
-# 
-# ba2 %>%
-#   layout(title = NA)
-
-plot_iso_magnitude("Quads")
-```
-
-```{r}
-#| label: iso_ham
-#| title: Hams
-
-# ba2 <- BA_plot_magnitude(iso_joint, l_ham_torque_90, r_ham_torque_90, "red", "black", iso_joint$l_ham_torque_90, iso_joint$r_ham_torque_90)
-# 
-# ba2 %>%
-#   layout(title = NA)
-plot_iso_magnitude("Hamstrings")
 ```
