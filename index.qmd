@@ -371,7 +371,7 @@ htmltools::div(
   navset_card_tab(
     full_screen = TRUE,
     title = htmltools::tags$span(style = "font-weight:700; font-size:1.2rem;", "Mobility"),
-    selected = "Ankle",
+    selected = "Swelling",
     nav_panel(
       "Swelling",
       plot_ind_phase_outcomes(outcomes_raw_all, "Swelling")

@@ -17,18 +17,16 @@ source("plot_functions.R")
 source("Themes.R")
 ```
 
-Following ACL reconstructive surgery, the body requires a a period of rest and recovery. Phase 1 is all about optimizing this recovery and working towards satisfying a few simple criteria in order to prepare the knee for more intense progressions in the coming phases.
+The first phase of ACL rehabilitation begins immediately following surgery. The body will require a period of rest and recovery, along with some targeted recovery interventions such as the use of crutches, icing and elevation. It is important to remember that every injury and every surgery are different, but in many cases, Phase 1 must involve much more than just passive recovery. The key will be to strike a balance among passive and active interventions and to consistently work towards satisfying a few targeted criteria in order to prepare the knee for more intense progressions in the coming phases.
 
 ::: {.callout-important title="Most Important Goals — Phase 1"}
 -   Reduce pain and swelling
 -   Regain range of motion: Get the knee straight!
 -   Re-establish normal gait
--   Re-establish firing of the quadriceps muscles
+-   Re-establish control of the quadriceps muscles
 :::
 
-**`r params$athlete`'s** progress
-
-tion.
+The goal of this Phase 1 protocol is to support both athlete and practitioner in striking the optimal balance between recovery, strength and mobility while being guided by these goals. **`r params$athlete`'s** progress towards these goals will be assessed via the criteria seen below. Detailed description of each criteria and the associated testing methodology can be found in @sec-p1-testing.
 
 ```{r}
 #Create the table
@@ -36,7 +34,7 @@ tbl_phase1 <- criteria_phase1 %>%
   transmute(
     `Outcome Measure` = outcome_measure,
     `Op` = operator_pretty,
-    Goal              = goal_pretty,   # nice display string from your sheet
+    Goal              = goal_pretty,
     Score             = score,
     meets
   ) %>%
@@ -46,12 +44,6 @@ tbl_phase1 <- criteria_phase1 %>%
     columns = Score,
     decimals = 0
   ) %>%
-  #   fmt_number(
-  #   columns = Score,
-  #   rows = `Outcome Measure` %in% c("Hamstring Strength", "Quad Strength"),
-  #   decimals = 0,
-  #   pattern = "{x}%"
-  # ) %>%
   sub_missing(columns = Score, missing_text = "") %>%
   cols_label(Op = "") %>%
   cols_width(`Outcome Measure` ~ px(360)) %>%
@@ -80,43 +72,7 @@ tbl_phase1
 
 ```{r}
 
-goals_progress_bar <- function(
-    met, total,
-    label = "Goals met",
-    width = "100%",
-    accent = "#D71920",   # table accent (red)
-    border = "#A7A9AC",   # table border grey
-    track_bg = "#FCFCFC", # header/stripe light bg
-    fill_from = "#2E7D32",# green gradient start
-    fill_to   = "#4CAF50" # green gradient end
-) {
-  pct <- if (total > 0) round(100 * met / total) else 0
-  
-  tagList(
-    tags$style(HTML(sprintf("
-      .ak-pb-wrap   { margin-top:12px; font-family:'Open Sans',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; }
-      .ak-pb-meta   { display:flex; justify-content:space-between; font-size:0.95rem; margin-bottom:6px; color:#222; }
-      .ak-pb-meta strong{ color:%s; font-weight:700; } /* accent like table title */
-      .ak-pb       { background:%s; border:1px solid %s; border-radius:10px; height:14px; overflow:hidden; }
-      .ak-pb__fill { height:100%%; background:linear-gradient(90deg,%s,%s); transition:width .3s ease; }
-    ", accent, track_bg, border, fill_from, fill_to))),
-    div(class = "ak-pb-wrap",
-        div(class = "ak-pb-meta",
-            tags$strong(sprintf("%s: %d/%d", label, met, total)),
-            span(sprintf("%d%%", pct))
-        ),
-        div(
-          class = "ak-pb",
-          role = "progressbar",
-          `aria-valuemin` = "0",
-          `aria-valuemax` = "100",
-          `aria-valuenow` = pct,
-          style = sprintf("width:%s;", width),
-          div(class = "ak-pb__fill", style = sprintf("width:%d%%;", pct))
-        )
-    )
-  )
-}
+
 
 
 # By default: denominator = all criteria (matches your table showing blank scores)
@@ -129,6 +85,114 @@ goals_progress_bar(met_n_all, total_n_all)
 
 ------------------------------------------------------------------------
 
-## What does the research say? {#preop-outcomes}
+## What does the research say? {#sec-p1-research}
 
-Recent systematic reviews
+High-quality early-stage rehab is crucial for overcoming major aspects of dysfunction associated with ACL injury/repair and developing key qualities that will be required to succeed as the rehab progresses @buckthorpe2024. The criteria chosen for phase 1 of this protocol have been selected based on the latest available research and are robustly agreed upon by researchers and practitioners. This section will explore each of these criteria directly. The aim is to provide a detailed understanding of why each of these criteria were included, and what the research says about how to most effectively progress each one.
+
+### Pain and Swelling
+
+Pain and swelling are two signs of inflammation that are to be expected following ACLR, and must be managed appropriately in order to improve both acute and long-term outcomes @lattermann2017. Pain and swelling are known to affect join proprioception @hurley1997, to increase arthrogenic muscular inhibition (AMI) [@lepley2021; @norte2021] , and to mechanically prevent full joint ROM. This means that the pain and swelling that exists following surgery will prevent the athlete from being able to fully flex/extend their knee, will reduce the ability to contract the muscles, and will cause decreased awareness of body/joint position, movement and force production @riemann2002.
+
+Agreed upon interventions for addressing pain and swelling in this phase include the use of cryotherapy (ice), compression and elevation @buckthorpe2024. Cryotherapy during the first 3 days following surgery has been shown to decrease pain, and reduce medication use @kotsifaki2023. Compressive cryotherapy, for example, with the use of a GameReady device , if available, may be more effective at reducing pain and also may have a small effect on swelling reduction in comparison to cryotherapy alone. Active ROM tasks, discussed in the following section might also lead to decreased pain and swelling due to increased venous blood return @buckthorpe2024.
+
+In order to effectively progress, it is important to monitor both pain and swelling. Monitoring of pain can be a difficult task, given that it is subjective and highly unique to each individual, however standardization of assessment can improve consistency. The daily wellness questionnaire included with the CSI Pacific ACL Rehab Guide uses an 11-point numeric rating scale from 0 (absence of pain) to 10 (worst pain imaginable). The single easiest step to maintain consistency and reliability would be to complete the questionnaire at a consistent time of day: either first thing in the morning or immediately at the start of rehab sessions. Given the subjective nature of pain, knee pain score has not been included as an official criteria for progression from Phase 1 to Phase 2, although monitoring of pain throughout the rehab is crucial. Practitioners may wish to include pain as a criteria in some cases, and if so, a rating of \<2/10 has been recommended as a criterion for clearing phase 1 [@buckthorpe2020]. Swelling should also be monitored regularly, especially during Phase 1 of rehabilitation. The Stroke test has been included in Phase 1 Criteria given that it has been shown to be a reliable indicator of swelling @sturgill2009. A detailed description of this test can be found in the @sec-p1-testing section. Knee circumference measurements are another simple tool that we recommend, given that it is a simple test for the patient to implement on their own. In a seated position with the knee in full extension, the patient measures the circumference of the knee, 1cm proximal to the superior pole of the patella @jakobsen2010. Changes exceeding 1cm can be regarded as a clinically significant indicator of joint stress. When sustained increases in swelling and soreness occur, it is important to consider load management strategies. Effective communication between the patient and practitioner can help to determine the causes which could be related to workload in the gym/clinic, activities outside the clinic or sub-optimal use of recovery interventions.
+
+### Knee Mobility
+
+Recovery of extension and flexion ROM are crucial during early stage rehabilitation. Deficits during this phase are strongly related to mid- and late-stage ACL rehab ROM deficits @noll2015, highlighting the need to address these criteria early, before the effects can snowball. Adequate ROM is clearly important when performing higher intensity exercises later on in rehab, but it's also important in the short term as sufficient knee extension is important for re-establishing normal gait (another Phase 1 criteria) @shelbourne2009. Knee extension deficits are also predictive of other pathologies, such as anterior knee pain which can be five times more likely to occur in patients lacking extension @marques2020.
+
+Adequate knee flexion should also be achieved during this stage, and should be progressive and not aggressive @buckthorpe2024. In other words, flexion should not be forced and practitioners may need to take extra care and exercise patience in certain cases. It should be noted that knee flexion ROM may also be highly dependent on associated injuries or surgical procedures. For example, a meniscus injury associated with an ACL tear may lead to restrictions on knee flexion ROM in early rehab. Overall, practitioners and patients alike should understand that early mobilization, beginning immediately after surgery can improve knee flexion and extension ROM without compromising joint laxity, regardless of graft type @kotsifaki2023. As will be seen in the training program, both passive and active ROM exercises are essential in this phase.
+
+### Muscle Activation
+
+Weakness of the knee extensor muscles following surgery is associated with altered biomechanics during gait and other functional tasks, decreased dynamic stability, persistent knee pain, increased risk of osteoarthritis and poorer RTS outcomes @buckthorpe2024. The greater the deficits in strength at the end of Phase 1, the more difficult it will be to recover strength during later phases. Clearly, restoring the patients ability to contract their leg muscles is crucial, however care must be taken at this phase given the likelihood of existing and reactive pain/swelling, as well as ROM deficits. Therefore, this protocol will aim to begin low-level "strength" exercises as early as possible following ACLR by incorporating thoughtful exercise progressions with careful symptom monitoring.
+
+Muscle activation strategies at this stage will aim to minimize strength loss stemming from neural inhibition and muscle atrophy, but also must consider acute factors such as AMI, graft healing and patellofemoral joint (PFJ) stress. AMI, mentioned above as a consequence of pain and swelling, occurs when uninjured muscle becomes reflexively inhibited in response to a joint injury [@hopkins2000]. The practitioner must consider that in limiting neuromuscular activation, which is required to bring about improvements in quadriceps function in response to resistance training, the presence of AMI limits the value of strength training and again points to the need for thoughtful exercise programming @buckthorpe2024. Graft healing is another important consideration and it is crucial to understand how different exercises might load the graft itself, allowing for appropriate task and load selection to protect the graft from excessive forces which could lead to compromise or failure [@escamilla2012; @grodski2008]. Following ACLR the graft fixation sites require time for incorporation into the bone and the graft itself is vulnerable to fixation loosening and stretching if excessive tensile forces are applied @claes2011. Lastly, patellofemoral pain (PFP) syndrome is common following ACLR @culvenor2016 , and thus exercise and load selection must progress PFJ loading appropriately.
+
+Given all of these considerations, how can we actually load the knee to improve muscle activation and strength? For simplicity, programming decisions can be broken down into exercise selection, load/intensity, and volume/frequency. Early stage exercise selection for enhancing muscle activation should focus on isolated tasks including both closed kinetic chain (CKC; e.g. quarter squat) and open kinetic chain (OKC; straight leg raises). Functional exercises (e.g. squats/deadlifts) may be included for the purposes of reintroducing motor patterns, but the considerable AMI likely to be present during this phase will lead to altered technique and sub-optimal neural and morphological adaptations @buckthorpe2024. It is important to note that low load OKC leg extensions are considered safe for the knee following ACLR and may even be considered a critical inclusion in the training program @noehren2020. Research has shown no evidence of anterior tibial laxity following OKC versus CKC exercise @perriman2018 and ACL strain during walking is known to be higher than during full ROM low-load leg extensions @escamilla2012. Still, care must still be taken in the programming of OKC, and these should not begin until patients have minimal pain (0-2), minimal swelling ( ) and no lag on straight leg raise. Thus in the CSI Pacific program, OKC leg extensions are introduced only once all Phase 1 criteria have been met.
+
+In general, lower loads/intensities are recommended at this stage of rehab. In the CSI Pacific Program, loads during this phase will mostly lie within the range of 10-20 repetition maximum (RM) with greater proximity to technical failure being a key variable of progressive overload. At these lower loads, volume/frequency must be relatively high in order to achieve desired neuromuscular adaptations. The frequency of training may be increased during this phase, and may even include multiple sessions per day. Session volume may also increase as function improves. The rehabilitation program must also include full body strength training with specific attention in the early phase towards the plantar flexor muscles and non-weight bearing hip and core strengthening exercises.
+
+Lastly, given the difficulties associated with improving muscle activation in early phase ACL rehab, research in recent years has increasingly focused on the inclusion of supplementary strategies designed to allow for mechanical loading and neuromuscular activation without placing excess stress on the graft or PFJ. In the case where these supplementary strategies are robustly supported by research, and involve tools that are available to us at CSI Pacific, they may or may not be included as part of each individual rehabilitation. These include Phase 1 specific recommendations for the use of neuromuscular electrical stimulation (NMES), passive and/or active blood flow restriction (BFR) hydrotherapy, and isometric training. More information and a deeper dive into the research supporting each of the tools are highlighted in @sec-pi-add-resources.
+
+### Re-establishing Normal Gait
+
+[@buckthorpe2021]
+
+------------------------------------------------------------------------
+
+## Testing {#sec-p1-testing}
+
+Each card below contains a detailed description of the tests to be conducted during this phase of rehab.
+
+```{r, echo=FALSE, results='asis'}
+
+
+tests <- criteria_phase1 |>
+  dplyr::select(outcome_measure, display_description, additional_information, operator_pretty, goal_pretty, repetitions, calculation) %>%
+  mutate(op_goal = paste(operator_pretty, goal_pretty))
+
+# Helper: print a label/value line only if value is non-missing & non-empty
+emit_field <- function(label, value) {
+  if (length(value) == 0 || all(is.na(value))) return(invisible())
+  val <- value[[1]]
+  if (is.na(val)) return(invisible())
+  val_chr <- trimws(as.character(val))
+  if (!nzchar(val_chr)) return(invisible())
+  cat("**", label, ":** ", val_chr, "\n\n", sep = "")
+}
+
+for (i in seq_len(nrow(tests))) {
+  cat('::: {.card .ak-card .has-stripe .accent-primary}\n')       # universal card class
+  cat('### ', tests$outcome_measure[i], '\n\n', sep = '')         # heading
+  if (!is.na(tests$display_description[i]) &&
+      nzchar(trimws(tests$display_description[i]))) {
+    cat(tests$display_description[i], '\n\n')
+  }
+  cat("*", tests$additional_information[i], '\n\n')
+  emit_field("Criteria", tests$op_goal[i])                  # always optional-safe
+  emit_field("Repetitions", tests$repetitions[i])                # only prints if present
+  emit_field("Calculation", tests$calculation[i])
+
+  cat(':::\n\n')
+}
+
+```
+
+------------------------------------------------------------------------
+
+## The Program
+
+Below you will find links to your training programs.
+
+[Phase 1: Program 1](https://www.teambuildr.com/)
+
+When considering changes or further individualization of the program, see the lists below highlighting typically safe and unsafe exercises during this phase. To see how these exercises compare to other phases of the rehab, please see the **Exercise Phase Chart** in the book resources. All exercise programming should be done by a CSI Pacific S&C Coach or a physiotherapist.
+
+Exercises and activities during this phase typically include
+
+Peer-reviewed literature that was consulted in the making of pre-op programs is referenced here.
+
+------------------------------------------------------------------------
+
+## Additional Resources {#sec-pi-add-resources}
+
+### Preserving Whole Body Fitness and Function
+
+asdsd
+
+### Blood Flow Restriction
+
+Although, blood flow restriction...
+
+### Aquatic Therapy
+
+During this phase,
+
+------------------------------------------------------------------------
+
+## Notes and Considerations for Reviewers
+
+All feedback is welcome, however here are some considerations that should help inform the development of this tool.
+
+-   Please

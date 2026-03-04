@@ -182,9 +182,8 @@ iso_joint <- read_excel(
 
 
 iso_joint2 <- read_csv(
-  "sample_data/tindeq_results.csv"
+  "data-collection-app/data/tindeq_results.csv"
 ) %>% clean_names() %>%
-  #mutate(date = as.Date(timestamp)) %>%
   mutate(date_ddmmyear = as.Date(timestamp),
          date_ddmmyear2 =  (format(date_ddmmyear, "%b %d, %Y")))
 
@@ -591,37 +590,37 @@ p2_trapbar_best <- p2_trapbar %>%
   slice_max(value, n = 1, with_ties = FALSE)
 
 # 2l) Quad Strength
-p2_quads <- outcomes_raw_phase2 %>%
-  filter(outcome_measure == "Quad Strength") %>%
-  group_by(date) %>%
+p2_quads <- iso_joint2 %>%
+  filter(test == "Quads") %>%
+  group_by(date_ddmmyear) %>%
   summarise(
-    inj = if (any(side == inj_side,  na.rm = TRUE))  max(value[side == inj_side],  na.rm = TRUE) else NA_real_,
-    non_inj = if (any(side == non_inj_side, na.rm = TRUE))  max(value[side == non_inj_side], na.rm = TRUE) else NA_real_,
+    inj = if (any(limb == inj_side,  na.rm = TRUE))  max(peak_force_kg[limb == inj_side],  na.rm = TRUE) else NA_real_,
+    non_inj = if (any(limb == non_inj_side, na.rm = TRUE))  max(peak_force_kg[limb == non_inj_side], na.rm = TRUE) else NA_real_,
     .groups = "drop"
   ) %>%
   mutate(
     lsi = if_else(!is.na(inj) & !is.na(non_inj) & non_inj != 0, 100 * inj / non_inj, NA_real_),
     lsi = round(lsi, 1)
   ) %>%
-  arrange(date)
+  arrange(date_ddmmyear)
 
 p2_quads_best <- p2_quads %>%
   slice_max(lsi, n = 1, with_ties = FALSE)
 
 # 2m) Hamstring Strength
-p2_hams <- outcomes_raw_phase2 %>%
-  filter(outcome_measure == "Hamstring Strength") %>%
-  group_by(date) %>%
+p2_hams <- iso_joint2 %>%
+  filter(test == "Hamstrings") %>%
+  group_by(date_ddmmyear) %>%
   summarise(
-    inj = if (any(side == inj_side,  na.rm = TRUE))  max(value[side == inj_side],  na.rm = TRUE) else NA_real_,
-    non_inj = if (any(side == non_inj_side, na.rm = TRUE))  max(value[side == non_inj_side], na.rm = TRUE) else NA_real_,
+    inj = if (any(limb == inj_side,  na.rm = TRUE))  max(peak_force_kg[limb == inj_side],  na.rm = TRUE) else NA_real_,
+    non_inj = if (any(limb == non_inj_side, na.rm = TRUE))  max(peak_force_kg[limb == non_inj_side], na.rm = TRUE) else NA_real_,
     .groups = "drop"
   ) %>%
   mutate(
     lsi = if_else(!is.na(inj) & !is.na(non_inj) & non_inj != 0, 100 * inj / non_inj, NA_real_),
     lsi = round(lsi, 1)
   ) %>%
-  arrange(date)
+  arrange(date_ddmmyear)
 
 p2_hams_best <- p2_hams %>%
   slice_max(lsi, n = 1, with_ties = FALSE)
