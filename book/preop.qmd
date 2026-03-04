@@ -208,7 +208,7 @@ Peer-reviewed literature that was consulted in the making of pre-op programs is 
 
 ### Rest, Ice and Elevate
 
-After injury, it is recommended to rest, ice and elevate the knee in order to help control swelling, inflammation and pain. This should be continued for at least the first 24 hours post-injury or until sever inflammation is controlled.
+After injury, it is recommended to rest, ice and elevate the knee in order to help control swelling, inflammation and pain. This should be continued for at least the first 24 hours post-injury or until severe inflammation is controlled.
 
 ### Blood Flow Restriction
 
@@ -320,6 +320,8 @@ At this time, it appears that BFR in the pre-op phase is safe, although it's eff
 ### Neuromuscular Electrical Stimulation
 
 At this time, there does not appear to be any scientific evidence supporting the use of NMES in the pre-op phase.
+
+------------------------------------------------------------------------
 
 ## Notes and Considerations for Reviewers
 

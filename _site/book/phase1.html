@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -196,7 +215,28 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preop-outcomes" id="toc-preop-outcomes" class="nav-link active" data-scroll-target="#preop-outcomes"><span class="header-section-number">1.1</span> What does the research say?</a></li>
+  <li><a href="#sec-p1-research" id="toc-sec-p1-research" class="nav-link active" data-scroll-target="#sec-p1-research"><span class="header-section-number">1.1</span> What does the research say?</a>
+  <ul class="collapse">
+  <li><a href="#pain-and-swelling" id="toc-pain-and-swelling" class="nav-link" data-scroll-target="#pain-and-swelling"><span class="header-section-number">1.1.1</span> Pain and Swelling</a></li>
+  <li><a href="#knee-mobility" id="toc-knee-mobility" class="nav-link" data-scroll-target="#knee-mobility"><span class="header-section-number">1.1.2</span> Knee Mobility</a></li>
+  <li><a href="#muscle-activation" id="toc-muscle-activation" class="nav-link" data-scroll-target="#muscle-activation"><span class="header-section-number">1.1.3</span> Muscle Activation</a></li>
+  <li><a href="#re-establishing-normal-gait" id="toc-re-establishing-normal-gait" class="nav-link" data-scroll-target="#re-establishing-normal-gait"><span class="header-section-number">1.1.4</span> Re-establishing Normal Gait</a></li>
+  </ul></li>
+  <li><a href="#sec-p1-testing" id="toc-sec-p1-testing" class="nav-link" data-scroll-target="#sec-p1-testing"><span class="header-section-number">1.2</span> Testing</a>
+  <ul class="collapse">
+  <li><a href="#passive-knee-extension" id="toc-passive-knee-extension" class="nav-link" data-scroll-target="#passive-knee-extension"><span class="header-section-number">1.2.1</span> Passive Knee Extension</a></li>
+  <li><a href="#passive-knee-flexion" id="toc-passive-knee-flexion" class="nav-link" data-scroll-target="#passive-knee-flexion"><span class="header-section-number">1.2.2</span> Passive Knee Flexion</a></li>
+  <li><a href="#swelling" id="toc-swelling" class="nav-link" data-scroll-target="#swelling"><span class="header-section-number">1.2.3</span> Swelling</a></li>
+  <li><a href="#quads-lag-test" id="toc-quads-lag-test" class="nav-link" data-scroll-target="#quads-lag-test"><span class="header-section-number">1.2.4</span> Quads Lag Test</a></li>
+  </ul></li>
+  <li><a href="#the-program" id="toc-the-program" class="nav-link" data-scroll-target="#the-program"><span class="header-section-number">1.3</span> The Program</a></li>
+  <li><a href="#sec-pi-add-resources" id="toc-sec-pi-add-resources" class="nav-link" data-scroll-target="#sec-pi-add-resources"><span class="header-section-number">1.4</span> Additional Resources</a>
+  <ul class="collapse">
+  <li><a href="#preserving-whole-body-fitness-and-function" id="toc-preserving-whole-body-fitness-and-function" class="nav-link" data-scroll-target="#preserving-whole-body-fitness-and-function"><span class="header-section-number">1.4.1</span> Preserving Whole Body Fitness and Function</a></li>
+  <li><a href="#blood-flow-restriction" id="toc-blood-flow-restriction" class="nav-link" data-scroll-target="#blood-flow-restriction"><span class="header-section-number">1.4.2</span> Blood Flow Restriction</a></li>
+  <li><a href="#aquatic-therapy" id="toc-aquatic-therapy" class="nav-link" data-scroll-target="#aquatic-therapy"><span class="header-section-number">1.4.3</span> Aquatic Therapy</a></li>
+  </ul></li>
+  <li><a href="#notes-and-considerations-for-reviewers" id="toc-notes-and-considerations-for-reviewers" class="nav-link" data-scroll-target="#notes-and-considerations-for-reviewers"><span class="header-section-number">1.5</span> Notes and Considerations for Reviewers</a></li>
   </ul>
 </nav>
     </div>
@@ -222,7 +262,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Following ACL reconstructive surgery, the body requires a a period of rest and recovery. Phase 1 is all about optimizing this recovery and working towards satisfying a few simple criteria in order to prepare the knee for more intense progressions in the coming phases.</p>
+<p>The first phase of ACL rehabilitation begins immediately following surgery. The body will require a period of rest and recovery, along with some targeted recovery interventions such as the use of crutches, icing and elevation. It is important to remember that every injury and every surgery are different, but in many cases, Phase 1 must involve much more than just passive recovery. The key will be to strike a balance among passive and active interventions and to consistently work towards satisfying a few targeted criteria in order to prepare the knee for more intense progressions in the coming phases.</p>
 <div class="callout callout-style-default callout-important callout-titled" title="Most Important Goals — Phase 1">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -237,33 +277,32 @@ ul.task-list li input[type="checkbox"] {
 <li>Reduce pain and swelling</li>
 <li>Regain range of motion: Get the knee straight!</li>
 <li>Re-establish normal gait</li>
-<li>Re-establish firing of the quadriceps muscles</li>
+<li>Re-establish control of the quadriceps muscles</li>
 </ul>
 </div>
 </div>
-<p><strong>Frank Reynolds’s</strong> progress</p>
-<p>tion.</p>
+<p>The goal of this Phase 1 protocol is to support both athlete and practitioner in striking the optimal balance between recovery, strength and mobility while being guided by these goals. <strong>Frank Reynolds’s</strong> progress towards these goals will be assessed via the criteria seen below. Detailed description of each criteria and the associated testing methodology can be found in <a href="#sec-p1-testing" class="quarto-xref"><span>Section 1.2</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="vwkzouluhl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="upctirvpbx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#vwkzouluhl table {
+#upctirvpbx table {
   font-family: 'Open Sans', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#vwkzouluhl thead, #vwkzouluhl tbody, #vwkzouluhl tfoot, #vwkzouluhl tr, #vwkzouluhl td, #vwkzouluhl th {
+#upctirvpbx thead, #upctirvpbx tbody, #upctirvpbx tfoot, #upctirvpbx tr, #upctirvpbx td, #upctirvpbx th {
   border-style: none;
 }
 
-#vwkzouluhl p {
+#upctirvpbx p {
   margin: 0;
   padding: 0;
 }
 
-#vwkzouluhl .gt_table {
+#upctirvpbx .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -289,12 +328,12 @@ ul.task-list li input[type="checkbox"] {
   border-left-color: #D3D3D3;
 }
 
-#vwkzouluhl .gt_caption {
+#upctirvpbx .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#vwkzouluhl .gt_title {
+#upctirvpbx .gt_title {
   color: #333333;
   font-size: 22px;
   font-weight: initial;
@@ -306,7 +345,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-width: 0;
 }
 
-#vwkzouluhl .gt_subtitle {
+#upctirvpbx .gt_subtitle {
   color: #333333;
   font-size: 13px;
   font-weight: initial;
@@ -318,7 +357,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-width: 0;
 }
 
-#vwkzouluhl .gt_heading {
+#upctirvpbx .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -330,13 +369,13 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#vwkzouluhl .gt_bottom_border {
+#upctirvpbx .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#vwkzouluhl .gt_col_headings {
+#upctirvpbx .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -351,7 +390,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#vwkzouluhl .gt_col_heading {
+#upctirvpbx .gt_col_heading {
   color: #333333;
   background-color: #FCFCFC;
   font-size: 100%;
@@ -371,7 +410,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#vwkzouluhl .gt_column_spanner_outer {
+#upctirvpbx .gt_column_spanner_outer {
   color: #333333;
   background-color: #FCFCFC;
   font-size: 100%;
@@ -383,15 +422,15 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 4px;
 }
 
-#vwkzouluhl .gt_column_spanner_outer:first-child {
+#upctirvpbx .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#vwkzouluhl .gt_column_spanner_outer:last-child {
+#upctirvpbx .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#vwkzouluhl .gt_column_spanner {
+#upctirvpbx .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 1px;
   border-bottom-color: #A7A9AC;
@@ -403,11 +442,11 @@ ul.task-list li input[type="checkbox"] {
   width: 100%;
 }
 
-#vwkzouluhl .gt_spanner_row {
+#upctirvpbx .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#vwkzouluhl .gt_group_heading {
+#upctirvpbx .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -433,7 +472,7 @@ ul.task-list li input[type="checkbox"] {
   text-align: left;
 }
 
-#vwkzouluhl .gt_empty_group_heading {
+#upctirvpbx .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -448,15 +487,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 
-#vwkzouluhl .gt_from_md > :first-child {
+#upctirvpbx .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#vwkzouluhl .gt_from_md > :last-child {
+#upctirvpbx .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#vwkzouluhl .gt_row {
+#upctirvpbx .gt_row {
   padding-top: 6px;
   padding-bottom: 6px;
   padding-left: 5px;
@@ -475,7 +514,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#vwkzouluhl .gt_stub {
+#upctirvpbx .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -488,7 +527,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#vwkzouluhl .gt_stub_row_group {
+#upctirvpbx .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -502,15 +541,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: top;
 }
 
-#vwkzouluhl .gt_row_group_first td {
+#upctirvpbx .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#vwkzouluhl .gt_row_group_first th {
+#upctirvpbx .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#vwkzouluhl .gt_summary_row {
+#upctirvpbx .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -520,16 +559,16 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#vwkzouluhl .gt_first_summary_row {
+#upctirvpbx .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#vwkzouluhl .gt_first_summary_row.thick {
+#upctirvpbx .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#vwkzouluhl .gt_last_summary_row {
+#upctirvpbx .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -539,7 +578,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#vwkzouluhl .gt_grand_summary_row {
+#upctirvpbx .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -549,7 +588,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#vwkzouluhl .gt_first_grand_summary_row {
+#upctirvpbx .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -559,7 +598,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-color: #D3D3D3;
 }
 
-#vwkzouluhl .gt_last_grand_summary_row_top {
+#upctirvpbx .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -569,11 +608,11 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#vwkzouluhl .gt_striped {
+#upctirvpbx .gt_striped {
   background-color: #FFFFFF;
 }
 
-#vwkzouluhl .gt_table_body {
+#upctirvpbx .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -582,7 +621,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#vwkzouluhl .gt_footnotes {
+#upctirvpbx .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -596,7 +635,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#vwkzouluhl .gt_footnote {
+#upctirvpbx .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -605,7 +644,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#vwkzouluhl .gt_sourcenotes {
+#upctirvpbx .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -619,7 +658,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#vwkzouluhl .gt_sourcenote {
+#upctirvpbx .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -627,72 +666,72 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#vwkzouluhl .gt_left {
+#upctirvpbx .gt_left {
   text-align: left;
 }
 
-#vwkzouluhl .gt_center {
+#upctirvpbx .gt_center {
   text-align: center;
 }
 
-#vwkzouluhl .gt_right {
+#upctirvpbx .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#vwkzouluhl .gt_font_normal {
+#upctirvpbx .gt_font_normal {
   font-weight: normal;
 }
 
-#vwkzouluhl .gt_font_bold {
+#upctirvpbx .gt_font_bold {
   font-weight: bold;
 }
 
-#vwkzouluhl .gt_font_italic {
+#upctirvpbx .gt_font_italic {
   font-style: italic;
 }
 
-#vwkzouluhl .gt_super {
+#upctirvpbx .gt_super {
   font-size: 65%;
 }
 
-#vwkzouluhl .gt_footnote_marks {
+#upctirvpbx .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#vwkzouluhl .gt_asterisk {
+#upctirvpbx .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#vwkzouluhl .gt_indent_1 {
+#upctirvpbx .gt_indent_1 {
   text-indent: 5px;
 }
 
-#vwkzouluhl .gt_indent_2 {
+#upctirvpbx .gt_indent_2 {
   text-indent: 10px;
 }
 
-#vwkzouluhl .gt_indent_3 {
+#upctirvpbx .gt_indent_3 {
   text-indent: 15px;
 }
 
-#vwkzouluhl .gt_indent_4 {
+#upctirvpbx .gt_indent_4 {
   text-indent: 20px;
 }
 
-#vwkzouluhl .gt_indent_5 {
+#upctirvpbx .gt_indent_5 {
   text-indent: 25px;
 }
 
-#vwkzouluhl .katex-display {
+#upctirvpbx .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#vwkzouluhl div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#upctirvpbx div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 
@@ -777,11 +816,170 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <hr>
-<section id="preop-outcomes" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="preop-outcomes"><span class="header-section-number">1.1</span> What does the research say?</h2>
-<p>Recent systematic reviews</p>
+<section id="sec-p1-research" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="sec-p1-research"><span class="header-section-number">1.1</span> What does the research say?</h2>
+<p>High-quality early-stage rehab is crucial for overcoming major aspects of dysfunction associated with ACL injury/repair and developing key qualities that will be required to succeed as the rehab progresses <span class="citation" data-cites="buckthorpe2024">[<a href="references.html#ref-buckthorpe2024" role="doc-biblioref">1</a>]</span>. The criteria chosen for phase 1 of this protocol have been selected based on the latest available research and are robustly agreed upon by researchers and practitioners. This section will explore each of these criteria directly. The aim is to provide a detailed understanding of why each of these criteria were included, and what the research says about how to most effectively progress each one.</p>
+<section id="pain-and-swelling" class="level3" data-number="1.1.1">
+<h3 data-number="1.1.1" class="anchored" data-anchor-id="pain-and-swelling"><span class="header-section-number">1.1.1</span> Pain and Swelling</h3>
+<p>Pain and swelling are two signs of inflammation that are to be expected following ACLR, and must be managed appropriately in order to improve both acute and long-term outcomes <span class="citation" data-cites="lattermann2017">[<a href="references.html#ref-lattermann2017" role="doc-biblioref">2</a>]</span>. Pain and swelling are known to affect join proprioception <span class="citation" data-cites="hurley1997">[<a href="references.html#ref-hurley1997" role="doc-biblioref">3</a>]</span>, to increase arthrogenic muscular inhibition (AMI) <span class="citation" data-cites="lepley2021 norte2021">[<a href="references.html#ref-lepley2021" role="doc-biblioref">4</a>,<a href="references.html#ref-norte2021" role="doc-biblioref">5</a>]</span> , and to mechanically prevent full joint ROM. This means that the pain and swelling that exists following surgery will prevent the athlete from being able to fully flex/extend their knee, will reduce the ability to contract the muscles, and will cause decreased awareness of body/joint position, movement and force production <span class="citation" data-cites="riemann2002">[<a href="references.html#ref-riemann2002" role="doc-biblioref">6</a>]</span>.</p>
+<p>Agreed upon interventions for addressing pain and swelling in this phase include the use of cryotherapy (ice), compression and elevation <span class="citation" data-cites="buckthorpe2024">[<a href="references.html#ref-buckthorpe2024" role="doc-biblioref">1</a>]</span>. Cryotherapy during the first 3 days following surgery has been shown to decrease pain, and reduce medication use <span class="citation" data-cites="kotsifaki2023">[<a href="references.html#ref-kotsifaki2023" role="doc-biblioref">7</a>]</span>. Compressive cryotherapy, for example, with the use of a GameReady device , if available, may be more effective at reducing pain and also may have a small effect on swelling reduction in comparison to cryotherapy alone. Active ROM tasks, discussed in the following section might also lead to decreased pain and swelling due to increased venous blood return <span class="citation" data-cites="buckthorpe2024">[<a href="references.html#ref-buckthorpe2024" role="doc-biblioref">1</a>]</span>.</p>
+<p>In order to effectively progress, it is important to monitor both pain and swelling. Monitoring of pain can be a difficult task, given that it is subjective and highly unique to each individual, however standardization of assessment can improve consistency. The daily wellness questionnaire included with the CSI Pacific ACL Rehab Guide uses an 11-point numeric rating scale from 0 (absence of pain) to 10 (worst pain imaginable). The single easiest step to maintain consistency and reliability would be to complete the questionnaire at a consistent time of day: either first thing in the morning or immediately at the start of rehab sessions. Given the subjective nature of pain, knee pain score has not been included as an official criteria for progression from Phase 1 to Phase 2, although monitoring of pain throughout the rehab is crucial. Practitioners may wish to include pain as a criteria in some cases, and if so, a rating of &lt;2/10 has been recommended as a criterion for clearing phase 1 <span class="citation" data-cites="buckthorpe2020">[<a href="references.html#ref-buckthorpe2020" role="doc-biblioref">8</a>]</span>. Swelling should also be monitored regularly, especially during Phase 1 of rehabilitation. The Stroke test has been included in Phase 1 Criteria given that it has been shown to be a reliable indicator of swelling <span class="citation" data-cites="sturgill2009">[<a href="references.html#ref-sturgill2009" role="doc-biblioref">9</a>]</span>. A detailed description of this test can be found in the <a href="#sec-p1-testing" class="quarto-xref"><span>Section 1.2</span></a> section. Knee circumference measurements are another simple tool that we recommend, given that it is a simple test for the patient to implement on their own. In a seated position with the knee in full extension, the patient measures the circumference of the knee, 1cm proximal to the superior pole of the patella <span class="citation" data-cites="jakobsen2010">[<a href="references.html#ref-jakobsen2010" role="doc-biblioref">10</a>]</span>. Changes exceeding 1cm can be regarded as a clinically significant indicator of joint stress. When sustained increases in swelling and soreness occur, it is important to consider load management strategies. Effective communication between the patient and practitioner can help to determine the causes which could be related to workload in the gym/clinic, activities outside the clinic or sub-optimal use of recovery interventions.</p>
+</section>
+<section id="knee-mobility" class="level3" data-number="1.1.2">
+<h3 data-number="1.1.2" class="anchored" data-anchor-id="knee-mobility"><span class="header-section-number">1.1.2</span> Knee Mobility</h3>
+<p>Recovery of extension and flexion ROM are crucial during early stage rehabilitation. Deficits during this phase are strongly related to mid- and late-stage ACL rehab ROM deficits <span class="citation" data-cites="noll2015">[<a href="references.html#ref-noll2015" role="doc-biblioref">11</a>]</span>, highlighting the need to address these criteria early, before the effects can snowball. Adequate ROM is clearly important when performing higher intensity exercises later on in rehab, but it’s also important in the short term as sufficient knee extension is important for re-establishing normal gait (another Phase 1 criteria) <span class="citation" data-cites="shelbourne2009">[<a href="references.html#ref-shelbourne2009" role="doc-biblioref">12</a>]</span>. Knee extension deficits are also predictive of other pathologies, such as anterior knee pain which can be five times more likely to occur in patients lacking extension <span class="citation" data-cites="marques2020">[<a href="references.html#ref-marques2020" role="doc-biblioref">13</a>]</span>.</p>
+<p>Adequate knee flexion should also be achieved during this stage, and should be progressive and not aggressive <span class="citation" data-cites="buckthorpe2024">[<a href="references.html#ref-buckthorpe2024" role="doc-biblioref">1</a>]</span>. In other words, flexion should not be forced and practitioners may need to take extra care and exercise patience in certain cases. It should be noted that knee flexion ROM may also be highly dependent on associated injuries or surgical procedures. For example, a meniscus injury associated with an ACL tear may lead to restrictions on knee flexion ROM in early rehab. Overall, practitioners and patients alike should understand that early mobilization, beginning immediately after surgery can improve knee flexion and extension ROM without compromising joint laxity, regardless of graft type <span class="citation" data-cites="kotsifaki2023">[<a href="references.html#ref-kotsifaki2023" role="doc-biblioref">7</a>]</span>. As will be seen in the training program, both passive and active ROM exercises are essential in this phase.</p>
+</section>
+<section id="muscle-activation" class="level3" data-number="1.1.3">
+<h3 data-number="1.1.3" class="anchored" data-anchor-id="muscle-activation"><span class="header-section-number">1.1.3</span> Muscle Activation</h3>
+<p>Weakness of the knee extensor muscles following surgery is associated with altered biomechanics during gait and other functional tasks, decreased dynamic stability, persistent knee pain, increased risk of osteoarthritis and poorer RTS outcomes <span class="citation" data-cites="buckthorpe2024">[<a href="references.html#ref-buckthorpe2024" role="doc-biblioref">1</a>]</span>. The greater the deficits in strength at the end of Phase 1, the more difficult it will be to recover strength during later phases. Clearly, restoring the patients ability to contract their leg muscles is crucial, however care must be taken at this phase given the likelihood of existing and reactive pain/swelling, as well as ROM deficits. Therefore, this protocol will aim to begin low-level “strength” exercises as early as possible following ACLR by incorporating thoughtful exercise progressions with careful symptom monitoring.</p>
+<p>Muscle activation strategies at this stage will aim to minimize strength loss stemming from neural inhibition and muscle atrophy, but also must consider acute factors such as AMI, graft healing and patellofemoral joint (PFJ) stress. AMI, mentioned above as a consequence of pain and swelling, occurs when uninjured muscle becomes reflexively inhibited in response to a joint injury <span class="citation" data-cites="hopkins2000">[<a href="references.html#ref-hopkins2000" role="doc-biblioref">14</a>]</span>. The practitioner must consider that in limiting neuromuscular activation, which is required to bring about improvements in quadriceps function in response to resistance training, the presence of AMI limits the value of strength training and again points to the need for thoughtful exercise programming <span class="citation" data-cites="buckthorpe2024">[<a href="references.html#ref-buckthorpe2024" role="doc-biblioref">1</a>]</span>. Graft healing is another important consideration and it is crucial to understand how different exercises might load the graft itself, allowing for appropriate task and load selection to protect the graft from excessive forces which could lead to compromise or failure <span class="citation" data-cites="escamilla2012 grodski2008">[<a href="references.html#ref-escamilla2012" role="doc-biblioref">15</a>,<a href="references.html#ref-grodski2008" role="doc-biblioref">16</a>]</span>. Following ACLR the graft fixation sites require time for incorporation into the bone and the graft itself is vulnerable to fixation loosening and stretching if excessive tensile forces are applied <span class="citation" data-cites="claes2011">[<a href="references.html#ref-claes2011" role="doc-biblioref">17</a>]</span>. Lastly, patellofemoral pain (PFP) syndrome is common following ACLR <span class="citation" data-cites="culvenor2016">[<a href="references.html#ref-culvenor2016" role="doc-biblioref">18</a>]</span> , and thus exercise and load selection must progress PFJ loading appropriately.</p>
+<p>Given all of these considerations, how can we actually load the knee to improve muscle activation and strength? For simplicity, programming decisions can be broken down into exercise selection, load/intensity, and volume/frequency. Early stage exercise selection for enhancing muscle activation should focus on isolated tasks including both closed kinetic chain (CKC; e.g.&nbsp;quarter squat) and open kinetic chain (OKC; straight leg raises). Functional exercises (e.g.&nbsp;squats/deadlifts) may be included for the purposes of reintroducing motor patterns, but the considerable AMI likely to be present during this phase will lead to altered technique and sub-optimal neural and morphological adaptations <span class="citation" data-cites="buckthorpe2024">[<a href="references.html#ref-buckthorpe2024" role="doc-biblioref">1</a>]</span>. It is important to note that low load OKC leg extensions are considered safe for the knee following ACLR and may even be considered a critical inclusion in the training program <span class="citation" data-cites="noehren2020">[<a href="references.html#ref-noehren2020" role="doc-biblioref">19</a>]</span>. Research has shown no evidence of anterior tibial laxity following OKC versus CKC exercise <span class="citation" data-cites="perriman2018">[<a href="references.html#ref-perriman2018" role="doc-biblioref">20</a>]</span> and ACL strain during walking is known to be higher than during full ROM low-load leg extensions <span class="citation" data-cites="escamilla2012">[<a href="references.html#ref-escamilla2012" role="doc-biblioref">15</a>]</span>. Still, care must still be taken in the programming of OKC, and these should not begin until patients have minimal pain (0-2), minimal swelling ( ) and no lag on straight leg raise. Thus in the CSI Pacific program, OKC leg extensions are introduced only once all Phase 1 criteria have been met.</p>
+<p>In general, lower loads/intensities are recommended at this stage of rehab. In the CSI Pacific Program, loads during this phase will mostly lie within the range of 10-20 repetition maximum (RM) with greater proximity to technical failure being a key variable of progressive overload. At these lower loads, volume/frequency must be relatively high in order to achieve desired neuromuscular adaptations. The frequency of training may be increased during this phase, and may even include multiple sessions per day. Session volume may also increase as function improves. The rehabilitation program must also include full body strength training with specific attention in the early phase towards the plantar flexor muscles and non-weight bearing hip and core strengthening exercises.</p>
+<p>Lastly, given the difficulties associated with improving muscle activation in early phase ACL rehab, research in recent years has increasingly focused on the inclusion of supplementary strategies designed to allow for mechanical loading and neuromuscular activation without placing excess stress on the graft or PFJ. In the case where these supplementary strategies are robustly supported by research, and involve tools that are available to us at CSI Pacific, they may or may not be included as part of each individual rehabilitation. These include Phase 1 specific recommendations for the use of neuromuscular electrical stimulation (NMES), passive and/or active blood flow restriction (BFR) hydrotherapy, and isometric training. More information and a deeper dive into the research supporting each of the tools are highlighted in <a href="#sec-pi-add-resources" class="quarto-xref"><span>Section 1.4</span></a>.</p>
+</section>
+<section id="re-establishing-normal-gait" class="level3" data-number="1.1.4">
+<h3 data-number="1.1.4" class="anchored" data-anchor-id="re-establishing-normal-gait"><span class="header-section-number">1.1.4</span> Re-establishing Normal Gait</h3>
+<p>sadsadas</p>
+<hr>
+</section>
+</section>
+<section id="sec-p1-testing" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="sec-p1-testing"><span class="header-section-number">1.2</span> Testing</h2>
+<p>Each card below contains a detailed description of the tests to be conducted during this phase of rehab.</p>
+<section id="passive-knee-extension" class="level3 card ak-card has-stripe accent-primary" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="passive-knee-extension"><span class="header-section-number">1.2.1</span> Passive Knee Extension</h3>
+<p>Measured in Supine with a long arm goniometer</p>
+<ul>
+<li>Bony Landmarks: greater trochanter, lateral femoral condyle, lateral malleolus</li>
+</ul>
+<p><strong>Criteria:</strong> ≤ 0°</p>
+</section>
+<section id="passive-knee-flexion" class="level3 card ak-card has-stripe accent-primary" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="passive-knee-flexion"><span class="header-section-number">1.2.2</span> Passive Knee Flexion</h3>
+<p>Measured in Supine with a long arm goniometer</p>
+<ul>
+<li>Bony Landmarks: greater trochanter, lateral femoral condyle, lateral malleolus</li>
+</ul>
+<p><strong>Criteria:</strong> ≥ 125°</p>
+</section>
+<section id="swelling" class="level3 card ak-card has-stripe accent-primary" data-number="1.2.3">
+<h3 data-number="1.2.3" class="anchored" data-anchor-id="swelling"><span class="header-section-number">1.2.3</span> Swelling</h3>
+<p>Stroke test <span class="citation" data-cites="sturgill2009">[<a href="references.html#ref-sturgill2009" role="doc-biblioref">9</a>]</span></p>
+<ul>
+<li>Zero: No wave produced on downstroke<br>
+Trace: Small wave on medial side with downstroke<br>
+1+: Large bulge on medial side with downstroke<br>
+2+: Effusion spontaneously returns to medial side after upstroke<br>
+3+: So much fluid that it is not possible to move the effusion out of the medial aspect of the knee</li>
+</ul>
+<p><strong>Criteria:</strong> ≤ 1</p>
+</section>
+<section id="quads-lag-test" class="level3 card ak-card has-stripe accent-primary" data-number="1.2.4">
+<h3 data-number="1.2.4" class="anchored" data-anchor-id="quads-lag-test"><span class="header-section-number">1.2.4</span> Quads Lag Test</h3>
+<p>With the patient sitting on the edge of a treatment bed, the therapist takes the relaxed knee into full passive extension.</p>
+<ul>
+<li>The patient is then required to maintain full active extension of the knee when the therapist removes support.</li>
+</ul>
+<p><strong>Criteria:</strong> &lt; 5</p>
+</section>
+<hr>
+</section>
+<section id="the-program" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="the-program"><span class="header-section-number">1.3</span> The Program</h2>
+<p>Below you will find links to your training programs.</p>
+<p><a href="https://www.teambuildr.com/">Phase 1: Program 1</a></p>
+<p>When considering changes or further individualization of the program, see the lists below highlighting typically safe and unsafe exercises during this phase. To see how these exercises compare to other phases of the rehab, please see the <strong>Exercise Phase Chart</strong> in the book resources. All exercise programming should be done by a CSI Pacific S&amp;C Coach or a physiotherapist.</p>
+<p>Exercises and activities during this phase typically include</p>
+<p>Peer-reviewed literature that was consulted in the making of pre-op programs is referenced here.</p>
+<hr>
+</section>
+<section id="sec-pi-add-resources" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="sec-pi-add-resources"><span class="header-section-number">1.4</span> Additional Resources</h2>
+<section id="preserving-whole-body-fitness-and-function" class="level3" data-number="1.4.1">
+<h3 data-number="1.4.1" class="anchored" data-anchor-id="preserving-whole-body-fitness-and-function"><span class="header-section-number">1.4.1</span> Preserving Whole Body Fitness and Function</h3>
+<p>asdsd</p>
+</section>
+<section id="blood-flow-restriction" class="level3" data-number="1.4.2">
+<h3 data-number="1.4.2" class="anchored" data-anchor-id="blood-flow-restriction"><span class="header-section-number">1.4.2</span> Blood Flow Restriction</h3>
+<p>Although, blood flow restriction…</p>
+</section>
+<section id="aquatic-therapy" class="level3" data-number="1.4.3">
+<h3 data-number="1.4.3" class="anchored" data-anchor-id="aquatic-therapy"><span class="header-section-number">1.4.3</span> Aquatic Therapy</h3>
+<p>During this phase,</p>
+<hr>
+</section>
+</section>
+<section id="notes-and-considerations-for-reviewers" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="notes-and-considerations-for-reviewers"><span class="header-section-number">1.5</span> Notes and Considerations for Reviewers</h2>
+<p>All feedback is welcome, however here are some considerations that should help inform the development of this tool.</p>
+<ul>
+<li>Please</li>
+</ul>
 
 
+<div id="refs" class="references csl-bib-body" role="list" style="display: none">
+<div id="ref-buckthorpe2024" class="csl-entry" role="listitem">
+1. Buckthorpe M, Gokeler A, Herrington L, Hughes M, Grassi A, Wadey R, et al. Optimising the Early-Stage Rehabilitation Process Post-ACL Reconstruction. Sports Medicine [Internet]. 2024;54:49–72. <a href="https://doi.org/10.1007/s40279-023-01934-w">https://doi.org/10.1007/s40279-023-01934-w</a>
+</div>
+<div id="ref-lattermann2017" class="csl-entry" role="listitem">
+2. Lattermann C, Jacobs CA, Proffitt Bunnell M, Huston LJ, Gammon LG, Johnson DL, et al. A Multicenter Study of Early Anti-inflammatory Treatment in Patients With Acute Anterior Cruciate Ligament Tear. The American Journal of Sports Medicine [Internet]. 2017;45:325–33. <a href="https://doi.org/10.1177/0363546516666818">https://doi.org/10.1177/0363546516666818</a>
+</div>
+<div id="ref-hurley1997" class="csl-entry" role="listitem">
+3. Hurley MV. The effects of joint damage on muscle function, proprioception and rehabilitation. Manual Therapy [Internet]. 1997;2:11–7. <a href="https://doi.org/10.1054/math.1997.0281">https://doi.org/10.1054/math.1997.0281</a>
+</div>
+<div id="ref-lepley2021" class="csl-entry" role="listitem">
+4. Lepley AS, Lepley LK. Mechanisms of Arthrogenic Muscle Inhibition. Journal of Sport Rehabilitation [Internet]. 2021;31:707–16. <a href="https://doi.org/10.1123/jsr.2020-0479">https://doi.org/10.1123/jsr.2020-0479</a>
+</div>
+<div id="ref-norte2021" class="csl-entry" role="listitem">
+5. Norte G, Rush J, Sherman D. Arthrogenic Muscle Inhibition: Best Evidence, Mechanisms, and Theory for Treating the Unseen in Clinical Rehabilitation. Journal of Sport Rehabilitation [Internet]. 2021;31:717–35. <a href="https://doi.org/10.1123/jsr.2021-0139">https://doi.org/10.1123/jsr.2021-0139</a>
+</div>
+<div id="ref-riemann2002" class="csl-entry" role="listitem">
+6. Riemann BL, Lephart SM. The sensorimotor system, part II: The role of proprioception in motor control and functional joint stability. Journal of Athletic Training. 2002;37:80–4. <a href="https://doi.org/10.1016/j.jconhyd.2010.08.009">https://doi.org/10.1016/j.jconhyd.2010.08.009</a>
+</div>
+<div id="ref-kotsifaki2023" class="csl-entry" role="listitem">
+7. Kotsifaki R, Korakakis V, King E, Barbosa O, Maree D, Pantouveris M, et al. Infographic. Aspetar clinical practice guideline on rehabilitation after ACL reconstruction: An interactive figure. British Journal of Sports Medicine. 2023;57:551–2. <a href="https://doi.org/10.1136/bjsports-2022-106679">https://doi.org/10.1136/bjsports-2022-106679</a>
+</div>
+<div id="ref-buckthorpe2020" class="csl-entry" role="listitem">
+8. Buckthorpe M, Della Villa F. Optimising the <span>‘</span>Mid-Stage<span>’</span> Training and Testing Process After ACL Reconstruction. Sports Medicine [Internet]. 2020;50:657–78. <a href="https://doi.org/10.1007/s40279-019-01222-6">https://doi.org/10.1007/s40279-019-01222-6</a>
+</div>
+<div id="ref-sturgill2009" class="csl-entry" role="listitem">
+9. Sturgill LP, Snyder-Mackler L, Manal TJ, Axe MJ. Interrater Reliability of a Clinical Scale to Assess Knee Joint Effusion. Journal of Orthopaedic &amp; Sports Physical Therapy [Internet]. 2009;39:845–9. <a href="https://doi.org/10.2519/jospt.2009.3143">https://doi.org/10.2519/jospt.2009.3143</a>
+</div>
+<div id="ref-jakobsen2010" class="csl-entry" role="listitem">
+10. Jakobsen TL, Christensen M, Christensen SS, Olsen M, Bandholm T. Reliability of knee joint range of motion and circumference measurements after total knee arthroplasty: does tester experience matter? Physiotherapy Research International [Internet]. 2010;15:126–34. <a href="https://doi.org/10.1002/pri.450">https://doi.org/10.1002/pri.450</a>
+</div>
+<div id="ref-noll2015" class="csl-entry" role="listitem">
+11. Noll S, Garrison JC, Bothwell J, Conway JE. Knee Extension Range of Motion at 4 Weeks Is Related to Knee Extension Loss at 12 Weeks After Anterior Cruciate Ligament Reconstruction. Orthopaedic Journal of Sports Medicine [Internet]. 2015;3:2325967115583632. <a href="https://doi.org/10.1177/2325967115583632">https://doi.org/10.1177/2325967115583632</a>
+</div>
+<div id="ref-shelbourne2009" class="csl-entry" role="listitem">
+12. Shelbourne KD, Gray T. Minimum 10-Year Results after Anterior Cruciate Ligament Reconstruction: How the Loss of Normal Knee Motion Compounds Other Factors Related to the Development of Osteoarthritis After Surgery. The American Journal of Sports Medicine [Internet]. 2009;37:471–80. <a href="https://doi.org/10.1177/0363546508326709">https://doi.org/10.1177/0363546508326709</a>
+</div>
+<div id="ref-marques2020" class="csl-entry" role="listitem">
+13. Marques F da S, Barbosa PHB, Alves PR, Zelada S, Nunes RP da S, Souza MR de, et al. Anterior Knee Pain After Anterior Cruciate Ligament Reconstruction. Orthopaedic Journal of Sports Medicine [Internet]. 2020;8:2325967120961082. <a href="https://doi.org/10.1177/2325967120961082">https://doi.org/10.1177/2325967120961082</a>
+</div>
+<div id="ref-hopkins2000" class="csl-entry" role="listitem">
+14. Hopkins JT, Ingersoll CD. Arthrogenic Muscle inhibition: A Limiting Factor in Joint Rehabilitation. Journal of Sport Rehabilitation [Internet]. 2000;9:135–59. <a href="https://doi.org/10.1123/jsr.9.2.135">https://doi.org/10.1123/jsr.9.2.135</a>
+</div>
+<div id="ref-escamilla2012" class="csl-entry" role="listitem">
+15. Escamilla RF, Macleod TD, Wilk KE, Paulos L, Andrews JR. ACL Strain and Tensile Forces for Weight Bearing and Non<span></span>Weight-Bearing Exercises After ACL Reconstruction: A Guide to Exercise Selection. Journal of Orthopaedic &amp; Sports Physical Therapy [Internet]. 2012;42:208–20. <a href="https://doi.org/10.2519/jospt.2012.3768">https://doi.org/10.2519/jospt.2012.3768</a>
+</div>
+<div id="ref-grodski2008" class="csl-entry" role="listitem">
+16. Grodski M, Marks R. Exercises following anterior cruciate ligament reconstructive surgery: Biomechanical considerations and efficacy of current approaches. Research in Sports Medicine [Internet]. 2008;16:75–96. <a href="https://doi.org/10.1080/15438620701877032">https://doi.org/10.1080/15438620701877032</a>
+</div>
+<div id="ref-claes2011" class="csl-entry" role="listitem">
+17. Claes S, Verdonk P, Forsyth R, Bellemans J. The <span>“</span>Ligamentization<span>”</span> Process in Anterior Cruciate Ligament Reconstruction: What Happens to the Human Graft? A Systematic Review of the Literature. The American Journal of Sports Medicine [Internet]. 2011;39:2476–83. <a href="https://doi.org/10.1177/0363546511402662">https://doi.org/10.1177/0363546511402662</a>
+</div>
+<div id="ref-culvenor2016" class="csl-entry" role="listitem">
+18. Culvenor AG, Collins NJ, Vicenzino B, Cook JL, Whitehead TS, Morris HG, et al. Predictors and effects of patellofemoral pain following hamstring-tendon ACL reconstruction. Journal of Science and Medicine in Sport [Internet]. 2016;19:518–23. <a href="https://doi.org/10.1016/j.jsams.2015.07.008">https://doi.org/10.1016/j.jsams.2015.07.008</a>
+</div>
+<div id="ref-noehren2020" class="csl-entry" role="listitem">
+19. Noehren B, Snyder-Mackler L. Who’s afraid of the big bad wolf? Open-chain exercises after anterior cruciate ligament reconstruction. Journal of Orthopaedic &amp; Sports Physical Therapy [Internet]. 2020;50:473–5. <a href="https://doi.org/10.2519/jospt.2020.0609">https://doi.org/10.2519/jospt.2020.0609</a>
+</div>
+<div id="ref-perriman2018" class="csl-entry" role="listitem">
+20. Perriman A, Leahy E, Semciw AI. The effect of open- versus closed-kinetic-chain exercises on anterior tibial laxity, strength, and function following anterior cruciate ligament reconstruction: A systematic review and meta-analysis. Journal of Orthopaedic &amp; Sports Physical Therapy [Internet]. 2018;48:552–66. <a href="https://doi.org/10.2519/jospt.2018.7656">https://doi.org/10.2519/jospt.2018.7656</a>
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

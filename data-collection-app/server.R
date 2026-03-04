@@ -722,5 +722,631 @@ function(input, output, session) {
     })
   })
   
+  
+  
+  #Isometric ----
+  
+  ##Housekeeping ----
+  
+  #Define directory for csvs
+  default_save_dir <- file.path(getwd(), "data")
+  
+  #timing
+  live_start_time <- reactiveVal(NULL)
+  timer_armed     <- reactiveVal(FALSE)
+  live_elapsed_s  <- reactiveVal(0)
+  start_click_time <- reactiveVal(NULL)
+  
+  #Units
+  g <- 9.80665
+  to_units <- function(x) {
+    if (identical(input$units, "N")) x * g else x
+  }
+  
+  # R-side rolling buffer
+  buf <- reactiveVal(data.frame(t_us=numeric(0), weight=numeric(0), t_s=numeric(0)))
+  buf_fast <- shiny::debounce(reactive(buf()), 150)  # for numbers if you want them faster
+  buf_plot <- shiny::debounce(reactive(buf()), 250)  # plot refresh ~4 Hz
+  
+  # Loading Notification Helpers
+  show_connecting_modal <- function() {
+    showModal(modalDialog(
+      title = "Connecting to Progressor…",
+      div(
+        class = "d-flex align-items-center gap-3",
+        tags$div(class = "spinner-border", role = "status",
+                 tags$span(class = "visually-hidden", "Loading...")),
+        div("Preparing live stream. Please wait…")
+      ),
+      footer = NULL,
+      easyClose = FALSE
+    ))
+  }
+  
+  hide_connecting_modal <- function() {
+    removeModal()
+  }
+  
+  show_timeout_modal <- function() {
+    showModal(modalDialog(
+      title = "Connection timed out",
+      "Unable to start streaming data. Please press the button on the device to 
+     wake it, then reload the browser page.",
+      easyClose = TRUE,
+      footer = modalButton("OK")
+    ))
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  ##Start Button ----
+  
+  observeEvent(input$start, {
+    
+    #Loading Notification after button push
+    show_connecting_modal()
+    start_click_time(Sys.time())
+    
+    # Require limb before starting
+    if (is.null(input$limb) || !nzchar(input$limb)) {
+      showModal(modalDialog(
+        title = "Select limb",
+        "Please select a limb before starting collection.",
+        easyClose = TRUE,
+        footer = modalButton("OK")
+      ))
+      return()
+    }
+    
+    # # reset full session
+    # session_df(data.frame(
+    #   t_us = numeric(0),
+    #   t_s = numeric(0),
+    #   weight_raw_kg = numeric(0),
+    #   offset_raw_kg = numeric(0),
+    #   weight_adj_kg = numeric(0)
+    # ))
+    
+    # reset full session (chunks)
+    session_chunks(list())
+    session_n(0L)
+    
+    # (optional) reset peak hold at start of a new session
+    peak_hold(NA_real_)
+    
+    # arm timer, but don't start it yet
+    live_start_time(NULL)
+    live_elapsed_s(0)
+    timer_armed(TRUE)
+    
+    
+    py$start_stream(
+      name_prefix = "Progressor_3177",
+      auto_tare   = isTRUE(input$auto_tare),
+      reset_buffer = TRUE
+    )
+  })
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  ##Stop Button ----
+  observeEvent(input$stop, {
+    py$stop_stream()
+    
+    # Freeze timer at the current elapsed time
+    if (!is.null(live_start_time())) {
+      live_elapsed_s(as.numeric(difftime(Sys.time(), live_start_time(), units = "secs")))
+    }
+    
+    # Prevent further updates
+    live_start_time(NULL)
+    timer_armed(FALSE)
+    start_click_time(NULL)   # if you use this
+    # hide_connecting_modal()  # if present
+  })
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  ##Clear Data ----
+  observeEvent(input$clear, {
+    buf(data.frame(t_us=numeric(0), weight=numeric(0), t_s=numeric(0)))
+    peak_hold(NA_real_)
+    offset(0)
+    
+    # Reset timer to zero on Clear
+    live_elapsed_s(0)
+    live_start_time(NULL)
+    timer_armed(FALSE)
+    start_click_time(NULL)   # if you use this
+    
+    # Reset summary table (peaks cleared)
+    summary_tbl_data(data.frame(
+      Phase = input$phase_num,
+      Test  = input$test_type,
+      Limb  = if (is.null(input$limb) || input$limb == "") NA_character_ else input$limb,
+      `Peak Force (kg)` = NA_real_,
+      `Peak Force (N)`  = NA_real_,
+      check.names = FALSE
+    ))
+    
+  })
+  
+  
+  
+  
+  
+  
+  
+  # Full session storage (not trimmed)
+  # session_df <- reactiveVal(data.frame(
+  #   t_us = numeric(0),
+  #   t_s = numeric(0),
+  #   weight_raw_kg = numeric(0),
+  #   offset_raw_kg = numeric(0),
+  #   weight_adj_kg = numeric(0)
+  # ))
+  
+  # Full session storage as list-of-chunks (fast appends)
+  session_chunks <- reactiveVal(list())
+  session_n <- reactiveVal(0L)  # optional: quick row count without binding
+  
+  
+  
+  
+  
+  
+  
+  ##Peak Hold ----
+  peak_hold <- reactiveVal(NA_real_)
+  
+  observeEvent(input$reset_peak, {
+    peak_hold(NA_real_)
+  })
+  
+  # observeEvent(input$clear, {
+  #   buf(data.frame(t_us=numeric(0), weight=numeric(0), t_s=numeric(0)))
+  #   peak_hold(NA_real_)
+  # })
+  
+  
+  
+  
+  ##Offset ----
+  offset <- reactiveVal(0)
+  
+  observeEvent(input$zero_now, {
+    df <- buf()
+    if (nrow(df) >= 1) {
+      offset(df$weight[nrow(df)])
+      peak_hold(NA_real_)  # optional: reset peak hold after zero
+    }
+  })
+  
+  output$offset_status <- renderText({
+    sprintf("Software offset: %.3f %s", to_units(offset()), input$units)
+  })
+  
+  
+  
+  
+  ## Poll python buffer on a timer ----
+  observe({
+    invalidateLater(125, session)
+    if (!isTRUE(py$is_streaming())) return()
+    
+    # grab new samples (and clear python-side buffer)
+    samps <- py$get_samples(clear = TRUE)
+    
+    # Hide modal when first data arrives
+    if (isTRUE(timer_armed()) && length(samps) > 0) {
+      hide_connecting_modal()
+    }
+    
+    # Timeout if no data after 10 seconds
+    if (isTRUE(timer_armed()) &&
+        !is.null(start_click_time()) &&
+        length(samps) == 0) {
+      
+      elapsed <- as.numeric(difftime(Sys.time(), start_click_time(), units = "secs"))
+      
+      if (elapsed > 10) {
+        hide_connecting_modal()
+        show_timeout_modal()
+        timer_armed(FALSE)
+        start_click_time(NULL)
+      }
+    }
+    
+    # If we are armed and the first samples just arrived, start the timer now
+    if (isTRUE(timer_armed()) && is.null(live_start_time()) && length(samps) > 0) {
+      live_start_time(Sys.time())
+      timer_armed(FALSE)
+    }
+    
+    # update "time live" while streaming
+    if (!is.null(live_start_time())) {
+      live_elapsed_s(as.numeric(difftime(Sys.time(), live_start_time(), units = "secs")))
+    }
+    
+    if (length(samps) > 0) {
+      newdf <- data.frame(
+        t_us   = vapply(samps, function(x) x[[1]], numeric(1)),
+        weight = vapply(samps, function(x) x[[2]], numeric(1))
+      )
+      newdf$t_s <- newdf$t_us / 1e6
+      
+      # ---- append to FULL session (raw kg + offset info) 
+      off_kg <- offset()
+      
+      sess_new <- data.frame(
+        t_us = newdf$t_us,
+        t_s  = newdf$t_s,
+        weight_raw_kg = newdf$weight,
+        offset_raw_kg = rep(off_kg, nrow(newdf)),
+        weight_adj_kg = newdf$weight - off_kg
+      )
+      
+      #session_df(rbind(session_df(), sess_new))
+      
+      # append chunk (cheap)
+      chunks <- session_chunks()
+      chunks[[length(chunks) + 1]] <- sess_new
+      session_chunks(chunks)
+      
+      # update running count (optional)
+      session_n(session_n() + nrow(sess_new))
+      
+      
+      
+      #
+      cur <- buf()
+      out <- rbind(cur, newdf)
+      
+      # keep last ~20 seconds of data
+      if (nrow(out) > 2) {
+        tmax <- max(out$t_s)
+        out <- out[out$t_s >= (tmax - 20), , drop = FALSE]
+      }
+      buf(out)
+      
+      # update peak hold
+      new_peak_raw <- max(out$weight - offset(), na.rm = TRUE)
+      ph <- peak_hold()
+      if (is.na(ph) || new_peak_raw > ph) peak_hold(new_peak_raw)
+      
+    }
+  }, priority = 1000)
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  ##Value Boxes ----
+  output$vb_time_value <- renderText({
+    sprintf("%d s", as.integer(floor(live_elapsed_s())))
+  })
+  
+  
+  output$vb_current_value <- renderText({
+    df <- buf_fast()
+    if (nrow(df) < 1) return("—")
+    sprintf("%.1f %s", round(to_units((df$weight - offset())[nrow(df)]), 1), input$units)
+  })
+  
+  output$vb_peak_value <- renderText({
+    ph <- peak_hold()
+    if (is.na(ph)) return("—")
+    sprintf("%.1f %s", round(to_units(ph), 1), input$units)
+  })
+  
+  
+  
+  
+  
+  
+  
+  
+  ##Main Plot ----
+  output$plot <- renderPlot({
+    
+    df <- buf_plot()
+    validate(need(nrow(df) >= 2, "No live data yet. Click Start Button."))
+    
+    plot_df <- df %>%
+      mutate(
+        force = to_units(weight - offset())
+      )
+    
+    # peak-hold in display units (stored raw)
+    ph_raw <- peak_hold()
+    ph_disp <- if (is.na(ph_raw)) NA_real_ else to_units(ph_raw)
+    
+    ggplot(plot_df, aes(x = t_s, y = force)) +
+      geom_line(linewidth = 0.8, colour = "#2C3E50") +
+      geom_hline(
+        yintercept = ph_disp,
+        linewidth = 0.8,
+        colour = if (is.na(ph_disp)) NA else "#C0392B",
+        linetype = "dashed"
+      ) +
+      labs(
+        x = "Time (s)",
+        y = paste0("Force (", input$units, ")")
+      ) +
+      theme_minimal(base_size = 13) +
+      theme(
+        panel.grid.minor = element_blank(),
+        plot.margin = margin(10, 10, 10, 10),
+        plot.background  = element_rect(fill = "white", colour = NA),
+        panel.background = element_rect(fill = "white", colour = NA)
+      )
+  }, bg = "white")
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  ## Main Table ----
+  #Summary table data (always exists; peaks filled on Calculate)
+  summary_tbl_data <- reactiveVal(data.frame(
+    Name = NA_character_,
+    Test = NA_character_,
+    Limb = NA_character_,
+    `Peak Force (kg)` = NA_real_,
+    `Peak Force (N)`  = NA_real_,
+    check.names = FALSE
+  ))
+  
+  # Initialize + keep Name/Test/Limb up to date as user changes inputs
+  observe({
+    # keep existing peak values (if already calculated)
+    cur <- summary_tbl_data()
+    
+    summary_tbl_data(data.frame(
+      Phase = input$phase_num,
+      Test = input$test_type,
+      Limb = if (is.null(input$limb) || input$limb == "") NA_character_ else input$limb,
+      `Peak Force (kg)` = cur$`Peak Force (kg)`,
+      `Peak Force (N)`  = cur$`Peak Force (N)`,
+      check.names = FALSE
+    ))
+  })
+  
+  # When Calculate is clicked, fill peak values using current peak_hold()
+  observeEvent(input$calc_summary, {
+    cur <- summary_tbl_data()
+    ph_raw <- peak_hold()
+    
+    summary_tbl_data(data.frame(
+      Phase = cur$Phase,
+      Test = cur$Test,
+      Limb = cur$Limb,
+      `Peak Force (kg)` = if (is.na(ph_raw)) NA_real_ else round(ph_raw, 2),
+      `Peak Force (N)`  = if (is.na(ph_raw)) NA_real_ else round(ph_raw * g, 1),
+      check.names = FALSE
+    ))
+  })
+  
+  #GT
+  output$summary_tbl <- gt::render_gt({
+    df <- summary_tbl_data()
+    req(nrow(df) == 1)
+    
+    gt::gt(df) |>
+      gt::sub_missing(columns = everything(), missing_text = "—") |>
+      gt::cols_align(align = "left", columns = c(Phase, Test, Limb)) |>
+      gt::cols_align(align = "right", columns = c(`Peak Force (kg)`, `Peak Force (N)`)) |>
+      gt::tab_options(
+        table.font.size = gt::px(14),
+        data_row.padding = gt::px(6)
+      ) |>
+      ak_gt_theme3() |>
+      gt::cols_align(align = "center")
+  })
+  
+  
+  
+  
+  
+  
+  
+  ##Save Raw Data ----
+  save_msg <- reactiveVal("")
+  
+  observeEvent(input$save_csv, {
+    chunks <- session_chunks()
+    if (length(chunks) == 0) {
+      save_msg("Nothing to save yet.")
+      return()
+    }
+    df <- do.call(rbind, chunks)
+    if (nrow(df) < 1) {
+      save_msg("Nothing to save yet.")
+      return()
+    }
+    
+    dir <- normalizePath(default_save_dir, winslash = "/", mustWork = FALSE)
+    if (!dir.exists(dir)) dir.create(dir, recursive = TRUE, showWarnings = FALSE)
+    
+    stamp <- format(Sys.time(), "%Y%m%d_%H%M%S")
+    
+    nm   <- slugify(input$athlete_name)
+    limb <- slugify(input$limb)
+    test <- slugify(input$test_type)
+    
+    fname <- paste(stamp, nm, limb, test, sep = "_")
+    path  <- file.path(dir, paste0(fname, ".csv"))
+    
+    # --- add Newton columns at save time ---
+    df_out <- df %>%
+      mutate(
+        weight_raw_N = weight_raw_kg * g,
+        weight_adj_N = weight_adj_kg * g
+      )
+    
+    write.csv(df_out, path, row.names = FALSE)
+    
+    # Show full path so you can find it easily
+    save_msg(paste("Saved:", fname))
+  })
+  
+  output$save_status <- renderText(save_msg())
+  
+  
+  
+  
+  
+  
+  ##Save Summary Data ----
+  
+  #helper to get the append working properly
+  ensure_trailing_newline <- function(path) {
+    if (!file.exists(path)) return(invisible(TRUE))
+    sz <- file.info(path)$size
+    if (is.na(sz) || sz < 1) return(invisible(TRUE))
+    
+    con <- file(path, open = "rb")
+    on.exit(close(con), add = TRUE)
+    seek(con, where = sz - 1, origin = "start")
+    last <- readChar(con, nchars = 1, useBytes = TRUE)
+    
+    if (!identical(last, "\n")) {
+      cat("\n", file = path, append = TRUE)
+    }
+    invisible(TRUE)
+  }
+  
+  db_msg <- reactiveVal("")
+  
+  output$db_status <- renderText(db_msg())
+  
+  observeEvent(input$save_db, {
+    
+    # 1) Get the current table row
+    df <- summary_tbl_data()   # <- THIS is your 1-row summary data.frame
+    req(nrow(df) == 1)
+    
+    # 2) Require limb selected
+    if (is.na(df$Limb) || !nzchar(df$Limb)) {
+      showModal(modalDialog(
+        title = "Missing selection",
+        "Please select a limb before saving.",
+        easyClose = TRUE,
+        footer = modalButton("OK")
+      ))
+      return()
+    }
+    
+    # 3) Require Calculate has been run (i.e., peak values exist)
+    if (is.na(df$`Peak Force (kg)`) || is.na(df$`Peak Force (N)`)) {
+      showModal(modalDialog(
+        title = "Not calculated",
+        "Please click Calculate before saving to the database.",
+        easyClose = TRUE,
+        footer = modalButton("OK")
+      ))
+      return()
+    }
+    
+    # 4) Add timestamp
+    out <- df
+    out$timestamp <- format(Sys.time(), "%Y-%m-%d %H:%M:%S")
+    
+    
+    # 5) Write/append to data/tindeq_results.csv
+    dir.create("data", showWarnings = FALSE, recursive = TRUE)
+    path <- file.path("data", "tindeq_results.csv")
+    
+    if (!file.exists(path)) {
+      write.csv(out, path, row.names = FALSE)
+    } else {
+      ensure_trailing_newline(path)  # <-- ADD THIS LINE
+      write.table(
+        out, path,
+        sep = ",",
+        row.names = FALSE,
+        col.names = FALSE,
+        append = TRUE,
+        eol = "\n"
+      )
+    }
+    
+    
+    db_msg("Saved to database")
+    
+    # auto-clear after 3 seconds
+    later::later(function() {
+      db_msg("")
+    }, delay = 3)
+    
+  })
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  output$status <- renderText({
+    streaming <- py$is_streaming()
+    df <- buf()
+    if (nrow(df) >= 2) {
+      duration <- max(df$t_s) - min(df$t_s)
+      hz <- (nrow(df) - 1) / duration
+      sprintf("Streaming: %s\nPoints in plot: %d\nWindow: %.1f s\nObserved Hz: %.2f",
+              streaming, nrow(df), duration, hz)
+    } else {
+      sprintf("Streaming: %s\nPoints in plot: %d", streaming, nrow(df))
+    }
+  })
+  
+  
+  # Windowed data for metrics (last N seconds)
+  metric_df <- reactive({
+    df <- buf()
+    validate(need(nrow(df) >= 1, NULL))
+    
+    win <- input$metric_window
+    if (is.null(win) || !is.finite(win) || win <= 0) win <- 2
+    
+    tmax <- max(df$t_s)
+    df[df$t_s >= (tmax - win), , drop = FALSE]
+  })
+  
+  
+  
+  
+  
 }
 

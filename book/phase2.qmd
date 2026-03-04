@@ -80,45 +80,6 @@ tbl_phase2
 
 ```{r}
 
-goals_progress_bar <- function(
-    met, total,
-    label = "Goals met",
-    width = "100%",
-    accent = "#D71920",   # table accent (red)
-    border = "#A7A9AC",   # table border grey
-    track_bg = "#FCFCFC", # header/stripe light bg
-    fill_from = "#2E7D32",# green gradient start
-    fill_to   = "#4CAF50" # green gradient end
-) {
-  pct <- if (total > 0) round(100 * met / total) else 0
-  
-  tagList(
-    tags$style(HTML(sprintf("
-      .ak-pb-wrap   { margin-top:12px; font-family:'Open Sans',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; }
-      .ak-pb-meta   { display:flex; justify-content:space-between; font-size:0.95rem; margin-bottom:6px; color:#222; }
-      .ak-pb-meta strong{ color:%s; font-weight:700; } /* accent like table title */
-      .ak-pb       { background:%s; border:1px solid %s; border-radius:10px; height:14px; overflow:hidden; }
-      .ak-pb__fill { height:100%%; background:linear-gradient(90deg,%s,%s); transition:width .3s ease; }
-    ", accent, track_bg, border, fill_from, fill_to))),
-    div(class = "ak-pb-wrap",
-        div(class = "ak-pb-meta",
-            tags$strong(sprintf("%s: %d/%d", label, met, total)),
-            span(sprintf("%d%%", pct))
-        ),
-        div(
-          class = "ak-pb",
-          role = "progressbar",
-          `aria-valuemin` = "0",
-          `aria-valuemax` = "100",
-          `aria-valuenow` = pct,
-          style = sprintf("width:%s;", width),
-          div(class = "ak-pb__fill", style = sprintf("width:%d%%;", pct))
-        )
-    )
-  )
-}
-
-
 # By default: denominator = all criteria (matches your table showing blank scores)
 met_n_all   <- sum(criteria_phase2$meets %in% TRUE, na.rm = TRUE)
 total_n_all <- nrow(criteria_phase2)
@@ -129,6 +90,86 @@ goals_progress_bar(met_n_all, total_n_all)
 
 ------------------------------------------------------------------------
 
-## What does the research say? {#preop-outcomes}
+## What does the research say? {#sec-p2-research}
 
-Recent systematic reviews
+### OKC
+
+The training program may include both low/no-load full ROM leg extension as well as ROM-restricted leg extension when the patient is able to lift heavier loads. Minimal ACL strain and reduced PFJ reaction forces have been observed during quadriceps contractions performed between 45-90º of knee flexion, and therefore this is the recommended ROM for loading to be introduced @escamilla2012.
+
+Early introduction of isometrics is recommended ?
+
+Leg Ext isometrics between 90-60º (5x45s, 1-2x per day)
+
+Full ROM (90-0º) against gravity/low loads can be performed once able to comfortably achieve 90º knee flexion
+
+Restricted ROM loaded knee extensions may begin 4 weeks post ACLR (Tempo 3:03, 15-25RM loads)
+
+------------------------------------------------------------------------
+
+## Testing
+
+Each card below contains a detailed description of the tests to be conducted during this phase of rehab.
+
+```{r, echo=FALSE, results='asis'}
+
+
+tests <- criteria_phase2 |>
+  dplyr::select(outcome_measure, display_description, additional_information, operator_pretty, goal_pretty, repetitions, calculation) %>%
+  mutate(op_goal = paste(operator_pretty, goal_pretty))
+
+# Helper: print a label/value line only if value is non-missing & non-empty
+emit_field <- function(label, value) {
+  if (length(value) == 0 || all(is.na(value))) return(invisible())
+  val <- value[[1]]
+  if (is.na(val)) return(invisible())
+  val_chr <- trimws(as.character(val))
+  if (!nzchar(val_chr)) return(invisible())
+  cat("**", label, ":** ", val_chr, "\n\n", sep = "")
+}
+
+for (i in seq_len(nrow(tests))) {
+  cat('::: {.card .ak-card .has-stripe .accent-primary}\n')       # universal card class
+  cat('### ', tests$outcome_measure[i], '\n\n', sep = '')         # heading
+  if (!is.na(tests$display_description[i]) &&
+      nzchar(trimws(tests$display_description[i]))) {
+    cat(tests$display_description[i], '\n\n')
+  }
+  cat("*", tests$additional_information[i], '\n\n')
+  emit_field("Criteria", tests$op_goal[i])                  # always optional-safe
+  emit_field("Repetitions", tests$repetitions[i])                # only prints if present
+  emit_field("Calculation", tests$calculation[i])
+
+  cat(':::\n\n')
+}
+
+```
+
+------------------------------------------------------------------------
+
+## The Program
+
+Below you will find links to your training programs.
+
+[Phase 2: Program 1](https://www.teambuildr.com/)
+
+When considering changes or further individualization of the program, see the lists below highlighting typically safe and unsafe exercises during this phase. To see how these exercises compare to other phases of the rehab, please see the **Exercise Phase Chart** in the book resources. All exercise programming should be done by a CSI Pacific S&C Coach or a physiotherapist.
+
+Exercises and activities during this phase typically include
+
+Peer-reviewed literature that was consulted in the making of pre-op programs is referenced here.
+
+------------------------------------------------------------------------
+
+## Additional Resources
+
+### Blood Flow Restriction
+
+Although, blood flow restrictio
+
+------------------------------------------------------------------------
+
+## Notes and Considerations for Reviewers
+
+All feedback is welcome, however here are some considerations that should help inform the development of this tool.
+
+-   Please
