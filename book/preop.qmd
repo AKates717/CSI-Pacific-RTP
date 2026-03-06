@@ -317,9 +317,9 @@ At this time, it appears that BFR in the pre-op phase is safe, although it's eff
 
 ------------------------------------------------------------------------
 
-### Neuromuscular Electrical Stimulation
+### Neuromuscular Electrical Stimulation (NMES)
 
-At this time, there does not appear to be any scientific evidence supporting the use of NMES in the pre-op phase.
+At this time, there is only limited scientific evidence supporting the use of NMES in the pre-op phase. One study introduced NMES within 3 weeks of injury, discontinued use "just before surgery", and resumed NMES from 72-hours to 3 weeks post surgery employing a 5 days/week, 60 minutes/day quadriceps strengthening protocol @toth2020. In this sham-controlled, blinded trial, NMES significantly reduced type 2 skeletal muscle fibre atrophy and preserved contractility in type 1 muscle fibres at three weeks post surgery. It should also be noted that no differences were observed between groups in whole muscle strength at 6 months post-surgery. These results indicate that NMES in the pre-op phase may provide beneficial effects during early phase rehab which may not carry forward through later stages. Practically, if NMES is available for your rehab, it may be used as an additional or supplemental intervention (i.e. provided that time and financial constraints allow) but it should not be considered a primary component of pre-op rehabilitation.
 
 ------------------------------------------------------------------------
 

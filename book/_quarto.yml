@@ -19,6 +19,7 @@ book:
     - part: "Resources"
       chapters:
         - calculations.qmd
+        - bfr-resources.qmd
         - references.qmd
 
 bibliography: references.bib
