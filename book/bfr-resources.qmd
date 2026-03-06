@@ -1,0 +1,118 @@
+---
+bibliography: references.bib
+---
+
+# Blood Flow Restriction {.unnumbered}
+
+Surprisingly, there appear to be very few randomized control trials that have specifically examined the use of BFR during ACL rehab, however a quick search revealed *five* different systematic reviews on the topic.
+
+@charles2020 included 4 studies and provides nice summaries of BFR protocols and results.
+
+@lipker2019 concluded that short duration BFR intervention (13d) does not appear to measurably affect quadriceps CSA, thogh longer duration interventions appear to be more beneficial
+
+@lu2020 highlighted the sparseness and heterogeneity of the literature and suggested that future investigations with standardized protocols/outcomes, long term follow-up and more robust sample sizes are needed.
+
+@gopinatth2025 included 8 studies and highlighted improvements in pain, IKDC score and isokinetic muscle strength, with variable outcomes for quadriceps volume and thickness.
+
+@ruoyi2025 concluded that BFR after ACLR is safe and can aid in early quadriceps recovery when protocols employ individualized high occlusion pressures, low-load high-effort exercise, and moderate frequency.
+
+------------------------------------------------------------------------
+
+# Pre-Op Phase
+
+Below is a summary of the protocols used in each of these studies. This information can be used to design safe BFR exercise programs in the pre-op phase.
+
+::: {.card .ak-card .border-0 .shadow-none .headlined .panel-tabset}
+#### Tramer et al 2023
+
+<!-- Replace this with a short intro if you want -->
+
+**Exercises: [@tramer2023]**
+
+-   Quadriceps contractions in end-range extension
+-   Straight leg raises
+-   Long arc quads
+-   Double leg quarter squats
+
+**Limb Occlusion Pressure:** 80%
+
+**Repetitions:** 30-15-15-15
+
+**Intra-set Rest:** 30 seconds
+
+**Inter-set Rest:** 2 minutes
+
+**Sessions:** 5x/week for 2 weeks
+
+**Notes:** *Exercises were chosen to work on volitional quad activation and knee extension ROM simultaneously.*
+
+#### Okoroha et al 2023
+
+<!-- Replace this with a short intro if you want -->
+
+**Exercises [@okoroha2023]:**
+
+-   Quadriceps contractions in end-range extension
+-   Straight leg raises
+-   Long arc quads
+-   Double leg quarter squats
+
+**Limb Occlusion Pressure:** 80%
+
+**Repetitions:** 30-15-15-15
+
+**Intra-set Rest:** 30 seconds
+
+**Inter-set Rest:** 2 minutes
+
+**Sessions:** 5x/week for 2 weeks
+
+**Notes:** *Same as Tramer et al 2023 [@tramer2023]*
+
+#### Kacin et al 2021
+
+<!-- Replace this with a short intro if you want -->
+
+**Exercises [@kacin2021] :**
+
+-   Isotonic Leg Extension
+-   Isotonic Leg Flexion
+
+**Limb Occlusion Pressure:** 150mmHg
+
+**Repetitions:** 2 rounds of 2 sets to failure
+
+**Load:** 40RM
+
+**Intra-set Rest:** 45 seconds
+
+**Inter-set Rest:** 90 seconds
+
+**Sessions:** 3x/week for 3 weeks
+
+**Notes:** *Criteria for inclusion - active knee extension deficit ≤ 5° and active flexion ≥ 120°*
+
+#### Zargi et al 2018
+
+<!-- Replace this with a short intro if you want -->
+
+**Exercises [@zargi2018] :**
+
+-   Leg Extension
+
+**Limb Occlusion Pressure:** 150mmHg
+
+**Repetitions:** 3 rounds of 2 sets to failure
+
+**Load:** 40RM
+
+**Intra-set Rest:** 45 seconds
+
+**Inter-set Rest:** 90 seconds
+
+**Sessions:** 5 sessions over final 8 days pre-surgery
+
+**Notes:** *Criteria for inclusion - active knee extension deficit ≤ 5° and active flexion ≥ 120°*
+:::
+
+At this time, it appears that BFR in the pre-op phase is safe, although it's effectiveness is yet to be determined by clinical trials. A CSI Pacific S&C coach who is experienced with implementing BFR may choose to include it as an addition to training in the pre-surgery phase once the athlete displays adequate ROM of ≤ 5° knee extension and ≥ 120° flexion.

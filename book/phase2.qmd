@@ -46,12 +46,6 @@ tbl_phase2 <- criteria_phase2 %>%
     columns = Score,
     decimals = 0
   ) %>%
-  #   fmt_number(
-  #   columns = Score,
-  #   rows = `Outcome Measure` %in% c("Hamstring Strength", "Quad Strength"),
-  #   decimals = 0,
-  #   pattern = "{x}%"
-  # ) %>%
   sub_missing(columns = Score, missing_text = "") %>%
   cols_label(Op = "") %>%
   cols_width(`Outcome Measure` ~ px(360)) %>%
@@ -165,6 +159,8 @@ Peer-reviewed literature that was consulted in the making of pre-op programs is 
 ### Blood Flow Restriction
 
 Although, blood flow restrictio
+
+Another more recent study did not report how early BFR began after surgery, but did use the following criteria to begin BFR: able to stand on one leg unsupported for \>5s, knee ROM between 0-90º, able to perform SLR with sufficient quadriceps activation @barzyk2026 . Patients performed the traditional 30-15-15-15 reps of leg press
 
 ------------------------------------------------------------------------
 
