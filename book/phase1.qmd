@@ -83,7 +83,11 @@ goals_progress_bar(met_n_all, total_n_all)
 
 ```
 
-------------------------------------------------------------------------
+```{=html}
+<div class="break-logo">
+  <img src="images/csi-logo-medal-only.png" alt="">
+</div>
+```
 
 ## What does the research say? {#sec-p1-research}
 
@@ -121,7 +125,11 @@ The importance of re-establishing movement patterns such as walking has been est
 
 Targeted movement retraining exercises are built directly into all CSI Pacific ACL Rehab programs. Many protocols use "normal gait" as an exit criteria for early rehabilitation, however given the difficulty of assessing and quantifying "normal" for each individual, we have decided to make this a key focus of the protocol, but not an objective criteria for progression. Targeted movement interventions found in the ACL Rehab Programs are based on motor learning principles, specifically applied to movement re-training post-ACLR @gokeler2019. During phase 1 you can expect exercises focusing on dynamic control and stability, especially at the knee and hip joints. The protocol will also make use of aquatic therapy (if available to the patient) to introduce functional tasks in a de-loaded environment [@buckthorpe2019].
 
-------------------------------------------------------------------------
+```{=html}
+<div class="break-logo">
+  <img src="images/csi-logo-medal-only.png" alt="">
+</div>
+```
 
 ## Testing {#sec-p1-testing}
 
@@ -161,7 +169,11 @@ for (i in seq_len(nrow(tests))) {
 
 ```
 
-------------------------------------------------------------------------
+```{=html}
+<div class="break-logo">
+  <img src="images/csi-logo-medal-only.png" alt="">
+</div>
+```
 
 ## The Program
 
@@ -173,7 +185,12 @@ When considering changes or further individualization of the program, and to see
 
 These programs have been designed by S&C coaches with many years of experience leading ACL rehabilitations. The programs are also evidence-informed and represent the product of study, translation, and implementation to bridge the gap between research and practice. The five most influential peer-reviewed articles that were utilized in the construction of the Phase 1 training programs are referenced here [@buckthorpe2024]
 
-------------------------------------------------------------------------
+```{=html}
+
+<div class="break-logo">
+  <img src="images/csi-logo-medal-only.png" alt="">
+</div>
+```
 
 ## Additional Resources {#sec-pi-add-resources}
 
@@ -207,7 +224,12 @@ Other studies have started BFR within time-frames associated with Phase 1 ACL re
 
 Overall, there is some evidence supporitng the use of BFR in Phase 1 ACL rehabilitation, though the literature is still evolving. BFR in general is well-studied and it's ability to mitigate muscle atrophy in the absence of heavy loads is well established. Therefore, practitioners may choose to safely integrate BFR into the rehab program during Phase 1. These recommendations will be updated as new research is released.
 
-------------------------------------------------------------------------
+```{=html}
+
+<div class="break-logo">
+  <img src="images/csi-logo-medal-only.png" alt="">
+</div>
+```
 
 ## Notes and Considerations for Reviewers
 

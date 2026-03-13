@@ -138,6 +138,17 @@
   border-top-right-radius: var(--ak-card-radius);
 }
 
+.break-logo {
+  display: flex;
+  justify-content: center;
+  margin: 2.5rem 0;
+}
+
+.break-logo img {
+  width: 40px;
+  height: auto;
+  opacity: 0.15;
+}
 
 
 
