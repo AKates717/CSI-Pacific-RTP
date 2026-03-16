@@ -123,7 +123,7 @@ htmltools::div(
   class = "phase0-navset",
   navset_card_tab(
     full_screen = TRUE,
-    title = "Phase 1 Outcomes",
+    title = htmltools::tags$span(style = "font-weight:700; font-size:1.2rem;", "Phase 1"),
     nav_panel(
       "Swelling",
       plot_ind_phase_outcomes(outcomes_raw_phase1, "Swelling")

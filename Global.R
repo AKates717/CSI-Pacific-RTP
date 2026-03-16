@@ -173,12 +173,12 @@ phase0 <- read_xlsx("sample_data/outcome_data.xlsx", sheet = "Phase_data") %>%
 ####
 
 
-iso_joint <- read_excel(
-  "sample_data/mental_perform.xlsx",
-  sheet = "ISO"
-) %>% clean_names() %>%
-  mutate(date_ddmmyear = as.Date(date),
-         date_ddmmyear2 =  (format(date_ddmmyear, "%b %d, %Y")))
+# iso_joint <- read_excel(
+#   "sample_data/mental_perform.xlsx",
+#   sheet = "ISO"
+# ) %>% clean_names() %>%
+#   mutate(date_ddmmyear = as.Date(date),
+#          date_ddmmyear2 =  (format(date_ddmmyear, "%b %d, %Y")))
 
 
 iso_joint2 <- read_csv(
@@ -232,6 +232,9 @@ pretty_var <- function(x) {
     str_replace_all("\\bVo2\\b", "VO2")
 }
 
+#For applying "%" to Phase Summary Tables
+percent_label <- c("Hamstring Strength", "Quad Strength", "Y-Balance (Anterior)", "Y-Balance (Postero-Medial)", "Y-Balance (Postero-Lateral)", 
+                   "Single Leg Hop", "Triple Hop", "Triple Cross Over Hop", "Side Hop")
 
 
 
@@ -499,7 +502,7 @@ criteria_phase2 <- criteria_all %>%
   mutate(score = NA)
 
 # 1b) Phase specific mutations
-#Body Mass Multiplier for TBDL ----
+#Body Mass Multiplier for TBDL P2
 criteria_phase2 <- criteria_phase2 %>%
   mutate(goal_pretty = case_when(
     outcome_measure == "TrapBar Deadlift" ~ paste0(round(1.5*body_mass,0), " kg"),
@@ -687,7 +690,7 @@ p2_yBalPL_best <- p2_yBalPL %>%
   slice_max(lsi, n = 1, with_ties = FALSE)
 
 
-# 3 Build Phase 2 Criteria Table
+#Build Phase 2 Criteria Table ----
 
 #Add current best scores into the table
 swelling_val_p2 <- suppressWarnings(as.numeric(if (exists("p2_swelling_best") && nrow(p2_swelling_best) > 0) p2_swelling_best$value[1] else NA_real_))
@@ -766,10 +769,11 @@ progress_p2 <- tibble(
 # 1a) Read Phase 3 criteria
 criteria_phase3 <- criteria_all %>%
   filter(phase == 3) %>%
+  filter(outcome_measure != "Single Leg Press") %>%
   mutate(score = NA)
 
 # 1b) Phase specific mutations
-#Body Mass Multiplier for TBDL ----
+#Body Mass Multiplier for TBDL P3
 criteria_phase3 <- criteria_phase3 %>%
   mutate(goal_pretty = case_when(
     outcome_measure %in% c("TrapBar Deadlift", "Single Leg Press") ~
@@ -789,33 +793,253 @@ outcomes_raw_phase3 <- outcomes_raw_all %>%
   filter(phase == 3)
 
 #Individual Criteria
-# 2a) Swelling
+# 3a) Single Leg Hop
 p3_slhop <- outcomes_raw_phase3 %>%
-  filter(outcome_measure == "Single Leg Hop Test") %>%
-  filter(side == inj_side)
+  filter(outcome_measure == "Single Leg Hop") %>%
+  group_by(date, side) %>%
+  summarise(
+    avg_top2 = if (n() >= 2) {
+      mean(sort(value, decreasing = TRUE)[1:2], na.rm = TRUE)
+    } else if (n() == 1) {
+      value[1]
+    } else {
+      NA_real_
+    },
+    .groups = "drop"
+  ) %>%
+  mutate(
+    limb = case_when(
+      side == inj_side ~ "inj",
+      side == non_inj_side ~ "non_inj",
+      TRUE ~ NA_character_
+    )
+  ) %>%
+  filter(!is.na(limb)) %>%
+  select(date, limb, avg_top2) %>%
+  pivot_wider(names_from = limb, values_from = avg_top2) %>%
+  mutate(
+    lsi = if_else(!is.na(inj) & !is.na(non_inj) & non_inj != 0,
+                  100 * inj / non_inj,
+                  NA_real_),
+    lsi = round(lsi, 1)
+  ) %>%
+  arrange(date)
+
 p3_slhop_best <- p3_slhop %>%
+  slice_max(lsi, n = 1, with_ties = FALSE)
+
+
+
+# 3b) Triple Hop
+p3_triplehop <- outcomes_raw_phase3 %>%
+  filter(outcome_measure == "Triple Hop") %>%
+  group_by(date, side) %>%
+  summarise(
+    avg_top2 = if (n() >= 2) {
+      mean(sort(value, decreasing = TRUE)[1:2], na.rm = TRUE)
+    } else if (n() == 1) {
+      value[1]
+    } else {
+      NA_real_
+    },
+    .groups = "drop"
+  ) %>%
+  mutate(
+    limb = case_when(
+      side == inj_side ~ "inj",
+      side == non_inj_side ~ "non_inj",
+      TRUE ~ NA_character_
+    )
+  ) %>%
+  filter(!is.na(limb)) %>%
+  select(date, limb, avg_top2) %>%
+  pivot_wider(names_from = limb, values_from = avg_top2) %>%
+  mutate(
+    lsi = if_else(!is.na(inj) & !is.na(non_inj) & non_inj != 0,
+                  100 * inj / non_inj,
+                  NA_real_),
+    lsi = round(lsi, 1)
+  ) %>%
+  arrange(date)
+
+p3_triplehop_best <- p3_triplehop %>%
+  slice_max(lsi, n = 1, with_ties = FALSE)
+
+
+# 3c) Triple Hop
+p3_triplecrosshop <- outcomes_raw_phase3 %>%
+  filter(outcome_measure == "Triple Cross Over Hop") %>%
+  group_by(date, side) %>%
+  summarise(
+    avg_top2 = if (n() >= 2) {
+      mean(sort(value, decreasing = TRUE)[1:2], na.rm = TRUE)
+    } else if (n() == 1) {
+      value[1]
+    } else {
+      NA_real_
+    },
+    .groups = "drop"
+  ) %>%
+  mutate(
+    limb = case_when(
+      side == inj_side ~ "inj",
+      side == non_inj_side ~ "non_inj",
+      TRUE ~ NA_character_
+    )
+  ) %>%
+  filter(!is.na(limb)) %>%
+  select(date, limb, avg_top2) %>%
+  pivot_wider(names_from = limb, values_from = avg_top2) %>%
+  mutate(
+    lsi = if_else(!is.na(inj) & !is.na(non_inj) & non_inj != 0,
+                  100 * inj / non_inj,
+                  NA_real_),
+    lsi = round(lsi, 1)
+  ) %>%
+  arrange(date)
+
+p3_triplecrosshop_best <- p3_triplecrosshop %>%
+  slice_max(lsi, n = 1, with_ties = FALSE)
+
+# 3d) Y-Balance (Anterior)
+p3_sidehop <- outcomes_raw_all %>%
+  filter(outcome_measure == "Side Hop") %>%
+  group_by(date) %>%
+  summarise(
+    inj = if (any(side == inj_side,  na.rm = TRUE))  max(value[side == inj_side],  na.rm = TRUE) else NA_real_,
+    non_inj = if (any(side == non_inj_side, na.rm = TRUE))  max(value[side == non_inj_side], na.rm = TRUE) else NA_real_,
+    .groups = "drop"
+  ) %>%
+  mutate(
+    lsi = if_else(!is.na(inj) & !is.na(non_inj) & non_inj != 0, 100 * inj / non_inj, NA_real_),
+    lsi = round(lsi, 1)
+  ) %>%
+  arrange(date)
+
+p3_sidehop_best <- p3_sidehop %>%
+  slice_max(lsi, n = 1, with_ties = FALSE)
+
+
+# 3e) Single Leg Rise
+p3_slrise <- outcomes_raw_all %>%
+  filter(outcome_measure == "Single Leg Rise") %>%
+  filter(side == inj_side)
+p3_slrise_best <- p3_slrise %>%
   slice_max(value, n = 1, with_ties = FALSE)
 
-# 2b)
+
+# 3f) Y-Balance (Anterior)
+p3_yBalAnt <- outcomes_raw_all %>%
+  filter(outcome_measure == "Y-Balance (Anterior)") %>%
+  group_by(date) %>%
+  summarise(
+    inj = if (any(side == inj_side,  na.rm = TRUE))  max(value[side == inj_side],  na.rm = TRUE) else NA_real_,
+    non_inj = if (any(side == non_inj_side, na.rm = TRUE))  max(value[side == non_inj_side], na.rm = TRUE) else NA_real_,
+    .groups = "drop"
+  ) %>%
+  mutate(
+    lsi = if_else(!is.na(inj) & !is.na(non_inj) & non_inj != 0, 100 * inj / non_inj, NA_real_),
+    lsi = round(lsi, 1)
+  ) %>%
+  arrange(date)
+
+p3_yBalAnt_best <- p3_yBalAnt %>%
+  slice_max(lsi, n = 1, with_ties = FALSE)
+
+# 3g) Y-Balance (PM)
+p3_yBalPM <- outcomes_raw_all %>%
+  filter(outcome_measure == "Y-Balance (Postero-Medial)") %>%
+  group_by(date) %>%
+  summarise(
+    inj = if (any(side == inj_side,  na.rm = TRUE))  max(value[side == inj_side],  na.rm = TRUE) else NA_real_,
+    non_inj = if (any(side == non_inj_side, na.rm = TRUE))  max(value[side == non_inj_side], na.rm = TRUE) else NA_real_,
+    .groups = "drop"
+  ) %>%
+  mutate(
+    lsi = if_else(!is.na(inj) & !is.na(non_inj) & non_inj != 0, 100 * inj / non_inj, NA_real_),
+    lsi = round(lsi, 1)
+  ) %>%
+  arrange(date)
+
+p3_yBalPM_best <- p3_yBalPM %>%
+  slice_max(lsi, n = 1, with_ties = FALSE)
+
+
+# 3h) Y-Balance (PL)
+p3_yBalPL <- outcomes_raw_all %>%
+  filter(outcome_measure == "Y-Balance (Postero-Lateral)") %>%
+  group_by(date) %>%
+  summarise(
+    inj = if (any(side == inj_side,  na.rm = TRUE))  max(value[side == inj_side],  na.rm = TRUE) else NA_real_,
+    non_inj = if (any(side == non_inj_side, na.rm = TRUE))  max(value[side == non_inj_side], na.rm = TRUE) else NA_real_,
+    .groups = "drop"
+  ) %>%
+  mutate(
+    lsi = if_else(!is.na(inj) & !is.na(non_inj) & non_inj != 0, 100 * inj / non_inj, NA_real_),
+    lsi = round(lsi, 1)
+  ) %>%
+  arrange(date)
+
+p3_yBalPL_best <- p3_yBalPL %>%
+  slice_max(lsi, n = 1, with_ties = FALSE)
+
+# 3i) TrapBar Deadlift
+p3_trapbar <- outcomes_raw_all %>%
+  filter(outcome_measure == "TrapBar Deadlift")
+p3_trapbar_best <- p3_trapbar %>%
+  slice_max(value, n = 1, with_ties = FALSE)
+
+# 3j) Vestibular Balance (Horizontal)
+p3_vestbalanceH <- outcomes_raw_phase3 %>%
+  filter(outcome_measure == "Vestibular Balance (Horizontal)") %>%
+  filter(side == inj_side)
+p3_vestbalanceH_best <- p3_vestbalanceH %>%
+  slice_max(value, n = 1, with_ties = FALSE)
+
+# 3j) Vestibular Balance (Vertical)
+p3_vestbalanceV <- outcomes_raw_phase3 %>%
+  filter(outcome_measure == "Vestibular Balance (Vertical)") %>%
+  filter(side == inj_side)
+p3_vestbalanceV_best <- p3_vestbalanceV %>%
+  slice_max(value, n = 1, with_ties = FALSE)
 
 
 
-
-
-
-# 3 Build Phase 3 Criteria Table
+#Build Phase 3 Criteria Table ----
 
 #Add current best scores into the table
-slhop_val_p3 <- suppressWarnings(as.numeric(if (exists("p3_slhop_best") && nrow(p3_slhop_best) > 0) p3_slhop_best$value[1] else NA_real_))
+slhop_val_p3 <- suppressWarnings(as.numeric(if (exists("p3_slhop_best") && nrow(p3_slhop_best) > 0) p3_slhop_best$lsi[1] else NA_real_))
+triplehop_val_p3 <- suppressWarnings(as.numeric(if (exists("p3_triplehop_best") && nrow(p3_triplehop_best) > 0) p3_triplehop_best$lsi[1] else NA_real_))
+triplecrosshop_val_p3 <- suppressWarnings(as.numeric(if (exists("p3_triplecrosshop_best") && nrow(p3_triplecrosshop_best) > 0) p3_triplecrosshop_best$lsi[1] else NA_real_))
+sidehop_val_p3 <- suppressWarnings(as.numeric(if (exists("p3_sidehop_best") && nrow(p3_sidehop_best) > 0) p3_sidehop_best$lsi[1] else NA_real_))
+slrise_val_p3  <- suppressWarnings(as.numeric(if (exists("p3_slrise_best")   && nrow(p3_slrise_best)   > 0) p3_slrise_best$value[1]  else NA_real_))
+vestbalanceH_val_p3  <- suppressWarnings(as.numeric(if (exists("p3_vestbalanceH_best")   && nrow(p3_vestbalanceH_best)   > 0) p3_vestbalanceH_best$value[1]  else NA_real_))
+vestbalanceV_val_p3  <- suppressWarnings(as.numeric(if (exists("p3_vestbalanceV_best")   && nrow(p3_vestbalanceV_best)   > 0) p3_vestbalanceV_best$value[1]  else NA_real_))
 
+yBalAnt_val_p3     <- suppressWarnings(as.numeric(if (exists("p3_yBalAnt_best")     && nrow(p3_yBalAnt_best)     > 0) p3_yBalAnt_best$lsi[1]     else NA_real_))
+yBalPM_val_p3     <- suppressWarnings(as.numeric(if (exists("p3_yBalPM_best")     && nrow(p3_yBalPM_best)     > 0) p3_yBalPM_best$lsi[1]     else NA_real_))
+yBalPL_val_p3     <- suppressWarnings(as.numeric(if (exists("p3_yBalPL_best")     && nrow(p3_yBalPL_best)     > 0) p3_yBalPL_best$lsi[1]     else NA_real_))
 
+trapbar_val_p3  <- suppressWarnings(as.numeric(if (exists("p3_trapbar_best")   && nrow(p3_trapbar_best)   > 0) p3_trapbar_best$value[1]  else NA_real_))
 
 
 # Populate: only fills when a value exists; stays NA (empty) otherwise
 criteria_phase3 <- criteria_phase3 %>%
   mutate(
     score = case_when(
-      outcome_measure == "Single Leg Hop Test"            ~ slhop_val_p3,
+      outcome_measure == "Single Leg Hop"            ~ slhop_val_p3,
+      outcome_measure == "Triple Hop"            ~ triplehop_val_p3,
+      outcome_measure == "Triple Cross Over Hop"            ~ triplecrosshop_val_p3,
+      outcome_measure == "Side Hop"            ~ sidehop_val_p3,
+      outcome_measure == "Single Leg Rise"   ~ slrise_val_p3,
+      outcome_measure == "Vestibular Balance (Horizontal)"   ~ vestbalanceH_val_p3,
+      outcome_measure == "Vestibular Balance (Vertical)"   ~ vestbalanceV_val_p3,
+      outcome_measure == "Y-Balance (Anterior)"  ~ yBalAnt_val_p3,
+      outcome_measure == "Y-Balance (Postero-Medial)"  ~ yBalPM_val_p3,
+      outcome_measure == "Y-Balance (Postero-Lateral)"  ~ yBalPL_val_p3,
+      outcome_measure == "TrapBar Deadlift"            ~ trapbar_val_p3,
+      
+      
       TRUE                                     ~ score
     )
   )

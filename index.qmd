@@ -249,7 +249,7 @@ criteria_gt <- function(phase, title){
     ) %>%
     fmt_number(
       columns = Score,
-      rows = `Outcome Measure` %in% c("Hamstring Strength", "Quad Strength"),
+      rows = `Outcome Measure` %in% percent_label,
       decimals = 0,
       pattern = "{x}%"
     ) %>%
@@ -282,7 +282,7 @@ htmltools::div(
   navset_card_tab(
     full_screen = TRUE,
     title = "Phase",
-    selected = "2",
+    selected = "3",
     nav_panel(
       "0",
       criteria_gt(criteria_phase0, NULL)),

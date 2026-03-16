@@ -1,5 +1,5 @@
 ---
-title: "Pre-Op Phase Checklist"
+title: "Phase 3 Checklist"
 params:
   athlete: "Frank Reynolds"
 ---
@@ -19,7 +19,7 @@ source("Themes.R")
 ```{r}
 
 #Create the table
-tbl_phase0 <- criteria_phase0 %>%
+tbl_phase3 <- criteria_phase3 %>%
   transmute(
     `Outcome Measure` = outcome_measure,
     `Op` = operator_pretty,
@@ -28,14 +28,14 @@ tbl_phase0 <- criteria_phase0 %>%
     meets
   ) %>%
   gt() %>%
-  tab_header(title = md("**Phase 0 Criteria**")) %>%
+  tab_header(title = md("**Phase 3 Criteria**")) %>%
   fmt_number(
     columns = Score,
     decimals = 0
   ) %>%
   fmt_number(
     columns = Score,
-    rows = `Outcome Measure` %in% c("Hamstring Strength", "Quad Strength"),
+    rows = `Outcome Measure` %in% percent_label,
     decimals = 0,
     pattern = "{x}%"
   ) %>%
@@ -62,7 +62,7 @@ tbl_phase0 <- criteria_phase0 %>%
     data_row.padding = px(6)
   )
 
-tbl_phase0
+tbl_phase3
 
 ```
 
@@ -108,8 +108,8 @@ goals_progress_bar <- function(
 
 
 # By default: denominator = all criteria (matches your table showing blank scores)
-met_n_all   <- sum(criteria_phase0$meets %in% TRUE, na.rm = TRUE)
-total_n_all <- nrow(criteria_phase0)
+met_n_all   <- sum(criteria_phase3$meets %in% TRUE, na.rm = TRUE)
+total_n_all <- nrow(criteria_phase3)
 
 goals_progress_bar(met_n_all, total_n_all)
 ```
@@ -118,36 +118,80 @@ goals_progress_bar(met_n_all, total_n_all)
 
 # Outcomes
 
+Strength goes first
+
+```{r}
+# htmltools::div(
+#   class = "phase0-navset",
+#   navset_card_tab(
+#     full_screen = TRUE,
+#     title = htmltools::tags$span(style = "font-weight:700; font-size:1.2rem;", "Strength"),
+#     nav_panel(
+#       "SL Bridge",
+#       plot_ind_phase_outcomes(outcomes_raw_phase2, "Single Leg Bridge")
+#     ),
+#     nav_panel(
+#       "SL Calf Raise",
+#       plot_ind_phase_outcomes(outcomes_raw_phase2, "Single Leg Calf Raises")
+#     ),
+#     nav_panel(
+#       "Side Bridge",
+#       plot_ind_phase_outcomes(outcomes_raw_phase2, "Side Bridge")
+#     )
+#   )
+# )
+```
+
+Then Jumping
+
 ```{r}
 htmltools::div(
   class = "phase0-navset",
   navset_card_tab(
     full_screen = TRUE,
-    title = htmltools::tags$span(style = "font-weight:700; font-size:1.2rem;", "Phase 0"),
+    title = htmltools::tags$span(style = "font-weight:700; font-size:1.2rem;", "Jump/Land"),
+    selected = "SL Hop",
     nav_panel(
-      "Swelling",
-      plot_ind_phase_outcomes(outcomes_raw_phase0, "Swelling")
+      "SL Hop",
+      plot_iso_magnitude2(outcomes_raw_phase3, "Single Leg Hop")
     ),
     nav_panel(
-      "Knee Extension",
-      plot_ind_phase_outcomes(outcomes_raw_phase0, "Passive Knee Extension")
+      "Triple Hop",
+      plot_iso_magnitude2(outcomes_raw_phase3, "Triple Hop")
     ),
     nav_panel(
-      "Knee Flexion",
-      plot_ind_phase_outcomes(outcomes_raw_phase0, "Passive Knee Flexion")
+      "Triple Cross Over Hop",
+      plot_iso_magnitude2(outcomes_raw_phase3, "Triple Cross Over Hop")
     ),
     nav_panel(
-      "Quad Strength",
-      plot_iso_magnitude("Quads")
-    ),
-    nav_panel(
-      "Hamstring Strength",
-      plot_iso_magnitude("Hamstrings")
+      "Side Hop",
+      plot_ind_phase_outcomes(outcomes_raw_phase3, "Side Hop")
     )
   )
 )
 ```
 
-Some Writing
+Then Control
 
-Some More Writing
+```{r}
+htmltools::div(
+  class = "phase0-navset",
+  navset_card_tab(
+    full_screen = TRUE,
+    title = htmltools::tags$span(style = "font-weight:700; font-size:1.2rem;", "Control"),
+    # nav_panel(
+    #   "SL Balance (Open)",
+    #   plot_ind_phase_outcomes(outcomes_raw_phase2, "Single Leg Balance (Eyes Open)")
+    # ),
+    #     nav_panel(
+    #   "SL Balance (Closed)",
+    #   plot_ind_phase_outcomes(outcomes_raw_phase2, "Single Leg Balance (Eyes Closed)")
+    # ),
+    nav_panel(
+      "Y Balance",
+      plot_iso_magnitude2(outcomes_raw_all, "Y-Balance (Anterior)"),
+      plot_iso_magnitude2(outcomes_raw_all, "Y-Balance (Postero-Medial)")
+    )
+  )
+)
+```
