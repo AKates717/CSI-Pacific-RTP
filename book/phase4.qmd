@@ -1,10 +1,191 @@
+---
+params:
+  athlete: "Frank Reynolds"
+bibliography: references.bib
+---
+
 # Phase 4: Return to Sport {#phase-4-return-to-sport}
 
-::: {.callout-important title="Most Important Goals — Phase 4"}
--   Melbourne Return to Sport Score \> 95\
--   Athlete confident & eager\
--   ACL injury prevention program in place\
+```{r setup-root, include=FALSE}
+knitr::opts_knit$set(root.dir = normalizePath(".."))
+```
+
+```{r}
+source("Global.R")
+source("plot_functions.R")
+source("Themes.R")
+```
+
+Once all criteria from Phase ...
+
+::: {.callout-important title="Most Important Goals — Phase 1"}
+-   One
+-   Two
+-   Three
+-   Four
 :::
+
+**`r params$athlete`'s** progress
+
+tion.
+
+```{r}
+#Create the table
+tbl_phase4 <- criteria_phase4 %>%
+  transmute(
+    `Outcome Measure` = outcome_measure,
+    `Op` = operator_pretty,
+    Goal              = goal_pretty,   # nice display string from your sheet
+    Score             = score,
+    meets
+  ) %>%
+  gt() %>%
+  tab_header(title = md("**Phase 4 Criteria**")) %>%
+  fmt_number(
+    columns = Score,
+    decimals = 0
+  ) %>%
+  sub_missing(columns = Score, missing_text = "") %>%
+  cols_label(Op = "") %>%
+  cols_width(`Outcome Measure` ~ px(360)) %>%
+  cols_align(align = "center", columns = c(Goal, Score)) %>%
+  cols_align(align = "right",  columns = Op) %>%
+  tab_style(
+    style = list(cell_fill(color = "#E8F5E9"),
+                 cell_text(color = "#1B5E20", weight = "600")),
+    locations = cells_body(columns = Score, rows = meets %in% TRUE)
+  ) %>%
+  tab_style(
+    style = list(cell_fill(color = "#FFF9C4"),
+                 cell_text(color = "#7A6A00", weight = "600")),
+    locations = cells_body(columns = Score, rows = meets %in% FALSE)
+  )  %>%
+  cols_hide(meets) %>%
+  ak_gt_theme3() %>%
+  tab_options(
+    table_body.hlines.style = "solid",
+    table_body.hlines.width = px(1),
+    data_row.padding = px(6)
+  )
+
+tbl_phase4
+```
+
+```{r}
+
+# By default: denominator = all criteria (matches your table showing blank scores)
+met_n_all   <- sum(criteria_phase4$meets %in% TRUE, na.rm = TRUE)
+total_n_all <- nrow(criteria_phase4)
+
+goals_progress_bar(met_n_all, total_n_all)
+
+```
+
+```{=html}
+<div class="break-logo">
+  <img src="images/csi-logo-medal-only.png" alt="">
+</div>
+```
+
+## What does the research say? {#sec-p2-research}
+
+### OKC
+
+The training program may include both low/no-load full ROM leg extension as well as ROM-restricted leg extension when the patient is able to lift heavier loads. Minimal ACL strain and reduced PFJ reaction forces have been observed during quadriceps contractions performed between 45-90º of knee flexion, and therefore this is the recommended ROM for loading to be introduced @escamilla2012.
+
+Early introduction of isometrics is recommended ?
+
+Leg Ext isometrics between 90-60º (5x45s, 1-2x per day)
+
+Full ROM (90-0º) against gravity/low loads can be performed once able to comfortably achieve 90º knee flexion
+
+Restricted ROM loaded knee extensions may begin 4 weeks post ACLR (Tempo 3:03, 15-25RM loads)
+
+```{=html}
+<div class="break-logo">
+  <img src="images/csi-logo-medal-only.png" alt="">
+</div>
+```
+
+## Testing
+
+Each card below contains a detailed description of the tests to be conducted during this phase of rehab.
+
+```{r, echo=FALSE, results='asis'}
+
+
+tests <- criteria_phase4 |>
+  dplyr::select(outcome_measure, display_description, additional_information, operator_pretty, goal_pretty, repetitions, calculation) %>%
+  mutate(op_goal = paste(operator_pretty, goal_pretty))
+
+# Helper: print a label/value line only if value is non-missing & non-empty
+emit_field <- function(label, value) {
+  if (length(value) == 0 || all(is.na(value))) return(invisible())
+  val <- value[[1]]
+  if (is.na(val)) return(invisible())
+  val_chr <- trimws(as.character(val))
+  if (!nzchar(val_chr)) return(invisible())
+  cat("**", label, ":** ", val_chr, "\n\n", sep = "")
+}
+
+for (i in seq_len(nrow(tests))) {
+  cat('::: {.card .ak-card .has-stripe .accent-primary}\n')       # universal card class
+  cat('### ', tests$outcome_measure[i], '\n\n', sep = '')         # heading
+  if (!is.na(tests$display_description[i]) &&
+      nzchar(trimws(tests$display_description[i]))) {
+    cat(tests$display_description[i], '\n\n')
+  }
+  cat("*", tests$additional_information[i], '\n\n')
+  emit_field("Criteria", tests$op_goal[i])                  # always optional-safe
+  emit_field("Repetitions", tests$repetitions[i])                # only prints if present
+  emit_field("Calculation", tests$calculation[i])
+
+  cat(':::\n\n')
+}
+
+```
+
+```{=html}
+<div class="break-logo">
+  <img src="images/csi-logo-medal-only.png" alt="">
+</div>
+```
+
+## The Program
+
+Below you will find links to your training programs.
+
+[Phase 4: Program 1](https://www.teambuildr.com/)
+
+When considering changes or further individualization of the program, see the lists below highlighting typically safe and unsafe exercises during this phase. To see how these exercises compare to other phases of the rehab, please see the **Exercise Phase Chart** in the book resources. All exercise programming should be done by a CSI Pacific S&C Coach or a physiotherapist.
+
+Exercises and activities during this phase typically include
+
+Peer-reviewed literature that was consulted in the making of pre-op programs is referenced here.
+
+```{=html}
+<div class="break-logo">
+  <img src="images/csi-logo-medal-only.png" alt="">
+</div>
+```
+
+## Additional Resources
+
+### Blood Flow Restriction
+
+Although, blood flow restrictio
+
+Another more recent study did not report how early BFR began after surgery, but did use the following criteria to begin BFR: able to stand on one leg unsupported for \>5s, knee ROM between 0-90º, able to perform SLR with sufficient quadriceps activation @barzyk2026 . Patients performed the traditional 30-15-15-15 reps of leg press
+
+```{=html}
+<div class="break-logo">
+  <img src="images/csi-logo-medal-only.png" alt="">
+</div>
+```
+
+## Notes and Considerations for Reviewers
+
+All feedback is welcome, however here are some considerations that should help inform the development of this tool.
 
 **Components of MRSS2.0:**\
 1. Clinical Examination (10 pts)\

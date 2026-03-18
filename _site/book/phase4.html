@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -180,6 +199,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./bfr-resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Blood Flow Restriction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
@@ -191,8 +216,38 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-p2-research" id="toc-sec-p2-research" class="nav-link active" data-scroll-target="#sec-p2-research"><span class="header-section-number">4.1</span> What does the research say?</a>
+  <ul class="collapse">
+  <li><a href="#okc" id="toc-okc" class="nav-link" data-scroll-target="#okc"><span class="header-section-number">4.1.1</span> OKC</a></li>
+  </ul></li>
+  <li><a href="#testing" id="toc-testing" class="nav-link" data-scroll-target="#testing"><span class="header-section-number">4.2</span> Testing</a>
+  <ul class="collapse">
+  <li><a href="#pistol-squat" id="toc-pistol-squat" class="nav-link" data-scroll-target="#pistol-squat"><span class="header-section-number">4.2.1</span> Pistol Squat</a></li>
+  <li><a href="#quad-strength" id="toc-quad-strength" class="nav-link" data-scroll-target="#quad-strength"><span class="header-section-number">4.2.2</span> Quad Strength</a></li>
+  <li><a href="#hamstring-strength" id="toc-hamstring-strength" class="nav-link" data-scroll-target="#hamstring-strength"><span class="header-section-number">4.2.3</span> Hamstring Strength</a></li>
+  <li><a href="#cmj-height" id="toc-cmj-height" class="nav-link" data-scroll-target="#cmj-height"><span class="header-section-number">4.2.4</span> CMJ Height</a></li>
+  <li><a href="#cmj-rsimod" id="toc-cmj-rsimod" class="nav-link" data-scroll-target="#cmj-rsimod"><span class="header-section-number">4.2.5</span> CMJ RSImod</a></li>
+  <li><a href="#cmj-lengthening-asymmetry" id="toc-cmj-lengthening-asymmetry" class="nav-link" data-scroll-target="#cmj-lengthening-asymmetry"><span class="header-section-number">4.2.6</span> CMJ Lengthening Asymmetry</a></li>
+  <li><a href="#cmj-lengthening-impulse" id="toc-cmj-lengthening-impulse" class="nav-link" data-scroll-target="#cmj-lengthening-impulse"><span class="header-section-number">4.2.7</span> CMJ Lengthening Impulse</a></li>
+  <li><a href="#cmj-shortening-asymmetry" id="toc-cmj-shortening-asymmetry" class="nav-link" data-scroll-target="#cmj-shortening-asymmetry"><span class="header-section-number">4.2.8</span> CMJ Shortening Asymmetry</a></li>
+  <li><a href="#cmj-shortening-impulse" id="toc-cmj-shortening-impulse" class="nav-link" data-scroll-target="#cmj-shortening-impulse"><span class="header-section-number">4.2.9</span> CMJ Shortening Impulse</a></li>
+  <li><a href="#drop-and-stick---time-to-stabilization" id="toc-drop-and-stick---time-to-stabilization" class="nav-link" data-scroll-target="#drop-and-stick---time-to-stabilization"><span class="header-section-number">4.2.10</span> Drop and Stick - Time to Stabilization</a></li>
+  <li><a href="#drop-and-stick---landing-force" id="toc-drop-and-stick---landing-force" class="nav-link" data-scroll-target="#drop-and-stick---landing-force"><span class="header-section-number">4.2.11</span> Drop and Stick - Landing Force</a></li>
+  <li><a href="#drop-and-stick---landing-asymmetry" id="toc-drop-and-stick---landing-asymmetry" class="nav-link" data-scroll-target="#drop-and-stick---landing-asymmetry"><span class="header-section-number">4.2.12</span> Drop and Stick - Landing Asymmetry</a></li>
+  </ul></li>
+  <li><a href="#the-program" id="toc-the-program" class="nav-link" data-scroll-target="#the-program"><span class="header-section-number">4.3</span> The Program</a></li>
+  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources"><span class="header-section-number">4.4</span> Additional Resources</a>
+  <ul class="collapse">
+  <li><a href="#blood-flow-restriction" id="toc-blood-flow-restriction" class="nav-link" data-scroll-target="#blood-flow-restriction"><span class="header-section-number">4.4.1</span> Blood Flow Restriction</a></li>
+  </ul></li>
+  <li><a href="#notes-and-considerations-for-reviewers" id="toc-notes-and-considerations-for-reviewers" class="nav-link" data-scroll-target="#notes-and-considerations-for-reviewers"><span class="header-section-number">4.5</span> Notes and Considerations for Reviewers</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -216,26 +271,790 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-important callout-titled" title="Most Important Goals — Phase 4">
+<p>Once all criteria from Phase …</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Most Important Goals — Phase 1">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Most Important Goals — Phase 4
+<span class="screen-reader-only">Important</span>Most Important Goals — Phase 1
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Melbourne Return to Sport Score &gt; 95<br>
-</li>
-<li>Athlete confident &amp; eager<br>
-</li>
-<li>ACL injury prevention program in place<br>
-</li>
+<li>One</li>
+<li>Two</li>
+<li>Three</li>
+<li>Four</li>
 </ul>
 </div>
 </div>
+<p><strong>Frank Reynolds’s</strong> progress</p>
+<p>tion.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="vkinjvllcp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+#vkinjvllcp table {
+  font-family: 'Open Sans', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#vkinjvllcp thead, #vkinjvllcp tbody, #vkinjvllcp tfoot, #vkinjvllcp tr, #vkinjvllcp td, #vkinjvllcp th {
+  border-style: none;
+}
+
+#vkinjvllcp p {
+  margin: 0;
+  padding: 0;
+}
+
+#vkinjvllcp .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: 100%;
+  border-top-style: solid;
+  border-top-width: 3px;
+  border-top-color: #D71920;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #A7A9AC;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#vkinjvllcp .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#vkinjvllcp .gt_title {
+  color: #333333;
+  font-size: 22px;
+  font-weight: initial;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#vkinjvllcp .gt_subtitle {
+  color: #333333;
+  font-size: 13px;
+  font-weight: initial;
+  padding-top: 5px;
+  padding-bottom: 7px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#vkinjvllcp .gt_heading {
+  background-color: #FFFFFF;
+  text-align: left;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#vkinjvllcp .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#vkinjvllcp .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #A7A9AC;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#vkinjvllcp .gt_col_heading {
+  color: #333333;
+  background-color: #FCFCFC;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: rgba(255, 255, 255, 0);
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: rgba(255, 255, 255, 0);
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#vkinjvllcp .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FCFCFC;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#vkinjvllcp .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#vkinjvllcp .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#vkinjvllcp .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #A7A9AC;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#vkinjvllcp .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#vkinjvllcp .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#vkinjvllcp .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#vkinjvllcp .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#vkinjvllcp .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#vkinjvllcp .gt_row {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #A7A9AC;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: rgba(255, 255, 255, 0);
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: rgba(255, 255, 255, 0);
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#vkinjvllcp .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vkinjvllcp .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#vkinjvllcp .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#vkinjvllcp .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#vkinjvllcp .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vkinjvllcp .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#vkinjvllcp .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#vkinjvllcp .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#vkinjvllcp .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vkinjvllcp .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#vkinjvllcp .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#vkinjvllcp .gt_striped {
+  background-color: #FFFFFF;
+}
+
+#vkinjvllcp .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#vkinjvllcp .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#vkinjvllcp .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vkinjvllcp .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#vkinjvllcp .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vkinjvllcp .gt_left {
+  text-align: left;
+}
+
+#vkinjvllcp .gt_center {
+  text-align: center;
+}
+
+#vkinjvllcp .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#vkinjvllcp .gt_font_normal {
+  font-weight: normal;
+}
+
+#vkinjvllcp .gt_font_bold {
+  font-weight: bold;
+}
+
+#vkinjvllcp .gt_font_italic {
+  font-style: italic;
+}
+
+#vkinjvllcp .gt_super {
+  font-size: 65%;
+}
+
+#vkinjvllcp .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#vkinjvllcp .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#vkinjvllcp .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#vkinjvllcp .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#vkinjvllcp .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#vkinjvllcp .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#vkinjvllcp .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#vkinjvllcp .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#vkinjvllcp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+
+.gt_table {
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
+}
+
+.gt_table tbody tr:hover td {
+  background-color: rgba(215, 25, 32, 0.06) !important;
+  /* light brand red */
+}
+
+.gt_footnotes, .gt_sourcenotes {
+  font-size: 0.9em;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading header">
+<td colspan="4" class="gt_heading gt_title gt_font_normal gt_bottom_border" style="color: #D71920; font-family: 'Roboto Slab'; font-weight: 700"><strong>Phase 4 Criteria</strong></td>
+</tr>
+<tr class="gt_col_headings even">
+<th id="Outcome-Measure" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="color: #111827; font-weight: 600" scope="col">Outcome Measure</th>
+<th id="Op" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="color: #111827; font-weight: 600" scope="col"></th>
+<th id="Goal" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="color: #111827; font-weight: 600" scope="col">Goal</th>
+<th id="Score" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="color: #111827; font-weight: 600" scope="col">Score</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Outcome Measure" style="color: #222222">Pistol Squat</td>
+<td class="gt_row gt_right" headers="Op" style="color: #222222">≥</td>
+<td class="gt_row gt_center" headers="Goal" style="color: #222222">5</td>
+<td class="gt_row gt_center" headers="Score" style="color: #222222"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Outcome Measure" style="color: #222222">Quad Strength</td>
+<td class="gt_row gt_right gt_striped" headers="Op" style="color: #222222">&gt;</td>
+<td class="gt_row gt_center gt_striped" headers="Goal" style="color: #222222">95%</td>
+<td class="gt_row gt_center gt_striped" headers="Score" style="color: #222222"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Outcome Measure" style="color: #222222">Hamstring Strength</td>
+<td class="gt_row gt_right" headers="Op" style="color: #222222">&gt;</td>
+<td class="gt_row gt_center" headers="Goal" style="color: #222222">95%</td>
+<td class="gt_row gt_center" headers="Score" style="color: #222222"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Outcome Measure" style="color: #222222">CMJ Height</td>
+<td class="gt_row gt_right gt_striped" headers="Op" style="color: #222222">≥</td>
+<td class="gt_row gt_center gt_striped" headers="Goal" style="color: #222222">95%</td>
+<td class="gt_row gt_center gt_striped" headers="Score" style="color: #222222"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Outcome Measure" style="color: #222222">CMJ RSImod</td>
+<td class="gt_row gt_right" headers="Op" style="color: #222222">≥</td>
+<td class="gt_row gt_center" headers="Goal" style="color: #222222">95%</td>
+<td class="gt_row gt_center" headers="Score" style="color: #222222"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Outcome Measure" style="color: #222222">CMJ Lengthening Asymmetry</td>
+<td class="gt_row gt_right gt_striped" headers="Op" style="color: #222222">&lt;</td>
+<td class="gt_row gt_center gt_striped" headers="Goal" style="color: #222222">10%</td>
+<td class="gt_row gt_center gt_striped" headers="Score" style="color: #222222"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Outcome Measure" style="color: #222222">CMJ Lengthening Impulse</td>
+<td class="gt_row gt_right" headers="Op" style="color: #222222">≥</td>
+<td class="gt_row gt_center" headers="Goal" style="color: #222222">95%</td>
+<td class="gt_row gt_center" headers="Score" style="color: #222222"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Outcome Measure" style="color: #222222">CMJ Shortening Asymmetry</td>
+<td class="gt_row gt_right gt_striped" headers="Op" style="color: #222222">&lt;</td>
+<td class="gt_row gt_center gt_striped" headers="Goal" style="color: #222222">10%</td>
+<td class="gt_row gt_center gt_striped" headers="Score" style="color: #222222"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Outcome Measure" style="color: #222222">CMJ Shortening Impulse</td>
+<td class="gt_row gt_right" headers="Op" style="color: #222222">≥</td>
+<td class="gt_row gt_center" headers="Goal" style="color: #222222">95%</td>
+<td class="gt_row gt_center" headers="Score" style="color: #222222"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Outcome Measure" style="color: #222222">Drop and Stick - Time to Stabilization</td>
+<td class="gt_row gt_right gt_striped" headers="Op" style="color: #222222">&lt;</td>
+<td class="gt_row gt_center gt_striped" headers="Goal" style="color: #222222">0.75s</td>
+<td class="gt_row gt_center gt_striped" headers="Score" style="color: #222222"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Outcome Measure" style="color: #222222">Drop and Stick - Landing Force</td>
+<td class="gt_row gt_right" headers="Op" style="color: #222222">&lt;</td>
+<td class="gt_row gt_center" headers="Goal" style="color: #222222">3.5x BM</td>
+<td class="gt_row gt_center" headers="Score" style="color: #222222"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Outcome Measure" style="color: #222222">Drop and Stick - Landing Asymmetry</td>
+<td class="gt_row gt_right gt_striped" headers="Op" style="color: #222222">&lt;</td>
+<td class="gt_row gt_center gt_striped" headers="Goal" style="color: #222222">15%</td>
+<td class="gt_row gt_center gt_striped" headers="Score" style="color: #222222"><br>
+</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<style>
+      .ak-pb-wrap   { margin-top:12px; font-family:'Open Sans',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; }
+      .ak-pb-meta   { display:flex; justify-content:space-between; font-size:0.95rem; margin-bottom:6px; color:#222; }
+      .ak-pb-meta strong{ color:#D71920; font-weight:700; } /* accent like table title */
+      .ak-pb       { background:#FCFCFC; border:1px solid #A7A9AC; border-radius:10px; height:14px; overflow:hidden; }
+      .ak-pb__fill { height:100%; background:linear-gradient(90deg,#2E7D32,#4CAF50); transition:width .3s ease; }
+    </style>
+<div class="ak-pb-wrap">
+<div class="ak-pb-meta">
+<strong>Goals met: 0/12</strong>
+<span>0%</span>
+</div>
+<div class="ak-pb" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" style="width:100%;">
+<div class="ak-pb__fill" style="width:0%;"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="break-logo">
+  <img src="images/csi-logo-medal-only.png" alt="">
+</div>
+<section id="sec-p2-research" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="sec-p2-research"><span class="header-section-number">4.1</span> What does the research say?</h2>
+<section id="okc" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="okc"><span class="header-section-number">4.1.1</span> OKC</h3>
+<p>The training program may include both low/no-load full ROM leg extension as well as ROM-restricted leg extension when the patient is able to lift heavier loads. Minimal ACL strain and reduced PFJ reaction forces have been observed during quadriceps contractions performed between 45-90º of knee flexion, and therefore this is the recommended ROM for loading to be introduced <span class="citation" data-cites="escamilla2012">[<a href="references.html#ref-escamilla2012" role="doc-biblioref">1</a>]</span>.</p>
+<p>Early introduction of isometrics is recommended ?</p>
+<p>Leg Ext isometrics between 90-60º (5x45s, 1-2x per day)</p>
+<p>Full ROM (90-0º) against gravity/low loads can be performed once able to comfortably achieve 90º knee flexion</p>
+<p>Restricted ROM loaded knee extensions may begin 4 weeks post ACLR (Tempo 3:03, 15-25RM loads)</p>
+<div class="break-logo">
+  <img src="images/csi-logo-medal-only.png" alt="">
+</div>
+</section>
+</section>
+<section id="testing" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="testing"><span class="header-section-number">4.2</span> Testing</h2>
+<p>Each card below contains a detailed description of the tests to be conducted during this phase of rehab.</p>
+<section id="pistol-squat" class="level3 card ak-card has-stripe accent-primary" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="pistol-squat"><span class="header-section-number">4.2.1</span> Pistol Squat</h3>
+<p>Full range of motion single leg squats while standing on a box.</p>
+<ul>
+<li>The athlete stands on a box that is high enough to let their opposite leg hang to the side and not touch the ground in the bottom of the squat. For a repetition to be succesful, the angle of the knee joint must exceed 90 degrees. Practitioner discretion is crucial to determine proper technique. If there is excessive frontal plan motion (i.e.&nbsp;knee valgus) or excessive hip lift (off-loading the quads), consider carefully whether reps should be counted towards succesful achievment of this criteria.</li>
+</ul>
+<p><strong>Criteria:</strong> ≥ 5</p>
+</section>
+<section id="quad-strength" class="level3 card ak-card has-stripe accent-primary" data-number="4.2.2">
+<h3 data-number="4.2.2" class="anchored" data-anchor-id="quad-strength"><span class="header-section-number">4.2.2</span> Quad Strength</h3>
+<p>Isometric Strength at 90°</p>
+<ul>
+<li>Seated with hip and knees flexed at 90°. Dynamometer placed on the anterior aspect of the shank, proximal to the ankle joint. Target score to complete this phase is 75% LSI compared to un-injured leg.</li>
+</ul>
+<p><strong>Criteria:</strong> &gt; 95%</p>
+<p><strong>Repetitions:</strong> 3</p>
+<p><strong>Calculation:</strong> Max</p>
+</section>
+<section id="hamstring-strength" class="level3 card ak-card has-stripe accent-primary" data-number="4.2.3">
+<h3 data-number="4.2.3" class="anchored" data-anchor-id="hamstring-strength"><span class="header-section-number">4.2.3</span> Hamstring Strength</h3>
+<p>Isometric Strength at 90°</p>
+<ul>
+<li>Seated with hip and knees flexed at 90°. Dynamometer placed on the anterior aspect of the shank, proximal to the ankle joint. Target score to complete this phase is 75% LSI compared to un-injured leg.</li>
+</ul>
+<p><strong>Criteria:</strong> &gt; 95%</p>
+<p><strong>Repetitions:</strong> 3</p>
+<p><strong>Calculation:</strong> Max</p>
+</section>
+<section id="cmj-height" class="level3 card ak-card has-stripe accent-primary" data-number="4.2.4">
+<h3 data-number="4.2.4" class="anchored" data-anchor-id="cmj-height"><span class="header-section-number">4.2.4</span> CMJ Height</h3>
+<p>Scores are relative to baseline data</p>
+<ul>
+<li>Height in cm</li>
+</ul>
+<p><strong>Criteria:</strong> ≥ 95%</p>
+<p><strong>Repetitions:</strong> 5</p>
+<p><strong>Calculation:</strong> Mean</p>
+</section>
+<section id="cmj-rsimod" class="level3 card ak-card has-stripe accent-primary" data-number="4.2.5">
+<h3 data-number="4.2.5" class="anchored" data-anchor-id="cmj-rsimod"><span class="header-section-number">4.2.5</span> CMJ RSImod</h3>
+<p>Scores are relative to baseline data</p>
+<ul>
+<li>Height of jump divided by total contraction time</li>
+</ul>
+<p><strong>Criteria:</strong> ≥ 95%</p>
+<p><strong>Repetitions:</strong> 5</p>
+<p><strong>Calculation:</strong> Mean</p>
+</section>
+<section id="cmj-lengthening-asymmetry" class="level3 card ak-card has-stripe accent-primary" data-number="4.2.6">
+<h3 data-number="4.2.6" class="anchored" data-anchor-id="cmj-lengthening-asymmetry"><span class="header-section-number">4.2.6</span> CMJ Lengthening Asymmetry</h3>
+<p>Confidence interval around the mean of 5 jumps must be entirely within ± 10%</p>
+<ul>
+<li>Ratio of force produced by each limb in the lengthening (lowering) phase of the jump</li>
+</ul>
+<p><strong>Criteria:</strong> &lt; 10%</p>
+<p><strong>Repetitions:</strong> 5</p>
+<p><strong>Calculation:</strong> Mean ± CI</p>
+</section>
+<section id="cmj-lengthening-impulse" class="level3 card ak-card has-stripe accent-primary" data-number="4.2.7">
+<h3 data-number="4.2.7" class="anchored" data-anchor-id="cmj-lengthening-impulse"><span class="header-section-number">4.2.7</span> CMJ Lengthening Impulse</h3>
+<p>Scores are relative to baseline data</p>
+<ul>
+<li>Phase impulse is tracked independently to ensure that ratio data does not represent a drop in force production of the non-injured limb.</li>
+</ul>
+<p><strong>Criteria:</strong> ≥ 95%</p>
+<p><strong>Repetitions:</strong> 5</p>
+<p><strong>Calculation:</strong> Mean</p>
+</section>
+<section id="cmj-shortening-asymmetry" class="level3 card ak-card has-stripe accent-primary" data-number="4.2.8">
+<h3 data-number="4.2.8" class="anchored" data-anchor-id="cmj-shortening-asymmetry"><span class="header-section-number">4.2.8</span> CMJ Shortening Asymmetry</h3>
+<p>Confidence interval around the mean of 5 jumps must be entirely within ± 10%</p>
+<ul>
+<li>Ratio of force produced by each limb in the shortening (propulsive) phase of the jump</li>
+</ul>
+<p><strong>Criteria:</strong> &lt; 10%</p>
+<p><strong>Repetitions:</strong> 5</p>
+<p><strong>Calculation:</strong> Mean ± CI</p>
+</section>
+<section id="cmj-shortening-impulse" class="level3 card ak-card has-stripe accent-primary" data-number="4.2.9">
+<h3 data-number="4.2.9" class="anchored" data-anchor-id="cmj-shortening-impulse"><span class="header-section-number">4.2.9</span> CMJ Shortening Impulse</h3>
+<p>Scores are relative to baseline data</p>
+<ul>
+<li>Phase impulse is tracked independently to ensure that ratio data does not represent a drop in force production of the non-injured limb.</li>
+</ul>
+<p><strong>Criteria:</strong> ≥ 95%</p>
+<p><strong>Repetitions:</strong> 5</p>
+<p><strong>Calculation:</strong> Mean</p>
+</section>
+<section id="drop-and-stick---time-to-stabilization" class="level3 card ak-card has-stripe accent-primary" data-number="4.2.10">
+<h3 data-number="4.2.10" class="anchored" data-anchor-id="drop-and-stick---time-to-stabilization"><span class="header-section-number">4.2.10</span> Drop and Stick - Time to Stabilization</h3>
+<p>Time taken to return the body to a stable state following a 50cm drop landing.</p>
+<ul>
+<li>Participant steps forward off 50cm box with their preferred leg and lands on the force plates in a squat with thighs parallel to the floor and arms held out ion front of them.<br>
+Cue: “Land softly and stabilize as quickly as possible” TTS target scores are based off old research for now.</li>
+</ul>
+<p><strong>Criteria:</strong> &lt; 0.75s</p>
+<p><strong>Repetitions:</strong> 5</p>
+<p><strong>Calculation:</strong> Mean</p>
+</section>
+<section id="drop-and-stick---landing-force" class="level3 card ak-card has-stripe accent-primary" data-number="4.2.11">
+<h3 data-number="4.2.11" class="anchored" data-anchor-id="drop-and-stick---landing-force"><span class="header-section-number">4.2.11</span> Drop and Stick - Landing Force</h3>
+<p>The amount of force required to bring the body to a stable state following a 50cm drop landing.</p>
+<ul>
+<li>Participant steps forward off 50cm box with their preferred leg and lands on the force plates in a squat with thighs parallel to the floor and arms held out ion front of them.<br>
+Cue: “Land softly and stabilize as quickly as possible” rPLF target scores are based off old research for now.</li>
+</ul>
+<p><strong>Criteria:</strong> &lt; 3.5x BM</p>
+<p><strong>Repetitions:</strong> 5</p>
+<p><strong>Calculation:</strong> Mean</p>
+</section>
+<section id="drop-and-stick---landing-asymmetry" class="level3 card ak-card has-stripe accent-primary" data-number="4.2.12">
+<h3 data-number="4.2.12" class="anchored" data-anchor-id="drop-and-stick---landing-asymmetry"><span class="header-section-number">4.2.12</span> Drop and Stick - Landing Asymmetry</h3>
+<p>Confidence interval around the mean of 5 jumps must be entirely within ± 10%</p>
+<ul>
+<li>Participant steps forward off 50cm box with their preferred leg and lands on the force plates in a squat with thighs parallel to the floor and arms held out ion front of them.<br>
+Cue: “Land softly and stabilize as quickly as possible” rPLF target scores are based off old research for now.</li>
+</ul>
+<p><strong>Criteria:</strong> &lt; 15%</p>
+<p><strong>Repetitions:</strong> 5</p>
+<p><strong>Calculation:</strong> Mean ± CI</p>
+</section>
+<div class="break-logo">
+  <img src="images/csi-logo-medal-only.png" alt="">
+</div>
+</section>
+<section id="the-program" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="the-program"><span class="header-section-number">4.3</span> The Program</h2>
+<p>Below you will find links to your training programs.</p>
+<p><a href="https://www.teambuildr.com/">Phase 4: Program 1</a></p>
+<p>When considering changes or further individualization of the program, see the lists below highlighting typically safe and unsafe exercises during this phase. To see how these exercises compare to other phases of the rehab, please see the <strong>Exercise Phase Chart</strong> in the book resources. All exercise programming should be done by a CSI Pacific S&amp;C Coach or a physiotherapist.</p>
+<p>Exercises and activities during this phase typically include</p>
+<p>Peer-reviewed literature that was consulted in the making of pre-op programs is referenced here.</p>
+<div class="break-logo">
+  <img src="images/csi-logo-medal-only.png" alt="">
+</div>
+</section>
+<section id="additional-resources" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="additional-resources"><span class="header-section-number">4.4</span> Additional Resources</h2>
+<section id="blood-flow-restriction" class="level3" data-number="4.4.1">
+<h3 data-number="4.4.1" class="anchored" data-anchor-id="blood-flow-restriction"><span class="header-section-number">4.4.1</span> Blood Flow Restriction</h3>
+<p>Although, blood flow restrictio</p>
+<p>Another more recent study did not report how early BFR began after surgery, but did use the following criteria to begin BFR: able to stand on one leg unsupported for &gt;5s, knee ROM between 0-90º, able to perform SLR with sufficient quadriceps activation <span class="citation" data-cites="barzyk2026">[<a href="references.html#ref-barzyk2026" role="doc-biblioref">2</a>]</span> . Patients performed the traditional 30-15-15-15 reps of leg press</p>
+<div class="break-logo">
+  <img src="images/csi-logo-medal-only.png" alt="">
+</div>
+</section>
+</section>
+<section id="notes-and-considerations-for-reviewers" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="notes-and-considerations-for-reviewers"><span class="header-section-number">4.5</span> Notes and Considerations for Reviewers</h2>
+<p>All feedback is welcome, however here are some considerations that should help inform the development of this tool.</p>
 <p><strong>Components of MRSS2.0:</strong><br>
 1. Clinical Examination (10 pts)<br>
 2. IKDC + ACL-RSI (20 pts)<br>
@@ -245,6 +1064,15 @@ ul.task-list li input[type="checkbox"] {
 6. Functional Testing in Fatigued State (20 pts)</p>
 
 
+<div id="refs" class="references csl-bib-body" role="list" style="display: none">
+<div id="ref-escamilla2012" class="csl-entry" role="listitem">
+1. Escamilla RF, Macleod TD, Wilk KE, Paulos L, Andrews JR. ACL Strain and Tensile Forces for Weight Bearing and Non<span></span>Weight-Bearing Exercises After ACL Reconstruction: A Guide to Exercise Selection. Journal of Orthopaedic &amp; Sports Physical Therapy [Internet]. 2012;42:208–20. <a href="https://doi.org/10.2519/jospt.2012.3768">https://doi.org/10.2519/jospt.2012.3768</a>
+</div>
+<div id="ref-barzyk2026" class="csl-entry" role="listitem">
+2. Barzyk P, Fiedler C, Schlag M, Heitner A, Bender J, Paul J. Effect of blood flow restriction training in early postoperative rehabilitation after ACL reconstruction: A randomised controlled trial. Frontiers in Sports and Active Living [Internet]. 2026;7. <a href="https://doi.org/10.3389/fspor.2025.1689257">https://doi.org/10.3389/fspor.2025.1689257</a>
+</div>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
