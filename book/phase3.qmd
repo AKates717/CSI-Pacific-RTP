@@ -126,13 +126,21 @@ goals_progress_bar(met_n_all, total_n_all)
 
 ```
 
-------------------------------------------------------------------------
+```{=html}
+<div class="break-logo">
+  <img src="images/csi-logo-medal-only.png" alt="">
+</div>
+```
 
 ## What does the research say? {#preop-outcomes}
 
 Recent systematic reviews
 
-------------------------------------------------------------------------
+```{=html}
+<div class="break-logo">
+  <img src="images/csi-logo-medal-only.png" alt="">
+</div>
+```
 
 ## Testing
 
@@ -172,7 +180,11 @@ for (i in seq_len(nrow(tests))) {
 
 ```
 
-------------------------------------------------------------------------
+```{=html}
+<div class="break-logo">
+  <img src="images/csi-logo-medal-only.png" alt="">
+</div>
+```
 
 ## The Program
 
@@ -186,7 +198,11 @@ Exercises and activities during this phase typically include
 
 Peer-reviewed literature that was consulted in the making of pre-op programs is referenced here.
 
-------------------------------------------------------------------------
+```{=html}
+<div class="break-logo">
+  <img src="images/csi-logo-medal-only.png" alt="">
+</div>
+```
 
 ## Additional Resources
 
@@ -196,7 +212,11 @@ Although, blood flow restrictio
 
 Another more recent study
 
-------------------------------------------------------------------------
+```{=html}
+<div class="break-logo">
+  <img src="images/csi-logo-medal-only.png" alt="">
+</div>
+```
 
 ## Notes and Considerations for Reviewers
 

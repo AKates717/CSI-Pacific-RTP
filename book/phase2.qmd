@@ -82,7 +82,11 @@ goals_progress_bar(met_n_all, total_n_all)
 
 ```
 
-------------------------------------------------------------------------
+```{=html}
+<div class="break-logo">
+  <img src="images/csi-logo-medal-only.png" alt="">
+</div>
+```
 
 ## What does the research say? {#sec-p2-research}
 
@@ -98,7 +102,11 @@ Full ROM (90-0º) against gravity/low loads can be performed once able to comfor
 
 Restricted ROM loaded knee extensions may begin 4 weeks post ACLR (Tempo 3:03, 15-25RM loads)
 
-------------------------------------------------------------------------
+```{=html}
+<div class="break-logo">
+  <img src="images/csi-logo-medal-only.png" alt="">
+</div>
+```
 
 ## Testing
 
@@ -138,7 +146,11 @@ for (i in seq_len(nrow(tests))) {
 
 ```
 
-------------------------------------------------------------------------
+```{=html}
+<div class="break-logo">
+  <img src="images/csi-logo-medal-only.png" alt="">
+</div>
+```
 
 ## The Program
 
@@ -152,7 +164,11 @@ Exercises and activities during this phase typically include
 
 Peer-reviewed literature that was consulted in the making of pre-op programs is referenced here.
 
-------------------------------------------------------------------------
+```{=html}
+<div class="break-logo">
+  <img src="images/csi-logo-medal-only.png" alt="">
+</div>
+```
 
 ## Additional Resources
 
@@ -162,7 +178,11 @@ Although, blood flow restrictio
 
 Another more recent study did not report how early BFR began after surgery, but did use the following criteria to begin BFR: able to stand on one leg unsupported for \>5s, knee ROM between 0-90º, able to perform SLR with sufficient quadriceps activation @barzyk2026 . Patients performed the traditional 30-15-15-15 reps of leg press
 
-------------------------------------------------------------------------
+```{=html}
+<div class="break-logo">
+  <img src="images/csi-logo-medal-only.png" alt="">
+</div>
+```
 
 ## Notes and Considerations for Reviewers
 

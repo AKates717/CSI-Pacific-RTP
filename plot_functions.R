@@ -518,7 +518,7 @@ plot_card5 <- function(output){ #plotly card, no header, no border
 
 #Bar plot for when data is collected once
 #Includes measures that might have a meaningful outcome score of 0 (i.e passive knee extension)
-plot_ind_phase_outcomes <- function(phase, outcome){
+plot_ind_phase_outcomes_old <- function(phase, outcome){
   
   df <- phase %>%
     dplyr::filter(outcome_measure == outcome)
@@ -542,6 +542,51 @@ plot_ind_phase_outcomes <- function(phase, outcome){
     layout(legend = list(orientation = "h", x = 0.3, y = -0.25)) %>%
     style(hovertemplate = paste("<b>%{text}</b> <br><i>Score:</i>  %{y}<extra></extra>"),traces = c(1,2)) %>%
     style(hovertemplate = paste("<b>%{text}</b> <br><i>Score:</i>  0<extra></extra>"),traces = c(3,4,5)) %>%
+    config(displaylogo = FALSE) %>%
+    config(modeBarButtonsToRemove = c("hoverCompare", "hoverclosest", "zoomIn2d", "zoomOut2d"))
+}
+
+
+#Plot Ind Phase Outcomes When Zero is a potential score
+plot_ind_phase_outcomes <- function(phase, outcome){
+  
+  df <- phase %>%
+    dplyr::filter(outcome_measure == outcome) %>%
+    dplyr::mutate(
+      hover_text = paste0("<b>", date_ddmmyear2, "</b>", "<br><i>Side:</i> ", side, "<br><i>Score:</i> ", value),
+      zero_label = ifelse(value == 0, "0", "")
+    )
+  
+  pd <- position_dodge2(width = 0.9, preserve = "single")
+  
+  side_colors <- c(
+    Left  = if (inj_side == "Left") "red"   else "black",
+    Right = if (inj_side == "Right") "red"  else "black"
+  )
+  
+  p <- ggplot(df, aes(x = as.factor(date), y = value, fill = side, group = side)) +
+    geom_col(aes(text = hover_text), position = pd, alpha = 0.7) +
+    #geom_text(aes(label = zero_label, color = side, text = hover_text), position = pd, vjust = 1, size = 4, show.legend = FALSE) +
+    geom_text(
+      aes(
+        y = ifelse(value == 0, 0.05, value),
+        label = zero_label,
+        color = side,
+        text = hover_text
+      ),
+      position = pd,
+      vjust = 0.5,
+      size = 4,
+      show.legend = FALSE
+    ) +
+    ak_plot_theme() +
+    scale_x_discrete(labels = function(x) format(as.Date(x), "%b %e")) +
+    labs(y = outcome, x = NULL) +
+    scale_fill_manual(values = side_colors, guide = "none") +
+    scale_color_manual(values = side_colors, guide = "none")
+  
+  ggplotly(p, tooltip = "text") %>%
+    layout(legend = list(orientation = "h", x = 0.3, y = -0.25)) %>%
     config(displaylogo = FALSE) %>%
     config(modeBarButtonsToRemove = c("hoverCompare", "hoverclosest", "zoomIn2d", "zoomOut2d"))
 }
