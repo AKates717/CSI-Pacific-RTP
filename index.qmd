@@ -372,7 +372,7 @@ htmltools::div(
 htmltools::div(
   class = "phase0-navset",
   navset_card_tab(
-    full_screen = TRUE,
+    #full_screen = TRUE,
     title = htmltools::tags$span(style = "font-weight:700; font-size:1.2rem;", "Mobility"),
     selected = "Swelling",
     nav_panel(
