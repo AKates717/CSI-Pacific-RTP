@@ -572,7 +572,7 @@ plot_ind_phase_outcomes <- function(phase, outcome){
       show.legend = FALSE
     ) +
     ak_plot_theme() +
-    theme(legend.position = element_blank()) +
+    theme(legend.position = "none") +
     scale_x_discrete(labels = function(x) format(as.Date(x), "%b %e")) +
     labs(y = NULL, x = NULL) +
     scale_fill_manual(values = side_colors, guide = "none") +
