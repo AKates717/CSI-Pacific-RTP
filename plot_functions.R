@@ -566,22 +566,15 @@ plot_ind_phase_outcomes <- function(phase, outcome){
   
   p <- ggplot(df, aes(x = as.factor(date), y = value, fill = side, group = side)) +
     geom_col(aes(text = hover_text), position = pd, alpha = 0.7) +
-    #geom_text(aes(label = zero_label, color = side, text = hover_text), position = pd, vjust = 1, size = 4, show.legend = FALSE) +
-    geom_text(
-      aes(
-        y = ifelse(value == 0, 0.05, value),
-        label = zero_label,
-        color = side,
-        text = hover_text
-      ),
-      position = pd,
-      vjust = 0.5,
+    geom_text(aes(y = ifelse(value == 0, 0.05, value), label = zero_label, color = side, text = hover_text),
+      position = pd, vjust = 0.5,
       size = 4,
       show.legend = FALSE
     ) +
     ak_plot_theme() +
+    theme(legend.position = element_blank()) +
     scale_x_discrete(labels = function(x) format(as.Date(x), "%b %e")) +
-    labs(y = outcome, x = NULL) +
+    labs(y = NULL, x = NULL) +
     scale_fill_manual(values = side_colors, guide = "none") +
     scale_color_manual(values = side_colors, guide = "none")
   
