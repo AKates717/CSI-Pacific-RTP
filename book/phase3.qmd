@@ -31,7 +31,7 @@ tion.
 
 ```{r}
 #Create the table
-tbl_phase3 <- criteria_phase3 %>%
+tbl_phase3 <- criteria_phase3_abr %>%
   transmute(
     `Outcome Measure` = outcome_measure,
     `Op` = operator_pretty,
@@ -119,8 +119,8 @@ goals_progress_bar <- function(
 
 
 # By default: denominator = all criteria (matches your table showing blank scores)
-met_n_all   <- sum(criteria_phase3$meets %in% TRUE, na.rm = TRUE)
-total_n_all <- nrow(criteria_phase3)
+met_n_all   <- sum(criteria_phase3_abr$meets %in% TRUE, na.rm = TRUE)
+total_n_all <- nrow(criteria_phase3_abr)
 
 goals_progress_bar(met_n_all, total_n_all)
 
@@ -131,3 +131,75 @@ goals_progress_bar(met_n_all, total_n_all)
 ## What does the research say? {#preop-outcomes}
 
 Recent systematic reviews
+
+------------------------------------------------------------------------
+
+## Testing
+
+Each card below contains a detailed description of the tests to be conducted during this phase of rehab.
+
+```{r, echo=FALSE, results='asis'}
+
+
+tests <- criteria_phase3 |>
+  dplyr::select(outcome_measure, display_description, additional_information, operator_pretty, goal_pretty, repetitions, calculation) %>%
+  mutate(op_goal = paste(operator_pretty, goal_pretty))
+
+# Helper: print a label/value line only if value is non-missing & non-empty
+emit_field <- function(label, value) {
+  if (length(value) == 0 || all(is.na(value))) return(invisible())
+  val <- value[[1]]
+  if (is.na(val)) return(invisible())
+  val_chr <- trimws(as.character(val))
+  if (!nzchar(val_chr)) return(invisible())
+  cat("**", label, ":** ", val_chr, "\n\n", sep = "")
+}
+
+for (i in seq_len(nrow(tests))) {
+  cat('::: {.card .ak-card .has-stripe .accent-primary}\n')       # universal card class
+  cat('### ', tests$outcome_measure[i], '\n\n', sep = '')         # heading
+  if (!is.na(tests$display_description[i]) &&
+      nzchar(trimws(tests$display_description[i]))) {
+    cat(tests$display_description[i], '\n\n')
+  }
+  cat("*", tests$additional_information[i], '\n\n')
+  emit_field("Criteria", tests$op_goal[i])                  # always optional-safe
+  emit_field("Repetitions", tests$repetitions[i])                # only prints if present
+  emit_field("Calculation", tests$calculation[i])
+
+  cat(':::\n\n')
+}
+
+```
+
+------------------------------------------------------------------------
+
+## The Program
+
+Below you will find links to your training programs.
+
+[Phase 3: Program 1](https://www.teambuildr.com/)
+
+When considering changes or further individualization of the program, see the lists below highlighting typically safe and unsafe exercises during this phase. To see how these exercises compare to other phases of the rehab, please see the **Exercise Phase Chart** in the book resources. All exercise programming should be done by a CSI Pacific S&C Coach or a physiotherapist.
+
+Exercises and activities during this phase typically include
+
+Peer-reviewed literature that was consulted in the making of pre-op programs is referenced here.
+
+------------------------------------------------------------------------
+
+## Additional Resources
+
+### Blood Flow Restriction
+
+Although, blood flow restrictio
+
+Another more recent study
+
+------------------------------------------------------------------------
+
+## Notes and Considerations for Reviewers
+
+All feedback is welcome, however here are some considerations that should help inform the development of this tool.
+
+-   Please

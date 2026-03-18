@@ -32,7 +32,7 @@ tion.
 
 ```{r}
 #Create the table
-tbl_phase2 <- criteria_phase2 %>%
+tbl_phase2 <- criteria_phase2_abr %>%
   transmute(
     `Outcome Measure` = outcome_measure,
     `Op` = operator_pretty,
@@ -75,8 +75,8 @@ tbl_phase2
 ```{r}
 
 # By default: denominator = all criteria (matches your table showing blank scores)
-met_n_all   <- sum(criteria_phase2$meets %in% TRUE, na.rm = TRUE)
-total_n_all <- nrow(criteria_phase2)
+met_n_all   <- sum(criteria_phase2_abr$meets %in% TRUE, na.rm = TRUE)
+total_n_all <- nrow(criteria_phase2_abr)
 
 goals_progress_bar(met_n_all, total_n_all)
 

@@ -233,7 +233,7 @@ pretty_var <- function(x) {
 }
 
 #For applying "%" to Phase Summary Tables
-percent_label <- c("Hamstring Strength", "Quad Strength", "Y-Balance (Anterior)", "Y-Balance (Postero-Medial)", "Y-Balance (Postero-Lateral)", 
+percent_label <- c("Hamstring Strength", "Quad Strength", "Y-Balance", "Y-Balance (Anterior)", "Y-Balance (Postero-Medial)", "Y-Balance (Postero-Lateral)", 
                    "Single Leg Hop", "Triple Hop", "Triple Cross Over Hop", "Side Hop")
 
 
@@ -510,6 +510,14 @@ criteria_phase2 <- criteria_phase2 %>%
   )) %>%
   mutate(goal = if_else(outcome_measure == "TrapBar Deadlift", round(1.5*body_mass,0), goal))
 
+# 1c) Criteria Phase 2 - Cleaner - Dropping 3 Y-bal arguments to keep only composite
+criteria_phase2_abr <- criteria_phase2 %>%
+  filter(!outcome_measure %in% c(
+    "Y-Balance (Anterior)",
+    "Y-Balance (Postero-Medial)",
+    "Y-Balance (Postero-Lateral)"
+  ))
+
 # 2) Criteria Data
 # Read all phase 2 criteria data
 outcomes_raw_phase2 <- outcomes_raw_all %>%
@@ -671,7 +679,7 @@ p2_yBalPM <- outcomes_raw_phase2 %>%
 p2_yBalPM_best <- p2_yBalPM %>%
   slice_max(lsi, n = 1, with_ties = FALSE)
 
-# 2p) Y-Balance (Anterior)
+# 2p) Y-Balance (PL)
 p2_yBalPL <- outcomes_raw_phase2 %>%
   filter(outcome_measure == "Y-Balance (Postero-Lateral)") %>%
   group_by(date) %>%
@@ -687,6 +695,46 @@ p2_yBalPL <- outcomes_raw_phase2 %>%
   arrange(date)
 
 p2_yBalPL_best <- p2_yBalPL %>%
+  slice_max(lsi, n = 1, with_ties = FALSE)
+
+
+# 2q) Y-Balance (Composite)
+p2_ybal_ant <- p2_yBalAnt %>%
+  rename(
+    inj_ant = inj,
+    non_inj_ant = non_inj
+  )
+
+p2_ybal_pm <- p2_yBalPM %>%
+  rename(
+    inj_pm = inj,
+    non_inj_pm = non_inj
+  )
+
+p2_ybal_pl <- p2_yBalPL %>%
+  rename(
+    inj_pl = inj,
+    non_inj_pl = non_inj
+  )
+
+ybal_all <- p2_ybal_ant %>%
+  full_join(p2_ybal_pm, by = "date") %>%
+  full_join(p2_ybal_pl, by = "date")
+
+ybal_composite <- ybal_all %>%
+  transmute(
+    date,
+    comp_inj     = round((inj_ant + inj_pm + inj_pl) / 3, 1),
+    comp_non_inj = round((non_inj_ant + non_inj_pm + non_inj_pl) / 3, 1)
+  ) %>%
+  filter(comp_non_inj != 0) %>%
+  mutate(
+    lsi = round(100 * comp_inj / comp_non_inj, 1)
+  ) %>%
+  drop_na() %>%
+  arrange(date)
+
+p2_yBalcomposite_best <- ybal_composite %>%
   slice_max(lsi, n = 1, with_ties = FALSE)
 
 
@@ -706,14 +754,16 @@ trapbar_val_p2  <- suppressWarnings(as.numeric(if (exists("p2_trapbar_best")   &
 quads_val_p2    <- suppressWarnings(as.numeric(if (exists("p2_quads_best")    && nrow(p2_quads_best)    > 0) p2_quads_best$lsi[1]    else NA_real_))
 hams_val_p2     <- suppressWarnings(as.numeric(if (exists("p2_hams_best")     && nrow(p2_hams_best)     > 0) p2_hams_best$lsi[1]     else NA_real_))
 dorsi_val_p2     <- suppressWarnings(as.numeric(if (exists("p2_dorsi_best")     && nrow(p2_dorsi_best)     > 0) p2_dorsi_best$value[1]     else NA_real_))
-yBalAnt_val_p2     <- suppressWarnings(as.numeric(if (exists("p2_yBalAnt_best")     && nrow(p2_yBalAnt_best)     > 0) p2_yBalAnt_best$lsi[1]     else NA_real_))
-yBalPM_val_p2     <- suppressWarnings(as.numeric(if (exists("p2_yBalPM_best")     && nrow(p2_yBalPM_best)     > 0) p2_yBalPM_best$lsi[1]     else NA_real_))
-yBalPL_val_p2     <- suppressWarnings(as.numeric(if (exists("p2_yBalPL_best")     && nrow(p2_yBalPL_best)     > 0) p2_yBalPL_best$lsi[1]     else NA_real_))
+yBalComp_val_p2     <- suppressWarnings(as.numeric(if (exists("p2_yBalcomposite_best")     && nrow(p2_yBalcomposite_best)     > 0) p2_yBalcomposite_best$lsi[1]     else NA_real_))
+
+#yBalAnt_val_p2     <- suppressWarnings(as.numeric(if (exists("p2_yBalAnt_best")     && nrow(p2_yBalAnt_best)     > 0) p2_yBalAnt_best$lsi[1]     else NA_real_))
+#yBalPM_val_p2     <- suppressWarnings(as.numeric(if (exists("p2_yBalPM_best")     && nrow(p2_yBalPM_best)     > 0) p2_yBalPM_best$lsi[1]     else NA_real_))
+#yBalPL_val_p2     <- suppressWarnings(as.numeric(if (exists("p2_yBalPL_best")     && nrow(p2_yBalPL_best)     > 0) p2_yBalPL_best$lsi[1]     else NA_real_))
 
 
 
 # Populate: only fills when a value exists; stays NA (empty) otherwise
-criteria_phase2 <- criteria_phase2 %>%
+criteria_phase2_abr <- criteria_phase2_abr %>%
   mutate(
     score = case_when(
       outcome_measure == "Swelling"            ~ swelling_val_p2,
@@ -729,15 +779,15 @@ criteria_phase2 <- criteria_phase2 %>%
       outcome_measure == "Quad Strength"       ~ quads_val_p2,
       outcome_measure == "Hamstring Strength"  ~ hams_val_p2,
       outcome_measure == "Ankle Dorsiflexion"  ~ dorsi_val_p2,
-      outcome_measure == "Y-Balance (Anterior)"  ~ yBalAnt_val_p2,
-      outcome_measure == "Y-Balance (Postero-Medial)"  ~ yBalPM_val_p2,
-      outcome_measure == "Y-Balance (Postero-Lateral)"  ~ yBalPL_val_p2,
+      outcome_measure == "Y-Balance"  ~ yBalComp_val_p2,
+      #outcome_measure == "Y-Balance (Postero-Medial)"  ~ yBalPM_val_p2,
+      #outcome_measure == "Y-Balance (Postero-Lateral)"  ~ yBalPL_val_p2,
       TRUE                                     ~ score
     )
   )
 
 #Use compare helper function (x, op, y)
-criteria_phase2 <- criteria_phase2 %>%
+criteria_phase2_abr <- criteria_phase2_abr %>%
   mutate(meets = compare(score, operator_code, goal))
 
 
@@ -745,8 +795,8 @@ criteria_phase2 <- criteria_phase2 %>%
 #Phase, met/total, percent
 progress_p2 <- tibble(
   Phase = 2,
-  done = sum(criteria_phase2$meets %in% TRUE, na.rm = TRUE),
-  total = nrow(criteria_phase2)
+  done = sum(criteria_phase2_abr$meets %in% TRUE, na.rm = TRUE),
+  total = nrow(criteria_phase2_abr)
 )  %>%
   mutate(
     Progress = paste0(done, "/", total),
@@ -769,7 +819,6 @@ progress_p2 <- tibble(
 # 1a) Read Phase 3 criteria
 criteria_phase3 <- criteria_all %>%
   filter(phase == 3) %>%
-  filter(outcome_measure != "Single Leg Press") %>%
   mutate(score = NA)
 
 # 1b) Phase specific mutations
@@ -785,6 +834,16 @@ criteria_phase3 <- criteria_phase3 %>%
     round(1.8 * body_mass, 0),
     goal
   ))
+
+# 1c) Criteria Phase 3 - Cleaner - Dropping 3 Y-bal arguments, leg press
+criteria_phase3_abr <- criteria_phase3 %>%
+  filter(!outcome_measure %in% c(
+    "Single Leg Press",
+    "Y-Balance (Anterior)",
+    "Y-Balance (Postero-Medial)",
+    "Y-Balance (Postero-Lateral)"
+  ))
+
 
 
 # 2) Criteria Data
@@ -983,6 +1042,55 @@ p3_yBalPL <- outcomes_raw_all %>%
 p3_yBalPL_best <- p3_yBalPL %>%
   slice_max(lsi, n = 1, with_ties = FALSE)
 
+
+
+
+
+# 3i) Y-Balance (Composite)
+p3_ybal_ant <- p3_yBalAnt %>%
+  rename(
+    inj_ant = inj,
+    non_inj_ant = non_inj
+  )
+
+p3_ybal_pm <- p3_yBalPM %>%
+  rename(
+    inj_pm = inj,
+    non_inj_pm = non_inj
+  )
+
+p3_ybal_pl <- p3_yBalPL %>%
+  rename(
+    inj_pl = inj,
+    non_inj_pl = non_inj
+  )
+
+p3_ybal_all <- p3_ybal_ant %>%
+  full_join(p2_ybal_pm, by = "date") %>%
+  full_join(p2_ybal_pl, by = "date")
+
+p3_ybal_composite <- p3_ybal_all %>%
+  transmute(
+    date,
+    comp_inj     = round((inj_ant + inj_pm + inj_pl) / 3, 1),
+    comp_non_inj = round((non_inj_ant + non_inj_pm + non_inj_pl) / 3, 1)
+  ) %>%
+  filter(comp_non_inj != 0) %>%
+  mutate(
+    lsi = round(100 * comp_inj / comp_non_inj, 1)
+  ) %>%
+  drop_na() %>%
+  arrange(date)
+
+p3_yBalcomposite_best <- p3_ybal_composite %>%
+  slice_max(lsi, n = 1, with_ties = FALSE)
+
+
+
+
+
+
+
 # 3i) TrapBar Deadlift
 p3_trapbar <- outcomes_raw_all %>%
   filter(outcome_measure == "TrapBar Deadlift")
@@ -1015,16 +1123,17 @@ sidehop_val_p3 <- suppressWarnings(as.numeric(if (exists("p3_sidehop_best") && n
 slrise_val_p3  <- suppressWarnings(as.numeric(if (exists("p3_slrise_best")   && nrow(p3_slrise_best)   > 0) p3_slrise_best$value[1]  else NA_real_))
 vestbalanceH_val_p3  <- suppressWarnings(as.numeric(if (exists("p3_vestbalanceH_best")   && nrow(p3_vestbalanceH_best)   > 0) p3_vestbalanceH_best$value[1]  else NA_real_))
 vestbalanceV_val_p3  <- suppressWarnings(as.numeric(if (exists("p3_vestbalanceV_best")   && nrow(p3_vestbalanceV_best)   > 0) p3_vestbalanceV_best$value[1]  else NA_real_))
+yBalComp_val_p3     <- suppressWarnings(as.numeric(if (exists("p3_yBalcomposite_best")     && nrow(p3_yBalcomposite_best)     > 0) p3_yBalcomposite_best$lsi[1]     else NA_real_))
 
-yBalAnt_val_p3     <- suppressWarnings(as.numeric(if (exists("p3_yBalAnt_best")     && nrow(p3_yBalAnt_best)     > 0) p3_yBalAnt_best$lsi[1]     else NA_real_))
-yBalPM_val_p3     <- suppressWarnings(as.numeric(if (exists("p3_yBalPM_best")     && nrow(p3_yBalPM_best)     > 0) p3_yBalPM_best$lsi[1]     else NA_real_))
-yBalPL_val_p3     <- suppressWarnings(as.numeric(if (exists("p3_yBalPL_best")     && nrow(p3_yBalPL_best)     > 0) p3_yBalPL_best$lsi[1]     else NA_real_))
+#yBalAnt_val_p3     <- suppressWarnings(as.numeric(if (exists("p3_yBalAnt_best")     && nrow(p3_yBalAnt_best)     > 0) p3_yBalAnt_best$lsi[1]     else NA_real_))
+#yBalPM_val_p3     <- suppressWarnings(as.numeric(if (exists("p3_yBalPM_best")     && nrow(p3_yBalPM_best)     > 0) p3_yBalPM_best$lsi[1]     else NA_real_))
+#yBalPL_val_p3     <- suppressWarnings(as.numeric(if (exists("p3_yBalPL_best")     && nrow(p3_yBalPL_best)     > 0) p3_yBalPL_best$lsi[1]     else NA_real_))
 
 trapbar_val_p3  <- suppressWarnings(as.numeric(if (exists("p3_trapbar_best")   && nrow(p3_trapbar_best)   > 0) p3_trapbar_best$value[1]  else NA_real_))
 
 
 # Populate: only fills when a value exists; stays NA (empty) otherwise
-criteria_phase3 <- criteria_phase3 %>%
+criteria_phase3_abr <- criteria_phase3_abr %>%
   mutate(
     score = case_when(
       outcome_measure == "Single Leg Hop"            ~ slhop_val_p3,
@@ -1034,9 +1143,11 @@ criteria_phase3 <- criteria_phase3 %>%
       outcome_measure == "Single Leg Rise"   ~ slrise_val_p3,
       outcome_measure == "Vestibular Balance (Horizontal)"   ~ vestbalanceH_val_p3,
       outcome_measure == "Vestibular Balance (Vertical)"   ~ vestbalanceV_val_p3,
-      outcome_measure == "Y-Balance (Anterior)"  ~ yBalAnt_val_p3,
-      outcome_measure == "Y-Balance (Postero-Medial)"  ~ yBalPM_val_p3,
-      outcome_measure == "Y-Balance (Postero-Lateral)"  ~ yBalPL_val_p3,
+      outcome_measure == "Y-Balance"  ~ yBalComp_val_p3,
+      
+      #outcome_measure == "Y-Balance (Anterior)"  ~ yBalAnt_val_p3,
+      #outcome_measure == "Y-Balance (Postero-Medial)"  ~ yBalPM_val_p3,
+      #outcome_measure == "Y-Balance (Postero-Lateral)"  ~ yBalPL_val_p3,
       outcome_measure == "TrapBar Deadlift"            ~ trapbar_val_p3,
       
       
@@ -1046,7 +1157,7 @@ criteria_phase3 <- criteria_phase3 %>%
 
 
 #Use compare helper function (x, op, y)
-criteria_phase3 <- criteria_phase3 %>%
+criteria_phase3_abr <- criteria_phase3_abr %>%
   mutate(meets = compare(score, operator_code, goal))
 
 
@@ -1054,8 +1165,8 @@ criteria_phase3 <- criteria_phase3 %>%
 #Phase, met/total, percent
 progress_p3 <- tibble(
   Phase = 3,
-  done = sum(criteria_phase3$meets %in% TRUE, na.rm = TRUE),
-  total = nrow(criteria_phase3)
+  done = sum(criteria_phase3_abr$meets %in% TRUE, na.rm = TRUE),
+  total = nrow(criteria_phase3_abr)
 )  %>%
   mutate(
     Progress = paste0(done, "/", total),
@@ -1072,7 +1183,95 @@ progress_p3 <- tibble(
 
 
 
-progress_overall <- bind_rows(progress_p0, progress_p1, progress_p2, progress_p3)
+
+
+
+
+
+
+
+####
+#PHASE 4 CRITERIA ----
+####
+
+# 1 Prepare empty dataframe with all p3 criteria
+# 1a) Read Phase 3 criteria
+criteria_phase4 <- criteria_all %>%
+  filter(phase == 4) %>%
+  mutate(score = NA)
+
+# 1b) Phase specific mutations
+
+#Will need to do CMJ stuff here, similar to TBDL
+#e.g. instead of showing 95%, we will calculate 95% of previous CMJ scores
+  #maybe this can be done on intake??
+
+
+
+
+# 2) Criteria Data
+# Read all phase 3 criteria data
+outcomes_raw_phase4 <- outcomes_raw_all %>%
+  filter(phase == 4)
+
+#Individual Criteria
+
+
+
+
+
+
+
+
+
+#Build Phase 3 Criteria Table ----
+
+#Add current best scores into the table
+  #slhop_val_p4 <- suppressWarnings(as.numeric(if (exists("p4_slhop_best") && nrow(p3_slhop_best) > 0) p4_slhop_best$lsi[1] else NA_real_))
+
+
+
+# Populate: only fills when a value exists; stays NA (empty) otherwise
+# criteria_phase4 <- criteria_phase4 %>%
+#   mutate(
+#     score = case_when(
+#       outcome_measure == "Single Leg Hop"            ~ slhop_val_p3,
+# 
+#       TRUE                                     ~ score
+#     )
+#   )
+
+
+#Use compare helper function (x, op, y)
+criteria_phase4 <- criteria_phase4 %>%
+  mutate(meets = compare(score, operator_code, goal))
+
+
+#Build 1 Row summary
+#Phase, met/total, percent
+progress_p4 <- tibble(
+  Phase = 4,
+  done = sum(criteria_phase3_abr$meets %in% TRUE, na.rm = TRUE),
+  total = nrow(criteria_phase3_abr)
+)  %>%
+  mutate(
+    Progress = paste0(done, "/", total),
+    Percent  = done / total
+  ) %>%
+  select(Phase, Progress, Percent)
+#Will do this for each phase and bind them together for a kind of primary summary table
+
+
+
+
+
+
+
+
+
+
+#OVERALL PROGRESS ----
+progress_overall <- bind_rows(progress_p0, progress_p1, progress_p2, progress_p3, progress_p4)
 
 
 

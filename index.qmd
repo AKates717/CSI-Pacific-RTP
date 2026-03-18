@@ -282,7 +282,7 @@ htmltools::div(
   navset_card_tab(
     full_screen = TRUE,
     title = "Phase",
-    selected = "3",
+    selected = "2",
     nav_panel(
       "0",
       criteria_gt(criteria_phase0, NULL)),
@@ -291,10 +291,13 @@ htmltools::div(
       criteria_gt(criteria_phase1, NULL)),
     nav_panel(
       "2",
-      criteria_gt(criteria_phase2, NULL)),
-        nav_panel(
+      criteria_gt(criteria_phase2_abr, NULL)),
+    nav_panel(
       "3",
-      criteria_gt(criteria_phase3, NULL)),
+      criteria_gt(criteria_phase3_abr, NULL)),
+    nav_panel(
+      "4",
+      criteria_gt(criteria_phase4, NULL))
   )
 )
 ```
