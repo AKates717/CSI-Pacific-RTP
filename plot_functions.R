@@ -586,7 +586,7 @@ plot_ind_phase_outcomes <- function(phase, outcome){
     scale_color_manual(values = side_colors, guide = "none")
   
   ggplotly(p, tooltip = "text") %>%
-    layout(legend = list(orientation = "h", x = 0.3, y = -0.25)) %>%
+    #layout(legend = list(orientation = "h", x = 0.3, y = -0.25)) %>%
     config(displaylogo = FALSE) %>%
     config(modeBarButtonsToRemove = c("hoverCompare", "hoverclosest", "zoomIn2d", "zoomOut2d"))
 }
