@@ -19,7 +19,7 @@ source("Themes.R")
 ```{r}
 
 #Create the table
-tbl_phase3 <- criteria_phase3 %>%
+tbl_phase3 <- criteria_phase3_abr %>%
   transmute(
     `Outcome Measure` = outcome_measure,
     `Op` = operator_pretty,
@@ -108,8 +108,8 @@ goals_progress_bar <- function(
 
 
 # By default: denominator = all criteria (matches your table showing blank scores)
-met_n_all   <- sum(criteria_phase3$meets %in% TRUE, na.rm = TRUE)
-total_n_all <- nrow(criteria_phase3)
+met_n_all   <- sum(criteria_phase3_abr$meets %in% TRUE, na.rm = TRUE)
+total_n_all <- nrow(criteria_phase3_abr)
 
 goals_progress_bar(met_n_all, total_n_all)
 ```
