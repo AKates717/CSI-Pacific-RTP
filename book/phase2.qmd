@@ -87,17 +87,23 @@ goals_progress_bar(met_n_all, total_n_all)
 
 ## What does the research say? {#sec-p2-research}
 
-### State of the Knee
+### Knee Health
 
-By satisfying phase 1 criteria before beginning phase 2, we can be confident that the knee is prepared for the increases in load required to build muscular strength. Lingering pain and swelling at this stage will negatively affect joint proprioception @cho2011 and limit neuromuscular activation via the process of arthrogenic muscle inhibition (AMI)
+By satisfying phase 1 criteria before beginning phase 2, we can be confident that the knee is prepared for the increases in load required to build muscular strength. An abundance of pain and swelling at this stage will negatively affect joint proprioception @cho2011 and limit neuromuscular activation via the process of arthrogenic muscle inhibition (AMI) @moiroux-sahraoui2024.
+
+------------------------------------------------------------------------
 
 ### Development of Muscular Strength
 
-Perhaps the number one priority during this phase is to restore muscular strength, particularly in the knee extensor muscles @buckthorpe2020.
+Perhaps the number one priority during this phase is to restore muscular strength, particularly in the knee extensor muscles @buckthorpe2020. At this stage of the rehab, deficits in quadriceps muscle volume, activation and strength resulting from injury and surgery will be persistent @palmieri-smith2008. In response to these deficits, athletes will use inter- and intra-limb compensations to reduce the knee extensor moment, and efforts must be made to directly target the quadriceps in order to produce desired adaptations in strength and hypertrophy @sigward2018. The consensus across studies is that a limb symmetry index of 80% should be achieved by the end of Phase 2 (mid-phase) rehab @welling2019 . Additionally, although absolute strength values will differ among individuals, it is important to track raw strength numbers for each limb, to ensure that knee function is not being over-estimated by symmetry values alone \[ \]. If testing on an isokinetic machine, peak torque at 90º/s should be \> 2 Nm/kg @buckthorpe2020. Determination of CSI Pacific recommended values for peak force using the Tindeq is a work in progress.
 
-AMI was discussed at length in Phase 1 \[\], however it continues to play a large part during phase 2 rehab.
+It is also common to see persistent hamstring strength deficits for extended periods of time following ACLR @nomura2015. The hamstrings serve as a critical dynamic stabilizer of the knee following ACLR, with their co-contraction acting to reduce anterior tibial translation and reduce direct load on the reconstructed graft which is especially important in early and mid-phase rehabilitation when quadriceps function is likely compromised @imran1998. Highlighting the importance of strengthening the hamstring muscles, one study demonstrated over 10x greater risk of ACL re-injury after ACLR for every 10% decrease in knee flexor to extensor strength ratio in professional football players @kyritsis2016. Hamstring strengthening should involve a "holistic approach" which incorporates both knee and hip dominant exercises @oakley2018.
 
-Strength training will progress from isolated to functional and from low load to high load. Volume may start in a middle range (to prioritize movement quality over intensity, increase as the body begins to adapt to these movement with the goal of increasing metabolic stress to target muscular strength and hypertrophy, and then volume will begin to decrease as the athlete becomes capable of lifting heavier loads.
+In addition to knee extensor and flexor strength, other muscle groups both proximal and distal to the knee will play key roles following ACLR. Muscles of the ankle and lower leg act as agonists to the ACL, helping to prevent anterior tibial translation @mokhtarzadeh2013 and generate large forces during tasks such as running @dorn2012 and landing @fong2011. This means strong lower leg muscles will help protect the knee joint during more intense activities later in rehab. Deficits in lumbo-pelvic-hip muscle strength are also common following ACLR @petersen2014. The hip abductors and external rotators (e.g. the gluteal muscles) are important for preventing dynamic knee valgus in loaded CKC exercises that will be performed throughout the rest of the rehab [@maniar2018; @rinaldi2022]. Direct evidence on the importance of hip adductor strengthening is limited at this time, however evidence from knee pathology research demonstrates that adductor strengthening significantly improves knee pain, physical function, and lower limb strength, supporting its inclusion as part of a comprehensive kinetic chain approach to knee rehabilitation @quintana-cepedal2025.
+
+Now that the importance of developing/re-building lower limb muscle strength has been established, the research can inform HOW this will be accomplished. One model of mid-phase rehabilitation proposes two blocks which allow specific programming based on the functional status of the athlete @buckthorpe2020. The first block involves non-weight-bearing isolated exercises performed at lower intensities. This includes both OKC (e.g. leg extension) and CKC (e.g. leg press) exercises The second block would involve an increased proportion of functional exercise (e.g. squats, lunges, hinges) with all exercises performed at higher intensities. Overall, the CSI Pacific Phase 2 rehab programs agree with these principles, however they are structured along a continuum as opposed to separate blocks. Strength training will progress from isolated to functional and from low load to high load. Volume may start in a middle range (to prioritize movement quality over intensity, increase as the body begins to adapt to these movement with the goal of increasing metabolic stress to target muscular strength and hypertrophy, and then volume will begin to decrease as the athlete becomes capable of lifting heavier loads. The training program may include both low/no-load full ROM leg extension as well as ROM-restricted leg extension when the patient is able to lift heavier loads. Minimal ACL strain and reduced PFJ reaction forces have been observed during quadriceps contractions performed between 45-90º of knee flexion, and therefore this is the recommended ROM for loading to be introduced @escamilla2012. Early introduction of isometrics is recommended if tolerated well by the athlete, beginning with isometric leg extension performed at a fixed angle between 90-60º (5x45s, 1-2x per day). Full ROM (90-0º) against gravity/low loads can be performed once able to comfortably achieve 90º knee flexion. Restricted ROM loaded knee extensions may begin 4 weeks post ACLR (Tempo 3:03, 15-25RM loads).
+
+------------------------------------------------------------------------
 
 ### Movement Quality
 
@@ -105,17 +111,7 @@ Movement quality is a broad term involving a number of objective and subjective 
 
 Mid stage rehab is a period of continuous transition and thus requires intelligent progression. At the start of phase 2, emphasis and attention to detail on movement quality will be high, and loading will be relatively low, and direct loading of the knee joint and affected tissues is carefully progressed. As the athlete progresses through Phase 2,
 
-### OKC
-
-The training program may include both low/no-load full ROM leg extension as well as ROM-restricted leg extension when the patient is able to lift heavier loads. Minimal ACL strain and reduced PFJ reaction forces have been observed during quadriceps contractions performed between 45-90º of knee flexion, and therefore this is the recommended ROM for loading to be introduced @escamilla2012.
-
-Early introduction of isometrics is recommended ?
-
-Leg Ext isometrics between 90-60º (5x45s, 1-2x per day)
-
-Full ROM (90-0º) against gravity/low loads can be performed once able to comfortably achieve 90º knee flexion
-
-Restricted ROM loaded knee extensions may begin 4 weeks post ACLR (Tempo 3:03, 15-25RM loads)
+### 
 
 ```{=html}
 <div class="break-logo">

@@ -210,14 +210,21 @@ function(input, output, session) {
   
   # Create Output Table
   output$table_p0 <- renderDT({
-    datatable(data_p0() %>% 
-                arrange(desc(Timestamp)) %>% 
-                select(-c(Phase,Units,Timestamp)) %>%
-                mutate(
-                  Date = as.Date(Date, origin = "1899-12-30"),
-                  Date = format(Date, "%b %d, %Y")
-                ),
-              options = list(pageLength = 5), rownames = FALSE)
+    data_p0() %>%
+      {
+        if (!is.null(input$measure_p0) && input$measure_p0 != "") {
+          filter(., Outcome.Measure == input$measure_p0)
+        } else {
+          .
+        }
+      } %>%
+      arrange(desc(Timestamp)) %>%
+      select(-c(Phase, Units, Timestamp)) %>%
+      mutate(
+        Date = as.Date(Date, origin = "1899-12-30"),
+        Date = format(Date, "%b %d, %Y")
+      ) %>%
+      datatable(options = list(pageLength = 10), rownames = FALSE)
   })
   
   
@@ -360,15 +367,21 @@ function(input, output, session) {
   
   # Create Output Table
   output$table_p1 <- renderDT({
-    datatable(data_p1() %>%
-                filter(Phase == 1) %>%
-                arrange(desc(Timestamp)) %>% 
-                select(-c(Phase,Units,Timestamp)) %>%
-                mutate(
-                  Date = as.Date(Date, origin = "1899-12-30"),
-                  Date = format(Date, "%b %d, %Y")
-                ),
-              options = list(pageLength = 5), rownames = FALSE)
+    data_p1() %>%
+      {
+        if (!is.null(input$measure_p1) && input$measure_p1 != "") {
+          filter(., Outcome.Measure == input$measure_p1)
+        } else {
+          .
+        }
+      } %>%
+      arrange(desc(Timestamp)) %>%
+      select(-c(Phase, Units, Timestamp)) %>%
+      mutate(
+        Date = as.Date(Date, origin = "1899-12-30"),
+        Date = format(Date, "%b %d, %Y")
+      ) %>%
+      datatable(options = list(pageLength = 10), rownames = FALSE)
   })
   
   
@@ -508,15 +521,21 @@ function(input, output, session) {
   
   # Create Output Table
   output$table_p2 <- renderDT({
-    datatable(data_p2() %>% 
-                filter(Phase == 2) %>%
-                arrange(desc(Timestamp)) %>% 
-                select(-c(Phase,Units,Timestamp)) %>%
-                mutate(
-                  Date = as.Date(Date, origin = "1899-12-30"),
-                  Date = format(Date, "%b %d, %Y")
-                ),
-              options = list(pageLength = 10), rownames = FALSE)
+    data_p2() %>%
+      {
+        if (!is.null(input$measure_p2) && input$measure_p2 != "") {
+          filter(., Outcome.Measure == input$measure_p2)
+        } else {
+          .
+        }
+      } %>%
+      arrange(desc(Timestamp)) %>%
+      select(-c(Phase, Units, Timestamp)) %>%
+      mutate(
+        Date = as.Date(Date, origin = "1899-12-30"),
+        Date = format(Date, "%b %d, %Y")
+      ) %>%
+      datatable(options = list(pageLength = 20), rownames = FALSE)
   })
   
   
@@ -659,16 +678,34 @@ function(input, output, session) {
   })
   
   # Create Output Table
+  # output$table_p3 <- renderDT({
+  #   datatable(data_p3() %>% 
+  #               filter(Phase == 3) %>%
+  #               arrange(desc(Timestamp)) %>% 
+  #               select(-c(Phase,Units,Timestamp)) %>%
+  #               mutate(
+  #                 Date = as.Date(Date, origin = "1899-12-30"),
+  #                 Date = format(Date, "%b %d, %Y")
+  #               ),
+  #             options = list(pageLength = 10), rownames = FALSE)
+  # })
+  
   output$table_p3 <- renderDT({
-    datatable(data_p3() %>% 
-                filter(Phase == 3) %>%
-                arrange(desc(Timestamp)) %>% 
-                select(-c(Phase,Units,Timestamp)) %>%
-                mutate(
-                  Date = as.Date(Date, origin = "1899-12-30"),
-                  Date = format(Date, "%b %d, %Y")
-                ),
-              options = list(pageLength = 10), rownames = FALSE)
+    data_p3() %>%
+      {
+        if (!is.null(input$measure_p3) && input$measure_p3 != "") {
+          filter(., Outcome.Measure == input$measure_p3)
+        } else {
+          .
+        }
+      } %>%
+      arrange(desc(Timestamp)) %>%
+      select(-c(Phase, Units, Timestamp)) %>%
+      mutate(
+        Date = as.Date(Date, origin = "1899-12-30"),
+        Date = format(Date, "%b %d, %Y")
+      ) %>%
+      datatable(options = list(pageLength = 10), rownames = FALSE)
   })
   
   
