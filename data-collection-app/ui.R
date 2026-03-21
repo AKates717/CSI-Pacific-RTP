@@ -171,7 +171,7 @@ ui <- page_navbar(
         shinyWidgets::radioGroupButtons(
           inputId  = "side_p0",
           label    = "Side",
-          choices  = c("Left", "Right"),
+          choices  = c("Left", "Both", "Right"),
           justified = TRUE,          # buttons fill width evenly
           checkIcon = list(yes = icon("check")),   # checkmark on selected
           selected = character(0)
@@ -227,7 +227,7 @@ ui <- page_navbar(
         shinyWidgets::radioGroupButtons(
           inputId  = "side_p1",
           label    = "Side",
-          choices  = c("Left", "Right"),
+          choices  = c("Left", "Both", "Right"),
           justified = TRUE,          # buttons fill width evenly
           selected = character(0),
           checkIcon = list(yes = icon("check"))   # checkmark on selected
@@ -344,7 +344,7 @@ ui <- page_navbar(
         shinyWidgets::radioGroupButtons(
           inputId  = "side_p3",
           label    = "Side",
-          choices  = c("Left", "Right"),
+          choices  = c("Left", "Both", "Right"),
           justified = TRUE,          # buttons fill width evenly
           selected = character(0),
           checkIcon = list(yes = icon("check"))   # checkmark on selected
