@@ -11,6 +11,7 @@ project:
 website:
   title: "ACL Rehabilitation Hub"
   favicon: images/csi-logo-medal-only.png
+  bread-crumbs: false
   navbar:
     logo: images/csi-pacific-logo-reverse-300x136.png
     logo-alt: "Take me to the homepage"
@@ -23,6 +24,8 @@ website:
         href: guide.qmd
       # - text: "FP2"
       #   href: fp-shiny-live.qmd
+      - text: "Guide"
+        href: docs/guide/index.qmd
       - text: "Dashboards"
         menu:
           - text: "Health and Wellness"
@@ -56,6 +59,22 @@ website:
     center: "We gratefully and respectfully acknowledge that our workplaces exist on the traditional, ancestral and unceded Lands of the xwməθkwəy̓əm (Musqueam), Skwxwú7mesh (Squamish), L̓il̓wat7úl (Lil’wat), Esquimalt and Songhees Nations of the Coast Salish peoples."
     right: This website is built with [{{< iconify fa6-brands:r-project >}}](https://www.r-project.org/about.html){target=_blank} and [Quarto](https://quarto.org/){target=_blank}
     background: black
+    
+  sidebar:
+    - id: guide
+      collapse-level: 3
+      logo: "../../images/Cover1.png"
+      search: true
+      contents:
+        - section: "Guide"
+          href: docs/guide/index.qmd
+          contents:
+            - section: "The Protocol"
+              contents:
+                - docs/guide/phase1.qmd
+            - docs/guide/references.qmd
+
+
 
 format:
   html:
@@ -66,6 +85,10 @@ format:
     page-layout: full
     link-external-newwindow: true
     include-in-header: fix-bslib-tabs.html
+    grid:
+      sidebar-width: 250px
+      body-width: 900px
+      margin-width: 300px
     
 execute:
   echo: false

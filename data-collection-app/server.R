@@ -1,6 +1,8 @@
 function(input, output, session) {
   ensure_workbook()
   
+  #Set Up ----
+  
   # simple df for displaying testing/collection instructions
   criteria_simple <- readxl::read_excel(SOURCE_PATH, sheet = SOURCE_SHEET, .name_repair = "minimal") |>
     dplyr::select(
@@ -19,6 +21,8 @@ function(input, output, session) {
                            filter(Phase == 2))
   data_p3 <- reactiveVal(read_current_data(TARGET_SHEET) %>%
                            filter(Phase == 3))
+  data_p4 <- reactiveVal(read_current_data(TARGET_SHEET) %>%
+                           filter(Phase == 4))
   
   
   
@@ -26,8 +30,7 @@ function(input, output, session) {
   
   
   
-  
-  # Daily ----
+  # Daily Mon ----
   
   observeEvent(input$submit, {
     # ✅ Validate all fields
@@ -330,21 +333,21 @@ function(input, output, session) {
     if (is.null(m) || !nzchar(m)) "Select an outcome measure" else m
   })
   
-  # Helper: fetch first matching row for the selected measure
-  get_crit_row <- function(measure) {
-    req(measure)
-    criteria_simple |>
-      dplyr::filter(`Outcome Measure` == trimws(measure)) |>
-      dplyr::slice(1)
-  }
-  
-  # Helper: emit a <p><strong>Label:</strong> value</p> only if value exists
-  emit_row <- function(label, value) {
-    if (is.null(value)) return(NULL)
-    val_chr <- trimws(as.character(value))
-    if (!nzchar(val_chr) || is.na(val_chr)) return(NULL)
-    tags$p(tags$strong(paste0(label, ": ")), val_chr)
-  }
+  # # Helper: fetch first matching row for the selected measure
+  # get_crit_row <- function(measure) {
+  #   req(measure)
+  #   criteria_simple |>
+  #     dplyr::filter(`Outcome Measure` == trimws(measure)) |>
+  #     dplyr::slice(1)
+  # }
+  # 
+  # # Helper: emit a <p><strong>Label:</strong> value</p> only if value exists
+  # emit_row <- function(label, value) {
+  #   if (is.null(value)) return(NULL)
+  #   val_chr <- trimws(as.character(value))
+  #   if (!nzchar(val_chr) || is.na(val_chr)) return(NULL)
+  #   tags$p(tags$strong(paste0(label, ": ")), val_chr)
+  # }
   
   # Optional rows
   output$goal_row_p1 <- renderUI({
@@ -426,7 +429,7 @@ function(input, output, session) {
       ))
       updateNumericInput(session, "value_p1", value = NA)
       updateTextInput(session, "notes_p1", value = "")
-    }, error = function(e) {
+    }, error_fun = function(e) {
       output$status_p1 <- renderText(paste("Error:", e$message))
     })
   })
@@ -484,21 +487,21 @@ function(input, output, session) {
     if (is.null(m) || !nzchar(m)) "Select an outcome measure" else m
   })
   
-  # Helper: fetch first matching row for the selected measure
-  get_crit_row <- function(measure) {
-    req(measure)
-    criteria_simple |>
-      dplyr::filter(`Outcome Measure` == trimws(measure)) |>
-      dplyr::slice(1)
-  }
-  
-  # Helper: emit a <p><strong>Label:</strong> value</p> only if value exists
-  emit_row <- function(label, value) {
-    if (is.null(value)) return(NULL)
-    val_chr <- trimws(as.character(value))
-    if (!nzchar(val_chr) || is.na(val_chr)) return(NULL)
-    tags$p(tags$strong(paste0(label, ": ")), val_chr)
-  }
+  # # Helper: fetch first matching row for the selected measure
+  # get_crit_row <- function(measure) {
+  #   req(measure)
+  #   criteria_simple |>
+  #     dplyr::filter(`Outcome Measure` == trimws(measure)) |>
+  #     dplyr::slice(1)
+  # }
+  # 
+  # # Helper: emit a <p><strong>Label:</strong> value</p> only if value exists
+  # emit_row <- function(label, value) {
+  #   if (is.null(value)) return(NULL)
+  #   val_chr <- trimws(as.character(value))
+  #   if (!nzchar(val_chr) || is.na(val_chr)) return(NULL)
+  #   tags$p(tags$strong(paste0(label, ": ")), val_chr)
+  # }
   
   # Optional rows
   output$goal_row_p2 <- renderUI({
@@ -564,7 +567,7 @@ function(input, output, session) {
       "Date"            = as.Date(input$date_p2),
       "Timestamp"       = Sys.time(),
       "Side"            =   if (is.null(input$side_p2) || input$side_p2 == "") {
-        "DL"
+        "Both"
       } else {
         input$side_p2
       },
@@ -678,18 +681,6 @@ function(input, output, session) {
   })
   
   # Create Output Table
-  # output$table_p3 <- renderDT({
-  #   datatable(data_p3() %>% 
-  #               filter(Phase == 3) %>%
-  #               arrange(desc(Timestamp)) %>% 
-  #               select(-c(Phase,Units,Timestamp)) %>%
-  #               mutate(
-  #                 Date = as.Date(Date, origin = "1899-12-30"),
-  #                 Date = format(Date, "%b %d, %Y")
-  #               ),
-  #             options = list(pageLength = 10), rownames = FALSE)
-  # })
-  
   output$table_p3 <- renderDT({
     data_p3() %>%
       {
@@ -734,7 +725,7 @@ function(input, output, session) {
       "Date"            = as.Date(input$date_p3),
       "Timestamp"       = Sys.time(),
       "Side"            =   if (is.null(input$side_p3) || input$side_p3 == "") {
-        "DL"
+        "Both"
       } else {
         input$side_p3
       },
@@ -758,6 +749,169 @@ function(input, output, session) {
       output$status_p3 <- renderText(paste("Error:", e$message))
     })
   })
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  #Phase 4 ----
+  
+  #displaying testing/collection instructions
+  output$description_p4 <- renderText({
+    req(input$measure_p4)
+    m <- trimws(input$measure_p4)
+    row <- criteria_simple |>
+      dplyr::filter(`Outcome Measure` == m) |>
+      dplyr::slice(1)
+    
+    if (nrow(row) == 0) return("No description available.")
+    val <- row$`Display Description`[[1]]
+    if (is.null(val) || is.na(val) || !nzchar(val)) "No description available."
+    else gsub("\r\n?", "\n", val)   # normalize CR/LF so CSS pre-wrap works
+  })
+  
+  output$info_p4 <- renderText({
+    req(input$measure_p4)
+    m <- trimws(input$measure_p4)
+    row <- criteria_simple |>
+      dplyr::filter(`Outcome Measure` == m) |>
+      dplyr::slice(1)
+    
+    if (nrow(row) == 0) return("No additional information.")
+    val <- row$`Additional Information`[[1]]
+    if (is.null(val) || is.na(val) || !nzchar(val)) "No additional information."
+    else gsub("\r\n?", "\n", val)
+  })
+  
+  
+  output$p4_card_title <- renderUI({
+    m <- input$measure_p4
+    if (is.null(m) || !nzchar(m)) {
+      tags$em("Select an outcome measure")
+    } else {
+      tags$div(class = "d-flex align-items-center gap-2", m)
+    }
+  })
+  
+  # Title in the card
+  output$p4_title <- renderText({
+    m <- input$measure_p4
+    if (is.null(m) || !nzchar(m)) "Select an outcome measure" else m
+  })
+  
+  # # Helper: fetch first matching row for the selected measure
+  # get_crit_row <- function(measure) {
+  #   req(measure)
+  #   criteria_simple |>
+  #     dplyr::filter(`Outcome Measure` == trimws(measure)) |>
+  #     dplyr::slice(1)
+  # }
+  
+  # # Helper: emit a <p><strong>Label:</strong> value</p> only if value exists
+  # emit_row <- function(label, value) {
+  #   if (is.null(value)) return(NULL)
+  #   val_chr <- trimws(as.character(value))
+  #   if (!nzchar(val_chr) || is.na(val_chr)) return(NULL)
+  #   tags$p(tags$strong(paste0(label, ": ")), val_chr)
+  # }
+  
+  # Optional rows
+  output$goal_row_p4 <- renderUI({
+    row <- get_crit_row(input$measure_p4)
+    if (!nrow(row)) return(NULL)
+    emit_row("Criteria", row$Goal[[1]])
+  })
+  
+  output$reps_row_p4 <- renderUI({
+    row <- get_crit_row(input$measure_p4)
+    if (!nrow(row)) return(NULL)
+    emit_row("Repetitions", row$Repetitions[[1]])
+  })
+  
+  output$calc_row_p4 <- renderUI({
+    row <- get_crit_row(input$measure_p4)
+    if (!nrow(row)) return(NULL)
+    emit_row("Calculation", row$Calculation[[1]])
+  })
+  
+  # Create Output Table
+  output$table_p4 <- renderDT({
+    data_p4() %>%
+      {
+        if (!is.null(input$measure_p4) && input$measure_p4 != "") {
+          filter(., Outcome.Measure == input$measure_p4)
+        } else {
+          .
+        }
+      } %>%
+      arrange(desc(Timestamp)) %>%
+      select(-c(Phase, Units, Timestamp)) %>%
+      mutate(
+        Date = as.Date(Date, origin = "1899-12-30"),
+        Date = format(Date, "%b %d, %Y")
+      ) %>%
+      datatable(options = list(pageLength = 10), rownames = FALSE)
+  })
+  
+  
+  
+  # Auto-fill Units when a known measure is selected/typed (Phase 4)
+  observeEvent(input$measure_p4, ignoreInit = TRUE, {
+    req(nzchar(input$measure_p4))
+    u <- units_for_measure(input$measure_p4)
+    if (!is.na(u)) updateTextInput(session, "units_p4", value = u)
+  })
+  
+  
+  
+  # Save Phase 4
+  observeEvent(input$save_p4, {
+    validate(
+      need(nzchar(input$measure_p4), "Choose or type an outcome measure."),
+      need(!is.null(input$date_p4), "Pick a date."),
+      need(!is.na(input$value_p4), "Enter a numeric value."),
+      need(nzchar(input$units_p4), "Units cannot be blank.")
+    )
+    
+    new_row <- data.frame(
+      "Phase"           = 4,
+      "Outcome Measure" = input$measure_p4,
+      "Date"            = as.Date(input$date_p4),
+      "Timestamp"       = Sys.time(),
+      "Side"            =   if (is.null(input$side_p4) || input$side_p4 == "") {
+        "Both"
+      } else {
+        input$side_p4
+      },
+      "Value"           = as.numeric(input$value_p4),
+      "Units"           = input$units_p4,
+      "Notes"           = input$notes_p4,
+      check.names = FALSE
+    )
+    
+    tryCatch({
+      append_row(TARGET_SHEET, new_row)
+      data_p4(read_current_data(TARGET_SHEET))
+      output$status_p4 <- renderText(sprintf(
+        "Saved ✔  (%s | %s | %s = %s %s)",
+        new_row[["Outcome Measure"]], new_row[["Date"]], new_row[["Side"]],
+        new_row[["Value"]], new_row[["Units"]]
+      ))
+      updateNumericInput(session, "value_p4", value = NA)
+      updateTextInput(session, "notes_p4", value = "")
+    }, error = function(e) {
+      output$status_p4 <- renderText(paste("Error:", e$message))
+    })
+  })
+  
+  
+  
+  
+  
   
   
   
