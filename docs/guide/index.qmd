@@ -13,7 +13,7 @@ This ACL rehabilitation protocol is designed as a comprehensive resource for eve
 :::
 
 ::: {.column width="30%" fig-align="right"}
-![](../../images/Cover1.png){fig-align="right" width="160"}
+![](../../images/Cover1.jpeg){fig-align="right" width="173"}
 :::
 :::::
 
