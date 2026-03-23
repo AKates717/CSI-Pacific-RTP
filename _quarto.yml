@@ -63,7 +63,7 @@ website:
   sidebar:
     - id: guide
       collapse-level: 3
-      logo: "../../images/Cover1.png"
+      logo: "../../images/Cover1.jpeg"
       search: true
       contents:
         - section: "Guide"

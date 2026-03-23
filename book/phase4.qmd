@@ -115,7 +115,7 @@ Each card below contains a detailed description of the tests to be conducted dur
 
 
 tests <- criteria_phase4 |>
-  dplyr::select(outcome_measure, display_description, additional_information, operator_pretty, goal_pretty, repetitions, calculation) %>%
+  dplyr::select(outcome_measure, display_description, additional_information, operator_pretty, goal_pretty, repetitions, calculation, image_path) %>%
   mutate(op_goal = paste(operator_pretty, goal_pretty))
 
 # Helper: print a label/value line only if value is non-missing & non-empty
@@ -129,19 +129,40 @@ emit_field <- function(label, value) {
 }
 
 for (i in seq_len(nrow(tests))) {
-  cat('::: {.card .ak-card .has-stripe .accent-primary}\n')       # universal card class
-  cat('### ', tests$outcome_measure[i], '\n\n', sep = '')         # heading
+  cat('::: {.card .ak-card .has-stripe .accent-primary}\n')
+
+  # Use columns instead of layout-columns
+  cat('::: {.columns}\n')
+
+  # ---- LEFT: TEXT ----
+  cat('::: {.column width="70%"}\n')
+
+  cat('### ', tests$outcome_measure[i], '\n\n', sep = '')
+
   if (!is.na(tests$display_description[i]) &&
       nzchar(trimws(tests$display_description[i]))) {
     cat(tests$display_description[i], '\n\n')
   }
+
   cat("*", tests$additional_information[i], '\n\n')
-  emit_field("Criteria", tests$op_goal[i])                  # always optional-safe
-  emit_field("Repetitions", tests$repetitions[i])                # only prints if present
+
+  emit_field("Criteria", tests$op_goal[i])
+  emit_field("Repetitions", tests$repetitions[i])
   emit_field("Calculation", tests$calculation[i])
 
-  cat(':::\n\n')
+  cat(':::\n')  # end text column
+
+  # ---- RIGHT: IMAGE ----
+  cat('::: {.column width="30%"}\n')
+  if (!is.na(tests$image_path[i]) && nzchar(trimws(tests$image_path[i]))) {
+    cat('![](', tests$image_path[i], '){style="width:100%;"}\n', sep = '')
+  }
+  cat(':::\n')  # end image column
+
+  cat(':::\n')  # end columns
+  cat(':::\n\n')  # end card
 }
+
 
 ```
 
