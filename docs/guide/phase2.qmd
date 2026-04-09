@@ -1,0 +1,252 @@
+---
+title: "Phase 2: Strength & Neuromuscular Control"
+#subtitle: "Strength & Neuromuscular Control"
+params:
+  athlete: "Frank Reynolds"
+bibliography: references.bib
+csl: sports-medicine.csl
+---
+
+```{r setup-root, include=FALSE}
+knitr::opts_knit$set(root.dir = normalizePath("../.."))
+```
+
+```{r}
+source("Global.R")
+source("plot_functions.R")
+source("Themes.R")
+```
+
+At the transition from phase 1 to phase 2, it is expected that pain and swelling have settled down and adequate knee range of motion (ROM) has been established. The focus of the rehab can now grow to include building strength and greater neuromuscular control. Key outcomes from Phase 1 will continue to be monitored, including swelling and ROM assessments which remain a part of the criteria. Progressions in both exercise complexity and loading parameters will occur continuously throughout this phase, and it is important that the practitioner monitors these progressions and the athlete's responses carefully. The progressions made in this phase will set the athlete up for more dynamic exercises in Phase 3.
+
+::: {.callout-important title="Most Important Goals — Phase 1"}
+-   Rebuild muscular strength, especially the quadriceps and hamstrings
+-   Re-establish neuromuscular control (stability, balance, )
+-   Listen to the body: be aware of pain, swelling or ROM regressions and adjust training accordingly
+:::
+
+Outcomes generally reflect maintaining a healthy knee, increased lower body muscular endurance and strength, and improved static postural stability. **`r params$athlete`'s** progress towards these goals will be assessed via the criteria seen below. Detailed description of each criteria and the associated testing methodology can be found in @sec-p2-testing.
+
+```{r}
+#Create the table
+tbl_phase2 <- criteria_phase2_abr %>%
+  transmute(
+    `Outcome Measure` = outcome_measure,
+    `Op` = operator_pretty,
+    Goal              = goal_pretty,   # nice display string from your sheet
+    Score             = score,
+    meets
+  ) %>%
+  gt() %>%
+  tab_header(title = md("**Phase 2 Criteria**")) %>%
+  fmt_number(
+    columns = Score,
+    decimals = 0
+  ) %>%
+  sub_missing(columns = Score, missing_text = "") %>%
+  cols_label(Op = "") %>%
+  cols_width(`Outcome Measure` ~ px(360)) %>%
+  cols_align(align = "center", columns = c(Goal, Score)) %>%
+  cols_align(align = "right",  columns = Op) %>%
+  tab_style(
+    style = list(cell_fill(color = "#E8F5E9"),
+                 cell_text(color = "#1B5E20", weight = "600")),
+    locations = cells_body(columns = Score, rows = meets %in% TRUE)
+  ) %>%
+  tab_style(
+    style = list(cell_fill(color = "#FFF9C4"),
+                 cell_text(color = "#7A6A00", weight = "600")),
+    locations = cells_body(columns = Score, rows = meets %in% FALSE)
+  )  %>%
+  cols_hide(meets) %>%
+  ak_gt_theme3() %>%
+  tab_options(
+    table_body.hlines.style = "solid",
+    table_body.hlines.width = px(1),
+    data_row.padding = px(6)
+  )
+
+tbl_phase2
+```
+
+```{r}
+
+# By default: denominator = all criteria (matches your table showing blank scores)
+met_n_all   <- sum(criteria_phase2_abr$meets %in% TRUE, na.rm = TRUE)
+total_n_all <- nrow(criteria_phase2_abr)
+
+goals_progress_bar(met_n_all, total_n_all)
+
+```
+
+```{=html}
+<div class="break-logo">
+  <img src="images/csi-logo-medal-only.png" alt="">
+</div>
+```
+
+## What does the research say? {#sec-p2-research}
+
+### Knee Health
+
+By satisfying phase 1 criteria before beginning phase 2, we can be confident that the knee is prepared for the increases in load required to build muscular strength. An abundance of pain and swelling at this stage will negatively affect joint proprioception @cho2011 and limit neuromuscular activation via the process of arthrogenic muscle inhibition (AMI) @moiroux-sahraoui2024.
+
+------------------------------------------------------------------------
+
+### Development of Muscular Strength
+
+Perhaps the number one priority during this phase is to restore muscular strength, particularly in the knee extensor muscles @buckthorpe2020. At this stage of the rehab, deficits in quadriceps muscle volume, activation and strength resulting from injury and surgery will be persistent @palmieri-smith2008. In response to these deficits, athletes will use inter- and intra-limb compensations to reduce the knee extensor moment, and efforts must be made to directly target the quadriceps in order to produce desired adaptations in strength and hypertrophy @sigward2018. The consensus across studies is that a limb symmetry index of 80% should be achieved by the end of Phase 2 (mid-phase) rehab @welling2019 . Additionally, although absolute strength values will differ among individuals, it is important to track raw strength numbers for each limb, to ensure that knee function is not being over-estimated by symmetry values alone \[ \]. If testing on an isokinetic machine, peak torque at 90º/s should be \> 2 Nm/kg @buckthorpe2020. Determination of CSI Pacific recommended values for peak force using the Tindeq is a work in progress.
+
+It is also common to see persistent hamstring strength deficits for extended periods of time following ACLR @nomura2015. The hamstrings serve as a critical dynamic stabilizer of the knee following ACLR, with their co-contraction acting to reduce anterior tibial translation and reduce direct load on the reconstructed graft which is especially important in early and mid-phase rehabilitation when quadriceps function is likely compromised @imran1998. Highlighting the importance of strengthening the hamstring muscles, one study demonstrated over 10x greater risk of ACL re-injury after ACLR for every 10% decrease in knee flexor to extensor strength ratio in professional football players @kyritsis2016. Hamstring strengthening should involve a "holistic approach" which incorporates both knee and hip dominant exercises @oakley2018.
+
+In addition to knee extensor and flexor strength, other muscle groups both proximal and distal to the knee will play key roles following ACLR. Muscles of the ankle and lower leg act as agonists to the ACL, helping to prevent anterior tibial translation @mokhtarzadeh2013 and generate large forces during tasks such as running @dorn2012 and landing @fong2011. This means strong lower leg muscles will help protect the knee joint during more intense activities later in rehab. Deficits in lumbo-pelvic-hip muscle strength are also common following ACLR @petersen2014. The hip abductors and external rotators (e.g. the gluteal muscles) are important for preventing dynamic knee valgus in loaded CKC exercises that will be performed throughout the rest of the rehab [@maniar2018; @rinaldi2022]. Direct evidence on the importance of hip adductor strengthening is limited at this time, however evidence from knee pathology research demonstrates that adductor strengthening significantly improves knee pain, physical function, and lower limb strength, supporting its inclusion as part of a comprehensive kinetic chain approach to knee rehabilitation @quintana-cepedal2025.
+
+Now that the importance of developing/re-building lower limb muscle strength has been established, the research can inform HOW this will be accomplished. One model of mid-phase rehabilitation proposes two blocks which allow specific programming based on the functional status of the athlete @buckthorpe2020. The first block involves non-weight-bearing isolated exercises performed at lower intensities. This includes both OKC (e.g. leg extension) and CKC (e.g. leg press) exercises The second block would involve an increased proportion of functional exercise (e.g. squats, lunges, hinges) with all exercises performed at higher intensities. Overall, the CSI Pacific Phase 2 rehab programs agree with these principles, however they are structured along a continuum as opposed to separate blocks. Strength training will progress from isolated to functional and from low load to high load. Volume may start in a middle range (to prioritize movement quality over intensity, increase as the body begins to adapt to these movement with the goal of increasing metabolic stress to target muscular strength and hypertrophy, and then volume will begin to decrease as the athlete becomes capable of lifting heavier loads. The training program may include both low/no-load full ROM leg extension as well as ROM-restricted leg extension when the patient is able to lift heavier loads. Minimal ACL strain and reduced PFJ reaction forces have been observed during quadriceps contractions performed between 45-90º of knee flexion, and therefore this is the recommended ROM for loading to be introduced @escamilla2012. Early introduction of isometrics is recommended if tolerated well by the athlete, beginning with isometric leg extension performed at a fixed angle between 90-60º (5x45s, 1-2x per day). Full ROM (90-0º) against gravity/low loads can be performed once able to comfortably achieve 90º knee flexion. Restricted ROM loaded knee extensions may begin 4 weeks post ACLR (Tempo 3:03, 15-25RM loads).
+
+------------------------------------------------------------------------
+
+### Neuromuscular Control and Movement Quality
+
+Altered movement quality is well documented following ACLR @goerger2015 and is associated with increased risk of secondary injury @paterno2010 and early onset osteoarthritis [@øiestad2010]. As discussed in [Phase 1](#phase-1-recovery-from-surgery), there are many factors contributing to movement quality deficits following ACLR including the loss or damage of mechanoreceptors which typically provide somatosensory information to the brain about joint position and movement, a.k.a. proprioception @dhillon2012. Altered movement quality at this stage may also be observed in reduced static postural stability @loudon1996 and reduced dorsi-flexor ROM @dill2014.
+
+Targeted movement interventions found in the ACL Rehab Programs are based on motor learning principles, specifically applied to movement re-training post-ACLR @gokeler2019. Motor learning is defined as an individual's ability to acquire motor skills with a sustained change in performance as a function of practice or experience @leech2022, and thus the program will involve the repeated practice of important skills. It is important that prior to adding load or velocity to any movement that optimal technique is demonstrated, and therefore task progression will be based on both movement complexity and load @buckthorpe2020. At the start of phase 2, emphasis and attention to detail on movement technique will be high, and loading will be relatively low. Direct loading of the knee joint and affected tissues will be carefully progressed. For the practitioner, the ability to assess and coach movement quality in real-time is crucial. This can additionally be aided by video analysis allowing bio-feedback and improved cognitive understanding for the athlete. Further review of motor learning approaches following ACLR is recommended @gokeler2019 in order to maximize the effectiveness of the Phase 1 training programs for realizing improvements in movement quality.
+
+```{=html}
+<div class="break-logo">
+  <img src="images/csi-logo-medal-only.png" alt="">
+</div>
+```
+
+## Testing {#sec-p2-testing}
+
+Each card below contains a detailed description of the tests to be conducted during this phase of rehab.
+
+```{r, echo=FALSE, results='asis'}
+
+
+tests <- criteria_phase2 |>
+  dplyr::select(outcome_measure, display_description, additional_information, operator_pretty, goal_pretty, repetitions, calculation, image_path) %>%
+  mutate(op_goal = paste(operator_pretty, goal_pretty))
+
+# Helper: print a label/value line only if value is non-missing & non-empty
+emit_field <- function(label, value) {
+  if (length(value) == 0 || all(is.na(value))) return(invisible())
+  val <- value[[1]]
+  if (is.na(val)) return(invisible())
+  val_chr <- trimws(as.character(val))
+  if (!nzchar(val_chr)) return(invisible())
+  cat("**", label, ":** ", val_chr, "\n\n", sep = "")
+}
+
+##This chunk does not include an image
+# for (i in seq_len(nrow(tests))) {
+#   cat('::: {.card .ak-card .has-stripe .accent-primary}\n')       # universal card class
+#   cat('### ', tests$outcome_measure[i], '\n\n', sep = '')         # heading
+#   if (!is.na(tests$display_description[i]) &&
+#       nzchar(trimws(tests$display_description[i]))) {
+#     cat(tests$display_description[i], '\n\n')
+#   }
+#   cat("*", tests$additional_information[i], '\n\n')
+#   emit_field("Criteria", tests$op_goal[i])                  # always optional-safe
+#   emit_field("Repetitions", tests$repetitions[i])                # only prints if present
+#   emit_field("Calculation", tests$calculation[i])
+# 
+#   cat(':::\n\n')
+# }
+
+for (i in seq_len(nrow(tests))) {
+  cat('::: {.card .ak-card .has-stripe .accent-primary}\n')
+
+  # Use columns instead of layout-columns
+  cat('::: {.columns}\n')
+
+  # ---- LEFT: TEXT ----
+  cat('::: {.column width="70%"}\n')
+
+  cat('### ', tests$outcome_measure[i], '\n\n', sep = '')
+
+  if (!is.na(tests$display_description[i]) &&
+      nzchar(trimws(tests$display_description[i]))) {
+    cat(tests$display_description[i], '\n\n')
+  }
+
+  cat("*", tests$additional_information[i], '\n\n')
+
+  emit_field("Criteria", tests$op_goal[i])
+  emit_field("Repetitions", tests$repetitions[i])
+  emit_field("Calculation", tests$calculation[i])
+
+  cat(':::\n')  # end text column
+
+  # ---- RIGHT: IMAGE ----
+  cat('::: {.column width="30%"}\n')
+  if (!is.na(tests$image_path[i]) && nzchar(trimws(tests$image_path[i]))) {
+    cat('![](', tests$image_path[i], '){style="width:100%;"}\n', sep = '')
+  }
+  cat(':::\n')  # end image column
+
+  cat(':::\n')  # end columns
+  cat(':::\n\n')  # end card
+}
+
+```
+
+```{=html}
+<div class="break-logo">
+  <img src="images/csi-logo-medal-only.png" alt="">
+</div>
+```
+
+## The Program
+
+Below you will find links to your training programs.
+
+[Phase 2: Program 1](https://www.teambuildr.com/)
+
+Here are some descriptions of what you can expect throughout these programs
+
+-   Progression of exercises during this phase will be dependent on reactive pain, swelling, and ROM changes, all of which are normal and expected at this stage. It is unlikely that the athlete's progression will align perfectly with the program; expect to make changes and be ready to picot on a daily basis
+
+-   Development of muscular strength: Emphasis will progress as follows:
+
+    -   Non-weight Bearing –\> Weight Bearing
+
+    -   Machine-Based -\> Functional
+
+    -   Lower Intensity (12-20 RM) –\> Moderate Intensity (8-12 RM)
+
+    -   Volume will first increase to increase proximity to maximum intensity at light loads, then decrease as loads begin to increase
+
+-   Both OKC and CKC exercises will be prescribed throughout this phase
+
+    -   Isometric leg extension performed at a fixed angle between 90-60º (5x45s, 1-2x per day)
+
+    -   Restricted ROM (45-90º) loaded leg extensions may begin 4 weeks post ACLR (15-25RM loads)
+
+-   Direct loading of the patellofemoral joint will start LOW and progress as tolerated
+
+```{=html}
+<div class="break-logo">
+  <img src="images/csi-logo-medal-only.png" alt="">
+</div>
+```
+
+## Additional Resources
+
+### Whole Body Fitness
+
+At the same time that rehab is progressing to include more strength and neuromuscular training for the knee, the rest of the body should also be on track to begin the training needed to restore full-body neuromuscular and physiological function. It is important that an athlete commences later phases of rehabilitation with sufficient physical fitness to allow for intense training needed to return to high level of athletic performance. Evidence suggests that cardiovascular fitness in athletes can remain below pre-injury levels for long periods of time following ACLR @almeida2018. Given the time-frames required to develop these capacities, it is important that they are addressed as early as possible, as opposed to waiting until later stages of the rehab where they may find themselves lacking the fitness required to reach high intensities of training. Upper body strength is also a key component of whole body fitness, and can be trained effectively even when the athlete is still in a non- or low-load-bearing stage (e.g. pull-ups, bench-press, seated shoulder press, seated rows). Lumbo-pelvic-hip (a.k.a. core) strengthening can also continue to progress during this phase, assuming the athlete has met straight-leg-raise quadriceps activation criteria, and given exercises that place little stress on the PFJ.
+
+With all that said, it is important to distinguish between must-haves and nice-to-haves and to prioritize training accordingly. For example, development of cardiovascular fitness is important however in comparison to something like knee extensor strength, it does not prevent the athlete from progressing the complexity and intensity of rehab exercises during this phase @buckthorpe2020. On the contrary, pushing too hard on the stationary bike, for example, may lead to reactive pain,swelling, and fatigue that can delay the attainment of other more pertinent qualities. Therefore, periodization during this phase will prioritize direct rehabilitation of the knee while including thoughtful and reasonable programming to target whole body fitness.
+
+### Blood Flow Restriction
+
+BFR may continue to be a useful tool for building muscular strength and hypertrophy during the transition from Phase 1 to 2.
+
+Another more recent study did not report how early BFR began after surgery, but did use the following criteria to begin BFR: able to stand on one leg unsupported for \>5s, knee ROM between 0-90º, able to perform SLR with sufficient quadriceps activation @barzyk2026 . Patients performed the traditional 30-15-15-15 reps of leg press
+
+```{=html}
+<div class="break-logo">
+  <img src="images/csi-logo-medal-only.png" alt="">
+</div>
+```

@@ -1066,8 +1066,8 @@ p3_ybal_pl <- p3_yBalPL %>%
   )
 
 p3_ybal_all <- p3_ybal_ant %>%
-  full_join(p2_ybal_pm, by = "date") %>%
-  full_join(p2_ybal_pl, by = "date")
+  full_join(p3_ybal_pm, by = "date") %>%
+  full_join(p3_ybal_pl, by = "date")
 
 p3_ybal_composite <- p3_ybal_all %>%
   transmute(
