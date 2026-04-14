@@ -181,7 +181,7 @@ phase0 <- read_xlsx("sample_data/outcome_data.xlsx", sheet = "Phase_data") %>%
 #          date_ddmmyear2 =  (format(date_ddmmyear, "%b %d, %Y")))
 
 
-iso_joint2 <- read_csv(
+iso_joint <- read_csv(
   "data-collection-app/data/tindeq_results.csv"
 ) %>% clean_names() %>%
   mutate(date_ddmmyear = as.Date(timestamp),
@@ -523,6 +523,9 @@ criteria_phase2_abr <- criteria_phase2 %>%
 outcomes_raw_phase2 <- outcomes_raw_all %>%
   filter(phase == 2)
 
+iso_joint2 <- iso_joint %>%
+  filter(phase == "Phase 2")
+
 #Individual Criteria
 # 2a) Swelling
 p2_swelling <- outcomes_raw_phase2 %>%
@@ -851,6 +854,9 @@ criteria_phase3_abr <- criteria_phase3 %>%
 outcomes_raw_phase3 <- outcomes_raw_all %>%
   filter(phase == 3)
 
+iso_joint3 <- iso_joint %>%
+  filter(phase == c("Phase 2", "Phase 3"))
+
 #Individual Criteria
 # 3a) Single Leg Hop
 p3_slhop <- outcomes_raw_phase3 %>%
@@ -960,7 +966,7 @@ p3_triplecrosshop <- outcomes_raw_phase3 %>%
 p3_triplecrosshop_best <- p3_triplecrosshop %>%
   slice_max(lsi, n = 1, with_ties = FALSE)
 
-# 3d) Y-Balance (Anterior)
+# 3d) Side Hop
 p3_sidehop <- outcomes_raw_all %>%
   filter(outcome_measure == "Side Hop") %>%
   group_by(date) %>%
@@ -1087,6 +1093,49 @@ p3_yBalcomposite_best <- p3_ybal_composite %>%
 
 
 
+# 2l) Quad Strength
+p3_quads <- iso_joint3 %>%
+  filter(test == "Quads") %>%
+  group_by(date_ddmmyear) %>%
+  summarise(
+    inj = if (any(limb == inj_side,  na.rm = TRUE))  max(peak_force_kg[limb == inj_side],  na.rm = TRUE) else NA_real_,
+    non_inj = if (any(limb == non_inj_side, na.rm = TRUE))  max(peak_force_kg[limb == non_inj_side], na.rm = TRUE) else NA_real_,
+    .groups = "drop"
+  ) %>%
+  mutate(
+    lsi = if_else(!is.na(inj) & !is.na(non_inj) & non_inj != 0, 100 * inj / non_inj, NA_real_),
+    lsi = round(lsi, 1)
+  ) %>%
+  arrange(date_ddmmyear)
+
+p3_quads_best <- p3_quads %>%
+  slice_max(lsi, n = 1, with_ties = FALSE)
+
+# 2m) Hamstring Strength
+p3_hams <- iso_joint3 %>%
+  filter(test == "Hamstrings") %>%
+  group_by(date_ddmmyear) %>%
+  summarise(
+    inj = if (any(limb == inj_side,  na.rm = TRUE))  max(peak_force_kg[limb == inj_side],  na.rm = TRUE) else NA_real_,
+    non_inj = if (any(limb == non_inj_side, na.rm = TRUE))  max(peak_force_kg[limb == non_inj_side], na.rm = TRUE) else NA_real_,
+    .groups = "drop"
+  ) %>%
+  mutate(
+    lsi = if_else(!is.na(inj) & !is.na(non_inj) & non_inj != 0, 100 * inj / non_inj, NA_real_),
+    lsi = round(lsi, 1)
+  ) %>%
+  arrange(date_ddmmyear)
+
+p3_hams_best <- p3_hams %>%
+  slice_max(lsi, n = 1, with_ties = FALSE)
+
+# 2m) Ankle Dorsiflexion
+p2_dorsi <- outcomes_raw_phase2 %>%
+  filter(outcome_measure == "Ankle Dorsiflexion") %>%
+  filter(side == inj_side)
+p2_dorsi_best <- p2_dorsi %>%
+  slice_max(value, n = 1, with_ties = FALSE)
+
 
 
 
@@ -1113,6 +1162,8 @@ p3_vestbalanceV_best <- p3_vestbalanceV %>%
 
 
 
+
+
 #Build Phase 3 Criteria Table ----
 
 #Add current best scores into the table
@@ -1130,6 +1181,8 @@ yBalComp_val_p3     <- suppressWarnings(as.numeric(if (exists("p3_yBalcomposite_
 #yBalPL_val_p3     <- suppressWarnings(as.numeric(if (exists("p3_yBalPL_best")     && nrow(p3_yBalPL_best)     > 0) p3_yBalPL_best$lsi[1]     else NA_real_))
 
 trapbar_val_p3  <- suppressWarnings(as.numeric(if (exists("p3_trapbar_best")   && nrow(p3_trapbar_best)   > 0) p3_trapbar_best$value[1]  else NA_real_))
+quads_val_p3    <- suppressWarnings(as.numeric(if (exists("p3_quads_best")    && nrow(p3_quads_best)    > 0) p3_quads_best$lsi[1]    else NA_real_))
+hams_val_p3     <- suppressWarnings(as.numeric(if (exists("p3_hams_best")     && nrow(p3_hams_best)     > 0) p3_hams_best$lsi[1]     else NA_real_))
 
 
 # Populate: only fills when a value exists; stays NA (empty) otherwise
@@ -1144,6 +1197,8 @@ criteria_phase3_abr <- criteria_phase3_abr %>%
       outcome_measure == "Vestibular Balance (Horizontal)"   ~ vestbalanceH_val_p3,
       outcome_measure == "Vestibular Balance (Vertical)"   ~ vestbalanceV_val_p3,
       outcome_measure == "Y-Balance"  ~ yBalComp_val_p3,
+      outcome_measure == "Quad Strength"       ~ quads_val_p3,
+      outcome_measure == "Hamstring Strength"  ~ hams_val_p3,
       
       #outcome_measure == "Y-Balance (Anterior)"  ~ yBalAnt_val_p3,
       #outcome_measure == "Y-Balance (Postero-Medial)"  ~ yBalPM_val_p3,
@@ -1224,7 +1279,7 @@ outcomes_raw_phase4 <- outcomes_raw_all %>%
 
 
 
-#Build Phase 3 Criteria Table ----
+#Build Phase 4 Criteria Table ----
 
 #Add current best scores into the table
   #slhop_val_p4 <- suppressWarnings(as.numeric(if (exists("p4_slhop_best") && nrow(p3_slhop_best) > 0) p4_slhop_best$lsi[1] else NA_real_))

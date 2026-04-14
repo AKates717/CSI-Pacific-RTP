@@ -22,8 +22,6 @@ website:
         href: about.qmd
       - text: "ACL Guide"
         href: guide.qmd
-      # - text: "FP2"
-      #   href: fp-shiny-live.qmd
       - text: "Guide"
         href: docs/guide/index.qmd
       - text: "Dashboards"

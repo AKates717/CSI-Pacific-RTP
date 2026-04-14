@@ -114,7 +114,11 @@ total_n_all <- nrow(criteria_phase2_abr)
 goals_progress_bar(met_n_all, total_n_all)
 ```
 
-------------------------------------------------------------------------
+```{=html}
+<div class="break-logo">
+  <img src="../images/csi-logo-medal-only.png" alt="">
+</div>
+```
 
 # Outcomes
 
@@ -145,10 +149,6 @@ htmltools::div(
 )
 ```
 
-Some Writing
-
-Some More Writing
-
 ```{r}
 
 htmltools::div(
@@ -167,14 +167,18 @@ htmltools::div(
     nav_panel(
       "Side Bridge",
       plot_ind_phase_outcomes(outcomes_raw_phase2, "Side Bridge")
+    ),
+    nav_panel(
+      "Quads",
+      plot_iso_magnitude(iso_joint2, "Quads")
+    ),
+    nav_panel(
+      "Hams",
+      plot_iso_magnitude(iso_joint2, "Hamstrings")
     )
   )
 )
 ```
-
-some 
-
-some
 
 ```{r}
 htmltools::div(
@@ -198,5 +202,3 @@ htmltools::div(
   )
 )
 ```
-
-writing

@@ -114,42 +114,42 @@ total_n_all <- nrow(criteria_phase3_abr)
 goals_progress_bar(met_n_all, total_n_all)
 ```
 
-------------------------------------------------------------------------
+```{=html}
+<div class="break-logo">
+  <img src="../../images/csi-logo-medal-only.png" alt="">
+</div>
+```
 
 # Outcomes
 
-Strength goes first
-
 ```{r}
-# htmltools::div(
-#   class = "phase0-navset",
-#   navset_card_tab(
-#     full_screen = TRUE,
-#     title = htmltools::tags$span(style = "font-weight:700; font-size:1.2rem;", "Strength"),
-#     nav_panel(
-#       "SL Bridge",
-#       plot_ind_phase_outcomes(outcomes_raw_phase2, "Single Leg Bridge")
-#     ),
-#     nav_panel(
-#       "SL Calf Raise",
-#       plot_ind_phase_outcomes(outcomes_raw_phase2, "Single Leg Calf Raises")
-#     ),
-#     nav_panel(
-#       "Side Bridge",
-#       plot_ind_phase_outcomes(outcomes_raw_phase2, "Side Bridge")
-#     )
-#   )
-# )
-```
 
-Then Jumping
+htmltools::div(
+  class = "phase0-navset",
+  navset_card_tab(
+    full_screen = TRUE,
+    title = htmltools::tags$span(style = "font-weight:700; font-size:1.2rem;", "Strength"),
+        nav_panel(
+      "Quads",
+      plot_iso_magnitude(iso_joint3, "Quads")
+    ),
+    nav_panel(
+      "Hams",
+      plot_iso_magnitude(iso_joint3, "Hamstrings")
+    )
+  )
+)
+
+
+
+```
 
 ```{r}
 htmltools::div(
   class = "phase0-navset",
   navset_card_tab(
     full_screen = TRUE,
-    title = htmltools::tags$span(style = "font-weight:700; font-size:1.2rem;", "Jump/Land"),
+    title = htmltools::tags$span(style = "font-weight:700; font-size:1.2rem;", "Hops"),
     selected = "SL Hop",
     nav_panel(
       "SL Hop",
@@ -171,27 +171,25 @@ htmltools::div(
 )
 ```
 
-Then Control
-
 ```{r}
 htmltools::div(
   class = "phase0-navset",
   navset_card_tab(
     full_screen = TRUE,
     title = htmltools::tags$span(style = "font-weight:700; font-size:1.2rem;", "Control"),
-    # nav_panel(
-    #   "SL Balance (Open)",
-    #   plot_ind_phase_outcomes(outcomes_raw_phase2, "Single Leg Balance (Eyes Open)")
-    # ),
-    #     nav_panel(
-    #   "SL Balance (Closed)",
-    #   plot_ind_phase_outcomes(outcomes_raw_phase2, "Single Leg Balance (Eyes Closed)")
-    # ),
     nav_panel(
-      "Y Balance",
-      plot_iso_magnitude2(outcomes_raw_all, "Y-Balance (Anterior)"),
+      "Y-Bal (A)",
+      plot_iso_magnitude2(outcomes_raw_all, "Y-Balance (Anterior)")
+    ),
+        nav_panel(
+      "Y-Bal (PM)",
       plot_iso_magnitude2(outcomes_raw_all, "Y-Balance (Postero-Medial)")
+    ),
+        nav_panel(
+      "Y-Bal (PL)",
+      plot_iso_magnitude2(outcomes_raw_all, "Y-Balance (Postero-Lateral)")
     )
   )
 )
+
 ```
