@@ -22,7 +22,7 @@ website:
         href: about.qmd
       # - text: "ACL Guide"
       #   href: guide.qmd
-      - text: "Guide"
+      - text: "ACL Guide"
         href: docs/guide/index.qmd
       - text: "Dashboards"
         menu:
@@ -69,8 +69,10 @@ website:
           contents:
             - section: "The Protocol"
               contents:
+                - docs/guide/preop.qmd
                 - docs/guide/phase1.qmd
                 - docs/guide/phase2.qmd
+                - docs/guide/phase3.qmd
             - docs/guide/references.qmd
 
 

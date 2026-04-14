@@ -1,0 +1,370 @@
+---
+title: "Pre-Operation Phase"
+params:
+  athlete: "Frank Reynolds"
+bibliography: references.bib
+csl: sports-medicine.csl
+---
+
+```{r setup-root, include=FALSE}
+knitr::opts_knit$set(root.dir = normalizePath("../.."))
+```
+
+```{r}
+source("Global.R")
+source("plot_functions.R")
+source("Themes.R")
+```
+
+This chapter will focus exclusively on the time period between ACL injury and ACL Repair surgery (ACLR) and the objectives associated with the best outcomes throughout the rehabilitation. It is not always possible to choose the exact date of surgery, and the selection of the optimal pre-ACLR window is beyond the scope of this protocol, rather the goal here is to provide the information and tools to optimize this phase of the rehab. As seen below, **`r params$athlete`** has **`r phase0_length` days** to prepare for surgery.
+
+```{r}
+phase0_length_tbl <- tibble(
+  'Injury Date ' = injury_date,
+  'Surgery Date' = surgery_date,
+  'Prehab Window' = paste(phase0_length, "Days"),
+    #paste0(as.numeric(difftime(Rehab_Info$date_of_surgery, Rehab_Info$date_of_injury, units = "days")), " Days")
+  ) %>% gt() %>%
+  ak_gt_theme3() %>%
+  cols_align(align = "center")
+
+phase0_length_tbl
+```
+
+Regardless of the length of the prehab window, the research is clear that the length of time between injury and surgery is far less important than the quality of pre-ACLR care provided @young2023. Current research has found the following most important areas of focus at this stage:
+
+::: {.callout-important title="Most Important Goals — Pre-Op"}
+-   Reduce pain and swelling
+-   Regain range of motion
+-   Re-establish normal gait
+-   Regain quadriceps and hamstring strength
+:::
+
+**`r params$athlete`'s** progress towards these goals will be assessed via the criteria seen below. Detailed description of each criteria and the associated testing methodology can be found in the @sec-phase0testing section of this chapter.
+
+```{r}
+#Create the table
+tbl_phase0 <- criteria_phase0 %>%
+  transmute(
+    `Outcome Measure` = outcome_measure,
+    `Op` = operator_pretty,
+    Goal              = goal_pretty,   # nice display string from your sheet
+    Score             = score,
+    meets
+  ) %>%
+  gt() %>%
+  tab_header(title = md("**Phase 0 Criteria**")) %>%
+  fmt_number(
+    columns = Score,
+    decimals = 0
+  ) %>%
+    fmt_number(
+    columns = Score,
+    rows = `Outcome Measure` %in% c("Hamstring Strength", "Quad Strength"),
+    decimals = 0,
+    pattern = "{x}%"
+  ) %>%
+  sub_missing(columns = Score, missing_text = "") %>%
+  cols_label(Op = "") %>%
+  cols_width(`Outcome Measure` ~ px(360)) %>%
+  cols_align(align = "center", columns = c(Goal, Score)) %>%
+  cols_align(align = "right",  columns = Op) %>%
+  tab_style(
+    style = list(cell_fill(color = "#E8F5E9"),
+                 cell_text(color = "#1B5E20", weight = "600")),
+    locations = cells_body(columns = Score, rows = meets %in% TRUE)
+  ) %>%
+  tab_style(
+    style = list(cell_fill(color = "#FFF9C4"),
+                 cell_text(color = "#7A6A00", weight = "600")),
+    locations = cells_body(columns = Score, rows = meets %in% FALSE)
+  )  %>%
+  cols_hide(meets) %>%
+  ak_gt_theme3() %>%
+  tab_options(
+    table_body.hlines.style = "solid",
+    table_body.hlines.width = px(1),
+    data_row.padding = px(6)
+  )
+
+tbl_phase0
+```
+
+```{r}
+
+goals_progress_bar <- function(
+    met, total,
+    label = "Goals met",
+    width = "100%",
+    accent = "#D71920",   # table accent (red)
+    border = "#A7A9AC",   # table border grey
+    track_bg = "#FCFCFC", # header/stripe light bg
+    fill_from = "#2E7D32",# green gradient start
+    fill_to   = "#4CAF50" # green gradient end
+) {
+  pct <- if (total > 0) round(100 * met / total) else 0
+  
+  tagList(
+    tags$style(HTML(sprintf("
+      .ak-pb-wrap   { margin-top:12px; font-family:'Open Sans',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; }
+      .ak-pb-meta   { display:flex; justify-content:space-between; font-size:0.95rem; margin-bottom:6px; color:#222; }
+      .ak-pb-meta strong{ color:%s; font-weight:700; } /* accent like table title */
+      .ak-pb       { background:%s; border:1px solid %s; border-radius:10px; height:14px; overflow:hidden; }
+      .ak-pb__fill { height:100%%; background:linear-gradient(90deg,%s,%s); transition:width .3s ease; }
+    ", accent, track_bg, border, fill_from, fill_to))),
+    div(class = "ak-pb-wrap",
+        div(class = "ak-pb-meta",
+            tags$strong(sprintf("%s: %d/%d", label, met, total)),
+            span(sprintf("%d%%", pct))
+        ),
+        div(
+          class = "ak-pb",
+          role = "progressbar",
+          `aria-valuemin` = "0",
+          `aria-valuemax` = "100",
+          `aria-valuenow` = pct,
+          style = sprintf("width:%s;", width),
+          div(class = "ak-pb__fill", style = sprintf("width:%d%%;", pct))
+        )
+    )
+  )
+}
+
+
+# By default: denominator = all criteria (matches your table showing blank scores)
+met_n_all   <- sum(criteria_phase0$meets %in% TRUE, na.rm = TRUE)
+total_n_all <- nrow(criteria_phase0)
+
+goals_progress_bar(met_n_all, total_n_all)
+
+```
+
+```{=html}
+<div class="break-logo">
+  <img src="images/csi-logo-medal-only.png" alt="">
+</div>
+```
+
+## What does the research say? {#preop-outcomes}
+
+Recent systematic reviews support the implementation of an appropriate prehab exercise program prior to surgery, while highlighting the importance of allowing the knee to regain normal physiologic motion, and describing relevant protocols and strategies [@giesche2020; @carter2020; @zakharia2025]. The first two systematic reviews were published in 2020 and included 6 and 3 studies respectively, whereas the most recent review published in 2025 included 36 different studies, highlighting the recent explosion of interest in ACLR prehab @zakharia2025. This review described both the characteristics of current ACLR prehab programs in the literature and the clinical outcomes that have been reported pre- and post-surgery. The results show that current ACLR prehab practices emphasize impairment resolution (i.e. pain and swelling), ROM restoration and neuromuscular exercises, and that these criteria are associated with improved short and long-term clinical outcomes.
+
+Among studies comparing patients who completed a prehab program to those who did not, results suggest that prehab is a potentially effective intervention for yielding short- to long-term post-operative functional benefits. The Knee Injury and Osteoarthritis Outcome Score (KOOS) is a validated self-assessment tool used to score pain, function in activities of daily living, function in sport/recreation, knee related quality of life, and "other symptoms" @roos1998. Individuals participating in ACLR prehab have shown significantly better KOOS outcome scores pre-operatively, as well as at two years @grindem2015 and 10 years @urhausen2024 post-operation. These results are also associated with notably faster recovery of knee function, ROM and knee-extensor strength @shaarani2013 and further supported by evidence that limited knee ROM prior to ACLR has been associated with delays in the recovery of knee ROM post-surgery @quelard2010. A further notable finding from the systematic reviews is that there were no reported incidents of preoperative complications arising from any of the studies, indicating that prehab is a safe method of improving post-operative outcomes @zakharia2025.
+
+> *People who attain full range of motion, good quadriceps and hamstring strength, and minimal swelling prior to surgery have better outcomes than those who don’t up to 2 years post surgery @cooper2018.*
+
+While it seems clear that ACLR prehab can be a potentially effective intervention, there remains a need for further research in this area, particularly regarding specific exercise details and protocol progression. It must be noted that there is currently no consensus or gold-standard ACLR Prehab program, likely because there are too many variables to consider for each individual. There are, however, a few published protocols [@eitzen2010; @wilk2016; @cunha2022], and these have been used to inform the CSI Pacific ACLR Phase 0 testing and training protocols.
+
+```{=html}
+<div class="break-logo">
+  <img src="images/csi-logo-medal-only.png" alt="">
+</div>
+```
+
+## Testing {#sec-phase0testing}
+
+Each card below contains a detailed description of the tests to be conducted during this phase of rehab.
+
+```{r, echo=FALSE, results='asis'}
+
+
+tests <- criteria_phase0 |>
+  dplyr::select(outcome_measure, display_description, additional_information, operator_pretty, goal_pretty, repetitions, calculation, image_path) %>%
+  mutate(op_goal = paste(operator_pretty, goal_pretty))
+
+# Helper: print a label/value line only if value is non-missing & non-empty
+emit_field <- function(label, value) {
+  if (length(value) == 0 || all(is.na(value))) return(invisible())
+  val <- value[[1]]
+  if (is.na(val)) return(invisible())
+  val_chr <- trimws(as.character(val))
+  if (!nzchar(val_chr)) return(invisible())
+  cat("**", label, ":** ", val_chr, "\n\n", sep = "")
+}
+
+for (i in seq_len(nrow(tests))) {
+  cat('::: {.card .ak-card .has-stripe .accent-primary}\n')
+
+  # Use columns instead of layout-columns
+  cat('::: {.columns}\n')
+
+  # ---- LEFT: TEXT ----
+  cat('::: {.column width="70%"}\n')
+
+  cat('### ', tests$outcome_measure[i], '\n\n', sep = '')
+
+  if (!is.na(tests$display_description[i]) &&
+      nzchar(trimws(tests$display_description[i]))) {
+    cat(tests$display_description[i], '\n\n')
+  }
+
+  cat("*", tests$additional_information[i], '\n\n')
+
+  emit_field("Criteria", tests$op_goal[i])
+  emit_field("Repetitions", tests$repetitions[i])
+  emit_field("Calculation", tests$calculation[i])
+
+  cat(':::\n')  # end text column
+
+  # ---- RIGHT: IMAGE ----
+  cat('::: {.column width="30%"}\n')
+  if (!is.na(tests$image_path[i]) && nzchar(trimws(tests$image_path[i]))) {
+    cat('![](', tests$image_path[i], '){style="width:100%;"}\n', sep = '')
+  }
+  cat(':::\n')  # end image column
+
+  cat(':::\n')  # end columns
+  cat(':::\n\n')  # end card
+}
+
+```
+
+## The Program
+
+Below you will find links to your training programs.
+
+[Pre-Op: Program 1](https://www.teambuildr.com/)
+
+When considering changes or further individualization of the program, see the lists below highlighting typically safe and unsafe exercises during this phase. To see how these exercises compare to other phases of the rehab, please see the **Exercise Phase Chart** in the book resources. All exercise programming should be done by a CSI Pacific S&C Coach or a physiotherapist.
+
+Exercises and activities during this phase typically include range of motion exercises, low impact aerobic exercise such as cycling, and a progressive strengthening regime. Strength exercises are programmed to progress in parallel with the expected clinical condition of the knee, but this will vary between cases. As the pain & swelling settles, and the range of motion increases, strength exercise can progress to include weighted exercises in the gym. Jumping and landing exercises are not included in the CSI Pacific Pre-Op Phase template program; these exercises may be included at the discretion of the lead S&C Coach or Physiotherapist. Aggressive change of direction activities should be avoided during this phase.
+
+Peer-reviewed literature that was consulted in the making of pre-op programs is referenced here.
+
+```{=html}
+<div class="break-logo">
+  <img src="images/csi-logo-medal-only.png" alt="">
+</div>
+```
+
+## Additional Resources
+
+### Rest, Ice and Elevate
+
+After injury, it is recommended to rest, ice and elevate the knee in order to help control swelling, inflammation and pain. This should be continued for at least the first 24 hours post-injury or until severe inflammation is controlled.
+
+### Blood Flow Restriction
+
+Although, blood flow restriction (BFR) training is an important piece of the CSI Pacific ACL protocol, research specifically investigating the use of BFR in the preoperative phase is still developing. Overall, reviews that have included studies of pre-operative BFR training, point to the lack of research, uncertainty about efficacy in comparison to traditional exercise programs, and a current lack of standardized protocols [@wengle2022; @hasegawa2023].
+
+When looking at individual studies, one comparing identical 2-week prehab programs with and without BFR found that both were equally effective at improving quadriceps peak force, suggesting that BFR was effective, but no more so than doing the same exercises without BFR @tramer2023. A follow up commentary on this study acknowledged the importance of the topic, but suggested that the measurement techniques (specifically the use of a handheld dynamometer) and the high SDs reported in the study were not sufficient to capture the small differences likely to exist between the two exercise protocols @cote2023. Although the efficacy of BFR during this phase remains unclear, this study did provide evidence that BFR can be used safely at this phase. Another study from the same research group utilized BFR for both 2 weeks pre surgery and 12 weeks post-surgery and found that the BFR group had improved strength and patient reported outcomes at 6 weeks post-surgery, but between group differences no longer existed at 3 and 6 month follow-up @okoroha2023
+
+Other research has shown improvements in quadriceps muscle endurance (but not peak torque) following 5 sessions of BFR leg extension prior to surgery @zargi2018. While further research from the same lab showed that 9 sessions over 3 weeks of isotonic knee extension and flexion, resulted in enhanced peak torque in the quadriceps and hamstrings as well as hypertrophy of the quadriceps (but not the hamstrings) @kacin2021.
+
+Below is a summary of the protocols used in each of these studies. This information can be used to design safe BFR exercise programs in the pre-op phase.
+
+::: {.card .ak-card .border-0 .shadow-none .headlined .panel-tabset}
+#### Tramer et al 2023
+
+<!-- Replace this with a short intro if you want -->
+
+**Exercises: [@tramer2023]**
+
+-   Quadriceps contractions in end-range extension
+-   Straight leg raises
+-   Long arc quads
+-   Double leg quarter squats
+
+**Limb Occlusion Pressure:** 80%
+
+**Repetitions:** 30-15-15-15
+
+**Intra-set Rest:** 30 seconds
+
+**Inter-set Rest:** 2 minutes
+
+**Sessions:** 5x/week for 2 weeks
+
+**Notes:** *Exercises were chosen to work on volitional quad activation and knee extension ROM simultaneously.*
+
+#### Okoroha et al 2023
+
+<!-- Replace this with a short intro if you want -->
+
+**Exercises [@okoroha2023]:**
+
+-   Quadriceps contractions in end-range extension
+-   Straight leg raises
+-   Long arc quads
+-   Double leg quarter squats
+
+**Limb Occlusion Pressure:** 80%
+
+**Repetitions:** 30-15-15-15
+
+**Intra-set Rest:** 30 seconds
+
+**Inter-set Rest:** 2 minutes
+
+**Sessions:** 5x/week for 2 weeks
+
+**Notes:** *Same as Tramer et al 2023 [@tramer2023]*
+
+#### Kacin et al 2021
+
+<!-- Replace this with a short intro if you want -->
+
+**Exercises [@kacin2021] :**
+
+-   Isotonic Leg Extension
+-   Isotonic Leg Flexion
+
+**Limb Occlusion Pressure:** 150mmHg
+
+**Repetitions:** 2 rounds of 2 sets to failure
+
+**Load:** 40RM
+
+**Intra-set Rest:** 45 seconds
+
+**Inter-set Rest:** 90 seconds
+
+**Sessions:** 3x/week for 3 weeks
+
+**Notes:** *Criteria for inclusion - active knee extension deficit ≤ 5° and active flexion ≥ 120°*
+
+#### Zargi et al 2018
+
+<!-- Replace this with a short intro if you want -->
+
+**Exercises [@zargi2018] :**
+
+-   Leg Extension
+
+**Limb Occlusion Pressure:** 150mmHg
+
+**Repetitions:** 3 rounds of 2 sets to failure
+
+**Load:** 40RM
+
+**Intra-set Rest:** 45 seconds
+
+**Inter-set Rest:** 90 seconds
+
+**Sessions:** 5 sessions over final 8 days pre-surgery
+
+**Notes:** *Criteria for inclusion - active knee extension deficit ≤ 5° and active flexion ≥ 120°*
+:::
+
+At this time, it appears that BFR in the pre-op phase is safe, although it's effectiveness is yet to be determined by clinical trials. A CSI Pacific S&C coach who is experienced with implementing BFR may choose to include it as an addition to training in the pre-surgery phase once the athlete displays adequate ROM of ≤ 5° knee extension and ≥ 120° flexion.
+
+------------------------------------------------------------------------
+
+### Neuromuscular Electrical Stimulation (NMES)
+
+At this time, there is only limited scientific evidence supporting the use of NMES in the pre-op phase. One study introduced NMES within 3 weeks of injury, discontinued use "just before surgery", and resumed NMES from 72-hours to 3 weeks post surgery employing a 5 days/week, 60 minutes/day quadriceps strengthening protocol @toth2020. In this sham-controlled, blinded trial, NMES significantly reduced type 2 skeletal muscle fibre atrophy and preserved contractility in type 1 muscle fibres at three weeks post surgery. It should also be noted that no differences were observed between groups in whole muscle strength at 6 months post-surgery. These results indicate that NMES in the pre-op phase may provide beneficial effects during early phase rehab which may not carry forward through later stages. Practically, if NMES is available for your rehab, it may be used as an additional or supplemental intervention (i.e. provided that time and financial constraints allow) but it should not be considered a primary component of pre-op rehabilitation.
+
+```{=html}
+<div class="break-logo">
+  <img src="images/csi-logo-medal-only.png" alt="">
+</div>
+```
+
+## Notes and Considerations for Reviewers
+
+All feedback is welcome, however here are some considerations that should help inform the development of this tool.
+
+-   Please comment on the overall structure of the chapter. Would you be happy for each chapter to be structured like this?
+-   From the perspective of a practitioner: what is missing from this chapter? what questions are you left with? do you feel like this provides the resources and the information needed to implement the rehab?
+-   From the perspective of an athlete: Is the information here easy to understand? Does this provide value
+-   Please comment on the phase criteria. Is there anything you would add or remove? Ideally, any suggestions are backed by peer-reviewed research

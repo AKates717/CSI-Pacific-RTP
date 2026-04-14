@@ -43,17 +43,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-8caf6eaa0938078aad3b4e3e78d03e50.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-1ef96afe714fde892753836e02150751.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-1ef96afe714fde892753836e02150751.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-1ef96afe714fde892753836e02150751.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<script src="../site_libs/quarto-dashboard/quarto-dashboard.js"></script>
-<script src="../site_libs/quarto-dashboard/stickythead.js"></script>
-
-
-
-<script src="../site_libs/quarto-dashboard/web-components.js" type="module"></script>
-<script src="../site_libs/quarto-dashboard/components.js"></script>
-
+<link href="../site_libs/bootstrap/bootstrap-b1638ddcc617931ab7523b2d9967f0b1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-b1638ddcc617931ab7523b2d9967f0b1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-b1638ddcc617931ab7523b2d9967f0b1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -82,6 +74,55 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Fix bslib navset_card_tab markup so Quarto doesn't rewrite tab hrefs
+  document.querySelectorAll('ul.nav.nav-tabs.card-header-tabs[data-tabsetid]').forEach(ul => {
+
+    // Make <li> look like Bootstrap 5 nav items
+    ul.querySelectorAll('li').forEach(li => li.classList.add('nav-item'));
+
+    // Make <a> look like Bootstrap 5 nav links AND force fragment-only href
+    ul.querySelectorAll('a[role="tab"], a[data-bs-toggle="tab"]').forEach(a => {
+      a.classList.add('nav-link');
+
+      // Force href to be fragment-only (#tab-xxxx-y)
+      const href = a.getAttribute('href') || '';
+      if (href.includes('#')) {
+        a.setAttribute('href', '#' + href.split('#').pop());
+      }
+    });
+
+    // Normalize "active" state: Bootstrap 5 wants active on <a>, not <li>
+    const activeFromA = ul.querySelector('a.active,[aria-selected="true"]');
+    const activeFromLi = ul.querySelector('li.active > a');
+    const activeA = activeFromA || activeFromLi;
+
+    ul.querySelectorAll('li.active').forEach(li => li.classList.remove('active'));
+
+    if (activeA) {
+      ul.querySelectorAll('a').forEach(a => {
+        const on = (a === activeA);
+        a.classList.toggle('active', on);
+        a.setAttribute('aria-selected', on ? 'true' : 'false');
+        if (!on) a.setAttribute('tabindex', '-1'); else a.removeAttribute('tabindex');
+      });
+
+      // Ensure only the matching pane is active/show
+      const tabsetId = ul.getAttribute('data-tabsetid');
+      const container = document.querySelector('.tab-content[data-tabsetid="' + tabsetId + '"]');
+      if (container) {
+        const target = activeA.getAttribute('href'); // now guaranteed "#tab-..."
+        container.querySelectorAll('.tab-pane').forEach(pane => {
+          const on = ('#' + pane.id) === target;
+          pane.classList.toggle('active', on);
+          pane.classList.toggle('show', on);
+        });
+      }
+    }
+  });
+});
+</script>
 <link href="../site_libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
 <script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <script src="../site_libs/plotly-binding-4.12.0/plotly.js"></script>
@@ -97,10 +138,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bslib-tag-require-0.10.0/tag-require.js"></script>
 
 
+<link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="quarto-dashboard nav-fixed dashboard-fill fullcontent quarto-light">
-
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -131,7 +172,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../docs/guide/index.html"> 
-<span class="menu-text">Guide</span></a>
+<span class="menu-text">ACL Guide</span></a>
   </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-dashboards" role="link" data-bs-toggle="dropdown" aria-expanded="false">
@@ -201,38 +242,46 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-<header id="quarto-dashboard-header">
-<nav class="navbar navbar-expand-md slim" data-bs-theme="dark">
-  <div class="navbar-container container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-controls="dashboard-collapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>    
-
-
-    <div class="navbar-brand-container">
-
-
-      <div class="navbar-title">
-        <div class="navbar-title-text"><a href="#">Pre-Op Phase Checklist</a></div>
-        
-        
-      </div>
-    </div>
-<div id="dashboard-collapse" class="navbar-collapse collapse"><ul class="navbar-nav navbar-nav-scroll me-auto" role="tablist"><li class="nav-item" role="presentation"><a id="tab-outcomes" class="nav-link active" data-bs-toggle="tab" role="tab" data-bs-target="#outcomes" data-scrolling="false" href="#outcomes" aria-controls="outcomes" aria-selected="true"><span class="nav-link-text">Outcomes</span></a></li></ul></div></div>
-</nav>
-</header></header>
+</header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-layout-custom page-navbar quarto-dashboard-content bslib-gap-spacing html-fill-container bslib-page-fill quarto-dashboard-pages">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#outcomes" id="toc-outcomes" class="nav-link active" data-scroll-target="#outcomes">Outcomes</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
+<main class="content column-page-left" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Pre-Op Phase Checklist</h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-page-left">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
 
 <p><strong>Frank Reynolds’s</strong> progress towards these goals will be assessed via the criteria seen below.</p>
-<div class="bslib-grid-item html-fill-item tab-content bslib-grid" data-layout="fill" style="display: grid; grid-template-rows: minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, max-content) minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
-<div class="card cell bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
-<div class="cell-output-display html-fill-item html-fill-container">
-<div id="rtymklbwhj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;" class="html-fill-item html-fill-container">
+<div class="cell">
+<div class="cell-output-display">
+<div id="rtymklbwhj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 #rtymklbwhj table {
@@ -749,15 +798,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
-<div class="card cell bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
-<div class="cell-output-display html-fill-item html-fill-container">
+<div class="cell">
+<div class="cell-output-display">
 <style>
       .ak-pb-wrap   { margin-top:12px; font-family:'Open Sans',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; }
       .ak-pb-meta   { display:flex; justify-content:space-between; font-size:0.95rem; margin-bottom:6px; color:#222; }
@@ -765,38 +807,25 @@ ul.task-list li input[type="checkbox"] {
       .ak-pb       { background:#FCFCFC; border:1px solid #A7A9AC; border-radius:10px; height:14px; overflow:hidden; }
       .ak-pb__fill { height:100%; background:linear-gradient(90deg,#2E7D32,#4CAF50); transition:width .3s ease; }
     </style>
-<div class="ak-pb-wrap html-fill-item html-fill-container">
-<div class="ak-pb-meta html-fill-item html-fill-container">
+<div class="ak-pb-wrap">
+<div class="ak-pb-meta">
 <strong>Goals met: 5/5</strong>
 <span>100%</span>
 </div>
-<div class="ak-pb html-fill-item html-fill-container" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" style="width:100%;">
-<div class="ak-pb__fill html-fill-item html-fill-container" style="width:100%;"></div>
+<div class="ak-pb" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" style="width:100%;">
+<div class="ak-pb__fill" style="width:100%;"></div>
 </div>
 </div>
 </div>
 </div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
-<div class="card bslib-card html-fill-container" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
 <hr>
-</div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
-<div id="outcomes" class="dashboard-page tab-pane show active html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-outcomes">
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
-<div class="phase0-navset html-fill-item html-fill-container">
+<section id="outcomes" class="level1">
+<h1>Outcomes</h1>
+<div class="cell">
+<div class="cell-output-display">
+<div class="phase0-navset">
 <div class="card bslib-card bslib-mb-spacing html-fill-item html-fill-container" data-bslib-card-init="" data-full-screen="false" data-require-bs-caller="card()" data-require-bs-version="5" id="bslib-card-5575">
-<div class="card-header bslib-gap-spacing bslib-navs-card-title dashboard-card-no-title">
+<div class="card-header bslib-gap-spacing bslib-navs-card-title">
 <span>
 <span style="font-weight:700; font-size:1.2rem;">Phase 0</span>
 </span>
@@ -821,31 +850,31 @@ ul.task-list li input[type="checkbox"] {
 <div class="tab-content html-fill-item html-fill-container" data-tabsetid="6605">
 <div class="tab-pane active html-fill-item html-fill-container bslib-gap-spacing" data-value="Swelling" id="tab-6605-1" style="gap:0;padding:0;">
 <div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
-<div class="plotly html-widget html-fill-item html-fill-container" id="htmlwidget-fba1105acce4c2523ff3" style="width:100%;height:400px;"></div>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-fba1105acce4c2523ff3" style="width:100%;height:400px;"></div>
 <script type="application/json" data-for="htmlwidget-fba1105acce4c2523ff3">{"x":{"data":[{"orientation":"v","width":[0.40500000000000003,0.40500000000000025,0.40500000000000025,0.4049999999999998,0.40499999999999936,0.40499999999999936],"base":[0,0,0,0,0,0],"x":[0.77500000000000002,1.7749999999999999,2.7749999999999999,4,5,6],"y":[3,2,2,1,0,1],"text":["<b>Oct 17, 2025<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 3","<b>Oct 18, 2025<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 2","<b>Oct 20, 2025<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 2","<b>Oct 28, 2025<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 1","<b>Oct 29, 2025<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 0","<b>Nov 04, 2025<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 1"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.4049999999999998,0.40500000000000025,0.40500000000000025],"base":[0,0,0],"x":[1.2250000000000001,2.2250000000000001,3.2250000000000001],"y":[0,0,0],"text":["<b>Oct 17, 2025<\/b><br><i>Side:<\/i> Right<br><i>Score:<\/i> 0","<b>Oct 18, 2025<\/b><br><i>Side:<\/i> Right<br><i>Score:<\/i> 0","<b>Oct 20, 2025<\/b><br><i>Side:<\/i> Right<br><i>Score:<\/i> 0"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.77500000000000002,1.7749999999999999,2.7749999999999999,4,5,6],"y":[3,2,2,1,0.050000000000000003,1],"text":["","","","","0",""],"hovertext":["<b>Oct 17, 2025<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 3","<b>Oct 18, 2025<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 2","<b>Oct 20, 2025<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 2","<b>Oct 28, 2025<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 1","<b>Oct 29, 2025<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 0","<b>Nov 04, 2025<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 1"],"textfont":{"size":15.118110236220474,"color":"rgba(255,0,0,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1.2250000000000001,2.2250000000000001,3.2250000000000001],"y":[0.050000000000000003,0.050000000000000003,0.050000000000000003],"text":["0","0","0"],"hovertext":["<b>Oct 17, 2025<\/b><br><i>Side:<\/i> Right<br><i>Score:<\/i> 0","<b>Oct 18, 2025<\/b><br><i>Side:<\/i> Right<br><i>Score:<\/i> 0","<b>Oct 20, 2025<\/b><br><i>Side:<\/i> Right<br><i>Score:<\/i> 0"],"textfont":{"size":15.118110236220474,"color":"rgba(0,0,0,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":49.872058369555965,"l":17.334993773349943},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,6.5999999999999996],"tickmode":"array","ticktext":["Oct 17","Oct 18","Oct 20","Oct 28","Oct 29","Nov  4"],"tickvals":[1,2,3,3.9999999999999996,5,6],"categoryorder":"array","categoryarray":["Oct 17","Oct 18","Oct 20","Oct 28","Oct 29","Nov  4"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.15000000000000002,3.1499999999999999],"tickmode":"array","ticktext":["0","1","2","3"],"tickvals":[0,0.99999999999999989,2,3],"categoryorder":"array","categoryarray":["0","1","2","3"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"a84519df6db":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"},"a84529b9a4b1":{"x":{},"y":{},"fill":{},"label":{},"colour":{},"text":{}}},"cur_data":"a84519df6db","visdat":{"a84519df6db":["function (y) ","x"],"a84529b9a4b1":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="tab-pane html-fill-item html-fill-container bslib-gap-spacing" data-value="Knee Extension" id="tab-6605-2" style="gap:0;padding:0;">
 <div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
-<div class="plotly html-widget html-fill-item html-fill-container" id="htmlwidget-b9cfd2f15395c6e23919" style="width:100%;height:400px;"></div>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-b9cfd2f15395c6e23919" style="width:100%;height:400px;"></div>
 <script type="application/json" data-for="htmlwidget-b9cfd2f15395c6e23919">{"x":{"data":[{"orientation":"v","width":[0.40500000000000003,0.40500000000000025,0.40500000000000025,0.40500000000000025,0.40499999999999936,0.40499999999999936],"base":[0,0,0,0,0,0],"x":[0.77500000000000002,1.7749999999999999,3,3.7749999999999999,5,6],"y":[3,2,2,1,1,0],"text":["<b>Oct 17, 2025<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 3","<b>Oct 18, 2025<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 2","<b>Oct 20, 2025<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 2","<b>Oct 28, 2025<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 1","<b>Oct 29, 2025<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 1","<b>Oct 30, 2025<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 0"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.4049999999999998,0.40500000000000025,0.40499999999999936],"base":[0,0,0],"x":[1.2250000000000001,2.2250000000000001,4.2249999999999996],"y":[0,0,0],"text":["<b>Oct 17, 2025<\/b><br><i>Side:<\/i> Right<br><i>Score:<\/i> 0","<b>Oct 18, 2025<\/b><br><i>Side:<\/i> Right<br><i>Score:<\/i> 0","<b>Oct 28, 2025<\/b><br><i>Side:<\/i> Right<br><i>Score:<\/i> 0"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.77500000000000002,1.7749999999999999,3,3.7749999999999999,5,6],"y":[3,2,2,1,1,0.050000000000000003],"text":["","","","","","0"],"hovertext":["<b>Oct 17, 2025<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 3","<b>Oct 18, 2025<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 2","<b>Oct 20, 2025<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 2","<b>Oct 28, 2025<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 1","<b>Oct 29, 2025<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 1","<b>Oct 30, 2025<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 0"],"textfont":{"size":15.118110236220474,"color":"rgba(255,0,0,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1.2250000000000001,2.2250000000000001,4.2249999999999996],"y":[0.050000000000000003,0.050000000000000003,0.050000000000000003],"text":["0","0","0"],"hovertext":["<b>Oct 17, 2025<\/b><br><i>Side:<\/i> Right<br><i>Score:<\/i> 0","<b>Oct 18, 2025<\/b><br><i>Side:<\/i> Right<br><i>Score:<\/i> 0","<b>Oct 28, 2025<\/b><br><i>Side:<\/i> Right<br><i>Score:<\/i> 0"],"textfont":{"size":15.118110236220474,"color":"rgba(0,0,0,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":49.872058369555965,"l":17.334993773349943},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,6.5999999999999996],"tickmode":"array","ticktext":["Oct 17","Oct 18","Oct 20","Oct 28","Oct 29","Oct 30"],"tickvals":[1,2,3,3.9999999999999996,5,6],"categoryorder":"array","categoryarray":["Oct 17","Oct 18","Oct 20","Oct 28","Oct 29","Oct 30"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.15000000000000002,3.1499999999999999],"tickmode":"array","ticktext":["0","1","2","3"],"tickvals":[0,0.99999999999999989,2,3],"categoryorder":"array","categoryarray":["0","1","2","3"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"a8452a757424":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"},"a84551bfd43":{"x":{},"y":{},"fill":{},"label":{},"colour":{},"text":{}}},"cur_data":"a8452a757424","visdat":{"a8452a757424":["function (y) ","x"],"a84551bfd43":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="tab-pane html-fill-item html-fill-container bslib-gap-spacing" data-value="Knee Flexion" id="tab-6605-3" style="gap:0;padding:0;">
 <div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
-<div class="plotly html-widget html-fill-item html-fill-container" id="htmlwidget-42d375ce8b1a5c119751" style="width:100%;height:400px;"></div>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-42d375ce8b1a5c119751" style="width:100%;height:400px;"></div>
 <script type="application/json" data-for="htmlwidget-42d375ce8b1a5c119751">{"x":{"data":[{"orientation":"v","width":[0.40500000000000003,0.40500000000000025,0.40500000000000025,0.40500000000000025,0.40499999999999936],"base":[0,0,0,0,0],"x":[0.77500000000000002,1.7749999999999999,3,3.7749999999999999,4.7750000000000004],"y":[100,105,118,121,125],"text":["<b>Oct 17, 2025<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 100","<b>Oct 18, 2025<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 105","<b>Oct 20, 2025<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 118","<b>Oct 28, 2025<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 121","<b>Oct 30, 2025<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 125"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.4049999999999998,0.40500000000000025,0.40499999999999936,0.40499999999999936],"base":[0,0,0,0],"x":[1.2250000000000001,2.2250000000000001,4.2249999999999996,5.2249999999999996],"y":[130,128,130,128],"text":["<b>Oct 17, 2025<\/b><br><i>Side:<\/i> Right<br><i>Score:<\/i> 130","<b>Oct 18, 2025<\/b><br><i>Side:<\/i> Right<br><i>Score:<\/i> 128","<b>Oct 28, 2025<\/b><br><i>Side:<\/i> Right<br><i>Score:<\/i> 130","<b>Oct 30, 2025<\/b><br><i>Side:<\/i> Right<br><i>Score:<\/i> 128"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.77500000000000002,1.7749999999999999,3,3.7749999999999999,4.7750000000000004],"y":[100,105,118,121,125],"text":["","","","",""],"hovertext":["<b>Oct 17, 2025<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 100","<b>Oct 18, 2025<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 105","<b>Oct 20, 2025<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 118","<b>Oct 28, 2025<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 121","<b>Oct 30, 2025<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 125"],"textfont":{"size":15.118110236220474,"color":"rgba(255,0,0,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1.2250000000000001,2.2250000000000001,4.2249999999999996,5.2249999999999996],"y":[130,128,130,128],"text":["","","",""],"hovertext":["<b>Oct 17, 2025<\/b><br><i>Side:<\/i> Right<br><i>Score:<\/i> 130","<b>Oct 18, 2025<\/b><br><i>Side:<\/i> Right<br><i>Score:<\/i> 128","<b>Oct 28, 2025<\/b><br><i>Side:<\/i> Right<br><i>Score:<\/i> 130","<b>Oct 30, 2025<\/b><br><i>Side:<\/i> Right<br><i>Score:<\/i> 128"],"textfont":{"size":15.118110236220474,"color":"rgba(0,0,0,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":49.872058369555965,"l":30.087173100871741},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,5.5999999999999996],"tickmode":"array","ticktext":["Oct 17","Oct 18","Oct 20","Oct 28","Oct 30"],"tickvals":[1,2,3,4,5],"categoryorder":"array","categoryarray":["Oct 17","Oct 18","Oct 20","Oct 28","Oct 30"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-6.5,136.5],"tickmode":"array","ticktext":["0","50","100"],"tickvals":[0,50,100],"categoryorder":"array","categoryarray":["0","50","100"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"a845672d99d0":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"},"a84562cd5b9b":{"x":{},"y":{},"fill":{},"label":{},"colour":{},"text":{}}},"cur_data":"a845672d99d0","visdat":{"a845672d99d0":["function (y) ","x"],"a84562cd5b9b":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="tab-pane html-fill-item html-fill-container bslib-gap-spacing" data-value="Quad Strength" id="tab-6605-4" style="gap:0;padding:0;">
 <div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
-<div class="plotly html-widget html-fill-item html-fill-container" id="htmlwidget-fb3995cc95daf4fb538b" style="width:100%;height:400px;"></div>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-fb3995cc95daf4fb538b" style="width:100%;height:400px;"></div>
 <script type="application/json" data-for="htmlwidget-fb3995cc95daf4fb538b">{"x":{"data":[{"orientation":"v","width":[0.19999999999999996,0.20000000000000018,0.20000000000000018],"base":[0,0,0],"x":[0.90000000000000002,1.8999999999999999,2.8999999999999999],"y":[47.509999999999998,60.329999999999998,67.069999999999993],"text":["Feb 27, 2026","Mar 02, 2026","Mar 23, 2026"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Max:<\/i>  %{y}<extra><\/extra>"},{"orientation":"v","width":[0.20000000000000018,0.20000000000000018,0.20000000000000018],"base":[0,0,0],"x":[1.1000000000000001,2.1000000000000001,3.1000000000000001],"y":[60.079999999999998,69.150000000000006,72.069999999999993],"text":["Feb 27, 2026","Mar 02, 2026","Mar 23, 2026"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Max:<\/i>  %{y}<extra><\/extra>"},{"x":[1.1000000000000001,1.1000000000000001,0.90000000000000002,0.90000000000000002,2.1000000000000001,2.1000000000000001,1.8999999999999999,1.8999999999999999,3.1000000000000001,3.1000000000000001,2.8999999999999999,2.8999999999999999],"y":[55.060000000000002,60.079999999999998,44.549999999999997,47.509999999999998,58.079999999999998,69.150000000000006,55.640000000000001,60.329999999999998,64.129999999999995,72.069999999999993,60.840000000000003,67.069999999999993],"text":["Feb 27, 2026","Feb 27, 2026","Feb 27, 2026","Feb 27, 2026","Mar 02, 2026","Mar 02, 2026","Mar 02, 2026","Mar 02, 2026","Mar 23, 2026","Mar 23, 2026","Mar 23, 2026","Mar 23, 2026"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":["rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(255,0,0,1)","rgba(255,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(255,0,0,1)","rgba(255,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(255,0,0,1)","rgba(255,0,0,1)"],"opacity":0.5,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>","xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":49.872058369555965,"l":39.651307596513085},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,3.6000000000000001],"tickmode":"array","ticktext":["Feb 27","Mar  2","Mar 23"],"tickvals":[1,2,3],"categoryorder":"array","categoryarray":["Feb 27","Mar  2","Mar 23"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-3.6034999999999999,75.67349999999999],"tickmode":"array","ticktext":["0","20","40","60"],"tickvals":[0,20,40,60],"categoryorder":"array","categoryarray":["0","20","40","60"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Peak Force (kg) <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"orientation":"h","x":0.29999999999999999,"y":-0.20000000000000001},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"a84558cf1e74":{"x":{},"fill":{},"text":{},"y":{},"type":"bar"},"a8455d87f39":{"x":{},"fill":{},"text":{},"y":{}}},"cur_data":"a84558cf1e74","visdat":{"a84558cf1e74":["function (y) ","x"],"a8455d87f39":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="tab-pane html-fill-item html-fill-container bslib-gap-spacing" data-value="Hamstring Strength" id="tab-6605-5" style="gap:0;padding:0;">
 <div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
-<div class="plotly html-widget html-fill-item html-fill-container" id="htmlwidget-64f8fed8305d1614f5d7" style="width:100%;height:400px;"></div>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-64f8fed8305d1614f5d7" style="width:100%;height:400px;"></div>
 <script type="application/json" data-for="htmlwidget-64f8fed8305d1614f5d7">{"x":{"data":[{"orientation":"v","width":[0.19999999999999996,0.20000000000000018],"base":[0,0],"x":[0.90000000000000002,1.8999999999999999],"y":[26.579999999999998,43.780000000000001],"text":["Mar 02, 2026","Mar 23, 2026"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Max:<\/i>  %{y}<extra><\/extra>"},{"orientation":"v","width":[0.20000000000000018,0.20000000000000018],"base":[0,0],"x":[1.1000000000000001,2.1000000000000001],"y":[32.5,46.810000000000002],"text":["Mar 02, 2026","Mar 23, 2026"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Max:<\/i>  %{y}<extra><\/extra>"},{"x":[1.1000000000000001,1.1000000000000001,0.90000000000000002,0.90000000000000002,1.8999999999999999,1.8999999999999999,2.1000000000000001,2.1000000000000001],"y":[31.579999999999998,32.5,24.649999999999999,26.579999999999998,38.399999999999999,43.780000000000001,44.810000000000002,46.810000000000002],"text":["Mar 02, 2026","Mar 02, 2026","Mar 02, 2026","Mar 02, 2026","Mar 23, 2026","Mar 23, 2026","Mar 23, 2026","Mar 23, 2026"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":["rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(255,0,0,1)","rgba(255,0,0,1)","rgba(255,0,0,1)","rgba(255,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)"],"opacity":0.5,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>","xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":49.872058369555965,"l":39.651307596513085},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,2.6000000000000001],"tickmode":"array","ticktext":["Mar  2","Mar 23"],"tickvals":[1,2],"categoryorder":"array","categoryarray":["Mar  2","Mar 23"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-2.3405,49.150500000000001],"tickmode":"array","ticktext":["0","10","20","30","40"],"tickvals":[0,10,20,30,40],"categoryorder":"array","categoryarray":["0","10","20","30","40"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Peak Force (kg) <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"orientation":"h","x":0.29999999999999999,"y":-0.20000000000000001},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"a8453418538f":{"x":{},"fill":{},"text":{},"y":{},"type":"bar"},"a8452915ec01":{"x":{},"fill":{},"text":{},"y":{}}},"cur_data":"a8453418538f","visdat":{"a8453418538f":["function (y) ","x"],"a8452915ec01":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
@@ -855,23 +884,15 @@ ul.task-list li input[type="checkbox"] {
 <button aria-expanded="false" aria-label="Expand card" class="bslib-full-screen-enter badge rounded-pill"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;fill:currentColor;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg></button>
 </bslib-tooltip>
 <script data-bslib-card-init="">bslib.Card.initializeAllCards();</script>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
-</div>
-
-
-<div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden html-fill-item html-fill-container">
-
 </div>
 </div>
 </div>
 </div>
 
 
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -959,6 +980,11 @@ ul.task-list li input[type="checkbox"] {
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -1287,14 +1313,6 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </footer>
 
-<script type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (_event) {
-  if (window.bslib.Card) {
-    window.bslib.Card.initializeAllCards();
-  }
-}); 
-</script>
-  
 
 
 
