@@ -2,11 +2,11 @@ project:
   type: website
   # pre-render:
   #   - quarto render book        # build the book first
-  render:
-    - "*.qmd"
-    - "dashboards/*.qmd"
-    - "!book/*.qmd"
-    - "!book/**/*.qmd"          # don't render book sources as pages
+  # render:
+  #   - "*.qmd"
+  #   - "dashboards/*.qmd"
+  #   - "!book/*.qmd"
+  #   - "!book/**/*.qmd"          # don't render book sources as pages
 
 website:
   title: "ACL Rehabilitation Hub"
@@ -20,8 +20,8 @@ website:
         href: index.qmd
       - text: "About"
         href: about.qmd
-      - text: "ACL Guide"
-        href: guide.qmd
+      # - text: "ACL Guide"
+      #   href: guide.qmd
       - text: "Guide"
         href: docs/guide/index.qmd
       - text: "Dashboards"
