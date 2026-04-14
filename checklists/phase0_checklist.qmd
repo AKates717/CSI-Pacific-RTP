@@ -138,16 +138,12 @@ htmltools::div(
     ),
     nav_panel(
       "Quad Strength",
-      plot_iso_magnitude("Quads")
+      plot_iso_magnitude(iso_joint, "Quads")
     ),
     nav_panel(
       "Hamstring Strength",
-      plot_iso_magnitude("Hamstrings")
+      plot_iso_magnitude(iso_joint, "Hamstrings")
     )
   )
 )
 ```
-
-Some Writing
-
-Some More Writing
