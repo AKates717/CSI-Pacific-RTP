@@ -85,7 +85,7 @@ goals_progress_bar(met_n_all, total_n_all)
 
 ```{=html}
 <div class="break-logo">
-  <img src="../../images/csi-logo-medal-only.png" alt="">
+  <img src="images/csi-logo-medal-only.png" alt="">
 </div>
 ```
 
@@ -127,7 +127,7 @@ Targeted movement retraining exercises are built directly into all CSI Pacific A
 
 ```{=html}
 <div class="break-logo">
-  <img src="../../images/csi-logo-medal-only.png" alt="">
+  <img src="images/csi-logo-medal-only.png" alt="">
 </div>
 ```
 
@@ -192,7 +192,7 @@ for (i in seq_len(nrow(tests))) {
 
 ```{=html}
 <div class="break-logo">
-  <img src="../../images/csi-logo-medal-only.png" alt="">
+  <img src="images/csi-logo-medal-only.png" alt="">
 </div>
 ```
 
@@ -207,9 +207,8 @@ When considering changes or further individualization of the program, and to see
 These programs have been designed by S&C coaches with many years of experience leading ACL rehabilitations. The programs are also evidence-informed and represent the product of study, translation, and implementation to bridge the gap between research and practice. The five most influential peer-reviewed articles that were utilized in the construction of the Phase 1 training programs are referenced here [@buckthorpe2024]
 
 ```{=html}
-
 <div class="break-logo">
-  <img src="../../images/csi-logo-medal-only.png" alt="">
+  <img src="images/csi-logo-medal-only.png" alt="">
 </div>
 ```
 
@@ -243,12 +242,12 @@ Regarding phase 1 specifically, studies have explored the effect of BFR introduc
 
 Other studies have started BFR within time-frames associated with Phase 1 ACL rehab, and provide further precedence for the use of BFR in the early stages [i.e. @ohta2003]. However, given the nature of these studies, they do not allow firm conclusions to be drawn about optimal initiation or sequencing of BFR use. These longer term studies will be discussed in more detail in subsequent chapters.
 
-Overall, there is some evidence supporitng the use of BFR in Phase 1 ACL rehabilitation, though the literature is still evolving. BFR in general is well-studied and it's ability to mitigate muscle atrophy in the absence of heavy loads is well established. Therefore, practitioners may choose to safely integrate BFR into the rehab program during Phase 1. These recommendations will be updated as new research is released.
+Overall, there is some evidence supporting the use of BFR in Phase 1 ACL rehabilitation, though the literature is still evolving. BFR in general is well-studied and it's ability to mitigate muscle atrophy in the absence of heavy loads is well established. Therefore, practitioners may choose to safely integrate BFR into the rehab program during Phase 1. These recommendations will be updated as new research is released.
 
 ```{=html}
 
 <div class="break-logo">
-  <img src="../../images/csi-logo-medal-only.png" alt="">
+  <img src="images/csi-logo-medal-only.png" alt="">
 </div>
 ```
 

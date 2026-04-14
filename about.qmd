@@ -5,7 +5,7 @@ formal: html
 
 This site contains resources, guides, and tools for ACL rehabilitation, including:
 
--   The full CSI Pacific [ACL Guide](guide.qmd) — Complete rehab phases and outcome measures.
+-   The full CSI Pacific [ACL Guide](docs/guide/index.qmd) — Complete rehab phases and outcome measures.
 -   Checklists tracking your precise status through the rehab journey
 -   Detailed dashboards summarizing every important detail about your rehab
 
@@ -45,7 +45,7 @@ The landing page of this site provides a quick overview of the athlete's current
 
 ## ACL Guide
 
-The [CSI Pacific ACL Guide](guide.qmd "ACL Guide") is an e-book which serves as the comprehensive guide to ACL rehab. This book contains everything you need to ensure best practice from the moment of injury, all the way to Return to Performance and beyond.
+The CSI Pacific [ACL Guide](docs/guide/index.qmd "ACL Guide") is an e-book which serves as the comprehensive guide to ACL rehab. This book contains everything you need to ensure best practice from the moment of injury, all the way to Return to Performance and beyond.
 
 ## Dashboards
 
@@ -75,11 +75,11 @@ a.  Progress through the phases of rehab
 
     i.  [Pre-Op Phase](checklists/phase0_checklist.qmd)
 
-    ii. Phase 1
+    ii. [Phase 1](checklists/phase1_checklist.qmd)
 
-    iii. Phase 2
+    iii. [Phase 2](checklists/phase2_checklist.qmd)
 
-    iv. Phase 3
+    iv. [Phase 3](checklists/phase3_checklist.qmd)
 
     v.  Phase 4
 
