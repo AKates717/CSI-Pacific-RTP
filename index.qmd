@@ -352,11 +352,11 @@ htmltools::div(
     title = htmltools::tags$span(style = "font-weight:700; font-size:1.2rem;", "Strength"),
     nav_panel(
       "Quads",
-      plot_iso_magnitude("Quads")
+      plot_iso_magnitude(iso_joint, "Quads")
     ),
     nav_panel(
       "Hams",
-      plot_iso_magnitude("Hamstrings")
+      plot_iso_magnitude(iso_joint, "Hamstrings")
     ),
   )
 )

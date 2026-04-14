@@ -587,10 +587,10 @@ plot_ind_phase_outcomes <- function(phase, outcome){
 
 
 #Bar plot for magnitude outcomes of max score + geom_point for all outcome scores
-plot_iso_magnitude <- function(outcome){
+plot_iso_magnitude <- function(data, outcome){
   
   
-  df <- iso_joint2 %>%
+  df <- data %>%
     dplyr::filter(test == outcome)
   
   p <-  df %>%
