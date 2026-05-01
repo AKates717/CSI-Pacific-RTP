@@ -20,10 +20,10 @@ source("Themes.R")
 The first phase of ACL rehabilitation begins immediately following surgery. The body will require a period of rest and recovery, along with some targeted recovery interventions such as the use of crutches, icing and elevation. It is important to remember that every injury and every surgery are different, but in many cases, Phase 1 must involve much more than just passive recovery. The key will be to strike a balance among passive and active interventions and to consistently work towards satisfying a few targeted criteria in order to prepare the knee for more intense progressions in the coming phases.
 
 ::: {.callout-important title="Most Important Goals — Phase 1"}
--   Reduce pain and swelling
--   Regain range of motion: Get the knee straight!
--   Re-establish normal gait
--   Re-establish control of the quadriceps muscles
+- Reduce pain and swelling
+- Regain range of motion: Get the knee straight!
+- Re-establish normal gait
+- Re-establish control of the quadriceps muscles
 :::
 
 The goal of this Phase 1 protocol is to support both athlete and practitioner in striking the optimal balance between recovery, strength and mobility while being guided by these goals. **`r params$athlete`'s** progress towards these goals will be assessed via the criteria seen below. Detailed description of each criteria and the associated testing methodology can be found in @sec-p1-testing.
@@ -255,5 +255,5 @@ Overall, there is some evidence supporting the use of BFR in Phase 1 ACL rehabil
 
 All feedback is welcome, however here are some considerations that should help inform the development of this chapter.
 
--   As an experienced practitioner who would be using this tool to lead a rehab: after reading this chapter, and familiarizing yourself with the program, the data collection tools, and the dashboards.. does it all align and fit together in a way that will help you take the lead on a rehab?
--   I would like a PS2 S&C practitioner to be able to read this chapter and feel comfortable that they understand the theory behind the program that they are implementing. Have I achieved this goal?
+- As an experienced practitioner who would be using this tool to lead a rehab: after reading this chapter, and familiarizing yourself with the program, the data collection tools, and the dashboards.. does it all align and fit together in a way that will help you take the lead on a rehab?
+- I would like a PS2 S&C practitioner to be able to read this chapter and feel comfortable that they understand the theory behind the program that they are implementing. Have I achieved this goal?
