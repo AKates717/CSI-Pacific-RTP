@@ -87,15 +87,15 @@ Importantly, this protocol is **criteria-based**. Every athlete will move throug
 
 This protocol is different from previously published ACL Rehabilitation Protocols in that it is a living document, fully integrated with all of the athlete's data and unique information needed to tailor the process to the individual. Some advantages of this approach include:
 
--   **All information is in one place.** There is no need to email documents back and forth, or to print PDFs, or to rely on pencil and paper data collection. Every person involved in the rehab will have consistent access to all information, allowing seamless collaboration amongst everyone involved.
+- **All information is in one place.** There is no need to email documents back and forth, or to print PDFs, or to rely on pencil and paper data collection. Every person involved in the rehab will have consistent access to all information, allowing seamless collaboration amongst everyone involved.
 
--   **Direct integration with CSI Pacific's Athlete Management System (AMS).** This enable meticulous tracking of every aspect of an ACL rehab, so we can deliver the best rehab possible while also learning what we can improve for future cases.
+- **Direct integration with CSI Pacific's Athlete Management System (AMS).** This enable meticulous tracking of every aspect of an ACL rehab, so we can deliver the best rehab possible while also learning what we can improve for future cases.
 
--   **Automated tailoring of the process to the individual based on certain aspects of the injury.** For example, the rehabilitation will differ based on the type of surgery that is performed. Important information like this will be baked into the back end of this document, ensuring that the correct procedures are in place.
+- **Automated tailoring of the process to the individual based on certain aspects of the injury.** For example, the rehabilitation will differ based on the type of surgery that is performed. Important information like this will be baked into the back end of this document, ensuring that the correct procedures are in place.
 
--   **One common tool for all users.** Once an athlete or practitioner becomes familiar with the document, they will be able to easily find the information that is important to them. For example, the athlete may only be interested in a brief overview of their current status, while the S&C coach may want to deep dive into the academic references. In short, each user can decide how they interact with this tool.
+- **One common tool for all users.** Once an athlete or practitioner becomes familiar with the document, they will be able to easily find the information that is important to them. For example, the athlete may only be interested in a brief overview of their current status, while the S&C coach may want to deep dive into the academic references. In short, each user can decide how they interact with this tool.
 
--   **Continuous Innovation**. As new evidence and tools become available, the document can easily be updated to reflect current best-practice.
+- **Continuous Innovation**. As new evidence and tools become available, the document can easily be updated to reflect current best-practice.
 
 ## A Note To The Athlete
 

@@ -34,10 +34,10 @@ phase0_length_tbl
 Regardless of the length of the prehab window, the research is clear that the length of time between injury and surgery is far less important than the quality of pre-ACLR care provided @young2023. Current research has found the following most important areas of focus at this stage:
 
 ::: {.callout-important title="Most Important Goals — Pre-Op"}
--   Reduce pain and swelling
--   Regain range of motion
--   Re-establish normal gait
--   Regain quadriceps and hamstring strength
+- Reduce pain and swelling
+- Regain range of motion
+- Re-establish normal gait
+- Regain quadriceps and hamstring strength
 :::
 
 **`r params$athlete`'s** progress towards these goals will be assessed via the criteria seen below. Detailed description of each criteria and the associated testing methodology can be found in the @sec-phase0testing section of this chapter.
@@ -260,10 +260,10 @@ Below is a summary of the protocols used in each of these studies. This informat
 
 **Exercises: [@tramer2023]**
 
--   Quadriceps contractions in end-range extension
--   Straight leg raises
--   Long arc quads
--   Double leg quarter squats
+- Quadriceps contractions in end-range extension
+- Straight leg raises
+- Long arc quads
+- Double leg quarter squats
 
 **Limb Occlusion Pressure:** 80%
 
@@ -283,10 +283,10 @@ Below is a summary of the protocols used in each of these studies. This informat
 
 **Exercises [@okoroha2023]:**
 
--   Quadriceps contractions in end-range extension
--   Straight leg raises
--   Long arc quads
--   Double leg quarter squats
+- Quadriceps contractions in end-range extension
+- Straight leg raises
+- Long arc quads
+- Double leg quarter squats
 
 **Limb Occlusion Pressure:** 80%
 
@@ -306,8 +306,8 @@ Below is a summary of the protocols used in each of these studies. This informat
 
 **Exercises [@kacin2021] :**
 
--   Isotonic Leg Extension
--   Isotonic Leg Flexion
+- Isotonic Leg Extension
+- Isotonic Leg Flexion
 
 **Limb Occlusion Pressure:** 150mmHg
 
@@ -329,7 +329,7 @@ Below is a summary of the protocols used in each of these studies. This informat
 
 **Exercises [@zargi2018] :**
 
--   Leg Extension
+- Leg Extension
 
 **Limb Occlusion Pressure:** 150mmHg
 
@@ -364,7 +364,7 @@ At this time, there is only limited scientific evidence supporting the use of NM
 
 All feedback is welcome, however here are some considerations that should help inform the development of this tool.
 
--   Please comment on the overall structure of the chapter. Would you be happy for each chapter to be structured like this?
--   From the perspective of a practitioner: what is missing from this chapter? what questions are you left with? do you feel like this provides the resources and the information needed to implement the rehab?
--   From the perspective of an athlete: Is the information here easy to understand? Does this provide value
--   Please comment on the phase criteria. Is there anything you would add or remove? Ideally, any suggestions are backed by peer-reviewed research
+- Please comment on the overall structure of the chapter. Would you be happy for each chapter to be structured like this?
+- From the perspective of a practitioner: what is missing from this chapter? what questions are you left with? do you feel like this provides the resources and the information needed to implement the rehab?
+- From the perspective of an athlete: Is the information here easy to understand? Does this provide value
+- Please comment on the phase criteria. Is there anything you would add or remove? Ideally, any suggestions are backed by peer-reviewed research

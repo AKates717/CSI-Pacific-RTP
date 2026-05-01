@@ -12,7 +12,7 @@ ui <- page_navbar(
     tags$link(rel = "stylesheet", href = "app.css")
   ),
   
-  
+  # Wellness ----
   nav_panel(
     title = "Daily Wellness",
     
