@@ -43,17 +43,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8caf6eaa0938078aad3b4e3e78d03e50.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-1ef96afe714fde892753836e02150751.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-1ef96afe714fde892753836e02150751.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-1ef96afe714fde892753836e02150751.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<script src="../../site_libs/quarto-dashboard/quarto-dashboard.js"></script>
-<script src="../../site_libs/quarto-dashboard/stickythead.js"></script>
-
-
-
-<script src="../../site_libs/quarto-dashboard/web-components.js" type="module"></script>
-<script src="../../site_libs/quarto-dashboard/components.js"></script>
-
+<link href="../../site_libs/bootstrap/bootstrap-b1638ddcc617931ab7523b2d9967f0b1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-b1638ddcc617931ab7523b2d9967f0b1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-b1638ddcc617931ab7523b2d9967f0b1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -82,12 +74,61 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Fix bslib navset_card_tab markup so Quarto doesn't rewrite tab hrefs
+  document.querySelectorAll('ul.nav.nav-tabs.card-header-tabs[data-tabsetid]').forEach(ul => {
+
+    // Make <li> look like Bootstrap 5 nav items
+    ul.querySelectorAll('li').forEach(li => li.classList.add('nav-item'));
+
+    // Make <a> look like Bootstrap 5 nav links AND force fragment-only href
+    ul.querySelectorAll('a[role="tab"], a[data-bs-toggle="tab"]').forEach(a => {
+      a.classList.add('nav-link');
+
+      // Force href to be fragment-only (#tab-xxxx-y)
+      const href = a.getAttribute('href') || '';
+      if (href.includes('#')) {
+        a.setAttribute('href', '#' + href.split('#').pop());
+      }
+    });
+
+    // Normalize "active" state: Bootstrap 5 wants active on <a>, not <li>
+    const activeFromA = ul.querySelector('a.active,[aria-selected="true"]');
+    const activeFromLi = ul.querySelector('li.active > a');
+    const activeA = activeFromA || activeFromLi;
+
+    ul.querySelectorAll('li.active').forEach(li => li.classList.remove('active'));
+
+    if (activeA) {
+      ul.querySelectorAll('a').forEach(a => {
+        const on = (a === activeA);
+        a.classList.toggle('active', on);
+        a.setAttribute('aria-selected', on ? 'true' : 'false');
+        if (!on) a.setAttribute('tabindex', '-1'); else a.removeAttribute('tabindex');
+      });
+
+      // Ensure only the matching pane is active/show
+      const tabsetId = ul.getAttribute('data-tabsetid');
+      const container = document.querySelector('.tab-content[data-tabsetid="' + tabsetId + '"]');
+      if (container) {
+        const target = activeA.getAttribute('href'); // now guaranteed "#tab-..."
+        container.querySelectorAll('.tab-pane').forEach(pane => {
+          const on = ('#' + pane.id) === target;
+          pane.classList.toggle('active', on);
+          pane.classList.toggle('show', on);
+        });
+      }
+    }
+  });
+});
+</script>
 
 
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="quarto-dashboard nav-sidebar nav-fixed dashboard-fill fullcontent quarto-light">
-
+<body class="nav-sidebar floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -188,37 +229,144 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-<header id="quarto-dashboard-header">
-<nav class="navbar navbar-expand-md slim" data-bs-theme="dark">
-  <div class="navbar-container container-fluid">
-    <button class="navbar-toggler hidden" type="button" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-controls="dashboard-collapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>    
-
-
-    <div class="navbar-brand-container">
-
-
-      <div class="navbar-title">
-        <div class="navbar-title-text"><a href="#">Canadian Sport Institute Pacific — ACL Rehabilitation Guide</a></div>
-        <div class="navbar-subtitle">By: Andrew Kates</div>
-        
-      </div>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+          <h1 class="quarto-secondary-nav-title">Canadian Sport Institute Pacific — ACL Rehabilitation Guide</h1>
+        </a>     
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
     </div>
-</div>
-</nav>
-</header></header>
+  </nav>
+</header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-layout-custom page-navbar quarto-dashboard-content bslib-gap-spacing html-fill-container bslib-page-fill">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../../../images/Cover1.jpeg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../../../../images/Cover1.jpeg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../docs/guide/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Guide</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">The Protocol</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/guide/preop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pre-Operation Phase</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/guide/phase1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Phase 1: Recovery from Surgery</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/guide/phase2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Phase 2: Strength &amp; Neuromuscular Control</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/guide/phase3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Phase 3: Dynamic Neuromuscular Performance</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/guide/phase4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Phase 4: Return to Sport</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/guide/phase5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Phase 5: Return to Performance</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/guide/references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#ch-intro" id="toc-ch-intro" class="nav-link active" data-scroll-target="#ch-intro">Introduction</a></li>
+  <li><a href="#a-note-to-the-athlete" id="toc-a-note-to-the-athlete" class="nav-link" data-scroll-target="#a-note-to-the-athlete">A Note To The Athlete</a></li>
+  <li><a href="#a-note-to-practitioners" id="toc-a-note-to-practitioners" class="nav-link" data-scroll-target="#a-note-to-practitioners">A Note To Practitioners</a></li>
+  <li><a href="#the-six-phases-of-acl-rehabilitation" id="toc-the-six-phases-of-acl-rehabilitation" class="nav-link" data-scroll-target="#the-six-phases-of-acl-rehabilitation">The Six Phases of ACL Rehabilitation</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
+<main class="content page-columns page-full column-body" id="quarto-document-content">
 
-<div class="bslib-grid-item html-fill-item bslib-grid" data-layout="fill" style="display: grid; grid-template-rows: minmax(3em, max-content) minmax(3em, max-content) minmax(3em, max-content) minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
-<div class="unnumbered bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Canadian Sport Institute Pacific — ACL Rehabilitation Guide</h1>
+<p class="subtitle lead">By: Andrew Kates</p>
+</div>
+
+
+
+<div class="quarto-title-meta column-body">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="ch-intro" class="level2 unnumbered page-columns page-full">
+<h2 class="unnumbered anchored" data-anchor-id="ch-intro">Introduction</h2>
+<div class="columns">
 <div class="column" style="width:70%;">
 <p>This ACL rehabilitation protocol is designed as a comprehensive resource for every person involved in a rehab, starting with the athlete them-self. This document will allow the athlete to take ownership of the rehabilitation process and to know exactly how they are progressing throughout the journey. Although the athlete is at the centre of this process at all times, this document is technical and scientific, and will provide CSI Pacific staff, Integrated Service Team (IST) members, and other sport partner personnel with a thoroughly-researched, evidence-based plan to help the athlete return to performance.</p>
 </div><div class="column" data-fig-align="right" style="width:30%;">
@@ -228,10 +376,9 @@ grid-auto-rows: minmax(0, 1fr);">
 </figure>
 </div>
 </div>
-</div><div class="card bslib-card html-fill-container" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
+</div>
 <p>This protocol embodies and aligns closely with CSI Pacific’s Critical Success Factors:</p>
-<div class="{=html} html-fill-item html-fill-container">
+<div class="{=html}">
 <style>
   .csf-grid {
     display: grid;
@@ -256,28 +403,28 @@ grid-auto-rows: minmax(0, 1fr);">
   .csf-list li { margin: .25rem 0; }
 </style>
 </div>
-<div class="csf-grid column-body-outset-right html-fill-item html-fill-container">
-<div class="csf-card html-fill-item html-fill-container">
-<div class="csf-title html-fill-item html-fill-container">
-Collaborate
+<div class="csf-grid column-body-outset-right">
+<div class="csf-card">
+<div class="csf-title">
+<p>Collaborate</p>
 </div>
 <p>This tool facilitates seamless collaboration amongst every member of the athlete’s support team. All information will be in one place and everybody will have the opportunity to be on the same page.</p>
 </div>
-<div class="csf-card html-fill-item html-fill-container">
-<div class="csf-title html-fill-item html-fill-container">
-Serve
+<div class="csf-card">
+<div class="csf-title">
+<p>Serve</p>
 </div>
 <p>An athlete-centred approach, backed by the dedication and hard work of CSI Pacific practitioners will give athletes the best possible chance of a successful return to performance.</p>
 </div>
-<div class="csf-card html-fill-item html-fill-container">
-<div class="csf-title html-fill-item html-fill-container">
-Innovate
+<div class="csf-card">
+<div class="csf-title">
+<p>Innovate</p>
 </div>
 <p>This ambitious protocol, centred on meticulous data management is unique in the field of injury rehabilitation. It allows us to continually provide best-practice service, and to learn and grow with every successful rehab.</p>
 </div>
-<div class="csf-card html-fill-item html-fill-container">
-<div class="csf-title html-fill-item html-fill-container">
-Perform
+<div class="csf-card">
+<div class="csf-title">
+<p>Perform</p>
 </div>
 <p>This protocol is backed by the latest scientific research as well as the experience of expert-level practitioners who have led successful rehabilitations for some of Canada’s top athletes.</p>
 </div>
@@ -292,18 +439,10 @@ Perform
 <li><p><strong>One common tool for all users.</strong> Once an athlete or practitioner becomes familiar with the document, they will be able to easily find the information that is important to them. For example, the athlete may only be interested in a brief overview of their current status, while the S&amp;C coach may want to deep dive into the academic references. In short, each user can decide how they interact with this tool.</p></li>
 <li><p><strong>Continuous Innovation</strong>. As new evidence and tools become available, the document can easily be updated to reflect current best-practice.</p></li>
 </ul>
-</div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
-</div>
-<div class="bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
+</section>
+<section id="a-note-to-the-athlete" class="level2">
+<h2 class="anchored" data-anchor-id="a-note-to-the-athlete">A Note To The Athlete</h2>
+<div class="columns">
 <p>A foundational objective of this protocol is to be as open as possible, and to facilitate sharing of information. We aim to provide you the resources needed to understand the process and take ownership over your rehab.</p><div class="column" style="width:50%;">
 <p>With that said, much of the information in this book is targeted towards a multidisciplinary team of practitioners with advanced education in human movement and experience guiding injury rehabilitation. This protocol should provide a framework for each of these professionals to participate in an athlete-centred approach.</p>
 </div><div class="column" style="width:50%;">
@@ -314,55 +453,36 @@ grid-auto-rows: minmax(0, 1fr);">
 </div>
 </div><p>There is no expectation for you to read this e-book front-to-back, but all of the information is there for you to engage with as you wish, and of course, questions are always encouraged!</p>
 </div>
-</div>
-<div class="bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="card bslib-card html-fill-container" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
+</section>
+<section id="a-note-to-practitioners" class="level2">
+<h2 class="anchored" data-anchor-id="a-note-to-practitioners">A Note To Practitioners</h2>
 <p>This protocol strives to gather the best available evidence on ACL rehabilitation and to organize that information in a way that is directly actionable. Practitioners and decision makers should be able to follow along and obtain a clear picture of WHAT needs to be accomplished and also HOW to accomplish it. While this document is meant as a comprehensive resource, it is important to acknowledge that there will always be many different ways to approach any situation. Not all practitioners will agree on the optimal approach at all times, and that is okay. A primary goal of this document is to serve as a starting point for productive collaboration between all practitioners involved in the rehab process. Used effectively, this resource should help an integrated service team deliver the best possible rehab for the athlete. The protocol alone does not ensure a strong and successful return to performance; such an outcome will depend first and foremost on the dedicated and attentive delivery of the protocol by skilled practitioners.</p>
+</section>
+<section id="the-six-phases-of-acl-rehabilitation" class="level2">
+<h2 class="anchored" data-anchor-id="the-six-phases-of-acl-rehabilitation">The Six Phases of ACL Rehabilitation</h2>
+<div class="phase-nav">
+<p><a href="#sec-pre-op-phase" class="phase-nav btn phase-preop">Pre-Op: Injury recovery &amp; readiness for surgery</a></p>
 </div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+<div class="phase-nav">
+<p><a href="#phase-1-recovery-from-surgery" class="phase-nav btn phase-1">Phase 1: Recovery from surgery</a></p>
 </div>
-<div class="bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="card bslib-card html-fill-container" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
-<div class="phase-nav html-fill-item html-fill-container">
-<a href="#sec-pre-op-phase" class="phase-nav btn phase-preop">Pre-Op: Injury recovery &amp; readiness for surgery</a>
+<div class="phase-nav">
+<p><a href="#phase-2-strength-and-neuromuscular-control" class="btn phase-2">Phase 2: Strength and neuromuscular control</a></p>
 </div>
-<div class="phase-nav html-fill-item html-fill-container">
-<a href="#phase-1-recovery-from-surgery" class="phase-nav btn phase-1">Phase 1: Recovery from surgery</a>
+<div class="phase-nav">
+<p><a href="#phase-3-running-agility-and-landings" class="btn phase-3">Phase 3: Dynamic Neuromuscular Performance</a></p>
 </div>
-<div class="phase-nav html-fill-item html-fill-container">
-<a href="#phase-2-strength-and-neuromuscular-control" class="btn phase-2">Phase 2: Strength and neuromuscular control</a>
+<div class="phase-nav">
+<p><a href="#phase-4-return-to-sport" class="btn phase-4">Phase 4: Return to sport</a></p>
 </div>
-<div class="phase-nav html-fill-item html-fill-container">
-<a href="#phase-3-running-agility-and-landings" class="btn phase-3">Phase 3: Running, agility, and landings</a>
-</div>
-<div class="phase-nav html-fill-item html-fill-container">
-<a href="#phase-4-return-to-sport" class="btn phase-4">Phase 4: Return to sport</a>
-</div>
-<div class="phase-nav html-fill-item html-fill-container">
-<a href="#phase-5-prevention-of-re-injury" class="btn phase-5">Phase 5: Prevention of re-injury</a>
-</div>
-</div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden">
-
-</div>
-</div>
+<div class="phase-nav">
+<p><a href="#phase-5-prevention-of-re-injury" class="btn phase-5">Phase 5: Return to Performance</a></p>
 </div>
 
 
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -450,6 +570,11 @@ grid-auto-rows: minmax(0, 1fr);">
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -778,14 +903,6 @@ grid-auto-rows: minmax(0, 1fr);">
   </div>
 </footer>
 
-<script type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (_event) {
-  if (window.bslib.Card) {
-    window.bslib.Card.initializeAllCards();
-  }
-}); 
-</script>
-  
 
 
 

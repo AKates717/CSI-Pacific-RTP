@@ -73,6 +73,8 @@ website:
                 - docs/guide/phase1.qmd
                 - docs/guide/phase2.qmd
                 - docs/guide/phase3.qmd
+                - docs/guide/phase4.qmd
+                - docs/guide/phase5.qmd
             - docs/guide/references.qmd
 
 

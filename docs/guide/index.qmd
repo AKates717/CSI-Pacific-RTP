@@ -132,7 +132,7 @@ This protocol strives to gather the best available evidence on ACL rehabilitatio
 :::
 
 ::: phase-nav
-[Phase 3: Running, agility, and landings](#phase-3-running-agility-and-landings){.btn .phase-3}
+[Phase 3: Dynamic Neuromuscular Performance](#phase-3-running-agility-and-landings){.btn .phase-3}
 :::
 
 ::: phase-nav
@@ -140,5 +140,5 @@ This protocol strives to gather the best available evidence on ACL rehabilitatio
 :::
 
 ::: phase-nav
-[Phase 5: Prevention of re-injury](#phase-5-prevention-of-re-injury){.btn .phase-5}
+[Phase 5: Return to Performance](#phase-5-prevention-of-re-injury){.btn .phase-5}
 :::

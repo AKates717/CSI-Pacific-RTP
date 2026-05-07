@@ -100,6 +100,9 @@ phase0_length <- ifelse(
 #2. FORCE PLATES ----
 ####
 
+#For filtering 
+athlete_name <- "Frank Reynolds"
+
 #Load and wrangle Force Plate Data - currently coming from excel
 FPDatabase_full <- read_excel("sample_data/FP-Database.xlsx",
                               sheet = "Database",
@@ -107,11 +110,12 @@ FPDatabase_full <- read_excel("sample_data/FP-Database.xlsx",
                               na = c("","N/A","NaN")
 ) %>%
   clean_names() %>%
+  filter(athlete == athlete_name) %>%
   mutate(date_ddmmyear = as.Date(date_ddmmyear),
          date_ddmmyear2 =  (format(date_ddmmyear, "%b %d, %Y")))
 
 
-#Recent Five ----
+## Recent Five ----
 #Select athlete name and jump type to create a dataframe of their last five test dates
 recent_five <- function(athlete1, activity1) {
   FPDatabase_full %>%
@@ -121,46 +125,72 @@ recent_five <- function(athlete1, activity1) {
 }
 
 
-#For filtering 
-athlete <- "Frank Reynolds"
+
 #If we need info from this database throughout the site (i.e. body mass)
-recent_five_cmj <- recent_five(athlete, "CMJ")
+recent_five_cmj <- recent_five(athlete_name, "CMJ")
 #Most Recent Body Mass (kg)
 body_mass <- as.numeric(recent_five_cmj[1,6])
 
 
+## Baseline Data ----
+  #Return the mean of the following values from the past year
+  #flight_height_tov, 
+baseline_cmj <- FPDatabase_full %>%
+  filter(activity == "CMJ") %>%
+  filter(
+    date_ddmmyear <= Rehab_Info$date_of_surgery &
+      date_ddmmyear >= Rehab_Info$date_of_surgery %m-% years(3)
+  )
+
+baseline_cmj_summary <- baseline_cmj %>%
+  dplyr::summarise(avg_cmj_height = mean(flight_height_tov),
+                   sd_cmj_height = sd(flight_height_tov))
+
+
+post_cmj <- FPDatabase_full %>%
+  filter(activity == "CMJ") %>%
+  filter(date_ddmmyear >= Rehab_Info$date_of_surgery)
+  
+
+
+p3_cmjheight <- post_cmj %>%
+  group_by(date_ddmmyear) %>%
+  summarise(
+    avg_cmj_height = mean(flight_height_tov),
+    .groups = "drop"
+  )
+
+p3_cmjheight_best <- p3_cmjheight %>%
+  slice_max(avg_cmj_height, n = 1, with_ties = FALSE)
 
 
 
   
-
-
-
 
 ####
 #3. WELLNESS MONITORING ----
 ####
 
 
-acl_rsi <- read_excel(
-  "sample_data/mental_perform.xlsx",
-  sheet = "acl_rsi"
-) %>% clean_names() %>%
-  mutate(date_ddmmyear = as.Date(date),
-         date_ddmmyear2 =  (format(date_ddmmyear, "%b %d, %Y")))
+# acl_rsi <- read_excel(
+#   "sample_data/mental_perform.xlsx",
+#   sheet = "acl_rsi"
+# ) %>% clean_names() %>%
+#   mutate(date_ddmmyear = as.Date(date),
+#          date_ddmmyear2 =  (format(date_ddmmyear, "%b %d, %Y")))
+# 
+# 
+# acl_rsi_score <- acl_rsi %>%
+#   select(date, date_ddmmyear2, score) %>%
+#   mutate(score = score*100)
 
 
-acl_rsi_score <- acl_rsi %>%
-  select(date, date_ddmmyear2, score) %>%
-  mutate(score = score*100)
-
-
-wellness <- read_excel(
-  "sample_data/mental_perform.xlsx",
-  sheet = "pain"
-) %>% clean_names() %>%
-  mutate(date_ddmmyear = as.Date(date),
-         date_ddmmyear2 =  (format(date_ddmmyear, "%b %d, %Y")))
+# wellness <- read_excel(
+#   "sample_data/mental_perform.xlsx",
+#   sheet = "pain"
+# ) %>% clean_names() %>%
+#   mutate(date_ddmmyear = as.Date(date),
+#          date_ddmmyear2 =  (format(date_ddmmyear, "%b %d, %Y")))
 
 phase0 <- read_xlsx("sample_data/outcome_data.xlsx", sheet = "Phase_data") %>%
   clean_names() %>%
@@ -838,6 +868,20 @@ criteria_phase3 <- criteria_phase3 %>%
     goal
   ))
 
+#Past data multiplier for CMJ
+criteria_phase3 <- criteria_phase3 %>%
+  mutate(goal_pretty = case_when(
+    outcome_measure %in% c("CMJ Height") ~
+      paste0(round(0.8 * baseline_cmj_summary$avg_cmj_height, 0), " cm"),
+    TRUE ~ as.character(goal_pretty)
+  )) %>%
+  mutate(goal = if_else(
+    outcome_measure %in% c("CMJ Height"),
+    round(0.8 * baseline_cmj_summary$avg_cmj_height, 0),
+    goal
+  ))
+
+
 # 1c) Criteria Phase 3 - Cleaner - Dropping 3 Y-bal arguments, leg press
 criteria_phase3_abr <- criteria_phase3 %>%
   filter(!outcome_measure %in% c(
@@ -1171,6 +1215,9 @@ slhop_val_p3 <- suppressWarnings(as.numeric(if (exists("p3_slhop_best") && nrow(
 triplehop_val_p3 <- suppressWarnings(as.numeric(if (exists("p3_triplehop_best") && nrow(p3_triplehop_best) > 0) p3_triplehop_best$lsi[1] else NA_real_))
 triplecrosshop_val_p3 <- suppressWarnings(as.numeric(if (exists("p3_triplecrosshop_best") && nrow(p3_triplecrosshop_best) > 0) p3_triplecrosshop_best$lsi[1] else NA_real_))
 sidehop_val_p3 <- suppressWarnings(as.numeric(if (exists("p3_sidehop_best") && nrow(p3_sidehop_best) > 0) p3_sidehop_best$lsi[1] else NA_real_))
+
+cmjheight_val_p3 <- suppressWarnings(as.numeric(if (exists("p3_cmjheight_best") && nrow(p3_cmjheight_best) > 0) p3_cmjheight_best$avg_cmj_height[1] else NA_real_))
+
 slrise_val_p3  <- suppressWarnings(as.numeric(if (exists("p3_slrise_best")   && nrow(p3_slrise_best)   > 0) p3_slrise_best$value[1]  else NA_real_))
 vestbalanceH_val_p3  <- suppressWarnings(as.numeric(if (exists("p3_vestbalanceH_best")   && nrow(p3_vestbalanceH_best)   > 0) p3_vestbalanceH_best$value[1]  else NA_real_))
 vestbalanceV_val_p3  <- suppressWarnings(as.numeric(if (exists("p3_vestbalanceV_best")   && nrow(p3_vestbalanceV_best)   > 0) p3_vestbalanceV_best$value[1]  else NA_real_))
@@ -1193,6 +1240,9 @@ criteria_phase3_abr <- criteria_phase3_abr %>%
       outcome_measure == "Triple Hop"            ~ triplehop_val_p3,
       outcome_measure == "Triple Cross Over Hop"            ~ triplecrosshop_val_p3,
       outcome_measure == "Side Hop"            ~ sidehop_val_p3,
+      
+      outcome_measure == "CMJ Height"            ~ cmjheight_val_p3,
+      
       outcome_measure == "Single Leg Rise"   ~ slrise_val_p3,
       outcome_measure == "Vestibular Balance (Horizontal)"   ~ vestbalanceH_val_p3,
       outcome_measure == "Vestibular Balance (Vertical)"   ~ vestbalanceV_val_p3,
