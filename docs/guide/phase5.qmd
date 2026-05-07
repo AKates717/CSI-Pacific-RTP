@@ -1,5 +1,5 @@
 ---
-title: "Phase 3: Dynamic Neuromuscular Performance"
+title: "Phase 5: Return to Performance"
 
 params:
   athlete: "Frank Reynolds"
@@ -17,15 +17,15 @@ source("plot_functions.R")
 source("Themes.R")
 ```
 
-Upon completing phase 2 the athlete has developed adequate strength and neuromuscular control to begin building capacity to perform more dynamic tasks such as jumping, landing, running, agility, and change of direction. Development of muscular strength and neuromuscular control will continue to progress with the objective now to meet or exceed pre-injury values.
+Once all criteria from Phase 1 have been satisfied, the focus of rehab can shift towards building strength and neuromuscular control.
 
 ::: {.callout-important title="Most Important Goals — Phase 3"}
-- Muscular Strength Returns towards pre-injury values
-- Develop quality jumping/hopping/landing performance while progressing intensity and capacity
-- Demonstrate movement competence and confidence in agility and change of direction exercises
+- Excellent hopping performance
+- Complete agility program
+- Full strength & balance restored
 :::
 
-**`r params$athlete`'s** progress towards these goals will be assessed via the criteria seen below. Detailed description of each criteria and the associated testing methodology can be found in @sec-p3-testing.
+**`r params$athlete`'s** progress
 
 ```{r}
 #Create the table
@@ -132,53 +132,7 @@ goals_progress_bar(met_n_all, total_n_all)
 
 ## What does the research say? {#preop-outcomes}
 
-After achieving sufficient basic neuromuscular function, a period of additional advanced neuromuscular training must begin in order to restore dynamic and explosive neuromuscular performance [@buckthorpe2019a]. This advanced training will involve research-backed progressions of movements that are key during sports such as jumping, hopping, landing, running, agility, and change of direction. These progressions will be guided by criteria targeting **outcomes relying on rapid force development** such as maximal jump height or hop distance, as well as **movement quality** assessed both objectively and subjectively by IST practitioners.
-
-------------------------------------------------------------------------
-
-### Jumping, Hopping, and Landing
-
-The reintegration of dynamic tasks such as jumping and landing in order to re-develop neuromuscular performance and movement quality, while respecting tissue healing is an important piece of ACL rehab [@buckthorpe2021a]. When programming and implementing these exercises, the practitioner must understand the specific loading demands of the various tasks and the athlete's capacity to tolerate these loading demands.
-
-Beginning with the athlete's capacity, the literature recommends a minimum of 80% LSI in isometric leg extension before beginning single leg landing and jumping drills [@buckthorpe2020; @buckthorpe2019a]. Further research is needed to determine objective minimum strength scores to begin lower level jumping and landing drills, however the 75% Quadriceps Strength LSI required in Phase 2 of this protocol is an adequate estimation.
-
-A four stage plyometric progression program, aligned with the ACL functional recovery process has been proposed by Buckthorpe and Della Villa @buckthorpe2021a. This program considers the task and it's associated intensity and complexity, the required movement quality and strength to perform the tasks and specific monitoring of responses and criteria.
-
-Progression through the program involves:
-
-1.  Bilateral -\> Unilateral
-
-2.  Increasing intensity and specificity
-
-3.  Increasing entry velocity
-
-4.  Decreasing ground contact time (GCT)
-
-5.  Linear (vertical -\> horizontal -\> lateral) -\> Multi-planar tasks
-
-6.  Compliant surfaces -\> Stiff surfaces
-
-In general, the program has some rules or themes which include progressions in intensity and specificity of the movements with progressive increases in entry speeds (vertical loading height/ horizontal velocity), a gradual reduction in GCT, progression from bilateral to unilateral tasks and from linear (vertical to horizontal to lateral) to multi-planar tasks. Furthermore, it is recommended to use different surfaces, beginning with more compliant surfaces and progressing to stiffer surfaces
-
-![A plyometric program approach across four stages aligned to the functional recovery framework after ACL reconstruction. Particular training goals, use of plyometrics, progression criteria, training planning considerations, with specific movement exercises and progressions are presented @buckthorpe2021a.](images/clipboard-1962417778.png){#fig-1 .lightbox}
-
-------------------------------------------------------------------------
-
-### Running
-
-At this stage of the rehab, it is likely that the athlete will meet criteria to begin a progressive return to running.
-
-Jogging on the treadmill can be commenced once knee extensor LSI reaches \> 70% [@buckthorpe2020; @buckthorpe2020a].
-
-------------------------------------------------------------------------
-
-### Agility and Change of Direction
-
-sdfadfsdfsdf
-
-------------------------------------------------------------------------
-
-### Maximal Strength
+It is important that training continues, and criteria are consistently re-evaluated as the athlete returns to regular training and competition.
 
 ```{=html}
 <div class="break-logo">
@@ -186,7 +140,7 @@ sdfadfsdfsdf
 </div>
 ```
 
-## Testing {#sec-p3-testing}
+## Testing
 
 Each card below contains a detailed description of the tests to be conducted during this phase of rehab.
 

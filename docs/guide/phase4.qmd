@@ -1,5 +1,5 @@
 ---
-title: "Phase 3: Dynamic Neuromuscular Performance"
+title: "Phase 4: Return to Sport"
 
 params:
   athlete: "Frank Reynolds"
@@ -17,19 +17,18 @@ source("plot_functions.R")
 source("Themes.R")
 ```
 
-Upon completing phase 2 the athlete has developed adequate strength and neuromuscular control to begin building capacity to perform more dynamic tasks such as jumping, landing, running, agility, and change of direction. Development of muscular strength and neuromuscular control will continue to progress with the objective now to meet or exceed pre-injury values.
+The timing of an athlete's return to sport
 
 ::: {.callout-important title="Most Important Goals — Phase 3"}
-- Muscular Strength Returns towards pre-injury values
-- Develop quality jumping/hopping/landing performance while progressing intensity and capacity
-- Demonstrate movement competence and confidence in agility and change of direction exercises
+- Excellent performance on dynamic tasks: all outcomes \>95% of pre-injury or opposite leg performance
+- Demonstrate high level of comfort, confidence, and eagerness to return to sport
 :::
 
-**`r params$athlete`'s** progress towards these goals will be assessed via the criteria seen below. Detailed description of each criteria and the associated testing methodology can be found in @sec-p3-testing.
+**`r params$athlete`'s** progress
 
 ```{r}
 #Create the table
-tbl_phase3 <- criteria_phase3_abr %>%
+tbl_phase4 <- criteria_phase4 %>%
   transmute(
     `Outcome Measure` = outcome_measure,
     `Op` = operator_pretty,
@@ -38,7 +37,7 @@ tbl_phase3 <- criteria_phase3_abr %>%
     meets
   ) %>%
   gt() %>%
-  tab_header(title = md("**Phase 3 Criteria**")) %>%
+  tab_header(title = md("**Phase 4 Criteria**")) %>%
   fmt_number(
     columns = Score,
     decimals = 0
@@ -72,7 +71,7 @@ tbl_phase3 <- criteria_phase3_abr %>%
     data_row.padding = px(6)
   )
 
-tbl_phase3
+tbl_phase4
 ```
 
 ```{r}
@@ -117,8 +116,8 @@ goals_progress_bar <- function(
 
 
 # By default: denominator = all criteria (matches your table showing blank scores)
-met_n_all   <- sum(criteria_phase3_abr$meets %in% TRUE, na.rm = TRUE)
-total_n_all <- nrow(criteria_phase3_abr)
+met_n_all   <- sum(criteria_phase4$meets %in% TRUE, na.rm = TRUE)
+total_n_all <- nrow(criteria_phase4)
 
 goals_progress_bar(met_n_all, total_n_all)
 
@@ -132,53 +131,47 @@ goals_progress_bar(met_n_all, total_n_all)
 
 ## What does the research say? {#preop-outcomes}
 
-After achieving sufficient basic neuromuscular function, a period of additional advanced neuromuscular training must begin in order to restore dynamic and explosive neuromuscular performance [@buckthorpe2019a]. This advanced training will involve research-backed progressions of movements that are key during sports such as jumping, hopping, landing, running, agility, and change of direction. These progressions will be guided by criteria targeting **outcomes relying on rapid force development** such as maximal jump height or hop distance, as well as **movement quality** assessed both objectively and subjectively by IST practitioners.
+### Continued Progress of Neuromuscular performance
 
-------------------------------------------------------------------------
+Criteria in this stage continue to progress the athlete towards high neuromuscular function on all tasks that is comparable to pre-injury values, the performance of the unaffected limb, and to normative or sport-relevant indicators.
 
-### Jumping, Hopping, and Landing
+The detailed criteria-based approach used in the protocol allows for comparison
 
-The reintegration of dynamic tasks such as jumping and landing in order to re-develop neuromuscular performance and movement quality, while respecting tissue healing is an important piece of ACL rehab [@buckthorpe2021a]. When programming and implementing these exercises, the practitioner must understand the specific loading demands of the various tasks and the athlete's capacity to tolerate these loading demands.
+### Sport Specific Retraining
 
-Beginning with the athlete's capacity, the literature recommends a minimum of 80% LSI in isometric leg extension before beginning single leg landing and jumping drills [@buckthorpe2020; @buckthorpe2019a]. Further research is needed to determine objective minimum strength scores to begin lower level jumping and landing drills, however the 75% Quadriceps Strength LSI required in Phase 2 of this protocol is an adequate estimation.
+::::: columns
+::: {.column width="50%"}
+The RTS process should include a progression from on-field rehabilitation to return to team training before eventually returning to competition, all of which is performed alongside sport-relevant physical re-conditioning @buckthorpe2019a. Previously, a four-stage "late rehabilitation" model has been proposed [@buckthorpe2019b] which is summarized in @fig-1. During late stage rehabilitation, gym based programming continues (blue circle), while the athlete begins a progression from on-field rehab (OFR) to return to training (RTT), return to competition (RTC) and finally return to performance (RTP). The model also highlights the transition from IST-led rehabilitation to performance team-led rehab and the importance of collaboration amongst all staff, particularly at this stage of rehab.
 
-A four stage plyometric progression program, aligned with the ACL functional recovery process has been proposed by Buckthorpe and Della Villa @buckthorpe2021a. This program considers the task and it's associated intensity and complexity, the required movement quality and strength to perform the tasks and specific monitoring of responses and criteria.
+Using the context provided by this model, Phase 4 of the CSI Pacific ACL Guide will include OFR and RTT, and Phase 5 will provide further guidance related to RTC and RTP.
+:::
 
-Progression through the program involves:
+::: {.column width="50%"}
+![The transition from the rehabilitation phases to actual performance, including leadership and collaboration among medical and performance staff. OFR = On-field Rehabilitation, RTT = Return to Training, RTC = Return to Competitions, RTP = Return to Performance [@buckthorpe2019b].](images/rehab-to-performance.jpg){#fig-1 fig-align="right" width="635"}
+:::
+:::::
 
-1.  Bilateral -\> Unilateral
+### On-field Rehabilitation (OFR)
 
-2.  Increasing intensity and specificity
+Incorporating rehabilitation activities onto the field of play acts as a bridge to the return to usual training activities with coaches and teammates. For example, this may include controlled agility and change of direction drills performed on a field, or safe, controlled skiing on a freshly groomed gentle slope. Sport specific retraining at this stage incorporates re-training of sport specific movement, physical reconditioning, and the restoration of technical skills all of which are incorporated at a level in line with the health status of the athlete @buckthorpe2019a.
 
-3.  Increasing entry velocity
+#### Field-based
 
-4.  Decreasing ground contact time (GCT)
+sadsddsa
 
-5.  Linear (vertical -\> horizontal -\> lateral) -\> Multi-planar tasks
+#### Snow-based
 
-6.  Compliant surfaces -\> Stiff surfaces
+dafdafd
 
-In general, the program has some rules or themes which include progressions in intensity and specificity of the movements with progressive increases in entry speeds (vertical loading height/ horizontal velocity), a gradual reduction in GCT, progression from bilateral to unilateral tasks and from linear (vertical to horizontal to lateral) to multi-planar tasks. Furthermore, it is recommended to use different surfaces, beginning with more compliant surfaces and progressing to stiffer surfaces
+### Return to Training (RTT)
 
-![A plyometric program approach across four stages aligned to the functional recovery framework after ACL reconstruction. Particular training goals, use of plyometrics, progression criteria, training planning considerations, with specific movement exercises and progressions are presented @buckthorpe2021a.](images/clipboard-1962417778.png){#fig-1 .lightbox}
+dassadasd
 
-------------------------------------------------------------------------
+### Psychological Readiness to RTS
 
-### Running
+dsf
 
-At this stage of the rehab, it is likely that the athlete will meet criteria to begin a progressive return to running.
-
-Jogging on the treadmill can be commenced once knee extensor LSI reaches \> 70% [@buckthorpe2020; @buckthorpe2020a].
-
-------------------------------------------------------------------------
-
-### Agility and Change of Direction
-
-sdfadfsdfsdf
-
-------------------------------------------------------------------------
-
-### Maximal Strength
+dsfsd
 
 ```{=html}
 <div class="break-logo">
@@ -186,7 +179,7 @@ sdfadfsdfsdf
 </div>
 ```
 
-## Testing {#sec-p3-testing}
+## Testing
 
 Each card below contains a detailed description of the tests to be conducted during this phase of rehab.
 
@@ -263,9 +256,11 @@ cat('</div>\n')  # end flex row
 
 Below you will find links to your training programs.
 
-[Phase 3: Program 1](https://www.teambuildr.com/)
+[Phase 4: Program 1](https://www.teambuildr.com/)
 
 When considering changes or further individualization of the program, see the lists below highlighting typically safe and unsafe exercises during this phase. To see how these exercises compare to other phases of the rehab, please see the **Exercise Phase Chart** in the book resources. All exercise programming should be done by a CSI Pacific S&C Coach or a physiotherapist.
+
+![](images/clipboard-2884114175.png)
 
 Exercises and activities during this phase typically include
 
