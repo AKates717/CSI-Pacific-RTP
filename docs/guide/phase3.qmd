@@ -136,15 +136,15 @@ After achieving sufficient basic neuromuscular function, a period of additional 
 
 ------------------------------------------------------------------------
 
-### Jumping, Hopping, and Landing
+#### Jumping, Hopping, and Landing
 
-The reintegration of dynamic tasks such as jumping and landing in order to re-develop neuromuscular performance and movement quality, while respecting tissue healing is an important piece of ACL rehab [@buckthorpe2021a]. When programming and implementing these exercises, the practitioner must understand the specific loading demands of the various tasks and the athlete's capacity to tolerate these loading demands.
+The reintegration of dynamic tasks such as jumping and landing in order to re-develop neuromuscular performance and movement quality, while respecting tissue healing, is an important piece of ACL rehab [@buckthorpe2021a] and is known to positively affect functional outcomes @kotsifaki2023a.
 
-Beginning with the athlete's capacity, the literature recommends a minimum of 80% LSI in isometric leg extension before beginning single leg landing and jumping drills [@buckthorpe2020; @buckthorpe2019a]. Further research is needed to determine objective minimum strength scores to begin lower level jumping and landing drills, however the 75% Quadriceps Strength LSI required in Phase 2 of this protocol is an adequate estimation.
+When programming and implementing these exercises, the practitioner must understand the specific loading demands of the various tasks and the athlete's capacity to tolerate these loading demands.
 
-A four stage plyometric progression program, aligned with the ACL functional recovery process has been proposed by Buckthorpe and Della Villa @buckthorpe2021a. This program considers the task and it's associated intensity and complexity, the required movement quality and strength to perform the tasks and specific monitoring of responses and criteria.
+The integration of jumping, hopping and landing into the rehab, aligned with the ACL functional recovery process is guided by the four stage plyometric progression model proposed by Buckthorpe and Della Villa @buckthorpe2021a. This program, outlined in @fig-1 considers the task and it's associated intensity and complexity, the required movement quality and strength to perform the tasks and specific monitoring of responses and criteria.
 
-Progression through the program involves:
+Progression through the program can be described in terms of:
 
 1.  Bilateral -\> Unilateral
 
@@ -154,15 +154,17 @@ Progression through the program involves:
 
 4.  Decreasing ground contact time (GCT)
 
-5.  Linear (vertical -\> horizontal -\> lateral) -\> Multi-planar tasks
+5.  Linear (vertical -\> horizontal -\> lateral) —\> Multi-planar tasks
 
 6.  Compliant surfaces -\> Stiff surfaces
 
-In general, the program has some rules or themes which include progressions in intensity and specificity of the movements with progressive increases in entry speeds (vertical loading height/ horizontal velocity), a gradual reduction in GCT, progression from bilateral to unilateral tasks and from linear (vertical to horizontal to lateral) to multi-planar tasks. Furthermore, it is recommended to use different surfaces, beginning with more compliant surfaces and progressing to stiffer surfaces
-
 ![A plyometric program approach across four stages aligned to the functional recovery framework after ACL reconstruction. Particular training goals, use of plyometrics, progression criteria, training planning considerations, with specific movement exercises and progressions are presented @buckthorpe2021a.](images/clipboard-1962417778.png){#fig-1 .lightbox}
 
-------------------------------------------------------------------------
+The entry criteria for stage 1 of this program would be satisfied if the athlete has met Phase 2 criteria of the CSI Pacific ACL protocol. It is possible that stage 1 plyometric progressions could be introduced prior to full completion of Phase 2 criteria (i.e. isometric knee extension LSI \> 70% but \< 75%), and this may be considered by practitioners on a case-by-case basis, with a conservative approach being the default recommendation. These criteria are crucial for determining the introduction of dynamic exercises, as the athlete is likely to exhibit persistent knee extensor weakness which could result in biomechanical compensatory strategies @palmieri-smith2015. At roughly 3 months post surgery, it can be expected that athletes may off-load the knee joint during squatting exercise by over-loading the un-affected side (inter-limb) or using a hip-dominant strategy (intra-limb) @sigward2018. Furthermore these compensation strategies have been demonstrated to persist until 5 months post-ACLR, highlighting the importance of a gradual introduction of more dynamic movements and on thoughtful task selection in order to develop optimal motor patterning @wolpert2011.
+
+Stage 2 and 3 plyometric progressions fit well within Phase 3 of the current protocol, as we seek to develop bilateral power, unilateral eccentric control, and neuromuscular function during more dynamic tasks.
+
+Stage 4 of the plyometric progressions will be discussed in more depth in the Phase 4: RTS chapter of this protocol
 
 ### Running
 

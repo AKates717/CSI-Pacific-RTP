@@ -147,21 +147,18 @@ baseline_cmj_summary <- baseline_cmj %>%
                    sd_cmj_height = sd(flight_height_tov))
 
 
+## Reab Data ----
 post_cmj <- FPDatabase_full %>%
   filter(activity == "CMJ") %>%
   filter(date_ddmmyear >= Rehab_Info$date_of_surgery)
-  
 
 
-p3_cmjheight <- post_cmj %>%
-  group_by(date_ddmmyear) %>%
-  summarise(
-    avg_cmj_height = mean(flight_height_tov),
-    .groups = "drop"
-  )
+post_dns <- FPDatabase_full %>%
+  filter(activity == "DnS") %>%
+  filter(date_ddmmyear >= Rehab_Info$date_of_surgery)
 
-p3_cmjheight_best <- p3_cmjheight %>%
-  slice_max(avg_cmj_height, n = 1, with_ties = FALSE)
+
+
 
 
 
@@ -264,7 +261,7 @@ pretty_var <- function(x) {
 
 #For applying "%" to Phase Summary Tables
 percent_label <- c("Hamstring Strength", "Quad Strength", "Y-Balance", "Y-Balance (Anterior)", "Y-Balance (Postero-Medial)", "Y-Balance (Postero-Lateral)", 
-                   "Single Leg Hop", "Triple Hop", "Triple Cross Over Hop", "Side Hop")
+                   "Single Leg Hop", "Triple Hop", "Triple Cross Over Hop", "Side Hop", "CMJ Lengthening Asymmetry", "CMJ Shortening Asymmetry", "Drop and Stick Asymmetry")
 
 
 
@@ -888,7 +885,9 @@ criteria_phase3_abr <- criteria_phase3 %>%
     "Single Leg Press",
     "Y-Balance (Anterior)",
     "Y-Balance (Postero-Medial)",
-    "Y-Balance (Postero-Lateral)"
+    "Y-Balance (Postero-Lateral)",
+    "Countermovement Jump",
+    "Drop and Stick"
   ))
 
 
@@ -1206,6 +1205,77 @@ p3_vestbalanceV_best <- p3_vestbalanceV %>%
 
 
 
+##P3 Force Plates ----
+# 3k) CMJ Height
+p3_cmjheight <- post_cmj %>%
+  group_by(date_ddmmyear) %>%
+  summarise(
+    avg_cmj_height = mean(flight_height_tov),
+    .groups = "drop"
+  )
+
+p3_cmjheight_best <- p3_cmjheight %>%
+  slice_max(avg_cmj_height, n = 1, with_ties = FALSE)
+
+
+#3l) BA Lengthening
+p3_balng <- post_cmj %>%
+  group_by(date_ddmmyear) %>%
+  summarise(
+    avg_balng = mean(balng),
+    .groups = "drop"
+  )
+
+p3_balng_best <- p3_balng %>%
+  slice_min(abs(avg_balng), n = 1, with_ties = FALSE)
+
+#3m) BA Shortening
+p3_basht <- post_cmj %>%
+  group_by(date_ddmmyear) %>%
+  summarise(
+    avg_basht = mean(basht),
+    .groups = "drop"
+  )
+
+p3_basht_best <- p3_basht %>%
+  slice_min(abs(avg_basht), n = 1, with_ties = FALSE)
+
+#3n) TTS
+p3_tts <- post_dns %>%
+  group_by(date_ddmmyear) %>%
+  summarise(
+    avg_tts = mean(time_to_95_percent_bw),
+    .groups = "drop"
+  )
+
+p3_tts_best <- p3_tts %>%
+  slice_min(avg_tts, n = 1, with_ties = FALSE)
+
+#3o) TTS
+p3_rplf <- post_dns %>%
+  group_by(date_ddmmyear) %>%
+  summarise(
+    avg_rplf = mean(landing_n_kg),
+    .groups = "drop"
+  )
+
+p3_rplf_best <- p3_rplf %>%
+  slice_min(avg_rplf, n = 1, with_ties = FALSE)
+
+#3p) TTS
+p3_baland <- post_dns %>%
+  group_by(date_ddmmyear) %>%
+  summarise(
+    avg_baland = mean(baland),
+    .groups = "drop"
+  )
+
+p3_baland_best <- p3_baland %>%
+  slice_min(abs(avg_baland), n = 1, with_ties = FALSE)
+
+
+
+
 
 
 #Build Phase 3 Criteria Table ----
@@ -1217,6 +1287,14 @@ triplecrosshop_val_p3 <- suppressWarnings(as.numeric(if (exists("p3_triplecrossh
 sidehop_val_p3 <- suppressWarnings(as.numeric(if (exists("p3_sidehop_best") && nrow(p3_sidehop_best) > 0) p3_sidehop_best$lsi[1] else NA_real_))
 
 cmjheight_val_p3 <- suppressWarnings(as.numeric(if (exists("p3_cmjheight_best") && nrow(p3_cmjheight_best) > 0) p3_cmjheight_best$avg_cmj_height[1] else NA_real_))
+balng_val_p3 <- suppressWarnings(as.numeric(if (exists("p3_balng_best") && nrow(p3_balng_best) > 0) p3_balng_best$avg_balng[1] else NA_real_))
+basht_val_p3 <- suppressWarnings(as.numeric(if (exists("p3_basht_best") && nrow(p3_basht_best) > 0) p3_basht_best$avg_basht[1] else NA_real_))
+
+tts_val_p3 <- suppressWarnings(as.numeric(if (exists("p3_tts_best") && nrow(p3_tts_best) > 0) p3_tts_best$avg_tts[1] else NA_real_))
+rplf_val_p3 <- suppressWarnings(as.numeric(if (exists("p3_rplf_best") && nrow(p3_rplf_best) > 0) p3_rplf_best$avg_rplf[1] else NA_real_))
+baland_val_p3 <- suppressWarnings(as.numeric(if (exists("p3_baland_best") && nrow(p3_baland_best) > 0) p3_baland_best$avg_baland[1] else NA_real_))
+
+
 
 slrise_val_p3  <- suppressWarnings(as.numeric(if (exists("p3_slrise_best")   && nrow(p3_slrise_best)   > 0) p3_slrise_best$value[1]  else NA_real_))
 vestbalanceH_val_p3  <- suppressWarnings(as.numeric(if (exists("p3_vestbalanceH_best")   && nrow(p3_vestbalanceH_best)   > 0) p3_vestbalanceH_best$value[1]  else NA_real_))
@@ -1242,6 +1320,12 @@ criteria_phase3_abr <- criteria_phase3_abr %>%
       outcome_measure == "Side Hop"            ~ sidehop_val_p3,
       
       outcome_measure == "CMJ Height"            ~ cmjheight_val_p3,
+      outcome_measure == "CMJ Lengthening Asymmetry"            ~ balng_val_p3,
+      outcome_measure == "CMJ Shortening Asymmetry"            ~ basht_val_p3,
+      
+      outcome_measure == "Drop and Stick - TTS"            ~ tts_val_p3,
+      outcome_measure == "Drop and Stick - Landing Force"            ~ rplf_val_p3,
+      outcome_measure == "Drop and Stick Asymmetry"            ~ baland_val_p3,
       
       outcome_measure == "Single Leg Rise"   ~ slrise_val_p3,
       outcome_measure == "Vestibular Balance (Horizontal)"   ~ vestbalanceH_val_p3,

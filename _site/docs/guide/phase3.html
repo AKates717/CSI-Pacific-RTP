@@ -62,9 +62,17 @@ div.csl-indent {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8caf6eaa0938078aad3b4e3e78d03e50.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-b1638ddcc617931ab7523b2d9967f0b1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-b1638ddcc617931ab7523b2d9967f0b1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-b1638ddcc617931ab7523b2d9967f0b1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-1ef96afe714fde892753836e02150751.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-1ef96afe714fde892753836e02150751.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-1ef96afe714fde892753836e02150751.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-dashboard/quarto-dashboard.js"></script>
+<script src="../../site_libs/quarto-dashboard/stickythead.js"></script>
+
+
+
+<script src="../../site_libs/quarto-dashboard/web-components.js" type="module"></script>
+<script src="../../site_libs/quarto-dashboard/components.js"></script>
+
 <script src="../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
@@ -96,61 +104,12 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  // Fix bslib navset_card_tab markup so Quarto doesn't rewrite tab hrefs
-  document.querySelectorAll('ul.nav.nav-tabs.card-header-tabs[data-tabsetid]').forEach(ul => {
-
-    // Make <li> look like Bootstrap 5 nav items
-    ul.querySelectorAll('li').forEach(li => li.classList.add('nav-item'));
-
-    // Make <a> look like Bootstrap 5 nav links AND force fragment-only href
-    ul.querySelectorAll('a[role="tab"], a[data-bs-toggle="tab"]').forEach(a => {
-      a.classList.add('nav-link');
-
-      // Force href to be fragment-only (#tab-xxxx-y)
-      const href = a.getAttribute('href') || '';
-      if (href.includes('#')) {
-        a.setAttribute('href', '#' + href.split('#').pop());
-      }
-    });
-
-    // Normalize "active" state: Bootstrap 5 wants active on <a>, not <li>
-    const activeFromA = ul.querySelector('a.active,[aria-selected="true"]');
-    const activeFromLi = ul.querySelector('li.active > a');
-    const activeA = activeFromA || activeFromLi;
-
-    ul.querySelectorAll('li.active').forEach(li => li.classList.remove('active'));
-
-    if (activeA) {
-      ul.querySelectorAll('a').forEach(a => {
-        const on = (a === activeA);
-        a.classList.toggle('active', on);
-        a.setAttribute('aria-selected', on ? 'true' : 'false');
-        if (!on) a.setAttribute('tabindex', '-1'); else a.removeAttribute('tabindex');
-      });
-
-      // Ensure only the matching pane is active/show
-      const tabsetId = ul.getAttribute('data-tabsetid');
-      const container = document.querySelector('.tab-content[data-tabsetid="' + tabsetId + '"]');
-      if (container) {
-        const target = activeA.getAttribute('href'); // now guaranteed "#tab-..."
-        container.querySelectorAll('.tab-pane').forEach(pane => {
-          const on = ('#' + pane.id) === target;
-          pane.classList.toggle('active', on);
-          pane.classList.toggle('show', on);
-        });
-      }
-    }
-  });
-});
-</script>
 
 
-<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed quarto-light">
+<body class="quarto-dashboard nav-sidebar nav-fixed dashboard-fill fullcontent quarto-light">
+
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -180,7 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../../docs/guide/index.html" aria-current="page"> 
+    <a class="nav-link" href="../../docs/guide/index.html"> 
 <span class="menu-text">ACL Guide</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -251,169 +210,34 @@ document.addEventListener("DOMContentLoaded", () => {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-          <h1 class="quarto-secondary-nav-title">Phase 3: Dynamic Neuromuscular Performance</h1>
-        </a>     
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
-<!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-      <a href="../../index.html" class="sidebar-logo-link">
-      <img src="../../../../images/Cover1.jpeg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="../../../../images/Cover1.jpeg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
-      </a>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../../docs/guide/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Guide</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">The Protocol</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../docs/guide/preop.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Pre-Operation Phase</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../docs/guide/phase1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Phase 1: Recovery from Surgery</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../docs/guide/phase2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Phase 2: Strength &amp; Neuromuscular Control</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../docs/guide/phase3.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Phase 3: Dynamic Neuromuscular Performance</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../docs/guide/phase4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Phase 4: Return to Sport</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../docs/guide/phase5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Phase 5: Return to Performance</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../docs/guide/references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#preop-outcomes" id="toc-preop-outcomes" class="nav-link active" data-scroll-target="#preop-outcomes">What does the research say?</a>
-  <ul class="collapse">
-  <li><a href="#jumping-hopping-and-landing" id="toc-jumping-hopping-and-landing" class="nav-link" data-scroll-target="#jumping-hopping-and-landing">Jumping, Hopping, and Landing</a></li>
-  <li><a href="#running" id="toc-running" class="nav-link" data-scroll-target="#running">Running</a></li>
-  <li><a href="#agility-and-change-of-direction" id="toc-agility-and-change-of-direction" class="nav-link" data-scroll-target="#agility-and-change-of-direction">Agility and Change of Direction</a></li>
-  <li><a href="#maximal-strength" id="toc-maximal-strength" class="nav-link" data-scroll-target="#maximal-strength">Maximal Strength</a></li>
-  </ul></li>
-  <li><a href="#sec-p3-testing" id="toc-sec-p3-testing" class="nav-link" data-scroll-target="#sec-p3-testing">Testing</a>
-  <ul class="collapse">
-  <li><a href="#single-leg-hop" id="toc-single-leg-hop" class="nav-link" data-scroll-target="#single-leg-hop">Single Leg Hop</a></li>
-  <li><a href="#triple-hop" id="toc-triple-hop" class="nav-link" data-scroll-target="#triple-hop">Triple Hop</a></li>
-  <li><a href="#triple-cross-over-hop" id="toc-triple-cross-over-hop" class="nav-link" data-scroll-target="#triple-cross-over-hop">Triple Cross Over Hop</a></li>
-  <li><a href="#side-hop" id="toc-side-hop" class="nav-link" data-scroll-target="#side-hop">Side Hop</a></li>
-  <li><a href="#cmj-height" id="toc-cmj-height" class="nav-link" data-scroll-target="#cmj-height">CMJ Height</a></li>
-  <li><a href="#cmj-lengthening-asymmetry" id="toc-cmj-lengthening-asymmetry" class="nav-link" data-scroll-target="#cmj-lengthening-asymmetry">CMJ Lengthening Asymmetry</a></li>
-  <li><a href="#cmj-shortening-asymmetry" id="toc-cmj-shortening-asymmetry" class="nav-link" data-scroll-target="#cmj-shortening-asymmetry">CMJ Shortening Asymmetry</a></li>
-  <li><a href="#single-leg-rise" id="toc-single-leg-rise" class="nav-link" data-scroll-target="#single-leg-rise">Single Leg Rise</a></li>
-  <li><a href="#trapbar-deadlift" id="toc-trapbar-deadlift" class="nav-link" data-scroll-target="#trapbar-deadlift">TrapBar Deadlift</a></li>
-  <li><a href="#single-leg-press" id="toc-single-leg-press" class="nav-link" data-scroll-target="#single-leg-press">Single Leg Press</a></li>
-  <li><a href="#quad-strength" id="toc-quad-strength" class="nav-link" data-scroll-target="#quad-strength">Quad Strength</a></li>
-  <li><a href="#hamstring-strength" id="toc-hamstring-strength" class="nav-link" data-scroll-target="#hamstring-strength">Hamstring Strength</a></li>
-  <li><a href="#y-balance" id="toc-y-balance" class="nav-link" data-scroll-target="#y-balance">Y-Balance</a></li>
-  <li><a href="#vestibular-balance-horizontal" id="toc-vestibular-balance-horizontal" class="nav-link" data-scroll-target="#vestibular-balance-horizontal">Vestibular Balance (Horizontal)</a></li>
-  <li><a href="#vestibular-balance-vertical" id="toc-vestibular-balance-vertical" class="nav-link" data-scroll-target="#vestibular-balance-vertical">Vestibular Balance (Vertical)</a></li>
-  </ul></li>
-  <li><a href="#the-program" id="toc-the-program" class="nav-link" data-scroll-target="#the-program">The Program</a></li>
-  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources">Additional Resources</a>
-  <ul class="collapse">
-  <li><a href="#blood-flow-restriction" id="toc-blood-flow-restriction" class="nav-link" data-scroll-target="#blood-flow-restriction">Blood Flow Restriction</a></li>
-  </ul></li>
-  <li><a href="#notes-and-considerations-for-reviewers" id="toc-notes-and-considerations-for-reviewers" class="nav-link" data-scroll-target="#notes-and-considerations-for-reviewers">Notes and Considerations for Reviewers</a></li>
-  </ul>
-</nav>
-    </div>
-<!-- main -->
-<main class="content column-body" id="quarto-document-content">
+<header id="quarto-dashboard-header">
+<nav class="navbar navbar-expand-md slim" data-bs-theme="dark">
+  <div class="navbar-container container-fluid">
+    <button class="navbar-toggler hidden" type="button" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-controls="dashboard-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>    
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title d-none d-lg-block">Phase 3: Dynamic Neuromuscular Performance</h1>
+
+    <div class="navbar-brand-container">
+
+
+      <div class="navbar-title">
+        <div class="navbar-title-text"><a href="#">Phase 3: Dynamic Neuromuscular Performance</a></div>
+        
+        
+      </div>
+    </div>
 </div>
-
-
-
-<div class="quarto-title-meta column-body">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
+</nav>
+</header></header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-layout-custom page-navbar quarto-dashboard-content bslib-gap-spacing html-fill-container bslib-page-fill">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+<!-- main -->
 
 <p>Upon completing phase 2 the athlete has developed adequate strength and neuromuscular control to begin building capacity to perform more dynamic tasks such as jumping, landing, running, agility, and change of direction. Development of muscular strength and neuromuscular control will continue to progress with the objective now to meet or exceed pre-injury values.</p>
-<div class="callout callout-style-default callout-important callout-titled" title="Most Important Goals — Phase 3">
+<div class="callout callout-style-default callout-important callout-titled bslib-grid-item" title="Most Important Goals — Phase 3">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -431,27 +255,29 @@ document.addEventListener("DOMContentLoaded", () => {
 </div>
 </div>
 <p><strong>Frank Reynolds’s</strong> progress towards these goals will be assessed via the criteria seen below. Detailed description of each criteria and the associated testing methodology can be found in <a href="#sec-p3-testing" class="quarto-xref">Section&nbsp;2</a>.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div id="syrjdbomgl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="bslib-grid-item html-fill-item bslib-grid" data-layout="fill" style="display: grid; grid-template-rows: minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, max-content) minmax(3em, max-content) minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
+<div class="card cell bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div id="pwxbzyhhsa" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;" class="html-fill-item html-fill-container">
 <style>@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#syrjdbomgl table {
+#pwxbzyhhsa table {
   font-family: 'Open Sans', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#syrjdbomgl thead, #syrjdbomgl tbody, #syrjdbomgl tfoot, #syrjdbomgl tr, #syrjdbomgl td, #syrjdbomgl th {
+#pwxbzyhhsa thead, #pwxbzyhhsa tbody, #pwxbzyhhsa tfoot, #pwxbzyhhsa tr, #pwxbzyhhsa td, #pwxbzyhhsa th {
   border-style: none;
 }
 
-#syrjdbomgl p {
+#pwxbzyhhsa p {
   margin: 0;
   padding: 0;
 }
 
-#syrjdbomgl .gt_table {
+#pwxbzyhhsa .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -477,12 +303,12 @@ document.addEventListener("DOMContentLoaded", () => {
   border-left-color: #D3D3D3;
 }
 
-#syrjdbomgl .gt_caption {
+#pwxbzyhhsa .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#syrjdbomgl .gt_title {
+#pwxbzyhhsa .gt_title {
   color: #333333;
   font-size: 22px;
   font-weight: initial;
@@ -494,7 +320,7 @@ document.addEventListener("DOMContentLoaded", () => {
   border-bottom-width: 0;
 }
 
-#syrjdbomgl .gt_subtitle {
+#pwxbzyhhsa .gt_subtitle {
   color: #333333;
   font-size: 13px;
   font-weight: initial;
@@ -506,7 +332,7 @@ document.addEventListener("DOMContentLoaded", () => {
   border-top-width: 0;
 }
 
-#syrjdbomgl .gt_heading {
+#pwxbzyhhsa .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -518,13 +344,13 @@ document.addEventListener("DOMContentLoaded", () => {
   border-right-color: #D3D3D3;
 }
 
-#syrjdbomgl .gt_bottom_border {
+#pwxbzyhhsa .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#syrjdbomgl .gt_col_headings {
+#pwxbzyhhsa .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -539,7 +365,7 @@ document.addEventListener("DOMContentLoaded", () => {
   border-right-color: #D3D3D3;
 }
 
-#syrjdbomgl .gt_col_heading {
+#pwxbzyhhsa .gt_col_heading {
   color: #333333;
   background-color: #FCFCFC;
   font-size: 100%;
@@ -559,7 +385,7 @@ document.addEventListener("DOMContentLoaded", () => {
   overflow-x: hidden;
 }
 
-#syrjdbomgl .gt_column_spanner_outer {
+#pwxbzyhhsa .gt_column_spanner_outer {
   color: #333333;
   background-color: #FCFCFC;
   font-size: 100%;
@@ -571,15 +397,15 @@ document.addEventListener("DOMContentLoaded", () => {
   padding-right: 4px;
 }
 
-#syrjdbomgl .gt_column_spanner_outer:first-child {
+#pwxbzyhhsa .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#syrjdbomgl .gt_column_spanner_outer:last-child {
+#pwxbzyhhsa .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#syrjdbomgl .gt_column_spanner {
+#pwxbzyhhsa .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 1px;
   border-bottom-color: #A7A9AC;
@@ -591,11 +417,11 @@ document.addEventListener("DOMContentLoaded", () => {
   width: 100%;
 }
 
-#syrjdbomgl .gt_spanner_row {
+#pwxbzyhhsa .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#syrjdbomgl .gt_group_heading {
+#pwxbzyhhsa .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -621,7 +447,7 @@ document.addEventListener("DOMContentLoaded", () => {
   text-align: left;
 }
 
-#syrjdbomgl .gt_empty_group_heading {
+#pwxbzyhhsa .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -636,15 +462,15 @@ document.addEventListener("DOMContentLoaded", () => {
   vertical-align: middle;
 }
 
-#syrjdbomgl .gt_from_md > :first-child {
+#pwxbzyhhsa .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#syrjdbomgl .gt_from_md > :last-child {
+#pwxbzyhhsa .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#syrjdbomgl .gt_row {
+#pwxbzyhhsa .gt_row {
   padding-top: 6px;
   padding-bottom: 6px;
   padding-left: 5px;
@@ -663,7 +489,7 @@ document.addEventListener("DOMContentLoaded", () => {
   overflow-x: hidden;
 }
 
-#syrjdbomgl .gt_stub {
+#pwxbzyhhsa .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -676,7 +502,7 @@ document.addEventListener("DOMContentLoaded", () => {
   padding-right: 5px;
 }
 
-#syrjdbomgl .gt_stub_row_group {
+#pwxbzyhhsa .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -690,15 +516,15 @@ document.addEventListener("DOMContentLoaded", () => {
   vertical-align: top;
 }
 
-#syrjdbomgl .gt_row_group_first td {
+#pwxbzyhhsa .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#syrjdbomgl .gt_row_group_first th {
+#pwxbzyhhsa .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#syrjdbomgl .gt_summary_row {
+#pwxbzyhhsa .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -708,16 +534,16 @@ document.addEventListener("DOMContentLoaded", () => {
   padding-right: 5px;
 }
 
-#syrjdbomgl .gt_first_summary_row {
+#pwxbzyhhsa .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#syrjdbomgl .gt_first_summary_row.thick {
+#pwxbzyhhsa .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#syrjdbomgl .gt_last_summary_row {
+#pwxbzyhhsa .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -727,7 +553,7 @@ document.addEventListener("DOMContentLoaded", () => {
   border-bottom-color: #D3D3D3;
 }
 
-#syrjdbomgl .gt_grand_summary_row {
+#pwxbzyhhsa .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -737,7 +563,7 @@ document.addEventListener("DOMContentLoaded", () => {
   padding-right: 5px;
 }
 
-#syrjdbomgl .gt_first_grand_summary_row {
+#pwxbzyhhsa .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -747,7 +573,7 @@ document.addEventListener("DOMContentLoaded", () => {
   border-top-color: #D3D3D3;
 }
 
-#syrjdbomgl .gt_last_grand_summary_row_top {
+#pwxbzyhhsa .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -757,11 +583,11 @@ document.addEventListener("DOMContentLoaded", () => {
   border-bottom-color: #D3D3D3;
 }
 
-#syrjdbomgl .gt_striped {
+#pwxbzyhhsa .gt_striped {
   background-color: #FFFFFF;
 }
 
-#syrjdbomgl .gt_table_body {
+#pwxbzyhhsa .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -770,7 +596,7 @@ document.addEventListener("DOMContentLoaded", () => {
   border-bottom-color: #D3D3D3;
 }
 
-#syrjdbomgl .gt_footnotes {
+#pwxbzyhhsa .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -784,7 +610,7 @@ document.addEventListener("DOMContentLoaded", () => {
   border-right-color: #D3D3D3;
 }
 
-#syrjdbomgl .gt_footnote {
+#pwxbzyhhsa .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -793,7 +619,7 @@ document.addEventListener("DOMContentLoaded", () => {
   padding-right: 5px;
 }
 
-#syrjdbomgl .gt_sourcenotes {
+#pwxbzyhhsa .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -807,7 +633,7 @@ document.addEventListener("DOMContentLoaded", () => {
   border-right-color: #D3D3D3;
 }
 
-#syrjdbomgl .gt_sourcenote {
+#pwxbzyhhsa .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -815,72 +641,72 @@ document.addEventListener("DOMContentLoaded", () => {
   padding-right: 5px;
 }
 
-#syrjdbomgl .gt_left {
+#pwxbzyhhsa .gt_left {
   text-align: left;
 }
 
-#syrjdbomgl .gt_center {
+#pwxbzyhhsa .gt_center {
   text-align: center;
 }
 
-#syrjdbomgl .gt_right {
+#pwxbzyhhsa .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#syrjdbomgl .gt_font_normal {
+#pwxbzyhhsa .gt_font_normal {
   font-weight: normal;
 }
 
-#syrjdbomgl .gt_font_bold {
+#pwxbzyhhsa .gt_font_bold {
   font-weight: bold;
 }
 
-#syrjdbomgl .gt_font_italic {
+#pwxbzyhhsa .gt_font_italic {
   font-style: italic;
 }
 
-#syrjdbomgl .gt_super {
+#pwxbzyhhsa .gt_super {
   font-size: 65%;
 }
 
-#syrjdbomgl .gt_footnote_marks {
+#pwxbzyhhsa .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#syrjdbomgl .gt_asterisk {
+#pwxbzyhhsa .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#syrjdbomgl .gt_indent_1 {
+#pwxbzyhhsa .gt_indent_1 {
   text-indent: 5px;
 }
 
-#syrjdbomgl .gt_indent_2 {
+#pwxbzyhhsa .gt_indent_2 {
   text-indent: 10px;
 }
 
-#syrjdbomgl .gt_indent_3 {
+#pwxbzyhhsa .gt_indent_3 {
   text-indent: 15px;
 }
 
-#syrjdbomgl .gt_indent_4 {
+#pwxbzyhhsa .gt_indent_4 {
   text-indent: 20px;
 }
 
-#syrjdbomgl .gt_indent_5 {
+#pwxbzyhhsa .gt_indent_5 {
   text-indent: 25px;
 }
 
-#syrjdbomgl .katex-display {
+#pwxbzyhhsa .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#syrjdbomgl div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#pwxbzyhhsa div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 
@@ -1006,8 +832,15 @@ document.addEventListener("DOMContentLoaded", () => {
 </div>
 </div>
 </div>
-<div class="cell">
-<div class="cell-output-display">
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+<div class="card cell bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
 <style>
       .ak-pb-wrap   { margin-top:12px; font-family:'Open Sans',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; }
       .ak-pb-meta   { display:flex; justify-content:space-between; font-size:0.95rem; margin-bottom:6px; color:#222; }
@@ -1015,42 +848,56 @@ document.addEventListener("DOMContentLoaded", () => {
       .ak-pb       { background:#FCFCFC; border:1px solid #A7A9AC; border-radius:10px; height:14px; overflow:hidden; }
       .ak-pb__fill { height:100%; background:linear-gradient(90deg,#2E7D32,#4CAF50); transition:width .3s ease; }
     </style>
-<div class="ak-pb-wrap">
-<div class="ak-pb-meta">
+<div class="ak-pb-wrap html-fill-item html-fill-container">
+<div class="ak-pb-meta html-fill-item html-fill-container">
 <strong>Goals met: 7/14</strong>
 <span>50%</span>
 </div>
-<div class="ak-pb" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" style="width:100%;">
-<div class="ak-pb__fill" style="width:50%;"></div>
+<div class="ak-pb html-fill-item html-fill-container" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" style="width:100%;">
+<div class="ak-pb__fill html-fill-item html-fill-container" style="width:50%;"></div>
 </div>
 </div>
 </div>
 </div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
 <div class="break-logo">
   <img src="images/csi-logo-medal-only.png" alt="">
 </div>
-<section id="preop-outcomes" class="level2">
-<h2 class="anchored" data-anchor-id="preop-outcomes">What does the research say?</h2>
+<div class="bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card bslib-card html-fill-container" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
 <p>After achieving sufficient basic neuromuscular function, a period of additional advanced neuromuscular training must begin in order to restore dynamic and explosive neuromuscular performance <span class="citation" data-cites="buckthorpe2019a">[<a href="#ref-buckthorpe2019a" role="doc-biblioref">1</a>]</span>. This advanced training will involve research-backed progressions of movements that are key during sports such as jumping, hopping, landing, running, agility, and change of direction. These progressions will be guided by criteria targeting <strong>outcomes relying on rapid force development</strong> such as maximal jump height or hop distance, as well as <strong>movement quality</strong> assessed both objectively and subjectively by IST practitioners.</p>
 <hr>
-<section id="jumping-hopping-and-landing" class="level3">
-<h3 class="anchored" data-anchor-id="jumping-hopping-and-landing">Jumping, Hopping, and Landing</h3>
-<p>The reintegration of dynamic tasks such as jumping and landing in order to re-develop neuromuscular performance and movement quality, while respecting tissue healing is an important piece of ACL rehab <span class="citation" data-cites="buckthorpe2021a">[<a href="#ref-buckthorpe2021a" role="doc-biblioref">2</a>]</span>. When programming and implementing these exercises, the practitioner must understand the specific loading demands of the various tasks and the athlete’s capacity to tolerate these loading demands.</p>
-<p>Beginning with the athlete’s capacity, the literature recommends a minimum of 80% LSI in isometric leg extension before beginning single leg landing and jumping drills <span class="citation" data-cites="buckthorpe2020 buckthorpe2019a">[<a href="#ref-buckthorpe2019a" role="doc-biblioref">1</a>,<a href="#ref-buckthorpe2020" role="doc-biblioref">3</a>]</span>. Further research is needed to determine objective minimum strength scores to begin lower level jumping and landing drills, however the 75% Quadriceps Strength LSI required in Phase 2 of this protocol is an adequate estimation.</p>
-<p>A four stage plyometric progression program, aligned with the ACL functional recovery process has been proposed by Buckthorpe and Della Villa <span class="citation" data-cites="buckthorpe2021a">[<a href="#ref-buckthorpe2021a" role="doc-biblioref">2</a>]</span>. This program considers the task and it’s associated intensity and complexity, the required movement quality and strength to perform the tasks and specific monitoring of responses and criteria.</p>
-<p>Progression through the program involves:</p>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
+<div class="card bslib-card html-fill-container" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<p>The reintegration of dynamic tasks such as jumping and landing in order to re-develop neuromuscular performance and movement quality, while respecting tissue healing, is an important piece of ACL rehab <span class="citation" data-cites="buckthorpe2021a">[<a href="#ref-buckthorpe2021a" role="doc-biblioref">2</a>]</span> and is known to positively affect functional outcomes <span class="citation" data-cites="kotsifaki2023a">[<a href="#ref-kotsifaki2023a" role="doc-biblioref">3</a>]</span>.</p>
+<p>When programming and implementing these exercises, the practitioner must understand the specific loading demands of the various tasks and the athlete’s capacity to tolerate these loading demands.</p>
+<p>The integration of jumping, hopping and landing into the rehab, aligned with the ACL functional recovery process is guided by the four stage plyometric progression model proposed by Buckthorpe and Della Villa <span class="citation" data-cites="buckthorpe2021a">[<a href="#ref-buckthorpe2021a" role="doc-biblioref">2</a>]</span>. This program, outlined in <a href="#fig-1" class="quarto-xref">Figure&nbsp;1</a> considers the task and it’s associated intensity and complexity, the required movement quality and strength to perform the tasks and specific monitoring of responses and criteria.</p>
+<p>Progression through the program can be described in terms of:</p>
 <ol type="1">
 <li><p>Bilateral -&gt; Unilateral</p></li>
 <li><p>Increasing intensity and specificity</p></li>
 <li><p>Increasing entry velocity</p></li>
 <li><p>Decreasing ground contact time (GCT)</p></li>
-<li><p>Linear (vertical -&gt; horizontal -&gt; lateral) -&gt; Multi-planar tasks</p></li>
+<li><p>Linear (vertical -&gt; horizontal -&gt; lateral) —&gt; Multi-planar tasks</p></li>
 <li><p>Compliant surfaces -&gt; Stiff surfaces</p></li>
 </ol>
-<p>In general, the program has some rules or themes which include progressions in intensity and specificity of the movements with progressive increases in entry speeds (vertical loading height/ horizontal velocity), a gradual reduction in GCT, progression from bilateral to unilateral tasks and from linear (vertical to horizontal to lateral) to multi-planar tasks. Furthermore, it is recommended to use different surfaces, beginning with more compliant surfaces and progressing to stiffer surfaces</p>
-<div id="fig-1" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="fig-1" class="lightbox quarto-float quarto-figure quarto-figure-center html-fill-item html-fill-container">
+<figure class="quarto-float quarto-float-fig figure html-fill-item html-fill-container">
+<div aria-describedby="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="html-fill-item html-fill-container">
 <a href="images/clipboard-1962417778.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: A plyometric program approach across four stages aligned to the functional recovery framework after ACL reconstruction. Particular training goals, use of plyometrics, progression criteria, training planning considerations, with specific movement exercises and progressions are presented @buckthorpe2021a."><img src="images/clipboard-1962417778.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1058,337 +905,565 @@ Figure&nbsp;1: A plyometric program approach across four stages aligned to the f
 </figcaption>
 </figure>
 </div>
-<hr>
-</section>
-<section id="running" class="level3">
-<h3 class="anchored" data-anchor-id="running">Running</h3>
+<p>The entry criteria for stage 1 of this program would be satisfied if the athlete has met Phase 2 criteria of the CSI Pacific ACL protocol. It is possible that stage 1 plyometric progressions could be introduced prior to full completion of Phase 2 criteria (i.e.&nbsp;isometric knee extension LSI &gt; 70% but &lt; 75%), and this may be considered by practitioners on a case-by-case basis, with a conservative approach being the default recommendation. These criteria are crucial for determining the introduction of dynamic exercises, as the athlete is likely to exhibit persistent knee extensor weakness which could result in biomechanical compensatory strategies <span class="citation" data-cites="palmieri-smith2015">[<a href="#ref-palmieri-smith2015" role="doc-biblioref">4</a>]</span>. At roughly 3 months post surgery, it can be expected that athletes may off-load the knee joint during squatting exercise by over-loading the un-affected side (inter-limb) or using a hip-dominant strategy (intra-limb) <span class="citation" data-cites="sigward2018">[<a href="#ref-sigward2018" role="doc-biblioref">5</a>]</span>. Furthermore these compensation strategies have been demonstrated to persist until 5 months post-ACLR, highlighting the importance of a gradual introduction of more dynamic movements and on thoughtful task selection in order to develop optimal motor patterning <span class="citation" data-cites="wolpert2011">[<a href="#ref-wolpert2011" role="doc-biblioref">6</a>]</span>.</p>
+<p>Stage 2 and 3 plyometric progressions fit well within Phase 3 of the current protocol, as we seek to develop bilateral power, unilateral eccentric control, and neuromuscular function during more dynamic tasks.</p>
+<p>Stage 4 of the plyometric progressions will be discussed in more depth in the Phase 4: RTS chapter of this protocol</p>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div><div class="bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card bslib-card html-fill-container" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
 <p>At this stage of the rehab, it is likely that the athlete will meet criteria to begin a progressive return to running.</p>
-<p>Jogging on the treadmill can be commenced once knee extensor LSI reaches &gt; 70% <span class="citation" data-cites="buckthorpe2020 buckthorpe2020a">[<a href="#ref-buckthorpe2020" role="doc-biblioref">3</a>,<a href="#ref-buckthorpe2020a" role="doc-biblioref">4</a>]</span>.</p>
+<p>Jogging on the treadmill can be commenced once knee extensor LSI reaches &gt; 70% <span class="citation" data-cites="buckthorpe2020 buckthorpe2020a">[<a href="#ref-buckthorpe2020" role="doc-biblioref">7</a>,<a href="#ref-buckthorpe2020a" role="doc-biblioref">8</a>]</span>.</p>
 <hr>
-</section>
-<section id="agility-and-change-of-direction" class="level3">
-<h3 class="anchored" data-anchor-id="agility-and-change-of-direction">Agility and Change of Direction</h3>
-<p>sdfadfsdfsdf</p>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div><div class="bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card bslib-card html-fill-container" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+sdfadfsdfsdf
 <hr>
-</section>
-<section id="maximal-strength" class="level3">
-<h3 class="anchored" data-anchor-id="maximal-strength">Maximal Strength</h3>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div><div class="bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
 <div class="break-logo">
   <img src="images/csi-logo-medal-only.png" alt="">
 </div>
-</section>
-</section>
-<section id="sec-p3-testing" class="level2">
-<h2 class="anchored" data-anchor-id="sec-p3-testing">Testing</h2>
+</div>
+</div>
+<div class="bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="card bslib-card html-fill-container" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
 <p>Each card below contains a detailed description of the tests to be conducted during this phase of rehab.</p>
-<section id="single-leg-hop" class="level3 card ak-card has-stripe accent-primary">
-<h3 class="anchored" data-anchor-id="single-leg-hop">Single Leg Hop</h3>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+<div class="card ak-card has-stripe accent-primary bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="h4">
+Single
+
+Leg
+
+Hop
+</div>
 <p>Athlete stands on one leg and hops as far forward as possible, landing on the same leg.</p>
 <ul>
 <li>Measure from toe at take-off to heel at landing. Arms are free to swing. The athlete must demonstrate control by sticking the landing for a minimum of 3s.</li>
 </ul>
 <p>The score for each limb is calculated as a mean of 2 successful reps. A limb symmetry index is calculated by dividing the mean distance (in cms) of the involved limb by the mean distance of the noninvolved limb then multiplying by 100</p>
-<div style="display:flex; gap:1.5rem; align-items:center;">
-<div style="flex:0 0 35%;">
+<div style="display:flex; gap:1.5rem; align-items:center;" class="html-fill-item html-fill-container">
+<div style="flex:0 0 35%;" class="html-fill-item html-fill-container">
 <p><strong>Criteria:</strong> ≥ 95%</p>
 <p><strong>Repetitions:</strong> 2</p>
 <p><strong>Calculation:</strong> Mean</p>
 </div>
-<div style="flex:0 0 65%; text-align:center;">
-<p><img src="images/testing/slhop.png" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;"></p>
+<div style="flex:0 0 65%; text-align:center;" class="html-fill-item html-fill-container">
+<img src="images/testing/slhop.png" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;">
 </div>
 </div>
-</section>
-<section id="triple-hop" class="level3 card ak-card has-stripe accent-primary">
-<h3 class="anchored" data-anchor-id="triple-hop">Triple Hop</h3>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+<div class="card ak-card has-stripe accent-primary bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="h4">
+Triple
+
+Hop
+</div>
 <p>Athletes stands on one leg and hops forwards three consecutive times on one foot, sticking the final landing.</p>
 <ul>
 <li>Measure from toe at take off to heel at landing. Arms are free to swing. The athlete must demonstrate control by sticking the final landing for a minimum of 3s.</li>
 </ul>
 <p>The total distance is measured, and the mean of 2 valid tests is recorded. A limb symmetry index is calculated by dividing the mean distance (in cms) of the involved limb by the mean distance of the noninvolved limb then multiplying by 100.</p>
-<div style="display:flex; gap:1.5rem; align-items:center;">
-<div style="flex:0 0 35%;">
+<div style="display:flex; gap:1.5rem; align-items:center;" class="html-fill-item html-fill-container">
+<div style="flex:0 0 35%;" class="html-fill-item html-fill-container">
 <p><strong>Criteria:</strong> ≥ 95%</p>
 <p><strong>Repetitions:</strong> 2</p>
 <p><strong>Calculation:</strong> Mean</p>
 </div>
-<div style="flex:0 0 65%; text-align:center;">
-<p><img src="images/testing/triplehop.png" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;"></p>
+<div style="flex:0 0 65%; text-align:center;" class="html-fill-item html-fill-container">
+<img src="images/testing/triplehop.png" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;">
 </div>
 </div>
-</section>
-<section id="triple-cross-over-hop" class="level3 card ak-card has-stripe accent-primary">
-<h3 class="anchored" data-anchor-id="triple-cross-over-hop">Triple Cross Over Hop</h3>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+<div class="card ak-card has-stripe accent-primary bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="h4">
+Triple
+
+Cross
+
+Over
+
+Hop
+</div>
 <p>This test is performed on a course consisting of a 15cm marking strip on the floor which is 6m long. The athlete is required to hop three consecutive times on one foot going in a medial to lateral to medial direction, crossing the strip on each hop.</p>
 <ul>
 <li>Measure from toe at take-off to heel at landing. Arms are free to swing. The athlete must demonstrate control by sticking the final landing for a minimum of 3s.</li>
 </ul>
 <p>The total distance is measured, and the average (mean) of 2 valid hop tests is recorded. A limb symmetry index is calculated by dividing the mean distance (in cms) of the involved limb by the mean distance of the noninvolved limb then multiplying by 100.</p>
-<div style="display:flex; gap:1.5rem; align-items:center;">
-<div style="flex:0 0 35%;">
+<div style="display:flex; gap:1.5rem; align-items:center;" class="html-fill-item html-fill-container">
+<div style="flex:0 0 35%;" class="html-fill-item html-fill-container">
 <p><strong>Criteria:</strong> ≥ 95%</p>
 <p><strong>Repetitions:</strong> 2</p>
 <p><strong>Calculation:</strong> Mean</p>
 </div>
-<div style="flex:0 0 65%; text-align:center;">
-<p><img src="images/placeholder.jpg" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;"></p>
+<div style="flex:0 0 65%; text-align:center;" class="html-fill-item html-fill-container">
+<img src="images/placeholder.jpg" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;">
 </div>
 </div>
-</section>
-<section id="side-hop" class="level3 card ak-card has-stripe accent-primary">
-<h3 class="anchored" data-anchor-id="side-hop">Side Hop</h3>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+<div class="card ak-card has-stripe accent-primary bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="h4">
+Side
+
+Hop
+</div>
 <p>Subjects stands on test leg with hands behind the back and jumps from side to side between two parallel strips of tape, placed 40 cm apart on the floor. (Gustavsson et al., 2006)</p>
 <ul>
 <li>Subject jumps as many times as possible during 30sec. The number of successful jumps performed, without touching the tape is recorded. A limb symmetry index is calculated by dividing the total reps performed on the involved limb by the total reps performed on the noninvolved limb then multiplying by 100.</li>
 </ul>
-<div style="display:flex; gap:1.5rem; align-items:center;">
-<div style="flex:0 0 35%;">
+<div style="display:flex; gap:1.5rem; align-items:center;" class="html-fill-item html-fill-container">
+<div style="flex:0 0 35%;" class="html-fill-item html-fill-container">
 <p><strong>Criteria:</strong> ≥ 95%</p>
 <p><strong>Repetitions:</strong> 1</p>
 </div>
-<div style="flex:0 0 65%; text-align:center;">
-<p><img src="images/testing/sidehop.png" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;"></p>
+<div style="flex:0 0 65%; text-align:center;" class="html-fill-item html-fill-container">
+<img src="images/testing/sidehop.png" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;">
 </div>
 </div>
-</section>
-<section id="cmj-height" class="level3 card ak-card has-stripe accent-primary">
-<h3 class="anchored" data-anchor-id="cmj-height">CMJ Height</h3>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+<div class="card ak-card has-stripe accent-primary bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="h4">
+CMJ
+
+Height
+</div>
 <p>Scores are relative to baseline data</p>
 <ul>
 <li>Height in cm</li>
 </ul>
-<div style="display:flex; gap:1.5rem; align-items:center;">
-<div style="flex:0 0 35%;">
+<div style="display:flex; gap:1.5rem; align-items:center;" class="html-fill-item html-fill-container">
+<div style="flex:0 0 35%;" class="html-fill-item html-fill-container">
 <p><strong>Criteria:</strong> ≥ 23 cm</p>
 <p><strong>Repetitions:</strong> 5</p>
 <p><strong>Calculation:</strong> Mean</p>
 </div>
-<div style="flex:0 0 65%; text-align:center;">
-<p><img src="images/placeholder.jpg" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;"></p>
+<div style="flex:0 0 65%; text-align:center;" class="html-fill-item html-fill-container">
+<img src="images/placeholder.jpg" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;">
 </div>
 </div>
-</section>
-<section id="cmj-lengthening-asymmetry" class="level3 card ak-card has-stripe accent-primary">
-<h3 class="anchored" data-anchor-id="cmj-lengthening-asymmetry">CMJ Lengthening Asymmetry</h3>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+<div class="card ak-card has-stripe accent-primary bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="h4">
+CMJ
+
+Lengthening
+
+Asymmetry
+</div>
 <p>Confidence interval around the mean of 5 jumps must be entirely within ± 15%</p>
 <ul>
 <li>Ratio of force produced by each limb in the lengthening (lowering) phase of the jump</li>
 </ul>
-<div style="display:flex; gap:1.5rem; align-items:center;">
-<div style="flex:0 0 35%;">
+<div style="display:flex; gap:1.5rem; align-items:center;" class="html-fill-item html-fill-container">
+<div style="flex:0 0 35%;" class="html-fill-item html-fill-container">
 <p><strong>Criteria:</strong> &lt; 15%</p>
 <p><strong>Repetitions:</strong> 5</p>
 <p><strong>Calculation:</strong> Mean ± CI</p>
 </div>
-<div style="flex:0 0 65%; text-align:center;">
-<p><img src="images/placeholder.jpg" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;"></p>
+<div style="flex:0 0 65%; text-align:center;" class="html-fill-item html-fill-container">
+<img src="images/placeholder.jpg" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;">
 </div>
 </div>
-</section>
-<section id="cmj-shortening-asymmetry" class="level3 card ak-card has-stripe accent-primary">
-<h3 class="anchored" data-anchor-id="cmj-shortening-asymmetry">CMJ Shortening Asymmetry</h3>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+<div class="card ak-card has-stripe accent-primary bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="h4">
+CMJ
+
+Shortening
+
+Asymmetry
+</div>
 <p>Confidence interval around the mean of 5 jumps must be entirely within ± 20%</p>
 <ul>
 <li>Ratio of force produced by each limb in the shortening (propulsive) phase of the jump</li>
 </ul>
-<div style="display:flex; gap:1.5rem; align-items:center;">
-<div style="flex:0 0 35%;">
+<div style="display:flex; gap:1.5rem; align-items:center;" class="html-fill-item html-fill-container">
+<div style="flex:0 0 35%;" class="html-fill-item html-fill-container">
 <p><strong>Criteria:</strong> &lt; 20%</p>
 <p><strong>Repetitions:</strong> 5</p>
 <p><strong>Calculation:</strong> Mean ± CI</p>
 </div>
-<div style="flex:0 0 65%; text-align:center;">
-<p><img src="images/placeholder.jpg" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;"></p>
+<div style="flex:0 0 65%; text-align:center;" class="html-fill-item html-fill-container">
+<img src="images/placeholder.jpg" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;">
 </div>
 </div>
-</section>
-<section id="single-leg-rise" class="level3 card ak-card has-stripe accent-primary">
-<h3 class="anchored" data-anchor-id="single-leg-rise">Single Leg Rise</h3>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+<div class="card ak-card has-stripe accent-primary bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="h4">
+Single
+
+Leg
+
+Rise
+</div>
 <p>Subjects sit on a chair (or a plinth) with test leg bent to 90°, and 10cm from edge of chair. (Culvenor et al., 2016 &amp; Thorstensson et al., 2004)</p>
 <ul>
 <li>With hands behind the back, the subject aims to stand up from the sitting position, and sit down as many times as possible.</li>
 </ul>
 <p>Record the total number of valid repetitions performed. There is no symmetry criteria, the athlete must perform 22 reps on each leg to meet this criteria.</p>
-<div style="display:flex; gap:1.5rem; align-items:center;">
-<div style="flex:0 0 35%;">
+<div style="display:flex; gap:1.5rem; align-items:center;" class="html-fill-item html-fill-container">
+<div style="flex:0 0 35%;" class="html-fill-item html-fill-container">
 <p><strong>Criteria:</strong> ≥ 22</p>
 <p><strong>Repetitions:</strong> 1</p>
 </div>
-<div style="flex:0 0 65%; text-align:center;">
-<p><img src="images/placeholder.jpg" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;"></p>
+<div style="flex:0 0 65%; text-align:center;" class="html-fill-item html-fill-container">
+<img src="images/placeholder.jpg" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;">
 </div>
 </div>
-</section>
-<section id="trapbar-deadlift" class="level3 card ak-card has-stripe accent-primary">
-<h3 class="anchored" data-anchor-id="trapbar-deadlift">TrapBar Deadlift</h3>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+<div class="card ak-card has-stripe accent-primary bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="h4">
+TrapBar
+
+Deadlift
+</div>
 <p>Set up the TrapBar on a lifting platform, using blocks as needed so that the subject’s knees are flexed to 90 degrees when placing tension on the bar without lifting it. Progressively perform single repetitions until a 1RM is established.</p>
 <ul>
 <li>Record the maximum load in kg. The target load for graduation from this phase is 1.5x BM. This criteria may vary based on initial training status pre-injury.</li>
 </ul>
-<div style="display:flex; gap:1.5rem; align-items:center;">
-<div style="flex:0 0 35%;">
+<div style="display:flex; gap:1.5rem; align-items:center;" class="html-fill-item html-fill-container">
+<div style="flex:0 0 35%;" class="html-fill-item html-fill-container">
 <p><strong>Criteria:</strong> ≥ 132 kg</p>
 <p><strong>Calculation:</strong> Max</p>
 </div>
-<div style="flex:0 0 65%; text-align:center;">
-<p><img src="images/placeholder.jpg" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;"></p>
+<div style="flex:0 0 65%; text-align:center;" class="html-fill-item html-fill-container">
+<img src="images/placeholder.jpg" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;">
 </div>
 </div>
-</section>
-<section id="single-leg-press" class="level3 card ak-card has-stripe accent-primary">
-<h3 class="anchored" data-anchor-id="single-leg-press">Single Leg Press</h3>
-<p>TBD</p>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+<div class="card ak-card has-stripe accent-primary bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="h4">
+Single
+
+Leg
+
+Press
+</div>
+TBD
 <ul>
 <li>TBD</li>
 </ul>
-<div style="display:flex; gap:1.5rem; align-items:center;">
-<div style="flex:0 0 35%;">
+<div style="display:flex; gap:1.5rem; align-items:center;" class="html-fill-item html-fill-container">
+<div style="flex:0 0 35%;" class="html-fill-item html-fill-container">
 <p><strong>Criteria:</strong> ≥ 132 kg</p>
 <p><strong>Calculation:</strong> Max</p>
 </div>
-<div style="flex:0 0 65%; text-align:center;">
-<p><img src="images/placeholder.jpg" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;"></p>
+<div style="flex:0 0 65%; text-align:center;" class="html-fill-item html-fill-container">
+<img src="images/placeholder.jpg" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;">
 </div>
 </div>
-</section>
-<section id="quad-strength" class="level3 card ak-card has-stripe accent-primary">
-<h3 class="anchored" data-anchor-id="quad-strength">Quad Strength</h3>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+<div class="card ak-card has-stripe accent-primary bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="h4">
+Quad
+
+Strength
+</div>
 <p>Isometric Strength at 90°</p>
 <ul>
 <li>Seated with hip and knees flexed at 90°. Dynamometer placed on the anterior aspect of the shank, proximal to the ankle joint. Target score to complete this phase is 75% LSI compared to un-injured leg.</li>
 </ul>
-<div style="display:flex; gap:1.5rem; align-items:center;">
-<div style="flex:0 0 35%;">
+<div style="display:flex; gap:1.5rem; align-items:center;" class="html-fill-item html-fill-container">
+<div style="flex:0 0 35%;" class="html-fill-item html-fill-container">
 <p><strong>Criteria:</strong> &gt; 90%</p>
 <p><strong>Repetitions:</strong> 2</p>
 <p><strong>Calculation:</strong> Max</p>
 </div>
-<div style="flex:0 0 65%; text-align:center;">
-<p><img src="images/placeholder.jpg" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;"></p>
+<div style="flex:0 0 65%; text-align:center;" class="html-fill-item html-fill-container">
+<img src="images/placeholder.jpg" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;">
 </div>
 </div>
-</section>
-<section id="hamstring-strength" class="level3 card ak-card has-stripe accent-primary">
-<h3 class="anchored" data-anchor-id="hamstring-strength">Hamstring Strength</h3>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+<div class="card ak-card has-stripe accent-primary bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="h4">
+Hamstring
+
+Strength
+</div>
 <p>Isometric Strength at 90°</p>
 <ul>
 <li>Seated with hip and knees flexed at 90°. Dynamometer placed on the anterior aspect of the shank, proximal to the ankle joint. Target score to complete this phase is 75% LSI compared to un-injured leg.</li>
 </ul>
-<div style="display:flex; gap:1.5rem; align-items:center;">
-<div style="flex:0 0 35%;">
+<div style="display:flex; gap:1.5rem; align-items:center;" class="html-fill-item html-fill-container">
+<div style="flex:0 0 35%;" class="html-fill-item html-fill-container">
 <p><strong>Criteria:</strong> &gt; 90%</p>
 <p><strong>Repetitions:</strong> 2</p>
 <p><strong>Calculation:</strong> Max</p>
 </div>
-<div style="flex:0 0 65%; text-align:center;">
-<p><img src="images/placeholder.jpg" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;"></p>
+<div style="flex:0 0 65%; text-align:center;" class="html-fill-item html-fill-container">
+<img src="images/placeholder.jpg" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;">
 </div>
 </div>
-</section>
-<section id="y-balance" class="level3 card ak-card has-stripe accent-primary">
-<h3 class="anchored" data-anchor-id="y-balance">Y-Balance</h3>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+<div class="card ak-card has-stripe accent-primary bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="h4">
+Y-Balance
+</div>
 <p>Composite Score</p>
 <ul>
 <li>The composite score combines Anterior, Postero-Medial and Postero-Lateral. Our current calculation places equal weight on each score. The displayed score represents the average score on the injured limb as a percentage of the average score on the non-injured limb. placing equal weight on each score. Currently we are not multiplying by limb length so this is not necessarily comparable between athletes. Composite score will be used for Phase Criteria, while individual Y-Balance scores can be found in the more detialed Phase Progress reports.</li>
 </ul>
-<div style="display:flex; gap:1.5rem; align-items:center;">
-<div style="flex:0 0 35%;">
+<div style="display:flex; gap:1.5rem; align-items:center;" class="html-fill-item html-fill-container">
+<div style="flex:0 0 35%;" class="html-fill-item html-fill-container">
 <p><strong>Criteria:</strong> ≥ 95%</p>
 <p><strong>Repetitions:</strong> 3 Each</p>
 <p><strong>Calculation:</strong> A+PL+PM/3*100</p>
 </div>
-<div style="flex:0 0 65%; text-align:center;">
-<p><img src="images/placeholder.jpg" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;"></p>
+<div style="flex:0 0 65%; text-align:center;" class="html-fill-item html-fill-container">
+<img src="images/placeholder.jpg" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;">
 </div>
 </div>
-</section>
-<section id="vestibular-balance-horizontal" class="level3 card ak-card has-stripe accent-primary">
-<h3 class="anchored" data-anchor-id="vestibular-balance-horizontal">Vestibular Balance (Horizontal)</h3>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+<div class="card ak-card has-stripe accent-primary bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="h4">
+Vestibular
+
+Balance
+
+(Horizontal)
+</div>
 <p>Cooper &amp; Hughes Sports Vestibular Balance Test 1: Side to Side</p>
 <p>Subjects stand on one leg with a small amount of flexion in the hip, knee and ankle, and place their hands on their waist.</p>
 <p>At a rate of 60 beats per minute, subjects repeatedly turn their head from side to side (70-90 degree turn) for a period of 15 seconds. Vision needs to be inline with head position (no visual fixing).</p>
 <ul>
 <li>Vision needs to be inline with head position (no visual fixing). The test is passed if subjects can maintain single leg stance and do not take their hands off their waist for both assessments</li>
 </ul>
-<div style="display:flex; gap:1.5rem; align-items:center;">
-<div style="flex:0 0 35%;">
+<div style="display:flex; gap:1.5rem; align-items:center;" class="html-fill-item html-fill-container">
+<div style="flex:0 0 35%;" class="html-fill-item html-fill-container">
 <p><strong>Criteria:</strong> ≥ 15s</p>
 <p><strong>Repetitions:</strong> 1</p>
 </div>
-<div style="flex:0 0 65%; text-align:center;">
-<p><img src="images/placeholder.jpg" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;"></p>
+<div style="flex:0 0 65%; text-align:center;" class="html-fill-item html-fill-container">
+<img src="images/placeholder.jpg" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;">
 </div>
 </div>
-</section>
-<section id="vestibular-balance-vertical" class="level3 card ak-card has-stripe accent-primary">
-<h3 class="anchored" data-anchor-id="vestibular-balance-vertical">Vestibular Balance (Vertical)</h3>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+<div class="card ak-card has-stripe accent-primary bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="h4">
+Vestibular
+
+Balance
+
+(Vertical)
+</div>
 <p>Cooper &amp; Hughes Sports Vestibular Balance Test 2: Up and down</p>
 <p>Subjects stand on one leg with a small amount of flexion in the hip, knee and ankle, and place their hands on their waist.</p>
 <p>At a rate of 60 beats per minute, subjects repeatedly tilt their head up and down (looking floor to ceiling) for a period of 15 seconds.</p>
 <ul>
 <li>Vision needs to be inline with head position (no visual fixing). The test is passed if subjects can maintain single leg stance and do not take their hands off their waist for both assessments</li>
 </ul>
-<div style="display:flex; gap:1.5rem; align-items:center;">
-<div style="flex:0 0 35%;">
+<div style="display:flex; gap:1.5rem; align-items:center;" class="html-fill-item html-fill-container">
+<div style="flex:0 0 35%;" class="html-fill-item html-fill-container">
 <p><strong>Criteria:</strong> ≥ 15s</p>
 <p><strong>Repetitions:</strong> 1</p>
 </div>
-<div style="flex:0 0 65%; text-align:center;">
-<p><img src="images/placeholder.jpg" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;"></p>
+<div style="flex:0 0 65%; text-align:center;" class="html-fill-item html-fill-container">
+<img src="images/placeholder.jpg" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;">
 </div>
 </div>
-</section>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
 <div class="break-logo">
   <img src="images/csi-logo-medal-only.png" alt="">
 </div>
-</section>
-<section id="the-program" class="level2">
-<h2 class="anchored" data-anchor-id="the-program">The Program</h2>
+</div>
+<div class="bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
+<div class="card bslib-card html-fill-container" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
 <p>Below you will find links to your training programs.</p>
-<p><a href="https://www.teambuildr.com/">Phase 3: Program 1</a></p>
+<a href="https://www.teambuildr.com/">Phase 3: Program 1</a>
 <p>When considering changes or further individualization of the program, see the lists below highlighting typically safe and unsafe exercises during this phase. To see how these exercises compare to other phases of the rehab, please see the <strong>Exercise Phase Chart</strong> in the book resources. All exercise programming should be done by a CSI Pacific S&amp;C Coach or a physiotherapist.</p>
 <p>Exercises and activities during this phase typically include</p>
 <p>Peer-reviewed literature that was consulted in the making of pre-op programs is referenced here.</p>
-<div class="break-logo">
+<div class="break-logo html-fill-item html-fill-container">
   <img src="images/csi-logo-medal-only.png" alt="">
 </div>
-</section>
-<section id="additional-resources" class="level2">
-<h2 class="anchored" data-anchor-id="additional-resources">Additional Resources</h2>
-<section id="blood-flow-restriction" class="level3">
-<h3 class="anchored" data-anchor-id="blood-flow-restriction">Blood Flow Restriction</h3>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
+<div class="bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card bslib-card html-fill-container" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
 <p>Although, blood flow restriction</p>
 <p>Another more recent study</p>
-<div class="break-logo">
+<div class="break-logo html-fill-item html-fill-container">
   <img src="images/csi-logo-medal-only.png" alt="">
 </div>
-</section>
-</section>
-<section id="notes-and-considerations-for-reviewers" class="level2">
-<h2 class="anchored" data-anchor-id="notes-and-considerations-for-reviewers">Notes and Considerations for Reviewers</h2>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+<div class="bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
+<div class="card bslib-card html-fill-container" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
 <p>All feedback is welcome, however here are some considerations that should help inform the development of this tool.</p>
 <ul>
 <li>Please</li>
 </ul>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+
+
+<div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden">
+
+</div>
+</div>
+</div>
 
 
 
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="list">
-<div id="ref-buckthorpe2019a" class="csl-entry" role="listitem">
-1. Buckthorpe M. Optimising the late-stage rehabilitation and return-to-sport training and testing process after ACL reconstruction. Sports Medicine [Internet]. 2019;49:1043–58. <a href="https://doi.org/10.1007/s40279-019-01102-z">https://doi.org/10.1007/s40279-019-01102-z</a>
-</div>
-<div id="ref-buckthorpe2021a" class="csl-entry" role="listitem">
-2. Buckthorpe M, Della Villa F. Recommendations for plyometric training after ACL reconstruction <span></span> a clinical commentary. International Journal of Sports Physical Therapy. 2021;16:879–95. <a href="https://doi.org/10.26603/001c.23549">https://doi.org/10.26603/001c.23549</a>
-</div>
-<div id="ref-buckthorpe2020" class="csl-entry" role="listitem">
-3. Buckthorpe M, Della Villa F. Optimising the <span>‘</span>Mid-Stage<span>’</span> Training and Testing Process After ACL Reconstruction. Sports Medicine [Internet]. 2020;50:657–78. <a href="https://doi.org/10.1007/s40279-019-01222-6">https://doi.org/10.1007/s40279-019-01222-6</a>
-</div>
-<div id="ref-buckthorpe2020a" class="csl-entry" role="listitem">
-4. Buckthorpe M, Tamisari A, Villa FD. A ten task-based progression in rehabilitation after acl reconstruction: From post-surgery to return to play <span></span> a clinical commentary. International Journal of Sports Physical Therapy. 2020;15:611–23. <a href="https://doi.org/10.26603/ijspt20200611">https://doi.org/10.26603/ijspt20200611</a>
-</div>
-</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -1476,11 +1551,6 @@ Figure&nbsp;1: A plyometric program approach across four stages aligned to the f
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
-            // target, if specified
-            link.setAttribute("target", "_blank");
-            if (link.getAttribute("rel") === null) {
-              link.setAttribute("rel", "noopener");
-            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -1794,7 +1864,32 @@ Figure&nbsp;1: A plyometric program approach across four stages aligned to the f
     }
   });
   </script>
-</div> <!-- /content -->
+<div id="quarto-appendix" class="default bslib-grid-item html-fill-item"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-buckthorpe2019a" class="csl-entry" role="listitem">
+1. Buckthorpe M. Optimising the late-stage rehabilitation and return-to-sport training and testing process after ACL reconstruction. Sports Medicine [Internet]. 2019;49:1043–58. <a href="https://doi.org/10.1007/s40279-019-01102-z">https://doi.org/10.1007/s40279-019-01102-z</a>
+</div>
+<div id="ref-buckthorpe2021a" class="csl-entry" role="listitem">
+2. Buckthorpe M, Della Villa F. Recommendations for plyometric training after ACL reconstruction <span></span> a clinical commentary. International Journal of Sports Physical Therapy. 2021;16:879–95. <a href="https://doi.org/10.26603/001c.23549">https://doi.org/10.26603/001c.23549</a>
+</div>
+<div id="ref-kotsifaki2023a" class="csl-entry" role="listitem">
+3. Kotsifaki R, Korakakis V, King E, Barbosa O, Maree D, Pantouveris M, et al. Aspetar clinical practice guideline on rehabilitation after anterior cruciate ligament reconstruction. British Journal of Sports Medicine [Internet]. 2023;57:500–14. <a href="https://doi.org/10.1136/bjsports-2022-106158">https://doi.org/10.1136/bjsports-2022-106158</a>
+</div>
+<div id="ref-palmieri-smith2015" class="csl-entry" role="listitem">
+4. Palmieri-Smith RM, Lepley LK. Quadriceps Strength Asymmetry After Anterior Cruciate Ligament Reconstruction Alters Knee Joint Biomechanics and Functional Performance at Time of Return to Activity. The American Journal of Sports Medicine [Internet]. 2015;43:1662–9. <a href="https://doi.org/10.1177/0363546515578252">https://doi.org/10.1177/0363546515578252</a>
+</div>
+<div id="ref-sigward2018" class="csl-entry" role="listitem">
+5. Sigward SM, Chan MSM, Lin PE, Almansouri SY, Pratt KA. Compensatory strategies that reduce knee extensor demand during a bilateral squat change from 3 to 5 months following anterior cruciate ligament reconstruction. Journal of Orthopaedic and Sports Physical Therapy. 2018;48:713–8. <a href="https://doi.org/10.2519/jospt.2018.7977">https://doi.org/10.2519/jospt.2018.7977</a>
+</div>
+<div id="ref-wolpert2011" class="csl-entry" role="listitem">
+6. Wolpert DM, Diedrichsen J, Flanagan JR. Principles of sensorimotor learning. Nature Reviews Neuroscience [Internet]. 2011;12:739–51. <a href="https://doi.org/10.1038/nrn3112">https://doi.org/10.1038/nrn3112</a>
+</div>
+<div id="ref-buckthorpe2020" class="csl-entry" role="listitem">
+7. Buckthorpe M, Della Villa F. Optimising the <span>‘</span>Mid-Stage<span>’</span> Training and Testing Process After ACL Reconstruction. Sports Medicine [Internet]. 2020;50:657–78. <a href="https://doi.org/10.1007/s40279-019-01222-6">https://doi.org/10.1007/s40279-019-01222-6</a>
+</div>
+<div id="ref-buckthorpe2020a" class="csl-entry" role="listitem">
+8. Buckthorpe M, Tamisari A, Villa FD. A ten task-based progression in rehabilitation after acl reconstruction: From post-surgery to return to play <span></span> a clinical commentary. International Journal of Sports Physical Therapy. 2020;15:611–23. <a href="https://doi.org/10.26603/ijspt20200611">https://doi.org/10.26603/ijspt20200611</a>
+</div>
+</div></section></div></div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
@@ -1841,6 +1936,14 @@ Figure&nbsp;1: A plyometric program approach across four stages aligned to the f
 })();
           </script>
 
+<script type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (_event) {
+  if (window.bslib.Card) {
+    window.bslib.Card.initializeAllCards();
+  }
+}); 
+</script>
+  
 
 
 
