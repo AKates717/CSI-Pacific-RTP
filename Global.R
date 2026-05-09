@@ -261,7 +261,7 @@ pretty_var <- function(x) {
 
 #For applying "%" to Phase Summary Tables
 percent_label <- c("Hamstring Strength", "Quad Strength", "Y-Balance", "Y-Balance (Anterior)", "Y-Balance (Postero-Medial)", "Y-Balance (Postero-Lateral)", 
-                   "Single Leg Hop", "Triple Hop", "Triple Cross Over Hop", "Side Hop", "CMJ Lengthening Asymmetry", "CMJ Shortening Asymmetry", "Drop and Stick Asymmetry")
+                   "Single Leg Hop", "Triple Hop", "Triple Cross Over Hop", "Side Hop", "CMJ Lengthening Asymmetry", "CMJ Shortening Asymmetry", "Drop and Stick - Asymmetry")
 
 
 
@@ -1325,7 +1325,7 @@ criteria_phase3_abr <- criteria_phase3_abr %>%
       
       outcome_measure == "Drop and Stick - TTS"            ~ tts_val_p3,
       outcome_measure == "Drop and Stick - Landing Force"            ~ rplf_val_p3,
-      outcome_measure == "Drop and Stick Asymmetry"            ~ baland_val_p3,
+      outcome_measure == "Drop and Stick - Asymmetry"            ~ baland_val_p3,
       
       outcome_measure == "Single Leg Rise"   ~ slrise_val_p3,
       outcome_measure == "Vestibular Balance (Horizontal)"   ~ vestbalanceH_val_p3,
@@ -1383,8 +1383,8 @@ progress_p3 <- tibble(
 #PHASE 4 CRITERIA ----
 ####
 
-# 1 Prepare empty dataframe with all p3 criteria
-# 1a) Read Phase 3 criteria
+# 1 Prepare empty dataframe with all p4 criteria
+# 1a) Read Phase 4 criteria
 criteria_phase4 <- criteria_all %>%
   filter(phase == 4) %>%
   mutate(score = NA)
@@ -1394,16 +1394,80 @@ criteria_phase4 <- criteria_all %>%
 #Will need to do CMJ stuff here, similar to TBDL
 #e.g. instead of showing 95%, we will calculate 95% of previous CMJ scores
   #maybe this can be done on intake??
+#Past data multiplier for CMJ
+criteria_phase4 <- criteria_phase4 %>%
+  mutate(goal_pretty = case_when(
+    outcome_measure %in% c("CMJ Height") ~
+      paste0(round(0.9 * baseline_cmj_summary$avg_cmj_height, 0), " cm"),
+    TRUE ~ as.character(goal_pretty)
+  )) %>%
+  mutate(goal = if_else(
+    outcome_measure %in% c("CMJ Height"),
+    round(0.9 * baseline_cmj_summary$avg_cmj_height, 0),
+    goal
+  ))
 
+
+# 1c) Criteria Phase 4 - Cleaner - Dropping some individual FP metrics
+criteria_phase4_abr <- criteria_phase4 %>%
+  filter(!outcome_measure %in% c(
+    "Countermovement Jump",
+    "CMJ Lengthening Impulse",
+    "CMJ Shortening Impulse"
+  ))
 
 
 
 # 2) Criteria Data
-# Read all phase 3 criteria data
+# Read all phase 4 criteria data
 outcomes_raw_phase4 <- outcomes_raw_all %>%
-  filter(phase == 4)
+  filter(phase <= 4)
+
+iso_joint4 <- iso_joint %>%
+  filter(phase == c("Phase 2", "Phase 3", "Phase 4"))
+
+
+
 
 #Individual Criteria
+# 3a) Single Leg Hop
+p4_slhop <- outcomes_raw_phase4 %>%
+  filter(outcome_measure == "Single Leg Hop") %>%
+  group_by(date, side) %>%
+  summarise(
+    avg_top2 = if (n() >= 2) {
+      mean(sort(value, decreasing = TRUE)[1:2], na.rm = TRUE)
+    } else if (n() == 1) {
+      value[1]
+    } else {
+      NA_real_
+    },
+    .groups = "drop"
+  ) %>%
+  mutate(
+    limb = case_when(
+      side == inj_side ~ "inj",
+      side == non_inj_side ~ "non_inj",
+      TRUE ~ NA_character_
+    )
+  ) %>%
+  filter(!is.na(limb)) %>%
+  select(date, limb, avg_top2) %>%
+  pivot_wider(names_from = limb, values_from = avg_top2) %>%
+  mutate(
+    lsi = if_else(!is.na(inj) & !is.na(non_inj) & non_inj != 0,
+                  100 * inj / non_inj,
+                  NA_real_),
+    lsi = round(lsi, 1)
+  ) %>%
+  arrange(date)
+
+p4_slhop_best <- p4_slhop %>%
+  slice_max(lsi, n = 1, with_ties = FALSE)
+
+
+
+
 
 
 
@@ -1416,23 +1480,23 @@ outcomes_raw_phase4 <- outcomes_raw_all %>%
 #Build Phase 4 Criteria Table ----
 
 #Add current best scores into the table
-  #slhop_val_p4 <- suppressWarnings(as.numeric(if (exists("p4_slhop_best") && nrow(p3_slhop_best) > 0) p4_slhop_best$lsi[1] else NA_real_))
+  slhop_val_p4 <- suppressWarnings(as.numeric(if (exists("p4_slhop_best") && nrow(p4_slhop_best) > 0) p4_slhop_best$lsi[1] else NA_real_))
 
 
 
 # Populate: only fills when a value exists; stays NA (empty) otherwise
-# criteria_phase4 <- criteria_phase4 %>%
-#   mutate(
-#     score = case_when(
-#       outcome_measure == "Single Leg Hop"            ~ slhop_val_p3,
-# 
-#       TRUE                                     ~ score
-#     )
-#   )
+criteria_phase4_abr <- criteria_phase4_abr %>%
+  mutate(
+    score = case_when(
+      outcome_measure == "Single Leg Hop"            ~ slhop_val_p4,
+
+      TRUE                                     ~ score
+    )
+  )
 
 
 #Use compare helper function (x, op, y)
-criteria_phase4 <- criteria_phase4 %>%
+criteria_phase4_abr <- criteria_phase4_abr %>%
   mutate(meets = compare(score, operator_code, goal))
 
 
@@ -1440,8 +1504,8 @@ criteria_phase4 <- criteria_phase4 %>%
 #Phase, met/total, percent
 progress_p4 <- tibble(
   Phase = 4,
-  done = sum(criteria_phase3_abr$meets %in% TRUE, na.rm = TRUE),
-  total = nrow(criteria_phase3_abr)
+  done = sum(criteria_phase4_abr$meets %in% TRUE, na.rm = TRUE),
+  total = nrow(criteria_phase4_abr)
 )  %>%
   mutate(
     Progress = paste0(done, "/", total),
@@ -1449,8 +1513,6 @@ progress_p4 <- tibble(
   ) %>%
   select(Phase, Progress, Percent)
 #Will do this for each phase and bind them together for a kind of primary summary table
-
-
 
 
 

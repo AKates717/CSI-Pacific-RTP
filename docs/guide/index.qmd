@@ -107,7 +107,7 @@ With that said, much of the information in this book is targeted towards a multi
 :::
 
 ::: {.column width="50%"}
-![](../../images/ath-centred.png){fig-align="center"}
+![](../../images/ath-centred.png){.lightbox fig-align="center" width="366"}
 :::
 
 There is no expectation for you to read this e-book front-to-back, but all of the information is there for you to engage with as you wish, and of course, questions are always encouraged!
@@ -120,7 +120,7 @@ This protocol strives to gather the best available evidence on ACL rehabilitatio
 ## The Six Phases of ACL Rehabilitation
 
 ::: phase-nav
-[Pre-Op: Injury recovery & readiness for surgery](#sec-pre-op-phase){.phase-nav .btn .phase-preop}
+[Pre-Op: Injury recovery & readiness for surgery](preop.qmd){.phase-nav .btn .phase-preop}
 :::
 
 ::: phase-nav

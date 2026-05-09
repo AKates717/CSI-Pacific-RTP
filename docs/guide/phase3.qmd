@@ -201,7 +201,13 @@ tests <- criteria_phase3 |>
     filter(!outcome_measure %in% c(
     "Y-Balance (Anterior)",
     "Y-Balance (Postero-Medial)",
-    "Y-Balance (Postero-Lateral)"
+    "Y-Balance (Postero-Lateral)",
+    "CMJ Height",
+    "CMJ Lengthening Asymmetry",
+    "CMJ Shortening Asymmetry",
+    "Drop and Stick - TTS",
+    "Drop and Stick - Landing Force",
+    "Drop and Stick - Asymmetry"
   ))
 
 # Helper: print a label/value line only if value is non-missing & non-empty
