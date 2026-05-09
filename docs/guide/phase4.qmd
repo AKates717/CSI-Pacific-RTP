@@ -28,7 +28,7 @@ The timing of an athlete's return to sport
 
 ```{r}
 #Create the table
-tbl_phase4 <- criteria_phase4 %>%
+tbl_phase4 <- criteria_phase4_abr %>%
   transmute(
     `Outcome Measure` = outcome_measure,
     `Op` = operator_pretty,
@@ -42,12 +42,12 @@ tbl_phase4 <- criteria_phase4 %>%
     columns = Score,
     decimals = 0
   ) %>%
-  #   fmt_number(
-  #   columns = Score,
-  #   rows = `Outcome Measure` %in% c("Hamstring Strength", "Quad Strength"),
-  #   decimals = 0,
-  #   pattern = "{x}%"
-  # ) %>%
+  fmt_number(
+    columns = Score,
+    rows = `Outcome Measure` %in% percent_label,
+    decimals = 0,
+    pattern = "{x}%"
+    ) %>%
   sub_missing(columns = Score, missing_text = "") %>%
   cols_label(Op = "") %>%
   cols_width(`Outcome Measure` ~ px(360)) %>%
@@ -116,8 +116,8 @@ goals_progress_bar <- function(
 
 
 # By default: denominator = all criteria (matches your table showing blank scores)
-met_n_all   <- sum(criteria_phase4$meets %in% TRUE, na.rm = TRUE)
-total_n_all <- nrow(criteria_phase4)
+met_n_all   <- sum(criteria_phase4_abr$meets %in% TRUE, na.rm = TRUE)
+total_n_all <- nrow(criteria_phase4_abr)
 
 goals_progress_bar(met_n_all, total_n_all)
 
