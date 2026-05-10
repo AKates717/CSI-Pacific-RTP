@@ -302,7 +302,10 @@ htmltools::div(
       criteria_gt(criteria_phase3_abr, NULL)),
     nav_panel(
       "4",
-      criteria_gt(criteria_phase4_abr, NULL))
+      criteria_gt(criteria_phase4_abr, NULL)),
+    nav_panel(
+      "5",
+      criteria_gt(criteria_phase5_abr, NULL))
   )
 )
 ```

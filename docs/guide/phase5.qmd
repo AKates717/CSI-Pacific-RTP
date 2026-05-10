@@ -29,7 +29,7 @@ Once all criteria from Phase 1 have been satisfied, the focus of rehab can shift
 
 ```{r}
 #Create the table
-tbl_phase3 <- criteria_phase3_abr %>%
+tbl_phase5 <- criteria_phase5_abr %>%
   transmute(
     `Outcome Measure` = outcome_measure,
     `Op` = operator_pretty,
@@ -38,17 +38,17 @@ tbl_phase3 <- criteria_phase3_abr %>%
     meets
   ) %>%
   gt() %>%
-  tab_header(title = md("**Phase 3 Criteria**")) %>%
+  tab_header(title = md("**Phase 5 Criteria**")) %>%
   fmt_number(
     columns = Score,
     decimals = 0
   ) %>%
-  #   fmt_number(
-  #   columns = Score,
-  #   rows = `Outcome Measure` %in% c("Hamstring Strength", "Quad Strength"),
-  #   decimals = 0,
-  #   pattern = "{x}%"
-  # ) %>%
+  fmt_number(
+    columns = Score,
+    rows = `Outcome Measure` %in% percent_label,
+    decimals = 0,
+    pattern = "{x}%"
+    ) %>%
   sub_missing(columns = Score, missing_text = "") %>%
   cols_label(Op = "") %>%
   cols_width(`Outcome Measure` ~ px(360)) %>%
@@ -72,7 +72,7 @@ tbl_phase3 <- criteria_phase3_abr %>%
     data_row.padding = px(6)
   )
 
-tbl_phase3
+tbl_phase5
 ```
 
 ```{r}
@@ -117,8 +117,8 @@ goals_progress_bar <- function(
 
 
 # By default: denominator = all criteria (matches your table showing blank scores)
-met_n_all   <- sum(criteria_phase3_abr$meets %in% TRUE, na.rm = TRUE)
-total_n_all <- nrow(criteria_phase3_abr)
+met_n_all   <- sum(criteria_phase5_abr$meets %in% TRUE, na.rm = TRUE)
+total_n_all <- nrow(criteria_phase5_abr)
 
 goals_progress_bar(met_n_all, total_n_all)
 
@@ -147,13 +147,12 @@ Each card below contains a detailed description of the tests to be conducted dur
 ```{r, echo=FALSE, results='asis'}
 
 
-tests <- criteria_phase3 |>
+tests <- criteria_phase5 |>
   dplyr::select(outcome_measure, display_description, additional_information, operator_pretty, goal_pretty, repetitions, calculation, image_path) %>%
   mutate(op_goal = paste(operator_pretty, goal_pretty)) %>%
     filter(!outcome_measure %in% c(
-    "Y-Balance (Anterior)",
-    "Y-Balance (Postero-Medial)",
-    "Y-Balance (Postero-Lateral)"
+      "CMJ Lengthening Asymmetry",
+      "CMJ Shortening Asymmetry"
   ))
 
 # Helper: print a label/value line only if value is non-missing & non-empty

@@ -1716,8 +1716,335 @@ progress_p4 <- tibble(
 
 
 
+
+####
+#PHASE 5 CRITERIA ----
+####
+
+# 1 Prepare empty dataframe with all p4 criteria
+# 1a) Read Phase 5 criteria
+criteria_phase5 <- criteria_all %>%
+  filter(phase == 5) %>%
+  mutate(score = NA)
+
+# 1b) Phase specific mutations
+
+#Will need to do CMJ stuff here, similar to TBDL
+#e.g. instead of showing 95%, we will calculate 95% of previous CMJ scores
+#maybe this can be done on intake??
+#Past data multiplier for CMJ
+criteria_phase5 <- criteria_phase5 %>%
+  mutate(goal_pretty = case_when(
+    outcome_measure %in% c("CMJ Height") ~
+      paste0(round(0.95 * baseline_cmj_summary$avg_cmj_height, 0), " cm"),
+    TRUE ~ as.character(goal_pretty)
+  )) %>%
+  mutate(goal = if_else(
+    outcome_measure %in% c("CMJ Height"),
+    round(0.95 * baseline_cmj_summary$avg_cmj_height, 0),
+    goal
+  ))
+
+
+# 1c) Criteria Phase 5 - Cleaner - Dropping some individual FP metrics
+criteria_phase5_abr <- criteria_phase5 %>%
+  filter(!outcome_measure %in% c(
+    "Countermovement Jump",
+    "CMJ Lengthening Impulse",
+    "CMJ Shortening Impulse"
+  ))
+
+
+
+# 2) Criteria Data
+# Read all phase 5 criteria data
+outcomes_raw_phase5 <- outcomes_raw_all %>%
+  filter(phase <= 5)
+
+iso_joint5 <- iso_joint %>%
+  filter(phase == c("Phase 2", "Phase 3", "Phase 4", "Phase 5"))
+
+
+
+
+#Individual Criteria
+# 5a) Single Leg Hop
+p5_slhop <- outcomes_raw_phase5 %>%
+  filter(outcome_measure == "Single Leg Hop") %>%
+  group_by(date, side) %>%
+  summarise(
+    avg_top2 = if (n() >= 2) {
+      mean(sort(value, decreasing = TRUE)[1:2], na.rm = TRUE)
+    } else if (n() == 1) {
+      value[1]
+    } else {
+      NA_real_
+    },
+    .groups = "drop"
+  ) %>%
+  mutate(
+    limb = case_when(
+      side == inj_side ~ "inj",
+      side == non_inj_side ~ "non_inj",
+      TRUE ~ NA_character_
+    )
+  ) %>%
+  filter(!is.na(limb)) %>%
+  select(date, limb, avg_top2) %>%
+  pivot_wider(names_from = limb, values_from = avg_top2) %>%
+  mutate(
+    lsi = if_else(!is.na(inj) & !is.na(non_inj) & non_inj != 0,
+                  100 * inj / non_inj,
+                  NA_real_),
+    lsi = round(lsi, 1)
+  ) %>%
+  arrange(date)
+
+p5_slhop_best <- p5_slhop %>%
+  slice_max(lsi, n = 1, with_ties = FALSE)
+
+
+# 5b) Triple Hop
+p5_triplehop <- outcomes_raw_phase5 %>%
+  filter(outcome_measure == "Triple Hop") %>%
+  group_by(date, side) %>%
+  summarise(
+    avg_top2 = if (n() >= 2) {
+      mean(sort(value, decreasing = TRUE)[1:2], na.rm = TRUE)
+    } else if (n() == 1) {
+      value[1]
+    } else {
+      NA_real_
+    },
+    .groups = "drop"
+  ) %>%
+  mutate(
+    limb = case_when(
+      side == inj_side ~ "inj",
+      side == non_inj_side ~ "non_inj",
+      TRUE ~ NA_character_
+    )
+  ) %>%
+  filter(!is.na(limb)) %>%
+  select(date, limb, avg_top2) %>%
+  pivot_wider(names_from = limb, values_from = avg_top2) %>%
+  mutate(
+    lsi = if_else(!is.na(inj) & !is.na(non_inj) & non_inj != 0,
+                  100 * inj / non_inj,
+                  NA_real_),
+    lsi = round(lsi, 1)
+  ) %>%
+  arrange(date)
+
+p5_triplehop_best <- p5_triplehop %>%
+  slice_max(lsi, n = 1, with_ties = FALSE)
+
+
+# 5c) Triple Hop
+p5_triplecrosshop <- outcomes_raw_phase5 %>%
+  filter(outcome_measure == "Triple Cross Over Hop") %>%
+  group_by(date, side) %>%
+  summarise(
+    avg_top2 = if (n() >= 2) {
+      mean(sort(value, decreasing = TRUE)[1:2], na.rm = TRUE)
+    } else if (n() == 1) {
+      value[1]
+    } else {
+      NA_real_
+    },
+    .groups = "drop"
+  ) %>%
+  mutate(
+    limb = case_when(
+      side == inj_side ~ "inj",
+      side == non_inj_side ~ "non_inj",
+      TRUE ~ NA_character_
+    )
+  ) %>%
+  filter(!is.na(limb)) %>%
+  select(date, limb, avg_top2) %>%
+  pivot_wider(names_from = limb, values_from = avg_top2) %>%
+  mutate(
+    lsi = if_else(!is.na(inj) & !is.na(non_inj) & non_inj != 0,
+                  100 * inj / non_inj,
+                  NA_real_),
+    lsi = round(lsi, 1)
+  ) %>%
+  arrange(date)
+
+p5_triplecrosshop_best <- p5_triplecrosshop %>%
+  slice_max(lsi, n = 1, with_ties = FALSE)
+
+# 5d) Side Hop
+p5_sidehop <- outcomes_raw_phase5 %>%
+  filter(outcome_measure == "Side Hop") %>%
+  group_by(date) %>%
+  summarise(
+    inj = if (any(side == inj_side,  na.rm = TRUE))  max(value[side == inj_side],  na.rm = TRUE) else NA_real_,
+    non_inj = if (any(side == non_inj_side, na.rm = TRUE))  max(value[side == non_inj_side], na.rm = TRUE) else NA_real_,
+    .groups = "drop"
+  ) %>%
+  mutate(
+    lsi = if_else(!is.na(inj) & !is.na(non_inj) & non_inj != 0, 100 * inj / non_inj, NA_real_),
+    lsi = round(lsi, 1)
+  ) %>%
+  arrange(date)
+
+p5_sidehop_best <- p5_sidehop %>%
+  slice_max(lsi, n = 1, with_ties = FALSE)
+
+
+
+# 5e) Quad Strength
+p5_quads <- iso_joint5 %>%
+  filter(test == "Quads") %>%
+  group_by(date_ddmmyear) %>%
+  summarise(
+    inj = if (any(limb == inj_side,  na.rm = TRUE))  max(peak_force_kg[limb == inj_side],  na.rm = TRUE) else NA_real_,
+    non_inj = if (any(limb == non_inj_side, na.rm = TRUE))  max(peak_force_kg[limb == non_inj_side], na.rm = TRUE) else NA_real_,
+    .groups = "drop"
+  ) %>%
+  mutate(
+    lsi = if_else(!is.na(inj) & !is.na(non_inj) & non_inj != 0, 100 * inj / non_inj, NA_real_),
+    lsi = round(lsi, 1)
+  ) %>%
+  arrange(date_ddmmyear)
+
+p5_quads_best <- p5_quads %>%
+  slice_max(lsi, n = 1, with_ties = FALSE)
+
+# 5f) Hamstring Strength
+p5_hams <- iso_joint5 %>%
+  filter(test == "Hamstrings") %>%
+  group_by(date_ddmmyear) %>%
+  summarise(
+    inj = if (any(limb == inj_side,  na.rm = TRUE))  max(peak_force_kg[limb == inj_side],  na.rm = TRUE) else NA_real_,
+    non_inj = if (any(limb == non_inj_side, na.rm = TRUE))  max(peak_force_kg[limb == non_inj_side], na.rm = TRUE) else NA_real_,
+    .groups = "drop"
+  ) %>%
+  mutate(
+    lsi = if_else(!is.na(inj) & !is.na(non_inj) & non_inj != 0, 100 * inj / non_inj, NA_real_),
+    lsi = round(lsi, 1)
+  ) %>%
+  arrange(date_ddmmyear)
+
+p5_hams_best <- p5_hams %>%
+  slice_max(lsi, n = 1, with_ties = FALSE)
+
+
+
+
+
+##P4 Force Plates ----
+# 5g) CMJ Height
+p5_cmjheight <- post_cmj %>%
+  group_by(date_ddmmyear) %>%
+  summarise(
+    avg_cmj_height = mean(flight_height_tov),
+    .groups = "drop"
+  )
+
+p5_cmjheight_best <- p5_cmjheight %>%
+  slice_max(avg_cmj_height, n = 1, with_ties = FALSE)
+
+
+#5h) BA Lengthening
+p5_balng <- post_cmj %>%
+  group_by(date_ddmmyear) %>%
+  summarise(
+    avg_balng = mean(balng),
+    .groups = "drop"
+  )
+
+p5_balng_best <- p5_balng %>%
+  slice_min(abs(avg_balng), n = 1, with_ties = FALSE)
+
+#5i) BA Shortening
+p5_basht <- post_cmj %>%
+  group_by(date_ddmmyear) %>%
+  summarise(
+    avg_basht = mean(basht),
+    .groups = "drop"
+  )
+
+p5_basht_best <- p5_basht %>%
+  slice_min(abs(avg_basht), n = 1, with_ties = FALSE)
+
+
+
+
+
+
+
+
+
+
+
+#Build Phase 5 Criteria Table ----
+
+#Add current best scores into the table
+slhop_val_p5 <- suppressWarnings(as.numeric(if (exists("p5_slhop_best") && nrow(p5_slhop_best) > 0) p5_slhop_best$lsi[1] else NA_real_))
+triplehop_val_p5 <- suppressWarnings(as.numeric(if (exists("p5_triplehop_best") && nrow(p5_triplehop_best) > 0) p5_triplehop_best$lsi[1] else NA_real_))
+triplecrosshop_val_p5 <- suppressWarnings(as.numeric(if (exists("p5_triplecrosshop_best") && nrow(p5_triplecrosshop_best) > 0) p5_triplecrosshop_best$lsi[1] else NA_real_))
+sidehop_val_p5 <- suppressWarnings(as.numeric(if (exists("p5_sidehop_best") && nrow(p5_sidehop_best) > 0) p5_sidehop_best$lsi[1] else NA_real_))
+
+cmjheight_val_p5 <- suppressWarnings(as.numeric(if (exists("p5_cmjheight_best") && nrow(p5_cmjheight_best) > 0) p5_cmjheight_best$avg_cmj_height[1] else NA_real_))
+balng_val_p5 <- suppressWarnings(as.numeric(if (exists("p5_balng_best") && nrow(p5_balng_best) > 0) p5_balng_best$avg_balng[1] else NA_real_))
+basht_val_p5 <- suppressWarnings(as.numeric(if (exists("p5_basht_best") && nrow(p5_basht_best) > 0) p5_basht_best$avg_basht[1] else NA_real_))
+
+quads_val_p5    <- suppressWarnings(as.numeric(if (exists("p5_quads_best")    && nrow(p5_quads_best)    > 0) p5_quads_best$lsi[1]    else NA_real_))
+hams_val_p5     <- suppressWarnings(as.numeric(if (exists("p5_hams_best")     && nrow(p5_hams_best)     > 0) p5_hams_best$lsi[1]     else NA_real_))
+
+
+
+# Populate: only fills when a value exists; stays NA (empty) otherwise
+criteria_phase5_abr <- criteria_phase5_abr %>%
+  mutate(
+    score = case_when(
+      outcome_measure == "Single Leg Hop"            ~ slhop_val_p5,
+      outcome_measure == "Triple Hop"            ~ triplehop_val_p5,
+      outcome_measure == "Triple Cross Over Hop"            ~ triplecrosshop_val_p5,
+      outcome_measure == "Side Hop"            ~ sidehop_val_p5,
+      
+      outcome_measure == "CMJ Height"            ~ cmjheight_val_p5,
+      outcome_measure == "CMJ Lengthening Asymmetry"            ~ balng_val_p5,
+      outcome_measure == "CMJ Shortening Asymmetry"            ~ basht_val_p5,
+      
+      outcome_measure == "Quad Strength"       ~ quads_val_p5,
+      outcome_measure == "Hamstring Strength"  ~ hams_val_p5,
+      
+      TRUE                                     ~ score
+    )
+  )
+
+
+#Use compare helper function (x, op, y)
+criteria_phase5_abr <- criteria_phase5_abr %>%
+  mutate(meets = compare(score, operator_code, goal))
+
+
+#Build 1 Row summary
+#Phase, met/total, percent
+progress_p5 <- tibble(
+  Phase = 5,
+  done = sum(criteria_phase5_abr$meets %in% TRUE, na.rm = TRUE),
+  total = nrow(criteria_phase5_abr)
+)  %>%
+  mutate(
+    Progress = paste0(done, "/", total),
+    Percent  = done / total
+  ) %>%
+  select(Phase, Progress, Percent)
+#Will do this for each phase and bind them together for a kind of primary summary table
+
+
+
+
+
+
+
 #OVERALL PROGRESS ----
-progress_overall <- bind_rows(progress_p0, progress_p1, progress_p2, progress_p3, progress_p4)
+progress_overall <- bind_rows(progress_p0, progress_p1, progress_p2, progress_p3, progress_p4, progress_p5)
 
 
 
