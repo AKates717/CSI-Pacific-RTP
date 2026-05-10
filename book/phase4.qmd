@@ -19,10 +19,10 @@ source("Themes.R")
 Once all criteria from Phase ...
 
 ::: {.callout-important title="Most Important Goals — Phase 1"}
--   One
--   Two
--   Three
--   Four
+- One
+- Two
+- Three
+- Four
 :::
 
 **`r params$athlete`'s** progress
@@ -31,7 +31,7 @@ tion.
 
 ```{r}
 #Create the table
-tbl_phase4 <- criteria_phase4 %>%
+tbl_phase4 <- criteria_phase4_abr %>%
   transmute(
     `Outcome Measure` = outcome_measure,
     `Op` = operator_pretty,

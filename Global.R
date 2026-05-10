@@ -1430,7 +1430,7 @@ iso_joint4 <- iso_joint %>%
 
 
 #Individual Criteria
-# 3a) Single Leg Hop
+# 4a) Single Leg Hop
 p4_slhop <- outcomes_raw_phase4 %>%
   filter(outcome_measure == "Single Leg Hop") %>%
   group_by(date, side) %>%
@@ -1466,6 +1466,179 @@ p4_slhop_best <- p4_slhop %>%
   slice_max(lsi, n = 1, with_ties = FALSE)
 
 
+# 4b) Triple Hop
+p4_triplehop <- outcomes_raw_phase4 %>%
+  filter(outcome_measure == "Triple Hop") %>%
+  group_by(date, side) %>%
+  summarise(
+    avg_top2 = if (n() >= 2) {
+      mean(sort(value, decreasing = TRUE)[1:2], na.rm = TRUE)
+    } else if (n() == 1) {
+      value[1]
+    } else {
+      NA_real_
+    },
+    .groups = "drop"
+  ) %>%
+  mutate(
+    limb = case_when(
+      side == inj_side ~ "inj",
+      side == non_inj_side ~ "non_inj",
+      TRUE ~ NA_character_
+    )
+  ) %>%
+  filter(!is.na(limb)) %>%
+  select(date, limb, avg_top2) %>%
+  pivot_wider(names_from = limb, values_from = avg_top2) %>%
+  mutate(
+    lsi = if_else(!is.na(inj) & !is.na(non_inj) & non_inj != 0,
+                  100 * inj / non_inj,
+                  NA_real_),
+    lsi = round(lsi, 1)
+  ) %>%
+  arrange(date)
+
+p4_triplehop_best <- p4_triplehop %>%
+  slice_max(lsi, n = 1, with_ties = FALSE)
+
+
+# 3c) Triple Hop
+p4_triplecrosshop <- outcomes_raw_phase4 %>%
+  filter(outcome_measure == "Triple Cross Over Hop") %>%
+  group_by(date, side) %>%
+  summarise(
+    avg_top2 = if (n() >= 2) {
+      mean(sort(value, decreasing = TRUE)[1:2], na.rm = TRUE)
+    } else if (n() == 1) {
+      value[1]
+    } else {
+      NA_real_
+    },
+    .groups = "drop"
+  ) %>%
+  mutate(
+    limb = case_when(
+      side == inj_side ~ "inj",
+      side == non_inj_side ~ "non_inj",
+      TRUE ~ NA_character_
+    )
+  ) %>%
+  filter(!is.na(limb)) %>%
+  select(date, limb, avg_top2) %>%
+  pivot_wider(names_from = limb, values_from = avg_top2) %>%
+  mutate(
+    lsi = if_else(!is.na(inj) & !is.na(non_inj) & non_inj != 0,
+                  100 * inj / non_inj,
+                  NA_real_),
+    lsi = round(lsi, 1)
+  ) %>%
+  arrange(date)
+
+p4_triplecrosshop_best <- p4_triplecrosshop %>%
+  slice_max(lsi, n = 1, with_ties = FALSE)
+
+# 3d) Side Hop
+p4_sidehop <- outcomes_raw_phase4 %>%
+  filter(outcome_measure == "Side Hop") %>%
+  group_by(date) %>%
+  summarise(
+    inj = if (any(side == inj_side,  na.rm = TRUE))  max(value[side == inj_side],  na.rm = TRUE) else NA_real_,
+    non_inj = if (any(side == non_inj_side, na.rm = TRUE))  max(value[side == non_inj_side], na.rm = TRUE) else NA_real_,
+    .groups = "drop"
+  ) %>%
+  mutate(
+    lsi = if_else(!is.na(inj) & !is.na(non_inj) & non_inj != 0, 100 * inj / non_inj, NA_real_),
+    lsi = round(lsi, 1)
+  ) %>%
+  arrange(date)
+
+p4_sidehop_best <- p4_sidehop %>%
+  slice_max(lsi, n = 1, with_ties = FALSE)
+
+
+# 4e) Pistol Squat
+p4_pistol <- outcomes_raw_phase4 %>%
+  filter(outcome_measure == "Pistol Squat") %>%
+  filter(side == inj_side)
+p4_pistol_best <- p4_pistol %>%
+  slice_max(value, n = 1, with_ties = FALSE)
+
+
+
+# 4f) Quad Strength
+p4_quads <- iso_joint4 %>%
+  filter(test == "Quads") %>%
+  group_by(date_ddmmyear) %>%
+  summarise(
+    inj = if (any(limb == inj_side,  na.rm = TRUE))  max(peak_force_kg[limb == inj_side],  na.rm = TRUE) else NA_real_,
+    non_inj = if (any(limb == non_inj_side, na.rm = TRUE))  max(peak_force_kg[limb == non_inj_side], na.rm = TRUE) else NA_real_,
+    .groups = "drop"
+  ) %>%
+  mutate(
+    lsi = if_else(!is.na(inj) & !is.na(non_inj) & non_inj != 0, 100 * inj / non_inj, NA_real_),
+    lsi = round(lsi, 1)
+  ) %>%
+  arrange(date_ddmmyear)
+
+p4_quads_best <- p4_quads %>%
+  slice_max(lsi, n = 1, with_ties = FALSE)
+
+# 4g) Hamstring Strength
+p4_hams <- iso_joint4 %>%
+  filter(test == "Hamstrings") %>%
+  group_by(date_ddmmyear) %>%
+  summarise(
+    inj = if (any(limb == inj_side,  na.rm = TRUE))  max(peak_force_kg[limb == inj_side],  na.rm = TRUE) else NA_real_,
+    non_inj = if (any(limb == non_inj_side, na.rm = TRUE))  max(peak_force_kg[limb == non_inj_side], na.rm = TRUE) else NA_real_,
+    .groups = "drop"
+  ) %>%
+  mutate(
+    lsi = if_else(!is.na(inj) & !is.na(non_inj) & non_inj != 0, 100 * inj / non_inj, NA_real_),
+    lsi = round(lsi, 1)
+  ) %>%
+  arrange(date_ddmmyear)
+
+p4_hams_best <- p4_hams %>%
+  slice_max(lsi, n = 1, with_ties = FALSE)
+
+
+
+
+
+##P4 Force Plates ----
+# 3k) CMJ Height
+p4_cmjheight <- post_cmj %>%
+  group_by(date_ddmmyear) %>%
+  summarise(
+    avg_cmj_height = mean(flight_height_tov),
+    .groups = "drop"
+  )
+
+p4_cmjheight_best <- p4_cmjheight %>%
+  slice_max(avg_cmj_height, n = 1, with_ties = FALSE)
+
+
+#3l) BA Lengthening
+p4_balng <- post_cmj %>%
+  group_by(date_ddmmyear) %>%
+  summarise(
+    avg_balng = mean(balng),
+    .groups = "drop"
+  )
+
+p4_balng_best <- p4_balng %>%
+  slice_min(abs(avg_balng), n = 1, with_ties = FALSE)
+
+#3m) BA Shortening
+p4_basht <- post_cmj %>%
+  group_by(date_ddmmyear) %>%
+  summarise(
+    avg_basht = mean(basht),
+    .groups = "drop"
+  )
+
+p4_basht_best <- p4_basht %>%
+  slice_min(abs(avg_basht), n = 1, with_ties = FALSE)
 
 
 
@@ -1480,7 +1653,18 @@ p4_slhop_best <- p4_slhop %>%
 #Build Phase 4 Criteria Table ----
 
 #Add current best scores into the table
-  slhop_val_p4 <- suppressWarnings(as.numeric(if (exists("p4_slhop_best") && nrow(p4_slhop_best) > 0) p4_slhop_best$lsi[1] else NA_real_))
+slhop_val_p4 <- suppressWarnings(as.numeric(if (exists("p4_slhop_best") && nrow(p4_slhop_best) > 0) p4_slhop_best$lsi[1] else NA_real_))
+triplehop_val_p4 <- suppressWarnings(as.numeric(if (exists("p4_triplehop_best") && nrow(p4_triplehop_best) > 0) p4_triplehop_best$lsi[1] else NA_real_))
+triplecrosshop_val_p4 <- suppressWarnings(as.numeric(if (exists("p4_triplecrosshop_best") && nrow(p4_triplecrosshop_best) > 0) p4_triplecrosshop_best$lsi[1] else NA_real_))
+sidehop_val_p4 <- suppressWarnings(as.numeric(if (exists("p4_sidehop_best") && nrow(p4_sidehop_best) > 0) p4_sidehop_best$lsi[1] else NA_real_))
+
+cmjheight_val_p4 <- suppressWarnings(as.numeric(if (exists("p4_cmjheight_best") && nrow(p4_cmjheight_best) > 0) p4_cmjheight_best$avg_cmj_height[1] else NA_real_))
+balng_val_p4 <- suppressWarnings(as.numeric(if (exists("p4_balng_best") && nrow(p4_balng_best) > 0) p4_balng_best$avg_balng[1] else NA_real_))
+basht_val_p4 <- suppressWarnings(as.numeric(if (exists("p4_basht_best") && nrow(p4_basht_best) > 0) p4_basht_best$avg_basht[1] else NA_real_))
+
+pistol_val_p4  <- suppressWarnings(as.numeric(if (exists("p4_pistol_best")   && nrow(p4_pistol_best)   > 0) p4_pistol_best$value[1]  else NA_real_))
+quads_val_p4    <- suppressWarnings(as.numeric(if (exists("p4_quads_best")    && nrow(p4_quads_best)    > 0) p4_quads_best$lsi[1]    else NA_real_))
+hams_val_p4     <- suppressWarnings(as.numeric(if (exists("p4_hams_best")     && nrow(p4_hams_best)     > 0) p4_hams_best$lsi[1]     else NA_real_))
 
 
 
@@ -1489,6 +1673,17 @@ criteria_phase4_abr <- criteria_phase4_abr %>%
   mutate(
     score = case_when(
       outcome_measure == "Single Leg Hop"            ~ slhop_val_p4,
+      outcome_measure == "Triple Hop"            ~ triplehop_val_p4,
+      outcome_measure == "Triple Cross Over Hop"            ~ triplecrosshop_val_p4,
+      outcome_measure == "Side Hop"            ~ sidehop_val_p4,
+      
+      outcome_measure == "CMJ Height"            ~ cmjheight_val_p4,
+      outcome_measure == "CMJ Lengthening Asymmetry"            ~ balng_val_p4,
+      outcome_measure == "CMJ Shortening Asymmetry"            ~ basht_val_p4,
+
+      outcome_measure == "Pistol Squat"   ~ pistol_val_p4,
+      outcome_measure == "Quad Strength"       ~ quads_val_p4,
+      outcome_measure == "Hamstring Strength"  ~ hams_val_p4,
 
       TRUE                                     ~ score
     )
