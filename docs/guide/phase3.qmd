@@ -43,12 +43,12 @@ tbl_phase3 <- criteria_phase3_abr %>%
     columns = Score,
     decimals = 0
   ) %>%
-  #   fmt_number(
-  #   columns = Score,
-  #   rows = `Outcome Measure` %in% c("Hamstring Strength", "Quad Strength"),
-  #   decimals = 0,
-  #   pattern = "{x}%"
-  # ) %>%
+  fmt_number(
+    columns = Score,
+    rows = `Outcome Measure` %in% percent_label,
+    decimals = 0,
+    pattern = "{x}%"
+    ) %>%
   sub_missing(columns = Score, missing_text = "") %>%
   cols_label(Op = "") %>%
   cols_width(`Outcome Measure` ~ px(360)) %>%
