@@ -20,9 +20,9 @@ source("Themes.R")
 Once all criteria from Phase 1 have been satisfied, the focus of rehab can shift towards building strength and neuromuscular control.
 
 ::: {.callout-important title="Most Important Goals — Phase 3"}
--   Excellent hopping performance
--   Complete agility program
--   Full strength & balance restored
+- Excellent hopping performance
+- Complete agility program
+- Full strength & balance restored
 :::
 
 **`r params$athlete`'s** progress
@@ -243,4 +243,4 @@ Another more recent study
 
 All feedback is welcome, however here are some considerations that should help inform the development of this tool.
 
--   Please
+- Please
