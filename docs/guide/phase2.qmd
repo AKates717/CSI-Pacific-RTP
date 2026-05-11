@@ -25,7 +25,7 @@ At the transition from phase 1 to phase 2, it is expected that pain and swelling
 - Listen to the body: be aware of pain, swelling or ROM regressions and adjust training accordingly
 :::
 
-Outcomes generally reflect maintaining a healthy knee, increased lower body muscular endurance and strength, and improved static postural stability. **`r params$athlete`'s** progress towards these goals will be assessed via the criteria seen below. Detailed description of each criteria and the associated testing methodology can be found in @sec-p2-testing.
+Outcomes generally reflect maintaining a healthy knee, increased lower body muscular endurance and strength, and improved static postural stability. **`r params$athlete`'s** progress towards these goals will be assessed via the criteria seen below. Detailed description of each criteria and the associated testing methodology can be found in the [Testing](#sec-p2-testing) section.
 
 ```{r}
 #Create the table

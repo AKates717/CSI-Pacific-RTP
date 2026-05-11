@@ -653,7 +653,27 @@ plot_iso_magnitude2 <- function(data, outcome){
 }
 
 
-
+#Bar plot for magnitude outcomes of max score + geom_point for all outcome scores
+barplot_one_var <- function(data, outcome, unit){
+  
+  df <- data %>%
+    dplyr::filter(outcome_measure == outcome)
+  
+  p <-  df %>%
+    ggplot(aes(x = as.factor(date), text = date_ddmmyear2)) +
+    stat_summary(aes(y = value), fun = "max", geom = "bar", just = 1, width = 0.4, alpha = 0.7) +
+    #geom_point(aes(y = value), shape = 21, size = 2, alpha = 0.5, color = "black", position = position_dodge(width = 0.4)) +
+    ak_plot_theme() +
+    scale_x_discrete(labels = function(x) format(as.Date(x), "%b %e, %Y")) +
+    labs(y = outcome, x = NULL)
+  
+  ggplotly(p, tooltip = c("text")) %>%
+    #layout(legend = list(orientation = "h", x = 0.3, y = -0.25)) %>%
+    style(hovertemplate = paste("<b>%{text}</b> <br><i>Load:</i>  %{y}<extra></extra>", unit),traces = c(1)) %>%
+    config(displaylogo = FALSE) %>%
+    config(modeBarButtonsToRemove = c("hoverCompare", "hoverclosest", "zoomIn2d", "zoomOut2d"))
+  
+}
 
 
 

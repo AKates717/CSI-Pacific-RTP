@@ -23,7 +23,8 @@ function(input, output, session) {
                            filter(Phase == 3))
   data_p4 <- reactiveVal(read_current_data(TARGET_SHEET) %>%
                            filter(Phase == 4))
-  
+  data_p5 <- reactiveVal(read_current_data(TARGET_SHEET) %>%
+                           filter(Phase == 5))
   
   
   
@@ -913,17 +914,174 @@ function(input, output, session) {
   
   
   
+  #Phase 5 ----
+  
+  #displaying testing/collection instructions
+  output$description_p5 <- renderText({
+    req(input$measure_p5)
+    m <- trimws(input$measure_p5)
+    row <- criteria_simple |>
+      dplyr::filter(`Outcome Measure` == m) |>
+      dplyr::slice(1)
+    
+    if (nrow(row) == 0) return("No description available.")
+    val <- row$`Display Description`[[1]]
+    if (is.null(val) || is.na(val) || !nzchar(val)) "No description available."
+    else gsub("\r\n?", "\n", val)   # normalize CR/LF so CSS pre-wrap works
+  })
+  
+  output$info_p5 <- renderText({
+    req(input$measure_p5)
+    m <- trimws(input$measure_p5)
+    row <- criteria_simple |>
+      dplyr::filter(`Outcome Measure` == m) |>
+      dplyr::slice(1)
+    
+    if (nrow(row) == 0) return("No additional information.")
+    val <- row$`Additional Information`[[1]]
+    if (is.null(val) || is.na(val) || !nzchar(val)) "No additional information."
+    else gsub("\r\n?", "\n", val)
+  })
+  
+  
+  output$p5_card_title <- renderUI({
+    m <- input$measure_p5
+    if (is.null(m) || !nzchar(m)) {
+      tags$em("Select an outcome measure")
+    } else {
+      tags$div(class = "d-flex align-items-center gap-2", m)
+    }
+  })
+  
+  # Title in the card
+  output$p5_title <- renderText({
+    m <- input$measure_p5
+    if (is.null(m) || !nzchar(m)) "Select an outcome measure" else m
+  })
+  
+  # # Helper: fetch first matching row for the selected measure
+  # get_crit_row <- function(measure) {
+  #   req(measure)
+  #   criteria_simple |>
+  #     dplyr::filter(`Outcome Measure` == trimws(measure)) |>
+  #     dplyr::slice(1)
+  # }
+  
+  # # Helper: emit a <p><strong>Label:</strong> value</p> only if value exists
+  # emit_row <- function(label, value) {
+  #   if (is.null(value)) return(NULL)
+  #   val_chr <- trimws(as.character(value))
+  #   if (!nzchar(val_chr) || is.na(val_chr)) return(NULL)
+  #   tags$p(tags$strong(paste0(label, ": ")), val_chr)
+  # }
+  
+  # Optional rows
+  output$goal_row_p5 <- renderUI({
+    row <- get_crit_row(input$measure_p5)
+    if (!nrow(row)) return(NULL)
+    emit_row("Criteria", row$Goal[[1]])
+  })
+  
+  output$reps_row_p5 <- renderUI({
+    row <- get_crit_row(input$measure_p5)
+    if (!nrow(row)) return(NULL)
+    emit_row("Repetitions", row$Repetitions[[1]])
+  })
+  
+  output$calc_row_p5 <- renderUI({
+    row <- get_crit_row(input$measure_p5)
+    if (!nrow(row)) return(NULL)
+    emit_row("Calculation", row$Calculation[[1]])
+  })
+  
+  # Create Output Table
+  output$table_p5 <- renderDT({
+    data_p5() %>%
+      {
+        if (!is.null(input$measure_p5) && input$measure_p5 != "") {
+          filter(., Outcome.Measure == input$measure_p5)
+        } else {
+          .
+        }
+      } %>%
+      arrange(desc(Timestamp)) %>%
+      select(-c(Phase, Units, Timestamp)) %>%
+      mutate(
+        Date = as.Date(Date, origin = "1899-12-30"),
+        Date = format(Date, "%b %d, %Y")
+      ) %>%
+      datatable(options = list(pageLength = 10), rownames = FALSE)
+  })
+  
+  
+  
+  # Auto-fill Units when a known measure is selected/typed (Phase 5)
+  observeEvent(input$measure_p5, ignoreInit = TRUE, {
+    req(nzchar(input$measure_p5))
+    u <- units_for_measure(input$measure_p5)
+    if (!is.na(u)) updateTextInput(session, "units_p5", value = u)
+  })
+  
+  
+  
+  # Save Phase 5
+  observeEvent(input$save_p5, {
+    validate(
+      need(nzchar(input$measure_p5), "Choose or type an outcome measure."),
+      need(!is.null(input$date_p5), "Pick a date."),
+      need(!is.na(input$value_p5), "Enter a numeric value."),
+      need(nzchar(input$units_p5), "Units cannot be blank.")
+    )
+    
+    new_row <- data.frame(
+      "Phase"           = 5,
+      "Outcome Measure" = input$measure_p5,
+      "Date"            = as.Date(input$date_p5),
+      "Timestamp"       = Sys.time(),
+      "Side"            =   if (is.null(input$side_p5) || input$side_p5 == "") {
+        "Both"
+      } else {
+        input$side_p5
+      },
+      "Value"           = as.numeric(input$value_p5),
+      "Units"           = input$units_p5,
+      "Notes"           = input$notes_p5,
+      check.names = FALSE
+    )
+    
+    tryCatch({
+      append_row(TARGET_SHEET, new_row)
+      data_p5(read_current_data(TARGET_SHEET))
+      output$status_p5 <- renderText(sprintf(
+        "Saved ✔  (%s | %s | %s = %s %s)",
+        new_row[["Outcome Measure"]], new_row[["Date"]], new_row[["Side"]],
+        new_row[["Value"]], new_row[["Units"]]
+      ))
+      updateNumericInput(session, "value_p5", value = NA)
+      updateTextInput(session, "notes_p5", value = "")
+    }, error = function(e) {
+      output$status_p5 <- renderText(paste("Error:", e$message))
+    })
+  })
+  
+  
+  
+  
+  
+  
+  
   
   
   #Isometric ----
   
-  ##Housekeeping ----
+  #Housekeeping ----
   
   #Define directory for csvs
   default_save_dir <- file.path(getwd(), "data")
   
   #timing
   live_start_time <- reactiveVal(NULL)
+  plot_reset_trigger <- reactiveVal(0L)
   timer_armed     <- reactiveVal(FALSE)
   live_elapsed_s  <- reactiveVal(0)
   start_click_time <- reactiveVal(NULL)
@@ -937,7 +1095,6 @@ function(input, output, session) {
   # R-side rolling buffer
   buf <- reactiveVal(data.frame(t_us=numeric(0), weight=numeric(0), t_s=numeric(0)))
   buf_fast <- shiny::debounce(reactive(buf()), 150)  # for numbers if you want them faster
-  buf_plot <- shiny::debounce(reactive(buf()), 250)  # plot refresh ~4 Hz
   
   # Loading Notification Helpers
   show_connecting_modal <- function() {
@@ -976,7 +1133,7 @@ function(input, output, session) {
   
   
   
-  ##Start Button ----
+  #Start Button ----
   
   observeEvent(input$start, {
     
@@ -1033,7 +1190,7 @@ function(input, output, session) {
   
   
   
-  ##Stop Button ----
+  #Stop Button ----
   observeEvent(input$stop, {
     py$stop_stream()
     
@@ -1057,7 +1214,7 @@ function(input, output, session) {
   
   
   
-  ##Clear Data ----
+  #Clear Data ----
   observeEvent(input$clear, {
     buf(data.frame(t_us=numeric(0), weight=numeric(0), t_s=numeric(0)))
     peak_hold(NA_real_)
@@ -1069,16 +1226,8 @@ function(input, output, session) {
     timer_armed(FALSE)
     start_click_time(NULL)   # if you use this
     
-    # Reset summary table (peaks cleared)
-    summary_tbl_data(data.frame(
-      Phase = input$phase_num,
-      Test  = input$test_type,
-      Limb  = if (is.null(input$limb) || input$limb == "") NA_character_ else input$limb,
-      `Peak Force (kg)` = NA_real_,
-      `Peak Force (N)`  = NA_real_,
-      check.names = FALSE
-    ))
-    
+    # Wipe the plotly chart
+    plot_reset_trigger(plot_reset_trigger() + 1L)
   })
   
   
@@ -1087,7 +1236,7 @@ function(input, output, session) {
   
   
   
-  # Full session storage (not trimmed)
+  # Full session storage (not trimmed) ----
   # session_df <- reactiveVal(data.frame(
   #   t_us = numeric(0),
   #   t_s = numeric(0),
@@ -1106,7 +1255,7 @@ function(input, output, session) {
   
   
   
-  ##Peak Hold ----
+  #Peak Hold ----
   peak_hold <- reactiveVal(NA_real_)
   
   observeEvent(input$reset_peak, {
@@ -1121,7 +1270,7 @@ function(input, output, session) {
   
   
   
-  ##Offset ----
+  #Offset ----
   offset <- reactiveVal(0)
   
   observeEvent(input$zero_now, {
@@ -1139,10 +1288,9 @@ function(input, output, session) {
   
   
   
-  ## Poll python buffer on a timer ----
+  # Poll python buffer on a timer ----
   observe({
     invalidateLater(125, session)
-    if (!isTRUE(py$is_streaming())) return()
     
     # grab new samples (and clear python-side buffer)
     samps <- py$get_samples(clear = TRUE)
@@ -1185,7 +1333,7 @@ function(input, output, session) {
       )
       newdf$t_s <- newdf$t_us / 1e6
       
-      # ---- append to FULL session (raw kg + offset info) 
+      # ---- append to FULL session (raw kg + offset info) ----
       off_kg <- offset()
       
       sess_new <- data.frame(
@@ -1224,8 +1372,70 @@ function(input, output, session) {
       ph <- peak_hold()
       if (is.na(ph) || new_peak_raw > ph) peak_hold(new_peak_raw)
       
+      # --- plotly proxy: react (smooth, no flicker) ---
+      tmax_plot <- if (nrow(out) >= 1) max(out$t_s) else 0
+      tmin_plot <- if (nrow(out) >= 1) max(tmax_plot - 20, min(out$t_s)) else 0
+      ph_disp   <- if (is.na(peak_hold())) NA_real_ else to_units(peak_hold())
+      
+      # Downsample to ~500 points for display
+      plot_out <- if (nrow(out) > 500) {
+        idx <- round(seq(1, nrow(out), length.out = 500))
+        out[idx, , drop = FALSE]
+      } else {
+        out
+      }
+      
+      # Stable y range: upper bound driven by peak_hold (monotonically increasing)
+      y_vals <- as.numeric(to_units(plot_out$weight - off_kg))
+      y_max  <- max(c(if (!is.na(ph_disp)) ph_disp else 0, y_vals, 1), na.rm = TRUE) * 1.15
+      y_min  <- min(c(0, y_vals), na.rm = TRUE)
+      
+      plotlyProxy("plot", session) %>%
+        plotlyProxyInvoke(
+          "react",
+          list(list(
+            x    = as.numeric(plot_out$t_s),
+            y    = y_vals,
+            type = "scattergl",
+            mode = "lines",
+            line = list(color = "#2C3E50", width = 2),
+            hovertemplate = paste0("%{y:.1f} ", input$units, "<extra></extra>"),
+            name = "Force"
+          )),
+          list(
+            xaxis = list(
+              title     = "Time (s)",
+              range     = list(tmin_plot, tmax_plot),
+              showgrid  = TRUE,
+              gridcolor = "#eeeeee",
+              zeroline  = FALSE
+            ),
+            yaxis = list(
+              title     = paste0("Force (", input$units, ")"),
+              range     = list(y_min, y_max),
+              showgrid  = TRUE,
+              gridcolor = "#eeeeee",
+              zeroline  = FALSE
+            ),
+            paper_bgcolor = "white",
+            plot_bgcolor  = "white",
+            showlegend    = FALSE,
+            margin        = list(l = 60, r = 20, t = 20, b = 50),
+            shapes = if (!is.na(ph_disp)) {
+              list(list(
+                type = "line",
+                x0   = 0, x1 = 1, xref = "paper",
+                y0   = ph_disp, y1   = ph_disp,
+                line = list(color = "#C0392B", width = 1.5, dash = "dash")
+              ))
+            } else {
+              list()
+            }
+          )
+        )
+      
     }
-  }, priority = 1000)
+  })
   
   
   
@@ -1235,7 +1445,7 @@ function(input, output, session) {
   
   
   
-  ##Value Boxes ----
+  #Value Boxes ----
   output$vb_time_value <- renderText({
     sprintf("%d s", as.integer(floor(live_elapsed_s())))
   })
@@ -1260,41 +1470,40 @@ function(input, output, session) {
   
   
   
-  ##Main Plot ----
-  output$plot <- renderPlot({
+  #Main Plot ----
+  output$plot <- renderPlotly({
+    plot_reset_trigger()  # re-initialize on Clear
     
-    df <- buf_plot()
-    validate(need(nrow(df) >= 2, "No live data yet. Click Start Button."))
-    
-    plot_df <- df %>%
-      mutate(
-        force = to_units(weight - offset())
-      )
-    
-    # peak-hold in display units (stored raw)
-    ph_raw <- peak_hold()
-    ph_disp <- if (is.na(ph_raw)) NA_real_ else to_units(ph_raw)
-    
-    ggplot(plot_df, aes(x = t_s, y = force)) +
-      geom_line(linewidth = 0.8, colour = "#2C3E50") +
-      geom_hline(
-        yintercept = ph_disp,
-        linewidth = 0.8,
-        colour = if (is.na(ph_disp)) NA else "#C0392B",
-        linetype = "dashed"
-      ) +
-      labs(
-        x = "Time (s)",
-        y = paste0("Force (", input$units, ")")
-      ) +
-      theme_minimal(base_size = 13) +
-      theme(
-        panel.grid.minor = element_blank(),
-        plot.margin = margin(10, 10, 10, 10),
-        plot.background  = element_rect(fill = "white", colour = NA),
-        panel.background = element_rect(fill = "white", colour = NA)
-      )
-  }, bg = "white")
+    plot_ly() %>%
+      add_trace(
+        x = numeric(0), y = numeric(0),
+        type = "scattergl", mode = "lines",
+        line = list(color = "#2C3E50", width = 2),
+        hovertemplate = paste0("%{y:.1f} ", isolate(input$units), "<extra></extra>"),
+        name = "Force"
+      ) %>%
+      layout(
+        xaxis = list(
+          title = "Time (s)",
+          showgrid = TRUE,
+          gridcolor = "#eeeeee",
+          zeroline = FALSE,
+          fixedrange = FALSE
+        ),
+        yaxis = list(
+          title = paste0("Force (", isolate(input$units), ")"),
+          showgrid = TRUE,
+          gridcolor = "#eeeeee",
+          zeroline = FALSE,
+          fixedrange = FALSE
+        ),
+        paper_bgcolor = "white",
+        plot_bgcolor  = "white",
+        showlegend = FALSE,
+        margin = list(l = 60, r = 20, t = 20, b = 50)
+      ) %>%
+      config(displayModeBar = FALSE)
+  })
   
   
   
@@ -1304,10 +1513,10 @@ function(input, output, session) {
   
   
   
-  ## Main Table ----
+  # Main Table ----
   #Summary table data (always exists; peaks filled on Calculate)
   summary_tbl_data <- reactiveVal(data.frame(
-    Name = NA_character_,
+    Phase = NA_character_,
     Test = NA_character_,
     Limb = NA_character_,
     `Peak Force (kg)` = NA_real_,
@@ -1336,7 +1545,7 @@ function(input, output, session) {
     ph_raw <- peak_hold()
     
     summary_tbl_data(data.frame(
-      Phase = cur$Phase,
+      Phase = input$phase_num,
       Test = cur$Test,
       Limb = cur$Limb,
       `Peak Force (kg)` = if (is.na(ph_raw)) NA_real_ else round(ph_raw, 2),
@@ -1368,7 +1577,7 @@ function(input, output, session) {
   
   
   
-  ##Save Raw Data ----
+  #Save Raw Data ----
   save_msg <- reactiveVal("")
   
   observeEvent(input$save_csv, {
@@ -1388,7 +1597,7 @@ function(input, output, session) {
     
     stamp <- format(Sys.time(), "%Y%m%d_%H%M%S")
     
-    nm   <- slugify(input$athlete_name)
+    nm   <- slugify(input$phase_num)
     limb <- slugify(input$limb)
     test <- slugify(input$test_type)
     
@@ -1415,9 +1624,9 @@ function(input, output, session) {
   
   
   
-  ##Save Summary Data ----
+  #Save Summary Data ----
   
-  #helper to get the append working properly
+  #helper to ge the append working properly
   ensure_trailing_newline <- function(path) {
     if (!file.exists(path)) return(invisible(TRUE))
     sz <- file.info(path)$size
@@ -1534,6 +1743,115 @@ function(input, output, session) {
     tmax <- max(df$t_s)
     df[df$t_s >= (tmax - win), , drop = FALSE]
   })
+  
+  
+  
+  
+  # ACL-RSI ----
+
+  observeEvent(input$submit_aclrsi, {
+    # ✅ Validate all fields
+    missing_fields_aclrsi <- c()
+
+    if (is.null(input$date) || is.na(input$date)) missing_fields_aclrsi <- c(missing_fields_aclrsi, "Date")
+    if (is.null(input$aclrsiq1) || is.na(input$aclrsiq1)) missing_fields_aclrsi <- c(missing_fields_aclrsi, "Q1")
+    if (is.null(input$aclrsiq2) || is.na(input$aclrsiq2)) missing_fields_aclrsi <- c(missing_fields_aclrsi, "Q2")
+    if (is.null(input$aclrsiq3) || is.na(input$aclrsiq3)) missing_fields_aclrsi <- c(missing_fields_aclrsi, "Q3")
+    if (is.null(input$aclrsiq4) || is.na(input$aclrsiq4)) missing_fields_aclrsi <- c(missing_fields_aclrsi, "Q4")
+    if (is.null(input$aclrsiq5) || is.na(input$aclrsiq5)) missing_fields_aclrsi <- c(missing_fields_aclrsi, "Q5")
+    if (is.null(input$aclrsiq6) || is.na(input$aclrsiq6)) missing_fields_aclrsi <- c(missing_fields_aclrsi, "Q6")
+    if (is.null(input$aclrsiq7) || is.na(input$aclrsiq7)) missing_fields_aclrsi <- c(missing_fields_aclrsi, "Q7")
+    if (is.null(input$aclrsiq8) || is.na(input$aclrsiq8)) missing_fields_aclrsi <- c(missing_fields_aclrsi, "Q8")
+    if (is.null(input$aclrsiq9) || is.na(input$aclrsiq9)) missing_fields_aclrsi <- c(missing_fields_aclrsi, "Q9")
+    if (is.null(input$aclrsiq10) || is.na(input$aclrsiq10)) missing_fields_aclrsi <- c(missing_fields_aclrsi, "Q10")
+    if (is.null(input$aclrsiq11) || is.na(input$aclrsiq11)) missing_fields_aclrsi <- c(missing_fields_aclrsi, "Q11")
+    if (is.null(input$aclrsiq12) || is.na(input$aclrsiq12)) missing_fields_aclrsi <- c(missing_fields_aclrsi, "Q12")
+
+
+    if (length(missing_fields_aclrsi) > 0) {
+      toastr_warning(
+        title = "Missing fields",
+        message = paste("Please complete all fields before saving."),
+        position = "bottom-right",
+        progressBar = TRUE,
+        timeOut = 3000,
+        closeButton = TRUE
+      )
+      return(NULL)
+    }
+
+    # ✅ If all complete, ask for confirmation
+    ask_confirmation(
+      session = session,
+      inputId = "confirm_save_aclrsi",
+      title   = "Confirm",
+      text    = "Please confirm your submission",
+      type    = "question",
+      btn_labels = c("Cancel", "Submit"),
+      btn_colors = c("#999999", "#447099")
+    )
+  })
+
+  observeEvent(input$confirm_save_aclrsi, {
+    if (!isTRUE(input$confirm_save_aclrsi)) return(NULL)
+
+    new_row <- data.frame(
+      Timestamp       = format(Sys.time(), "%Y-%m-%d %H:%M:%S"),
+      Date            = as.character(input$date_aclrsi),
+      q1  = as.numeric(input$aclrsiq1),
+      q2  = as.numeric(input$aclrsiq2),
+      q3  = as.numeric(input$aclrsiq3),
+      q4  = as.numeric(input$aclrsiq4),
+      q5  = as.numeric(input$aclrsiq5),
+      q6  = as.numeric(input$aclrsiq6),
+      q7  = as.numeric(input$aclrsiq7),
+      q8  = as.numeric(input$aclrsiq8),
+      q9  = as.numeric(input$aclrsiq9),
+      q10  = as.numeric(input$aclrsiq10),
+      q11  = as.numeric(input$aclrsiq11),
+      q12  = as.numeric(input$aclrsiq12),
+      stringsAsFactors = FALSE
+    )
+
+    xlsx_path  <- here("sample_data", "outcome_data.xlsx")
+    sheet_name <- "acl_rsi"
+
+    if (!file.exists(xlsx_path)) {
+      wb <- createWorkbook(); addWorksheet(wb, sheet_name)
+      writeData(wb, sheet_name, new_row, startRow = 1, colNames = TRUE)
+      saveWorkbook(wb, xlsx_path, overwrite = TRUE)
+    } else {
+      wb <- loadWorkbook(xlsx_path)
+      if (!(sheet_name %in% names(wb))) {
+        addWorksheet(wb, sheet_name)
+        writeData(wb, sheet_name, new_row, startRow = 1, colNames = TRUE)
+        saveWorkbook(wb, xlsx_path, overwrite = TRUE)
+      } else {
+        existing <- tryCatch(readWorkbook(wb, sheet = sheet_name),
+                             warning = function(w) NULL, error = function(e) NULL)
+        if (is.null(existing) || !is.data.frame(existing) || ncol(existing) == 0) {
+          writeData(wb, sheet_name, new_row, startRow = 1, colNames = TRUE)
+        } else {
+          next_row <- nrow(existing) + 2
+          writeData(wb, sheet_name, new_row, startRow = next_row, colNames = FALSE)
+        }
+        saveWorkbook(wb, xlsx_path, overwrite = TRUE)
+      }
+    }
+
+    # ✅ Success toast (auto-closes)
+    toastr_success(
+      message = "Entry saved successfully!",
+      title = "ACL-RSI Updated",
+      position = "bottom-right",
+      progressBar = TRUE,
+      timeOut = 1000,
+      closeButton = TRUE
+    )
+  })
+  
+  
+  
   
   
   

@@ -147,7 +147,7 @@ Using the context provided by this model, Phase 4 of the CSI Pacific ACL Guide w
 :::
 
 ::: {.column width="50%"}
-![The transition from the rehabilitation phases to actual performance, including leadership and collaboration among medical and performance staff. OFR = On-field Rehabilitation, RTT = Return to Training, RTC = Return to Competitions, RTP = Return to Performance [@buckthorpe2019b].](images/rehab-to-performance.jpg){#fig-1 fig-align="right" width="635"}
+![The transition from the rehabilitation phases to actual performance, including leadership and collaboration among medical and performance staff. OFR = On-field Rehabilitation, RTT = Return to Training, RTC = Return to Competitions, RTP = Return to Performance [@buckthorpe2019b].](images/rehab-to-performance.jpg){#fig-1 .lightbox fig-align="center" width="405"}
 :::
 :::::
 
@@ -259,7 +259,7 @@ Below you will find links to your training programs.
 
 When considering changes or further individualization of the program, see the lists below highlighting typically safe and unsafe exercises during this phase. To see how these exercises compare to other phases of the rehab, please see the **Exercise Phase Chart** in the book resources. All exercise programming should be done by a CSI Pacific S&C Coach or a physiotherapist.
 
-![](images/clipboard-2884114175.png)
+![](images/clipboard-2884114175.png){.lightbox}
 
 Exercises and activities during this phase typically include
 
