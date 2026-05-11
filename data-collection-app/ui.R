@@ -152,11 +152,12 @@ ui <- page_navbar(
   
   
   # Phase 0 ----
+  nav_menu("Phase Testing",
   nav_panel(
-    "Phase 0",
+    "Pre-Op",
     layout_sidebar(
       sidebar = sidebar(
-        width = "35%",
+        width = "30%",
         selectizeInput(
           "measure_p0", "Outcome Measure (Phase 0)",
           choices  = measures_by_phase("Phase 0"),
@@ -212,7 +213,7 @@ ui <- page_navbar(
     "Phase 1",
     layout_sidebar(
       sidebar = sidebar(
-        width = "35%",
+        width = "30%",
         selectizeInput(
           "measure_p1", "Outcome Measure (Phase 1)",
           choices  = measures_by_phase("Phase 1"),
@@ -269,7 +270,7 @@ ui <- page_navbar(
     "Phase 2",
     layout_sidebar(
       sidebar = sidebar(
-        width = "35%",
+        width = "30%",
         selectizeInput(
           "measure_p2", "Outcome Measure (Phase 2)",
           choices  = measures_by_phase("Phase 2"),
@@ -329,7 +330,7 @@ ui <- page_navbar(
     "Phase 3",
     layout_sidebar(
       sidebar = sidebar(
-        width = "35%",
+        width = "30%",
         selectizeInput(
           "measure_p3", "Outcome Measure (Phase 3)",
           choices  = measures_by_phase("Phase 3"),
@@ -384,7 +385,7 @@ ui <- page_navbar(
     "Phase 4",
     layout_sidebar(
       sidebar = sidebar(
-        width = "35%",
+        width = "30%",
         selectizeInput(
           "measure_p4", "Outcome Measure (Phase 4)",
           choices  = measures_by_phase("Phase 4"),
@@ -439,8 +440,61 @@ ui <- page_navbar(
   
   
   # Phase 5 ----
+  nav_panel(
+    "Phase 5",
+    layout_sidebar(
+      sidebar = sidebar(
+        width = "30%",
+        selectizeInput(
+          "measure_p5", "Outcome Measure (Phase 5)",
+          choices  = measures_by_phase("Phase 5"),
+          selected = character(0),
+          options  = list(
+            placeholder = "Select or type…",
+            create = TRUE,
+            onInitialize = I('function() { this.clear(true); }')  # <- force no preselect
+          )
+        ),
+        dateInput("date_p5", "Date"),
+        shinyWidgets::radioGroupButtons(
+          inputId  = "side_p5",
+          label    = "Side",
+          choices  = c("Left", "Both", "Right"),
+          justified = TRUE,          # buttons fill width evenly
+          selected = character(0),
+          checkIcon = list(yes = icon("check"))   # checkmark on selected
+        ),
+        numericInput("value_p5", "Value", value = NA, step = 0.01),
+        textInput("units_p5", "Units", value = ""),
+        textAreaInput("notes_p5", "Notes", rows = 3, placeholder = "optional"),
+        actionButton("save_p5", "Save to Excel (Phase 5)", class = "btn-primary"),
+        tags$hr(),
+        verbatimTextOutput("status_p5", placeholder = TRUE)
+      ),
+      
+      card(
+        class = "ak-card has-stripe accent-primary tight",
+        card_body(
+          # Heading styled by your CSS (first child inside card-body)
+          h3(textOutput("p5_title", container = span)),
+          
+          # Main text blocks (keep your existing renderText)
+          p(class = "desc-text", textOutput("description_p5", container = span)),
+          p(class = "info-text",  textOutput("info_p5",        container = span))
+          
+          # # Optional fields (render nothing if empty)
+          # uiOutput("goal_row_p3"),
+          # uiOutput("reps_row_p3"),
+          # uiOutput("calc_row_p3")
+        )
+      ),
+      DTOutput("table_p5")
+      
+    )
+  )
   
   
+  ),
   
   
   
@@ -453,7 +507,7 @@ ui <- page_navbar(
         width = "25%",
         # --- session metadata ---
         selectInput("phase_num", "Phase",
-                    choices = c("Phase 0", "Phase 1", "Phase 2"),
+                    choices = c("Phase 0", "Phase 1", "Phase 2", "Phase 3", "Phase 4", "Phase 5"),
                     selected = NULL),
         selectInput("test_type", "Test Type",
                     choices = c("Quads", "Hamstrings"),
@@ -531,15 +585,14 @@ ui <- page_navbar(
             )
           )
         ),
-        card(plotOutput("plot", height = 300)),
+        br(),
+        card(plotlyOutput("plot", height = 350)),
         div(
           style = "text-align: right; margin-top: 8px;",
           actionButton("calc_summary", "Calculate")
         ),
-        div(
-          style = "max-height: 220px; overflow-y: auto;",
-          gt_output("summary_tbl")
-        ),
+        br(),
+        gt_output("summary_tbl"),
         div(
           style = "text-align: right; margin-top: 8px;",
           actionButton("save_db", "Save to database")
@@ -551,6 +604,189 @@ ui <- page_navbar(
       )
       
     )
+  ),
+  
+  
+  
+  # ACL-RSI ----
+  nav_menu(
+    "Psychological",
+    nav_panel(
+      title = "ACL-RSI",
+      
+      useToastr(),
+      
+      tags$style(HTML("
+    # .wellness-container {
+    #   display:flex; justify-content:center; align-items:flex-start;
+    #   padding:0.6rem 0.5rem 1rem 0.5rem;
+    # }
+    # .psych-card {
+    #   width:100%; max-width:900px;
+    #   background:#fff; border-radius:10px;
+    #   box-shadow:0 2px 8px rgba(0,0,0,0.05);
+    #   padding:1rem 1rem 0.6rem 1rem;
+    # }
+    
+    .psych-container {
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      padding:0.6rem 1rem 1rem 1rem;
+    }
+
+    .psych-card {
+      width: 100%;
+      max-width: min(800px, 92vw);
+      margin: 0 auto;
+    }
+    
+    .card-header h4 {
+      font-weight:600; color:#333;
+      margin-bottom:0.5rem; font-size:1.1rem;
+    }
+
+    /* field blocks tighter */
+    .psych-field {
+      background:#fafbfe;
+      border:1px solid #e5e7eb;
+      border-radius:8px;
+      padding:6px 10px;
+      margin-bottom:6px;
+    }
+    .psych-field .shiny-input-container label {
+      display:block;
+      font-weight:600;
+      font-size:0.9rem;
+      color:#333;
+      margin-bottom:2px;
+    }
+    .shiny-input-container { margin-bottom:0; }
+
+    /* numeric/date inputs */
+    .psych-field input.form-control {
+      border:1px solid #cbd5e1;
+      border-radius:6px;
+      padding:4px 6px;
+      height:auto;
+      font-size:0.9rem;
+      box-shadow:none;
+    }
+    .psych-field input.form-control:focus {
+      border-color:#447099;
+      outline:1px solid rgba(68,112,153,.25);
+      outline-offset:1px;
+    }
+    #sleep_hours { width:90px; }
+
+    /* compact radio pills */
+    .psych-field .radio-inline {
+      display:inline-flex !important;
+      align-items:center;
+      justify-content:center;
+      white-space:nowrap;
+      gap:3px;
+      margin:2px 5px 2px 0;
+      padding:4px 8px;
+      border:1px solid #cbd5e1;
+      border-radius:9999px;
+      background:#f8fafc;
+      color:#1f2937;
+      cursor:pointer;
+      font-weight:600;
+      font-size:0.9rem;
+      transition:background .12s,border-color .12s,color .12s;
+    }
+    .psych-field .radio-inline:hover {
+      background:#eef2f7;
+      border-color:#94a3b8;
+    }
+    .psych-field .radio-inline input[type='radio'] {
+      width:1px;height:1px;opacity:0;position:absolute;pointer-events:none;
+    }
+    .psych-field .radio-inline:has(input[type='radio']:checked) {
+      background:#447099;
+      border-color:#447099;
+      color:#fff;
+    }
+
+    /* tighter button */
+    #submit {
+      width:100%; font-weight:600; font-size:0.95rem;
+      padding:.4rem; border-radius:6px;
+      background:#447099 !important; border:none;
+      margin-top:4px;
+    }
+    #submit:hover { background:#365b7a !important; }
+
+    @media (max-width:600px){
+      .psych-card { padding:0.8rem; }
+      .psych-field { padding:5px 8px; margin-bottom:5px; }
+      .psych-field .radio-inline { padding:5px 8px; }
+    }
+    
+  /* keep all radio buttons on one line */
+  .psych-field .shiny-options-group {
+    display:flex !important;
+    flex-wrap:nowrap !important;
+    overflow-x:auto;
+    gap:4px;
+  }
+
+  /* compact radio pills */
+  .psych-field .radio-inline {
+    display:inline-flex !important;
+    align-items:center;
+    justify-content:center;
+    white-space:nowrap;
+    margin:0;
+    padding:3px 6px;
+    font-size:0.8rem;
+  }
+  
+  .psych-field .shiny-options-group {
+    display:flex !important;
+    flex-wrap:nowrap !important;
+    justify-content:center;
+    gap:4px;
+  }
+    
+  ")),
+      
+      div(
+        class = "psych-container",
+        card(
+          class = "psych-card",
+          card_header(h4("ACL-RSI")),
+          card_body(
+            div(class = "psych-field",
+                dateInput("date_aclrsi", "Date", value = Sys.Date())
+            ),
+            
+            lapply(seq_len(nrow(questions)), function(i) {
+              psychQuestionUI(
+                id = questions$id[i],
+                question_text = questions$question[i],
+                left_label = questions$left[i],
+                right_label = questions$right[i]
+              )
+            }),
+            
+            div(style = "margin-top:6px; text-align:center;",
+                actionButton("submit_aclrsi", "Submit"))
+          )
+        )
+      )
+    ),
+    
+    
+    nav_panel(
+      title = "IKDC"),
+    
+    
+    nav_panel(
+      title = "TSK-11")
+    
   )
   
   

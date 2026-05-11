@@ -19,7 +19,7 @@ source("Themes.R")
 ```{r}
 
 #Create the table
-tbl_phase0 <- criteria_phase2_abr %>%
+tbl_phase2 <- criteria_phase2_abr %>%
   transmute(
     `Outcome Measure` = outcome_measure,
     `Op` = operator_pretty,
@@ -62,7 +62,7 @@ tbl_phase0 <- criteria_phase2_abr %>%
     data_row.padding = px(6)
   )
 
-tbl_phase0
+tbl_phase2
 
 ```
 
@@ -157,6 +157,22 @@ htmltools::div(
     full_screen = TRUE,
     title = htmltools::tags$span(style = "font-weight:700; font-size:1.2rem;", "Strength"),
     nav_panel(
+      "Quads",
+      plot_iso_magnitude(iso_joint2, "Quads")
+    ),
+    nav_panel(
+      "Hams",
+      plot_iso_magnitude(iso_joint2, "Hamstrings")
+    ),
+    nav_panel(
+      "TBDL",
+      barplot_one_var(outcomes_raw_phase2, "TrapBar Deadlift", "kg")
+    ),
+    nav_panel(
+      "SL Rise",
+      plot_ind_phase_outcomes(outcomes_raw_phase2, "Single Leg Rise")
+    ),
+    nav_panel(
       "SL Bridge",
       plot_ind_phase_outcomes(outcomes_raw_phase2, "Single Leg Bridge")
     ),
@@ -168,14 +184,7 @@ htmltools::div(
       "Side Bridge",
       plot_ind_phase_outcomes(outcomes_raw_phase2, "Side Bridge")
     ),
-    nav_panel(
-      "Quads",
-      plot_iso_magnitude(iso_joint2, "Quads")
-    ),
-    nav_panel(
-      "Hams",
-      plot_iso_magnitude(iso_joint2, "Hamstrings")
-    )
+
   )
 )
 ```

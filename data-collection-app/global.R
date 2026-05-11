@@ -96,7 +96,7 @@ append_row <- function(sheet_name, row_df) {
   saveWorkbook(wb, TARGET_PATH, overwrite = TRUE)
 }
 
-#---- Load measure lookup from your criteria_full sheet (robust to header variants)
+#---- Load measure lookup from criteria_full sheet (robust to header variants)
 load_measure_lookup <- function() {
   if (!file.exists(SOURCE_PATH)) {
     warning("Source Excel not found: ", SOURCE_PATH)
@@ -375,6 +375,76 @@ def get_debug():
 
 
 
+#Psych ----
+
+#UI for ACL-RSI
+psychQuestionUI <- function(
+    id,
+    question_text,
+    left_label,
+    right_label
+) {
+  
+  div(
+    class = "psych-field",
+    
+    tags$div(
+      style = "font-weight:600; margin-bottom:10px;",
+      question_text
+    ),
+    
+    tags$div(
+      style = "
+        display:flex;
+        align-items:center;
+        gap:12px;
+        width:100%;
+      ",
+      
+      # LEFT LABEL
+      tags$div(
+        left_label,
+        style = "
+          width:170px;
+          min-width:170px;
+          text-align:right;
+          font-size:0.85rem;
+          line-height:1.2;
+        "
+      ),
+      
+      # RADIO BUTTONS
+      tags$div(
+        style = "
+          flex:1;
+          display:flex;
+          justify-content:center;
+        ",
+        
+        radioButtons(
+          inputId = id,
+          label = NULL,
+          choices = seq(0, 100, by = 10),
+          selected = character(0),
+          inline = TRUE
+        )
+      ),
+      
+      # RIGHT LABEL
+      tags$div(
+        right_label,
+        style = "
+          width:170px;
+          min-width:170px;
+          text-align:left;
+          font-size:0.85rem;
+          line-height:1.2;
+        "
+      )
+    )
+  )
+}
 
 
-
+#ACL-RSI dataframe
+questions <- read_excel(SOURCE_PATH, sheet = "acl_rsi")
