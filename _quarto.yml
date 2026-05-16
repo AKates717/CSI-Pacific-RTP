@@ -42,6 +42,10 @@ website:
             href: checklists/phase2_checklist.qmd
           - text: "Phase 3"
             href: checklists/phase3_checklist.qmd
+          - text: "Phase 4"
+            href: checklists/phase4_checklist.qmd
+          - text: "Phase 5"
+            href: checklists/phase5_checklist.qmd
           - text: "Return to Jumping"
             href: checklists/return_to_jump_checklist.qmd            
           - text: "Return to Running"
