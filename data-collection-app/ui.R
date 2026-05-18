@@ -610,7 +610,7 @@ ui <- page_navbar(
   
   # ACL-RSI ----
   nav_menu(
-    "Psychological",
+    "Mental Perf.",
     nav_panel(
       title = "ACL-RSI",
       
