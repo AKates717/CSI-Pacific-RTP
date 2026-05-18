@@ -723,8 +723,10 @@ plot_wellness <- function (outcome){
     #scale_x_date(breaks = "1 month", labels = label_date("%b")) + 
     scale_y_continuous(limits = c(0, 5), oob = oob_squish) +
     ak_plot_theme() +
+    #labs(x = NULL) +
     theme(axis.title.x = element_blank(),
-          axis.title.y = element_blank()
+          axis.title.y = element_blank(),
+          axis.text.x = element_blank()
     )
   
   ggplotly(p_value) %>%
@@ -776,7 +778,8 @@ plot_sleep <- function (outcome){
     #scale_y_continuous(limits = c(0, 5), oob = oob_squish) +
     ak_plot_theme() +
     theme(axis.title.x = element_blank(),
-          axis.title.y = element_blank()
+          axis.title.y = element_blank(),
+          axis.text.x = element_blank()
     )
   
   ggplotly(p_value) %>%

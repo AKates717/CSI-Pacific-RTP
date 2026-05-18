@@ -92,8 +92,8 @@ cat("title=", "Daily Monitoring - ", format(Sys.Date(), "%b %d, %Y"))
 htmltools::tags$div(class = "ak-card-mark")
 
 # Read all daily monitoring data
-daily_mon_raw <- read_xlsx("sample_data/outcome_data.xlsx", sheet = "daily") %>%
-  clean_names()
+# daily_mon_raw <- read_xlsx("sample_data/outcome_data.xlsx", sheet = "daily") %>%
+#   clean_names()
 
 daily_mon_most_recent <- lubridate::as_date(max(daily_mon_raw$date))
 

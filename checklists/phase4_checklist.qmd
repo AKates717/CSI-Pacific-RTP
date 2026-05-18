@@ -1,5 +1,5 @@
 ---
-title: "Phase 3 Checklist"
+title: "Phase 4 Checklist"
 params:
   athlete: "Frank Reynolds"
 ---
@@ -19,7 +19,7 @@ source("Themes.R")
 ```{r}
 
 #Create the table
-tbl_phase3 <- criteria_phase3_abr %>%
+tbl_phase4 <- criteria_phase4_abr %>%
   transmute(
     `Outcome Measure` = outcome_measure,
     `Op` = operator_pretty,
@@ -28,7 +28,7 @@ tbl_phase3 <- criteria_phase3_abr %>%
     meets
   ) %>%
   gt() %>%
-  tab_header(title = md("**Phase 3 Criteria**")) %>%
+  tab_header(title = md("**Phase 4 Criteria**")) %>%
   fmt_number(
     columns = Score,
     decimals = 0
@@ -62,7 +62,7 @@ tbl_phase3 <- criteria_phase3_abr %>%
     data_row.padding = px(6)
   )
 
-tbl_phase3
+tbl_phase4
 
 ```
 
@@ -108,8 +108,8 @@ goals_progress_bar <- function(
 
 
 # By default: denominator = all criteria (matches your table showing blank scores)
-met_n_all   <- sum(criteria_phase3_abr$meets %in% TRUE, na.rm = TRUE)
-total_n_all <- nrow(criteria_phase3_abr)
+met_n_all   <- sum(criteria_phase4_abr$meets %in% TRUE, na.rm = TRUE)
+total_n_all <- nrow(criteria_phase4_abr)
 
 goals_progress_bar(met_n_all, total_n_all)
 ```
@@ -136,7 +136,11 @@ htmltools::div(
     nav_panel(
       "Hams",
       plot_iso_magnitude(iso_joint3, "Hamstrings")
-    )
+    ),
+    nav_panel(
+      "Pistol",
+      plot_ind_phase_outcomes(outcomes_raw_phase4, "Pistol Squat")
+    ),
   )
 )
 
@@ -176,18 +180,22 @@ htmltools::div(
   class = "phase0-navset",
   navset_card_tab(
     full_screen = TRUE,
-    title = htmltools::tags$span(style = "font-weight:700; font-size:1.2rem;", "Control"),
+    title = htmltools::tags$span(style = "font-weight:700; font-size:1.2rem;", "CMJ"),
     nav_panel(
-      "Y-Bal (A)",
-      plot_iso_magnitude2(outcomes_raw_all, "Y-Balance (Anterior)")
+      "Height",
+      stat_summary_plot(post_cmj, flight_height_tov, "#DA2D33", post_cmj$flight_height_tov, "Flight Height - TOV")
     ),
-        nav_panel(
-      "Y-Bal (PM)",
-      plot_iso_magnitude2(outcomes_raw_all, "Y-Balance (Postero-Medial)")
+    nav_panel(
+      "RSImod",
+      stat_summary_plot(post_cmj, rs_imod, "dodgerblue4", post_cmj$rs_imod, "RSI mod")
     ),
-        nav_panel(
-      "Y-Bal (PL)",
-      plot_iso_magnitude2(outcomes_raw_all, "Y-Balance (Postero-Lateral)")
+    nav_panel(
+      "BA%",
+      BA_plot_percent(post_cmj, balng, basht, "orange", "dodgerblue3")
+    ),
+    nav_panel(
+      "BA-Mag (Con)",
+      BA_plot_magnitude(post_cmj, sht_left, sht_right, "red", "black", post_cmj$sht_left, post_cmj$sht_right)
     )
   )
 )

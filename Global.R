@@ -146,6 +146,19 @@ baseline_cmj_summary <- baseline_cmj %>%
   dplyr::summarise(avg_cmj_height = mean(flight_height_tov),
                    sd_cmj_height = sd(flight_height_tov))
 
+#80_SJ
+# baseline_80_SJ <- FPDatabase_full %>%
+#   filter(activity == "80_SJ") %>%
+#   filter(
+#     date_ddmmyear <= Rehab_Info$date_of_surgery &
+#       date_ddmmyear >= Rehab_Info$date_of_surgery %m-% years(3)
+#   )
+# 
+# baseline_cmj_summary <- baseline_80_SJ %>%
+#   dplyr::summarise(avg_cmj_height = mean(flight_height_tov),
+#                    sd_cmj_height = sd(flight_height_tov))
+
+
 
 ## Reab Data ----
 post_cmj <- FPDatabase_full %>%
@@ -158,6 +171,9 @@ post_dns <- FPDatabase_full %>%
   filter(date_ddmmyear >= Rehab_Info$date_of_surgery)
 
 
+post_80s_SJ <- FPDatabase_full %>%
+  filter(activity == "80s_SJ") %>%
+  filter(date_ddmmyear >= Rehab_Info$date_of_surgery)
 
 
 
@@ -168,6 +184,10 @@ post_dns <- FPDatabase_full %>%
 #3. WELLNESS MONITORING ----
 ####
 
+daily_mon_raw <- read_xlsx("sample_data/outcome_data.xlsx", sheet = "daily") %>%
+  clean_names() #%>%
+  # mutate(date_ddmmyear = as.Date(date),
+  #        date_ddmmyear2 =  (format(date_ddmmyear, "%b %d, %Y")))
 
 # acl_rsi <- read_excel(
 #   "sample_data/mental_perform.xlsx",
@@ -898,7 +918,7 @@ outcomes_raw_phase3 <- outcomes_raw_all %>%
   filter(phase == 3)
 
 iso_joint3 <- iso_joint %>%
-  filter(phase == c("Phase 2", "Phase 3"))
+  filter(phase %in% c("Phase 2", "Phase 3"))
 
 #Individual Criteria
 # 3a) Single Leg Hop
@@ -1424,7 +1444,7 @@ outcomes_raw_phase4 <- outcomes_raw_all %>%
   filter(phase <= 4)
 
 iso_joint4 <- iso_joint %>%
-  filter(phase == c("Phase 2", "Phase 3", "Phase 4"))
+  filter(phase %in% c("Phase 2", "Phase 3", "Phase 4"))
 
 
 
