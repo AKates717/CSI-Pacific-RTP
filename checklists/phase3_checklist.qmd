@@ -35,6 +35,11 @@ tbl_phase3 <- criteria_phase3_abr %>%
   ) %>%
   fmt_number(
     columns = Score,
+    rows = `Outcome Measure` %in% c("Drop and Stick - TTS", "Drop and Stick - Landing Force"),
+    decimals = 2
+  ) %>%
+  fmt_number(
+    columns = Score,
     rows = `Outcome Measure` %in% percent_label,
     decimals = 0,
     pattern = "{x}%"
@@ -120,8 +125,6 @@ goals_progress_bar(met_n_all, total_n_all)
 </div>
 ```
 
-# Outcomes
-
 ```{r}
 
 htmltools::div(
@@ -136,6 +139,14 @@ htmltools::div(
     nav_panel(
       "Hams",
       plot_iso_magnitude(iso_joint3, "Hamstrings")
+    ),
+    nav_panel(
+      "TBDL",
+      barplot_one_var(outcomes_raw_phase3, "TrapBar Deadlift", "kg")
+    ),
+    nav_panel(
+      "SL Rise",
+      plot_ind_phase_outcomes(outcomes_raw_phase3, "Single Leg Rise")
     )
   )
 )
@@ -169,6 +180,33 @@ htmltools::div(
     )
   )
 )
+```
+
+```{r}
+htmltools::div(
+  class = "phase0-navset",
+  navset_card_tab(
+    full_screen = TRUE,
+    title = htmltools::tags$span(style = "font-weight:700; font-size:1.2rem;", "CMJ"),
+    nav_panel(
+      "Height",
+      stat_summary_plot(post_cmj, flight_height_tov, "#DA2D33", post_cmj$flight_height_tov, "Flight Height - TOV")
+    ),
+    nav_panel(
+      "RSImod",
+      stat_summary_plot(post_cmj, rs_imod, "dodgerblue4", post_cmj$rs_imod, "RSI mod")
+    ),
+    nav_panel(
+      "BA%",
+      BA_plot_percent(post_cmj, balng, basht, "orange", "dodgerblue3")
+    ),
+    nav_panel(
+      "BA-Mag (Con)",
+      BA_plot_magnitude(post_cmj, sht_left, sht_right, "red", "black", post_cmj$sht_left, post_cmj$sht_right)
+    )
+  )
+)
+
 ```
 
 ```{r}

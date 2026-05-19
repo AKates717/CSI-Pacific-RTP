@@ -183,16 +183,13 @@ emit_field <- function(label, value) {
 }
 
 for (i in seq_len(nrow(tests))) {
+
   cat('::: {.card .ak-card .has-stripe .accent-primary}\n')
 
-  # Use columns instead of layout-columns
-  cat('::: {.columns}\n')
-
-  # ---- LEFT: TEXT ----
-  cat('::: {.column width="70%"}\n')
-
+  # ---- TITLE ----
   cat('### ', tests$outcome_measure[i], '\n\n', sep = '')
 
+  # ---- FULL-WIDTH TEXT ----
   if (!is.na(tests$display_description[i]) &&
       nzchar(trimws(tests$display_description[i]))) {
     cat(tests$display_description[i], '\n\n')
@@ -200,20 +197,27 @@ for (i in seq_len(nrow(tests))) {
 
   cat("*", tests$additional_information[i], '\n\n')
 
-  emit_field("Criteria", tests$op_goal[i])
-  emit_field("Repetitions", tests$repetitions[i])
-  emit_field("Calculation", tests$calculation[i])
+# ---- BOTTOM ROW (FLEX) ----
+cat('<div style="display:flex; gap:1.5rem; align-items:center;">\n')
 
-  cat(':::\n')  # end text column
+# LEFT: CRITERIA BLOCK (slightly narrower)
+cat('<div style="flex:0 0 35%;">\n')
+emit_field("Criteria", tests$op_goal[i])
+emit_field("Repetitions", tests$repetitions[i])
+emit_field("Calculation", tests$calculation[i])
+cat('</div>\n')
 
-  # ---- RIGHT: IMAGE ----
-  cat('::: {.column width="30%"}\n')
-  if (!is.na(tests$image_path[i]) && nzchar(trimws(tests$image_path[i]))) {
-    cat('![](', tests$image_path[i], '){style="width:100%;"}\n', sep = '')
-  }
-  cat(':::\n')  # end image column
+# RIGHT: IMAGE (wider + centered)
+cat('<div style="flex:0 0 65%; text-align:center;">\n')
+if (!is.na(tests$image_path[i]) && nzchar(trimws(tests$image_path[i]))) {
+  cat('<img src="', tests$image_path[i],
+      '" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;" />\n',
+      sep = '')
+}
+cat('</div>\n')
 
-  cat(':::\n')  # end columns
+cat('</div>\n')  # end flex row
+
   cat(':::\n\n')  # end card
 }
 
