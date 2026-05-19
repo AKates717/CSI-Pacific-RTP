@@ -731,6 +731,7 @@ plot_wellness <- function (outcome){
   
   ggplotly(p_value) %>%
     plotly::config(displayModeBar = FALSE) %>%
+    style(hoverinfo = "skip", traces = c(5)) %>%
     layout(margin = list(t = 10, b = 0, l = 0))
   
 }
@@ -784,6 +785,7 @@ plot_sleep <- function (outcome){
   
   ggplotly(p_value) %>%
     plotly::config(displayModeBar = FALSE) %>%
+    style(hoverinfo = "skip", traces = c(5)) %>%
     layout(margin = list(t = 10, b = 0, l = 0))
   
 }

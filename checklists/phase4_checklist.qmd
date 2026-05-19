@@ -120,7 +120,7 @@ goals_progress_bar(met_n_all, total_n_all)
 </div>
 ```
 
-# Outcomes
+
 
 ```{r}
 
