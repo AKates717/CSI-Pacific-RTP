@@ -186,6 +186,7 @@ stat_summary_plot4 <- function (nm_data, y, colour1, tt_helper, title) { #clunky
     stat_summary(aes(y = {{y}}, group = 5), fun = "mean", geom = "line", linewidth = 1, color = colour1) +
     geom_jitter(aes(y = {{y}}), shape = 1, size = 2, alpha = 0.3, width = 0.2) +
     geom_text(data = TEM_df, aes(x = factor(date_ddmmyear, ordered = T), y = mean, label = real), inherit.aes = FALSE, size = 5, vjust = -0.5, nudge_x = 0.1) +
+    scale_x_discrete(labels = function(x) format(as.Date(x), "%b %e, %Y")) +
     ak_plot_theme() +
     #theme(axis.text.x = element_text(angle = 40, hjust =0.6, vjust = 0.8)) +
     labs(
@@ -332,6 +333,7 @@ BALand_plot_percent <- function (BA_data, y1, title) {
     geom_jitter(aes(y = {{y1}}, color = {{y1}}), shape = 1, size = 3, color = "#5C5C6B", alpha = 0.3, width = 0.1) +
     scale_y_continuous(limits = c(-25,25), breaks = seq(-25,25,5)) +
     ak_plot_theme() +
+    scale_x_discrete(labels = function(x) format(as.Date(x), "%b %e, %Y")) +
     theme(#axis.text.x = element_text(angle = 40, hjust =0.6, vjust = 0.8),
           #axis.text.y = element_text(size = 12),
           title = element_text(size = 16, face = "bold")) +
