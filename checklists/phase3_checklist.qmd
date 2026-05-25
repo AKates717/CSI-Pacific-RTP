@@ -214,6 +214,30 @@ htmltools::div(
   class = "phase0-navset",
   navset_card_tab(
     full_screen = TRUE,
+    title = htmltools::tags$span(style = "font-weight:700; font-size:1.2rem;", "Drop and Stick"),
+    nav_panel(
+      "TTS",
+      stat_summary_plot4(post_dns, time_to_95_percent_bw, "#5C5C6B", post_dns$time_to_95_percent_bw, "")
+    ),
+    nav_panel(
+      "rPLF",
+      stat_summary_plot4(post_dns, landing_n_kg, "#5C5C6B", post_dns$landing_n_kg, "")
+    ),
+    nav_panel(
+      "BA%",
+      BALand_plot_percent(post_dns, baland, "")
+    )
+  )
+)
+
+```
+
+
+```{r}
+htmltools::div(
+  class = "phase0-navset",
+  navset_card_tab(
+    full_screen = TRUE,
     title = htmltools::tags$span(style = "font-weight:700; font-size:1.2rem;", "Control"),
     nav_panel(
       "Y-Bal (A)",
