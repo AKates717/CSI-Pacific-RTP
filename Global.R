@@ -2069,4 +2069,128 @@ progress_overall <- bind_rows(progress_p0, progress_p1, progress_p2, progress_p3
 
 
 
+####
+#Return to Run ----
+####
+
+# 1 Prepare empty dataframe with all RTR criteria
+# 1a) Read RTR criteria
+criteria_rtr <- criteria_all %>%
+  filter(phase == "rtr") %>%
+  mutate(score = NA)
+
+
+# 2) Criteria Data
+# Read all criteria data
+outcomes_raw_rtr <- outcomes_raw_all %>%
+  filter(outcome_measure %in% criteria_rtr$outcome_measure)
+
+
+
+#Individual Criteria
+# 6a) Passive Knee Extension
+rtr_extension <- outcomes_raw_rtr %>%
+  filter(outcome_measure == "Passive Knee Extension") %>%
+  filter(side == inj_side)
+rtr_extension_best <- rtr_extension %>%
+  slice_min(value, n = 1, with_ties = FALSE)
+
+# 6b) Passive Knee Flexion
+rtr_flexion <- outcomes_raw_rtr %>%
+  filter(outcome_measure == "Passive Knee Flexion") %>%
+  filter(side == inj_side)
+rtr_flexion_best <- rtr_flexion %>%
+  slice_max(value, n = 1, with_ties = FALSE)
+
+# 6c) Swelling
+rtr_swelling <- outcomes_raw_rtr %>%
+  filter(outcome_measure == "Swelling") %>%
+  filter(side == inj_side)
+rtr_swelling_best <- rtr_swelling %>%
+  slice_min(value, n = 1, with_ties = FALSE)
+
+# 6d) Quad Strength
+rtr_quads <- iso_joint %>%
+  filter(test == "Quads") %>%
+  group_by(date_ddmmyear) %>%
+  summarise(
+    inj = if (any(limb == inj_side,  na.rm = TRUE))  max(peak_force_kg[limb == inj_side],  na.rm = TRUE) else NA_real_,
+    non_inj = if (any(limb == non_inj_side, na.rm = TRUE))  max(peak_force_kg[limb == non_inj_side], na.rm = TRUE) else NA_real_,
+    .groups = "drop"
+  ) %>%
+  mutate(
+    lsi = if_else(!is.na(inj) & !is.na(non_inj) & non_inj != 0, 100 * inj / non_inj, NA_real_),
+    lsi = round(lsi, 1)
+  ) %>%
+  arrange(date_ddmmyear)
+
+rtr_quads_best <- rtr_quads %>%
+  slice_max(lsi, n = 1, with_ties = FALSE)
+
+
+
+#6e) BA Lengthening
+rtr_balng <- post_cmj %>%
+  group_by(date_ddmmyear) %>%
+  summarise(
+    avg_balng = mean(balng),
+    .groups = "drop"
+  )
+
+rtr_balng_best <- rtr_balng %>%
+  slice_min(abs(avg_balng), n = 1, with_ties = FALSE)
+
+
+#6f) Pogo hops
+
+
+
+
+
+##Build RTR Criteria Table ----
+#Add current best scores into the table
+swelling_val_rtr <- suppressWarnings(as.numeric(if (exists("rtr_swelling_best") && nrow(rtr_swelling_best) > 0) rtr_swelling_best$value[1] else NA_real_))
+extension_val_rtr <- suppressWarnings(as.numeric(if (exists("rtr_extension_best") && nrow(rtr_extension_best) > 0) rtr_extension_best$value[1] else NA_real_))
+flexion_val_rtr  <- suppressWarnings(as.numeric(if (exists("rtr_flexion_best")   && nrow(rtr_flexion_best)   > 0) rtr_flexion_best$value[1]  else NA_real_))
+quads_val_rtr  <- suppressWarnings(as.numeric(if (exists("rtr_quads_best")   && nrow(rtr_quads_best)   > 0) rtr_quads_best$lsi[1]  else NA_real_))
+balng_val_rtr  <- suppressWarnings(as.numeric(if (exists("rtr_balng_best")   && nrow(rtr_balng_best)   > 0) rtr_balng_best$avg_balng[1]  else NA_real_))
+pogo_val_rtr  <- suppressWarnings(as.numeric(if (exists("rtr_pogo_best")   && nrow(rtr_pogo_best)   > 0) rtr_pogo_best$value[1]  else NA_real_))
+
+# Populate: only fills when a value exists; stays NA (empty) otherwise
+criteria_rtr_abr <- criteria_rtr %>%
+  mutate(
+    score = case_when(
+      outcome_measure == "Passive Knee Extension" ~ extension_val_rtr,
+      outcome_measure == "Passive Knee Flexion"   ~ flexion_val_rtr,
+      outcome_measure == "Swelling"            ~ swelling_val_rtr,
+      outcome_measure == "Quad Strength"       ~ quads_val_rtr,
+      outcome_measure == "CMJ Lengthening Asymmetry"            ~ balng_val_rtr,
+      #outcome_measure == "Pogo Hops"            ~ pogo_val_rtr,
+      
+      TRUE                                     ~ score
+    )
+  )
+
+
+#Use compare helper function (x, op, y)
+criteria_rtr_abr <- criteria_rtr_abr %>%
+  mutate(meets = compare(score, operator_code, goal))
+
+
+#Build 1 Row summary
+#Phase, met/total, percent
+progress_rtr <- tibble(
+  Phase = "rtr",
+  done = sum(criteria_rtr_abr$meets %in% TRUE, na.rm = TRUE),
+  total = nrow(criteria_rtr_abr)
+)  %>%
+  mutate(
+    Progress = paste0(done, "/", total),
+    Percent  = done / total
+  ) %>%
+  select(Phase, Progress, Percent)
+#Will do this for each phase and bind them together for a kind of primary summary table
+
+
+
 
