@@ -158,17 +158,88 @@ Progression through the program can be described in terms of:
 
 ![A plyometric program approach across four stages aligned to the functional recovery framework after ACL reconstruction. Particular training goals, use of plyometrics, progression criteria, training planning considerations, with specific movement exercises and progressions are presented @buckthorpe2021a.](images/clipboard-1962417778.png){#fig-1 .lightbox}
 
-The entry criteria for stage 1 of this program would be satisfied if the athlete has met Phase 2 criteria of the CSI Pacific ACL protocol. It is possible that stage 1 plyometric progressions could be introduced prior to full completion of Phase 2 criteria (i.e. isometric knee extension LSI \> 70% but \< 75%), and this may be considered by practitioners on a case-by-case basis, with a conservative approach being the default recommendation. These criteria are crucial for determining the introduction of dynamic exercises, as the athlete is likely to exhibit persistent knee extensor weakness which could result in biomechanical compensatory strategies @palmieri-smith2015. At roughly 3 months post surgery, it can be expected that athletes may off-load the knee joint during squatting exercise by over-loading the un-affected side (inter-limb) or using a hip-dominant strategy (intra-limb) @sigward2018. Furthermore these compensation strategies have been demonstrated to persist until 5 months post-ACLR, highlighting the importance of a gradual introduction of more dynamic movements and on thoughtful task selection in order to develop optimal motor patterning @wolpert2011.
+The entry criteria for stage 1 of this framework would be satisfied if the athlete has met Phase 2 criteria of the CSI Pacific ACL protocol. It is possible that stage 1 plyometric progressions could be introduced prior to full completion of Phase 2 criteria (i.e. isometric knee extension LSI \> 70% but \< 75%), and this may be considered by practitioners on a case-by-case basis, with a conservative approach being the default recommendation. These criteria are crucial for determining the introduction of dynamic exercises, as the athlete is likely to exhibit persistent knee extensor weakness which could result in biomechanical compensatory strategies @palmieri-smith2015. At roughly 3 months post surgery, it can be expected that athletes may off-load the knee joint during squatting exercise by over-loading the un-affected side (inter-limb) or using a hip-dominant strategy (intra-limb) @sigward2018. Furthermore these compensation strategies have been demonstrated to persist until 5 months post-ACLR, highlighting the importance of a gradual introduction of more dynamic movements and on thoughtful task selection in order to develop optimal motor patterning @wolpert2011.
 
 Stage 2 and 3 plyometric progressions fit well within Phase 3 of the current protocol, as we seek to develop bilateral power, unilateral eccentric control, and neuromuscular function during more dynamic tasks. Stage 4 of the plyometric progressions will be discussed in more depth in the Phase 4: RTS chapter of this protocol
 
 ### Running
 
-At this stage of the rehab, it is likely that the athlete will meet criteria to begin a progressive return to running. The best evidence available to aid in the return-to-run decision comes from a 2018 scoping review which extracted data from 201 studies, each reporting at least one criterion for permitting adult patients to commence running post-ACLR @rambaud2018.
+At this stage of the rehab, it is likely that the athlete will meet criteria to begin a progressive return to running (RTR). This is a key element in the RTS/RTP journey @ardern2016 and an important aspect of the transition from impairment-focused tasks of early-phase rehab to the dynamic, functional tasks of late-phase rehab @rambaud2018. The RTR decision is an important one, since a pre-mature introduction of running can increase the risk of re-injury @kyritsis2016, while delayed progress may hinder motivation and psychological readiness to RTS @ardern2013.
 
-Jogging on the treadmill can be commenced once knee extensor LSI reaches \> 70% [@buckthorpe2020; @buckthorpe2020a].
+The best evidence available to aid in the return-to-run decision comes from a 2018 scoping review which extracted data from 201 studies, each reporting at least one criterion for permitting adult patients to commence running post-ACLR @rambaud2018. Unsurprisingly, the most commonly reported criterion was time since surgery, with the median time of RTR being 12 weeks post-op (IQR = 3.3, range = 5-39 weeks). The interquartile range of 3.3 gives us a rough idea that during a typical rehabilitation, an athlete can expect to RTR somewhere within 9-15 weeks post-op. Interestingly, only 18% of studies (36 / 201) reported clinical, strength or performance-based criteria for RTR. The most frequently reported criteria were: full knee range of motion, pain \<2 on a visual analogue scale, isometric quadriceps LSI \> 70% and hop test LSI \> 70%. A settled, asymptomatic knee (full ROM, no pain, no swelling) should be considered non-negotiable prior to allowing any form of running. The capacity of the knee to tolerate loading is also crucial, but with more nuance as to the exact definition of criteria.
 
-------------------------------------------------------------------------
+> "We suggest that these clinical criteria: pain \<2 on a visual analogue scale, 95% knee flexion ROM, 0º knee extension ROM, no effusion/swelling, should be used as 'non-negotiable' clinical milestones for RTR" @rambaud2018
+
+Some studies have suggested that jogging on the treadmill can be commenced once knee extensor LSI reaches \> 70% [@buckthorpe2020; @buckthorpe2020a] while others suggest \> 80% @adams2012. Given the lack of conclusive results at this time, our recommendation is that 70% LSI be the criteria for introducing very low intensity running drills, while 80% LSI is required in order to begin running at a volume and intensity which could achieve cardiovascular adaptation @kotsifaki2023a. This allows for a continuous and careful progression of volume, intensity and complexity of movement. It's important to note that RTR as a concept is somewhat non-specific; Rambaud et al. suggested that RTR describe a return to running at slow speeds (8-10 km/h), and ultimately it is important to clearly define the type of running that is optimal at any given point in the rehab.
+
+![An example RTR progression @adams2012.](images/clipboard-3166074460.png){#fig-2 .lightbox}
+
+@fig-2 shows an example of a RTR progression @adams2012, with options for treadmill or track based progression, which was used to inform the CSI Pacific RTR program. In this framework, progression from one level to the next occurs when the athlete is able to complete the assigned activity with no increase in effusion or pain. Weekly progression is capped at a maximum of 2 levels and at least 48 hours of recovery should be allowed between each running workout.
+
+Ultimately, in order to RTR, the athlete must satisfy the following criteria:
+
+```{r}
+#Create the table
+tbl_rtr <- criteria_rtr_abr %>%
+  transmute(
+    `Outcome Measure` = outcome_measure,
+    `Op` = operator_pretty,
+    Goal              = goal_pretty,   # nice display string from your sheet
+    Score             = score,
+    meets
+  ) %>%
+  gt() %>%
+  tab_header(title = md("**RTR Criteria**")) %>%
+  fmt_number(
+    columns = Score,
+    decimals = 0
+  ) %>%
+  fmt_number(
+    columns = Score,
+    rows = `Outcome Measure` %in% percent_label,
+    decimals = 0,
+    pattern = "{x}%"
+    ) %>%
+  sub_missing(columns = Score, missing_text = "") %>%
+  cols_label(Op = "") %>%
+  cols_width(`Outcome Measure` ~ px(360)) %>%
+  cols_align(align = "center", columns = c(Goal, Score)) %>%
+  cols_align(align = "right",  columns = Op) %>%
+  tab_style(
+    style = list(cell_fill(color = "#E8F5E9"),
+                 cell_text(color = "#1B5E20", weight = "600")),
+    locations = cells_body(columns = Score, rows = meets %in% TRUE)
+  ) %>%
+  tab_style(
+    style = list(cell_fill(color = "#FFF9C4"),
+                 cell_text(color = "#7A6A00", weight = "600")),
+    locations = cells_body(columns = Score, rows = meets %in% FALSE)
+  )  %>%
+  cols_hide(meets) %>%
+  ak_gt_theme3() %>%
+  tab_options(
+    table_body.hlines.style = "solid",
+    table_body.hlines.width = px(1),
+    data_row.padding = px(6)
+  )
+
+tbl_rtr
+```
+
+```{r}
+
+# By default: denominator = all criteria (matches your table showing blank scores)
+met_n_all   <- sum(criteria_rtr_abr$meets %in% TRUE, na.rm = TRUE)
+total_n_all <- nrow(criteria_rtr_abr)
+
+goals_progress_bar(met_n_all, total_n_all)
+```
+
+```{=html}
+<div class="break-logo">
+  <img src="images/csi-logo-medal-only.png" alt="">
+</div>
+```
 
 ### Agility and Change of Direction
 
