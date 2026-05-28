@@ -261,32 +261,8 @@ When considering changes or further individualization of the program, see the li
 
 ![](images/clipboard-2884114175.png){.lightbox}
 
-Exercises and activities during this phase typically include
-
-Peer-reviewed literature that was consulted in the making of pre-op programs is referenced here.
-
 ```{=html}
 <div class="break-logo">
   <img src="images/csi-logo-medal-only.png" alt="">
 </div>
 ```
-
-## Additional Resources
-
-### Blood Flow Restriction
-
-Although, blood flow restriction
-
-Another more recent study
-
-```{=html}
-<div class="break-logo">
-  <img src="images/csi-logo-medal-only.png" alt="">
-</div>
-```
-
-## Notes and Considerations for Reviewers
-
-All feedback is welcome, however here are some considerations that should help inform the development of this tool.
-
-- Please
