@@ -202,6 +202,10 @@ Below you will find links to your training programs.
 
 [Phase 1: Program 1](https://www.teambuildr.com/)
 
+@fig-1 shows an example weekly schedule for this phase of the rehabilitation.
+
+![Example weekly schedule for Phase 1 ACL rehabilitation. Times are shown as an example of how each day might be structured.](images/phase1_weekly_sched.png){#fig-1 .lightbox}
+
 When considering changes or further individualization of the program, and to see how these exercises compare to other phases of the rehab, please see the **Exercise Phase Chart** in the book resources. All exercise programming should be done by a CSI Pacific S&C Coach or a physiotherapist.
 
 These programs have been designed by S&C coaches with many years of experience leading ACL rehabilitations. The programs are also evidence-informed and represent the product of study, translation, and implementation to bridge the gap between research and practice. The five most influential peer-reviewed articles that were utilized in the construction of the Phase 1 training programs are referenced here [@buckthorpe2024]
