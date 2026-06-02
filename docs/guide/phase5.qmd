@@ -17,12 +17,11 @@ source("plot_functions.R")
 source("Themes.R")
 ```
 
-Once all criteria from Phase 1 have been satisfied, the focus of rehab can shift towards building strength and neuromuscular control.
+In Phase 5 of the CSI Pacific ACL Rehabilitation Protocol, the off-field components become secondary to on-field training, however the importance of these components does not diminish at all. The goal of this section is to help everyone involved with the rehab to navigate the complexities of returning to sport and to performance, while continuing to care for the knee with a high degree of attention to detail. Phase 5 will be highly individualized based on the sport that the athlete competes in, and while it is not possible to cover specific details for all sports, there remain principles and fundamentals which inform best practice during this critical phase. We hope that the resources provided in this chapter will make it easier to navigate these complexities by providing a highly organized and detailed road-map for continuing a successful rehab which supports improvements in on-field performance.
 
 ::: {.callout-important title="Most Important Goals — Phase 3"}
-- Excellent hopping performance
-- Complete agility program
-- Full strength & balance restored
+- Performance on all dynamic tasks exceeds 95% of pre-injury or opposite leg performance
+- 
 :::
 
 **`r params$athlete`'s** progress
