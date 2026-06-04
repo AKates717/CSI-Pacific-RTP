@@ -156,17 +156,23 @@ While each of these components will be addressed in training, not every aspect i
 
 ### Plyometrics
 
+In Phase 3 we discussed stages 2 and 3 of the [plyometric progressions](#fig-1) published by Buckthorpe & Della Villa @buckthorpe2021a. Stage 4 of that framework aligns well with the Phase 4 objectives of this protocol, with the goal being to optimize lower limb explosive neuromuscular performance and support sport-specific movement retraining in preparation for RTS.
+
+![A plyometric program approach across four stages aligned to the functional recovery framework after ACL reconstruction. Particular training goals, use of plyometrics, progression criteria, training planning considerations, with specific movement exercises and progressions are presented @buckthorpe2021a.](images/clipboard-1962417778.png){.lightbox alt="A plyometric program approach across four stages aligned to the functional recovery framework after ACL reconstruction. Particular training goals, use of plyometrics, progression criteria, training planning considerations, with specific movement exercises and progressions are presented @buckthorpe2021a."}
+
+Provided that the athlete has tolerated stage 2 and 3 plyometric activities well, at this time they may progress to higher intensity exercises such as maximal unilateral plyometrics, multiplanar unilateral movements (e.g. frontal and rotational plane) and reactive field-based movements (e.g. responding to perturbations; unplanned tasks). As will be seen in the next section, these activities may take place in the gym or in field-based situations.
+
 ### Sport Specific Retraining
 
 ::::: columns
 ::: {.column width="50%"}
-The RTS process should include a progression from on-field rehabilitation to return to team training before eventually returning to competition, all of which is performed alongside sport-relevant physical re-conditioning @buckthorpe2019a. Previously, a four-stage "late rehabilitation" model has been proposed [@buckthorpe2019b] which is summarized in @fig-1. During late stage rehabilitation, gym based programming continues (blue circle), while the athlete begins a progression from on-field rehab (OFR) to return to training (RTT), return to competition (RTC) and finally return to performance (RTP). The model also highlights the transition from IST-led rehabilitation to performance team-led rehab and the importance of collaboration amongst all staff, particularly at this stage of rehab.
+The RTS process should include a progression from on-field rehabilitation to return to team training before eventually returning to competition, all of which is performed alongside sport-relevant physical re-conditioning @buckthorpe2019a. Previously, a four-stage "late rehabilitation" model has been proposed [@buckthorpe2019b] which is summarized in @fig-2. During late stage rehabilitation, gym based programming continues (blue circle), while the athlete begins a progression from on-field rehab (OFR) to return to training (RTT), return to competition (RTC) and finally return to performance (RTP). The model also highlights the transition from IST-led rehabilitation to performance team-led rehab and the importance of collaboration amongst all staff, particularly at this stage of rehab.
 
 Using the context provided by this model, Phase 4 of the CSI Pacific ACL Guide will include OFR and RTT, and Phase 5 will provide further guidance related to RTC and RTP.
 :::
 
 ::: {.column width="50%"}
-![The transition from the rehabilitation phases to actual performance, including leadership and collaboration among medical and performance staff. OFR = On-field Rehabilitation, RTT = Return to Training, RTC = Return to Competitions, RTP = Return to Performance [@buckthorpe2019b].](images/rehab-to-performance.jpg){#fig-1 .lightbox fig-align="center" width="405"}
+![The transition from the rehabilitation phases to actual performance, including leadership and collaboration among medical and performance staff. OFR = On-field Rehabilitation, RTT = Return to Training, RTC = Return to Competitions, RTP = Return to Performance [@buckthorpe2019b].](images/rehab-to-performance.jpg){#fig-2 .lightbox fig-align="center" width="405"}
 :::
 :::::
 
