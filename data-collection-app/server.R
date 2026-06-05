@@ -1849,13 +1849,100 @@ function(input, output, session) {
       closeButton = TRUE
     )
   })
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+  # TSK-11 ----
+
+  observeEvent(input$submit_tsk11, {
+    missing_fields_tsk11 <- c()
+
+    if (is.null(input$date_tsk11) || is.na(input$date_tsk11)) missing_fields_tsk11 <- c(missing_fields_tsk11, "Date")
+    for (i in 1:11) {
+      id <- paste0("tsk", i)
+      if (is.null(input[[id]]) || is.na(input[[id]])) missing_fields_tsk11 <- c(missing_fields_tsk11, paste0("Q", i))
+    }
+
+    if (length(missing_fields_tsk11) > 0) {
+      toastr_warning(
+        title = "Missing fields",
+        message = "Please complete all fields before saving.",
+        position = "bottom-right",
+        progressBar = TRUE,
+        timeOut = 3000,
+        closeButton = TRUE
+      )
+      return(NULL)
+    }
+
+    ask_confirmation(
+      session = session,
+      inputId = "confirm_save_tsk11",
+      title   = "Confirm",
+      text    = "Please confirm your submission",
+      type    = "question",
+      btn_labels = c("Cancel", "Submit"),
+      btn_colors = c("#999999", "#447099")
+    )
+  })
+
+  observeEvent(input$confirm_save_tsk11, {
+    if (!isTRUE(input$confirm_save_tsk11)) return(NULL)
+
+    new_row <- data.frame(
+      Timestamp = format(Sys.time(), "%Y-%m-%d %H:%M:%S"),
+      Date      = as.character(input$date_tsk11),
+      q1  = as.numeric(input$tsk1),
+      q2  = as.numeric(input$tsk2),
+      q3  = as.numeric(input$tsk3),
+      q4  = as.numeric(input$tsk4),
+      q5  = as.numeric(input$tsk5),
+      q6  = as.numeric(input$tsk6),
+      q7  = as.numeric(input$tsk7),
+      q8  = as.numeric(input$tsk8),
+      q9  = as.numeric(input$tsk9),
+      q10 = as.numeric(input$tsk10),
+      q11 = as.numeric(input$tsk11),
+      stringsAsFactors = FALSE
+    )
+
+    xlsx_path  <- here("sample_data", "outcome_data.xlsx")
+    sheet_name <- "tsk_11"
+
+    if (!file.exists(xlsx_path)) {
+      wb <- createWorkbook(); addWorksheet(wb, sheet_name)
+      writeData(wb, sheet_name, new_row, startRow = 1, colNames = TRUE)
+      saveWorkbook(wb, xlsx_path, overwrite = TRUE)
+    } else {
+      wb <- loadWorkbook(xlsx_path)
+      if (!(sheet_name %in% names(wb))) {
+        addWorksheet(wb, sheet_name)
+        writeData(wb, sheet_name, new_row, startRow = 1, colNames = TRUE)
+        saveWorkbook(wb, xlsx_path, overwrite = TRUE)
+      } else {
+        existing <- tryCatch(readWorkbook(wb, sheet = sheet_name),
+                             warning = function(w) NULL, error = function(e) NULL)
+        if (is.null(existing) || !is.data.frame(existing) || ncol(existing) == 0) {
+          writeData(wb, sheet_name, new_row, startRow = 1, colNames = TRUE)
+        } else {
+          next_row <- nrow(existing) + 2
+          writeData(wb, sheet_name, new_row, startRow = next_row, colNames = FALSE)
+        }
+        saveWorkbook(wb, xlsx_path, overwrite = TRUE)
+      }
+    }
+
+    toastr_success(
+      message = "Entry saved successfully!",
+      title = "TSK-11 Updated",
+      position = "bottom-right",
+      progressBar = TRUE,
+      timeOut = 1000,
+      closeButton = TRUE
+    )
+  })
+
+
+
+
 }
 

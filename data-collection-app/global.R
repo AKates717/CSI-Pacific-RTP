@@ -448,3 +448,49 @@ psychQuestionUI <- function(
 
 #ACL-RSI dataframe
 questions <- read_excel(SOURCE_PATH, sheet = "acl_rsi")
+
+#UI for TSK-11 — renders the full table for all questions
+tsk11TableUI <- function(questions_df) {
+  scale_labels <- c("Strongly\ndisagree", "Somewhat\ndisagree", "Somewhat\nagree", "Strongly\nagree")
+
+  tags$table(
+    class = "tsk11-table",
+    tags$thead(
+      tags$tr(
+        tags$th("", class = "tsk11-q-header"),
+        lapply(scale_labels, function(lbl) {
+          tags$th(HTML(gsub("\n", "<br>", lbl)), class = "tsk11-scale-header")
+        })
+      )
+    ),
+    tags$tbody(
+      lapply(seq_len(nrow(questions_df)), function(i) {
+        id  <- questions_df$id[i]
+        qno <- i
+        tags$tr(
+          class = if (i %% 2 == 0) "tsk11-row tsk11-row-even" else "tsk11-row",
+          tags$td(questions_df$question[i], class = "tsk11-question"),
+          lapply(1:4, function(val) {
+            input_id <- paste0(id, "_radio")
+            tags$td(
+              class = "tsk11-cell",
+              tags$label(
+                class = "tsk11-radio-label",
+                tags$input(
+                  type  = "radio",
+                  name  = id,
+                  value = val,
+                  class = "tsk11-radio"
+                ),
+                as.character(val)
+              )
+            )
+          })
+        )
+      })
+    )
+  )
+}
+
+#TSK-11 dataframe
+tsk11_questions <- read_excel(SOURCE_PATH, sheet = "TSK-11")

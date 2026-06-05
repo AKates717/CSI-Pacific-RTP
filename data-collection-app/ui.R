@@ -781,12 +781,84 @@ ui <- page_navbar(
     
     
     nav_panel(
-      title = "IKDC"),
-    
-    
-    nav_panel(
-      title = "TSK-11")
-    
+      title = "TSK-11",
+
+      tags$style(HTML("
+        .tsk11-table {
+          width: 100%;
+          border-collapse: collapse;
+          font-size: 0.9rem;
+        }
+        .tsk11-q-header {
+          width: auto;
+        }
+        .tsk11-scale-header {
+          background-color: #447099;
+          color: #fff;
+          font-weight: 600;
+          text-align: center;
+          padding: 10px 14px;
+          width: 110px;
+          min-width: 90px;
+          line-height: 1.3;
+          border: 1px solid #365b7a;
+        }
+        .tsk11-row {
+          background: #fff;
+          border-bottom: 1px solid #e5e7eb;
+        }
+        .tsk11-row-even {
+          background: #f7f9fc;
+        }
+        .tsk11-question {
+          padding: 10px 12px;
+          font-weight: 500;
+          color: #1f2937;
+          vertical-align: middle;
+          border-right: 1px solid #e5e7eb;
+        }
+        .tsk11-cell {
+          text-align: center;
+          vertical-align: middle;
+          padding: 8px 4px;
+          border-right: 1px solid #e5e7eb;
+        }
+        .tsk11-radio-label {
+          display: inline-flex;
+          align-items: center;
+          gap: 5px;
+          cursor: pointer;
+          font-weight: 600;
+          color: #374151;
+          font-size: 0.9rem;
+        }
+        .tsk11-radio {
+          width: 16px;
+          height: 16px;
+          accent-color: #447099;
+          cursor: pointer;
+        }
+      ")),
+
+      div(
+        class = "psych-container",
+        card(
+          class = "psych-card",
+          card_header(h4("TSK-11")),
+          card_body(
+            div(class = "psych-field",
+                dateInput("date_tsk11", "Date", value = Sys.Date())
+            ),
+
+            tsk11TableUI(tsk11_questions),
+
+            div(style = "margin-top:10px; text-align:center;",
+                actionButton("submit_tsk11", "Submit"))
+          )
+        )
+      )
+    )
+
   )
   
   
