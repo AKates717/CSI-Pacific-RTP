@@ -131,6 +131,29 @@ goals_progress_bar(met_n_all, total_n_all)
 
 ## What does the research say? {#preop-outcomes}
 
+Firstly, it is important to define what is meant by RTS and to differentiate between 1) return to participation; 2) RTS which is the objective at the end of Phase 4; and 3) RTP which is the objective of Phase 5. The following definitions are taken from the 2016 consensus statement published by Ardern et al @ardern2016 and make up the RTS continuum shown in @fig-1.
+
+![The RTS continuum @ardern2016.](images/RTS-continuum-ardern2016.png){#fig-1 .lightbox}
+
+::: {.callout-important appearance="minimal" icon="false"}
+
+Return to Participation
+
+:   The athlete may be participating in on-field rehabilitation and may be training their sport, but at a level lower than his or her RTS goal.
+
+Return to Sport (RTS)
+
+:   The athlete has returned to his or her defined sport, but is not performing at his or her desired performance level.
+
+Return to Performance (RTP)
+
+:   The athlete has gradually returned to his or her defined sport and is performing at or above his or her pre-injury level.
+:::
+
+There is a general consensus among experts regarding the selection of criteria for a RTS decision, however the level of certainty regarding these criteria is low @kotsifaki2023a. A recent systematic review found only four studies examining criteria-based RTS and reported that current criteria may be suboptimal at reducing the risk of re-injury @losciale2019. It is important to acknowledge that injuries are an inherent risk of sport participation and cannot be eliminated entirely, however this lack of certainty does not take away from the need for criteria-based decision making. In support of this, one study found that athletes who did not meet all RTS criteria before returning to professional sport had a four times greater risk of sustaining an ACL graft rupture compared with those who met all criteria @kyritsis2016. In another, out of 106 athletes in a prospective 2-year cohort study, 38.2% of those who failed RTS criteria suffered re-injuries versus only 5.6% of those who passed the criteria @grindem2016.
+
+In our opinion the lack of certainty in ACL RTS criteria in the published literature is likely due in large part to the multi-factorial nature of injury research, making it difficult to control all factors (e.g. the quality of the day-to-day rehabilitation). Another recent systematic review/ meta-analysis reported that across 49 studies and 4463 knees, more than 85% of elite and professional athletes returned to play @dambrosi2025. The high levels of RTP reported in this review likely reflect the high quality of rehabilitation that would be delivered to elite athletes, above and beyond what the general public might have access to. In practice, by delivering a high-quality rehabilitation, and relying on robust criteria supported by expert consensus, the athlete will be given the best chance to achieve a successful RTS and eventual RTP. As the athlete works towards achieving Phase 4 criteria, rehabilitation will focus on continued progression of neuromuscular performance in the gym, with increased focus on explosive/ballistic strength and high-intensity plyometrics. Additionally, an RTS continuum will be applied to guide the implementation of on-field rehabilitation (OFR) and a return to training (RTT), in order to best prepare the athlete for a successful RTS.
+
 ### Continued Progress of Neuromuscular performance
 
 During Phases 2 and 3, a large focus has been made on developing neuromuscular strength and control, and the athlete has been introduced to more dynamic activities like running, jumping and landing. At this point the athlete has regained quadriceps and hamstring isometric strength (\> 90% of opposite limb), should be able to TrapBar deadlift more than 1.8x body mass, and has demonstrated adequate SL strength and endurance in the SL squat. Additionally, the athlete has demonstrated the ability to perform dynamic tasks like jumping, hopping and landing, and has achieved performance outcomes on these tasks that demonstrates their preparedness to continue with more explosive neuromuscular training. This type of training is necessary prior to RTS, given that the ability to produce force rapidly is important for the re-stabilization of joints following mechanical perturbation and in sporting tasks such as sprint running and jumping @buckthorpe2019a. The ability to produce force quickly is often assessed via rate of force development (RFD) which may be more relevant to how forces are produced during sport @buckthorpe2018, and therefore deserves increased attention as the athlete draws closer to RTS.
@@ -156,29 +179,57 @@ While each of these components will be addressed in training, not every aspect i
 
 ### Plyometrics
 
-In Phase 3 we discussed stages 2 and 3 of the [plyometric progressions](#fig-1) published by Buckthorpe & Della Villa @buckthorpe2021a. Stage 4 of that framework aligns well with the Phase 4 objectives of this protocol, with the goal being to optimize lower limb explosive neuromuscular performance and support sport-specific movement retraining in preparation for RTS.
+In Phase 3 we discussed stages 2 and 3 of the [plyometric progressions](#fig-2) published by Buckthorpe & Della Villa @buckthorpe2021a. Stage 4 of that framework aligns well with the Phase 4 objectives of this protocol, with the goal being to optimize lower limb explosive neuromuscular performance and support sport-specific movement retraining in preparation for RTS.
 
-![A plyometric program approach across four stages aligned to the functional recovery framework after ACL reconstruction. Particular training goals, use of plyometrics, progression criteria, training planning considerations, with specific movement exercises and progressions are presented @buckthorpe2021a.](images/clipboard-1962417778.png){.lightbox alt="A plyometric program approach across four stages aligned to the functional recovery framework after ACL reconstruction. Particular training goals, use of plyometrics, progression criteria, training planning considerations, with specific movement exercises and progressions are presented @buckthorpe2021a."}
+![A plyometric program approach across four stages aligned to the functional recovery framework after ACL reconstruction. Particular training goals, use of plyometrics, progression criteria, training planning considerations, with specific movement exercises and progressions are presented @buckthorpe2021a.](images/clipboard-1962417778.png){#fig-2 .lightbox}
 
 Provided that the athlete has tolerated stage 2 and 3 plyometric activities well, at this time they may progress to higher intensity exercises such as maximal unilateral plyometrics, multiplanar unilateral movements (e.g. frontal and rotational plane) and reactive field-based movements (e.g. responding to perturbations; unplanned tasks). As will be seen in the next section, these activities may take place in the gym or in field-based situations.
 
-### Sport Specific Retraining
+### The RTS Continuum
 
 ::::: columns
 ::: {.column width="50%"}
-The RTS process should include a progression from on-field rehabilitation to return to team training before eventually returning to competition, all of which is performed alongside sport-relevant physical re-conditioning @buckthorpe2019a. Previously, a four-stage "late rehabilitation" model has been proposed [@buckthorpe2019b] which is summarized in @fig-2. During late stage rehabilitation, gym based programming continues (blue circle), while the athlete begins a progression from on-field rehab (OFR) to return to training (RTT), return to competition (RTC) and finally return to performance (RTP). The model also highlights the transition from IST-led rehabilitation to performance team-led rehab and the importance of collaboration amongst all staff, particularly at this stage of rehab.
+As the athlete continues to make progress on gym-based rehabilitation, and draws closer to RTS, a gradual shift away from rehab and towards performance will occur. While at the end of Phase 4, it is expected that the athlete will return to playing their sport, this is not something that happens on one specific day. It is a continuum that should include a progression from on-field rehabilitation to return to team training before eventually returning to competition, all of which is performed alongside sport-relevant physical re-conditioning @buckthorpe2019a.
 
-Using the context provided by this model, Phase 4 of the CSI Pacific ACL Guide will include OFR and RTT, and Phase 5 will provide further guidance related to RTC and RTP.
+Previously, a four-stage "late rehabilitation" model has been proposed [@buckthorpe2019b] which is summarized in @fig-3. During late stage rehabilitation, gym based programming continues (blue circle), while the athlete begins a progression from on-field rehab (OFR) to return to training (RTT), return to competition (RTC) and finally return to performance (RTP). The model also highlights the transition from IST-led rehabilitation to performance team-led rehab and the importance of collaboration amongst all staff, particularly at this stage of rehab. Using the context provided by this model, Phase 4 of the CSI Pacific ACL Guide will focus on OFR and RTT, and Phase 5 will provide further guidance related to RTC and RTP.
 :::
 
 ::: {.column width="50%"}
-![The transition from the rehabilitation phases to actual performance, including leadership and collaboration among medical and performance staff. OFR = On-field Rehabilitation, RTT = Return to Training, RTC = Return to Competitions, RTP = Return to Performance [@buckthorpe2019b].](images/rehab-to-performance.jpg){#fig-2 .lightbox fig-align="center" width="405"}
+![The transition from the rehabilitation phases to actual performance, including leadership and collaboration among medical and performance staff. OFR = On-field Rehabilitation, RTT = Return to Training, RTC = Return to Competitions, RTP = Return to Performance [@buckthorpe2019b].](images/rehab-to-performance.jpg){#fig-3 .lightbox fig-align="center" width="405"}
 :::
 :::::
 
 ### On-field Rehabilitation (OFR)
 
-Incorporating rehabilitation activities onto the field of play acts as a bridge to the return to usual training activities with coaches and teammates. For example, this may include controlled agility and change of direction drills performed on a field, or safe, controlled skiing on a freshly groomed gentle slope. Sport specific retraining at this stage incorporates re-training of sport specific movement, physical reconditioning, and the restoration of technical skills all of which are incorporated at a level in line with the health status of the athlete @buckthorpe2019a.
+Incorporating rehabilitation activities onto the field of play acts as a bridge to the return to usual training activities with coaches and teammates. It has been suggested that completing a greater proportion of functional recovery from serious knee injury on the field may be associated with superior RTS outcomes @dellavilla2012 and lower re-injury risk upon RTS @kyritsis2016. Sport specific retraining at this stage incorporates re-training of sport specific movement, physical reconditioning, and the restoration of technical skills all of which are incorporated at a level in line with the health status of the athlete @buckthorpe2019a. For example, this may include controlled agility and change of direction drills performed on a field, or safe, controlled skiing on a freshly groomed gentle slope.
+
+### Return to Training (RTT)
+
++------------------+-----------------------------------------------------------------------+--------------------------------------------------+
+| Sport            | On-field Rehabilitation                                               | Return to Training                               |
++==================+=======================================================================+==================================================+
+| Soccer, Rugby    | Planned and controlled agility and COD drills performed on the pitch. | Reactive drills                                  |
+|                  |                                                                       |                                                  |
+|                  |                                                                       | Casual games                                     |
++------------------+-----------------------------------------------------------------------+--------------------------------------------------+
+| Hockey           | Light skating                                                         | Reactive drills                                  |
+|                  |                                                                       |                                                  |
+|                  | Controlled accel/deccel/COD                                           | Scrimmage with no contact jersey                 |
++------------------+-----------------------------------------------------------------------+--------------------------------------------------+
+| Alpine Skiing    | Controlled skiing on a freshly groomed slope                          | Faster, more aggresive skiing                    |
+|                  |                                                                       |                                                  |
+|                  | Ski simulator                                                         | Variable terrain                                 |
+|                  |                                                                       |                                                  |
+|                  |                                                                       | Skiing on course with gates                      |
++------------------+-----------------------------------------------------------------------+--------------------------------------------------+
+| Freestyle Skiing | Controlled skiing on a freshly groomed slope                          | Progressive introduction of jumps, moguls, rails |
+|                  |                                                                       |                                                  |
+|                  | Ski simulator                                                         |                                                  |
++------------------+-----------------------------------------------------------------------+--------------------------------------------------+
+
+During RTT, workload monitoring is key to understanding progression and to the eventual decision to RTS. It is likely that inappropriate loading can contribute to injury risk during this phase, and also in the future if the athlete fails to develop sufficient chronic training loads @blanch2016. This becomes a delicate balance where over-training may compromise the rehab in the short term but under-training may fail to adequately prepare the athlete for the demands of returning to play.
+
+The CSI Pacific RTP protocol seeks to mitigate this risk by providing the optimal tools for collecting and understanding both internal and external workload. Continued testing of Phase 4 and 5 criteria in addition to daily wellness monitoring will ensure that the rehabilitation is not being compromised by increased workloads and intensities. Meanwhile, external load monitoring is more specific to the sport, and ideally is driven by the performance staff, however this protocol does provide some generic tools for assessing external workload in both field and snow sports. Monitoring of external load using GPS for team sport athletes is recommended when available, however exact loads and strategies associated with the RTS process are not currently known @buckthorpe2019a.
 
 #### Field-based
 
@@ -188,15 +239,13 @@ sadsddsa
 
 dafdafd
 
-### Return to Training (RTT)
-
-dassadasd
-
 ### Psychological Readiness to RTS
 
-dsf
+Psychological readiness is an independent and critical determinant of RTS outcomes following ACLR, and must be addressed with the same rigour applied to physical criteria @lo2025. Athletes with lower psychological readiness are less likely to return to their pre-injury level of sport, often reporting fear of re-injury and kinesiophobia that delay or prevent successful RTS even in the absence of obvious physical impairment.
 
-dsfsd
+The ACL Return to Sport after Injury scale (ACL-RSI) which covers emotions, confidence in performance, and risk appraisal @webster2008 is the recommended tool for serial assessment of psychological readiness. Normative ACL-RSI data from a large meta-analysis demonstrate that psychological readiness scores tend to improve meaningfully in the early post-operative period but then plateau and remain relatively stable until two to five years post-surgery @sell2024. The implications of this are a need for proactive psychological monitoring throughout the rehab and particularly during the RTS period, which is often between 6-12 months post-ACLR. It's unclear if their exists any validated ACL-RSI score that musty be achieved prior to RTS. The current protocol allows for easy collection and comparison/tracking relative to the athlete's own longitudinal profile. Additionally, practitioners should document specific ACL-RSI item-level deficits to guide intervention selection rather than responding to total scores alone.
+
+The Tampa Scale of Kinesiophobia (TSK-11), examining pain-related fear, fear of movement, and/or fear of injury should be used in conjunction with the ACL-RSI @butler2025. Patients with high kinesiophobia (TSK-11 scores ≥ 19) at the time of RTS are 13 times more likely to suffer a graft rupture within 20 years of RTS compared to those with lower kinesiophobia @paterno2018. Where screening identifies psychological insufficiency, targeted interventions including imagery training, knee bracing during progressive loading, and kinesiotaping can improve both psychological and functional outcomes.
 
 ```{=html}
 <div class="break-logo">
@@ -282,9 +331,13 @@ Below you will find links to your training programs.
 
 [Phase 4: Program 1](https://www.teambuildr.com/)
 
-When considering changes or further individualization of the program, see the lists below highlighting typically safe and unsafe exercises during this phase. To see how these exercises compare to other phases of the rehab, please see the **Exercise Phase Chart** in the book resources. All exercise programming should be done by a CSI Pacific S&C Coach or a physiotherapist.
+@fig-4 provides a five stage framework for progression of OFR and RTT @buckthorpe2019a.
 
-![](images/clipboard-2884114175.png){.lightbox}
+![](images/FieldBasedRehab.png){#fig-4 .lightbox}
+
+@fig-5 shows an example weekly training schedule incorporating OFR into Phase 4 ACL rehabilitation.
+
+![Example weekly schedule adapted from @buckthorpe2019a.](images/clipboard-2884114175.png){#fig-5 .lightbox}
 
 ```{=html}
 <div class="break-logo">

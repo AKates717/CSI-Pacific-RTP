@@ -131,7 +131,13 @@ goals_progress_bar(met_n_all, total_n_all)
 
 ## What does the research say? {#preop-outcomes}
 
+> "Completion of the rehabilitation protocol and clearance to return to sport is not the same as return to competition. Before clearance for return to unrestricted competition, there should be a transition phase from sports participation to sports performance with progressive and controlled exposure to athlete’s sport" @ardern2016
+
 It is important that training continues, and criteria are consistently re-evaluated as the athlete returns to regular training and competition.
+
+Neuromuscular training returns to it's place as being secondary to sport training. The athlete's schedule is no longer built around what is optimal physiologically, rather it must be adapted to fit with the daily and weekly training schedules of the sport. For example, workouts may now occur following practices and games, when fatigue may play a factor in force production @buckthorpe2014 or movement quality @vanmelick2019.
+
+Continued testing of Phase 5 criteria are important for ensuring that the athlete does not compromise the physical, mental and emotional gains made throughout the rehab.
 
 ```{=html}
 <div class="break-logo">
