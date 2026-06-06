@@ -58,9 +58,9 @@ body.no-footer .footer {
 }
 
 
-
-
-
+.bslib-sidebar-layout > aside.sidebar {
+  top: 0 !important;
+}
 
 
 
