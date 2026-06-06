@@ -62,9 +62,17 @@ div.csl-indent {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8caf6eaa0938078aad3b4e3e78d03e50.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-b1638ddcc617931ab7523b2d9967f0b1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-b1638ddcc617931ab7523b2d9967f0b1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-b1638ddcc617931ab7523b2d9967f0b1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-1ef96afe714fde892753836e02150751.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-1ef96afe714fde892753836e02150751.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-1ef96afe714fde892753836e02150751.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-dashboard/quarto-dashboard.js"></script>
+<script src="../../site_libs/quarto-dashboard/stickythead.js"></script>
+
+
+
+<script src="../../site_libs/quarto-dashboard/web-components.js" type="module"></script>
+<script src="../../site_libs/quarto-dashboard/components.js"></script>
+
 <script src="../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
@@ -96,61 +104,12 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  // Fix bslib navset_card_tab markup so Quarto doesn't rewrite tab hrefs
-  document.querySelectorAll('ul.nav.nav-tabs.card-header-tabs[data-tabsetid]').forEach(ul => {
-
-    // Make <li> look like Bootstrap 5 nav items
-    ul.querySelectorAll('li').forEach(li => li.classList.add('nav-item'));
-
-    // Make <a> look like Bootstrap 5 nav links AND force fragment-only href
-    ul.querySelectorAll('a[role="tab"], a[data-bs-toggle="tab"]').forEach(a => {
-      a.classList.add('nav-link');
-
-      // Force href to be fragment-only (#tab-xxxx-y)
-      const href = a.getAttribute('href') || '';
-      if (href.includes('#')) {
-        a.setAttribute('href', '#' + href.split('#').pop());
-      }
-    });
-
-    // Normalize "active" state: Bootstrap 5 wants active on <a>, not <li>
-    const activeFromA = ul.querySelector('a.active,[aria-selected="true"]');
-    const activeFromLi = ul.querySelector('li.active > a');
-    const activeA = activeFromA || activeFromLi;
-
-    ul.querySelectorAll('li.active').forEach(li => li.classList.remove('active'));
-
-    if (activeA) {
-      ul.querySelectorAll('a').forEach(a => {
-        const on = (a === activeA);
-        a.classList.toggle('active', on);
-        a.setAttribute('aria-selected', on ? 'true' : 'false');
-        if (!on) a.setAttribute('tabindex', '-1'); else a.removeAttribute('tabindex');
-      });
-
-      // Ensure only the matching pane is active/show
-      const tabsetId = ul.getAttribute('data-tabsetid');
-      const container = document.querySelector('.tab-content[data-tabsetid="' + tabsetId + '"]');
-      if (container) {
-        const target = activeA.getAttribute('href'); // now guaranteed "#tab-..."
-        container.querySelectorAll('.tab-pane').forEach(pane => {
-          const on = ('#' + pane.id) === target;
-          pane.classList.toggle('active', on);
-          pane.classList.toggle('show', on);
-        });
-      }
-    }
-  });
-});
-</script>
 
 
-<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed quarto-light">
+<body class="quarto-dashboard nav-sidebar nav-fixed dashboard-fill fullcontent quarto-light">
+
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -180,7 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../../docs/guide/index.html" aria-current="page"> 
+    <a class="nav-link" href="../../docs/guide/index.html"> 
 <span class="menu-text">ACL Guide</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -259,162 +218,34 @@ document.addEventListener("DOMContentLoaded", () => {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-          <h1 class="quarto-secondary-nav-title">Phase 4: Return to Sport</h1>
-        </a>     
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
-<!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-      <a href="../../index.html" class="sidebar-logo-link">
-      <img src="../../../../images/Cover1.jpeg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="../../../../images/Cover1.jpeg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
-      </a>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../../docs/guide/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Guide</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">The Protocol</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../docs/guide/preop.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Pre-Operation Phase</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../docs/guide/phase1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Phase 1: Recovery from Surgery</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../docs/guide/phase2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Phase 2: Strength &amp; Neuromuscular Control</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../docs/guide/phase3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Phase 3: Dynamic Neuromuscular Performance</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../docs/guide/phase4.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Phase 4: Return to Sport</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../docs/guide/phase5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Phase 5: Return to Performance</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../docs/guide/references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#preop-outcomes" id="toc-preop-outcomes" class="nav-link active" data-scroll-target="#preop-outcomes">What does the research say?</a>
-  <ul class="collapse">
-  <li><a href="#continued-progress-of-neuromuscular-performance" id="toc-continued-progress-of-neuromuscular-performance" class="nav-link" data-scroll-target="#continued-progress-of-neuromuscular-performance">Continued Progress of Neuromuscular performance</a></li>
-  <li><a href="#plyometrics" id="toc-plyometrics" class="nav-link" data-scroll-target="#plyometrics">Plyometrics</a></li>
-  <li><a href="#the-rts-continuum" id="toc-the-rts-continuum" class="nav-link" data-scroll-target="#the-rts-continuum">The RTS Continuum</a></li>
-  <li><a href="#on-field-rehabilitation-ofr" id="toc-on-field-rehabilitation-ofr" class="nav-link" data-scroll-target="#on-field-rehabilitation-ofr">On-field Rehabilitation (OFR)</a></li>
-  <li><a href="#return-to-training-rtt" id="toc-return-to-training-rtt" class="nav-link" data-scroll-target="#return-to-training-rtt">Return to Training (RTT)</a></li>
-  <li><a href="#psychological-readiness-to-rts" id="toc-psychological-readiness-to-rts" class="nav-link" data-scroll-target="#psychological-readiness-to-rts">Psychological Readiness to RTS</a></li>
-  </ul></li>
-  <li><a href="#testing" id="toc-testing" class="nav-link" data-scroll-target="#testing">Testing</a>
-  <ul class="collapse">
-  <li><a href="#pistol-squat" id="toc-pistol-squat" class="nav-link" data-scroll-target="#pistol-squat">Pistol Squat</a></li>
-  <li><a href="#quad-strength" id="toc-quad-strength" class="nav-link" data-scroll-target="#quad-strength">Quad Strength</a></li>
-  <li><a href="#hamstring-strength" id="toc-hamstring-strength" class="nav-link" data-scroll-target="#hamstring-strength">Hamstring Strength</a></li>
-  <li><a href="#single-leg-hop" id="toc-single-leg-hop" class="nav-link" data-scroll-target="#single-leg-hop">Single Leg Hop</a></li>
-  <li><a href="#triple-hop" id="toc-triple-hop" class="nav-link" data-scroll-target="#triple-hop">Triple Hop</a></li>
-  <li><a href="#triple-cross-over-hop" id="toc-triple-cross-over-hop" class="nav-link" data-scroll-target="#triple-cross-over-hop">Triple Cross Over Hop</a></li>
-  <li><a href="#side-hop" id="toc-side-hop" class="nav-link" data-scroll-target="#side-hop">Side Hop</a></li>
-  <li><a href="#countermovement-jump" id="toc-countermovement-jump" class="nav-link" data-scroll-target="#countermovement-jump">Countermovement Jump</a></li>
-  <li><a href="#cmj-height" id="toc-cmj-height" class="nav-link" data-scroll-target="#cmj-height">CMJ Height</a></li>
-  <li><a href="#cmj-lengthening-impulse" id="toc-cmj-lengthening-impulse" class="nav-link" data-scroll-target="#cmj-lengthening-impulse">CMJ Lengthening Impulse</a></li>
-  <li><a href="#cmj-shortening-impulse" id="toc-cmj-shortening-impulse" class="nav-link" data-scroll-target="#cmj-shortening-impulse">CMJ Shortening Impulse</a></li>
-  </ul></li>
-  <li><a href="#the-program" id="toc-the-program" class="nav-link" data-scroll-target="#the-program">The Program</a></li>
-  </ul>
-</nav>
-    </div>
-<!-- main -->
-<main class="content column-body" id="quarto-document-content">
+<header id="quarto-dashboard-header">
+<nav class="navbar navbar-expand-md slim" data-bs-theme="dark">
+  <div class="navbar-container container-fluid">
+    <button class="navbar-toggler hidden" type="button" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-controls="dashboard-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>    
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title d-none d-lg-block">Phase 4: Return to Sport</h1>
+
+    <div class="navbar-brand-container">
+
+
+      <div class="navbar-title">
+        <div class="navbar-title-text"><a href="#">Phase 4: Return to Sport</a></div>
+        
+        
+      </div>
+    </div>
 </div>
-
-
-
-<div class="quarto-title-meta column-body">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
+</nav>
+</header></header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-layout-custom page-navbar quarto-dashboard-content bslib-gap-spacing html-fill-container bslib-page-fill">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+<!-- main -->
 
 <p>As the athlete enters Phase 4 of ACL rehabilitation, they have established adequate levels of strength, power and movement quality demonstrated in controlled activities like lifting, jumping, landing, dynamic balance, agility and COD. Strength and neuromuscular control should be at or near pre-injury values while performance in dynamic tasks like jumping, landing, and COD should have reached a level where the intensity of these exercises can be progressed and can begin to resemble actions that occur in the athlete’s sport. Strong attention to detail and intelligent, individualized programming during this phase will bring the athlete closer to pre-injury or opposite leg performance values on dynamic tests and will prepare them for sporting activities.</p>
-<div class="callout callout-style-default callout-important no-icon callout-titled" title="Most Important Goals — Phase 3">
+<div class="callout callout-style-default callout-important no-icon callout-titled bslib-grid-item" title="Most Important Goals — Phase 3">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -431,27 +262,29 @@ document.addEventListener("DOMContentLoaded", () => {
 </div>
 </div>
 <p><strong>Frank Reynolds’s</strong> progress towards these goals will be assessed via the criteria seen below.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div id="osgojkmtnv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="bslib-grid-item html-fill-item bslib-grid" data-layout="fill" style="display: grid; grid-template-rows: minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
+<div class="card cell bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div id="epraweigeu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;" class="html-fill-item html-fill-container">
 <style>@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#osgojkmtnv table {
+#epraweigeu table {
   font-family: 'Open Sans', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#osgojkmtnv thead, #osgojkmtnv tbody, #osgojkmtnv tfoot, #osgojkmtnv tr, #osgojkmtnv td, #osgojkmtnv th {
+#epraweigeu thead, #epraweigeu tbody, #epraweigeu tfoot, #epraweigeu tr, #epraweigeu td, #epraweigeu th {
   border-style: none;
 }
 
-#osgojkmtnv p {
+#epraweigeu p {
   margin: 0;
   padding: 0;
 }
 
-#osgojkmtnv .gt_table {
+#epraweigeu .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -477,12 +310,12 @@ document.addEventListener("DOMContentLoaded", () => {
   border-left-color: #D3D3D3;
 }
 
-#osgojkmtnv .gt_caption {
+#epraweigeu .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#osgojkmtnv .gt_title {
+#epraweigeu .gt_title {
   color: #333333;
   font-size: 22px;
   font-weight: initial;
@@ -494,7 +327,7 @@ document.addEventListener("DOMContentLoaded", () => {
   border-bottom-width: 0;
 }
 
-#osgojkmtnv .gt_subtitle {
+#epraweigeu .gt_subtitle {
   color: #333333;
   font-size: 13px;
   font-weight: initial;
@@ -506,7 +339,7 @@ document.addEventListener("DOMContentLoaded", () => {
   border-top-width: 0;
 }
 
-#osgojkmtnv .gt_heading {
+#epraweigeu .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -518,13 +351,13 @@ document.addEventListener("DOMContentLoaded", () => {
   border-right-color: #D3D3D3;
 }
 
-#osgojkmtnv .gt_bottom_border {
+#epraweigeu .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#osgojkmtnv .gt_col_headings {
+#epraweigeu .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -539,7 +372,7 @@ document.addEventListener("DOMContentLoaded", () => {
   border-right-color: #D3D3D3;
 }
 
-#osgojkmtnv .gt_col_heading {
+#epraweigeu .gt_col_heading {
   color: #333333;
   background-color: #FCFCFC;
   font-size: 100%;
@@ -559,7 +392,7 @@ document.addEventListener("DOMContentLoaded", () => {
   overflow-x: hidden;
 }
 
-#osgojkmtnv .gt_column_spanner_outer {
+#epraweigeu .gt_column_spanner_outer {
   color: #333333;
   background-color: #FCFCFC;
   font-size: 100%;
@@ -571,15 +404,15 @@ document.addEventListener("DOMContentLoaded", () => {
   padding-right: 4px;
 }
 
-#osgojkmtnv .gt_column_spanner_outer:first-child {
+#epraweigeu .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#osgojkmtnv .gt_column_spanner_outer:last-child {
+#epraweigeu .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#osgojkmtnv .gt_column_spanner {
+#epraweigeu .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 1px;
   border-bottom-color: #A7A9AC;
@@ -591,11 +424,11 @@ document.addEventListener("DOMContentLoaded", () => {
   width: 100%;
 }
 
-#osgojkmtnv .gt_spanner_row {
+#epraweigeu .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#osgojkmtnv .gt_group_heading {
+#epraweigeu .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -621,7 +454,7 @@ document.addEventListener("DOMContentLoaded", () => {
   text-align: left;
 }
 
-#osgojkmtnv .gt_empty_group_heading {
+#epraweigeu .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -636,15 +469,15 @@ document.addEventListener("DOMContentLoaded", () => {
   vertical-align: middle;
 }
 
-#osgojkmtnv .gt_from_md > :first-child {
+#epraweigeu .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#osgojkmtnv .gt_from_md > :last-child {
+#epraweigeu .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#osgojkmtnv .gt_row {
+#epraweigeu .gt_row {
   padding-top: 6px;
   padding-bottom: 6px;
   padding-left: 5px;
@@ -663,7 +496,7 @@ document.addEventListener("DOMContentLoaded", () => {
   overflow-x: hidden;
 }
 
-#osgojkmtnv .gt_stub {
+#epraweigeu .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -676,7 +509,7 @@ document.addEventListener("DOMContentLoaded", () => {
   padding-right: 5px;
 }
 
-#osgojkmtnv .gt_stub_row_group {
+#epraweigeu .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -690,15 +523,15 @@ document.addEventListener("DOMContentLoaded", () => {
   vertical-align: top;
 }
 
-#osgojkmtnv .gt_row_group_first td {
+#epraweigeu .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#osgojkmtnv .gt_row_group_first th {
+#epraweigeu .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#osgojkmtnv .gt_summary_row {
+#epraweigeu .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -708,16 +541,16 @@ document.addEventListener("DOMContentLoaded", () => {
   padding-right: 5px;
 }
 
-#osgojkmtnv .gt_first_summary_row {
+#epraweigeu .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#osgojkmtnv .gt_first_summary_row.thick {
+#epraweigeu .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#osgojkmtnv .gt_last_summary_row {
+#epraweigeu .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -727,7 +560,7 @@ document.addEventListener("DOMContentLoaded", () => {
   border-bottom-color: #D3D3D3;
 }
 
-#osgojkmtnv .gt_grand_summary_row {
+#epraweigeu .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -737,7 +570,7 @@ document.addEventListener("DOMContentLoaded", () => {
   padding-right: 5px;
 }
 
-#osgojkmtnv .gt_first_grand_summary_row {
+#epraweigeu .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -747,7 +580,7 @@ document.addEventListener("DOMContentLoaded", () => {
   border-top-color: #D3D3D3;
 }
 
-#osgojkmtnv .gt_last_grand_summary_row_top {
+#epraweigeu .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -757,11 +590,11 @@ document.addEventListener("DOMContentLoaded", () => {
   border-bottom-color: #D3D3D3;
 }
 
-#osgojkmtnv .gt_striped {
+#epraweigeu .gt_striped {
   background-color: #FFFFFF;
 }
 
-#osgojkmtnv .gt_table_body {
+#epraweigeu .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -770,7 +603,7 @@ document.addEventListener("DOMContentLoaded", () => {
   border-bottom-color: #D3D3D3;
 }
 
-#osgojkmtnv .gt_footnotes {
+#epraweigeu .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -784,7 +617,7 @@ document.addEventListener("DOMContentLoaded", () => {
   border-right-color: #D3D3D3;
 }
 
-#osgojkmtnv .gt_footnote {
+#epraweigeu .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -793,7 +626,7 @@ document.addEventListener("DOMContentLoaded", () => {
   padding-right: 5px;
 }
 
-#osgojkmtnv .gt_sourcenotes {
+#epraweigeu .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -807,7 +640,7 @@ document.addEventListener("DOMContentLoaded", () => {
   border-right-color: #D3D3D3;
 }
 
-#osgojkmtnv .gt_sourcenote {
+#epraweigeu .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -815,72 +648,72 @@ document.addEventListener("DOMContentLoaded", () => {
   padding-right: 5px;
 }
 
-#osgojkmtnv .gt_left {
+#epraweigeu .gt_left {
   text-align: left;
 }
 
-#osgojkmtnv .gt_center {
+#epraweigeu .gt_center {
   text-align: center;
 }
 
-#osgojkmtnv .gt_right {
+#epraweigeu .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#osgojkmtnv .gt_font_normal {
+#epraweigeu .gt_font_normal {
   font-weight: normal;
 }
 
-#osgojkmtnv .gt_font_bold {
+#epraweigeu .gt_font_bold {
   font-weight: bold;
 }
 
-#osgojkmtnv .gt_font_italic {
+#epraweigeu .gt_font_italic {
   font-style: italic;
 }
 
-#osgojkmtnv .gt_super {
+#epraweigeu .gt_super {
   font-size: 65%;
 }
 
-#osgojkmtnv .gt_footnote_marks {
+#epraweigeu .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#osgojkmtnv .gt_asterisk {
+#epraweigeu .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#osgojkmtnv .gt_indent_1 {
+#epraweigeu .gt_indent_1 {
   text-indent: 5px;
 }
 
-#osgojkmtnv .gt_indent_2 {
+#epraweigeu .gt_indent_2 {
   text-indent: 10px;
 }
 
-#osgojkmtnv .gt_indent_3 {
+#epraweigeu .gt_indent_3 {
   text-indent: 15px;
 }
 
-#osgojkmtnv .gt_indent_4 {
+#epraweigeu .gt_indent_4 {
   text-indent: 20px;
 }
 
-#osgojkmtnv .gt_indent_5 {
+#epraweigeu .gt_indent_5 {
   text-indent: 25px;
 }
 
-#osgojkmtnv .katex-display {
+#epraweigeu .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#osgojkmtnv div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#epraweigeu div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 
@@ -980,8 +813,15 @@ document.addEventListener("DOMContentLoaded", () => {
 </div>
 </div>
 </div>
-<div class="cell">
-<div class="cell-output-display">
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+<div class="card cell bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
 <style>
       .ak-pb-wrap   { margin-top:12px; font-family:'Open Sans',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; }
       .ak-pb-meta   { display:flex; justify-content:space-between; font-size:0.95rem; margin-bottom:6px; color:#222; }
@@ -989,33 +829,51 @@ document.addEventListener("DOMContentLoaded", () => {
       .ak-pb       { background:#FCFCFC; border:1px solid #A7A9AC; border-radius:10px; height:14px; overflow:hidden; }
       .ak-pb__fill { height:100%; background:linear-gradient(90deg,#2E7D32,#4CAF50); transition:width .3s ease; }
     </style>
-<div class="ak-pb-wrap">
-<div class="ak-pb-meta">
+<div class="ak-pb-wrap html-fill-item html-fill-container">
+<div class="ak-pb-meta html-fill-item html-fill-container">
 <strong>Goals met: 8/10</strong>
 <span>80%</span>
 </div>
-<div class="ak-pb" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" style="width:100%;">
-<div class="ak-pb__fill" style="width:80%;"></div>
+<div class="ak-pb html-fill-item html-fill-container" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" style="width:100%;">
+<div class="ak-pb__fill html-fill-item html-fill-container" style="width:80%;"></div>
 </div>
 </div>
 </div>
 </div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
 <div class="break-logo">
   <img src="images/csi-logo-medal-only.png" alt="">
 </div>
-<section id="preop-outcomes" class="level2">
-<h2 class="anchored" data-anchor-id="preop-outcomes">What does the research say?</h2>
+<div class="bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card bslib-card html-fill-container" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
 <p>Firstly, it is important to define what is meant by RTS and to differentiate between 1) return to participation; 2) RTS which is the objective at the end of Phase 4; and 3) RTP which is the objective of Phase 5. The following definitions are taken from the 2016 consensus statement published by Ardern et al <span class="citation" data-cites="ardern2016">[<a href="#ref-ardern2016" role="doc-biblioref">1</a>]</span> and make up the RTS continuum shown in <a href="#fig-1" class="quarto-xref">Figure&nbsp;1</a>.</p>
+<div id="fig-1" class="lightbox quarto-float quarto-figure quarto-figure-center html-fill-item html-fill-container">
+<figure class="quarto-float quarto-float-fig figure html-fill-item html-fill-container">
+<div aria-describedby="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="html-fill-item html-fill-container">
+<a href="images/RTS-continuum-ardern2016.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: The RTS continuum @ardern2016."><img src="images/RTS-continuum-ardern2016.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: The RTS continuum <span class="citation" data-cites="ardern2016">[<a href="#ref-ardern2016" role="doc-biblioref">1</a>]</span>.
+</figcaption>
+</figure>
+</div>
 <div class="callout callout-style-simple callout-important no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
+<div class="callout-body d-flex html-fill-item html-fill-container">
+<div class="callout-icon-container html-fill-item html-fill-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-body-container">
+<div class="callout-body-container html-fill-item html-fill-container">
 <dl>
 <dt>Return to Participation</dt>
 <dd>
-<p>The athlete may be participating in rehabilitation, training (modified or unrestricted), or in sport, but at a level lower than his or her RTS goal.</p>
+<p>The athlete may be participating in on-field rehabilitation and may be training their sport, but at a level lower than his or her RTS goal.</p>
 </dd>
 <dt>Return to Sport (RTS)</dt>
 <dd>
@@ -1029,28 +887,25 @@ document.addEventListener("DOMContentLoaded", () => {
 </div>
 </div>
 </div>
-<div id="fig-1" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="images/RTS-continuum-ardern2016.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: The RTS continuum"><img src="images/RTS-continuum-ardern2016.png" class="img-fluid figure-img"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: The RTS continuum
-</figcaption>
-</figure>
-</div>
 <p>There is a general consensus among experts regarding the selection of criteria for a RTS decision, however the level of certainty regarding these criteria is low <span class="citation" data-cites="kotsifaki2023a">[<a href="#ref-kotsifaki2023a" role="doc-biblioref">2</a>]</span>. A recent systematic review found only four studies examining criteria-based RTS and reported that current criteria may be suboptimal at reducing the risk of re-injury <span class="citation" data-cites="losciale2019">[<a href="#ref-losciale2019" role="doc-biblioref">3</a>]</span>. It is important to acknowledge that injuries are an inherent risk of sport participation and cannot be eliminated entirely, however this lack of certainty does not take away from the need for criteria-based decision making. In support of this, one study found that athletes who did not meet all RTS criteria before returning to professional sport had a four times greater risk of sustaining an ACL graft rupture compared with those who met all criteria <span class="citation" data-cites="kyritsis2016">[<a href="#ref-kyritsis2016" role="doc-biblioref">4</a>]</span>. In another, out of 106 athletes in a prospective 2-year cohort study, 38.2% of those who failed RTS criteria suffered re-injuries versus only 5.6% of those who passed the criteria <span class="citation" data-cites="grindem2016">[<a href="#ref-grindem2016" role="doc-biblioref">5</a>]</span>.</p>
 <p>In our opinion the lack of certainty in ACL RTS criteria in the published literature is likely due in large part to the multi-factorial nature of injury research, making it difficult to control all factors (e.g.&nbsp;the quality of the day-to-day rehabilitation). Another recent systematic review/ meta-analysis reported that across 49 studies and 4463 knees, more than 85% of elite and professional athletes returned to play <span class="citation" data-cites="dambrosi2025">[<a href="#ref-dambrosi2025" role="doc-biblioref">6</a>]</span>. The high levels of RTP reported in this review likely reflect the high quality of rehabilitation that would be delivered to elite athletes, above and beyond what the general public might have access to. In practice, by delivering a high-quality rehabilitation, and relying on robust criteria supported by expert consensus, the athlete will be given the best chance to achieve a successful RTS and eventual RTP. As the athlete works towards achieving Phase 4 criteria, rehabilitation will focus on continued progression of neuromuscular performance in the gym, with increased focus on explosive/ballistic strength and high-intensity plyometrics. Additionally, an RTS continuum will be applied to guide the implementation of on-field rehabilitation (OFR) and a return to training (RTT), in order to best prepare the athlete for a successful RTS.</p>
-<section id="continued-progress-of-neuromuscular-performance" class="level3">
-<h3 class="anchored" data-anchor-id="continued-progress-of-neuromuscular-performance">Continued Progress of Neuromuscular performance</h3>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
+<div class="card bslib-card html-fill-container" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
 <p>During Phases 2 and 3, a large focus has been made on developing neuromuscular strength and control, and the athlete has been introduced to more dynamic activities like running, jumping and landing. At this point the athlete has regained quadriceps and hamstring isometric strength (&gt; 90% of opposite limb), should be able to TrapBar deadlift more than 1.8x body mass, and has demonstrated adequate SL strength and endurance in the SL squat. Additionally, the athlete has demonstrated the ability to perform dynamic tasks like jumping, hopping and landing, and has achieved performance outcomes on these tasks that demonstrates their preparedness to continue with more explosive neuromuscular training. This type of training is necessary prior to RTS, given that the ability to produce force rapidly is important for the re-stabilization of joints following mechanical perturbation and in sporting tasks such as sprint running and jumping <span class="citation" data-cites="buckthorpe2019a">[<a href="#ref-buckthorpe2019a" role="doc-biblioref">7</a>]</span>. The ability to produce force quickly is often assessed via rate of force development (RFD) which may be more relevant to how forces are produced during sport <span class="citation" data-cites="buckthorpe2018">[<a href="#ref-buckthorpe2018" role="doc-biblioref">8</a>]</span>, and therefore deserves increased attention as the athlete draws closer to RTS.</p>
 <p>On this topic, one study reported RFD deficits of 30% at 6 months post-ACLR despite 97% restoration of maximal concentric quadriceps strength <span class="citation" data-cites="angelozzi2012">[<a href="#ref-angelozzi2012" role="doc-biblioref">9</a>]</span>. Critically, RFD was restored at 12 months following implementation of a power development program, highlighting the need to train explosive neuromuscular performance in addition to maximal strength. In order to train RFD, particularly sub-150ms where RFD is not influenced by maximal muscle strength <span class="citation" data-cites="folland2014">[<a href="#ref-folland2014" role="doc-biblioref">10</a>]</span>, specific stimuli are required including explosive strength training <span class="citation" data-cites="tillin2012">[<a href="#ref-tillin2012" role="doc-biblioref">11</a>]</span>, ballistic strength training <span class="citation" data-cites="mangine2016">[<a href="#ref-mangine2016" role="doc-biblioref">12</a>]</span> and plyometrics. These stimuli are achieved within the program via exercises including jumping, hopping, Olympic lifting (including derivatives), loaded jumps and medicine ball training.</p>
 <div class="callout callout-style-simple callout-important no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
+<div class="callout-body d-flex html-fill-item html-fill-container">
+<div class="callout-icon-container html-fill-item html-fill-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-body-container">
+<div class="callout-body-container html-fill-item html-fill-container">
 <dl>
 <dt>Explosive Strength</dt>
 <dd>
@@ -1069,13 +924,20 @@ Figure&nbsp;1: The RTS continuum
 </div>
 </div>
 <p>While each of these components will be addressed in training, not every aspect is directly measured and reflected in the criteria. For example, it is important to note that the CSI Pacific ACL protocol does not currently report RFD directly in any OKC or CKC tasks, due to well established difficulties evaluating RFD in a valid and reliable way <span class="citation" data-cites="maffiuletti2016">[<a href="#ref-maffiuletti2016" role="doc-biblioref">15</a>]</span>.</p>
-</section>
-<section id="plyometrics" class="level3">
-<h3 class="anchored" data-anchor-id="plyometrics">Plyometrics</h3>
-<p>In Phase 3 we discussed stages 2 and 3 of the <a href="#fig-1">plyometric progressions</a> published by Buckthorpe &amp; Della Villa <span class="citation" data-cites="buckthorpe2021a">[<a href="#ref-buckthorpe2021a" role="doc-biblioref">16</a>]</span>. Stage 4 of that framework aligns well with the Phase 4 objectives of this protocol, with the goal being to optimize lower limb explosive neuromuscular performance and support sport-specific movement retraining in preparation for RTS.</p>
-<div id="fig-2" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div><div class="bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
+<div class="card bslib-card html-fill-container" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<p>In Phase 3 we discussed stages 2 and 3 of the <a href="#fig-2">plyometric progressions</a> published by Buckthorpe &amp; Della Villa <span class="citation" data-cites="buckthorpe2021a">[<a href="#ref-buckthorpe2021a" role="doc-biblioref">16</a>]</span>. Stage 4 of that framework aligns well with the Phase 4 objectives of this protocol, with the goal being to optimize lower limb explosive neuromuscular performance and support sport-specific movement retraining in preparation for RTS.</p>
+<div id="fig-2" class="lightbox quarto-float quarto-figure quarto-figure-center html-fill-item html-fill-container">
+<figure class="quarto-float quarto-float-fig figure html-fill-item html-fill-container">
+<div aria-describedby="fig-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="html-fill-item html-fill-container">
 <a href="images/clipboard-1962417778.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: A plyometric program approach across four stages aligned to the functional recovery framework after ACL reconstruction. Particular training goals, use of plyometrics, progression criteria, training planning considerations, with specific movement exercises and progressions are presented @buckthorpe2021a."><img src="images/clipboard-1962417778.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1084,15 +946,21 @@ Figure&nbsp;2: A plyometric program approach across four stages aligned to the f
 </figure>
 </div>
 <p>Provided that the athlete has tolerated stage 2 and 3 plyometric activities well, at this time they may progress to higher intensity exercises such as maximal unilateral plyometrics, multiplanar unilateral movements (e.g.&nbsp;frontal and rotational plane) and reactive field-based movements (e.g.&nbsp;responding to perturbations; unplanned tasks). As will be seen in the next section, these activities may take place in the gym or in field-based situations.</p>
-</section>
-<section id="the-rts-continuum" class="level3">
-<h3 class="anchored" data-anchor-id="the-rts-continuum">The RTS Continuum</h3>
-<div class="columns">
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div><div class="bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
+<div class="bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
 <div class="column" style="width:50%;">
 <p>As the athlete continues to make progress on gym-based rehabilitation, and draws closer to RTS, a gradual shift away from rehab and towards performance will occur. While at the end of Phase 4, it is expected that the athlete will return to playing their sport, this is not something that happens on one specific day. It is a continuum that should include a progression from on-field rehabilitation to return to team training before eventually returning to competition, all of which is performed alongside sport-relevant physical re-conditioning <span class="citation" data-cites="buckthorpe2019a">[<a href="#ref-buckthorpe2019a" role="doc-biblioref">7</a>]</span>.</p>
 <p>Previously, a four-stage “late rehabilitation” model has been proposed <span class="citation" data-cites="buckthorpe2019b">[<a href="#ref-buckthorpe2019b" role="doc-biblioref">17</a>]</span> which is summarized in <a href="#fig-3" class="quarto-xref">Figure&nbsp;3</a>. During late stage rehabilitation, gym based programming continues (blue circle), while the athlete begins a progression from on-field rehab (OFR) to return to training (RTT), return to competition (RTC) and finally return to performance (RTP). The model also highlights the transition from IST-led rehabilitation to performance team-led rehab and the importance of collaboration amongst all staff, particularly at this stage of rehab. Using the context provided by this model, Phase 4 of the CSI Pacific ACL Guide will focus on OFR and RTT, and Phase 5 will provide further guidance related to RTC and RTP.</p>
 </div><div class="column" style="width:50%;">
-<div id="fig-3" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<div id="fig-3" class="lightbox quarto-float quarto-figure quarto-figure-center" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="images/rehab-to-performance.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: The transition from the rehabilitation phases to actual performance, including leadership and collaboration among medical and performance staff. OFR = On-field Rehabilitation, RTT = Return to Training, RTC = Return to Competitions, RTP = Return to Performance [@buckthorpe2019b]."><img src="images/rehab-to-performance.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="405"></a>
@@ -1104,13 +972,20 @@ Figure&nbsp;3: The transition from the rehabilitation phases to actual performan
 </div>
 </div>
 </div>
-</section>
-<section id="on-field-rehabilitation-ofr" class="level3">
-<h3 class="anchored" data-anchor-id="on-field-rehabilitation-ofr">On-field Rehabilitation (OFR)</h3>
+</div><div class="bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
+<div class="card bslib-card html-fill-container" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
 <p>Incorporating rehabilitation activities onto the field of play acts as a bridge to the return to usual training activities with coaches and teammates. It has been suggested that completing a greater proportion of functional recovery from serious knee injury on the field may be associated with superior RTS outcomes <span class="citation" data-cites="dellavilla2012">[<a href="#ref-dellavilla2012" role="doc-biblioref">18</a>]</span> and lower re-injury risk upon RTS <span class="citation" data-cites="kyritsis2016">[<a href="#ref-kyritsis2016" role="doc-biblioref">4</a>]</span>. Sport specific retraining at this stage incorporates re-training of sport specific movement, physical reconditioning, and the restoration of technical skills all of which are incorporated at a level in line with the health status of the athlete <span class="citation" data-cites="buckthorpe2019a">[<a href="#ref-buckthorpe2019a" role="doc-biblioref">7</a>]</span>. For example, this may include controlled agility and change of direction drills performed on a field, or safe, controlled skiing on a freshly groomed gentle slope.</p>
-</section>
-<section id="return-to-training-rtt" class="level3">
-<h3 class="anchored" data-anchor-id="return-to-training-rtt">Return to Training (RTT)</h3>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div><div class="bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content) minmax(3em, max-content) minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
+<div class="card bslib-card html-fill-container" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 13%">
@@ -1156,228 +1031,392 @@ Figure&nbsp;3: The transition from the rehabilitation phases to actual performan
 </table>
 <p>During RTT, workload monitoring is key to understanding progression and to the eventual decision to RTS. It is likely that inappropriate loading can contribute to injury risk during this phase, and also in the future if the athlete fails to develop sufficient chronic training loads <span class="citation" data-cites="blanch2016">[<a href="#ref-blanch2016" role="doc-biblioref">19</a>]</span>. This becomes a delicate balance where over-training may compromise the rehab in the short term but under-training may fail to adequately prepare the athlete for the demands of returning to play.</p>
 <p>The CSI Pacific RTP protocol seeks to mitigate this risk by providing the optimal tools for collecting and understanding both internal and external workload. Continued testing of Phase 4 and 5 criteria in addition to daily wellness monitoring will ensure that the rehabilitation is not being compromised by increased workloads and intensities. Meanwhile, external load monitoring is more specific to the sport, and ideally is driven by the performance staff, however this protocol does provide some generic tools for assessing external workload in both field and snow sports. Monitoring of external load using GPS for team sport athletes is recommended when available, however exact loads and strategies associated with the RTS process are not currently known <span class="citation" data-cites="buckthorpe2019a">[<a href="#ref-buckthorpe2019a" role="doc-biblioref">7</a>]</span>.</p>
-<section id="field-based" class="level4">
-<h4 class="anchored" data-anchor-id="field-based">Field-based</h4>
-<p>sadsddsa</p>
-</section>
-<section id="snow-based" class="level4">
-<h4 class="anchored" data-anchor-id="snow-based">Snow-based</h4>
-<p>dafdafd</p>
-</section>
-</section>
-<section id="psychological-readiness-to-rts" class="level3">
-<h3 class="anchored" data-anchor-id="psychological-readiness-to-rts">Psychological Readiness to RTS</h3>
-<p>Successful RTS requires a bio-psycho-social approach to rehabilitation</p>
-<div class="break-logo">
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+<div class="bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card bslib-card html-fill-container" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body flow">
+sadsddsa
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card bslib-card html-fill-container" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body flow">
+dafdafd
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div><div class="bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
+<div class="card bslib-card html-fill-container" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<p>Psychological readiness is an independent and critical determinant of RTS outcomes following ACLR, and must be addressed with the same rigour applied to physical criteria <span class="citation" data-cites="lo2025">[<a href="#ref-lo2025" role="doc-biblioref">20</a>]</span>. Athletes with lower psychological readiness are less likely to return to their pre-injury level of sport, often reporting fear of re-injury and kinesiophobia that delay or prevent successful RTS even in the absence of obvious physical impairment.</p>
+<p>The ACL Return to Sport after Injury scale (ACL-RSI) which covers emotions, confidence in performance, and risk appraisal <span class="citation" data-cites="webster2008">[<a href="#ref-webster2008" role="doc-biblioref">21</a>]</span> is the recommended tool for serial assessment of psychological readiness. Normative ACL-RSI data from a large meta-analysis demonstrate that psychological readiness scores tend to improve meaningfully in the early post-operative period but then plateau and remain relatively stable until two to five years post-surgery <span class="citation" data-cites="sell2024">[<a href="#ref-sell2024" role="doc-biblioref">22</a>]</span>. The implications of this are a need for proactive psychological monitoring throughout the rehab and particularly during the RTS period, which is often between 6-12 months post-ACLR. It’s unclear if their exists any validated ACL-RSI score that musty be achieved prior to RTS. The current protocol allows for easy collection and comparison/tracking relative to the athlete’s own longitudinal profile. Additionally, practitioners should document specific ACL-RSI item-level deficits to guide intervention selection rather than responding to total scores alone.</p>
+<p>The Tampa Scale of Kinesiophobia (TSK-11), examining pain-related fear, fear of movement, and/or fear of injury should be used in conjunction with the ACL-RSI <span class="citation" data-cites="butler2025">[<a href="#ref-butler2025" role="doc-biblioref">23</a>]</span>. Patients with high kinesiophobia (TSK-11 scores ≥ 19) at the time of RTS are 13 times more likely to suffer a graft rupture within 20 years of RTS compared to those with lower kinesiophobia <span class="citation" data-cites="paterno2018">[<a href="#ref-paterno2018" role="doc-biblioref">24</a>]</span>. Where screening identifies psychological insufficiency, targeted interventions including imagery training, knee bracing during progressive loading, and kinesiotaping can improve both psychological and functional outcomes.</p>
+<div class="break-logo html-fill-item html-fill-container">
   <img src="images/csi-logo-medal-only.png" alt="">
 </div>
-</section>
-</section>
-<section id="testing" class="level2">
-<h2 class="anchored" data-anchor-id="testing">Testing</h2>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+<div class="bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card bslib-card html-fill-container" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
 <p>Each card below contains a detailed description of the tests to be conducted during this phase of rehab.</p>
-<section id="pistol-squat" class="level3 card ak-card has-stripe accent-primary">
-<h3 class="anchored" data-anchor-id="pistol-squat">Pistol Squat</h3>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card ak-card has-stripe accent-primary bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="h4">
+Pistol
+
+Squat
+</div>
 <p>Full range of motion single leg squats while standing on a box.</p>
 <ul>
 <li>The athlete stands on a box that is high enough to let their opposite leg hang to the side and not touch the ground in the bottom of the squat. For a repetition to be succesful, the angle of the knee joint must exceed 90 degrees. Practitioner discretion is crucial to determine proper technique. If there is excessive frontal plan motion (i.e.&nbsp;knee valgus) or excessive hip lift (off-loading the quads), consider carefully whether reps should be counted towards succesful achievment of this criteria.</li>
 </ul>
-<div style="display:flex; gap:1.5rem; align-items:center;">
-<div style="flex:0 0 35%;">
+<div style="display:flex; gap:1.5rem; align-items:center;" class="html-fill-item html-fill-container">
+<div style="flex:0 0 35%;" class="html-fill-item html-fill-container">
 <p><strong>Criteria:</strong> ≥ 5</p>
 <p><strong>Repetitions:</strong> 1</p>
 <p><strong>Calculation:</strong> Max</p>
 </div>
-<div style="flex:0 0 65%; text-align:center;">
-<p><img src="images/placeholder.jpg" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;"></p>
+<div style="flex:0 0 65%; text-align:center;" class="html-fill-item html-fill-container">
+<img src="images/placeholder.jpg" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;">
 </div>
 </div>
-</section>
-<section id="quad-strength" class="level3 card ak-card has-stripe accent-primary">
-<h3 class="anchored" data-anchor-id="quad-strength">Quad Strength</h3>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card ak-card has-stripe accent-primary bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="h4">
+Quad
+
+Strength
+</div>
 <p>Isometric Strength at 90°</p>
 <ul>
 <li>Seated with hip and knees flexed at 90°. Dynamometer placed on the anterior aspect of the shank, proximal to the ankle joint. Target score to complete this phase is 75% LSI compared to un-injured leg.</li>
 </ul>
-<div style="display:flex; gap:1.5rem; align-items:center;">
-<div style="flex:0 0 35%;">
+<div style="display:flex; gap:1.5rem; align-items:center;" class="html-fill-item html-fill-container">
+<div style="flex:0 0 35%;" class="html-fill-item html-fill-container">
 <p><strong>Criteria:</strong> &gt; 95%</p>
 <p><strong>Repetitions:</strong> 3</p>
 <p><strong>Calculation:</strong> Max</p>
 </div>
-<div style="flex:0 0 65%; text-align:center;">
-<p><img src="images/placeholder.jpg" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;"></p>
+<div style="flex:0 0 65%; text-align:center;" class="html-fill-item html-fill-container">
+<img src="images/placeholder.jpg" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;">
 </div>
 </div>
-</section>
-<section id="hamstring-strength" class="level3 card ak-card has-stripe accent-primary">
-<h3 class="anchored" data-anchor-id="hamstring-strength">Hamstring Strength</h3>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card ak-card has-stripe accent-primary bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="h4">
+Hamstring
+
+Strength
+</div>
 <p>Isometric Strength at 90°</p>
 <ul>
 <li>Seated with hip and knees flexed at 90°. Dynamometer placed on the anterior aspect of the shank, proximal to the ankle joint. Target score to complete this phase is 75% LSI compared to un-injured leg.</li>
 </ul>
-<div style="display:flex; gap:1.5rem; align-items:center;">
-<div style="flex:0 0 35%;">
+<div style="display:flex; gap:1.5rem; align-items:center;" class="html-fill-item html-fill-container">
+<div style="flex:0 0 35%;" class="html-fill-item html-fill-container">
 <p><strong>Criteria:</strong> &gt; 95%</p>
 <p><strong>Repetitions:</strong> 3</p>
 <p><strong>Calculation:</strong> Max</p>
 </div>
-<div style="flex:0 0 65%; text-align:center;">
-<p><img src="images/placeholder.jpg" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;"></p>
+<div style="flex:0 0 65%; text-align:center;" class="html-fill-item html-fill-container">
+<img src="images/placeholder.jpg" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;">
 </div>
 </div>
-</section>
-<section id="single-leg-hop" class="level3 card ak-card has-stripe accent-primary">
-<h3 class="anchored" data-anchor-id="single-leg-hop">Single Leg Hop</h3>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card ak-card has-stripe accent-primary bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="h4">
+Single
+
+Leg
+
+Hop
+</div>
 <p>Athlete stands on one leg and hops as far forward as possible, landing on the same leg.</p>
 <ul>
 <li>Measure from toe at take-off to heel at landing. Arms are free to swing. The athlete must demonstrate control by sticking the landing for a minimum of 3s.</li>
 </ul>
 <p>The score for each limb is calculated as a mean of 2 successful reps. A limb symmetry index is calculated by dividing the mean distance (in cms) of the involved limb by the mean distance of the noninvolved limb then multiplying by 100</p>
-<div style="display:flex; gap:1.5rem; align-items:center;">
-<div style="flex:0 0 35%;">
+<div style="display:flex; gap:1.5rem; align-items:center;" class="html-fill-item html-fill-container">
+<div style="flex:0 0 35%;" class="html-fill-item html-fill-container">
 <p><strong>Criteria:</strong> ≥ 90%</p>
 <p><strong>Repetitions:</strong> 2</p>
 <p><strong>Calculation:</strong> Mean</p>
 </div>
-<div style="flex:0 0 65%; text-align:center;">
-<p><img src="images/testing/slhop.png" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;"></p>
+<div style="flex:0 0 65%; text-align:center;" class="html-fill-item html-fill-container">
+<img src="images/testing/slhop.png" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;">
 </div>
 </div>
-</section>
-<section id="triple-hop" class="level3 card ak-card has-stripe accent-primary">
-<h3 class="anchored" data-anchor-id="triple-hop">Triple Hop</h3>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card ak-card has-stripe accent-primary bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="h4">
+Triple
+
+Hop
+</div>
 <p>Athletes stands on one leg and hops forwards three consecutive times on one foot, sticking the final landing.</p>
 <ul>
 <li>Measure from toe at take off to heel at landing. Arms are free to swing. The athlete must demonstrate control by sticking the final landing for a minimum of 3s.</li>
 </ul>
 <p>The total distance is measured, and the mean of 2 valid tests is recorded. A limb symmetry index is calculated by dividing the mean distance (in cms) of the involved limb by the mean distance of the noninvolved limb then multiplying by 100.</p>
-<div style="display:flex; gap:1.5rem; align-items:center;">
-<div style="flex:0 0 35%;">
+<div style="display:flex; gap:1.5rem; align-items:center;" class="html-fill-item html-fill-container">
+<div style="flex:0 0 35%;" class="html-fill-item html-fill-container">
 <p><strong>Criteria:</strong> ≥ 90%</p>
 <p><strong>Repetitions:</strong> 2</p>
 <p><strong>Calculation:</strong> Mean</p>
 </div>
-<div style="flex:0 0 65%; text-align:center;">
-<p><img src="images/testing/triplehop.png" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;"></p>
+<div style="flex:0 0 65%; text-align:center;" class="html-fill-item html-fill-container">
+<img src="images/testing/triplehop.png" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;">
 </div>
 </div>
-</section>
-<section id="triple-cross-over-hop" class="level3 card ak-card has-stripe accent-primary">
-<h3 class="anchored" data-anchor-id="triple-cross-over-hop">Triple Cross Over Hop</h3>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card ak-card has-stripe accent-primary bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="h4">
+Triple
+
+Cross
+
+Over
+
+Hop
+</div>
 <p>This test is performed on a course consisting of a 15cm marking strip on the floor which is 6m long. The athlete is required to hop three consecutive times on one foot going in a medial to lateral to medial direction, crossing the strip on each hop.</p>
 <ul>
 <li>Measure from toe at take-off to heel at landing. Arms are free to swing. The athlete must demonstrate control by sticking the final landing for a minimum of 3s.</li>
 </ul>
 <p>The total distance is measured, and the average (mean) of 2 valid hop tests is recorded. A limb symmetry index is calculated by dividing the mean distance (in cms) of the involved limb by the mean distance of the noninvolved limb then multiplying by 100.</p>
-<div style="display:flex; gap:1.5rem; align-items:center;">
-<div style="flex:0 0 35%;">
+<div style="display:flex; gap:1.5rem; align-items:center;" class="html-fill-item html-fill-container">
+<div style="flex:0 0 35%;" class="html-fill-item html-fill-container">
 <p><strong>Criteria:</strong> ≥ 90%</p>
 <p><strong>Repetitions:</strong> 2</p>
 <p><strong>Calculation:</strong> Mean</p>
 </div>
-<div style="flex:0 0 65%; text-align:center;">
-<p><img src="images/testing/triplecrossoverhop.png" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;"></p>
+<div style="flex:0 0 65%; text-align:center;" class="html-fill-item html-fill-container">
+<img src="images/testing/triplecrossoverhop.png" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;">
 </div>
 </div>
-</section>
-<section id="side-hop" class="level3 card ak-card has-stripe accent-primary">
-<h3 class="anchored" data-anchor-id="side-hop">Side Hop</h3>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card ak-card has-stripe accent-primary bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="h4">
+Side
+
+Hop
+</div>
 <p>Subjects stands on test leg with hands behind the back and jumps from side to side between two parallel strips of tape, placed 40 cm apart on the floor. (Gustavsson et al., 2006)</p>
 <ul>
 <li>Subject jumps as many times as possible during 30sec. The number of successful jumps performed, without touching the tape is recorded. A limb symmetry index is calculated by dividing the total reps performed on the involved limb by the total reps performed on the noninvolved limb then multiplying by 100.</li>
 </ul>
-<div style="display:flex; gap:1.5rem; align-items:center;">
-<div style="flex:0 0 35%;">
+<div style="display:flex; gap:1.5rem; align-items:center;" class="html-fill-item html-fill-container">
+<div style="flex:0 0 35%;" class="html-fill-item html-fill-container">
 <p><strong>Criteria:</strong> ≥ 90%</p>
 <p><strong>Repetitions:</strong> 1</p>
 <p><strong>Calculation:</strong> Max</p>
 </div>
-<div style="flex:0 0 65%; text-align:center;">
-<p><img src="images/testing/sidehop.png" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;"></p>
+<div style="flex:0 0 65%; text-align:center;" class="html-fill-item html-fill-container">
+<img src="images/testing/sidehop.png" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;">
 </div>
 </div>
-</section>
-<section id="countermovement-jump" class="level3 card ak-card has-stripe accent-primary">
-<h3 class="anchored" data-anchor-id="countermovement-jump">Countermovement Jump</h3>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card ak-card has-stripe accent-primary bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="h4">
+Countermovement
+
+Jump
+</div>
 <p>Standing still on the force plates with hands on hips. Jump as high as you can.</p>
 <ul>
 <li>Metrics of interest at this stage include jump height, lengthening (eccentric) bilateral asymmetry, shortening (concentric) asymmetry. Other metrics may be examined by the practitioner to allow deeper understanding of the jump, and inform exercise programming.</li>
 </ul>
-<div style="display:flex; gap:1.5rem; align-items:center;">
-<div style="flex:0 0 35%;">
+<div style="display:flex; gap:1.5rem; align-items:center;" class="html-fill-item html-fill-container">
+<div style="flex:0 0 35%;" class="html-fill-item html-fill-container">
 <p><strong>Criteria:</strong> ≥ 90%</p>
 <p><strong>Repetitions:</strong> 5</p>
 <p><strong>Calculation:</strong> Mean</p>
 </div>
-<div style="flex:0 0 65%; text-align:center;">
-<p><img src="images/placeholder.jpg" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;"></p>
+<div style="flex:0 0 65%; text-align:center;" class="html-fill-item html-fill-container">
+<img src="images/placeholder.jpg" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;">
 </div>
 </div>
-</section>
-<section id="cmj-height" class="level3 card ak-card has-stripe accent-primary">
-<h3 class="anchored" data-anchor-id="cmj-height">CMJ Height</h3>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card ak-card has-stripe accent-primary bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="h4">
+CMJ
+
+Height
+</div>
 <p>Scores are relative to baseline data</p>
 <ul>
 <li>Height in cm</li>
 </ul>
-<div style="display:flex; gap:1.5rem; align-items:center;">
-<div style="flex:0 0 35%;">
+<div style="display:flex; gap:1.5rem; align-items:center;" class="html-fill-item html-fill-container">
+<div style="flex:0 0 35%;" class="html-fill-item html-fill-container">
 <p><strong>Criteria:</strong> ≥ 26 cm</p>
 <p><strong>Repetitions:</strong> 5</p>
 <p><strong>Calculation:</strong> Mean</p>
 </div>
-<div style="flex:0 0 65%; text-align:center;">
-<p><img src="images/placeholder.jpg" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;"></p>
+<div style="flex:0 0 65%; text-align:center;" class="html-fill-item html-fill-container">
+<img src="images/placeholder.jpg" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;">
 </div>
 </div>
-</section>
-<section id="cmj-lengthening-impulse" class="level3 card ak-card has-stripe accent-primary">
-<h3 class="anchored" data-anchor-id="cmj-lengthening-impulse">CMJ Lengthening Impulse</h3>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card ak-card has-stripe accent-primary bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="h4">
+CMJ
+
+Lengthening
+
+Impulse
+</div>
 <p>Scores are relative to baseline data</p>
 <ul>
 <li>Phase impulse is tracked independently to ensure that ratio data does not represent a drop in force production of the non-injured limb.</li>
 </ul>
-<div style="display:flex; gap:1.5rem; align-items:center;">
-<div style="flex:0 0 35%;">
+<div style="display:flex; gap:1.5rem; align-items:center;" class="html-fill-item html-fill-container">
+<div style="flex:0 0 35%;" class="html-fill-item html-fill-container">
 <p><strong>Criteria:</strong> ≥ 90%</p>
 <p><strong>Repetitions:</strong> 5</p>
 <p><strong>Calculation:</strong> Mean</p>
 </div>
-<div style="flex:0 0 65%; text-align:center;">
-<p><img src="images/placeholder.jpg" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;"></p>
+<div style="flex:0 0 65%; text-align:center;" class="html-fill-item html-fill-container">
+<img src="images/placeholder.jpg" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;">
 </div>
 </div>
-</section>
-<section id="cmj-shortening-impulse" class="level3 card ak-card has-stripe accent-primary">
-<h3 class="anchored" data-anchor-id="cmj-shortening-impulse">CMJ Shortening Impulse</h3>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card ak-card has-stripe accent-primary bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="h4">
+CMJ
+
+Shortening
+
+Impulse
+</div>
 <p>Scores are relative to baseline data</p>
 <ul>
 <li>Phase impulse is tracked independently to ensure that ratio data does not represent a drop in force production of the non-injured limb.</li>
 </ul>
-<div style="display:flex; gap:1.5rem; align-items:center;">
-<div style="flex:0 0 35%;">
+<div style="display:flex; gap:1.5rem; align-items:center;" class="html-fill-item html-fill-container">
+<div style="flex:0 0 35%;" class="html-fill-item html-fill-container">
 <p><strong>Criteria:</strong> ≥ 90%</p>
 <p><strong>Repetitions:</strong> 5</p>
 <p><strong>Calculation:</strong> Mean</p>
 </div>
-<div style="flex:0 0 65%; text-align:center;">
-<p><img src="images/placeholder.jpg" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;"></p>
+<div style="flex:0 0 65%; text-align:center;" class="html-fill-item html-fill-container">
+<img src="images/placeholder.jpg" style="max-width:80%; max-height:220px; object-fit:contain; display:inline-block;">
 </div>
 </div>
-</section>
-<div class="break-logo">
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="break-logo">
   <img src="images/csi-logo-medal-only.png" alt="">
 </div>
-</section>
-<section id="the-program" class="level2">
-<h2 class="anchored" data-anchor-id="the-program">The Program</h2>
+</div>
+<div class="bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card bslib-card html-fill-container" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
 <p>Below you will find links to your training programs.</p>
-<p><a href="https://www.teambuildr.com/">Phase 4: Program 1</a></p>
+<a href="https://www.teambuildr.com/">Phase 4: Program 1</a>
 <p><a href="#fig-4" class="quarto-xref">Figure&nbsp;4</a> provides a five stage framework for progression of OFR and RTT <span class="citation" data-cites="buckthorpe2019a">[<a href="#ref-buckthorpe2019a" role="doc-biblioref">7</a>]</span>.</p>
-<div id="fig-4" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="fig-4" class="quarto-float quarto-figure quarto-figure-center html-fill-item html-fill-container">
+<figure class="quarto-float quarto-float-fig figure html-fill-item html-fill-container">
+<div aria-describedby="fig-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="html-fill-item html-fill-container">
 <a href="images/FieldBasedRehab.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;4: "><img src="images/FieldBasedRehab.png" id="fig-4" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1386,9 +1425,9 @@ Figure&nbsp;4
 </figure>
 </div>
 <p><a href="#fig-5" class="quarto-xref">Figure&nbsp;5</a> shows an example weekly training schedule incorporating OFR into Phase 4 ACL rehabilitation.</p>
-<div id="fig-5" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="fig-5" class="lightbox quarto-float quarto-figure quarto-figure-center html-fill-item html-fill-container">
+<figure class="quarto-float quarto-float-fig figure html-fill-item html-fill-container">
+<div aria-describedby="fig-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="html-fill-item html-fill-container">
 <a href="images/clipboard-2884114175.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;5: Example weekly schedule adapted from @buckthorpe2019a."><img src="images/clipboard-2884114175.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1396,73 +1435,23 @@ Figure&nbsp;5: Example weekly schedule adapted from <span class="citation" data-
 </figcaption>
 </figure>
 </div>
-<div class="break-logo">
+<div class="break-logo html-fill-item html-fill-container">
   <img src="images/csi-logo-medal-only.png" alt="">
 </div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden">
+
+</div>
+</div>
+</div>
 
 
 
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="list">
-<div id="ref-ardern2016" class="csl-entry" role="listitem">
-1. Ardern CL, Glasgow P, Schneiders A, Witvrouw E, Clarsen B, Cools A, et al. 2016 Consensus statement on return to sport from the First World Congress in Sports Physical Therapy, Bern. British Journal of Sports Medicine [Internet]. 2016;50:853–64. <a href="https://doi.org/10.1136/bjsports-2016-096278">https://doi.org/10.1136/bjsports-2016-096278</a>
-</div>
-<div id="ref-kotsifaki2023a" class="csl-entry" role="listitem">
-2. Kotsifaki R, Korakakis V, King E, Barbosa O, Maree D, Pantouveris M, et al. Aspetar clinical practice guideline on rehabilitation after anterior cruciate ligament reconstruction. British Journal of Sports Medicine [Internet]. 2023;57:500–14. <a href="https://doi.org/10.1136/bjsports-2022-106158">https://doi.org/10.1136/bjsports-2022-106158</a>
-</div>
-<div id="ref-losciale2019" class="csl-entry" role="listitem">
-3. Losciale JM, Zdeb RM, Ledbetter L, Reiman MP, Sell TC. The Association Between Passing Return-to-Sport Criteria and Second Anterior Cruciate Ligament Injury Risk: A Systematic Review With Meta-analysis. Journal of Orthopaedic &amp; Sports Physical Therapy [Internet]. 2019;49:43–54. <a href="https://doi.org/10.2519/jospt.2019.8190">https://doi.org/10.2519/jospt.2019.8190</a>
-</div>
-<div id="ref-kyritsis2016" class="csl-entry" role="listitem">
-4. Kyritsis P, Bahr R, Landreau P, Miladi R, Witvrouw E. Likelihood of ACL graft rupture: not meeting six clinical discharge criteria before return to sport is associated with a four times greater risk of rupture. British Journal of Sports Medicine [Internet]. 2016;50:946–51. <a href="https://doi.org/10.1136/bjsports-2015-095908">https://doi.org/10.1136/bjsports-2015-095908</a>
-</div>
-<div id="ref-grindem2016" class="csl-entry" role="listitem">
-5. Grindem H, Snyder-Mackler L, Moksnes H, Engebretsen L, Risberg MA. Simple decision rules can reduce reinjury risk by 84. British Journal of Sports Medicine [Internet]. 2016;50:804–8. <a href="https://doi.org/10.1136/bjsports-2016-096031">https://doi.org/10.1136/bjsports-2016-096031</a>
-</div>
-<div id="ref-dambrosi2025" class="csl-entry" role="listitem">
-6. D’Ambrosi R, Marchetti A, Farinelli L, Meena A, Franco P, Sconfienza LM, et al. The majority of elite and professional athletes return to the preinjury level of activity after ACL reconstruction: A systematic review and meta-analysis. Knee Surgery, Sports Traumatology, Arthroscopy [Internet]. 2025;n/a. <a href="https://doi.org/10.1002/ksa.70020">https://doi.org/10.1002/ksa.70020</a>
-</div>
-<div id="ref-buckthorpe2019a" class="csl-entry" role="listitem">
-7. Buckthorpe M. Optimising the late-stage rehabilitation and return-to-sport training and testing process after ACL reconstruction. Sports Medicine [Internet]. 2019;49:1043–58. <a href="https://doi.org/10.1007/s40279-019-01102-z">https://doi.org/10.1007/s40279-019-01102-z</a>
-</div>
-<div id="ref-buckthorpe2018" class="csl-entry" role="listitem">
-8. Buckthorpe M, Roi GS. The time has come to incorporate a greater focus on rate of force development training in the sports injury rehabilitation process. Muscles, Ligaments and Tendons Journal [Internet]. 2018;7:435–41. <a href="https://doi.org/10.11138/mltj/2017.7.3.435">https://doi.org/10.11138/mltj/2017.7.3.435</a>
-</div>
-<div id="ref-angelozzi2012" class="csl-entry" role="listitem">
-9. Angelozzi M, Madama M, Corsica C, Calvisi V, Properzi G, McCaw ST, et al. Rate of force development as an adjunctive outcome measure for return-to-sport decisions after anterior cruciate ligament reconstruction. Journal of Orthopaedic and Sports Physical Therapy. 2012;42:772–80. <a href="https://doi.org/10.2519/jospt.2012.3780">https://doi.org/10.2519/jospt.2012.3780</a>
-</div>
-<div id="ref-folland2014" class="csl-entry" role="listitem">
-10. Folland JP, Buckthorpe MW, Hannah R. Human capacity for explosive force production: Neural and contractile determinants. Scandinavian Journal of Medicine &amp; Science in Sports [Internet]. 2014;24:894–906. <a href="https://doi.org/10.1111/sms.12131">https://doi.org/10.1111/sms.12131</a>
-</div>
-<div id="ref-tillin2012" class="csl-entry" role="listitem">
-11. Tillin NA, Pain MTG, Folland JP. Short-term training for explosive strength causes neural and mechanical adaptations. Experimental Physiology [Internet]. 2012;97:630–41. <a href="https://doi.org/10.1113/expphysiol.2011.063040">https://doi.org/10.1113/expphysiol.2011.063040</a>
-</div>
-<div id="ref-mangine2016" class="csl-entry" role="listitem">
-12. Mangine GT, Hoffman JR, Wang R, Gonzalez AM, Townsend JR, Wells AJ, et al. Resistance training intensity and volume affect changes in rate of force development in resistance-trained men. European Journal of Applied Physiology [Internet]. 2016;116:2367–74. <a href="https://doi.org/10.1007/s00421-016-3488-6">https://doi.org/10.1007/s00421-016-3488-6</a>
-</div>
-<div id="ref-james2023" class="csl-entry" role="listitem">
-13. James LP, Talpey SW, Young WB, Geneau MC, Newton RU, Gastin PB. Strength Classification and Diagnosis: Not All Strength Is Created Equal. Strength &amp; Conditioning Journal [Internet]. 2023;45:333–41. <a href="https://doi.org/10.1519/SSC.0000000000000744">https://doi.org/10.1519/SSC.0000000000000744</a>
-</div>
-<div id="ref-markovic2010" class="csl-entry" role="listitem">
-14. Markovic G, Mikulic P. Neuro-Musculoskeletal and Performance Adaptations to Lower-Extremity Plyometric Training. Sports Medicine [Internet]. 2010;40:859–95. <a href="https://doi.org/10.2165/11318370-000000000-00000">https://doi.org/10.2165/11318370-000000000-00000</a>
-</div>
-<div id="ref-maffiuletti2016" class="csl-entry" role="listitem">
-15. Maffiuletti NA, Aagaard P, Blazevich AJ, Folland J, Tillin N, Duchateau J. Rate of force development: Physiological and methodological considerations. European Journal of Applied Physiology. 2016;116:1091–116. <a href="https://doi.org/10.1007/s00421-016-3346-6">https://doi.org/10.1007/s00421-016-3346-6</a>
-</div>
-<div id="ref-buckthorpe2021a" class="csl-entry" role="listitem">
-16. Buckthorpe M, Della Villa F. Recommendations for plyometric training after ACL reconstruction <span></span> a clinical commentary. International Journal of Sports Physical Therapy. 2021;16:879–95. <a href="https://doi.org/10.26603/001c.23549">https://doi.org/10.26603/001c.23549</a>
-</div>
-<div id="ref-buckthorpe2019b" class="csl-entry" role="listitem">
-17. Buckthorpe M, Frizziero A, Roi GS. Update on functional recovery process for the injured athlete: return to sport continuum redefined. British Journal of Sports Medicine [Internet]. 2019;53:265–7. <a href="https://doi.org/10.1136/bjsports-2018-099341">https://doi.org/10.1136/bjsports-2018-099341</a>
-</div>
-<div id="ref-dellavilla2012" class="csl-entry" role="listitem">
-18. Della Villa S, Boldrini L, Ricci M, Danelon F, Snyder-Mackler L, Nanni G, et al. Clinical Outcomes and Return-to-Sports Participation of 50 Soccer Players After Anterior Cruciate Ligament Reconstruction Through a Sport-Specific Rehabilitation Protocol. Sports Health: A Multidisciplinary Approach [Internet]. 2012;4:17–24. <a href="https://doi.org/10.1177/1941738111417564">https://doi.org/10.1177/1941738111417564</a>
-</div>
-<div id="ref-blanch2016" class="csl-entry" role="listitem">
-19. Blanch P, Gabbett TJ. Has the athlete trained enough to return to play safely? The acute:chronic workload ratio permits clinicians to quantify a player’s risk of subsequent injury. British Journal of Sports Medicine [Internet]. 2016;50:471–5. <a href="https://doi.org/10.1136/bjsports-2015-095445">https://doi.org/10.1136/bjsports-2015-095445</a>
-</div>
-</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -1550,11 +1539,6 @@ Figure&nbsp;5: Example weekly schedule adapted from <span class="citation" data-
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
-            // target, if specified
-            link.setAttribute("target", "_blank");
-            if (link.getAttribute("rel") === null) {
-              link.setAttribute("rel", "noopener");
-            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -1868,7 +1852,80 @@ Figure&nbsp;5: Example weekly schedule adapted from <span class="citation" data-
     }
   });
   </script>
-</div> <!-- /content -->
+<div id="quarto-appendix" class="default bslib-grid-item html-fill-item"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-ardern2016" class="csl-entry" role="listitem">
+1. Ardern CL, Glasgow P, Schneiders A, Witvrouw E, Clarsen B, Cools A, et al. 2016 Consensus statement on return to sport from the First World Congress in Sports Physical Therapy, Bern. British Journal of Sports Medicine [Internet]. 2016;50:853–64. <a href="https://doi.org/10.1136/bjsports-2016-096278">https://doi.org/10.1136/bjsports-2016-096278</a>
+</div>
+<div id="ref-kotsifaki2023a" class="csl-entry" role="listitem">
+2. Kotsifaki R, Korakakis V, King E, Barbosa O, Maree D, Pantouveris M, et al. Aspetar clinical practice guideline on rehabilitation after anterior cruciate ligament reconstruction. British Journal of Sports Medicine [Internet]. 2023;57:500–14. <a href="https://doi.org/10.1136/bjsports-2022-106158">https://doi.org/10.1136/bjsports-2022-106158</a>
+</div>
+<div id="ref-losciale2019" class="csl-entry" role="listitem">
+3. Losciale JM, Zdeb RM, Ledbetter L, Reiman MP, Sell TC. The Association Between Passing Return-to-Sport Criteria and Second Anterior Cruciate Ligament Injury Risk: A Systematic Review With Meta-analysis. Journal of Orthopaedic &amp; Sports Physical Therapy [Internet]. 2019;49:43–54. <a href="https://doi.org/10.2519/jospt.2019.8190">https://doi.org/10.2519/jospt.2019.8190</a>
+</div>
+<div id="ref-kyritsis2016" class="csl-entry" role="listitem">
+4. Kyritsis P, Bahr R, Landreau P, Miladi R, Witvrouw E. Likelihood of ACL graft rupture: not meeting six clinical discharge criteria before return to sport is associated with a four times greater risk of rupture. British Journal of Sports Medicine [Internet]. 2016;50:946–51. <a href="https://doi.org/10.1136/bjsports-2015-095908">https://doi.org/10.1136/bjsports-2015-095908</a>
+</div>
+<div id="ref-grindem2016" class="csl-entry" role="listitem">
+5. Grindem H, Snyder-Mackler L, Moksnes H, Engebretsen L, Risberg MA. Simple decision rules can reduce reinjury risk by 84. British Journal of Sports Medicine [Internet]. 2016;50:804–8. <a href="https://doi.org/10.1136/bjsports-2016-096031">https://doi.org/10.1136/bjsports-2016-096031</a>
+</div>
+<div id="ref-dambrosi2025" class="csl-entry" role="listitem">
+6. D’Ambrosi R, Marchetti A, Farinelli L, Meena A, Franco P, Sconfienza LM, et al. The majority of elite and professional athletes return to the preinjury level of activity after ACL reconstruction: A systematic review and meta-analysis. Knee Surgery, Sports Traumatology, Arthroscopy [Internet]. 2025;n/a. <a href="https://doi.org/10.1002/ksa.70020">https://doi.org/10.1002/ksa.70020</a>
+</div>
+<div id="ref-buckthorpe2019a" class="csl-entry" role="listitem">
+7. Buckthorpe M. Optimising the late-stage rehabilitation and return-to-sport training and testing process after ACL reconstruction. Sports Medicine [Internet]. 2019;49:1043–58. <a href="https://doi.org/10.1007/s40279-019-01102-z">https://doi.org/10.1007/s40279-019-01102-z</a>
+</div>
+<div id="ref-buckthorpe2018" class="csl-entry" role="listitem">
+8. Buckthorpe M, Roi GS. The time has come to incorporate a greater focus on rate of force development training in the sports injury rehabilitation process. Muscles, Ligaments and Tendons Journal [Internet]. 2018;7:435–41. <a href="https://doi.org/10.11138/mltj/2017.7.3.435">https://doi.org/10.11138/mltj/2017.7.3.435</a>
+</div>
+<div id="ref-angelozzi2012" class="csl-entry" role="listitem">
+9. Angelozzi M, Madama M, Corsica C, Calvisi V, Properzi G, McCaw ST, et al. Rate of force development as an adjunctive outcome measure for return-to-sport decisions after anterior cruciate ligament reconstruction. Journal of Orthopaedic and Sports Physical Therapy. 2012;42:772–80. <a href="https://doi.org/10.2519/jospt.2012.3780">https://doi.org/10.2519/jospt.2012.3780</a>
+</div>
+<div id="ref-folland2014" class="csl-entry" role="listitem">
+10. Folland JP, Buckthorpe MW, Hannah R. Human capacity for explosive force production: Neural and contractile determinants. Scandinavian Journal of Medicine &amp; Science in Sports [Internet]. 2014;24:894–906. <a href="https://doi.org/10.1111/sms.12131">https://doi.org/10.1111/sms.12131</a>
+</div>
+<div id="ref-tillin2012" class="csl-entry" role="listitem">
+11. Tillin NA, Pain MTG, Folland JP. Short-term training for explosive strength causes neural and mechanical adaptations. Experimental Physiology [Internet]. 2012;97:630–41. <a href="https://doi.org/10.1113/expphysiol.2011.063040">https://doi.org/10.1113/expphysiol.2011.063040</a>
+</div>
+<div id="ref-mangine2016" class="csl-entry" role="listitem">
+12. Mangine GT, Hoffman JR, Wang R, Gonzalez AM, Townsend JR, Wells AJ, et al. Resistance training intensity and volume affect changes in rate of force development in resistance-trained men. European Journal of Applied Physiology [Internet]. 2016;116:2367–74. <a href="https://doi.org/10.1007/s00421-016-3488-6">https://doi.org/10.1007/s00421-016-3488-6</a>
+</div>
+<div id="ref-james2023" class="csl-entry" role="listitem">
+13. James LP, Talpey SW, Young WB, Geneau MC, Newton RU, Gastin PB. Strength Classification and Diagnosis: Not All Strength Is Created Equal. Strength &amp; Conditioning Journal [Internet]. 2023;45:333–41. <a href="https://doi.org/10.1519/SSC.0000000000000744">https://doi.org/10.1519/SSC.0000000000000744</a>
+</div>
+<div id="ref-markovic2010" class="csl-entry" role="listitem">
+14. Markovic G, Mikulic P. Neuro-Musculoskeletal and Performance Adaptations to Lower-Extremity Plyometric Training. Sports Medicine [Internet]. 2010;40:859–95. <a href="https://doi.org/10.2165/11318370-000000000-00000">https://doi.org/10.2165/11318370-000000000-00000</a>
+</div>
+<div id="ref-maffiuletti2016" class="csl-entry" role="listitem">
+15. Maffiuletti NA, Aagaard P, Blazevich AJ, Folland J, Tillin N, Duchateau J. Rate of force development: Physiological and methodological considerations. European Journal of Applied Physiology. 2016;116:1091–116. <a href="https://doi.org/10.1007/s00421-016-3346-6">https://doi.org/10.1007/s00421-016-3346-6</a>
+</div>
+<div id="ref-buckthorpe2021a" class="csl-entry" role="listitem">
+16. Buckthorpe M, Della Villa F. Recommendations for plyometric training after ACL reconstruction <span></span> a clinical commentary. International Journal of Sports Physical Therapy. 2021;16:879–95. <a href="https://doi.org/10.26603/001c.23549">https://doi.org/10.26603/001c.23549</a>
+</div>
+<div id="ref-buckthorpe2019b" class="csl-entry" role="listitem">
+17. Buckthorpe M, Frizziero A, Roi GS. Update on functional recovery process for the injured athlete: return to sport continuum redefined. British Journal of Sports Medicine [Internet]. 2019;53:265–7. <a href="https://doi.org/10.1136/bjsports-2018-099341">https://doi.org/10.1136/bjsports-2018-099341</a>
+</div>
+<div id="ref-dellavilla2012" class="csl-entry" role="listitem">
+18. Della Villa S, Boldrini L, Ricci M, Danelon F, Snyder-Mackler L, Nanni G, et al. Clinical Outcomes and Return-to-Sports Participation of 50 Soccer Players After Anterior Cruciate Ligament Reconstruction Through a Sport-Specific Rehabilitation Protocol. Sports Health: A Multidisciplinary Approach [Internet]. 2012;4:17–24. <a href="https://doi.org/10.1177/1941738111417564">https://doi.org/10.1177/1941738111417564</a>
+</div>
+<div id="ref-blanch2016" class="csl-entry" role="listitem">
+19. Blanch P, Gabbett TJ. Has the athlete trained enough to return to play safely? The acute:chronic workload ratio permits clinicians to quantify a player’s risk of subsequent injury. British Journal of Sports Medicine [Internet]. 2016;50:471–5. <a href="https://doi.org/10.1136/bjsports-2015-095445">https://doi.org/10.1136/bjsports-2015-095445</a>
+</div>
+<div id="ref-lo2025" class="csl-entry" role="listitem">
+20. Lo C-S, Chen K-C, Shih J-C, Cheng B, Chao W-C. Integrating psychological and physical assessments to obtain optimal return-to-sport outcomes after ACL reconstruction: A systematic review and network meta-analysis. Journal of Sports Sciences [Internet]. 2025;43:2404–17. <a href="https://doi.org/10.1080/02640414.2025.2534224">https://doi.org/10.1080/02640414.2025.2534224</a>
+</div>
+<div id="ref-webster2008" class="csl-entry" role="listitem">
+21. Webster KE, Feller JA, Lambros C. Development and preliminary validation of a scale to measure the psychological impact of returning to sport following anterior cruciate ligament reconstruction surgery. Physical Therapy in Sport [Internet]. 2008;9:9–15. <a href="https://doi.org/10.1016/j.ptsp.2007.09.003">https://doi.org/10.1016/j.ptsp.2007.09.003</a>
+</div>
+<div id="ref-sell2024" class="csl-entry" role="listitem">
+22. Sell TC, Zerega R, King V, Reiter CR, Wrona H, Bullock GS, et al. Anterior Cruciate Ligament Return to Sport after Injury Scale (ACL-RSI) Scores over Time After Anterior Cruciate Ligament Reconstruction: A Systematic Review with Meta-analysis. Sports Medicine - Open [Internet]. 2024;10:49. <a href="https://doi.org/10.1186/s40798-024-00712-w">https://doi.org/10.1186/s40798-024-00712-w</a>
+</div>
+<div id="ref-butler2025" class="csl-entry" role="listitem">
+23. Butler L, Baez S, Walker C, Roman D, Douthit T, Kuenze C, et al. The relationship between psychological readiness to return to sport and kinesiophobia in teens and young adults after anterior cruciate ligament reconstruction. Frontiers in Psychology [Internet]. 2025;16. <a href="https://doi.org/10.3389/fpsyg.2025.1623398">https://doi.org/10.3389/fpsyg.2025.1623398</a>
+</div>
+<div id="ref-paterno2018" class="csl-entry" role="listitem">
+24. Paterno MV, Flynn K, Thomas S, Schmitt LC. Self-Reported Fear Predicts Functional Performance and Second ACL Injury After ACL Reconstruction and Return to Sport: A Pilot Study. Sports Health: A Multidisciplinary Approach [Internet]. 2018;10:228–33. <a href="https://doi.org/10.1177/1941738117745806">https://doi.org/10.1177/1941738117745806</a>
+</div>
+</div></section></div></div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
@@ -1915,6 +1972,14 @@ Figure&nbsp;5: Example weekly schedule adapted from <span class="citation" data-
 })();
           </script>
 
+<script type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (_event) {
+  if (window.bslib.Card) {
+    window.bslib.Card.initializeAllCards();
+  }
+}); 
+</script>
+  
 
 
 
