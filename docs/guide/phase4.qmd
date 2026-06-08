@@ -205,6 +205,8 @@ Incorporating rehabilitation activities onto the field of play acts as a bridge 
 
 ### Return to Training (RTT)
 
+During RTT, workload monitoring is key to understanding progression and to the eventual decision to RTS. It is likely that inappropriate loading can contribute to injury risk during this phase, and also in the future if the athlete fails to develop sufficient chronic training loads @blanch2016. This becomes a delicate balance where over-training may compromise the rehab in the short term but under-training may fail to adequately prepare the athlete for the demands of returning to play.
+
 +------------------+-----------------------------------------------------------------------+--------------------------------------------------+
 | Sport            | On-field Rehabilitation                                               | Return to Training                               |
 +==================+=======================================================================+==================================================+
@@ -227,15 +229,13 @@ Incorporating rehabilitation activities onto the field of play acts as a bridge 
 |                  | Ski simulator                                                         |                                                  |
 +------------------+-----------------------------------------------------------------------+--------------------------------------------------+
 
-During RTT, workload monitoring is key to understanding progression and to the eventual decision to RTS. It is likely that inappropriate loading can contribute to injury risk during this phase, and also in the future if the athlete fails to develop sufficient chronic training loads @blanch2016. This becomes a delicate balance where over-training may compromise the rehab in the short term but under-training may fail to adequately prepare the athlete for the demands of returning to play.
+The CSI Pacific RTP protocol seeks to mitigate this risk by providing the optimal tools for collecting and understanding both internal and external workload. Continued testing of Phase 4 and 5 criteria in addition to daily wellness monitoring will ensure that the rehabilitation is not being compromised by increased workloads and intensities. Meanwhile, external load monitoring is more specific to the sport, and ideally is driven by the performance staff, however this protocol does provide some generic tools for assessing external workload in both field and snow sports.
 
-The CSI Pacific RTP protocol seeks to mitigate this risk by providing the optimal tools for collecting and understanding both internal and external workload. Continued testing of Phase 4 and 5 criteria in addition to daily wellness monitoring will ensure that the rehabilitation is not being compromised by increased workloads and intensities. Meanwhile, external load monitoring is more specific to the sport, and ideally is driven by the performance staff, however this protocol does provide some generic tools for assessing external workload in both field and snow sports. Monitoring of external load using GPS for team sport athletes is recommended when available, however exact loads and strategies associated with the RTS process are not currently known @buckthorpe2019a.
+#### Field-based Sports
 
-#### Field-based
+Monitoring of external load using GPS for team sport athletes is recommended when available, however exact loads and strategies associated with the RTS process are not currently known @buckthorpe2019a.
 
-sadsddsa
-
-#### Snow-based
+#### Snow-based Sports
 
 dafdafd
 
