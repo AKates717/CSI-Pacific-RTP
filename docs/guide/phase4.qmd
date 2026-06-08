@@ -218,7 +218,7 @@ During RTT, workload monitoring is key to understanding progression and to the e
 |                  |                                                                       |                                                  |
 |                  | Controlled accel/deccel/COD                                           | Scrimmage with no contact jersey                 |
 +------------------+-----------------------------------------------------------------------+--------------------------------------------------+
-| Alpine Skiing    | Controlled skiing on a freshly groomed slope                          | Faster, more aggresive skiing                    |
+| Alpine Skiing    | Controlled skiing on a freshly groomed slope                          | Faster, more aggressive skiing                   |
 |                  |                                                                       |                                                  |
 |                  | Ski simulator                                                         | Variable terrain                                 |
 |                  |                                                                       |                                                  |
@@ -235,9 +235,11 @@ The CSI Pacific RTP protocol seeks to mitigate this risk by providing the optima
 
 Monitoring of external load using GPS for team sport athletes is recommended when available, however exact loads and strategies associated with the RTS process are not currently known @buckthorpe2019a.
 
+Use the 2 part Buckthorpe papers
+
 #### Snow-based Sports
 
-dafdafd
+Might as well write about the consensus statement paper
 
 ### Psychological Readiness to RTS
 
@@ -335,9 +337,9 @@ Below you will find links to your training programs.
 
 ![](images/FieldBasedRehab.png){#fig-4 .lightbox}
 
-@fig-5 shows an example weekly training schedule incorporating OFR into Phase 4 ACL rehabilitation.
+@fig-5 shows an example weekly training schedule incorporating OFR into Phase 4 ACL rehabilitation. A big change from Phase 3 is that OFR sessions may occur before gym sessions on a given day, reflecting the priority of the sessions and ensuring that OFR training does not take place in the presence of acute fatigue. Another major difference is that workouts are no longer characterized as ACLR vs Non-ACLR; rather the programming more closely resembles a non-rehab performance program. Monday and Thursday gym sessions focus on activities that will not cause a lot of neuromuscular fatigue, allowing the athlete to train on back-to-back days. Tuesday and Friday sessions incorporate more volume in the OFR and more targeted intensity in the gym, including potentially provocative exercises like plyometrics. Wednesday and Saturday sessions account for this by focusing on less demanding exercises and prioritizing recovery.
 
-![Example weekly schedule adapted from @buckthorpe2019a.](images/clipboard-2884114175.png){#fig-5 .lightbox}
+![Example weekly schedule for Phase 4 ACL rehabilitation, adapted from Buckthorpe 2019 @buckthorpe2019a. *OFR = On-field rehabilitation; NM = Neuromuscular; UB = Upper body; LB = Lower body; ESD = Energy system development*](images/phase4_weekly_sched.png){#fig-5 .lightbox alt="Example weekly schedule for Phase 1 ACL rehabilitation. Times are shown as an example of how each day might be structured." fig-align="left"}
 
 ```{=html}
 <div class="break-logo">

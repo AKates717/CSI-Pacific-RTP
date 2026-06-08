@@ -338,12 +338,14 @@ Below you will find links to your training programs.
 
 [Phase 3: Program 1](https://www.teambuildr.com/)
 
-During phase 3, maximal strength training will remain an important part of the program, and will continue to build in intensity.
+The example weekly schedule shown in @fig-3 continues to be built around 3x per week targeted strength sessions with 48 hours of recovery between sessions. These workouts now include plyometrics and/or gym-based SAQ and COD work, which is typically programmed to take place after preparation and before strength work. Non-ACLR workouts continue to provide stimulus on days between the main lifts, while prioritizing recovery of the involved limb. ESD workouts will increase in intensity to prepare the athlete for sport-related activities in Phase 4 and 5. These will likely fit well in the same session as non-ACLR lifts but some athletes may respond better to performing ESD sessions as separate workouts throughout the week. Home-based mobility and active recovery continue to be important in the mornings and evenings. Active recovery such as going for short walks or bike rides may be tolerated well at this point.
 
-The introduction of dynamic movements during this phase should roughly follow this task-based progression @buckthorpe2020a seen in @fig-3. The actual time-frame of introduction is only an estimate and is subject to change based on progression through Phase and RTR criteria.
+![Example weekly schedule for Phase 3 ACL rehabilitation. Times are shown as an example of how each day might be structured. *Plyo = Plyometrics; SAQ = Speed, agility, quickness; ESD = Energy system development*](images/phase3_weekly_sched.png){#fig-3 .lightbox alt="Example weekly schedule for Phase 1 ACL rehabilitation. Times are shown as an example of how each day might be structured." fig-align="left"}
+
+During phase 3, maximal strength training will remain an important part of the program, and will continue to build in intensity. The introduction of dynamic movements during this phase should roughly follow this task-based progression @buckthorpe2020a seen in @fig-4. The actual time-frame of introduction is only an estimate and is subject to change based on progression through Phase and RTR criteria.
 
 ```{r}
-#| label: fig-3
+#| label: fig-4
 #| fig-cap: "Example schedule for the introduction of dynamic tasks in Phase 3 ACL rehabilitation.  Week numnbers are for display purposes only and will vary for each unique individual"
 
 

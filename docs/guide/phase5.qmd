@@ -139,6 +139,12 @@ Neuromuscular training returns to it's place as being secondary to sport trainin
 
 Continued testing of Phase 5 criteria are important for ensuring that the athlete does not compromise the physical, mental and emotional gains made throughout the rehab.
 
+### Warm Up
+
+Is there research or dies this go in additional resources?
+
+The warm-up becomes extremely crucial for this athlete for the rest of their career in order to optimally prepare for training/competition, and also as a n opportunity to target specific neuromuscular needs on a constant basis, and while feeling fresh before undergoing the demands of the sport.
+
 ```{=html}
 <div class="break-logo">
   <img src="images/csi-logo-medal-only.png" alt="">
@@ -234,23 +240,3 @@ Peer-reviewed literature that was consulted in the making of pre-op programs is 
   <img src="images/csi-logo-medal-only.png" alt="">
 </div>
 ```
-
-## Additional Resources
-
-### Blood Flow Restriction
-
-Although, blood flow restriction
-
-Another more recent study
-
-```{=html}
-<div class="break-logo">
-  <img src="images/csi-logo-medal-only.png" alt="">
-</div>
-```
-
-## Notes and Considerations for Reviewers
-
-All feedback is welcome, however here are some considerations that should help inform the development of this tool.
-
-- Please

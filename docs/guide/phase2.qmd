@@ -1,8 +1,5 @@
 ---
 title: "Phase 2: Strength & Neuromuscular Control"
-#subtitle: "Strength & Neuromuscular Control"
-params:
-  athlete: "Frank Reynolds"
 bibliography: references.bib
 csl: sports-medicine.csl
 ---
@@ -25,7 +22,7 @@ At the transition from phase 1 to phase 2, it is expected that pain and swelling
 - Listen to the body: be aware of pain, swelling or ROM regressions and adjust training accordingly
 :::
 
-Outcomes generally reflect maintaining a healthy knee, increased lower body muscular endurance and strength, and improved static postural stability. **`r params$athlete`'s** progress towards these goals will be assessed via the criteria seen below. Detailed description of each criteria and the associated testing methodology can be found in the [Testing](#sec-p2-testing) section.
+Outcomes generally reflect maintaining a healthy knee, increased lower body muscular endurance and strength, and improved static postural stability. **`r athlete_name`'s** progress towards these goals will be assessed via the criteria seen below. Detailed description of each criteria and the associated testing methodology can be found in the [Testing](#sec-p2-testing) section.
 
 ```{r}
 #Create the table
@@ -195,6 +192,10 @@ cat('</div>\n')  # end flex row
 Below you will find links to your training programs.
 
 [Phase 2: Program 1](https://www.teambuildr.com/)
+
+@fig-1 shows an example weekly schedule for this phase of the rehabilitation. The schedule is built around 3x per week targeted strength sessions with 48 hours of recovery between sessions. Non-ACLR workouts on Tuesday and Thursday target strength and neuromuscular control in the rest of the body (e.g. contralateral limb, upper body, core) and are accompanied by targeted BFR work for the affected limb. Twice weekly pool sessions are key at this stage for improving movement patterns in a de-loaded environment. Cardiovascular fitness is trained twice per week, a volume and frequency sufficient to develop and maintain these qualities while prioritizing the primary targets of Phase 2 rehab (e.g. quadriceps strength).
+
+![Example weekly schedule for Phase 2 ACL rehabilitation. Times are shown as an example of how each day might be structured. *BFR = Blood flow restriction; ESD = Energy system development*](images/phase2_weekly_sched.png){#fig-1 .lightbox alt="Example weekly schedule for Phase 1 ACL rehabilitation. Times are shown as an example of how each day might be structured." fig-align="left"}
 
 Here are some descriptions of what you can expect throughout these programs
 
