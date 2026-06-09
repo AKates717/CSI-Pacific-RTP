@@ -50,6 +50,9 @@ website:
             href: checklists/return_to_jump_checklist.qmd            
           - text: "Return to Running"
             href: checklists/return_to_run_checklist.qmd
+          - text: "Mental Performance"
+            href: checklists/tsk11_viz_test.qmd
+            
     right:
       - icon: github
         href: https://github.com/AKates717/CSI-Pacific-RTP

@@ -1,0 +1,220 @@
+---
+title: "Mental Performance"
+---
+
+```{r setup-root, include=FALSE}
+knitr::opts_knit$set(root.dir = normalizePath(".."))
+```
+
+```{r setup}
+source("Global.R")
+source("plot_functions.R")
+source("Themes.R")
+
+csi_red  <- "#D71920"
+csi_grey <- "#A7A9AC"
+```
+
+```{r rsi-data}
+rsi_wide <- read_xlsx("sample_data/outcome_data.xlsx", sheet = "acl_rsi") |>
+  mutate(
+    date       = as.Date(Date),
+    mean_score = round(rowMeans(across(q1:q12)))
+  ) |>
+  arrange(date)
+
+rsi_item_labels <- c(
+  "Q1 – Confident in previous performance",
+  "Q2 – Likely to re-injure",
+  "Q3 – Nervous about playing sport",
+  "Q4 – Knee won't give way",
+  "Q5 – Play sport without concern",
+  "Q6 – Frustrated by knee consideration",
+  "Q7 – Fearful of re-injury",
+  "Q8 – Knee holds under pressure",
+  "Q9 – Afraid of accidental injury",
+  "Q10 – Surgery/rehab thoughts intrude",
+  "Q11 – Confident in performance ability",
+  "Q12 – Relaxed about playing sport"
+)
+
+rsi_long <- rsi_wide |>
+  pivot_longer(q1:q12, names_to = "item", values_to = "score") |>
+  mutate(
+    item_label = factor(
+      recode(item,
+        q1  = rsi_item_labels[1],  q2  = rsi_item_labels[2],
+        q3  = rsi_item_labels[3],  q4  = rsi_item_labels[4],
+        q5  = rsi_item_labels[5],  q6  = rsi_item_labels[6],
+        q7  = rsi_item_labels[7],  q8  = rsi_item_labels[8],
+        q9  = rsi_item_labels[9],  q10 = rsi_item_labels[10],
+        q11 = rsi_item_labels[11], q12 = rsi_item_labels[12]
+      ),
+      levels = rsi_item_labels
+    )
+  )
+
+rsi_cutoff <- 56
+```
+
+```{r rsi-plots}
+rsi_line <- ggplot(rsi_wide, aes(x = date, y = mean_score)) +
+  geom_hline(yintercept = rsi_cutoff, linetype = "dashed",
+             colour = "#447099", linewidth = 0.6, alpha = 0.8) +
+  annotate("text", x = max(rsi_wide$date), y = rsi_cutoff + 3,
+           label = "RTS readiness threshold (≥56)", hjust = 1,
+           size = 3, colour = "#447099", fontface = "italic") +
+  geom_line(colour = csi_grey, linewidth = 1) +
+  geom_point(aes(fill = mean_score, text = paste0("Date: ", date, "<br>Mean Score: ", mean_score)),
+             shape = 21, size = 4, colour = "white", stroke = 1.2) +
+  scale_fill_gradient(low = csi_red, high = "#2E7D32",
+                      limits = c(0, 100), guide = "none") +
+  scale_x_date(date_labels = "%b %d '%y",
+               breaks = rsi_wide$date,
+               expand = expansion(mult = 0.15)) +
+  scale_y_continuous(limits = c(0, 105), breaks = seq(0, 100, by = 20)) +
+  labs(x = NULL, y = "Mean Score (0–100)") +
+  ak_plot_theme()
+
+rsi_heat <- rsi_long |>
+  mutate(item_label = fct_rev(item_label)) |>
+  ggplot(aes(x = date, y = item_label, fill = score,
+             text = paste0(item_label, "<br>Date: ", date, "<br>Score: ", score))) +
+  geom_tile(colour = "white", linewidth = 0.8) +
+  geom_text(aes(label = score), size = 3.2, fontface = "bold", colour = "white") +
+  scale_fill_gradient(low = csi_red, high = "#2E7D32",
+                      limits = c(0, 100),
+                      breaks = c(0, 50, 100),
+                      labels = c("0", "50", "100"),
+                      name = "Score") +
+  scale_x_date(date_labels = "%b %d '%y",
+               breaks = rsi_wide$date,
+               expand = expansion(mult = 0.2)) +
+  labs(x = NULL, y = NULL) +
+  ak_plot_theme() +
+  theme(axis.text.y  = element_text(angle = 0, hjust = 1, size = 9),
+        legend.position = "right",
+        panel.grid.major = element_blank())
+```
+
+```{r rsi-card}
+htmltools::div(
+  class = "phase0-navset",
+  navset_card_tab(
+    full_screen = TRUE,
+    title = htmltools::tags$span(style = "font-weight:700; font-size:1.2rem;", "ACL-RSI"),
+    nav_panel(
+      "Total Score",
+      ggplotly(rsi_line, tooltip = "text")
+    ),
+    nav_panel(
+      "Item Heatmap",
+      ggplotly(rsi_heat, tooltip = "text")
+    )
+  )
+)
+```
+
+```{r tsk-data}
+tsk_wide <- read_xlsx("sample_data/outcome_data.xlsx", sheet = "tsk_11") |>
+  mutate(
+    date  = as.Date(Date),
+    total = rowSums(across(q1:q11))
+  ) |>
+  arrange(date)
+
+tsk_item_labels <- c(
+  "Q1 – Afraid of injury when exercising",
+  "Q2 – Pain would increase if I try",
+  "Q3 – Something dangerously wrong",
+  "Q4 – Pain relieved by exercise",
+  "Q5 – Not taken seriously enough",
+  "Q6 – Body at risk for life",
+  "Q7 – Pain = injury",
+  "Q8 – Must avoid unnecessary movements",
+  "Q9 – Pain implies danger",
+  "Q10 – Can't do normal things",
+  "Q11 – Shouldn't exercise when in pain"
+)
+
+tsk_long <- tsk_wide |>
+  pivot_longer(q1:q11, names_to = "item", values_to = "score") |>
+  mutate(
+    item_label = factor(
+      recode(item,
+        q1  = tsk_item_labels[1],  q2  = tsk_item_labels[2],
+        q3  = tsk_item_labels[3],  q4  = tsk_item_labels[4],
+        q5  = tsk_item_labels[5],  q6  = tsk_item_labels[6],
+        q7  = tsk_item_labels[7],  q8  = tsk_item_labels[8],
+        q9  = tsk_item_labels[9],  q10 = tsk_item_labels[10],
+        q11 = tsk_item_labels[11]
+      ),
+      levels = tsk_item_labels
+    )
+  )
+```
+
+```{=html}
+<div class="break-logo">
+  <img src="../images/csi-logo-medal-only.png" alt="">
+</div>
+```
+
+```{r tsk-plots}
+cutoff <- 28
+
+tsk_line <- ggplot(tsk_wide, aes(x = date, y = total)) +
+  geom_hline(yintercept = cutoff, linetype = "dashed",
+             colour = csi_red, linewidth = 0.6, alpha = 0.7) +
+  annotate("text", x = max(tsk_wide$date), y = cutoff + 0.8,
+           label = "Elevated threshold (≥28)", hjust = 1,
+           size = 3, colour = csi_red, fontface = "italic") +
+  geom_line(colour = csi_grey, linewidth = 1) +
+  geom_point(aes(fill = total, text = paste0("Date: ", date, "<br>Total: ", total)),
+             shape = 21, size = 4, colour = "white", stroke = 1.2) +
+  scale_fill_gradient(low = "#2E7D32", high = csi_red,
+                      limits = c(11, 44), guide = "none") +
+  scale_x_date(date_labels = "%b %d '%y",
+               breaks = tsk_wide$date,
+               expand = expansion(mult = 0.15)) +
+  scale_y_continuous(limits = c(10, 45), breaks = seq(10, 44, by = 5)) +
+  labs(x = NULL, y = "Total Score (11–44)") +
+  ak_plot_theme()
+
+tsk_heat <- tsk_long |>
+  mutate(item_label = fct_rev(item_label)) |>
+  ggplot(aes(x = date, y = item_label, fill = score,
+             text = paste0(item_label, "<br>Date: ", date, "<br>Score: ", score))) +
+  geom_tile(colour = "white", linewidth = 0.8) +
+  geom_text(aes(label = score), size = 3.2, fontface = "bold", colour = "white") +
+  scale_fill_gradient(low = "#2E7D32", high = csi_red,
+                      limits = c(1, 4), breaks = 1:4,
+                      labels = c("1", "2", "3", "4"),
+                      name = "Score") +
+  scale_x_date(date_labels = "%b %d '%y",
+               breaks = tsk_wide$date,
+               expand = expansion(mult = 0.2)) +
+  labs(x = NULL, y = NULL) +
+  ak_plot_theme() +
+  theme(axis.text.y  = element_text(angle = 0, hjust = 1, size = 9),
+        legend.position = "right",
+        panel.grid.major = element_blank())
+```
+
+```{r tsk-card}
+htmltools::div(
+  class = "phase0-navset",
+  navset_card_tab(
+    full_screen = TRUE,
+    title = htmltools::tags$span(style = "font-weight:700; font-size:1.2rem;", "TSK-11"),
+    nav_panel(
+      "Total Score",
+      ggplotly(tsk_line, tooltip = "text")
+    ),
+    nav_panel(
+      "Item Heatmap",
+      ggplotly(tsk_heat, tooltip = "text")
+    )
+  )
+)
+```

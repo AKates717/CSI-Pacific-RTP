@@ -477,10 +477,11 @@ tsk11TableUI <- function(questions_df) {
               tags$label(
                 class = "tsk11-radio-label",
                 tags$input(
-                  type  = "radio",
-                  name  = id,
-                  value = val,
-                  class = "tsk11-radio"
+                  type    = "radio",
+                  name    = id,
+                  value   = val,
+                  class   = "tsk11-radio",
+                  onclick = paste0("Shiny.setInputValue('", id, "', this.value)")
                 ),
                 as.character(val)
               )

@@ -195,7 +195,7 @@ Below you will find links to your training programs.
 
 @fig-1 shows an example weekly schedule for this phase of the rehabilitation. The schedule is built around 3x per week targeted strength sessions with 48 hours of recovery between sessions. Non-ACLR workouts on Tuesday and Thursday target strength and neuromuscular control in the rest of the body (e.g. contralateral limb, upper body, core) and are accompanied by targeted BFR work for the affected limb. Twice weekly pool sessions are key at this stage for improving movement patterns in a de-loaded environment. Cardiovascular fitness is trained twice per week, a volume and frequency sufficient to develop and maintain these qualities while prioritizing the primary targets of Phase 2 rehab (e.g. quadriceps strength).
 
-![Example weekly schedule for Phase 2 ACL rehabilitation. Times are shown as an example of how each day might be structured. *BFR = Blood flow restriction; ESD = Energy system development*](images/phase2_weekly_sched.png){#fig-1 .lightbox alt="Example weekly schedule for Phase 1 ACL rehabilitation. Times are shown as an example of how each day might be structured." fig-align="left"}
+![Example weekly schedule for Phase 1 ACL rehabilitation. Times are shown as an example of how each day might be structured.](images/phase2_weekly_sched.png){#fig-1 .lightbox fig-align="left"}
 
 Here are some descriptions of what you can expect throughout these programs
 
