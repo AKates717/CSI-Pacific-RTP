@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Mental Performance – ACL Rehabilitation Hub</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../images/csi-logo-medal-only.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-8caf6eaa0938078aad3b4e3e78d03e50.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-391dc9eaa9d5ee7385b50e8209b8eefe.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-8caf6eaa0938078aad3b4e3e78d03e50.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-b1638ddcc617931ab7523b2d9967f0b1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-b1638ddcc617931ab7523b2d9967f0b1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-b1638ddcc617931ab7523b2d9967f0b1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Fix bslib navset_card_tab markup so Quarto doesn't rewrite tab hrefs
+  document.querySelectorAll('ul.nav.nav-tabs.card-header-tabs[data-tabsetid]').forEach(ul => {
+
+    // Make <li> look like Bootstrap 5 nav items
+    ul.querySelectorAll('li').forEach(li => li.classList.add('nav-item'));
+
+    // Make <a> look like Bootstrap 5 nav links AND force fragment-only href
+    ul.querySelectorAll('a[role="tab"], a[data-bs-toggle="tab"]').forEach(a => {
+      a.classList.add('nav-link');
+
+      // Force href to be fragment-only (#tab-xxxx-y)
+      const href = a.getAttribute('href') || '';
+      if (href.includes('#')) {
+        a.setAttribute('href', '#' + href.split('#').pop());
+      }
+    });
+
+    // Normalize "active" state: Bootstrap 5 wants active on <a>, not <li>
+    const activeFromA = ul.querySelector('a.active,[aria-selected="true"]');
+    const activeFromLi = ul.querySelector('li.active > a');
+    const activeA = activeFromA || activeFromLi;
+
+    ul.querySelectorAll('li.active').forEach(li => li.classList.remove('active'));
+
+    if (activeA) {
+      ul.querySelectorAll('a').forEach(a => {
+        const on = (a === activeA);
+        a.classList.toggle('active', on);
+        a.setAttribute('aria-selected', on ? 'true' : 'false');
+        if (!on) a.setAttribute('tabindex', '-1'); else a.removeAttribute('tabindex');
+      });
+
+      // Ensure only the matching pane is active/show
+      const tabsetId = ul.getAttribute('data-tabsetid');
+      const container = document.querySelector('.tab-content[data-tabsetid="' + tabsetId + '"]');
+      if (container) {
+        const target = activeA.getAttribute('href'); // now guaranteed "#tab-..."
+        container.querySelectorAll('.tab-pane').forEach(pane => {
+          const on = ('#' + pane.id) === target;
+          pane.classList.toggle('active', on);
+          pane.classList.toggle('show', on);
+        });
+      }
+    }
+  });
+});
+</script>
+<link href="../site_libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+<script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="../site_libs/plotly-binding-4.12.0/plotly.js"></script>
+<script src="../site_libs/typedarray-0.1/typedarray.min.js"></script>
+<script src="../site_libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="../site_libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+<script src="../site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+<link href="../site_libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="../site_libs/plotly-main-2.25.2/plotly-latest.min.js"></script>
+<script src="../site_libs/bslib-component-js-0.10.0/components.min.js"></script>
+<script src="../site_libs/bslib-component-js-0.10.0/web-components.min.js" type="module"></script>
+<link href="../site_libs/bslib-component-css-0.10.0/components.css" rel="stylesheet">
+<script src="../site_libs/bslib-tag-require-0.10.0/tag-require.js"></script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/csi-pacific-logo-reverse-300x136.png" alt="Take me to the homepage" class="navbar-logo light-content">
+    <img src="../images/csi-pacific-logo-reverse-300x136.png" alt="Take me to the homepage" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">ACL Rehabilitation Hub</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../docs/guide/index.html"> 
+<span class="menu-text">ACL Guide</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-dashboards" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Dashboards</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-dashboards">    
+        <li>
+    <a class="dropdown-item" href="../dashboards/wellness_dashboard.html">
+ <span class="dropdown-text">Health and Wellness</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../dashboards/dashboard1.html">
+ <span class="dropdown-text">Force Plates</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../app-inline.html">
+ <span class="dropdown-text">Shiny App</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-progress-reports" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Progress Reports</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-progress-reports">    
+        <li>
+    <a class="dropdown-item" href="../checklists/phase0_checklist.html">
+ <span class="dropdown-text">Phase 0</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../checklists/phase1_checklist.html">
+ <span class="dropdown-text">Phase 1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../checklists/phase2_checklist.html">
+ <span class="dropdown-text">Phase 2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../checklists/phase3_checklist.html">
+ <span class="dropdown-text">Phase 3</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../checklists/phase4_checklist.html">
+ <span class="dropdown-text">Phase 4</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../checklists/phase5_checklist.html">
+ <span class="dropdown-text">Phase 5</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../checklists/return_to_jump_checklist.html">
+ <span class="dropdown-text">Return to Jumping</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../checklists/return_to_run_checklist.html">
+ <span class="dropdown-text">Return to Running</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../checklists/tsk11_viz_test.html">
+ <span class="dropdown-text">Mental Performance</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/AKates717/CSI-Pacific-RTP"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://csipacific.ca"> <i class="bi bi-globe" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content column-page" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Mental Performance</h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-page">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="cell">
+<div class="cell-output-display">
+<div class="phase0-navset">
+<div class="card bslib-card bslib-mb-spacing html-fill-item html-fill-container" data-bslib-card-init="" data-full-screen="false" data-require-bs-caller="card()" data-require-bs-version="5" id="bslib-card-7741">
+<div class="card-header bslib-gap-spacing bslib-navs-card-title">
+<span>
+<span style="font-weight:700; font-size:1.2rem;">ACL-RSI</span>
+</span>
+<ul class="nav nav-tabs card-header-tabs" data-tabsetid="3937">
+<li class="active">
+<a href="#tab-3937-1" data-toggle="tab" data-bs-toggle="tab" data-value="Total Score">Total Score</a>
+</li>
+<li>
+<a href="#tab-3937-2" data-toggle="tab" data-bs-toggle="tab" data-value="Item Heatmap">Item Heatmap</a>
+</li>
+</ul>
+</div>
+<div class="tab-content html-fill-item html-fill-container" data-tabsetid="3937">
+<div class="tab-pane active html-fill-item html-fill-container bslib-gap-spacing" data-value="Total Score" id="tab-3937-1" style="gap:0;padding:0;">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-3963a4979efe2ef98958" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-3963a4979efe2ef98958">{"x":{"data":[{"x":[20579.650000000001,20617.349999999999],"y":[56,56],"text":"","type":"scatter","mode":"lines","line":{"width":2.2677165354330708,"color":"rgba(68,112,153,0.8)","dash":"dash"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[20613],"y":[59],"text":"RTS readiness threshold (≥56)","hovertext":"","textfont":{"size":11.338582677165356,"color":"rgba(68,112,153,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[20584,20613],"y":[41,54],"text":"","type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(167,169,172,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[20584,20613],"y":[41,54],"text":["Date: 2026-05-11<br>Mean Score: 41","Date: 2026-06-09<br>Mean Score: 54"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":["rgba(161,92,38,1)","rgba(142,102,40,1)"],"opacity":1,"size":15.118110236220474,"symbol":"circle","line":{"width":4.5354330708661417,"color":"rgba(255,255,255,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":73.704479998220052,"l":46.027397260273986},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[20579.650000000001,20617.349999999999],"tickmode":"array","ticktext":["May 11 '26","Jun 09 '26"],"tickvals":[20584,20613],"categoryorder":"array","categoryarray":["May 11 '26","Jun 09 '26"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-5.25,110.25],"tickmode":"array","ticktext":["0","20","40","60","80","100"],"tickvals":[0,20,40,60,80,100],"categoryorder":"array","categoryarray":["0","20","40","60","80","100"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Mean Score (0–100) <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"2d9c4017f90e":{"yintercept":{},"type":"scatter"},"2d9c65e02701":{"x":{},"y":{},"label":{}},"2d9c5f20e6e7":{"x":{},"y":{}},"2d9c6917787b":{"x":{},"y":{},"fill":{},"text":{}}},"cur_data":"2d9c4017f90e","visdat":{"2d9c4017f90e":["function (y) ","x"],"2d9c65e02701":["function (y) ","x"],"2d9c5f20e6e7":["function (y) ","x"],"2d9c6917787b":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="tab-pane html-fill-item html-fill-container bslib-gap-spacing" data-value="Item Heatmap" id="tab-3937-2" style="gap:0;padding:0;">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-51a8dce68789d1dbfa8f" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-51a8dce68789d1dbfa8f">{"x":{"data":[{"x":[20584,20613],"y":[1,2,3,4,5,6,7,8,9,10,11,12],"z":[[0.80000000000000004,0.80000000000000004],[0.40000000000000002,0.80000000000000004],[0.20000000000000001,1],[0.59999999999999998,0.80000000000000004],[0.40000000000000002,0.80000000000000004],[0.80000000000000004,0.80000000000000004],[0.20000000000000001,1],[0.40000000000000002,0.59999999999999998],[0.59999999999999998,0.59999999999999998],[0,0],[0.40000000000000002,0.59999999999999998],[0.20000000000000001,0.40000000000000002]],"text":[["Q12 – Relaxed about playing sport<br>Date: 2026-05-11<br>Score: 60","Q12 – Relaxed about playing sport<br>Date: 2026-06-09<br>Score: 60"],["Q11 – Confident in performance ability<br>Date: 2026-05-11<br>Score: 40","Q11 – Confident in performance ability<br>Date: 2026-06-09<br>Score: 60"],["Q10 – Surgery/rehab thoughts intrude<br>Date: 2026-05-11<br>Score: 30","Q10 – Surgery/rehab thoughts intrude<br>Date: 2026-06-09<br>Score: 70"],["Q9 – Afraid of accidental injury<br>Date: 2026-05-11<br>Score: 50","Q9 – Afraid of accidental injury<br>Date: 2026-06-09<br>Score: 60"],["Q8 – Knee holds under pressure<br>Date: 2026-05-11<br>Score: 40","Q8 – Knee holds under pressure<br>Date: 2026-06-09<br>Score: 60"],["Q7 – Fearful of re-injury<br>Date: 2026-05-11<br>Score: 60","Q7 – Fearful of re-injury<br>Date: 2026-06-09<br>Score: 60"],["Q6 – Frustrated by knee consideration<br>Date: 2026-05-11<br>Score: 30","Q6 – Frustrated by knee consideration<br>Date: 2026-06-09<br>Score: 70"],["Q5 – Play sport without concern<br>Date: 2026-05-11<br>Score: 40","Q5 – Play sport without concern<br>Date: 2026-06-09<br>Score: 50"],["Q4 – Knee won't give way<br>Date: 2026-05-11<br>Score: 50","Q4 – Knee won't give way<br>Date: 2026-06-09<br>Score: 50"],["Q3 – Nervous about playing sport<br>Date: 2026-05-11<br>Score: 20","Q3 – Nervous about playing sport<br>Date: 2026-06-09<br>Score: 20"],["Q2 – Likely to re-injure<br>Date: 2026-05-11<br>Score: 40","Q2 – Likely to re-injure<br>Date: 2026-06-09<br>Score: 50"],["Q1 – Confident in previous performance<br>Date: 2026-05-11<br>Score: 30","Q1 – Confident in previous performance<br>Date: 2026-06-09<br>Score: 40"]],"colorscale":[[0,"#BD4622"],[0.20000000000000001,"#B05224"],[0.40000000000000002,"#A25B25"],[0.59999999999999998,"#946327"],[0.80000000000000004,"#846A29"],[1,"#74702B"]],"type":"heatmap","showscale":false,"autocolorscale":false,"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[20584,20584,20584,20584,20584,20584,20584,20584,20584,20584,20584,20584,20613,20613,20613,20613,20613,20613,20613,20613,20613,20613,20613,20613],"y":[12,11,10,9,8,7,6,5,4,3,2,1,12,11,10,9,8,7,6,5,4,3,2,1],"text":[30,40,20,50,40,30,60,40,50,30,40,60,40,50,20,50,50,70,60,60,60,70,60,60],"hovertext":["Q1 – Confident in previous performance<br>Date: 2026-05-11<br>Score: 30","Q2 – Likely to re-injure<br>Date: 2026-05-11<br>Score: 40","Q3 – Nervous about playing sport<br>Date: 2026-05-11<br>Score: 20","Q4 – Knee won't give way<br>Date: 2026-05-11<br>Score: 50","Q5 – Play sport without concern<br>Date: 2026-05-11<br>Score: 40","Q6 – Frustrated by knee consideration<br>Date: 2026-05-11<br>Score: 30","Q7 – Fearful of re-injury<br>Date: 2026-05-11<br>Score: 60","Q8 – Knee holds under pressure<br>Date: 2026-05-11<br>Score: 40","Q9 – Afraid of accidental injury<br>Date: 2026-05-11<br>Score: 50","Q10 – Surgery/rehab thoughts intrude<br>Date: 2026-05-11<br>Score: 30","Q11 – Confident in performance ability<br>Date: 2026-05-11<br>Score: 40","Q12 – Relaxed about playing sport<br>Date: 2026-05-11<br>Score: 60","Q1 – Confident in previous performance<br>Date: 2026-06-09<br>Score: 40","Q2 – Likely to re-injure<br>Date: 2026-06-09<br>Score: 50","Q3 – Nervous about playing sport<br>Date: 2026-06-09<br>Score: 20","Q4 – Knee won't give way<br>Date: 2026-06-09<br>Score: 50","Q5 – Play sport without concern<br>Date: 2026-06-09<br>Score: 50","Q6 – Frustrated by knee consideration<br>Date: 2026-06-09<br>Score: 70","Q7 – Fearful of re-injury<br>Date: 2026-06-09<br>Score: 60","Q8 – Knee holds under pressure<br>Date: 2026-06-09<br>Score: 60","Q9 – Afraid of accidental injury<br>Date: 2026-06-09<br>Score: 60","Q10 – Surgery/rehab thoughts intrude<br>Date: 2026-06-09<br>Score: 70","Q11 – Confident in performance ability<br>Date: 2026-06-09<br>Score: 60","Q12 – Relaxed about playing sport<br>Date: 2026-06-09<br>Score: 60"],"textfont":{"size":12.09448818897638,"color":"rgba(255,255,255,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[20584],"y":[1],"name":"3772d3c0921d915289a6de9623bada99","type":"scatter","mode":"markers","opacity":0,"hoverinfo":"skip","showlegend":false,"marker":{"color":[0,1],"colorscale":[[0,"#D71920"],[0.0033444816053511705,"#D71A20"],[0.006688963210702341,"#D61C20"],[0.010033444816053512,"#D61D20"],[0.013377926421404682,"#D51E20"],[0.016722408026755852,"#D52020"],[0.020066889632107024,"#D42120"],[0.023411371237458196,"#D42220"],[0.026755852842809364,"#D42320"],[0.030100334448160532,"#D32420"],[0.033444816053511704,"#D32520"],[0.03678929765886288,"#D22620"],[0.040133779264214048,"#D22720"],[0.043478260869565216,"#D12820"],[0.046822742474916391,"#D12920"],[0.05016722408026756,"#D12A20"],[0.053511705685618728,"#D02B21"],[0.056856187290969896,"#D02C21"],[0.060200668896321065,"#CF2D21"],[0.06354515050167224,"#CF2D21"],[0.066889632107023408,"#CE2E21"],[0.070234113712374577,"#CE2F21"],[0.073578595317725759,"#CE3021"],[0.076923076923076927,"#CD3021"],[0.080267558528428096,"#CD3121"],[0.083612040133779264,"#CC3221"],[0.086956521739130432,"#CC3321"],[0.090301003344481601,"#CB3321"],[0.093645484949832783,"#CB3421"],[0.096989966555183937,"#CB3521"],[0.10033444816053512,"#CA3521"],[0.10367892976588627,"#CA3621"],[0.10702341137123746,"#C93721"],[0.11036789297658864,"#C93721"],[0.11371237458193979,"#C83821"],[0.11705685618729098,"#C83921"],[0.12040133779264213,"#C83921"],[0.12374581939799331,"#C73A21"],[0.12709030100334448,"#C73A21"],[0.13043478260869565,"#C63B21"],[0.13377926421404682,"#C63C21"],[0.13712374581939801,"#C53C21"],[0.14046822742474915,"#C53D22"],[0.14381270903010035,"#C53D22"],[0.14715719063545152,"#C43E22"],[0.15050167224080269,"#C43E22"],[0.15384615384615385,"#C33F22"],[0.15719063545150502,"#C33F22"],[0.16053511705685619,"#C24022"],[0.16387959866220736,"#C24022"],[0.16722408026755853,"#C14122"],[0.1705685618729097,"#C14122"],[0.17391304347826086,"#C14222"],[0.17725752508361203,"#C04222"],[0.1806020066889632,"#C04322"],[0.1839464882943144,"#BF4322"],[0.18729096989966557,"#BF4422"],[0.19063545150501671,"#BE4422"],[0.19397993311036787,"#BE4522"],[0.19732441471571907,"#BE4522"],[0.20066889632107024,"#BD4622"],[0.20401337792642141,"#BD4622"],[0.20735785953177255,"#BC4722"],[0.21070234113712374,"#BC4722"],[0.21404682274247491,"#BB4823"],[0.21739130434782608,"#BB4823"],[0.22073578595317728,"#BA4823"],[0.22408026755852842,"#BA4923"],[0.22742474916387959,"#BA4923"],[0.23076923076923075,"#B94A23"],[0.23411371237458195,"#B94A23"],[0.23745819397993312,"#B84A23"],[0.24080267558528426,"#B84B23"],[0.24414715719063543,"#B74B23"],[0.24749163879598662,"#B74C23"],[0.25083612040133779,"#B64C23"],[0.25418060200668896,"#B64D23"],[0.25752508361204013,"#B64D23"],[0.2608695652173913,"#B54D23"],[0.26421404682274247,"#B54E23"],[0.26755852842809363,"#B44E23"],[0.2709030100334448,"#B44E23"],[0.27424749163879603,"#B34F23"],[0.27759197324414714,"#B34F23"],[0.28093645484949831,"#B25023"],[0.28428093645484948,"#B25024"],[0.2876254180602007,"#B15024"],[0.29096989966555187,"#B15124"],[0.29431438127090304,"#B15124"],[0.29765886287625415,"#B05124"],[0.30100334448160537,"#B05224"],[0.30434782608695654,"#AF5224"],[0.30769230769230771,"#AF5224"],[0.31103678929765888,"#AE5324"],[0.31438127090301005,"#AE5324"],[0.31772575250836121,"#AD5324"],[0.32107023411371238,"#AD5424"],[0.32441471571906355,"#AC5424"],[0.32775919732441472,"#AC5524"],[0.33110367892976589,"#AC5524"],[0.33444816053511706,"#AB5524"],[0.33779264214046828,"#AB5524"],[0.34113712374581939,"#AA5624"],[0.34448160535117056,"#AA5625"],[0.34782608695652173,"#A95625"],[0.3511705685618729,"#A95725"],[0.35451505016722407,"#A85725"],[0.35785953177257523,"#A85725"],[0.3612040133779264,"#A75825"],[0.36454849498327763,"#A75825"],[0.3678929765886288,"#A75825"],[0.37123745819397996,"#A65925"],[0.37458193979933113,"#A65925"],[0.37792642140468224,"#A55925"],[0.38127090301003341,"#A55A25"],[0.38461538461538458,"#A45A25"],[0.38795986622073575,"#A45A25"],[0.39130434782608697,"#A35A25"],[0.39464882943143814,"#A35B25"],[0.39799331103678931,"#A25B25"],[0.40133779264214048,"#A25B25"],[0.40468227424749165,"#A15C26"],[0.40802675585284282,"#A15C26"],[0.41137123745819393,"#A05C26"],[0.4147157190635451,"#A05C26"],[0.41806020066889632,"#9F5D26"],[0.42140468227424749,"#9F5D26"],[0.42474916387959866,"#9F5D26"],[0.42809364548494983,"#9E5E26"],[0.43143812709030099,"#9E5E26"],[0.43478260869565216,"#9D5E26"],[0.43812709030100339,"#9D5E26"],[0.44147157190635455,"#9C5F26"],[0.44481605351170572,"#9C5F26"],[0.44816053511705684,"#9B5F26"],[0.451505016722408,"#9B5F26"],[0.45484949832775917,"#9A6026"],[0.45819397993311034,"#9A6026"],[0.46153846153846151,"#996027"],[0.46488294314381273,"#996127"],[0.4682274247491639,"#986127"],[0.47157190635451507,"#986127"],[0.47491638795986624,"#976127"],[0.47826086956521741,"#976227"],[0.48160535117056852,"#966227"],[0.48494983277591969,"#966227"],[0.48829431438127086,"#956227"],[0.49163879598662208,"#956327"],[0.49498327759197325,"#946327"],[0.49832775919732442,"#946327"],[0.50167224080267558,"#936327"],[0.50501672240802675,"#936427"],[0.50836120401337792,"#926427"],[0.51170568561872909,"#926427"],[0.51505016722408026,"#916428"],[0.51839464882943143,"#916428"],[0.52173913043478259,"#906528"],[0.52508361204013376,"#906528"],[0.52842809364548493,"#8F6528"],[0.5317725752508361,"#8F6528"],[0.53511705685618727,"#8E6628"],[0.53846153846153844,"#8E6628"],[0.5418060200668896,"#8D6628"],[0.54515050167224077,"#8D6628"],[0.54849498327759205,"#8C6728"],[0.55183946488294322,"#8C6728"],[0.55518394648829428,"#8B6728"],[0.55852842809364545,"#8B6728"],[0.56187290969899661,"#8A6728"],[0.56521739130434778,"#8A6829"],[0.56856187290969895,"#896829"],[0.57190635451505012,"#896829"],[0.5752508361204014,"#886829"],[0.57859531772575257,"#886929"],[0.58193979933110374,"#876929"],[0.5852842809364549,"#876929"],[0.58862876254180607,"#866929"],[0.59197324414715713,"#866929"],[0.5953177257525083,"#856A29"],[0.59866220735785947,"#856A29"],[0.60200668896321075,"#846A29"],[0.60535117056856191,"#846A29"],[0.60869565217391308,"#836A29"],[0.61204013377926425,"#836B29"],[0.61538461538461542,"#826B2A"],[0.61872909698996659,"#816B2A"],[0.62207357859531776,"#816B2A"],[0.62541806020066881,"#806B2A"],[0.62876254180602009,"#806C2A"],[0.63210702341137126,"#7F6C2A"],[0.63545150501672243,"#7F6C2A"],[0.6387959866220736,"#7E6C2A"],[0.64214046822742477,"#7E6C2A"],[0.64548494983277593,"#7D6D2A"],[0.6488294314381271,"#7D6D2A"],[0.65217391304347827,"#7C6D2A"],[0.65551839464882944,"#7C6D2A"],[0.65886287625418061,"#7B6D2A"],[0.66220735785953178,"#7A6E2A"],[0.66555183946488294,"#7A6E2B"],[0.66889632107023411,"#796E2B"],[0.67224080267558539,"#796E2B"],[0.67558528428093656,"#786E2B"],[0.67892976588628751,"#786F2B"],[0.68227424749163879,"#776F2B"],[0.68561872909698995,"#776F2B"],[0.68896321070234112,"#766F2B"],[0.69230769230769229,"#756F2B"],[0.69565217391304346,"#756F2B"],[0.69899665551839463,"#74702B"],[0.7023411371237458,"#74702B"],[0.70568561872909696,"#73702B"],[0.70903010033444813,"#73702B"],[0.7123745819397993,"#72702C"],[0.71571906354515047,"#71712C"],[0.71906354515050164,"#71712C"],[0.72240802675585281,"#70712C"],[0.72575250836120409,"#70712C"],[0.72909698996655525,"#6F712C"],[0.73244147157190642,"#6E712C"],[0.73578595317725759,"#6E722C"],[0.73913043478260876,"#6D722C"],[0.74247491638795993,"#6D722C"],[0.7458193979933111,"#6C722C"],[0.74916387959866226,"#6B722C"],[0.75250836120401332,"#6B722C"],[0.75585284280936449,"#6A732C"],[0.75919732441471566,"#6A732D"],[0.76254180602006683,"#69732D"],[0.76588628762541799,"#68732D"],[0.76923076923076916,"#68732D"],[0.77257525083612033,"#67732D"],[0.7759197324414715,"#66742D"],[0.77926421404682278,"#66742D"],[0.78260869565217395,"#65742D"],[0.78595317725752512,"#65742D"],[0.78929765886287628,"#64742D"],[0.79264214046822745,"#63742D"],[0.79598662207357862,"#63752D"],[0.79933110367892979,"#62752D"],[0.80267558528428096,"#61752E"],[0.80602006688963213,"#61752E"],[0.80936454849498329,"#60752E"],[0.81270903010033446,"#5F752E"],[0.81605351170568563,"#5F752E"],[0.81939799331103691,"#5E762E"],[0.82274247491638786,"#5D762E"],[0.82608695652173902,"#5D762E"],[0.82943143812709019,"#5C762E"],[0.83277591973244147,"#5B762E"],[0.83612040133779264,"#5A762E"],[0.83946488294314381,"#5A772E"],[0.84280936454849498,"#59772E"],[0.84615384615384615,"#58772E"],[0.84949832775919731,"#58772F"],[0.85284280936454848,"#57772F"],[0.85618729096989965,"#56772F"],[0.85953177257525082,"#55772F"],[0.86287625418060199,"#55782F"],[0.86622073578595316,"#54782F"],[0.86956521739130432,"#53782F"],[0.8729096989966556,"#52782F"],[0.87625418060200677,"#52782F"],[0.87959866220735794,"#51782F"],[0.88294314381270911,"#50782F"],[0.88628762541806028,"#4F792F"],[0.88963210702341144,"#4F792F"],[0.8929765886287625,"#4E7930"],[0.89632107023411367,"#4D7930"],[0.89966555183946484,"#4C7930"],[0.90301003344481601,"#4B7930"],[0.90635451505016718,"#4B7930"],[0.90969899665551834,"#4A7A30"],[0.91304347826086951,"#497A30"],[0.91638795986622068,"#487A30"],[0.91973244147157185,"#477A30"],[0.92307692307692302,"#467A30"],[0.9264214046822743,"#457A30"],[0.92976588628762546,"#447A30"],[0.93311036789297663,"#447A30"],[0.9364548494983278,"#437B31"],[0.93979933110367897,"#427B31"],[0.94314381270903014,"#417B31"],[0.94648829431438131,"#407B31"],[0.94983277591973247,"#3F7B31"],[0.95317725752508364,"#3E7B31"],[0.95652173913043481,"#3D7B31"],[0.95986622073578598,"#3C7C31"],[0.96321070234113704,"#3B7C31"],[0.96655518394648821,"#3A7C31"],[0.96989966555183937,"#397C31"],[0.97324414715719054,"#387C31"],[0.97658862876254171,"#367C31"],[0.97993311036789299,"#357C32"],[0.98327759197324416,"#347C32"],[0.98662207357859533,"#337D32"],[0.98996655518394649,"#327D32"],[0.99331103678929766,"#317D32"],[0.99665551839464883,"#2F7D32"],[1,"#2E7D32"]],"colorbar":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"thickness":23.039999999999996,"title":"Score","titlefont":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"tickmode":"array","ticktext":["0","50","100"],"tickvals":[0.0016666666666666668,0.49999999999999994,0.99833333333333329],"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"ticklen":2,"len":0.5}},"xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":73.704479998220052,"l":238.10709838107101},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[20557.900000000001,20639.099999999999],"tickmode":"array","ticktext":["May 11 '26","Jun 09 '26"],"tickvals":[20584,20613],"categoryorder":"array","categoryarray":["May 11 '26","Jun 09 '26"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,12.6],"tickmode":"array","ticktext":["Q12 – Relaxed about playing sport","Q11 – Confident in performance ability","Q10 – Surgery/rehab thoughts intrude","Q9 – Afraid of accidental injury","Q8 – Knee holds under pressure","Q7 – Fearful of re-injury","Q6 – Frustrated by knee consideration","Q5 – Play sport without concern","Q4 – Knee won't give way","Q3 – Nervous about playing sport","Q2 – Likely to re-injure","Q1 – Confident in previous performance"],"tickvals":[1,2,3,4.0000000000000009,5,6,7.0000000000000009,8,9,10,11,12],"categoryorder":"array","categoryarray":["Q12 – Relaxed about playing sport","Q11 – Confident in performance ability","Q10 – Surgery/rehab thoughts intrude","Q9 – Afraid of accidental injury","Q8 – Knee holds under pressure","Q7 – Fearful of re-injury","Q6 – Frustrated by knee consideration","Q5 – Play sport without concern","Q4 – Knee won't give way","Q3 – Nervous about playing sport","Q2 – Likely to re-injure","Q1 – Confident in previous performance"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":11.955168119551683},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"Score","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"2d9c14a9cff3":{"x":{},"y":{},"fill":{},"text":{},"type":"heatmap"},"2d9c1893651e":{"x":{},"y":{},"fill":{},"text":{},"label":{}}},"cur_data":"2d9c14a9cff3","visdat":{"2d9c14a9cff3":["function (y) ","x"],"2d9c1893651e":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+<template>Expand</template>
+<button aria-expanded="false" aria-label="Expand card" class="bslib-full-screen-enter badge rounded-pill"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;fill:currentColor;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg></button>
+</bslib-tooltip>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script>
+</div>
+</div>
+</div>
+</div>
+<div class="break-logo">
+  <img src="../images/csi-logo-medal-only.png" alt="">
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="phase0-navset">
+<div class="card bslib-card bslib-mb-spacing html-fill-item html-fill-container" data-bslib-card-init="" data-full-screen="false" data-require-bs-caller="card()" data-require-bs-version="5" id="bslib-card-7529">
+<div class="card-header bslib-gap-spacing bslib-navs-card-title">
+<span>
+<span style="font-weight:700; font-size:1.2rem;">TSK-11</span>
+</span>
+<ul class="nav nav-tabs card-header-tabs" data-tabsetid="7149">
+<li class="active">
+<a href="#tab-7149-1" data-toggle="tab" data-bs-toggle="tab" data-value="Total Score">Total Score</a>
+</li>
+<li>
+<a href="#tab-7149-2" data-toggle="tab" data-bs-toggle="tab" data-value="Item Heatmap">Item Heatmap</a>
+</li>
+</ul>
+</div>
+<div class="tab-content html-fill-item html-fill-container" data-tabsetid="7149">
+<div class="tab-pane active html-fill-item html-fill-container bslib-gap-spacing" data-value="Total Score" id="tab-7149-1" style="gap:0;padding:0;">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-968f8cb1aaebc1143732" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-968f8cb1aaebc1143732">{"x":{"data":[{"x":[20608.400000000001,20613.599999999999],"y":[28,28],"text":"","type":"scatter","mode":"lines","line":{"width":2.2677165354330708,"color":"rgba(215,25,32,0.7)","dash":"dash"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[20613],"y":[28.800000000000001],"text":"Elevated threshold (≥28)","hovertext":"","textfont":{"size":11.338582677165356,"color":"rgba(215,25,32,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[20609,20613],"y":[24,22],"text":"","type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(167,169,172,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[20609,20613],"y":[24,22],"text":["Date: 2026-06-05<br>Total: 24","Date: 2026-06-09<br>Total: 22"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":["rgba(131,106,41,1)","rgba(122,110,43,1)"],"opacity":1,"size":15.118110236220474,"symbol":"circle","line":{"width":4.5354330708661417,"color":"rgba(255,255,255,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":73.704479998220052,"l":39.651307596513085},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[20608.400000000001,20613.599999999999],"tickmode":"array","ticktext":["Jun 05 '26","Jun 09 '26"],"tickvals":[20609,20613],"categoryorder":"array","categoryarray":["Jun 05 '26","Jun 09 '26"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[8.25,46.75],"tickmode":"array","ticktext":["10","15","20","25","30","35","40"],"tickvals":[10,15,20,25,30,35,40],"categoryorder":"array","categoryarray":["10","15","20","25","30","35","40"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Total Score (11–44) <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"2d9c77ef7578":{"yintercept":{},"type":"scatter"},"2d9ca0956cc":{"x":{},"y":{},"label":{}},"2d9c6b217039":{"x":{},"y":{}},"2d9c604ee521":{"x":{},"y":{},"fill":{},"text":{}}},"cur_data":"2d9c77ef7578","visdat":{"2d9c77ef7578":["function (y) ","x"],"2d9ca0956cc":["function (y) ","x"],"2d9c6b217039":["function (y) ","x"],"2d9c604ee521":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="tab-pane html-fill-item html-fill-container bslib-gap-spacing" data-value="Item Heatmap" id="tab-7149-2" style="gap:0;padding:0;">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-9d7666a23daa129e92f7" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-9d7666a23daa129e92f7">{"x":{"data":[{"x":[20609,20613],"y":[1,2,3,4,5,6,7,8,9,10,11],"z":[[0.5,0.5],[0.5,0.5],[0.5,0],[1,1],[0.5,0.5],[0,0.5],[1,1],[0.5,0.5],[0.5,0.5],[1,0],[0.5,0.5]],"text":[["Q11 – Shouldn't exercise when in pain<br>Date: 2026-06-05<br>Score: 2","Q11 – Shouldn't exercise when in pain<br>Date: 2026-06-09<br>Score: 2"],["Q10 – Can't do normal things<br>Date: 2026-06-05<br>Score: 2","Q10 – Can't do normal things<br>Date: 2026-06-09<br>Score: 2"],["Q9 – Pain implies danger<br>Date: 2026-06-05<br>Score: 2","Q9 – Pain implies danger<br>Date: 2026-06-09<br>Score: 1"],["Q8 – Must avoid unnecessary movements<br>Date: 2026-06-05<br>Score: 3","Q8 – Must avoid unnecessary movements<br>Date: 2026-06-09<br>Score: 3"],["Q7 – Pain = injury<br>Date: 2026-06-05<br>Score: 2","Q7 – Pain = injury<br>Date: 2026-06-09<br>Score: 2"],["Q6 – Body at risk for life<br>Date: 2026-06-05<br>Score: 1","Q6 – Body at risk for life<br>Date: 2026-06-09<br>Score: 2"],["Q5 – Not taken seriously enough<br>Date: 2026-06-05<br>Score: 3","Q5 – Not taken seriously enough<br>Date: 2026-06-09<br>Score: 3"],["Q4 – Pain relieved by exercise<br>Date: 2026-06-05<br>Score: 2","Q4 – Pain relieved by exercise<br>Date: 2026-06-09<br>Score: 2"],["Q3 – Something dangerously wrong<br>Date: 2026-06-05<br>Score: 2","Q3 – Something dangerously wrong<br>Date: 2026-06-09<br>Score: 2"],["Q2 – Pain would increase if I try<br>Date: 2026-06-05<br>Score: 3","Q2 – Pain would increase if I try<br>Date: 2026-06-09<br>Score: 1"],["Q1 – Afraid of injury when exercising<br>Date: 2026-06-05<br>Score: 2","Q1 – Afraid of injury when exercising<br>Date: 2026-06-09<br>Score: 2"]],"colorscale":[[0,"#2E7D32"],[0.5,"#7A6E2B"],[1,"#AB5524"]],"type":"heatmap","showscale":false,"autocolorscale":false,"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[20609,20609,20609,20609,20609,20609,20609,20609,20609,20609,20609,20613,20613,20613,20613,20613,20613,20613,20613,20613,20613,20613],"y":[11,10,9,8,7,6,5,4,3,2,1,11,10,9,8,7,6,5,4,3,2,1],"text":[2,3,2,2,3,1,2,3,2,2,2,2,1,2,2,3,2,2,3,1,2,2],"hovertext":["Q1 – Afraid of injury when exercising<br>Date: 2026-06-05<br>Score: 2","Q2 – Pain would increase if I try<br>Date: 2026-06-05<br>Score: 3","Q3 – Something dangerously wrong<br>Date: 2026-06-05<br>Score: 2","Q4 – Pain relieved by exercise<br>Date: 2026-06-05<br>Score: 2","Q5 – Not taken seriously enough<br>Date: 2026-06-05<br>Score: 3","Q6 – Body at risk for life<br>Date: 2026-06-05<br>Score: 1","Q7 – Pain = injury<br>Date: 2026-06-05<br>Score: 2","Q8 – Must avoid unnecessary movements<br>Date: 2026-06-05<br>Score: 3","Q9 – Pain implies danger<br>Date: 2026-06-05<br>Score: 2","Q10 – Can't do normal things<br>Date: 2026-06-05<br>Score: 2","Q11 – Shouldn't exercise when in pain<br>Date: 2026-06-05<br>Score: 2","Q1 – Afraid of injury when exercising<br>Date: 2026-06-09<br>Score: 2","Q2 – Pain would increase if I try<br>Date: 2026-06-09<br>Score: 1","Q3 – Something dangerously wrong<br>Date: 2026-06-09<br>Score: 2","Q4 – Pain relieved by exercise<br>Date: 2026-06-09<br>Score: 2","Q5 – Not taken seriously enough<br>Date: 2026-06-09<br>Score: 3","Q6 – Body at risk for life<br>Date: 2026-06-09<br>Score: 2","Q7 – Pain = injury<br>Date: 2026-06-09<br>Score: 2","Q8 – Must avoid unnecessary movements<br>Date: 2026-06-09<br>Score: 3","Q9 – Pain implies danger<br>Date: 2026-06-09<br>Score: 1","Q10 – Can't do normal things<br>Date: 2026-06-09<br>Score: 2","Q11 – Shouldn't exercise when in pain<br>Date: 2026-06-09<br>Score: 2"],"textfont":{"size":12.09448818897638,"color":"rgba(255,255,255,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[20609],"y":[1],"name":"d36c19e3798136d01a47e946780260ef","type":"scatter","mode":"markers","opacity":0,"hoverinfo":"skip","showlegend":false,"marker":{"color":[0,1],"colorscale":[[0,"#2E7D32"],[0.0033444816053511683,"#2F7D32"],[0.0066889632107023367,"#317D32"],[0.010033444816053505,"#327D32"],[0.013377926421404673,"#337D32"],[0.016722408026755842,"#347C32"],[0.02006688963210701,"#357C32"],[0.023411371237458178,"#367C31"],[0.026755852842809347,"#387C31"],[0.030100334448160515,"#397C31"],[0.033444816053511683,"#3A7C31"],[0.036789297658862852,"#3B7C31"],[0.04013377926421402,"#3C7C31"],[0.043478260869565188,"#3D7B31"],[0.046822742474916357,"#3E7B31"],[0.050167224080267601,"#3F7B31"],[0.053511705685618693,"#407B31"],[0.056856187290969938,"#417B31"],[0.06020066889632103,"#427B31"],[0.063545150501672268,"#437B31"],[0.066889632107023436,"#447A30"],[0.070234113712374605,"#447A30"],[0.073578595317725773,"#457A30"],[0.076923076923076941,"#467A30"],[0.08026755852842811,"#477A30"],[0.083612040133779278,"#487A30"],[0.086956521739130446,"#497A30"],[0.090301003344481615,"#4A7A30"],[0.093645484949832783,"#4B7930"],[0.096989966555183951,"#4B7930"],[0.10033444816053512,"#4C7930"],[0.10367892976588629,"#4D7930"],[0.10702341137123746,"#4E7930"],[0.11036789297658862,"#4F792F"],[0.11371237458193979,"#4F792F"],[0.11705685618729096,"#50782F"],[0.12040133779264213,"#51782F"],[0.1237458193979933,"#52782F"],[0.12709030100334448,"#52782F"],[0.13043478260869565,"#53782F"],[0.13377926421404682,"#54782F"],[0.13712374581939799,"#55782F"],[0.14046822742474915,"#55772F"],[0.14381270903010032,"#56772F"],[0.14715719063545155,"#57772F"],[0.15050167224080266,"#58772F"],[0.15384615384615388,"#58772E"],[0.157190635451505,"#59772E"],[0.16053511705685622,"#5A772E"],[0.16387959866220733,"#5A762E"],[0.16722408026755856,"#5B762E"],[0.17056856187290967,"#5C762E"],[0.17391304347826089,"#5D762E"],[0.17725752508361201,"#5D762E"],[0.18060200668896323,"#5E762E"],[0.18394648829431434,"#5F752E"],[0.18729096989966557,"#5F752E"],[0.19063545150501673,"#60752E"],[0.1939799331103679,"#61752E"],[0.19732441471571907,"#61752E"],[0.20066889632107024,"#62752D"],[0.20401337792642141,"#63752D"],[0.20735785953177258,"#63742D"],[0.21070234113712374,"#64742D"],[0.21404682274247491,"#65742D"],[0.21739130434782608,"#65742D"],[0.22073578595317725,"#66742D"],[0.22408026755852842,"#66742D"],[0.22742474916387959,"#67732D"],[0.23076923076923075,"#68732D"],[0.23411371237458192,"#68732D"],[0.23745819397993309,"#69732D"],[0.24080267558528426,"#6A732D"],[0.24414715719063551,"#6A732C"],[0.2474916387959866,"#6B722C"],[0.25083612040133785,"#6B722C"],[0.25418060200668896,"#6C722C"],[0.25752508361204018,"#6D722C"],[0.2608695652173913,"#6D722C"],[0.26421404682274252,"#6E722C"],[0.26755852842809363,"#6E712C"],[0.27090301003344486,"#6F712C"],[0.27424749163879597,"#70712C"],[0.27759197324414719,"#70712C"],[0.28093645484949831,"#71712C"],[0.28428093645484953,"#71712C"],[0.28762541806020064,"#72702C"],[0.29096989966555187,"#73702B"],[0.29431438127090304,"#73702B"],[0.2976588628762542,"#74702B"],[0.30100334448160537,"#74702B"],[0.30434782608695654,"#756F2B"],[0.30769230769230771,"#756F2B"],[0.31103678929765888,"#766F2B"],[0.31438127090301005,"#776F2B"],[0.31772575250836121,"#776F2B"],[0.32107023411371238,"#786F2B"],[0.32441471571906355,"#786E2B"],[0.32775919732441472,"#796E2B"],[0.33110367892976589,"#796E2B"],[0.33444816053511711,"#7A6E2B"],[0.33779264214046822,"#7A6E2A"],[0.34113712374581934,"#7B6D2A"],[0.34448160535117056,"#7C6D2A"],[0.34782608695652178,"#7C6D2A"],[0.3511705685618729,"#7D6D2A"],[0.35451505016722401,"#7D6D2A"],[0.35785953177257523,"#7E6C2A"],[0.36120401337792646,"#7E6C2A"],[0.36454849498327757,"#7F6C2A"],[0.36789297658862868,"#7F6C2A"],[0.37123745819397991,"#806C2A"],[0.37458193979933113,"#806B2A"],[0.37792642140468224,"#816B2A"],[0.38127090301003347,"#816B2A"],[0.38461538461538475,"#826B2A"],[0.38795986622073581,"#836B29"],[0.39130434782608692,"#836A29"],[0.39464882943143814,"#846A29"],[0.39799331103678942,"#846A29"],[0.40133779264214048,"#856A29"],[0.40468227424749159,"#856A29"],[0.40802675585284282,"#866929"],[0.41137123745819409,"#866929"],[0.41471571906354515,"#876929"],[0.41806020066889626,"#876929"],[0.42140468227424749,"#886929"],[0.42474916387959877,"#886829"],[0.42809364548494983,"#896829"],[0.43143812709030094,"#896829"],[0.43478260869565216,"#8A6829"],[0.43812709030100344,"#8A6728"],[0.4414715719063545,"#8B6728"],[0.44481605351170561,"#8B6728"],[0.44816053511705684,"#8C6728"],[0.45150501672240811,"#8C6728"],[0.45484949832775917,"#8D6628"],[0.45819397993311028,"#8D6628"],[0.46153846153846151,"#8E6628"],[0.46488294314381279,"#8E6628"],[0.46822742474916385,"#8F6528"],[0.47157190635451496,"#8F6528"],[0.47491638795986618,"#906528"],[0.47826086956521746,"#906528"],[0.48160535117056852,"#916428"],[0.4849498327759198,"#916428"],[0.48829431438127102,"#926427"],[0.49163879598662213,"#926427"],[0.49498327759197319,"#936427"],[0.49832775919732447,"#936327"],[0.5016722408026757,"#946327"],[0.50501672240802675,"#946327"],[0.50836120401337792,"#956327"],[0.51170568561872909,"#956227"],[0.51505016722408037,"#966227"],[0.51839464882943143,"#966227"],[0.52173913043478259,"#976227"],[0.52508361204013376,"#976127"],[0.52842809364548504,"#986127"],[0.5317725752508361,"#986127"],[0.53511705685618727,"#996127"],[0.53846153846153844,"#996027"],[0.54180602006688972,"#9A6026"],[0.54515050167224077,"#9A6026"],[0.54849498327759194,"#9B5F26"],[0.55183946488294311,"#9B5F26"],[0.55518394648829439,"#9C5F26"],[0.55852842809364545,"#9C5F26"],[0.56187290969899661,"#9D5E26"],[0.56521739130434778,"#9D5E26"],[0.56856187290969906,"#9E5E26"],[0.57190635451505012,"#9E5E26"],[0.57525083612040129,"#9F5D26"],[0.57859531772575246,"#9F5D26"],[0.58193979933110374,"#9F5D26"],[0.58528428093645479,"#A05C26"],[0.58862876254180607,"#A05C26"],[0.59197324414715735,"#A15C26"],[0.59531772575250841,"#A15C26"],[0.59866220735785947,"#A25B25"],[0.60200668896321075,"#A25B25"],[0.60535117056856202,"#A35B25"],[0.60869565217391308,"#A35A25"],[0.61204013377926414,"#A45A25"],[0.61538461538461542,"#A45A25"],[0.6187290969899667,"#A55A25"],[0.62207357859531776,"#A55925"],[0.62541806020066881,"#A65925"],[0.62876254180602009,"#A65925"],[0.63210702341137137,"#A75825"],[0.63545150501672243,"#A75825"],[0.63879598662207349,"#A75825"],[0.64214046822742477,"#A85725"],[0.64548494983277604,"#A85725"],[0.6488294314381271,"#A95725"],[0.65217391304347816,"#A95625"],[0.65551839464882944,"#AA5625"],[0.65886287625418072,"#AA5624"],[0.66220735785953178,"#AB5524"],[0.66555183946488283,"#AB5524"],[0.66889632107023411,"#AC5524"],[0.67224080267558539,"#AC5524"],[0.67558528428093645,"#AC5424"],[0.67892976588628773,"#AD5424"],[0.68227424749163879,"#AD5324"],[0.68561872909699006,"#AE5324"],[0.68896321070234112,"#AE5324"],[0.6923076923076924,"#AF5224"],[0.69565217391304346,"#AF5224"],[0.69899665551839474,"#B05224"],[0.7023411371237458,"#B05124"],[0.70568561872909707,"#B15124"],[0.70903010033444813,"#B15124"],[0.71237458193979941,"#B15024"],[0.71571906354515047,"#B25024"],[0.71906354515050175,"#B25023"],[0.72240802675585281,"#B34F23"],[0.72575250836120409,"#B34F23"],[0.72909698996655514,"#B44E23"],[0.73244147157190642,"#B44E23"],[0.73578595317725748,"#B54E23"],[0.73913043478260876,"#B54D23"],[0.74247491638795982,"#B64D23"],[0.7458193979933111,"#B64D23"],[0.74916387959866226,"#B64C23"],[0.75250836120401343,"#B74C23"],[0.7558528428093646,"#B74B23"],[0.75919732441471577,"#B84B23"],[0.76254180602006694,"#B84A23"],[0.76588628762541811,"#B94A23"],[0.76923076923076927,"#B94A23"],[0.77257525083612044,"#BA4923"],[0.77591973244147161,"#BA4923"],[0.77926421404682278,"#BA4823"],[0.78260869565217395,"#BB4823"],[0.78595317725752512,"#BB4823"],[0.78929765886287628,"#BC4722"],[0.79264214046822745,"#BC4722"],[0.79598662207357862,"#BD4622"],[0.79933110367892979,"#BD4622"],[0.80267558528428096,"#BE4522"],[0.80602006688963213,"#BE4522"],[0.80936454849498329,"#BE4422"],[0.81270903010033446,"#BF4422"],[0.81605351170568563,"#BF4322"],[0.8193979933110368,"#C04322"],[0.82274247491638797,"#C04222"],[0.82608695652173914,"#C14222"],[0.8294314381270903,"#C14122"],[0.83277591973244147,"#C14122"],[0.83612040133779264,"#C24022"],[0.83946488294314381,"#C24022"],[0.84280936454849498,"#C33F22"],[0.84615384615384615,"#C33F22"],[0.84949832775919731,"#C43E22"],[0.85284280936454848,"#C43E22"],[0.85618729096989965,"#C53D22"],[0.85953177257525093,"#C53D22"],[0.86287625418060199,"#C53C21"],[0.86622073578595327,"#C63C21"],[0.86956521739130432,"#C63B21"],[0.8729096989966556,"#C73A21"],[0.87625418060200666,"#C73A21"],[0.87959866220735794,"#C83921"],[0.882943143812709,"#C83921"],[0.88628762541806028,"#C83821"],[0.88963210702341133,"#C93721"],[0.89297658862876261,"#C93721"],[0.89632107023411367,"#CA3621"],[0.89966555183946495,"#CA3521"],[0.90301003344481601,"#CB3521"],[0.90635451505016729,"#CB3421"],[0.90969899665551834,"#CB3321"],[0.91304347826086962,"#CC3321"],[0.91638795986622068,"#CC3221"],[0.91973244147157196,"#CD3121"],[0.92307692307692302,"#CD3021"],[0.9264214046822743,"#CE3021"],[0.92976588628762535,"#CE2F21"],[0.93311036789297663,"#CE2E21"],[0.93645484949832769,"#CF2D21"],[0.93979933110367897,"#CF2D21"],[0.94314381270903003,"#D02C21"],[0.94648829431438131,"#D02B21"],[0.94983277591973236,"#D12A20"],[0.95317725752508364,"#D12920"],[0.9565217391304347,"#D12820"],[0.95986622073578598,"#D22720"],[0.96321070234113704,"#D22620"],[0.96655518394648832,"#D32520"],[0.9698996655518396,"#D32420"],[0.97324414715719065,"#D42320"],[0.97658862876254193,"#D42220"],[0.97993311036789299,"#D42120"],[0.98327759197324427,"#D52020"],[0.98662207357859533,"#D51E20"],[0.98996655518394661,"#D61D20"],[0.99331103678929766,"#D61C20"],[0.99665551839464894,"#D71A20"],[1,"#D71920"]],"colorbar":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"thickness":23.039999999999996,"title":"Score","titlefont":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"tickmode":"array","ticktext":["1","2","3","4"],"tickvals":[0.0016666666666666668,0.33388888888888885,0.6661111111111111,0.99833333333333329],"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"ticklen":2,"len":0.5}},"xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":73.704479998220052,"l":232.12951432129518},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[20605.400000000001,20616.599999999999],"tickmode":"array","ticktext":["Jun 05 '26","Jun 09 '26"],"tickvals":[20609,20613],"categoryorder":"array","categoryarray":["Jun 05 '26","Jun 09 '26"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,11.6],"tickmode":"array","ticktext":["Q11 – Shouldn't exercise when in pain","Q10 – Can't do normal things","Q9 – Pain implies danger","Q8 – Must avoid unnecessary movements","Q7 – Pain = injury","Q6 – Body at risk for life","Q5 – Not taken seriously enough","Q4 – Pain relieved by exercise","Q3 – Something dangerously wrong","Q2 – Pain would increase if I try","Q1 – Afraid of injury when exercising"],"tickvals":[1,2,3,4,5,6,7,8,9,10,11],"categoryorder":"array","categoryarray":["Q11 – Shouldn't exercise when in pain","Q10 – Can't do normal things","Q9 – Pain implies danger","Q8 – Must avoid unnecessary movements","Q7 – Pain = injury","Q6 – Body at risk for life","Q5 – Not taken seriously enough","Q4 – Pain relieved by exercise","Q3 – Something dangerously wrong","Q2 – Pain would increase if I try","Q1 – Afraid of injury when exercising"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":11.955168119551683},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"Score","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"2d9c26301bf4":{"x":{},"y":{},"fill":{},"text":{},"type":"heatmap"},"2d9c207b43c2":{"x":{},"y":{},"fill":{},"text":{},"label":{}}},"cur_data":"2d9c26301bf4","visdat":{"2d9c26301bf4":["function (y) ","x"],"2d9c207b43c2":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+<template>Expand</template>
+<button aria-expanded="false" aria-label="Expand card" class="bslib-full-screen-enter badge rounded-pill"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;fill:currentColor;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg></button>
+</bslib-tooltip>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script>
+</div>
+</div>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><img src="../images/csi-logo-medal-only.png" class="img-fluid" style="position: relative; top: 15px;;width:10.0%"></p>
+</div>   
+    <div class="nav-footer-center">
+<p>We gratefully and respectfully acknowledge that our workplaces exist on the traditional, ancestral and unceded Lands of the xwməθkwəy̓əm (Musqueam), Skwxwú7mesh (Squamish), L̓il̓wat7úl (Lil’wat), Esquimalt and Songhees Nations of the Coast Salish peoples.</p>
+</div>
+    <div class="nav-footer-right">
+<p>This website is built with <a href="https://www.r-project.org/about.html" target="_blank"><iconify-icon role="img" inline="" icon="fa6-brands:r-project" aria-label="Icon r-project from fa6-brands Iconify.design set." title="Icon r-project from fa6-brands Iconify.design set."></iconify-icon></a> and <a href="https://quarto.org/" target="_blank">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

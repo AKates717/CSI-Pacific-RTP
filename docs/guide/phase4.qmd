@@ -339,7 +339,7 @@ Below you will find links to your training programs.
 
 @fig-5 shows an example weekly training schedule incorporating OFR into Phase 4 ACL rehabilitation. A big change from Phase 3 is that OFR sessions may occur before gym sessions on a given day, reflecting the priority of the sessions and ensuring that OFR training does not take place in the presence of acute fatigue. Another major difference is that workouts are no longer characterized as ACLR vs Non-ACLR; rather the programming more closely resembles a non-rehab performance program. Monday and Thursday gym sessions focus on activities that will not cause a lot of neuromuscular fatigue, allowing the athlete to train on back-to-back days. Tuesday and Friday sessions incorporate more volume in the OFR and more targeted intensity in the gym, including potentially provocative exercises like plyometrics. Wednesday and Saturday sessions account for this by focusing on less demanding exercises and prioritizing recovery.
 
-![Example weekly schedule for Phase 4 ACL rehabilitation, adapted from Buckthorpe 2019 @buckthorpe2019a. *OFR = On-field rehabilitation; NM = Neuromuscular; UB = Upper body; LB = Lower body; ESD = Energy system development*](images/phase4_weekly_sched.png){#fig-5 .lightbox alt="Example weekly schedule for Phase 1 ACL rehabilitation. Times are shown as an example of how each day might be structured." fig-align="left"}
+![Example weekly schedule for Phase 1 ACL rehabilitation. Times are shown as an example of how each day might be structured.](images/phase4_weekly_sched.png){#fig-5 .lightbox fig-align="left"}
 
 ```{=html}
 <div class="break-logo">
