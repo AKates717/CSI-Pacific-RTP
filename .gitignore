@@ -14,3 +14,6 @@ RTP Resources/
 
 .DS_Store
 /.quarto/
+
+*_cache/
+/index_files/
