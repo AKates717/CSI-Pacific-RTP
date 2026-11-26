@@ -2,10 +2,6 @@
 title: "Phase 2 Checklist"
 ---
 
-```{r setup-root, include=FALSE}
-knitr::opts_knit$set(root.dir = normalizePath(".."))
-```
-
 ```{r}
 source("Global.R")
 source("plot_functions.R")

@@ -2,10 +2,6 @@
 title: "Mental Performance"
 ---
 
-```{r setup-root, include=FALSE}
-knitr::opts_knit$set(root.dir = normalizePath(".."))
-```
-
 ```{r setup}
 source("Global.R")
 source("plot_functions.R")
