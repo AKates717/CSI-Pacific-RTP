@@ -7,3 +7,7 @@
 
 **/*.quarto_ipynb
 .positai
+
+# Private: never commit
+physical_training_programs/
+RTP Resources/
