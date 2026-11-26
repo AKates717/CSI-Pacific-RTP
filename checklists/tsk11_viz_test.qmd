@@ -3,9 +3,9 @@ title: "Mental Performance"
 ---
 
 ```{r setup}
-source("Global.R")
-source("plot_functions.R")
-source("Themes.R")
+source("R/Global.R")
+source("R/plot_functions.R")
+source("R/Themes.R")
 
 csi_red  <- "#D71920"
 csi_grey <- "#A7A9AC"

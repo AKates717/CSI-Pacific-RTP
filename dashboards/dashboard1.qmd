@@ -47,7 +47,7 @@ library(shinymanager)
 library(keyring)
 library(digest)
 
-source("plot_functions.R")
+source("R/plot_functions.R")
 
  FPDatabase_full <- read_excel("sample_data/FP-Database.xlsx",
                                sheet = "Database",

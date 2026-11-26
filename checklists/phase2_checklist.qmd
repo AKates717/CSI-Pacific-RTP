@@ -3,9 +3,9 @@ title: "Phase 2 Checklist"
 ---
 
 ```{r}
-source("Global.R")
-source("plot_functions.R")
-source("Themes.R")
+source("R/Global.R")
+source("R/plot_functions.R")
+source("R/Themes.R")
 ```
 
 **`r athlete_name`'s** progress towards these goals will be assessed via the criteria seen below.

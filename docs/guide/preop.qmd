@@ -7,9 +7,9 @@ csl: sports-medicine.csl
 ---
 
 ```{r}
-source("Global.R")
-source("plot_functions.R")
-source("Themes.R")
+source("R/Global.R")
+source("R/plot_functions.R")
+source("R/Themes.R")
 ```
 
 This chapter will focus exclusively on the time period between ACL injury and ACL Repair surgery (ACLR) and the objectives associated with the best outcomes throughout the rehabilitation. It is not always possible to choose the exact date of surgery, and the selection of the optimal pre-ACLR window is beyond the scope of this protocol, rather the goal here is to provide the information and tools to optimize this phase of the rehab. As seen below, **`r params$athlete`** has **`r phase0_length` days** to prepare for surgery.

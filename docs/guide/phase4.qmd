@@ -8,9 +8,9 @@ csl: sports-medicine.csl
 ---
 
 ```{r}
-source("Global.R")
-source("plot_functions.R")
-source("Themes.R")
+source("R/Global.R")
+source("R/plot_functions.R")
+source("R/Themes.R")
 ```
 
 As the athlete enters Phase 4 of ACL rehabilitation, they have established adequate levels of strength, power and movement quality demonstrated in controlled activities like lifting, jumping, landing, dynamic balance, agility and COD. Strength and neuromuscular control should be at or near pre-injury values while performance in dynamic tasks like jumping, landing, and COD should have reached a level where the intensity of these exercises can be progressed and can begin to resemble actions that occur in the athlete's sport. Strong attention to detail and intelligent, individualized programming during this phase will bring the athlete closer to pre-injury or opposite leg performance values on dynamic tests and will prepare them for sporting activities.

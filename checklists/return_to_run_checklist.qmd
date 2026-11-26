@@ -5,9 +5,9 @@ params:
 ---
 
 ```{r}
-source("Global.R")
-source("plot_functions.R")
-source("Themes.R")
+source("R/Global.R")
+source("R/plot_functions.R")
+source("R/Themes.R")
 ```
 
 ```{r}

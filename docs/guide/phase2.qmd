@@ -5,9 +5,9 @@ csl: sports-medicine.csl
 ---
 
 ```{r}
-source("Global.R")
-source("plot_functions.R")
-source("Themes.R")
+source("R/Global.R")
+source("R/plot_functions.R")
+source("R/Themes.R")
 ```
 
 At the transition from phase 1 to phase 2, it is expected that pain and swelling have settled down and adequate knee range of motion (ROM) has been established. The focus of the rehab can now grow to include building strength and greater neuromuscular control. Key outcomes from Phase 1 will continue to be monitored, including swelling and ROM assessments which remain a part of the criteria. Progressions in both exercise complexity and loading parameters will occur continuously throughout this phase, and it is important that the practitioner monitors these progressions and the athlete's responses carefully. The progressions made in this phase will set the athlete up for more dynamic exercises in Phase 3.

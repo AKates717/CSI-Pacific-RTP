@@ -27,7 +27,7 @@ library(shiny)
 library(showtext)
 #library(shinylive)
 
-source("plot_functions.R")
+source("R/plot_functions.R")
 
 options(bslib.bs_version = 5)
 

@@ -8,9 +8,9 @@ csl: sports-medicine.csl
 ---
 
 ```{r}
-source("Global.R")
-source("plot_functions.R")
-source("Themes.R")
+source("R/Global.R")
+source("R/plot_functions.R")
+source("R/Themes.R")
 ```
 
 The first phase of ACL rehabilitation begins immediately following surgery. The body will require a period of rest and recovery, along with some targeted recovery interventions such as the use of crutches, icing and elevation. It is important to remember that every injury and every surgery are different, but in many cases, Phase 1 must involve much more than just passive recovery. The key will be to strike a balance among passive and active interventions and to consistently work towards satisfying a few targeted criteria in order to prepare the knee for more intense progressions in the coming phases.

@@ -8,9 +8,9 @@ csl: sports-medicine.csl
 ---
 
 ```{r}
-source("Global.R")
-source("plot_functions.R")
-source("Themes.R")
+source("R/Global.R")
+source("R/plot_functions.R")
+source("R/Themes.R")
 ```
 
 Upon completing phase 2 the athlete has developed adequate strength and neuromuscular control to begin building capacity to perform more dynamic tasks such as jumping, landing, running, agility, and change of direction. Development of muscular strength and neuromuscular control will continue to progress with the objective now to meet or exceed pre-injury values.
