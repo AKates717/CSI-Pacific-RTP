@@ -139,15 +139,15 @@ Firstly, it is important to define what is meant by RTS and to differentiate bet
 
 Return to Participation
 
-:   The athlete may be participating in on-field rehabilitation and may be training their sport, but at a level lower than his or her RTS goal.
+: The athlete may be participating in on-field rehabilitation and may be training their sport, but at a level lower than his or her RTS goal.
 
 Return to Sport (RTS)
 
-:   The athlete has returned to his or her defined sport, but is not performing at his or her desired performance level.
+: The athlete has returned to his or her defined sport, but is not performing at his or her desired performance level.
 
 Return to Performance (RTP)
 
-:   The athlete has gradually returned to his or her defined sport and is performing at or above his or her pre-injury level.
+: The athlete has gradually returned to his or her defined sport and is performing at or above his or her pre-injury level.
 :::
 
 There is a general consensus among experts regarding the selection of criteria for a RTS decision, however the level of certainty regarding these criteria is low @kotsifaki2023a. A recent systematic review found only four studies examining criteria-based RTS and reported that current criteria may be suboptimal at reducing the risk of re-injury @losciale2019. It is important to acknowledge that injuries are an inherent risk of sport participation and cannot be eliminated entirely, however this lack of certainty does not take away from the need for criteria-based decision making. In support of this, one study found that athletes who did not meet all RTS criteria before returning to professional sport had a four times greater risk of sustaining an ACL graft rupture compared with those who met all criteria @kyritsis2016. In another, out of 106 athletes in a prospective 2-year cohort study, 38.2% of those who failed RTS criteria suffered re-injuries versus only 5.6% of those who passed the criteria @grindem2016.
@@ -166,15 +166,15 @@ On this topic, one study reported RFD deficits of 30% at 6 months post-ACLR desp
 
 Explosive Strength
 
-:   The capacity to generate high levels of force in the very early stages of muscular contraction (\~50-150ms) against load, without assistance from the stretch-shortening cycle @james2023.
+: The capacity to generate high levels of force in the very early stages of muscular contraction (\~50-150ms) against load, without assistance from the stretch-shortening cycle @james2023.
 
 Ballistic Strength
 
-:   The [capacity](https://www.scienceforsport.com/ballistic-training/) to maximize acceleration through a full range of motion, resulting in projection of the body or an external object into a flight phase.
+: The [capacity](https://www.scienceforsport.com/ballistic-training/) to maximize acceleration through a full range of motion, resulting in projection of the body or an external object into a flight phase.
 
 Plyometrics
 
-:   Explosive movement involving a rapid eccentric pre-stretch followed immediately by a concentric contraction, in which power output is enhanced through the storage and release of elastic potential energy @markovic2010.
+: Explosive movement involving a rapid eccentric pre-stretch followed immediately by a concentric contraction, in which power output is enhanced through the storage and release of elastic potential energy @markovic2010.
 :::
 
 While each of these components will be addressed in training, not every aspect is directly measured and reflected in the criteria. For example, it is important to note that the CSI Pacific ACL protocol does not currently report RFD directly in any OKC or CKC tasks, due to well established difficulties evaluating RFD in a valid and reliable way @maffiuletti2016.
