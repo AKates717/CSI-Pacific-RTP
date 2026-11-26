@@ -11,3 +11,5 @@
 # Private: never commit
 physical_training_programs/
 RTP Resources/
+
+.DS_Store
