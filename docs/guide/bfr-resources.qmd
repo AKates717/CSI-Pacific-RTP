@@ -29,10 +29,10 @@ Below is a summary of the protocols used in each of these studies. This informat
 
 **Exercises: [@tramer2023]**
 
--   Quadriceps contractions in end-range extension
--   Straight leg raises
--   Long arc quads
--   Double leg quarter squats
+- Quadriceps contractions in end-range extension
+- Straight leg raises
+- Long arc quads
+- Double leg quarter squats
 
 **Limb Occlusion Pressure:** 80%
 
@@ -52,10 +52,10 @@ Below is a summary of the protocols used in each of these studies. This informat
 
 **Exercises [@okoroha2023]:**
 
--   Quadriceps contractions in end-range extension
--   Straight leg raises
--   Long arc quads
--   Double leg quarter squats
+- Quadriceps contractions in end-range extension
+- Straight leg raises
+- Long arc quads
+- Double leg quarter squats
 
 **Limb Occlusion Pressure:** 80%
 
@@ -75,8 +75,8 @@ Below is a summary of the protocols used in each of these studies. This informat
 
 **Exercises [@kacin2021] :**
 
--   Isotonic Leg Extension
--   Isotonic Leg Flexion
+- Isotonic Leg Extension
+- Isotonic Leg Flexion
 
 **Limb Occlusion Pressure:** 150mmHg
 
@@ -98,7 +98,7 @@ Below is a summary of the protocols used in each of these studies. This informat
 
 **Exercises [@zargi2018] :**
 
--   Leg Extension
+- Leg Extension
 
 **Limb Occlusion Pressure:** 150mmHg
 
