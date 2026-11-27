@@ -23,7 +23,8 @@ The long-term goal is a reproducible template that generates a custom protocol f
 ├── dashboards/             // wellness and force plate dashboards
 ├── data-collection-app/    // Shiny app for entering test results
 ├── R/                      // shared R code (Global.R, plot_functions.R, Themes.R)
-├── sample_data/            // fictional sample data and protocol criteria
+├── athlete/                // per-athlete inputs: intake form, data, photo (fictional sample athlete)
+├── protocol/               // protocol criteria, the same for every athlete
 ├── images/                 // logos and site images
 └── _site/                  // rendered website (committed, see Workflows)
 ```
@@ -33,6 +34,16 @@ The long-term goal is a reproducible template that generates a custom protocol f
 1. Open `CSI-Pacific-RTP.Rproj` in RStudio. `renv` activates automatically.
 2. First time on a new computer: run `renv::restore()` in the R console to install the exact package versions recorded in `renv.lock`.
    (Because the project lives in OneDrive, set `RENV_PATHS_LIBRARY_ROOT` in your user-level `~/.Renviron` so the package library is stored outside OneDrive.)
+   
+**Setting up a New Athlete**:
+
+Everything specific to one athlete lives in `athlete/`:
+
+-   `ACL-Intake-Form.xlsx`: name, sport, injury and surgery details (drives the athlete name and rehab timeline across the site)
+-   `athlete.png`: photo shown on the home page
+-   `FP-Database.xlsx`, `outcome_data.xlsx`, `tindeq_results.csv`: test and monitoring data (the data collection app writes to the last two)
+
+Replace these files with the new athlete's, then render the site.
 
 **Workflows**:
 
