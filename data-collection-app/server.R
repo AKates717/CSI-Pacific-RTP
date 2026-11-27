@@ -1680,9 +1680,8 @@ function(input, output, session) {
     out$timestamp <- format(Sys.time(), "%Y-%m-%d %H:%M:%S")
     
     
-    # 5) Write/append to data/tindeq_results.csv
-    dir.create("data", showWarnings = FALSE, recursive = TRUE)
-    path <- file.path("data", "tindeq_results.csv")
+    # 5) Write/append to athlete/tindeq_results.csv
+    path <- here("athlete", "tindeq_results.csv")
     
     if (!file.exists(path)) {
       write.csv(out, path, row.names = FALSE)

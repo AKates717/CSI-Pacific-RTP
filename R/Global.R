@@ -230,7 +230,7 @@ phase0 <- read_xlsx("athlete/outcome_data.xlsx", sheet = "Phase_data") %>%
 
 
 iso_joint <- read_csv(
-  "data-collection-app/data/tindeq_results.csv"
+  "athlete/tindeq_results.csv"
 ) %>% clean_names() %>%
   mutate(date_ddmmyear = as.Date(timestamp),
          date_ddmmyear2 =  (format(date_ddmmyear, "%b %d, %Y")))
