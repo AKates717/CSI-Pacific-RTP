@@ -12,7 +12,7 @@ csi_grey <- "#A7A9AC"
 ```
 
 ```{r rsi-data}
-rsi_wide <- read_xlsx("sample_data/outcome_data.xlsx", sheet = "acl_rsi") |>
+rsi_wide <- read_xlsx("athlete/outcome_data.xlsx", sheet = "acl_rsi") |>
   mutate(
     date       = as.Date(Date),
     mean_score = round(rowMeans(across(q1:q12)))
@@ -112,7 +112,7 @@ htmltools::div(
 ```
 
 ```{r tsk-data}
-tsk_wide <- read_xlsx("sample_data/outcome_data.xlsx", sheet = "tsk_11") |>
+tsk_wide <- read_xlsx("athlete/outcome_data.xlsx", sheet = "tsk_11") |>
   mutate(
     date  = as.Date(Date),
     total = rowSums(across(q1:q11))

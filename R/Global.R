@@ -185,7 +185,7 @@ post_80s_SJ <- FPDatabase_full %>%
 #3. WELLNESS MONITORING ----
 ####
 
-daily_mon_raw <- read_xlsx("sample_data/outcome_data.xlsx", sheet = "daily") %>%
+daily_mon_raw <- read_xlsx("athlete/outcome_data.xlsx", sheet = "daily") %>%
   clean_names() #%>%
   # mutate(date_ddmmyear = as.Date(date),
   #        date_ddmmyear2 =  (format(date_ddmmyear, "%b %d, %Y")))
@@ -210,7 +210,7 @@ daily_mon_raw <- read_xlsx("sample_data/outcome_data.xlsx", sheet = "daily") %>%
 #   mutate(date_ddmmyear = as.Date(date),
 #          date_ddmmyear2 =  (format(date_ddmmyear, "%b %d, %Y")))
 
-phase0 <- read_xlsx("sample_data/outcome_data.xlsx", sheet = "Phase_data") %>%
+phase0 <- read_xlsx("athlete/outcome_data.xlsx", sheet = "Phase_data") %>%
   clean_names() %>%
   mutate(date_ddmmyear = (format(date, "%b %d, %Y")))
 
@@ -247,7 +247,7 @@ criteria_all <- read_xlsx("protocol/acl-protocol-criteria-2025.xlsx", sheet = "c
   clean_names()
 
 #Load Outcomes
-outcomes_raw_all <- read_xlsx("sample_data/outcome_data.xlsx", sheet = "Phase_data") %>%
+outcomes_raw_all <- read_xlsx("athlete/outcome_data.xlsx", sheet = "Phase_data") %>%
   clean_names() %>%
   mutate(date_ddmmyear2 =  (format(date, "%b %d, %Y")))
   

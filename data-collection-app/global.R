@@ -40,7 +40,7 @@ custom_theme <- bslib::bs_theme(
 SOURCE_PATH <- here("protocol", "acl-protocol-criteria-2025.xlsx")  # your uploaded workbook
 SOURCE_SHEET <- "criteria_full"                     # sheet to read measures from
 
-TARGET_PATH  <-here("sample_data", "outcome_data.xlsx")
+TARGET_PATH  <-here("athlete", "outcome_data.xlsx")
 TARGET_SHEET     <- "Phase_data"
 
 COLS <- c("Phase","Outcome Measure","Date", "Timestamp","Side","Value","Units","Notes")

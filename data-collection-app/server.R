@@ -82,7 +82,7 @@ function(input, output, session) {
       stringsAsFactors = FALSE
     )
     
-    xlsx_path  <- here("sample_data", "outcome_data.xlsx")
+    xlsx_path  <- here("athlete", "outcome_data.xlsx")
     sheet_name <- "daily"
     
     if (!file.exists(xlsx_path)) {
@@ -1813,7 +1813,7 @@ function(input, output, session) {
       stringsAsFactors = FALSE
     )
 
-    xlsx_path  <- here("sample_data", "outcome_data.xlsx")
+    xlsx_path  <- here("athlete", "outcome_data.xlsx")
     sheet_name <- "acl_rsi"
 
     if (!file.exists(xlsx_path)) {
@@ -1905,7 +1905,7 @@ function(input, output, session) {
       stringsAsFactors = FALSE
     )
 
-    xlsx_path  <- here("sample_data", "outcome_data.xlsx")
+    xlsx_path  <- here("athlete", "outcome_data.xlsx")
     sheet_name <- "tsk_11"
 
     if (!file.exists(xlsx_path)) {
