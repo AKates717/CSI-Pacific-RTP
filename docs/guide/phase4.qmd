@@ -179,7 +179,7 @@ While each of these components will be addressed in training, not every aspect i
 
 In Phase 3 we discussed stages 2 and 3 of the [plyometric progressions](#fig-2) published by Buckthorpe & Della Villa @buckthorpe2021a. Stage 4 of that framework aligns well with the Phase 4 objectives of this protocol, with the goal being to optimize lower limb explosive neuromuscular performance and support sport-specific movement retraining in preparation for RTS.
 
-![A plyometric program approach across four stages aligned to the functional recovery framework after ACL reconstruction. Particular training goals, use of plyometrics, progression criteria, training planning considerations, with specific movement exercises and progressions are presented @buckthorpe2021a.](images/clipboard-1962417778.png){#fig-2 .lightbox}
+![A plyometric program approach across four stages aligned to the functional recovery framework after ACL reconstruction. Particular training goals, use of plyometrics, progression criteria, training planning considerations, with specific movement exercises and progressions are presented @buckthorpe2021a.](images/Buckthorpe2021a-PlyoProgressionTbl.png){#fig-2 .lightbox}
 
 Provided that the athlete has tolerated stage 2 and 3 plyometric activities well, at this time they may progress to higher intensity exercises such as maximal unilateral plyometrics, multiplanar unilateral movements (e.g. frontal and rotational plane) and reactive field-based movements (e.g. responding to perturbations; unplanned tasks). Incorporating high intensity exercises, such as a single leg drop jump are important during rehab, in order to uncover performance deficits that might not be present in more simple exercises like a single leg hop for distance [@king2018].
 

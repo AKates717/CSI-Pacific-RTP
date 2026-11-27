@@ -152,7 +152,7 @@ Progression through the program can be described in terms of:
 
 6.  Compliant surfaces -\> Stiff surfaces
 
-![A plyometric program approach across four stages aligned to the functional recovery framework after ACL reconstruction. Particular training goals, use of plyometrics, progression criteria, training planning considerations, with specific movement exercises and progressions are presented @buckthorpe2021a.](images/clipboard-1962417778.png){#fig-1 .lightbox}
+![A plyometric program approach across four stages aligned to the functional recovery framework after ACL reconstruction. Particular training goals, use of plyometrics, progression criteria, training planning considerations, with specific movement exercises and progressions are presented @buckthorpe2021a.](images/Buckthorpe2021a-PlyoProgressionTbl.png){#fig-1 .lightbox}
 
 The entry criteria for stage 1 of this framework would be satisfied if the athlete has met Phase 2 criteria of the CSI Pacific ACL protocol. It is possible that stage 1 jumping/landing progressions could be introduced prior to full completion of Phase 2 criteria (i.e. isometric knee extension LSI \> 70% but \< 75%), and this may be considered by practitioners on a case-by-case basis, with a conservative approach being the default recommendation. These criteria are crucial for determining the introduction of dynamic exercises, as the athlete is likely to exhibit persistent knee extensor weakness which could result in biomechanical compensatory strategies @palmieri-smith2015. At roughly 3 months post surgery, it can be expected that athletes may off-load the knee joint during squatting exercise by over-loading the un-affected side (inter-limb) or using a hip-dominant strategy (intra-limb) @sigward2018. Furthermore these compensation strategies have been demonstrated to persist until 5 months post-ACLR, highlighting the importance of a gradual introduction of more dynamic movements and on thoughtful task selection in order to develop optimal motor patterning @wolpert2011.
 
@@ -168,7 +168,7 @@ The best evidence available to aid in the return-to-run decision comes from a 20
 
 Some studies have suggested that jogging on the treadmill can be commenced once knee extensor LSI reaches \> 70% [@buckthorpe2020; @buckthorpe2020a] while others suggest \> 80% @adams2012. Given the lack of conclusive results at this time, our recommendation is that 70% LSI be the criteria for introducing very low intensity running drills, while 80% LSI is required in order to begin running at a volume and intensity which could achieve cardiovascular adaptation @kotsifaki2023a. This allows for a continuous and careful progression of volume, intensity and complexity of movement.
 
-![An example RTR progression @adams2012.](images/clipboard-3166074460.png){#fig-2 .lightbox}
+![An example RTR progression @adams2012.](images/Adams2012-RTR-Progression.png){#fig-2 .lightbox}
 
 @fig-2 shows an example of a RTR progression @adams2012, with options for treadmill or track based progression, which was used to inform the CSI Pacific RTR program. In this framework, progression from one level to the next occurs when the athlete is able to complete the assigned activity with no increase in effusion or pain. Weekly progression is capped at a maximum of 2 levels and at least 48 hours of recovery should be allowed between each running workout.
 
