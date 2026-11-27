@@ -30,14 +30,15 @@ The long-term goal is a reproducible template that generates a custom protocol f
 
 **Building the Site**:
 
-1. Open `CSI-Pacific-RTP.Rproj` in RStudio.
-2. Render the full site from the Terminal: `quarto render`
-3. All R code runs from the project root (`execute-dir: project` in `_quarto.yml`), so paths are written relative to the root, e.g. `source("R/Global.R")`.
+1. Open `CSI-Pacific-RTP.Rproj` in RStudio. `renv` activates automatically.
+2. First time on a new computer: run `renv::restore()` in the R console to install the exact package versions recorded in `renv.lock`.
+   (Because the project lives in OneDrive, set `RENV_PATHS_LIBRARY_ROOT` in your user-level `~/.Renviron` so the package library is stored outside OneDrive.)
 
 **Workflows**:
 
 Published on Posit Connect Cloud, which redeploys when a push is synced to the `main` branch.
 Connect Cloud builds `index.qmd` itself; all other pages are served from the committed `_site/` folder, so render locally and commit `_site/` along with source changes.
+Connect Cloud installs R packages from `renv.lock`. After installing or updating packages, run `renv::snapshot()` and commit the updated `renv.lock`.
 
 **Environment Variables**:
 
