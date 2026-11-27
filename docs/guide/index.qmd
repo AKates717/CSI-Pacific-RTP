@@ -1,8 +1,6 @@
 ---
 title: "Canadian Sport Institute Pacific — ACL Rehabilitation Guide"
 subtitle: "By: Andrew Kates"
-params:
-  athlete: "Frank Reynolds"
 ---
 
 ## Introduction {#ch-intro .unnumbered}

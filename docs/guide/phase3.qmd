@@ -1,8 +1,6 @@
 ---
 title: "Phase 3: Dynamic Neuromuscular Performance"
 
-params:
-  athlete: "Frank Reynolds"
 bibliography: references.bib
 csl: sports-medicine.csl
 ---
@@ -21,7 +19,7 @@ Upon completing phase 2 the athlete has developed adequate strength and neuromus
 - Demonstrate movement competence and confidence in agility and change of direction exercises
 :::
 
-**`r params$athlete`'s** progress towards these goals will be assessed via the criteria seen below. Detailed description of each criteria and the associated testing methodology can be found in the [Testing](#sec-p3-testing) section.
+**`r athlete_name`'s** progress towards these goals will be assessed via the criteria seen below. Detailed description of each criteria and the associated testing methodology can be found in the [Testing](#sec-p3-testing) section.
 
 ```{r}
 #Create the table

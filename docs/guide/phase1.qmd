@@ -1,8 +1,6 @@
 ---
 title: "Phase 1: Recovery from Surgery"
 #subtitle: "Injury Recovery & Readiness for Surgery"
-params:
-  athlete: "Frank Reynolds"
 bibliography: references.bib
 csl: sports-medicine.csl
 ---
@@ -22,7 +20,7 @@ The first phase of ACL rehabilitation begins immediately following surgery. The 
 - Re-establish control of the quadriceps muscles
 :::
 
-The goal of this Phase 1 protocol is to support both athlete and practitioner in striking the optimal balance between recovery, strength and mobility while being guided by these goals. **`r params$athlete`'s** progress towards these goals will be assessed via the criteria seen below. Detailed description of each criteria and the associated testing methodology can be found in @sec-p1-testing.
+The goal of this Phase 1 protocol is to support both athlete and practitioner in striking the optimal balance between recovery, strength and mobility while being guided by these goals. **`r athlete_name`'s** progress towards these goals will be assessed via the criteria seen below. Detailed description of each criteria and the associated testing methodology can be found in @sec-p1-testing.
 
 ```{r}
 #Create the table

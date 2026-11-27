@@ -1,8 +1,6 @@
 ---
 title: "Phase 5: Return to Performance"
 
-params:
-  athlete: "Frank Reynolds"
 bibliography: references.bib
 csl: sports-medicine.csl
 ---
@@ -20,7 +18,7 @@ In Phase 5 of the CSI Pacific ACL Rehabilitation Protocol, the off-field compone
 - 
 :::
 
-**`r params$athlete`'s** progress
+**`r athlete_name`'s** progress
 
 ```{r}
 #Create the table

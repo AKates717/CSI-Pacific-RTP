@@ -1,7 +1,5 @@
 ---
 title: "Phase 4 Checklist"
-params:
-  athlete: "Frank Reynolds"
 ---
 
 ```{r}
@@ -10,7 +8,7 @@ source("R/plot_functions.R")
 source("R/Themes.R")
 ```
 
-**`r params$athlete`'s** progress towards these goals will be assessed via the criteria seen below.
+**`r athlete_name`'s** progress towards these goals will be assessed via the criteria seen below.
 
 ```{r}
 

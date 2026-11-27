@@ -102,7 +102,7 @@ phase0_length <- ifelse(
 ####
 
 #For filtering 
-athlete_name <- "Frank Reynolds"
+athlete_name <- Rehab_Info$name
 
 #Load and wrangle Force Plate Data - currently coming from excel
 FPDatabase_full <- read_excel("sample_data/FP-Database.xlsx",

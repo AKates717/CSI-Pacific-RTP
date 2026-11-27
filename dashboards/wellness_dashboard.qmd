@@ -11,8 +11,6 @@ editor: visual
 execute: 
   echo: false
   warning: false
-params:
-  athlete: "Frank Reynolds"
 ---
 
 ```{r}

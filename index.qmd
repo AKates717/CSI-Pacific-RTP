@@ -1,5 +1,4 @@
 ---
-#title: "`r params$athlete` ACL Rehabilitation Hub"
 format:
   dashboard:
     orientation: columns
@@ -12,8 +11,6 @@ editor: visual
 execute: 
   echo: false
   warning: false
-params:
-  athlete: "Frank Reynolds"
 ---
 
 ```{=html}
@@ -33,13 +30,13 @@ source("R/Global.R")
 source("R/plot_functions.R")
 source("R/Themes.R")
 
-Jumps <- recent_five(params$athlete, "CMJ")
+Jumps <- recent_five(athlete_name, "CMJ")
 
 ```
 
 ## Sidebar {.sidebar}
 
-### `r params$athlete`
+### `r athlete_name`
 
 ![](images/Frank.png)
 

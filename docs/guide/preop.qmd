@@ -1,7 +1,5 @@
 ---
 title: "Pre-Operation Phase"
-params:
-  athlete: "Frank Reynolds"
 bibliography: references.bib
 csl: sports-medicine.csl
 ---
@@ -12,7 +10,7 @@ source("R/plot_functions.R")
 source("R/Themes.R")
 ```
 
-This chapter will focus exclusively on the time period between ACL injury and ACL Repair surgery (ACLR) and the objectives associated with the best outcomes throughout the rehabilitation. It is not always possible to choose the exact date of surgery, and the selection of the optimal pre-ACLR window is beyond the scope of this protocol, rather the goal here is to provide the information and tools to optimize this phase of the rehab. As seen below, **`r params$athlete`** has **`r phase0_length` days** to prepare for surgery.
+This chapter will focus exclusively on the time period between ACL injury and ACL Repair surgery (ACLR) and the objectives associated with the best outcomes throughout the rehabilitation. It is not always possible to choose the exact date of surgery, and the selection of the optimal pre-ACLR window is beyond the scope of this protocol, rather the goal here is to provide the information and tools to optimize this phase of the rehab. As seen below, **`r athlete_name`** has **`r phase0_length` days** to prepare for surgery.
 
 ```{r}
 phase0_length_tbl <- tibble(
@@ -36,7 +34,7 @@ Regardless of the length of the prehab window, the research is clear that the le
 - Regain quadriceps and hamstring strength
 :::
 
-**`r params$athlete`'s** progress towards these goals will be assessed via the criteria seen below. Detailed description of each criteria and the associated testing methodology can be found in the @sec-phase0testing section of this chapter.
+**`r athlete_name`'s** progress towards these goals will be assessed via the criteria seen below. Detailed description of each criteria and the associated testing methodology can be found in the @sec-phase0testing section of this chapter.
 
 ```{r}
 #Create the table
