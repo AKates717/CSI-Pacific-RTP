@@ -37,7 +37,7 @@ custom_theme <- bslib::bs_theme(
 #
 # Paths & constants ----
 #
-SOURCE_PATH <- here("sample_data", "acl-protocol-criteria-2025.xlsx")  # your uploaded workbook
+SOURCE_PATH <- here("protocol", "acl-protocol-criteria-2025.xlsx")  # your uploaded workbook
 SOURCE_SHEET <- "criteria_full"                     # sheet to read measures from
 
 TARGET_PATH  <-here("sample_data", "outcome_data.xlsx")

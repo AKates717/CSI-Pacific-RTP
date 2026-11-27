@@ -243,7 +243,7 @@ iso_joint <- read_csv(
 ####
 
 #Load Criteria
-criteria_all <- read_xlsx("sample_data/acl-protocol-criteria-2025.xlsx", sheet = "criteria_full") %>%
+criteria_all <- read_xlsx("protocol/acl-protocol-criteria-2025.xlsx", sheet = "criteria_full") %>%
   clean_names()
 
 #Load Outcomes
