@@ -18,9 +18,10 @@ The long-term goal is a reproducible template that generates a custom protocol f
 ├── _quarto.yml             // website configuration (navbar, sidebar, theme)
 ├── index.qmd               // home page / athlete overview dashboard
 ├── about.qmd               // about page
-├── docs/guide/             // the ACL rehabilitation guide
-├── checklists/             // phase progress reports
-├── dashboards/             // wellness and force plate dashboards
+├── docs/                   // all site pages
+│   ├── guide/              // the ACL rehabilitation guide
+│   ├── checklists/         // phase progress reports
+│   └── dashboards/         // wellness and force plate dashboards
 ├── data-collection-app/    // Shiny app for entering test results
 ├── R/                      // shared R code (Global.R, plot_functions.R, Themes.R)
 ├── athlete/                // per-athlete inputs: intake form, data, photo (fictional sample athlete)

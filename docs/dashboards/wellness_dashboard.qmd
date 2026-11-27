@@ -5,7 +5,7 @@ format:
     orientation: columns
     scrolling: true
     theme: default
-    css: ../styles.css
+    css: ../../styles.css
 class: no-footer
 editor: visual
 execute: 

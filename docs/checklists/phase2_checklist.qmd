@@ -1,5 +1,5 @@
 ---
-title: "Phase 3 Checklist"
+title: "Phase 2 Checklist"
 ---
 
 ```{r}
@@ -13,7 +13,7 @@ source("R/Themes.R")
 ```{r}
 
 #Create the table
-tbl_phase3 <- criteria_phase3_abr %>%
+tbl_phase2 <- criteria_phase2_abr %>%
   transmute(
     `Outcome Measure` = outcome_measure,
     `Op` = operator_pretty,
@@ -22,19 +22,14 @@ tbl_phase3 <- criteria_phase3_abr %>%
     meets
   ) %>%
   gt() %>%
-  tab_header(title = md("**Phase 3 Criteria**")) %>%
+  tab_header(title = md("**Phase 2 Criteria**")) %>%
   fmt_number(
     columns = Score,
     decimals = 0
   ) %>%
   fmt_number(
     columns = Score,
-    rows = `Outcome Measure` %in% c("Drop and Stick - TTS", "Drop and Stick - Landing Force"),
-    decimals = 2
-  ) %>%
-  fmt_number(
-    columns = Score,
-    rows = `Outcome Measure` %in% percent_label,
+    rows = `Outcome Measure` %in% c("Hamstring Strength", "Quad Strength"),
     decimals = 0,
     pattern = "{x}%"
   ) %>%
@@ -61,7 +56,7 @@ tbl_phase3 <- criteria_phase3_abr %>%
     data_row.padding = px(6)
   )
 
-tbl_phase3
+tbl_phase2
 
 ```
 
@@ -107,16 +102,45 @@ goals_progress_bar <- function(
 
 
 # By default: denominator = all criteria (matches your table showing blank scores)
-met_n_all   <- sum(criteria_phase3_abr$meets %in% TRUE, na.rm = TRUE)
-total_n_all <- nrow(criteria_phase3_abr)
+met_n_all   <- sum(criteria_phase2_abr$meets %in% TRUE, na.rm = TRUE)
+total_n_all <- nrow(criteria_phase2_abr)
 
 goals_progress_bar(met_n_all, total_n_all)
 ```
 
 ```{=html}
 <div class="break-logo">
-  <img src="../../images/csi-logo-medal-only.png" alt="">
+  <img src="/images/csi-logo-medal-only.png" alt="">
 </div>
+```
+
+# Outcomes
+
+```{r}
+htmltools::div(
+  class = "phase0-navset",
+  navset_card_tab(
+    full_screen = TRUE,
+    title = htmltools::tags$span(style = "font-weight:700; font-size:1.2rem;", "Mobility"),
+    selected = "Ankle",
+    nav_panel(
+      "Swelling",
+      plot_ind_phase_outcomes(outcomes_raw_phase2, "Swelling")
+    ),
+    nav_panel(
+      "Knee Extension",
+      plot_ind_phase_outcomes(outcomes_raw_phase2, "Passive Knee Extension")
+    ),
+    nav_panel(
+      "Knee Flexion",
+      plot_ind_phase_outcomes(outcomes_raw_phase2, "Passive Knee Flexion")
+    ),
+    nav_panel(
+      "Ankle",
+      plot_ind_phase_outcomes(outcomes_raw_phase2, "Ankle Dorsiflexion")
+    )
+  )
+)
 ```
 
 ```{r}
@@ -126,106 +150,38 @@ htmltools::div(
   navset_card_tab(
     full_screen = TRUE,
     title = htmltools::tags$span(style = "font-weight:700; font-size:1.2rem;", "Strength"),
-        nav_panel(
+    nav_panel(
       "Quads",
-      plot_iso_magnitude(iso_joint3, "Quads")
+      plot_iso_magnitude(iso_joint2, "Quads")
     ),
     nav_panel(
       "Hams",
-      plot_iso_magnitude(iso_joint3, "Hamstrings")
+      plot_iso_magnitude(iso_joint2, "Hamstrings")
     ),
     nav_panel(
       "TBDL",
-      barplot_one_var(outcomes_raw_phase3, "TrapBar Deadlift", "kg")
+      barplot_one_var(outcomes_raw_phase2, "TrapBar Deadlift", "kg")
     ),
     nav_panel(
       "SL Rise",
-      plot_ind_phase_outcomes(outcomes_raw_phase3, "Single Leg Rise")
-    )
-  )
-)
-
-
-
-```
-
-```{r}
-htmltools::div(
-  class = "phase0-navset",
-  navset_card_tab(
-    full_screen = TRUE,
-    title = htmltools::tags$span(style = "font-weight:700; font-size:1.2rem;", "Hops"),
-    selected = "SL Hop",
-    nav_panel(
-      "SL Hop",
-      plot_iso_magnitude2(outcomes_raw_phase3, "Single Leg Hop")
+      plot_ind_phase_outcomes(outcomes_raw_phase2, "Single Leg Rise")
     ),
     nav_panel(
-      "Triple Hop",
-      plot_iso_magnitude2(outcomes_raw_phase3, "Triple Hop")
+      "SL Bridge",
+      plot_ind_phase_outcomes(outcomes_raw_phase2, "Single Leg Bridge")
     ),
     nav_panel(
-      "Triple Cross Over Hop",
-      plot_iso_magnitude2(outcomes_raw_phase3, "Triple Cross Over Hop")
+      "SL Calf Raise",
+      plot_ind_phase_outcomes(outcomes_raw_phase2, "Single Leg Calf Raises")
     ),
     nav_panel(
-      "Side Hop",
-      plot_ind_phase_outcomes(outcomes_raw_phase3, "Side Hop")
-    )
+      "Side Bridge",
+      plot_ind_phase_outcomes(outcomes_raw_phase2, "Side Bridge")
+    ),
+
   )
 )
 ```
-
-```{r}
-htmltools::div(
-  class = "phase0-navset",
-  navset_card_tab(
-    full_screen = TRUE,
-    title = htmltools::tags$span(style = "font-weight:700; font-size:1.2rem;", "CMJ"),
-    nav_panel(
-      "Height",
-      stat_summary_plot(post_cmj, flight_height_tov, "#DA2D33", post_cmj$flight_height_tov, "Flight Height - TOV")
-    ),
-    nav_panel(
-      "RSImod",
-      stat_summary_plot(post_cmj, rs_imod, "dodgerblue4", post_cmj$rs_imod, "RSI mod")
-    ),
-    nav_panel(
-      "BA%",
-      BA_plot_percent(post_cmj, balng, basht, "orange", "dodgerblue3")
-    ),
-    nav_panel(
-      "BA-Mag (Con)",
-      BA_plot_magnitude(post_cmj, sht_left, sht_right, "red", "black", post_cmj$sht_left, post_cmj$sht_right)
-    )
-  )
-)
-
-```
-
-```{r}
-htmltools::div(
-  class = "phase0-navset",
-  navset_card_tab(
-    full_screen = TRUE,
-    title = htmltools::tags$span(style = "font-weight:700; font-size:1.2rem;", "Drop and Stick"),
-    nav_panel(
-      "TTS",
-      stat_summary_plot4(post_dns, time_to_95_percent_bw, "#5C5C6B", post_dns$time_to_95_percent_bw, "")
-    ),
-    nav_panel(
-      "rPLF",
-      stat_summary_plot4(post_dns, landing_n_kg, "#5C5C6B", post_dns$landing_n_kg, "")
-    ),
-    nav_panel(
-      "BA%",
-      BALand_plot_percent(post_dns, baland, "")
-    )
-  )
-)
-
-```
-
 
 ```{r}
 htmltools::div(
@@ -234,18 +190,18 @@ htmltools::div(
     full_screen = TRUE,
     title = htmltools::tags$span(style = "font-weight:700; font-size:1.2rem;", "Control"),
     nav_panel(
-      "Y-Bal (A)",
-      plot_iso_magnitude2(outcomes_raw_all, "Y-Balance (Anterior)")
+      "SL Balance (Open)",
+      plot_ind_phase_outcomes(outcomes_raw_phase2, "Single Leg Balance (Eyes Open)")
     ),
         nav_panel(
-      "Y-Bal (PM)",
-      plot_iso_magnitude2(outcomes_raw_all, "Y-Balance (Postero-Medial)")
+      "SL Balance (Closed)",
+      plot_ind_phase_outcomes(outcomes_raw_phase2, "Single Leg Balance (Eyes Closed)")
     ),
-        nav_panel(
-      "Y-Bal (PL)",
-      plot_iso_magnitude2(outcomes_raw_all, "Y-Balance (Postero-Lateral)")
+    nav_panel(
+      "Y Balance",
+      plot_iso_magnitude2(outcomes_raw_phase2, "Y-Balance (Anterior)"),
+      plot_iso_magnitude2(outcomes_raw_phase2, "Y-Balance (Postero-Medial)")
     )
   )
 )
-
 ```

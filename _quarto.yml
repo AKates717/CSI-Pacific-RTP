@@ -28,31 +28,31 @@ website:
       - text: "Dashboards"
         menu:
           - text: "Health and Wellness"
-            href: dashboards/wellness_dashboard.qmd
+            href: docs/dashboards/wellness_dashboard.qmd
           - text: "Force Plates"
-            href: dashboards/dashboard1.qmd
+            href: docs/dashboards/dashboard1.qmd
           - text: "Shiny App"
             href: app-inline.qmd
       - text: "Progress Reports"
         menu:
           - text: "Phase 0"
-            href: checklists/phase0_checklist.qmd
+            href: docs/checklists/phase0_checklist.qmd
           - text: "Phase 1"
-            href: checklists/phase1_checklist.qmd
+            href: docs/checklists/phase1_checklist.qmd
           - text: "Phase 2"
-            href: checklists/phase2_checklist.qmd
+            href: docs/checklists/phase2_checklist.qmd
           - text: "Phase 3"
-            href: checklists/phase3_checklist.qmd
+            href: docs/checklists/phase3_checklist.qmd
           - text: "Phase 4"
-            href: checklists/phase4_checklist.qmd
+            href: docs/checklists/phase4_checklist.qmd
           - text: "Phase 5"
-            href: checklists/phase5_checklist.qmd
+            href: docs/checklists/phase5_checklist.qmd
           - text: "Return to Jumping"
-            href: checklists/return_to_jump_checklist.qmd            
+            href: docs/checklists/return_to_jump_checklist.qmd            
           - text: "Return to Running"
-            href: checklists/return_to_run_checklist.qmd
+            href: docs/checklists/return_to_run_checklist.qmd
           - text: "Mental Performance"
-            href: checklists/mental_performance_checklist.qmd
+            href: docs/checklists/mental_performance_checklist.qmd
             
     right:
       - icon: github

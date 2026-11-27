@@ -152,7 +152,7 @@ tsk_long <- tsk_wide |>
 
 ```{=html}
 <div class="break-logo">
-  <img src="../images/csi-logo-medal-only.png" alt="">
+  <img src="/images/csi-logo-medal-only.png" alt="">
 </div>
 ```
 

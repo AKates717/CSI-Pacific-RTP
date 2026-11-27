@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Phase 4 Checklist – ACL Rehabilitation Hub</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/csi-logo-medal-only.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8caf6eaa0938078aad3b4e3e78d03e50.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-391dc9eaa9d5ee7385b50e8209b8eefe.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8caf6eaa0938078aad3b4e3e78d03e50.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-b1638ddcc617931ab7523b2d9967f0b1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-b1638ddcc617931ab7523b2d9967f0b1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-b1638ddcc617931ab7523b2d9967f0b1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Fix bslib navset_card_tab markup so Quarto doesn't rewrite tab hrefs
+  document.querySelectorAll('ul.nav.nav-tabs.card-header-tabs[data-tabsetid]').forEach(ul => {
+
+    // Make <li> look like Bootstrap 5 nav items
+    ul.querySelectorAll('li').forEach(li => li.classList.add('nav-item'));
+
+    // Make <a> look like Bootstrap 5 nav links AND force fragment-only href
+    ul.querySelectorAll('a[role="tab"], a[data-bs-toggle="tab"]').forEach(a => {
+      a.classList.add('nav-link');
+
+      // Force href to be fragment-only (#tab-xxxx-y)
+      const href = a.getAttribute('href') || '';
+      if (href.includes('#')) {
+        a.setAttribute('href', '#' + href.split('#').pop());
+      }
+    });
+
+    // Normalize "active" state: Bootstrap 5 wants active on <a>, not <li>
+    const activeFromA = ul.querySelector('a.active,[aria-selected="true"]');
+    const activeFromLi = ul.querySelector('li.active > a');
+    const activeA = activeFromA || activeFromLi;
+
+    ul.querySelectorAll('li.active').forEach(li => li.classList.remove('active'));
+
+    if (activeA) {
+      ul.querySelectorAll('a').forEach(a => {
+        const on = (a === activeA);
+        a.classList.toggle('active', on);
+        a.setAttribute('aria-selected', on ? 'true' : 'false');
+        if (!on) a.setAttribute('tabindex', '-1'); else a.removeAttribute('tabindex');
+      });
+
+      // Ensure only the matching pane is active/show
+      const tabsetId = ul.getAttribute('data-tabsetid');
+      const container = document.querySelector('.tab-content[data-tabsetid="' + tabsetId + '"]');
+      if (container) {
+        const target = activeA.getAttribute('href'); // now guaranteed "#tab-..."
+        container.querySelectorAll('.tab-pane').forEach(pane => {
+          const on = ('#' + pane.id) === target;
+          pane.classList.toggle('active', on);
+          pane.classList.toggle('show', on);
+        });
+      }
+    }
+  });
+});
+</script>
+<link href="../../site_libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+<script src="../../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="../../site_libs/plotly-binding-4.12.0/plotly.js"></script>
+<script src="../../site_libs/typedarray-0.1/typedarray.min.js"></script>
+<script src="../../site_libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="../../site_libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+<script src="../../site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+<link href="../../site_libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="../../site_libs/plotly-main-2.25.2/plotly-latest.min.js"></script>
+<script src="../../site_libs/bslib-component-js-0.12.0/components.min.js"></script>
+<script src="../../site_libs/bslib-component-js-0.12.0/web-components.min.js" type="module"></script>
+<link href="../../site_libs/bslib-component-css-0.12.0/components.css" rel="stylesheet">
+<script src="../../site_libs/bslib-tag-require-0.12.0/tag-require.js"></script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../images/csi-pacific-logo-reverse-300x136.png" alt="Take me to the homepage" class="navbar-logo light-content">
+    <img src="../../images/csi-pacific-logo-reverse-300x136.png" alt="Take me to the homepage" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">ACL Rehabilitation Hub</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../docs/guide/index.html"> 
+<span class="menu-text">ACL Guide</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-dashboards" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Dashboards</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-dashboards">    
+        <li>
+    <a class="dropdown-item" href="../../docs/dashboards/wellness_dashboard.html">
+ <span class="dropdown-text">Health and Wellness</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../docs/dashboards/dashboard1.html">
+ <span class="dropdown-text">Force Plates</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../app-inline.html">
+ <span class="dropdown-text">Shiny App</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-progress-reports" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Progress Reports</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-progress-reports">    
+        <li>
+    <a class="dropdown-item" href="../../docs/checklists/phase0_checklist.html">
+ <span class="dropdown-text">Phase 0</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../docs/checklists/phase1_checklist.html">
+ <span class="dropdown-text">Phase 1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../docs/checklists/phase2_checklist.html">
+ <span class="dropdown-text">Phase 2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../docs/checklists/phase3_checklist.html">
+ <span class="dropdown-text">Phase 3</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../docs/checklists/phase4_checklist.html">
+ <span class="dropdown-text">Phase 4</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../docs/checklists/phase5_checklist.html">
+ <span class="dropdown-text">Phase 5</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../docs/checklists/return_to_jump_checklist.html">
+ <span class="dropdown-text">Return to Jumping</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../docs/checklists/return_to_run_checklist.html">
+ <span class="dropdown-text">Return to Running</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../docs/checklists/mental_performance_checklist.html">
+ <span class="dropdown-text">Mental Performance</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/AKates717/CSI-Pacific-RTP"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://csipacific.ca"> <i class="bi bi-globe" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content column-page" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Phase 4 Checklist</h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-page">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><strong>Frank Reynolds’s</strong> progress towards these goals will be assessed via the criteria seen below.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="wpzknjsnow" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+#wpzknjsnow table {
+  font-family: 'Open Sans', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#wpzknjsnow thead, #wpzknjsnow tbody, #wpzknjsnow tfoot, #wpzknjsnow tr, #wpzknjsnow td, #wpzknjsnow th {
+  border-style: none;
+}
+
+#wpzknjsnow p {
+  margin: 0;
+  padding: 0;
+}
+
+#wpzknjsnow .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: 100%;
+  border-top-style: solid;
+  border-top-width: 3px;
+  border-top-color: #D71920;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #A7A9AC;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#wpzknjsnow .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#wpzknjsnow .gt_title {
+  color: #333333;
+  font-size: 22px;
+  font-weight: initial;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#wpzknjsnow .gt_subtitle {
+  color: #333333;
+  font-size: 13px;
+  font-weight: initial;
+  padding-top: 5px;
+  padding-bottom: 7px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#wpzknjsnow .gt_heading {
+  background-color: #FFFFFF;
+  text-align: left;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#wpzknjsnow .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wpzknjsnow .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #A7A9AC;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#wpzknjsnow .gt_col_heading {
+  color: #333333;
+  background-color: #FCFCFC;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: rgba(255, 255, 255, 0);
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: rgba(255, 255, 255, 0);
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#wpzknjsnow .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FCFCFC;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#wpzknjsnow .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#wpzknjsnow .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#wpzknjsnow .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #A7A9AC;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#wpzknjsnow .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#wpzknjsnow .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#wpzknjsnow .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#wpzknjsnow .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#wpzknjsnow .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#wpzknjsnow .gt_row {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #A7A9AC;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: rgba(255, 255, 255, 0);
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: rgba(255, 255, 255, 0);
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#wpzknjsnow .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wpzknjsnow .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#wpzknjsnow .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#wpzknjsnow .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#wpzknjsnow .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wpzknjsnow .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#wpzknjsnow .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#wpzknjsnow .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wpzknjsnow .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wpzknjsnow .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#wpzknjsnow .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wpzknjsnow .gt_striped {
+  background-color: #FFFFFF;
+}
+
+#wpzknjsnow .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wpzknjsnow .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#wpzknjsnow .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wpzknjsnow .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#wpzknjsnow .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wpzknjsnow .gt_left {
+  text-align: left;
+}
+
+#wpzknjsnow .gt_center {
+  text-align: center;
+}
+
+#wpzknjsnow .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#wpzknjsnow .gt_font_normal {
+  font-weight: normal;
+}
+
+#wpzknjsnow .gt_font_bold {
+  font-weight: bold;
+}
+
+#wpzknjsnow .gt_font_italic {
+  font-style: italic;
+}
+
+#wpzknjsnow .gt_super {
+  font-size: 65%;
+}
+
+#wpzknjsnow .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#wpzknjsnow .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#wpzknjsnow .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#wpzknjsnow .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#wpzknjsnow .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#wpzknjsnow .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#wpzknjsnow .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#wpzknjsnow .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#wpzknjsnow div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+
+.gt_table {
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
+}
+
+.gt_table tbody tr:hover td {
+  background-color: rgba(215, 25, 32, 0.06) !important;
+  /* light brand red */
+}
+
+.gt_footnotes, .gt_sourcenotes {
+  font-size: 0.9em;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading header">
+<td colspan="4" class="gt_heading gt_title gt_font_normal gt_bottom_border" style="color: #D71920; font-family: 'Roboto Slab'; font-weight: 700"><strong>Phase 4 Criteria</strong></td>
+</tr>
+<tr class="gt_col_headings even">
+<th id="Outcome-Measure" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="color: #111827; font-weight: 600" scope="col">Outcome Measure</th>
+<th id="Op" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="color: #111827; font-weight: 600" scope="col"></th>
+<th id="Goal" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="color: #111827; font-weight: 600" scope="col">Goal</th>
+<th id="Score" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="color: #111827; font-weight: 600" scope="col">Score</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Outcome Measure" style="color: #222222">Pistol Squat</td>
+<td class="gt_row gt_right" headers="Op" style="color: #222222">≥</td>
+<td class="gt_row gt_center" headers="Goal" style="color: #222222">5</td>
+<td class="gt_row gt_center" headers="Score" style="background-color: #E8F5E9; color: #222222; font-weight: 600">5</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Outcome Measure" style="color: #222222">Quad Strength</td>
+<td class="gt_row gt_right gt_striped" headers="Op" style="color: #222222">&gt;</td>
+<td class="gt_row gt_center gt_striped" headers="Goal" style="color: #222222">95%</td>
+<td class="gt_row gt_center gt_striped" headers="Score" style="background-color: #FFF9C4; color: #222222; font-weight: 600">93%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Outcome Measure" style="color: #222222">Hamstring Strength</td>
+<td class="gt_row gt_right" headers="Op" style="color: #222222">&gt;</td>
+<td class="gt_row gt_center" headers="Goal" style="color: #222222">95%</td>
+<td class="gt_row gt_center" headers="Score" style="background-color: #FFF9C4; color: #222222; font-weight: 600">94%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Outcome Measure" style="color: #222222">Single Leg Hop</td>
+<td class="gt_row gt_right gt_striped" headers="Op" style="color: #222222">≥</td>
+<td class="gt_row gt_center gt_striped" headers="Goal" style="color: #222222">90%</td>
+<td class="gt_row gt_center gt_striped" headers="Score" style="background-color: #E8F5E9; color: #222222; font-weight: 600">96%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Outcome Measure" style="color: #222222">Triple Hop</td>
+<td class="gt_row gt_right" headers="Op" style="color: #222222">≥</td>
+<td class="gt_row gt_center" headers="Goal" style="color: #222222">90%</td>
+<td class="gt_row gt_center" headers="Score" style="background-color: #E8F5E9; color: #222222; font-weight: 600">96%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Outcome Measure" style="color: #222222">Triple Cross Over Hop</td>
+<td class="gt_row gt_right gt_striped" headers="Op" style="color: #222222">≥</td>
+<td class="gt_row gt_center gt_striped" headers="Goal" style="color: #222222">90%</td>
+<td class="gt_row gt_center gt_striped" headers="Score" style="background-color: #E8F5E9; color: #222222; font-weight: 600">96%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Outcome Measure" style="color: #222222">Side Hop</td>
+<td class="gt_row gt_right" headers="Op" style="color: #222222">≥</td>
+<td class="gt_row gt_center" headers="Goal" style="color: #222222">90%</td>
+<td class="gt_row gt_center" headers="Score" style="background-color: #E8F5E9; color: #222222; font-weight: 600">96%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Outcome Measure" style="color: #222222">CMJ Height</td>
+<td class="gt_row gt_right gt_striped" headers="Op" style="color: #222222">≥</td>
+<td class="gt_row gt_center gt_striped" headers="Goal" style="color: #222222">26 cm</td>
+<td class="gt_row gt_center gt_striped" headers="Score" style="background-color: #E8F5E9; color: #222222; font-weight: 600">31</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Outcome Measure" style="color: #222222">CMJ Lengthening Asymmetry</td>
+<td class="gt_row gt_right" headers="Op" style="color: #222222">&lt;</td>
+<td class="gt_row gt_center" headers="Goal" style="color: #222222">10%</td>
+<td class="gt_row gt_center" headers="Score" style="background-color: #E8F5E9; color: #222222; font-weight: 600">7%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="Outcome Measure" style="color: #222222">CMJ Shortening Asymmetry</td>
+<td class="gt_row gt_right gt_striped" headers="Op" style="color: #222222">&lt;</td>
+<td class="gt_row gt_center gt_striped" headers="Goal" style="color: #222222">15%</td>
+<td class="gt_row gt_center gt_striped" headers="Score" style="background-color: #E8F5E9; color: #222222; font-weight: 600">7%</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<style>
+      .ak-pb-wrap   { margin-top:12px; font-family:'Open Sans',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; }
+      .ak-pb-meta   { display:flex; justify-content:space-between; font-size:0.95rem; margin-bottom:6px; color:#222; }
+      .ak-pb-meta strong{ color:#D71920; font-weight:700; } /* accent like table title */
+      .ak-pb       { background:#FCFCFC; border:1px solid #A7A9AC; border-radius:10px; height:14px; overflow:hidden; }
+      .ak-pb__fill { height:100%; background:linear-gradient(90deg,#2E7D32,#4CAF50); transition:width .3s ease; }
+    </style>
+<div class="ak-pb-wrap">
+<div class="ak-pb-meta">
+<strong>Goals met: 8/10</strong>
+<span>80%</span>
+</div>
+<div class="ak-pb" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" style="width:100%;">
+<div class="ak-pb__fill" style="width:80%;"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="break-logo">
+  <img src="../../images/csi-logo-medal-only.png" alt="">
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="phase0-navset">
+<div class="card bslib-card bslib-mb-spacing html-fill-item html-fill-container" data-bslib-card-init="" data-full-screen="false" data-require-bs-caller="card()" data-require-bs-version="5" id="bslib-card-7274">
+<div class="card-header bslib-gap-spacing bslib-navs-card-title">
+<span>
+<span style="font-weight:700; font-size:1.2rem;">Strength</span>
+</span>
+<ul class="nav nav-tabs card-header-tabs" data-tabsetid="6164">
+<li class="active">
+<a href="#tab-6164-1" data-toggle="tab" data-bs-toggle="tab" data-value="Quads">Quads</a>
+</li>
+<li>
+<a href="#tab-6164-2" data-toggle="tab" data-bs-toggle="tab" data-value="Hams">Hams</a>
+</li>
+<li>
+<a href="#tab-6164-3" data-toggle="tab" data-bs-toggle="tab" data-value="Pistol">Pistol</a>
+</li>
+</ul>
+</div>
+<div class="tab-content html-fill-item html-fill-container" data-tabsetid="6164">
+<div class="tab-pane active html-fill-item html-fill-container bslib-gap-spacing" data-value="Quads" id="tab-6164-1" style="gap:0;padding:0;">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-cb15624cd51031d5e07b" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-cb15624cd51031d5e07b">{"x":{"data":[{"orientation":"v","width":[0.19999999999999996,0.20000000000000018,0.20000000000000018],"base":[0,0,0],"x":[0.90000000000000002,1.8999999999999999,2.8999999999999999],"y":[47.509999999999998,60.329999999999998,67.069999999999993],"text":["Feb 27, 2026","Mar 02, 2026","Mar 23, 2026"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Max:<\/i>  %{y}<extra><\/extra>"},{"orientation":"v","width":[0.20000000000000018,0.20000000000000018,0.20000000000000018],"base":[0,0,0],"x":[1.1000000000000001,2.1000000000000001,3.1000000000000001],"y":[60.079999999999998,69.150000000000006,72.069999999999993],"text":["Feb 27, 2026","Mar 02, 2026","Mar 23, 2026"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Max:<\/i>  %{y}<extra><\/extra>"},{"x":[1.1000000000000001,1.1000000000000001,0.90000000000000002,0.90000000000000002,2.1000000000000001,2.1000000000000001,1.8999999999999999,1.8999999999999999,3.1000000000000001,3.1000000000000001,2.8999999999999999,2.8999999999999999],"y":[55.060000000000002,60.079999999999998,44.549999999999997,47.509999999999998,58.079999999999998,69.150000000000006,55.640000000000001,60.329999999999998,64.129999999999995,72.069999999999993,60.840000000000003,67.069999999999993],"text":["Feb 27, 2026","Feb 27, 2026","Feb 27, 2026","Feb 27, 2026","Mar 02, 2026","Mar 02, 2026","Mar 02, 2026","Mar 02, 2026","Mar 23, 2026","Mar 23, 2026","Mar 23, 2026","Mar 23, 2026"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":["rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(255,0,0,1)","rgba(255,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(255,0,0,1)","rgba(255,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(255,0,0,1)","rgba(255,0,0,1)"],"opacity":0.5,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>","xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":49.872058369555965,"l":39.651307596513085},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,3.6000000000000001],"tickmode":"array","ticktext":["Feb 27","Mar  2","Mar 23"],"tickvals":[1,2,3],"categoryorder":"array","categoryarray":["Feb 27","Mar  2","Mar 23"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-3.6034999999999999,75.67349999999999],"tickmode":"array","ticktext":["0","20","40","60"],"tickvals":[0,20,40,60],"categoryorder":"array","categoryarray":["0","20","40","60"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Peak Force (kg) <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"orientation":"h","x":0.29999999999999999,"y":-0.20000000000000001},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"d477530d7caa":{"x":{},"fill":{},"text":{},"y":{},"type":"bar"},"d4771a73a77f":{"x":{},"fill":{},"text":{},"y":{}}},"cur_data":"d477530d7caa","visdat":{"d477530d7caa":["function (y) ","x"],"d4771a73a77f":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="tab-pane html-fill-item html-fill-container bslib-gap-spacing" data-value="Hams" id="tab-6164-2" style="gap:0;padding:0;">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-778e9134d502b8294cd6" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-778e9134d502b8294cd6">{"x":{"data":[{"orientation":"v","width":[0.19999999999999996,0.20000000000000018],"base":[0,0],"x":[0.90000000000000002,1.8999999999999999],"y":[26.579999999999998,43.780000000000001],"text":["Mar 02, 2026","Mar 23, 2026"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Max:<\/i>  %{y}<extra><\/extra>"},{"orientation":"v","width":[0.20000000000000018,0.20000000000000018],"base":[0,0],"x":[1.1000000000000001,2.1000000000000001],"y":[32.5,46.810000000000002],"text":["Mar 02, 2026","Mar 23, 2026"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Max:<\/i>  %{y}<extra><\/extra>"},{"x":[1.1000000000000001,1.1000000000000001,0.90000000000000002,0.90000000000000002,1.8999999999999999,1.8999999999999999,2.1000000000000001,2.1000000000000001],"y":[31.579999999999998,32.5,24.649999999999999,26.579999999999998,38.399999999999999,43.780000000000001,44.810000000000002,46.810000000000002],"text":["Mar 02, 2026","Mar 02, 2026","Mar 02, 2026","Mar 02, 2026","Mar 23, 2026","Mar 23, 2026","Mar 23, 2026","Mar 23, 2026"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":["rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(255,0,0,1)","rgba(255,0,0,1)","rgba(255,0,0,1)","rgba(255,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)"],"opacity":0.5,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>","xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":49.872058369555965,"l":39.651307596513085},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,2.6000000000000001],"tickmode":"array","ticktext":["Mar  2","Mar 23"],"tickvals":[1,2],"categoryorder":"array","categoryarray":["Mar  2","Mar 23"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-2.3405,49.150500000000001],"tickmode":"array","ticktext":["0","10","20","30","40"],"tickvals":[0,10,20,30,40],"categoryorder":"array","categoryarray":["0","10","20","30","40"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Peak Force (kg) <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"orientation":"h","x":0.29999999999999999,"y":-0.20000000000000001},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"d477618a1d1a":{"x":{},"fill":{},"text":{},"y":{},"type":"bar"},"d477327cc7fd":{"x":{},"fill":{},"text":{},"y":{}}},"cur_data":"d477618a1d1a","visdat":{"d477618a1d1a":["function (y) ","x"],"d477327cc7fd":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="tab-pane html-fill-item html-fill-container bslib-gap-spacing" data-value="Pistol" id="tab-6164-3" style="gap:0;padding:0;">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-f1aa01deba7d7f2298c8" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-f1aa01deba7d7f2298c8">{"x":{"data":[{"orientation":"v","width":[0.40500000000000003,0.40500000000000025,0.40500000000000025],"base":[0,0,0],"x":[0.77500000000000002,1.7749999999999999,2.7749999999999999],"y":[2,3,5],"text":["<b>May 04, 2026<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 2","<b>May 16, 2026<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 3","<b>May 28, 2026<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 5"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.4049999999999998,0.40500000000000025,0.40500000000000025],"base":[0,0,0],"x":[1.2250000000000001,2.2250000000000001,3.2250000000000001],"y":[4,5,5],"text":["<b>May 04, 2026<\/b><br><i>Side:<\/i> Right<br><i>Score:<\/i> 4","<b>May 16, 2026<\/b><br><i>Side:<\/i> Right<br><i>Score:<\/i> 5","<b>May 28, 2026<\/b><br><i>Side:<\/i> Right<br><i>Score:<\/i> 5"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.77500000000000002,1.7749999999999999,2.7749999999999999],"y":[2,3,5],"text":["","",""],"hovertext":["<b>May 04, 2026<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 2","<b>May 16, 2026<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 3","<b>May 28, 2026<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 5"],"textfont":{"size":15.118110236220474,"color":"rgba(255,0,0,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1.2250000000000001,2.2250000000000001,3.2250000000000001],"y":[4,5,5],"text":["","",""],"hovertext":["<b>May 04, 2026<\/b><br><i>Side:<\/i> Right<br><i>Score:<\/i> 4","<b>May 16, 2026<\/b><br><i>Side:<\/i> Right<br><i>Score:<\/i> 5","<b>May 28, 2026<\/b><br><i>Side:<\/i> Right<br><i>Score:<\/i> 5"],"textfont":{"size":15.118110236220474,"color":"rgba(0,0,0,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":49.872058369555965,"l":17.334993773349943},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,3.6000000000000001],"tickmode":"array","ticktext":["May  4","May 16","May 28"],"tickvals":[1,2,3],"categoryorder":"array","categoryarray":["May  4","May 16","May 28"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.25,5.25],"tickmode":"array","ticktext":["0","1","2","3","4","5"],"tickvals":[0,1,2,3,4,5],"categoryorder":"array","categoryarray":["0","1","2","3","4","5"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"d47770e19f5f":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"},"d4776ca64fde":{"x":{},"y":{},"fill":{},"label":{},"colour":{},"text":{}}},"cur_data":"d47770e19f5f","visdat":{"d47770e19f5f":["function (y) ","x"],"d4776ca64fde":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+<template>Expand</template>
+<button aria-expanded="false" aria-label="Expand card" class="bslib-full-screen-enter badge rounded-pill"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;fill:currentColor;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg></button>
+</bslib-tooltip>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="phase0-navset">
+<div class="card bslib-card bslib-mb-spacing html-fill-item html-fill-container" data-bslib-card-init="" data-full-screen="false" data-require-bs-caller="card()" data-require-bs-version="5" id="bslib-card-9108">
+<div class="card-header bslib-gap-spacing bslib-navs-card-title">
+<span>
+<span style="font-weight:700; font-size:1.2rem;">Hops</span>
+</span>
+<ul class="nav nav-tabs card-header-tabs" data-tabsetid="2913">
+<li class="active">
+<a href="#tab-2913-1" data-toggle="tab" data-bs-toggle="tab" data-value="SL Hop">SL Hop</a>
+</li>
+<li>
+<a href="#tab-2913-2" data-toggle="tab" data-bs-toggle="tab" data-value="Triple Hop">Triple Hop</a>
+</li>
+<li>
+<a href="#tab-2913-3" data-toggle="tab" data-bs-toggle="tab" data-value="Triple Cross Over Hop">Triple Cross Over Hop</a>
+</li>
+<li>
+<a href="#tab-2913-4" data-toggle="tab" data-bs-toggle="tab" data-value="Side Hop">Side Hop</a>
+</li>
+</ul>
+</div>
+<div class="tab-content html-fill-item html-fill-container" data-tabsetid="2913">
+<div class="tab-pane active html-fill-item html-fill-container bslib-gap-spacing" data-value="SL Hop" id="tab-2913-1" style="gap:0;padding:0;">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-95e89f8b1f00eaa57e3a" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-95e89f8b1f00eaa57e3a">{"x":{"data":[{"orientation":"v","width":[0.19999999999999996,0.20000000000000018,0.20000000000000018,0.20000000000000018,0.19999999999999929],"base":[0,0,0,0,0],"x":[0.90000000000000002,1.8999999999999999,2.8999999999999999,3.8999999999999999,4.9000000000000004],"y":[52,75,97,119,124],"text":["Mar 16, 2026","Mar 21, 2026","Apr 09, 2026","May 01, 2026","May 09, 2026"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Max:<\/i>  %{y}<extra><\/extra>"},{"orientation":"v","width":[0.20000000000000018,0.20000000000000018,0.20000000000000018,0.19999999999999973,0.19999999999999929],"base":[0,0,0,0,0],"x":[1.1000000000000001,2.1000000000000001,3.1000000000000001,4.0999999999999996,5.0999999999999996],"y":[124,126,130,130,130],"text":["Mar 16, 2026","Mar 21, 2026","Apr 09, 2026","May 01, 2026","May 09, 2026"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Max:<\/i>  %{y}<extra><\/extra>"},{"x":[0.90000000000000002,0.90000000000000002,1.1000000000000001,1.1000000000000001,1.8999999999999999,1.8999999999999999,2.1000000000000001,2.1000000000000001,2.8999999999999999,2.8999999999999999,3.1000000000000001,3.1000000000000001,3.8999999999999999,3.8999999999999999,4.0999999999999996,4.0999999999999996,4.9000000000000004,4.9000000000000004,5.0999999999999996,5.0999999999999996],"y":[50,52,120,124,70,75,125,126,95,97,128,130,117,119,126,130,123,124,130,128],"text":["Mar 16, 2026","Mar 16, 2026","Mar 16, 2026","Mar 16, 2026","Mar 21, 2026","Mar 21, 2026","Mar 21, 2026","Mar 21, 2026","Apr 09, 2026","Apr 09, 2026","Apr 09, 2026","Apr 09, 2026","May 01, 2026","May 01, 2026","May 01, 2026","May 01, 2026","May 09, 2026","May 09, 2026","May 09, 2026","May 09, 2026"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":["rgba(255,0,0,1)","rgba(255,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(255,0,0,1)","rgba(255,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(255,0,0,1)","rgba(255,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(255,0,0,1)","rgba(255,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(255,0,0,1)","rgba(255,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)"],"opacity":0.5,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>","xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":85.809850833741649,"l":46.027397260273986},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,5.5999999999999996],"tickmode":"array","ticktext":["Mar 16, 2026","Mar 21, 2026","Apr  9, 2026","May  1, 2026","May  9, 2026"],"tickvals":[1,2,3,4,5],"categoryorder":"array","categoryarray":["Mar 16, 2026","Mar 21, 2026","Apr  9, 2026","May  1, 2026","May  9, 2026"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-6.5,136.5],"tickmode":"array","ticktext":["0","50","100"],"tickvals":[0,50,100],"categoryorder":"array","categoryarray":["0","50","100"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Single Leg Hop <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"orientation":"h","x":0.29999999999999999,"y":-0.25},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"d47746ea147f":{"x":{},"fill":{},"text":{},"y":{},"type":"bar"},"d47731e7c238":{"x":{},"fill":{},"text":{},"y":{}}},"cur_data":"d47746ea147f","visdat":{"d47746ea147f":["function (y) ","x"],"d47731e7c238":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="tab-pane html-fill-item html-fill-container bslib-gap-spacing" data-value="Triple Hop" id="tab-2913-2" style="gap:0;padding:0;">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-3015877a3876054c9b73" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-3015877a3876054c9b73">{"x":{"data":[{"orientation":"v","width":[0.19999999999999996,0.20000000000000018,0.20000000000000018,0.20000000000000018],"base":[0,0,0,0],"x":[0.90000000000000002,1.8999999999999999,2.8999999999999999,3.8999999999999999],"y":[460,475,506,541],"text":["Mar 16, 2026","Mar 21, 2026","Apr 09, 2026","May 01, 2026"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Max:<\/i>  %{y}<extra><\/extra>"},{"orientation":"v","width":[0.20000000000000018,0.20000000000000018,0.20000000000000018,0.19999999999999973],"base":[0,0,0,0],"x":[1.1000000000000001,2.1000000000000001,3.1000000000000001,4.0999999999999996],"y":[560,548,552,562],"text":["Mar 16, 2026","Mar 21, 2026","Apr 09, 2026","May 01, 2026"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Max:<\/i>  %{y}<extra><\/extra>"},{"x":[0.90000000000000002,0.90000000000000002,1.1000000000000001,1.1000000000000001,1.8999999999999999,1.8999999999999999,2.1000000000000001,2.1000000000000001,2.8999999999999999,2.8999999999999999,3.1000000000000001,3.1000000000000001,3.8999999999999999,3.8999999999999999,4.0999999999999996,4.0999999999999996],"y":[450,460,542,560,472,475,548,540,500,506,550,552,539,541,560,562],"text":["Mar 16, 2026","Mar 16, 2026","Mar 16, 2026","Mar 16, 2026","Mar 21, 2026","Mar 21, 2026","Mar 21, 2026","Mar 21, 2026","Apr 09, 2026","Apr 09, 2026","Apr 09, 2026","Apr 09, 2026","May 01, 2026","May 01, 2026","May 01, 2026","May 01, 2026"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":["rgba(255,0,0,1)","rgba(255,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(255,0,0,1)","rgba(255,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(255,0,0,1)","rgba(255,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(255,0,0,1)","rgba(255,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)"],"opacity":0.5,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>","xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":85.809850833741649,"l":46.027397260273986},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,4.5999999999999996],"tickmode":"array","ticktext":["Mar 16, 2026","Mar 21, 2026","Apr  9, 2026","May  1, 2026"],"tickvals":[1,2,3,4],"categoryorder":"array","categoryarray":["Mar 16, 2026","Mar 21, 2026","Apr  9, 2026","May  1, 2026"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-28.100000000000001,590.10000000000002],"tickmode":"array","ticktext":["0","200","400"],"tickvals":[0,199.99999999999997,400],"categoryorder":"array","categoryarray":["0","200","400"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Triple Hop <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"orientation":"h","x":0.29999999999999999,"y":-0.25},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"d477695ea38d":{"x":{},"fill":{},"text":{},"y":{},"type":"bar"},"d4774443b406":{"x":{},"fill":{},"text":{},"y":{}}},"cur_data":"d477695ea38d","visdat":{"d477695ea38d":["function (y) ","x"],"d4774443b406":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="tab-pane html-fill-item html-fill-container bslib-gap-spacing" data-value="Triple Cross Over Hop" id="tab-2913-3" style="gap:0;padding:0;">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-9d8553139e579b7b174e" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-9d8553139e579b7b174e">{"x":{"data":[{"orientation":"v","width":[0.19999999999999996,0.20000000000000018,0.20000000000000018,0.20000000000000018,0.19999999999999929],"base":[0,0,0,0,0],"x":[0.90000000000000002,1.8999999999999999,2.8999999999999999,3.8999999999999999,4.9000000000000004],"y":[410,418,450,484,492],"text":["Mar 16, 2026","Mar 21, 2026","Apr 09, 2026","May 01, 2026","May 09, 2026"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Max:<\/i>  %{y}<extra><\/extra>"},{"orientation":"v","width":[0.20000000000000018,0.20000000000000018,0.20000000000000018,0.19999999999999973,0.19999999999999929],"base":[0,0,0,0,0],"x":[1.1000000000000001,2.1000000000000001,3.1000000000000001,4.0999999999999996,5.0999999999999996],"y":[487,505,510,512,512],"text":["Mar 16, 2026","Mar 21, 2026","Apr 09, 2026","May 01, 2026","May 09, 2026"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Max:<\/i>  %{y}<extra><\/extra>"},{"x":[0.90000000000000002,0.90000000000000002,1.1000000000000001,1.1000000000000001,1.8999999999999999,1.8999999999999999,2.1000000000000001,2.1000000000000001,2.8999999999999999,2.8999999999999999,3.1000000000000001,3.1000000000000001,3.8999999999999999,3.8999999999999999,4.0999999999999996,4.0999999999999996,4.9000000000000004,4.9000000000000004,5.0999999999999996,5.0999999999999996],"y":[400,410,483,487,412,418,502,505,444,450,505,510,480,484,512,506,490,492,508,512],"text":["Mar 16, 2026","Mar 16, 2026","Mar 16, 2026","Mar 16, 2026","Mar 21, 2026","Mar 21, 2026","Mar 21, 2026","Mar 21, 2026","Apr 09, 2026","Apr 09, 2026","Apr 09, 2026","Apr 09, 2026","May 01, 2026","May 01, 2026","May 01, 2026","May 01, 2026","May 09, 2026","May 09, 2026","May 09, 2026","May 09, 2026"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":["rgba(255,0,0,1)","rgba(255,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(255,0,0,1)","rgba(255,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(255,0,0,1)","rgba(255,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(255,0,0,1)","rgba(255,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(255,0,0,1)","rgba(255,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)"],"opacity":0.5,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>"},{"hovertemplate":"<b>%{text}<\/b> <br><i>Score:<\/i>  %{y}<extra><\/extra>","xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":85.809850833741649,"l":46.027397260273986},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,5.5999999999999996],"tickmode":"array","ticktext":["Mar 16, 2026","Mar 21, 2026","Apr  9, 2026","May  1, 2026","May  9, 2026"],"tickvals":[1,2,3,4,5],"categoryorder":"array","categoryarray":["Mar 16, 2026","Mar 21, 2026","Apr  9, 2026","May  1, 2026","May  9, 2026"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-25.600000000000001,537.60000000000002],"tickmode":"array","ticktext":["0","100","200","300","400","500"],"tickvals":[0,100,200,300,400,500],"categoryorder":"array","categoryarray":["0","100","200","300","400","500"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Triple Cross Over Hop <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"orientation":"h","x":0.29999999999999999,"y":-0.25},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"d4775fd66642":{"x":{},"fill":{},"text":{},"y":{},"type":"bar"},"d47774d3a835":{"x":{},"fill":{},"text":{},"y":{}}},"cur_data":"d4775fd66642","visdat":{"d4775fd66642":["function (y) ","x"],"d47774d3a835":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="tab-pane html-fill-item html-fill-container bslib-gap-spacing" data-value="Side Hop" id="tab-2913-4" style="gap:0;padding:0;">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-cd644efbd72593b71c61" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-cd644efbd72593b71c61">{"x":{"data":[{"orientation":"v","width":[0.40500000000000003,0.40500000000000025,0.40500000000000025,0.40500000000000025,0.40499999999999936],"base":[0,0,0,0,0],"x":[0.77500000000000002,1.7749999999999999,2.7749999999999999,3.7749999999999999,4.7750000000000004],"y":[31,34,38,41,42],"text":["<b>Mar 16, 2026<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 31","<b>Mar 21, 2026<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 34","<b>Apr 09, 2026<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 38","<b>May 01, 2026<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 41","<b>May 09, 2026<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 42"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.4049999999999998,0.40500000000000025,0.40500000000000025,0.40499999999999936,0.40499999999999936],"base":[0,0,0,0,0],"x":[1.2250000000000001,2.2250000000000001,3.2250000000000001,4.2249999999999996,5.2249999999999996],"y":[45,44,44,46,48],"text":["<b>Mar 16, 2026<\/b><br><i>Side:<\/i> Right<br><i>Score:<\/i> 45","<b>Mar 21, 2026<\/b><br><i>Side:<\/i> Right<br><i>Score:<\/i> 44","<b>Apr 09, 2026<\/b><br><i>Side:<\/i> Right<br><i>Score:<\/i> 44","<b>May 01, 2026<\/b><br><i>Side:<\/i> Right<br><i>Score:<\/i> 46","<b>May 09, 2026<\/b><br><i>Side:<\/i> Right<br><i>Score:<\/i> 48"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.77500000000000002,1.7749999999999999,2.7749999999999999,3.7749999999999999,4.7750000000000004],"y":[31,34,38,41,42],"text":["","","","",""],"hovertext":["<b>Mar 16, 2026<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 31","<b>Mar 21, 2026<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 34","<b>Apr 09, 2026<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 38","<b>May 01, 2026<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 41","<b>May 09, 2026<\/b><br><i>Side:<\/i> Left<br><i>Score:<\/i> 42"],"textfont":{"size":15.118110236220474,"color":"rgba(255,0,0,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1.2250000000000001,2.2250000000000001,3.2250000000000001,4.2249999999999996,5.2249999999999996],"y":[45,44,44,46,48],"text":["","","","",""],"hovertext":["<b>Mar 16, 2026<\/b><br><i>Side:<\/i> Right<br><i>Score:<\/i> 45","<b>Mar 21, 2026<\/b><br><i>Side:<\/i> Right<br><i>Score:<\/i> 44","<b>Apr 09, 2026<\/b><br><i>Side:<\/i> Right<br><i>Score:<\/i> 44","<b>May 01, 2026<\/b><br><i>Side:<\/i> Right<br><i>Score:<\/i> 46","<b>May 09, 2026<\/b><br><i>Side:<\/i> Right<br><i>Score:<\/i> 48"],"textfont":{"size":15.118110236220474,"color":"rgba(0,0,0,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":49.872058369555965,"l":23.711083437110844},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,5.5999999999999996],"tickmode":"array","ticktext":["Mar 16","Mar 21","Apr  9","May  1","May  9"],"tickvals":[1,2,3,4,5],"categoryorder":"array","categoryarray":["Mar 16","Mar 21","Apr  9","May  1","May  9"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-2.4000000000000004,50.399999999999999],"tickmode":"array","ticktext":["0","10","20","30","40","50"],"tickvals":[0,10,20,30,40,50],"categoryorder":"array","categoryarray":["0","10","20","30","40","50"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"d4773baa3b50":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"},"d477251c1fca":{"x":{},"y":{},"fill":{},"label":{},"colour":{},"text":{}}},"cur_data":"d4773baa3b50","visdat":{"d4773baa3b50":["function (y) ","x"],"d477251c1fca":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+<template>Expand</template>
+<button aria-expanded="false" aria-label="Expand card" class="bslib-full-screen-enter badge rounded-pill"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;fill:currentColor;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg></button>
+</bslib-tooltip>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="phase0-navset">
+<div class="card bslib-card bslib-mb-spacing html-fill-item html-fill-container" data-bslib-card-init="" data-full-screen="false" data-require-bs-caller="card()" data-require-bs-version="5" id="bslib-card-5259">
+<div class="card-header bslib-gap-spacing bslib-navs-card-title">
+<span>
+<span style="font-weight:700; font-size:1.2rem;">CMJ</span>
+</span>
+<ul class="nav nav-tabs card-header-tabs" data-tabsetid="4757">
+<li class="active">
+<a href="#tab-4757-1" data-toggle="tab" data-bs-toggle="tab" data-value="Height">Height</a>
+</li>
+<li>
+<a href="#tab-4757-2" data-toggle="tab" data-bs-toggle="tab" data-value="RSImod">RSImod</a>
+</li>
+<li>
+<a href="#tab-4757-3" data-toggle="tab" data-bs-toggle="tab" data-value="BA%">BA%</a>
+</li>
+<li>
+<a href="#tab-4757-4" data-toggle="tab" data-bs-toggle="tab" data-value="BA-Mag (Con)">BA-Mag (Con)</a>
+</li>
+</ul>
+</div>
+<div class="tab-content html-fill-item html-fill-container" data-tabsetid="4757">
+<div class="tab-pane active html-fill-item html-fill-container bslib-gap-spacing" data-value="Height" id="tab-4757-1" style="gap:0;padding:0;">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-554a194cddf7c6288184" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-554a194cddf7c6288184">{"x":{"data":[{"x":[0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001],"y":[29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793,29.484871794871793],"text":"","type":"scatter","mode":"lines","line":{"width":5.6692913385826778,"color":"rgba(0,0,0,0.3)","dash":"dash"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"skip","frame":null,"textposition":"top"},{"x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],"y":[28.770099999999999,28.764099999999999,29.626100000000001,30.112100000000002,30.106100000000001,29.002099999999999,28.944099999999999,29.5261,29.130099999999999,29.196100000000001,28.8841,31.2181,29.7121,29.516099999999998,29.0501,30.028099999999998],"text":["Jan 03, 2026","Jan 22, 2026","Feb 05, 2026","Feb 07, 2026","Feb 12, 2026","Feb 18, 2026","Mar 19, 2026","Mar 24, 2026","Mar 28, 2026","Mar 31, 2026","Apr 09, 2026","Apr 11, 2026","Apr 22, 2026","Apr 29, 2026","May 01, 2026","May 04, 2026"],"type":"scatter","mode":"lines+markers","opacity":1,"line":{"color":"transparent"},"error_y":{"array":[2.309899999999999,0.58590000000000231,1.253899999999998,0.95789999999999864,1.1038999999999994,0.92790000000000106,1.2958999999999996,0.42389999999999972,0.69989999999999952,0.91389999999999816,1.3658999999999999,0.3119000000000014,1.2778999999999989,0.87390000000000256,0.91989999999999839,1.0019000000000027],"arrayminus":[9.9999999999766942e-05,9.9999999999766942e-05,9.9999999999766942e-05,9.9999999999766942e-05,9.9999999999766942e-05,9.9999999999766942e-05,9.9999999999766942e-05,9.9999999999766942e-05,9.9999999999766942e-05,9.9999999999766942e-05,9.9999999999766942e-05,9.9999999999766942e-05,9.9999999999766942e-05,9.9999999999766942e-05,9.9999999999766942e-05,9.9999999999766942e-05],"type":"data","width":0,"symmetric":false,"color":"rgba(218,45,51,1)"},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"skip","marker":{"autocolorscale":false,"color":"rgba(218,45,51,1)","opacity":1,"size":15.118110236220474,"symbol":"circle","line":{"width":3.7795275590551185,"color":"rgba(218,45,51,1)"}},"hoveron":"points","frame":null,"textposition":"top"},{"x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],"y":[28.77,28.763999999999999,29.626000000000001,30.112000000000002,30.106000000000002,29.001999999999999,28.943999999999999,29.526,29.129999999999999,29.196000000000002,28.884,31.218,29.712,29.515999999999998,29.050000000000001,30.027999999999999],"text":["Jan 03, 2026","Jan 22, 2026","Feb 05, 2026","Feb 07, 2026","Feb 12, 2026","Feb 18, 2026","Mar 19, 2026","Mar 24, 2026","Mar 28, 2026","Mar 31, 2026","Apr 09, 2026","Apr 11, 2026","Apr 22, 2026","Apr 29, 2026","May 01, 2026","May 04, 2026"],"type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(218,45,51,1)","opacity":1,"size":15.118110236220474,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(218,45,51,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":3.7795275590551185,"color":"rgba(218,45,51,1)","dash":"solid"},"frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Mean:<\/i>  %{y}<extra><\/extra>","textposition":"top"},{"x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],"y":[31.079999999999998,29.350000000000001,30.879999999999999,31.07,31.210000000000001,29.93,30.239999999999998,29.949999999999999,29.829999999999998,30.109999999999999,30.25,31.530000000000001,30.989999999999998,30.390000000000001,29.969999999999999,31.030000000000001],"text":["Jan 03, 2026","Jan 22, 2026","Feb 05, 2026","Feb 07, 2026","Feb 12, 2026","Feb 18, 2026","Mar 19, 2026","Mar 24, 2026","Mar 28, 2026","Mar 31, 2026","Apr 09, 2026","Apr 11, 2026","Apr 22, 2026","Apr 29, 2026","May 01, 2026","May 04, 2026"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(218,45,51,1)","opacity":1,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(218,45,51,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"skip","frame":null,"textposition":"top"},{"x":[0.87845892924815416,1.0127254602499307,0.96240289350971575,0.81513659432530405,1.0638211442157626,1.8192788538523019,1.9566756010055542,2.1284040677361191,1.8575946194119752,2.0360858411528171,2.8143714019097388,3.0165155202150347,3.0459935274906456,2.9746192244812848,3.1630992777645588,4.0507151270285249,4.1826230631209906,3.9285214629955592,3.9356056949123741,3.9572206569835542,4.956767548620701,4.8644268858246509,4.8577814335003495,4.8944368079304699,4.9337441813200709,6.0803227603435515,6.1397170413285496,5.9791874678805472,6.0511802507564427,5.8342670883052055,6.9187182777561249,7.1074750440195205,6.8264958896674219,6.8069292404688895,6.9610624496825038,8.0045566169545062,8.0711918883025646,7.9399894145317376,8.0156549291685231,8.158888118900359,8.9714817902073261,8.9235612367279824,9.0561851602047678,9.0416669199243191,9.0667085804976519,9.8339239309541888,10.022682949900627,9.9170523093082004,10.042642040271312,9.8160935659892861,10.812952499557287,11.185004284791649,11.112813635170459,10.908398384228349,10.942354541644454,11.958322561718523,12.185537138301878,12.101007262431086,11.91470303107053,11.879572553094476,13.060406152904033,13.078260401450098,13.125234263204039,13.087534760311247,13.168307646922766,14.007461990881712,14.187075181584806,13.954609484504909,14.142691323067993,14.179319953173399,14.863461027108134,14.898204222600906,15.09060705313459,16.131715951487422,16.097903592325746,16.065454671811313,15.867611904349179,16.175145479012279],"y":[31.081258041827006,28.147913782563059,28.506493395097557,27.299685399714857,28.810861081019041,27.478985420130194,29.297585375795141,29.347242826435718,29.229907285040245,28.456684048702943,30.722267203545197,28.663648872543124,30.882074958654119,28.441244916817176,29.426718132106586,30.782248400134968,31.066048920398579,30.189685619609431,29.459098839828744,29.060936814118175,30.161293414833025,29.641765806218608,31.209486929181963,29.616808810269461,29.898071876805275,29.093906476747243,28.897226435983551,29.931316959762945,29.293639077985656,27.797631359474735,30.128435091838242,30.236552520522846,27.44756734763272,28.130194004384801,28.773910154387355,29.102230386892334,29.729349502842872,28.909876470703633,29.9395673787687,29.949854595124719,28.322333513064311,29.471896207300944,29.828386367650701,29.082551911143582,28.94960033910349,30.112170619960875,28.343801414715124,28.440291426286102,29.869431990060956,29.223008980192244,30.251625444620846,28.702731377962976,28.350268090486527,29.246619795361536,27.869781387647613,31.251594237999992,30.966454743888228,30.920247530957685,31.526609905187044,31.421042284093797,27.80726290838793,30.991877657312898,29.257040113212543,29.70206706474535,30.803158622007818,29.487740248281508,28.718225513670593,29.060901990856973,30.387086288738995,29.92169920412265,27.792744772806763,29.968444104423746,29.388593530761078,28.54881892362237,29.898245612911879,30.577584509093313,30.078493226936086,31.026163218559699],"text":["Jump 1 <br /> 31.08","Jump 2 <br /> 28.15","Jump 3 <br /> 28.51","Jump 4 <br /> 27.3","Jump 5 <br /> 28.81","Jump 1 <br /> 27.48","Jump 2 <br /> 29.3","Jump 3 <br /> 29.35","Jump 4 <br /> 29.23","Jump 5 <br /> 28.46","Jump 1 <br /> 30.72","Jump 2 <br /> 28.66","Jump 3 <br /> 30.88","Jump 4 <br /> 28.44","Jump 5 <br /> 29.43","Jump 1 <br /> 30.78","Jump 2 <br /> 31.07","Jump 3 <br /> 30.19","Jump 4 <br /> 29.46","Jump 5 <br /> 29.06","Jump 1 <br /> 30.16","Jump 2 <br /> 29.64","Jump 3 <br /> 31.21","Jump 4 <br /> 29.62","Jump 5 <br /> 29.9","Jump 1 <br /> 29.09","Jump 2 <br /> 28.9","Jump 3 <br /> 29.93","Jump 4 <br /> 29.29","Jump 5 <br /> 27.8","Jump 1 <br /> 30.13","Jump 2 <br /> 30.24","Jump 3 <br /> 27.45","Jump 4 <br /> 28.13","Jump 5 <br /> 28.77","Jump 1 <br /> 29.1","Jump 2 <br /> 29.73","Jump 3 <br /> 28.91","Jump 4 <br /> 29.94","Jump 5 <br /> 29.95","Jump 1 <br /> 28.32","Jump 2 <br /> 29.47","Jump 3 <br /> 29.83","Jump 4 <br /> 29.08","Jump 5 <br /> 28.95","Jump 1 <br /> 30.11","Jump 2 <br /> 28.34","Jump 3 <br /> 28.44","Jump 4 <br /> 29.87","Jump 5 <br /> 29.22","Jump 1 <br /> 30.25","Jump 2 <br /> 28.7","Jump 3 <br /> 28.35","Jump 4 <br /> 29.25","Jump 5 <br /> 27.87","Jump 1 <br /> 31.25","Jump 2 <br /> 30.97","Jump 3 <br /> 30.92","Jump 4 <br /> 31.53","Jump 5 <br /> 31.42","Jump 1 <br /> 27.81","Jump 2 <br /> 30.99","Jump 3 <br /> 29.26","Jump 4 <br /> 29.7","Jump 5 <br /> 30.8","Jump 1 <br /> 29.49","Jump 2 <br /> 28.72","Jump 3 <br /> 29.06","Jump 4 <br /> 30.39","Jump 5 <br /> 29.92","Jump 1 <br /> 27.79","Jump 2 <br /> 29.97","Jump 3 <br /> 29.39","Jump 1 <br /> 28.55","Jump 2 <br /> 29.9","Jump 3 <br /> 30.58","Jump 4 <br /> 30.08","Jump 5 <br /> 31.03"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,0,0,1)","opacity":0.29999999999999999,"size":7.559055118110237,"symbol":"circle-open","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"textposition":"top"},{"x":[1.1000000000000001,2.1000000000000001,3.1000000000000001,4.0999999999999996,5.0999999999999996,6.0999999999999996,7.0999999999999996,8.0999999999999996,9.0999999999999996,10.1,11.1,12.1,13.1,14.1,15.1,16.100000000000001],"y":[28.77,28.763999999999999,29.626000000000001,30.112000000000002,30.106000000000002,29.001999999999999,28.943999999999999,29.526,29.129999999999999,29.196000000000002,28.884,31.218,29.712,29.515999999999998,29.050000000000001,30.027999999999999],"text":[null,null,"*","*",null,"*",null,"*","*",null,"*","*","*",null,"*","*"],"hovertext":["","","","","","","","","","","","","","","",""],"textfont":{"size":18.897637795275593,"color":"rgba(0,0,0,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"textposition":"top"}],"layout":{"margin":{"t":10,"r":7.3059360730593621,"b":0,"l":0},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,16.600000000000001],"tickmode":"array","ticktext":["Jan  3, 2026","Jan 22, 2026","Feb  5, 2026","Feb  7, 2026","Feb 12, 2026","Feb 18, 2026","Mar 19, 2026","Mar 24, 2026","Mar 28, 2026","Mar 31, 2026","Apr  9, 2026","Apr 11, 2026","Apr 22, 2026","Apr 29, 2026","May  1, 2026","May  4, 2026"],"tickvals":[1,2,3.0000000000000004,4,5,6,7,8,9,10,11,12,13,14,15,16],"categoryorder":"array","categoryarray":["Jan  3, 2026","Jan 22, 2026","Feb  5, 2026","Feb  7, 2026","Feb 12, 2026","Feb 18, 2026","Mar 19, 2026","Mar 24, 2026","Mar 28, 2026","Mar 31, 2026","Apr  9, 2026","Apr 11, 2026","Apr 22, 2026","Apr 29, 2026","May  1, 2026","May  4, 2026"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[27.088169669700601,31.741515730014257],"tickmode":"array","ticktext":["28","29","30","31"],"tickvals":[28,29,30,31],"categoryorder":"array","categoryarray":["28","29","30","31"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"d47776e86b32":{"yintercept":{},"type":"scatter"},"d47714d5dc9b":{"x":{},"text":{},"y":{}},"d47764864ecc":{"x":{},"text":{},"y":{}},"d4772d9f66a3":{"x":{},"text":{},"y":{}},"d4773c0b6ebb":{"x":{},"text":{},"y":{}},"d4771292d5c9":{"x":{},"text":{},"y":{}},"d477661188a5":{"x":{},"y":{},"label":{}}},"cur_data":"d47776e86b32","visdat":{"d47776e86b32":["function (y) ","x"],"d47714d5dc9b":["function (y) ","x"],"d47764864ecc":["function (y) ","x"],"d4772d9f66a3":["function (y) ","x"],"d4773c0b6ebb":["function (y) ","x"],"d4771292d5c9":["function (y) ","x"],"d477661188a5":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="tab-pane html-fill-item html-fill-container bslib-gap-spacing" data-value="RSImod" id="tab-4757-2" style="gap:0;padding:0;">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-96a2879358c451199ea3" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-96a2879358c451199ea3">{"x":{"data":[{"x":[0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,0.40000000000000002,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001,16.600000000000001],"y":[0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331,0.33333333333333331],"text":"","type":"scatter","mode":"lines","line":{"width":5.6692913385826778,"color":"rgba(0,0,0,0.3)","dash":"dash"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"skip","frame":null,"textposition":"top"},{"x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],"y":[0.30809999999999998,0.3201,0.31809999999999999,0.30209999999999998,0.33410000000000001,0.33810000000000001,0.3261,0.36609999999999998,0.35009999999999997,0.36409999999999998,0.31809999999999999,0.39810000000000001,0.3301,0.31809999999999999,0.26343333333333335,0.35209999999999997],"text":["Jan 03, 2026","Jan 22, 2026","Feb 05, 2026","Feb 07, 2026","Feb 12, 2026","Feb 18, 2026","Mar 19, 2026","Mar 24, 2026","Mar 28, 2026","Mar 31, 2026","Apr 09, 2026","Apr 11, 2026","Apr 22, 2026","Apr 29, 2026","May 01, 2026","May 04, 2026"],"type":"scatter","mode":"lines+markers","opacity":1,"line":{"color":"transparent"},"error_y":{"array":[0.021900000000000031,0.029899999999999982,0.041899999999999993,0.047899999999999998,0.025899999999999979,0.011899999999999966,0.043899999999999995,0.023900000000000032,0.019900000000000029,0.0059000000000000163,0.031899999999999984,0.011899999999999966,0.029899999999999982,0.021900000000000031,0.016566666666666674,0.017900000000000027],"arrayminus":[9.9999999999988987e-05,9.9999999999988987e-05,9.9999999999988987e-05,9.9999999999988987e-05,9.9999999999988987e-05,9.9999999999988987e-05,9.9999999999988987e-05,9.9999999999988987e-05,9.9999999999988987e-05,9.9999999999988987e-05,9.9999999999988987e-05,9.9999999999988987e-05,9.9999999999988987e-05,9.9999999999988987e-05,9.9999999999988987e-05,9.9999999999988987e-05],"type":"data","width":0,"symmetric":false,"color":"rgba(16,78,139,1)"},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"skip","marker":{"autocolorscale":false,"color":"rgba(16,78,139,1)","opacity":1,"size":15.118110236220474,"symbol":"circle","line":{"width":3.7795275590551185,"color":"rgba(16,78,139,1)"}},"hoveron":"points","frame":null,"textposition":"top"},{"x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],"y":[0.308,0.32000000000000001,0.318,0.30199999999999999,0.33400000000000002,0.33800000000000002,0.32600000000000001,0.36599999999999999,0.34999999999999998,0.36399999999999999,0.318,0.39800000000000002,0.33000000000000002,0.318,0.26333333333333336,0.35199999999999998],"text":["Jan 03, 2026","Jan 22, 2026","Feb 05, 2026","Feb 07, 2026","Feb 12, 2026","Feb 18, 2026","Mar 19, 2026","Mar 24, 2026","Mar 28, 2026","Mar 31, 2026","Apr 09, 2026","Apr 11, 2026","Apr 22, 2026","Apr 29, 2026","May 01, 2026","May 04, 2026"],"type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(16,78,139,1)","opacity":1,"size":15.118110236220474,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(16,78,139,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":3.7795275590551185,"color":"rgba(16,78,139,1)","dash":"solid"},"frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Mean:<\/i>  %{y}<extra><\/extra>","textposition":"top"},{"x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],"y":[0.33000000000000002,0.34999999999999998,0.35999999999999999,0.34999999999999998,0.35999999999999999,0.34999999999999998,0.37,0.39000000000000001,0.37,0.37,0.34999999999999998,0.40999999999999998,0.35999999999999999,0.34000000000000002,0.28000000000000003,0.37],"text":["Jan 03, 2026","Jan 22, 2026","Feb 05, 2026","Feb 07, 2026","Feb 12, 2026","Feb 18, 2026","Mar 19, 2026","Mar 24, 2026","Mar 28, 2026","Mar 31, 2026","Apr 09, 2026","Apr 11, 2026","Apr 22, 2026","Apr 29, 2026","May 01, 2026","May 04, 2026"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(16,78,139,1)","opacity":1,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(16,78,139,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"skip","frame":null,"textposition":"top"},{"x":[1.0665317985229195,0.81022088089957833,0.94258553953841329,0.95364587642252441,1.1910321000963449,1.8114891336299479,2.0061636478640139,2.1630869571119549,2.13290230082348,1.9678339106030762,2.9798925406299532,2.8074057995341719,3.0805330250412224,3.1374501721933483,3.1893741940148175,3.9175577425397932,4.1570160762406889,4.0524508893489841,4.0990847953595217,3.893196898046881,5.1607513085007666,4.9756854918785391,4.816483655013144,5.0225322059355673,4.8515160685405139,5.829404579754919,6.1805046013556417,5.9053546756505968,5.9476504756137727,6.1046191037632527,7.1226856265217062,7.0197349931113422,6.8772141817957166,7.1975879092700783,6.9468195142224429,8.0794298553839319,7.892265144363046,7.8974795863963667,8.0532122564502053,7.8147406307980418,8.9713546941988174,8.8970887058414512,8.8277695976197723,8.9505019214935597,9.1051294049248099,10.153517339657991,10.10989495171234,10.178537630382925,9.8608075291849673,10.119952069129795,11.14076094813645,10.931224960740655,11.097108455747366,10.923832444380968,11.140628412924707,11.902935635857284,11.851275482121855,11.841117647383362,12.160785970184952,11.984899058751761,13.177955019567161,13.08360512284562,12.862665032502264,12.823142020963132,13.054230700712651,13.804931248072535,14.04643842689693,13.831236287951469,13.81390157835558,13.943396482802928,15.134631710313261,14.940219151973725,15.09976253611967,15.929537832457573,15.950869535189122,15.841346056666225,15.962962732743472,15.88273916952312],"y":[0.29379618500918148,0.33053519178554419,0.31321450257115063,0.30083320756070314,0.31358128369227051,0.30940904979035261,0.34823142238333821,0.34263998530060052,0.25988667964003981,0.34331699773669244,0.26935055138729513,0.33859309241734448,0.279285226803273,0.33708965527080004,0.35948586637340485,0.30393073647096752,0.27694816909730441,0.29778519612178206,0.28397576230391863,0.35395074540004129,0.36298853703215717,0.30300551547855137,0.36083176564425229,0.32261921075545252,0.32870738118328158,0.34851302025839687,0.34123671458661559,0.34657385361939669,0.33880152386985724,0.30803697066009045,0.27702972047030927,0.37184215623699129,0.32637790325097743,0.32122278947010635,0.32782601680792872,0.35934880184568463,0.3617965753916651,0.37083340174332258,0.38711300655081871,0.35081886222772296,0.3228235919550061,0.3638303866293281,0.33625693971104925,0.37042797424085439,0.35793433246016504,0.35793408044055103,0.36397475435771043,0.35825437053851783,0.37240020234882831,0.37387660664506256,0.27964109008572996,0.33250941745936868,0.3161651886645705,0.30762232728861272,0.34958018760755655,0.38643034341000021,0.40394937291555105,0.39676332934759562,0.40793479649350045,0.38708651019446555,0.34284472471661864,0.26959239928610623,0.35325625936128197,0.35649466410279274,0.33041736627742652,0.24811605535820128,0.33731232829578223,0.32730588400736454,0.33800271110236646,0.33003843133151534,0.22851952691189947,0.2775259861145169,0.28308647031523287,0.28881914260983466,0.37370262961462136,0.37152793746255336,0.36681550727412104,0.36331516659259794],"text":["Jump 1 <br /> 0.29","Jump 2 <br /> 0.33","Jump 3 <br /> 0.31","Jump 4 <br /> 0.3","Jump 5 <br /> 0.31","Jump 1 <br /> 0.31","Jump 2 <br /> 0.35","Jump 3 <br /> 0.34","Jump 4 <br /> 0.26","Jump 5 <br /> 0.34","Jump 1 <br /> 0.27","Jump 2 <br /> 0.34","Jump 3 <br /> 0.28","Jump 4 <br /> 0.34","Jump 5 <br /> 0.36","Jump 1 <br /> 0.3","Jump 2 <br /> 0.28","Jump 3 <br /> 0.3","Jump 4 <br /> 0.28","Jump 5 <br /> 0.35","Jump 1 <br /> 0.36","Jump 2 <br /> 0.3","Jump 3 <br /> 0.36","Jump 4 <br /> 0.32","Jump 5 <br /> 0.33","Jump 1 <br /> 0.35","Jump 2 <br /> 0.34","Jump 3 <br /> 0.35","Jump 4 <br /> 0.34","Jump 5 <br /> 0.31","Jump 1 <br /> 0.28","Jump 2 <br /> 0.37","Jump 3 <br /> 0.33","Jump 4 <br /> 0.32","Jump 5 <br /> 0.33","Jump 1 <br /> 0.36","Jump 2 <br /> 0.36","Jump 3 <br /> 0.37","Jump 4 <br /> 0.39","Jump 5 <br /> 0.35","Jump 1 <br /> 0.32","Jump 2 <br /> 0.36","Jump 3 <br /> 0.34","Jump 4 <br /> 0.37","Jump 5 <br /> 0.36","Jump 1 <br /> 0.36","Jump 2 <br /> 0.36","Jump 3 <br /> 0.36","Jump 4 <br /> 0.37","Jump 5 <br /> 0.37","Jump 1 <br /> 0.28","Jump 2 <br /> 0.33","Jump 3 <br /> 0.32","Jump 4 <br /> 0.31","Jump 5 <br /> 0.35","Jump 1 <br /> 0.39","Jump 2 <br /> 0.4","Jump 3 <br /> 0.4","Jump 4 <br /> 0.41","Jump 5 <br /> 0.39","Jump 1 <br /> 0.34","Jump 2 <br /> 0.27","Jump 3 <br /> 0.35","Jump 4 <br /> 0.36","Jump 5 <br /> 0.33","Jump 1 <br /> 0.25","Jump 2 <br /> 0.34","Jump 3 <br /> 0.33","Jump 4 <br /> 0.34","Jump 5 <br /> 0.33","Jump 1 <br /> 0.23","Jump 2 <br /> 0.28","Jump 3 <br /> 0.28","Jump 1 <br /> 0.29","Jump 2 <br /> 0.37","Jump 3 <br /> 0.37","Jump 4 <br /> 0.37","Jump 5 <br /> 0.36"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,0,0,1)","opacity":0.29999999999999999,"size":7.559055118110237,"symbol":"circle-open","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"textposition":"top"},{"x":[1.1000000000000001,2.1000000000000001,3.1000000000000001,4.0999999999999996,5.0999999999999996,6.0999999999999996,7.0999999999999996,8.0999999999999996,9.0999999999999996,10.1,11.1,12.1,13.1,14.1,15.1,16.100000000000001],"y":[0.308,0.32000000000000001,0.318,0.30199999999999999,0.33400000000000002,0.33800000000000002,0.32600000000000001,0.36599999999999999,0.34999999999999998,0.36399999999999999,0.318,0.39800000000000002,0.33000000000000002,0.318,0.26333333333333336,0.35199999999999998],"text":[null,"*",null,"*","*",null,"*","*","*","*","*","*","*","*","*","*"],"hovertext":["","","","","","","","","","","","","","","",""],"textfont":{"size":18.897637795275593,"color":"rgba(0,0,0,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"textposition":"top"}],"layout":{"margin":{"t":10,"r":7.3059360730593621,"b":0,"l":0},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,16.600000000000001],"tickmode":"array","ticktext":["Jan  3, 2026","Jan 22, 2026","Feb  5, 2026","Feb  7, 2026","Feb 12, 2026","Feb 18, 2026","Mar 19, 2026","Mar 24, 2026","Mar 28, 2026","Mar 31, 2026","Apr  9, 2026","Apr 11, 2026","Apr 22, 2026","Apr 29, 2026","May  1, 2026","May  4, 2026"],"tickvals":[1,2,3.0000000000000004,4,5,6,7,8,9,10,11,12,13,14,15,16],"categoryorder":"array","categoryarray":["Jan  3, 2026","Jan 22, 2026","Feb  5, 2026","Feb  7, 2026","Feb 12, 2026","Feb 18, 2026","Mar 19, 2026","Mar 24, 2026","Mar 28, 2026","Mar 31, 2026","Apr  9, 2026","Apr 11, 2026","Apr 22, 2026","Apr 29, 2026","May  1, 2026","May  4, 2026"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.21944550325749446,0.41907402365440499],"tickmode":"array","ticktext":["0.25","0.30","0.35","0.40"],"tickvals":[0.25,0.30000000000000004,0.35000000000000003,0.40000000000000002],"categoryorder":"array","categoryarray":["0.25","0.30","0.35","0.40"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"d4771583c490":{"yintercept":{},"type":"scatter"},"d4777dddd4f8":{"x":{},"text":{},"y":{}},"d4776ec92656":{"x":{},"text":{},"y":{}},"d47757f410ec":{"x":{},"text":{},"y":{}},"d47758832310":{"x":{},"text":{},"y":{}},"d4779731cd6":{"x":{},"text":{},"y":{}},"d477646a2a72":{"x":{},"y":{},"label":{}}},"cur_data":"d4771583c490","visdat":{"d4771583c490":["function (y) ","x"],"d4777dddd4f8":["function (y) ","x"],"d4776ec92656":["function (y) ","x"],"d47757f410ec":["function (y) ","x"],"d47758832310":["function (y) ","x"],"d4779731cd6":["function (y) ","x"],"d477646a2a72":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="tab-pane html-fill-item html-fill-container bslib-gap-spacing" data-value="BA%" id="tab-4757-3" style="gap:0;padding:0;">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-08e8f9ecaca62d502b07" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-08e8f9ecaca62d502b07">{"x":{"data":[{"x":[0.40000000000000002,16.600000000000001],"y":[0,0],"text":"","type":"scatter","mode":"lines","line":{"width":5.6692913385826778,"color":"rgba(0,255,0,0.2)","dash":"dash"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.40000000000000002,16.600000000000001],"y":[-15,-15],"text":"","type":"scatter","mode":"lines","line":{"width":5.6692913385826778,"color":"rgba(255,0,0,0.2)","dash":"dash"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.40000000000000002,16.600000000000001],"y":[15,15],"text":"","type":"scatter","mode":"lines","line":{"width":5.6692913385826778,"color":"rgba(255,0,0,0.2)","dash":"dash"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1],"y":[-26],"text":"R","hovertext":"","textfont":{"size":75.59055118110237,"color":"rgba(0,0,0,0.1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1],"y":[21],"text":"L","hovertext":"","textfont":{"size":75.59055118110237,"color":"rgba(0,0,0,0.1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1.95,2.9500000000000002,3.9500000000000002,4.9500000000000002,5.9500000000000002,6.9500000000000002,7.9500000000000002,8.9499999999999993,9.9499999999999993,10.949999999999999,11.949999999999999,12.949999999999999,13.949999999999999,14.949999999999999,15.949999999999999,0.94999999999999996],"y":[9.4130000000000003,9.9309999999999992,10.866999999999999,15.779,11.324999999999999,11.298999999999999,13.613,10.753,14.641,11.402999999999999,8.4929999999999986,8.9789999999999992,11.305,12.695,6.7276666666666669,10.727],"text":["Jan 03, 2026","Jan 22, 2026","Feb 05, 2026","Feb 07, 2026","Feb 12, 2026","Feb 18, 2026","Mar 19, 2026","Mar 24, 2026","Mar 28, 2026","Mar 31, 2026","Apr 09, 2026","Apr 11, 2026","Apr 22, 2026","Apr 29, 2026","May 01, 2026","May 04, 2026"],"type":"scatter","mode":"lines+markers","opacity":0.80000000000000004,"line":{"color":"transparent"},"error_y":{"array":[2.8997460836468516,6.7728603598825234,5.3935878273634525,4.9369480133099124,5.9908657302111799,4.9577604944453491,1.7986076765769266,4.3659289277410664,2.1763242932931472,5.2253612686391016,2.0247473197097605,5.8787044859713582,1.4642582180062984,4.4649151881624327,18.485413645125696,5.0737811682662368],"arrayminus":[2.9017460836468505,6.7748603598825232,5.3955878273634497,4.9389480133099113,5.9928657302111796,4.9597604944453479,1.8006076765769254,4.3679289277410662,2.1783242932931461,5.2273612686391013,2.0267473197097594,5.880704485971358,1.4662582180062973,4.4669151881624316,18.487413645125699,5.0757811682662366],"type":"data","width":0,"symmetric":false,"color":"rgba(255,165,0,1)"},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"skip","marker":{"autocolorscale":false,"color":"rgba(255,165,0,1)","opacity":0.80000000000000004,"size":11.338582677165356,"symbol":"circle","line":{"width":3.7795275590551185,"color":"rgba(255,165,0,1)"}},"hoveron":"points","frame":null},{"x":[0.94999999999999996,1.95,2.9500000000000002,3.9500000000000002,4.9500000000000002,5.9500000000000002,6.9500000000000002,7.9500000000000002,8.9499999999999993,9.9499999999999993,10.949999999999999,11.949999999999999,12.949999999999999,13.949999999999999,14.949999999999999,15.949999999999999],"y":[10.726000000000001,9.4120000000000008,9.9299999999999997,10.866,15.778,11.324,11.298,13.612,10.752000000000001,14.640000000000001,11.401999999999999,8.4919999999999991,8.9779999999999998,11.304,12.694000000000001,6.7266666666666666],"text":["May 04, 2026","Jan 03, 2026","Jan 22, 2026","Feb 05, 2026","Feb 07, 2026","Feb 12, 2026","Feb 18, 2026","Mar 19, 2026","Mar 24, 2026","Mar 28, 2026","Mar 31, 2026","Apr 09, 2026","Apr 11, 2026","Apr 22, 2026","Apr 29, 2026","May 01, 2026"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(255,165,0,0.3)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Mean:<\/i>  %{y}<extra><\/extra> % L"},{"x":[2.0499999999999998,3.0499999999999998,4.0499999999999998,5.0499999999999998,6.0499999999999998,7.0499999999999998,8.0500000000000007,9.0500000000000007,10.050000000000001,11.050000000000001,12.050000000000001,13.050000000000001,14.050000000000001,15.050000000000001,16.050000000000001,1.05],"y":[13.560999999999998,10.081,10.840999999999999,9.8209999999999997,11.120999999999999,11.381,9.7210000000000001,8.3209999999999997,8.641,11.781000000000001,7.3810000000000011,8.8209999999999997,9.2210000000000001,10.561,11.934333333333333,15.780999999999999],"text":["Jan 03, 2026","Jan 22, 2026","Feb 05, 2026","Feb 07, 2026","Feb 12, 2026","Feb 18, 2026","Mar 19, 2026","Mar 24, 2026","Mar 28, 2026","Mar 31, 2026","Apr 09, 2026","Apr 11, 2026","Apr 22, 2026","Apr 29, 2026","May 01, 2026","May 04, 2026"],"type":"scatter","mode":"lines+markers","opacity":0.80000000000000004,"line":{"color":"transparent"},"error_y":{"array":[5.5244745479708275,3.9111283966646351,5.1437460373458883,6.4445398856169991,3.5669210127163353,6.5058406390170518,4.8378268909023596,6.4295729318253745,4.0124760063292548,6.785349766925739,4.6996453781292145,3.1833295713746956,4.7873818657791531,4.3815638520272238,4.9693451071661503,5.5124635434191447],"arrayminus":[5.5264745479708246,3.913128396664634,5.1457460373458872,6.4465398856169989,3.5689210127163333,6.5078406390170489,4.8398268909023576,6.4315729318253725,4.0144760063292537,6.787349766925737,4.701645378129216,3.1853295713746945,4.7893818657791529,4.3835638520272227,4.9713451071661501,5.5144635434191418],"type":"data","width":0,"symmetric":false,"color":"rgba(24,116,205,1)"},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"skip","marker":{"autocolorscale":false,"color":"rgba(24,116,205,1)","opacity":0.80000000000000004,"size":11.338582677165356,"symbol":"circle","line":{"width":3.7795275590551185,"color":"rgba(24,116,205,1)"}},"hoveron":"points","frame":null},{"x":[1.05,2.0499999999999998,3.0499999999999998,4.0499999999999998,5.0499999999999998,6.0499999999999998,7.0499999999999998,8.0500000000000007,9.0500000000000007,10.050000000000001,11.050000000000001,12.050000000000001,13.050000000000001,14.050000000000001,15.050000000000001,16.050000000000001],"y":[15.779999999999999,13.559999999999999,10.08,10.84,9.8200000000000003,11.119999999999999,11.380000000000001,9.7200000000000006,8.3200000000000003,8.6400000000000006,11.780000000000001,7.3800000000000008,8.8200000000000003,9.2200000000000006,10.56,11.933333333333334],"text":["May 04, 2026","Jan 03, 2026","Jan 22, 2026","Feb 05, 2026","Feb 07, 2026","Feb 12, 2026","Feb 18, 2026","Mar 19, 2026","Mar 24, 2026","Mar 28, 2026","Mar 31, 2026","Apr 09, 2026","Apr 11, 2026","Apr 22, 2026","Apr 29, 2026","May 01, 2026"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(24,116,205,0.3)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Mean:<\/i>  %{y}<extra><\/extra> % L"},{"x":[1.8697443708078936,1.8258086835034193,1.8158594222739339,1.8178309936774895,1.8345369195565582,2.8797979523660615,2.8773953841999176,2.8779268474318087,2.8201303276000544,2.8206630297238009,3.8593528131255881,3.8480364895891399,3.8158245525788517,3.847546832682565,3.8283453404670582,4.8405120876384897,4.8339222587179389,4.8749687479110433,4.8464200769085437,4.8657657420029858,5.8654920404776929,5.8000237222760909,5.8083550485316664,5.8632120334543281,5.8986015902599318,6.8550935234641655,6.8000236172229052,6.8526749542448666,6.8066486907424402,6.8330156893469391,7.8582738703582429,7.8790811058366668,7.80780596663244,7.8310231378301971,7.8505407818127413,8.8218061410356317,8.8214922032318999,8.8592302724951875,8.8060930683976029,8.8808217859128487,9.8571617915993546,9.8758231645217158,9.8391744064399962,9.8094314372399811,9.8278224395820875,10.864716356806456,10.86213666535914,10.812980544986203,10.837011742172763,10.805989483534358,11.840091279079205,11.870811006706207,11.832497041183524,11.881881073699333,11.885506916395387,12.836990556819364,12.859685369767249,12.827062366669997,12.85906176273711,12.802077844901941,13.894497712492011,13.834946362813934,13.817915030289441,13.874483113642782,13.876037657703273,14.889251750637778,14.847143429471179,14.893748314585537,14.816077393456363,14.811684181890451,15.857917876006104,15.843898797011933,15.836287538614124,0.86262785922735918,0.81436676008161157,0.89325708916876467,0.88067229043226691,0.8763715585926547],"y":[11.989719517916441,8.9229513363204891,8.2061155254468332,6.4061364961713556,11.533724788241088,13.831331522768364,2.3120146037917584,6.1606111803576349,12.352040856325999,14.998122063048184,11.22693828221783,10.787700951771809,9.1971798968501375,5.568794920220971,17.539644808351994,20.03388668042049,19.716970437135547,12.990841813661158,11.167257003199309,14.976418527698145,19.760576769769195,8.5992972776852543,10.926564926143735,9.028329414686187,8.3034576226547365,12.838900737602264,14.60967139477469,12.812188482446597,11.852360794793814,4.382544918801635,14.73709561294131,12.566335688760505,11.947460520561783,13.390882730135695,15.406557139769196,6.2123564789444208,10.658785210968926,12.938230123514309,8.732324914127588,15.223126324335114,13.3278895063214,17.702062686979769,14.080099453937262,14.360576246809213,13.733041784841568,8.5290699405521142,13.023284249132498,17.780185574198143,10.598917483557015,7.0760642012171449,10.700941407097503,7.6636901086829603,9.0409108007326715,6.3180965734496715,8.7411829423550511,1.2805723195504397,10.071264598010108,8.0524566581100228,12.759241743367165,12.731853779226542,12.730747530812398,11.328251548951492,9.4489872907362873,11.41274825109914,11.601210026381537,9.0739727773405612,8.9193013895768676,17.096986993126574,14.681514792401343,13.696356282860039,-1.0812658554352821,13.74235062768124,7.5204173341095446,10.726939021807164,16.128426292490214,5.4798948399163789,8.3986931153088804,12.892287169296296],"text":["Jump 1 <br /> ECC:  11.99 % L","Jump 2 <br /> ECC:  8.92 % L","Jump 3 <br /> ECC:  8.21 % L","Jump 4 <br /> ECC:  6.41 % L","Jump 5 <br /> ECC:  11.53 % L","Jump 1 <br /> ECC:  13.83 % L","Jump 2 <br /> ECC:  2.31 % L","Jump 3 <br /> ECC:  6.16 % L","Jump 4 <br /> ECC:  12.35 % L","Jump 5 <br /> ECC:  15 % L","Jump 1 <br /> ECC:  11.23 % L","Jump 2 <br /> ECC:  10.79 % L","Jump 3 <br /> ECC:  9.2 % L","Jump 4 <br /> ECC:  5.57 % L","Jump 5 <br /> ECC:  17.54 % L","Jump 1 <br /> ECC:  20.03 % L","Jump 2 <br /> ECC:  19.72 % L","Jump 3 <br /> ECC:  12.99 % L","Jump 4 <br /> ECC:  11.17 % L","Jump 5 <br /> ECC:  14.98 % L","Jump 1 <br /> ECC:  19.76 % L","Jump 2 <br /> ECC:  8.6 % L","Jump 3 <br /> ECC:  10.93 % L","Jump 4 <br /> ECC:  9.03 % L","Jump 5 <br /> ECC:  8.3 % L","Jump 1 <br /> ECC:  12.84 % L","Jump 2 <br /> ECC:  14.61 % L","Jump 3 <br /> ECC:  12.81 % L","Jump 4 <br /> ECC:  11.85 % L","Jump 5 <br /> ECC:  4.38 % L","Jump 1 <br /> ECC:  14.74 % L","Jump 2 <br /> ECC:  12.57 % L","Jump 3 <br /> ECC:  11.95 % L","Jump 4 <br /> ECC:  13.39 % L","Jump 5 <br /> ECC:  15.41 % L","Jump 1 <br /> ECC:  6.21 % L","Jump 2 <br /> ECC:  10.66 % L","Jump 3 <br /> ECC:  12.94 % L","Jump 4 <br /> ECC:  8.73 % L","Jump 5 <br /> ECC:  15.22 % L","Jump 1 <br /> ECC:  13.33 % L","Jump 2 <br /> ECC:  17.7 % L","Jump 3 <br /> ECC:  14.08 % L","Jump 4 <br /> ECC:  14.36 % L","Jump 5 <br /> ECC:  13.73 % L","Jump 1 <br /> ECC:  8.53 % L","Jump 2 <br /> ECC:  13.02 % L","Jump 3 <br /> ECC:  17.78 % L","Jump 4 <br /> ECC:  10.6 % L","Jump 5 <br /> ECC:  7.08 % L","Jump 1 <br /> ECC:  10.7 % L","Jump 2 <br /> ECC:  7.66 % L","Jump 3 <br /> ECC:  9.04 % L","Jump 4 <br /> ECC:  6.32 % L","Jump 5 <br /> ECC:  8.74 % L","Jump 1 <br /> ECC:  1.28 % L","Jump 2 <br /> ECC:  10.07 % L","Jump 3 <br /> ECC:  8.05 % L","Jump 4 <br /> ECC:  12.76 % L","Jump 5 <br /> ECC:  12.73 % L","Jump 1 <br /> ECC:  12.73 % L","Jump 2 <br /> ECC:  11.33 % L","Jump 3 <br /> ECC:  9.45 % L","Jump 4 <br /> ECC:  11.41 % L","Jump 5 <br /> ECC:  11.6 % L","Jump 1 <br /> ECC:  9.07 % L","Jump 2 <br /> ECC:  8.92 % L","Jump 3 <br /> ECC:  17.1 % L","Jump 4 <br /> ECC:  14.68 % L","Jump 5 <br /> ECC:  13.7 % L","Jump 1 <br /> ECC:  -1.08 % R","Jump 2 <br /> ECC:  13.74 % L","Jump 3 <br /> ECC:  7.52 % L","Jump 1 <br /> ECC:  10.73 % L","Jump 2 <br /> ECC:  16.13 % L","Jump 3 <br /> ECC:  5.48 % L","Jump 4 <br /> ECC:  8.4 % L","Jump 5 <br /> ECC:  12.89 % L"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(255,165,0,1)","opacity":0.5,"size":7.559055118110237,"symbol":"circle-open","line":{"width":1.8897637795275593,"color":"rgba(255,165,0,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2.1280406180536375,2.1642395042115821,2.1776626417646185,2.1192296414170415,2.1764289723243562,3.1494031464448198,3.1448513077106326,3.1146629793336613,3.100607422203757,3.1259854625910521,4.1870118558872491,4.1518966728588573,4.1781225796788934,4.1988010009750729,4.115795204858296,5.1156458073761319,5.1837708763545383,5.1087801369139925,5.1449048299808062,5.1100649665109819,6.1569903854280712,6.1208303485298536,6.1940396495629102,6.1677066371310509,6.1341871224809443,7.1122476906282834,7.1367003136547282,7.1435354277258742,7.1257824449567124,7.1672676590969786,8.1858659569872554,8.162743711611256,8.1306821017991755,8.1581412850413475,8.142809311975725,9.1405643505277112,9.1639498610747978,9.121537517034449,9.1099982623942193,9.1922471421072256,10.172691056970507,10.172663871501573,10.15205644632224,10.119370795320719,10.141480858274736,11.173739064834081,11.108835830772296,11.11036564197857,11.192121811374092,11.195083972834983,12.185653834394179,12.101818933477626,12.135288931336254,12.122504292847589,12.109758401871659,13.13716187553946,13.130594557640142,13.192893042392098,13.119932897994294,13.17330333488062,14.132208140008151,14.101407209667377,14.186111315805466,14.115574837080203,14.135126091958956,15.154744605557061,15.174119517463259,15.106659956392832,15.158722481690347,15.110068999766373,16.103126891539432,16.122255748766474,16.121345670870504,1.102360651269555,1.1886693219887092,1.1304702972760423,1.1908181322272866,1.1714113740716128],"y":[16.888878580909221,5.7760227479413153,15.608807251192628,14.0958713266626,15.429653323255479,4.7609120882116258,9.8968049827590594,13.023473627865314,11.210452035665512,11.521316833198071,12.530823100227863,8.4804565318673841,10.277508272435517,16.93274815559387,5.9654095227643849,15.472723326794803,5.6715819940157237,15.535019843503832,5.9707447945885361,6.4347831326909368,14.013296423815191,7.6297608801536256,11.720736540053039,8.6721048320271077,13.589404693562537,16.115986878145488,10.028657587114722,10.393642448522151,16.615722898542881,3.7880791501514612,14.621205942183732,12.873066170383245,7.6795477947033941,5.2043418510258199,8.2018840297684061,7.6642243712581699,12.725892000738531,3.1198398099094629,14.493780292328447,3.6165666960366072,12.620448370147496,5.3895671139098704,10.197746849022804,9.7675209652259962,5.1842907943762837,18.587045270744714,9.816974031440914,3.9753395564295353,14.713017125111072,11.815650464687497,8.2958701996319011,8.8910457799956202,2.523698010481894,4.8738556202501062,12.270826427340507,13.327354519963265,6.8205555653572079,8.1086059793643646,7.6766117063723511,8.2211448322422793,13.514540850371123,7.5312012521736325,7.0600846137106412,4.8618360319733629,13.116673339679837,10.516208077743649,6.3647846798412511,11.320987906288357,15.929465932436287,8.6916300899721683,9.9049582902528357,13.910269511956722,12.032519459798932,22.065681589934975,11.004081050008535,12.104251895509661,16.51022615786642,17.187460589744148],"text":["Jump 1 <br /> CON:  16.9 % L","Jump 2 <br /> CON:  5.8 % L","Jump 3 <br /> CON:  15.6 % L","Jump 4 <br /> CON:  14.1 % L","Jump 5 <br /> CON:  15.4 % L","Jump 1 <br /> CON:  4.8 % L","Jump 2 <br /> CON:  9.9 % L","Jump 3 <br /> CON:  13 % L","Jump 4 <br /> CON:  11.2 % L","Jump 5 <br /> CON:  11.5 % L","Jump 1 <br /> CON:  12.5 % L","Jump 2 <br /> CON:  8.5 % L","Jump 3 <br /> CON:  10.3 % L","Jump 4 <br /> CON:  16.9 % L","Jump 5 <br /> CON:  6 % L","Jump 1 <br /> CON:  15.5 % L","Jump 2 <br /> CON:  5.7 % L","Jump 3 <br /> CON:  15.5 % L","Jump 4 <br /> CON:  6 % L","Jump 5 <br /> CON:  6.4 % L","Jump 1 <br /> CON:  14 % L","Jump 2 <br /> CON:  7.6 % L","Jump 3 <br /> CON:  11.7 % L","Jump 4 <br /> CON:  8.7 % L","Jump 5 <br /> CON:  13.6 % L","Jump 1 <br /> CON:  16.1 % L","Jump 2 <br /> CON:  10 % L","Jump 3 <br /> CON:  10.4 % L","Jump 4 <br /> CON:  16.6 % L","Jump 5 <br /> CON:  3.8 % L","Jump 1 <br /> CON:  14.6 % L","Jump 2 <br /> CON:  12.9 % L","Jump 3 <br /> CON:  7.7 % L","Jump 4 <br /> CON:  5.2 % L","Jump 5 <br /> CON:  8.2 % L","Jump 1 <br /> CON:  7.7 % L","Jump 2 <br /> CON:  12.7 % L","Jump 3 <br /> CON:  3.1 % L","Jump 4 <br /> CON:  14.5 % L","Jump 5 <br /> CON:  3.6 % L","Jump 1 <br /> CON:  12.6 % L","Jump 2 <br /> CON:  5.4 % L","Jump 3 <br /> CON:  10.2 % L","Jump 4 <br /> CON:  9.8 % L","Jump 5 <br /> CON:  5.2 % L","Jump 1 <br /> CON:  18.6 % L","Jump 2 <br /> CON:  9.8 % L","Jump 3 <br /> CON:  4 % L","Jump 4 <br /> CON:  14.7 % L","Jump 5 <br /> CON:  11.8 % L","Jump 1 <br /> CON:  8.3 % L","Jump 2 <br /> CON:  8.9 % L","Jump 3 <br /> CON:  2.5 % L","Jump 4 <br /> CON:  4.9 % L","Jump 5 <br /> CON:  12.3 % L","Jump 1 <br /> CON:  13.3 % L","Jump 2 <br /> CON:  6.8 % L","Jump 3 <br /> CON:  8.1 % L","Jump 4 <br /> CON:  7.7 % L","Jump 5 <br /> CON:  8.2 % L","Jump 1 <br /> CON:  13.5 % L","Jump 2 <br /> CON:  7.5 % L","Jump 3 <br /> CON:  7.1 % L","Jump 4 <br /> CON:  4.9 % L","Jump 5 <br /> CON:  13.1 % L","Jump 1 <br /> CON:  10.5 % L","Jump 2 <br /> CON:  6.4 % L","Jump 3 <br /> CON:  11.3 % L","Jump 4 <br /> CON:  15.9 % L","Jump 5 <br /> CON:  8.7 % L","Jump 1 <br /> CON:  9.9 % L","Jump 2 <br /> CON:  13.9 % L","Jump 3 <br /> CON:  12 % L","Jump 1 <br /> CON:  22.1 % L","Jump 2 <br /> CON:  11 % L","Jump 3 <br /> CON:  12.1 % L","Jump 4 <br /> CON:  16.5 % L","Jump 5 <br /> CON:  17.2 % L"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(24,116,205,1)","opacity":0.5,"size":7.559055118110237,"symbol":"circle-open","line":{"width":1.8897637795275593,"color":"rgba(24,116,205,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":85.809850833741649,"l":30.087173100871741},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,16.600000000000001],"tickmode":"array","ticktext":["May  4, 2026","Jan  3, 2026","Jan 22, 2026","Feb  5, 2026","Feb  7, 2026","Feb 12, 2026","Feb 18, 2026","Mar 19, 2026","Mar 24, 2026","Mar 28, 2026","Mar 31, 2026","Apr  9, 2026","Apr 11, 2026","Apr 22, 2026","Apr 29, 2026","May  1, 2026"],"tickvals":[1,2,3.0000000000000004,4,5,6,7,8,9,10,11,12,13,14,15,16],"categoryorder":"array","categoryarray":["May  4, 2026","Jan  3, 2026","Jan 22, 2026","Feb  5, 2026","Feb  7, 2026","Feb 12, 2026","Feb 18, 2026","Mar 19, 2026","Mar 24, 2026","Mar 28, 2026","Mar 31, 2026","Apr  9, 2026","Apr 11, 2026","Apr 22, 2026","Apr 29, 2026","May  1, 2026"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":21.253632212536321}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-33,33],"tickmode":"array","ticktext":["-30","-25","-20","-15","-10","-5","0","5","10","15","20","25","30"],"tickvals":[-30,-25,-20,-15,-10,-5,0,5,10,15,20,25,30],"categoryorder":"array","categoryarray":["-30","-25","-20","-15","-10","-5","0","5","10","15","20","25","30"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(247,247,247,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":21.253632212536321}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"d477787e60e2":{"yintercept":{},"type":"scatter"},"d477310ad33b":{"yintercept":{}},"d4773db1dfa4":{"yintercept":{}},"d47768d1a7a0":{"x":{},"y":{},"label":{}},"d4771c542f23":{"x":{},"y":{},"label":{}},"d4775ae2b15c":{"x":{},"text":{},"y":{}},"d47758ea3da1":{"x":{},"text":{},"y":{}},"d4777a7442a1":{"x":{},"text":{},"y":{}},"d47766c296d5":{"x":{},"text":{},"y":{}},"d477713caea7":{"x":{},"text":{},"y":{},"colour":{}},"d47746ee9005":{"x":{},"text":{},"y":{},"colour":{}}},"cur_data":"d477787e60e2","visdat":{"d477787e60e2":["function (y) ","x"],"d477310ad33b":["function (y) ","x"],"d4773db1dfa4":["function (y) ","x"],"d47768d1a7a0":["function (y) ","x"],"d4771c542f23":["function (y) ","x"],"d4775ae2b15c":["function (y) ","x"],"d47758ea3da1":["function (y) ","x"],"d4777a7442a1":["function (y) ","x"],"d47766c296d5":["function (y) ","x"],"d477713caea7":["function (y) ","x"],"d47746ee9005":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="tab-pane html-fill-item html-fill-container bslib-gap-spacing" data-value="BA-Mag (Con)" id="tab-4757-4" style="gap:0;padding:0;">
+<div class="card-body bslib-gap-spacing html-fill-item html-fill-container" style="margin-top:auto;margin-bottom:auto;flex:1 1 auto;">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-5b9b21e23ef352688c6d" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-5b9b21e23ef352688c6d">{"x":{"data":[{"orientation":"v","width":[0.40000000000000002,0.39999999999999991,0.39999999999999991,0.39999999999999991,0.40000000000000036,0.40000000000000036,0.40000000000000036,0.40000000000000036,0.40000000000000036,0.40000000000000036,0.40000000000000036,0.40000000000000036,0.40000000000000036,0.40000000000000036,0.40000000000000036,0.40000000000000036],"base":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"x":[0.80000000000000004,1.8,2.7999999999999998,3.7999999999999998,4.7999999999999998,5.7999999999999998,6.7999999999999998,7.7999999999999998,8.8000000000000007,9.8000000000000007,10.800000000000001,11.800000000000001,12.800000000000001,13.800000000000001,14.800000000000001,15.800000000000001],"y":[228.84,218.09999999999999,217.04000000000002,218.40000000000001,221.80000000000001,215.34,221.02000000000001,210.28,212.09999999999999,214.12,206.78,202.36000000000001,209.72,213.78,223.66666666666666,221.46000000000001],"text":["Jan 03, 2026","Jan 22, 2026","Feb 05, 2026","Feb 07, 2026","Feb 12, 2026","Feb 18, 2026","Mar 19, 2026","Mar 24, 2026","Mar 28, 2026","Mar 31, 2026","Apr 09, 2026","Apr 11, 2026","Apr 22, 2026","Apr 29, 2026","May 01, 2026","May 04, 2026"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Mean:<\/i>  %{y}<extra><\/extra>"},{"orientation":"v","width":[0.39999999999999991,0.39999999999999991,0.39999999999999991,0.40000000000000036,0.40000000000000036,0.40000000000000036,0.40000000000000036,0.40000000000000036,0.40000000000000036,0.40000000000000036,0.40000000000000036,0.40000000000000036,0.40000000000000036,0.40000000000000036,0.40000000000000036,0.39999999999999858],"base":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"x":[1.2,2.2000000000000002,3.2000000000000002,4.2000000000000002,5.2000000000000002,6.2000000000000002,7.2000000000000002,8.1999999999999993,9.1999999999999993,10.199999999999999,11.199999999999999,12.199999999999999,13.199999999999999,14.199999999999999,15.199999999999999,16.199999999999999],"y":[197.63999999999999,196,193.36000000000001,196.78,197.06,190.53999999999999,199.28,192.56,193.74000000000001,188.56,191.46000000000001,184.5,190.31999999999999,191.06,196.93333333333334,186.24000000000001],"text":["Jan 03, 2026","Jan 22, 2026","Feb 05, 2026","Feb 07, 2026","Feb 12, 2026","Feb 18, 2026","Mar 19, 2026","Mar 24, 2026","Mar 28, 2026","Mar 31, 2026","Apr 09, 2026","Apr 11, 2026","Apr 22, 2026","Apr 29, 2026","May 01, 2026","May 04, 2026"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,0,0,0.7)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertemplate":"<b>%{text}<\/b> <br><i>Mean:<\/i>  %{y}<extra><\/extra>"},{"x":[0.72421165094710882,0.80726421650033453,0.71028121495619412,0.68351100592408331,0.88893645107746133,1.7925599343609067,1.8741009369026869,1.7980940614128484,1.7320818269159646,1.7684823866467925,2.6495244226418437,2.6040619733743369,2.8534926630323754,2.6191191102378069,2.703405652451329,3.6260452474700289,3.7441600417485459,3.6840943323215471,3.7618096567690369,3.7348593523493037,4.8056908223545181,4.8368925008457158,4.7697249329648912,4.8342778123216705,4.8158214827068146,5.8471567521104593,5.8116003281204032,5.8104051721747965,5.8669044096022844,5.8551332708215345,6.6829060493968431,6.8700264265062287,6.7100082999793811,6.7804454712895676,6.7651073279790577,7.8153473092941574,7.6654746804852039,7.8656811235705391,7.6618771301349629,7.8413329564733427,8.7265979032032188,8.6539438720326878,8.7517014265991744,8.6853592347819362,8.6701178453164172,9.831707998202182,9.8467433788580827,9.694647515122778,9.6024803398875527,9.6869060172233734,10.860127042979002,10.635348462825641,10.641644748090766,10.787157286400907,10.652915037493221,11.616113342368044,11.698171730875037,11.692343979887664,11.752266557631083,11.761054806387984,12.672488299431279,12.89300887605641,12.896226213080809,12.601953329052776,12.887700773938558,13.61981128633488,13.835488454531879,13.694403397780842,13.800283384276554,13.674352700612507,14.604181757825426,14.790377893834375,14.603065639245324,15.759374851011671,15.865518207033166,15.682016528723761,15.667986982455478,15.786287051369435],"y":[232.62006036924197,219.79868300005793,227.73017412429675,230.03107118964195,234.10696371231228,212.38782702324912,217.32346955901014,221.29220245968551,219.70831696942449,219.80978382965552,215.78087428424507,213.40806531015784,217.81410808723422,225.41942705018445,212.77745443126187,221.13998279813677,216.22404096145181,224.83633589515463,219.08351890020072,210.78590807445349,220.19708162883296,216.59903919955715,224.88920150147752,220.47753796596081,226.81046982008965,216.6787904857099,215.69148975133893,219.12099728442729,221.50410821672529,203.69245021985842,237.03397746196018,220.71856186075135,211.22731796229257,213.90765426572412,222.29517317852006,210.27464229496198,216.20589237539096,200.29420109637084,213.93951064102353,210.6613310979493,216.93822521409021,211.28269162507729,206.9252757265605,214.10722904847935,211.29375526556746,224.73081119824201,209.89379532370717,204.71289331272243,219.58624013353139,211.72715904476121,205.0023771541193,209.29383674958723,204.20919851081445,207.19559148497879,208.20007805014029,202.83134920865299,200.76111748503521,204.08130528539419,201.39096163572745,202.68264153318478,208.90729919187726,210.50682223398238,208.77068383635955,204.21227982271461,216.19142335170878,210.47051827603951,205.86547890039162,215.03499059310184,221.51057083742694,216.02282107133419,218.1770126700215,228.59031180758029,224.17503269612789,233.50806866629048,214.87467713231223,216.70625861622392,216.73310412134973,225.51791399253531],"text":["Jump 1 <br /> 232.6","Jump 2 <br /> 219.8","Jump 3 <br /> 227.7","Jump 4 <br /> 230","Jump 5 <br /> 234.1","Jump 1 <br /> 212.4","Jump 2 <br /> 217.3","Jump 3 <br /> 221.3","Jump 4 <br /> 219.7","Jump 5 <br /> 219.8","Jump 1 <br /> 215.8","Jump 2 <br /> 213.4","Jump 3 <br /> 217.8","Jump 4 <br /> 225.4","Jump 5 <br /> 212.8","Jump 1 <br /> 221.1","Jump 2 <br /> 216.2","Jump 3 <br /> 224.8","Jump 4 <br /> 219.1","Jump 5 <br /> 210.8","Jump 1 <br /> 220.2","Jump 2 <br /> 216.6","Jump 3 <br /> 224.9","Jump 4 <br /> 220.5","Jump 5 <br /> 226.8","Jump 1 <br /> 216.7","Jump 2 <br /> 215.7","Jump 3 <br /> 219.1","Jump 4 <br /> 221.5","Jump 5 <br /> 203.7","Jump 1 <br /> 237","Jump 2 <br /> 220.7","Jump 3 <br /> 211.2","Jump 4 <br /> 213.9","Jump 5 <br /> 222.3","Jump 1 <br /> 210.3","Jump 2 <br /> 216.2","Jump 3 <br /> 200.3","Jump 4 <br /> 213.9","Jump 5 <br /> 210.7","Jump 1 <br /> 216.9","Jump 2 <br /> 211.3","Jump 3 <br /> 206.9","Jump 4 <br /> 214.1","Jump 5 <br /> 211.3","Jump 1 <br /> 224.7","Jump 2 <br /> 209.9","Jump 3 <br /> 204.7","Jump 4 <br /> 219.6","Jump 5 <br /> 211.7","Jump 1 <br /> 205","Jump 2 <br /> 209.3","Jump 3 <br /> 204.2","Jump 4 <br /> 207.2","Jump 5 <br /> 208.2","Jump 1 <br /> 202.8","Jump 2 <br /> 200.8","Jump 3 <br /> 204.1","Jump 4 <br /> 201.4","Jump 5 <br /> 202.7","Jump 1 <br /> 208.9","Jump 2 <br /> 210.5","Jump 3 <br /> 208.8","Jump 4 <br /> 204.2","Jump 5 <br /> 216.2","Jump 1 <br /> 210.5","Jump 2 <br /> 205.9","Jump 3 <br /> 215","Jump 4 <br /> 221.5","Jump 5 <br /> 216","Jump 1 <br /> 218.2","Jump 2 <br /> 228.6","Jump 3 <br /> 224.2","Jump 1 <br /> 233.5","Jump 2 <br /> 214.9","Jump 3 <br /> 216.7","Jump 4 <br /> 216.7","Jump 5 <br /> 225.5"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(255,0,0,1)","opacity":0.5,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1.192007727199234,1.3361163682537154,1.1901487102732062,1.1671928386203945,1.3572377416538075,2.1798263107426465,2.1317763560917227,2.3262518167030066,2.3077466282062233,2.3696192522300406,3.3825909425271674,3.3912642549956216,3.3018231910187752,3.2789521955652163,3.2114017007173969,4.1606009016977623,4.3872049342840906,4.204503248422407,4.2595090885180982,4.20153811944183,5.3211714885430412,5.1371379779186102,5.2846234915545214,5.3718194646527992,5.1707912891870365,6.1555667575448751,6.2612226048251616,6.2528621141333129,6.285704605281353,6.2197729841573164,7.3434799924958494,7.1760607130127028,7.3773865141440185,7.3915633986238394,7.3127056345343586,8.2945841546868913,8.1557059302460395,8.1681510892929516,8.2556565176462762,8.3032111706212159,9.2839167510624971,9.1670229686656963,9.1924939105520025,9.3717604205012321,9.1096479934873056,10.123750807717443,10.333192193601281,10.271199857979081,10.26374485178385,10.278031759918667,11.256301329983398,11.155615876195952,11.116327528562397,11.29763590937946,11.301023567235097,12.239260405278765,12.272965825232678,12.277438440476544,12.268294788268395,12.163129877159372,13.363084766897373,13.235277836048045,13.332355325110257,13.216674696700647,13.141987388068809,14.218509078375064,14.303730543586425,14.235082262917421,14.122557791462167,14.116084167757071,15.180916050565429,15.333181831613183,15.112730453675614,16.152801194973289,16.167399714188651,16.233912284532561,16.376352101727388,16.233524101693185],"y":[193.30695064410568,207.06122169785201,192.07962769763543,197.68786977816373,197.99103829829022,202.11327073905616,195.7888195018098,192.57820942800493,194.99740949578583,194.49686607692391,188.88443301120773,195.26545522386209,195.27312086256222,187.18441223217172,200.0751941223815,186.87170341521502,203.92357926765456,189.90918328138068,205.91038752386348,197.26593367099764,189.40637340949849,200.12613203341141,198.48009478274733,201.31771762510763,195.97729469934478,181.69896221108735,194.10857063269242,196.2983324596286,184.6859883553721,195.9158636667207,202.42792002750562,192.26787820767612,194.86200499661268,202.70628407401963,204.08110285228119,194.17710635151712,188.71560309384017,194.0353215589933,182.77983309512959,203.07209890533238,189.56851020678877,199.88106357688085,185.7728552346118,193.11070683723315,200.33404625188561,182.88029627025128,189.37492430903018,196.37052801739426,187.27206500722096,186.80472124913709,187.92336751695723,190.68279896019027,199.18866431916132,196.86808303065598,182.57188893796877,175.81755689242857,187.20977723874151,187.62953114232047,185.82731947397815,186.1168674397841,180.69827152224258,194.79009201843292,193.99870529599488,194.20818284589797,187.87557253157721,188.39446305334567,192.57463617162779,190.66104561865328,186.32664667798207,197.32252161424609,196.67943346643818,196.76156151372942,197.27470584837721,181.76434918465094,191.21045593230053,190.51642355389893,181.01949952168391,186.70084147779269],"text":["Jump 1 <br /> 193.3","Jump 2 <br /> 207.1","Jump 3 <br /> 192.1","Jump 4 <br /> 197.7","Jump 5 <br /> 198","Jump 1 <br /> 202.1","Jump 2 <br /> 195.8","Jump 3 <br /> 192.6","Jump 4 <br /> 195","Jump 5 <br /> 194.5","Jump 1 <br /> 188.9","Jump 2 <br /> 195.3","Jump 3 <br /> 195.3","Jump 4 <br /> 187.2","Jump 5 <br /> 200.1","Jump 1 <br /> 186.9","Jump 2 <br /> 203.9","Jump 3 <br /> 189.9","Jump 4 <br /> 205.9","Jump 5 <br /> 197.3","Jump 1 <br /> 189.4","Jump 2 <br /> 200.1","Jump 3 <br /> 198.5","Jump 4 <br /> 201.3","Jump 5 <br /> 196","Jump 1 <br /> 181.7","Jump 2 <br /> 194.1","Jump 3 <br /> 196.3","Jump 4 <br /> 184.7","Jump 5 <br /> 195.9","Jump 1 <br /> 202.4","Jump 2 <br /> 192.3","Jump 3 <br /> 194.9","Jump 4 <br /> 202.7","Jump 5 <br /> 204.1","Jump 1 <br /> 194.2","Jump 2 <br /> 188.7","Jump 3 <br /> 194","Jump 4 <br /> 182.8","Jump 5 <br /> 203.1","Jump 1 <br /> 189.6","Jump 2 <br /> 199.9","Jump 3 <br /> 185.8","Jump 4 <br /> 193.1","Jump 5 <br /> 200.3","Jump 1 <br /> 182.9","Jump 2 <br /> 189.4","Jump 3 <br /> 196.4","Jump 4 <br /> 187.3","Jump 5 <br /> 186.8","Jump 1 <br /> 187.9","Jump 2 <br /> 190.7","Jump 3 <br /> 199.2","Jump 4 <br /> 196.9","Jump 5 <br /> 182.6","Jump 1 <br /> 175.8","Jump 2 <br /> 187.2","Jump 3 <br /> 187.6","Jump 4 <br /> 185.8","Jump 5 <br /> 186.1","Jump 1 <br /> 180.7","Jump 2 <br /> 194.8","Jump 3 <br /> 194","Jump 4 <br /> 194.2","Jump 5 <br /> 187.9","Jump 1 <br /> 188.4","Jump 2 <br /> 192.6","Jump 3 <br /> 190.7","Jump 4 <br /> 186.3","Jump 5 <br /> 197.3","Jump 1 <br /> 196.7","Jump 2 <br /> 196.8","Jump 3 <br /> 197.3","Jump 1 <br /> 181.8","Jump 2 <br /> 191.2","Jump 3 <br /> 190.5","Jump 4 <br /> 181","Jump 5 <br /> 186.7"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,0,0,1)","opacity":0.5,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":85.809850833741649,"l":30.087173100871741},"plot_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402241},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,16.600000000000001],"tickmode":"array","ticktext":["Jan  3, 2026","Jan 22, 2026","Feb  5, 2026","Feb  7, 2026","Feb 12, 2026","Feb 18, 2026","Mar 19, 2026","Mar 24, 2026","Mar 28, 2026","Mar 31, 2026","Apr  9, 2026","Apr 11, 2026","Apr 22, 2026","Apr 29, 2026","May  1, 2026","May  4, 2026"],"tickvals":[1,2,3.0000000000000004,4,5,6,7,8,9,10,11,12,13,14,15,16],"categoryorder":"array","categoryarray":["Jan  3, 2026","Jan 22, 2026","Feb  5, 2026","Feb  7, 2026","Feb 12, 2026","Feb 18, 2026","Mar 19, 2026","Mar 24, 2026","Mar 28, 2026","Mar 31, 2026","Apr  9, 2026","Apr 11, 2026","Apr 22, 2026","Apr 29, 2026","May  1, 2026","May  4, 2026"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-40,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":21.253632212536321}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[177.148301126902,239.88567633505818],"tickmode":"array","ticktext":["180","200","220"],"tickvals":[180,200,220],"categoryorder":"array","categoryarray":["180","200","220"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(224,224,224,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b>  <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":21.253632212536321}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"modeBarButtonsToRemove":["hoverCompare","hoverclosest","zoomIn2d","zoomOut2d"]},"source":"A","attrs":{"d477caac1d5":{"x":{},"text":{},"y":{},"type":"bar"},"d4771e9b8d72":{"x":{},"text":{},"y":{}},"d47776634710":{"x":{},"text":{},"y":{},"colour":{}},"d4776fcea828":{"x":{},"text":{},"y":{},"colour":{}}},"cur_data":"d477caac1d5","visdat":{"d477caac1d5":["function (y) ","x"],"d4771e9b8d72":["function (y) ","x"],"d47776634710":["function (y) ","x"],"d4776fcea828":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+<template>Expand</template>
+<button aria-expanded="false" aria-label="Expand card" class="bslib-full-screen-enter badge rounded-pill"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;fill:currentColor;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg></button>
+</bslib-tooltip>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script>
+</div>
+</div>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><img src="../../images/csi-logo-medal-only.png" class="img-fluid" style="position: relative; top: 15px;;width:10.0%"></p>
+</div>   
+    <div class="nav-footer-center">
+<p>We gratefully and respectfully acknowledge that our workplaces exist on the traditional, ancestral and unceded Lands of the xwməθkwəy̓əm (Musqueam), Skwxwú7mesh (Squamish), L̓il̓wat7úl (Lil’wat), Esquimalt and Songhees Nations of the Coast Salish peoples.</p>
+</div>
+    <div class="nav-footer-right">
+<p>This website is built with <a href="https://www.r-project.org/about.html" target="_blank"><iconify-icon role="img" inline="" icon="fa6-brands:r-project" aria-label="Icon r-project from fa6-brands Iconify.design set." title="Icon r-project from fa6-brands Iconify.design set."></iconify-icon></a> and <a href="https://quarto.org/" target="_blank">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
