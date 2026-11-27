@@ -38,7 +38,7 @@ Jumps <- recent_five(athlete_name, "CMJ")
 
 ### `r athlete_name`
 
-![](images/athlete.png)
+![](athlete/athlete.png)
 
 ##### ACL Rehabilitation
 

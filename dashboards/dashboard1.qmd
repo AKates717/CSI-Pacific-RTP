@@ -1,6 +1,6 @@
 ---
 title: "CMJ Dashboard"
-subtitle: "`r readxl::read_excel('sample_data/ACL-Intake-Form.xlsx')$Name`"
+subtitle: "`r readxl::read_excel('athlete/ACL-Intake-Form.xlsx')$Name`"
 format: 
   html:
     toc: true

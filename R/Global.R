@@ -36,7 +36,7 @@ options(bslib.bs_version = 5)
 ####
 
 Rehab_Info <- read_excel(
-  "sample_data/ACL-Intake-Form.xlsx"
+  "athlete/ACL-Intake-Form.xlsx"
   ) %>% 
   clean_names()
 
@@ -105,7 +105,7 @@ phase0_length <- ifelse(
 athlete_name <- Rehab_Info$name
 
 #Load and wrangle Force Plate Data - currently coming from excel
-FPDatabase_full <- read_excel("sample_data/FP-Database.xlsx",
+FPDatabase_full <- read_excel("athlete/FP-Database.xlsx",
                               sheet = "Database",
                               range = cell_cols("A:BQ"),
                               na = c("","N/A","NaN")
