@@ -52,7 +52,7 @@ website:
           - text: "Return to Running"
             href: checklists/return_to_run_checklist.qmd
           - text: "Mental Performance"
-            href: checklists/tsk11_viz_test.qmd
+            href: checklists/mental_performance_checklist.qmd
             
     right:
       - icon: github

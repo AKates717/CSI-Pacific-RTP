@@ -1,4 +1,4 @@
-# CSI Pacific ACL Return to Performance Protocol <img src="images/csi-logo-medal-only.png" align="right" height="32"/>
+# CSI Pacific ACL Return to Performance Protocol <img src="images/csi-logo-medal-only.png" align="right" height="40"/>
 
 **Description:**
 
