@@ -1,0 +1,7 @@
+# Python packages for the data collection app's Tindeq (Bluetooth) connection.
+# The app expects a conda environment named "tindeq" (see use_condaenv() in global.R).
+# Set up once with:
+#   conda create -n tindeq python
+#   conda activate tindeq
+#   pip install -r data-collection-app/requirements.txt
+bleak==2.1.1

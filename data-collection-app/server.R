@@ -1077,7 +1077,7 @@ function(input, output, session) {
   #Housekeeping ----
   
   #Define directory for csvs
-  default_save_dir <- file.path(getwd(), "data")
+  default_save_dir <- here("athlete", "sessions")
   
   #timing
   live_start_time <- reactiveVal(NULL)
